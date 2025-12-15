@@ -1,0 +1,18 @@
+# Runtime configuration for GPU CHR Sampling
+# This file is read by naja at runtime.
+
+# Model Configuration
+MODEL_NAME=RECON1
+DATA_DIR=./models
+
+# Output Configuration
+OUT_DIR=/tmp/jdcarson/hop
+WRITE_DATA=true
+WRITE_NPY_LEGACY=false
+
+# Sampling Parameters
+N_CHAINS=16
+N_SAMPLES=10000
+TPB_SS=128
+GPU_DEVICE=1
+BACK_TRANSFORM=true
