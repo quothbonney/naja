@@ -31,10 +31,18 @@ Bulk run (many models by name; writes `bulk_summary.csv` under the run directory
   --bounds-policy filter --bounds-eps 1e-6
 ```
 
-<br>
+Bulk prepare many models (optimally inheriting rounding from a base model):
+```bash
+./build/naja sample prepare \
+  --models-root /path/to/models \
+  --model-list /path/to/jobs.txt \
+  --base-model-dir /path/to/models/base_model/ \
+  --mode symlink \
+  --out-model-list /tmp/model_list.txt
+```
 
-
+---
 
 <p align="center">
-  <img src="./data/petitprince.jpg" alt="petitprince" width="40%">
+  <img src="./data/petitprince.jpg" alt="petitprince" width="50%">
 </p>
