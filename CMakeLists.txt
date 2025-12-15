@@ -37,8 +37,15 @@ set(GPU_SOURCES
 # Demo executable
 add_executable(naja
     src/main.cu
-    src/job.cu
-    src/sample_cli.cpp
+    src/engine/job_sampling.cu
+    src/engine/job_bulk.cpp
+    src/engine/bounds_filter.cpp
+    src/cli/sample_cli.cpp
+    src/pipeline/model_contract.cpp
+    src/pipeline/run_layout.cpp
+    src/pipeline/config_io.cpp
+    src/pipeline/verify_report.cpp
+    src/pipeline/run_manifest.cpp
     ${GPU_SOURCES}
 )
 

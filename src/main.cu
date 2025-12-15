@@ -7,7 +7,7 @@
 #include "runtime_config.h"
 #include "utils.h"
 #include "job.h"
-#include "sample_cli.h"
+#include "cli/sample_cli.h"
 
 int main(int argc, char** argv) {
     // New CLI entrypoint: `naja sample ...`

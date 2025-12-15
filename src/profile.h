@@ -4,6 +4,7 @@
 #include <iostream>
 #include <iomanip>
 #include <ctime>
+#include <stdexcept>
 #include "runtime_config.h"
 
 struct ProfileData {
@@ -27,11 +28,9 @@ struct ProfileData {
     void write_json(const std::string& filename, const RuntimeConfig& cfg) const {
         std::ofstream f(filename);
         if (!f.is_open()) {
-            std::cerr << "WARNING: Could not write profile to " << filename << std::endl;
-            return;
+            throw std::runtime_error("cannot write profile: " + filename);
         }
-        
-        // Get timestamp
+
         auto now = std::time(nullptr);
         char timestamp[100];
         std::strftime(timestamp, sizeof(timestamp), "%Y-%m-%d %H:%M:%S", std::localtime(&now));
