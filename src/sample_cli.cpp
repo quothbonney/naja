@@ -1,0 +1,475 @@
+#include "sample_cli.h"
+
+#include <algorithm>
+#include <chrono>
+#include <cstring>
+#include <fstream>
+#include <iomanip>
+#include <iostream>
+#include <sstream>
+#include <stdexcept>
+#include <string>
+#include <vector>
+
+#include <sys/stat.h>
+#include <unistd.h>
+
+#include "job.h"
+#include "runtime_config.h"
+#include "status.h"
+#include "utils.h"
+
+namespace {
+
+[[noreturn]] void die_usage(const std::string& msg) {
+    std::cerr << "error: " << msg << "\n\n";
+    std::cerr << "usage:\n";
+    std::cerr << "  naja sample run --model-dir <dir> --out-root <dir> --gpu <id> --n-chains <n> --n-samples <n> [--tpb <n>] [--backmap] [--write-npy] [--bounds-policy ignore|filter] [--bounds-eps <eps>] [--write-samples-valid] [--verbose] [--quiet] [--dry-run]\n";
+    std::cerr << "  naja sample bulk --models-root <dir> --model-list <file> --out-root <dir> --name <runname> --gpus <csv> --n-chains <n> --n-samples <n> [--tpb <n>] [--backmap] [--write-npy] [--bounds-policy ignore|filter] [--bounds-eps <eps>] [--write-samples-valid] [--verbose] [--quiet] [--dry-run]\n";
+    std::cerr << "  naja sample verify --model-dir <dir> [--backmap]\n";
+    std::cerr << "  naja sample inherit-rounding --base-model-dir <dir> --target-model-dir <dir> [--mode symlink|copy]\n";
+    std::exit(2);
+}
+
+bool starts_with(const std::string& s, const std::string& prefix) {
+    return s.rfind(prefix, 0) == 0;
+}
+
+std::string next_arg(int& i, int argc, char** argv, const std::string& flag) {
+    if (i + 1 >= argc) {
+        die_usage("missing value for " + flag);
+    }
+    return std::string(argv[++i]);
+}
+
+void require_nonempty_file(const std::string& path, const std::string& what) {
+    if (!path_exists(path)) {
+        throw std::runtime_error("missing required " + what + ": " + path);
+    }
+    struct stat st;
+    if (stat(path.c_str(), &st) != 0) {
+        throw std::runtime_error("cannot stat required " + what + ": " + path);
+    }
+    if (st.st_size == 0) {
+        throw std::runtime_error("empty " + what + " is illegal: " + path);
+    }
+}
+
+void ensure_file_absent_or_nonempty_pair(const std::string& a, const std::string& b) {
+    bool ha = path_exists(a);
+    bool hb = path_exists(b);
+    if (ha != hb) {
+        throw std::runtime_error("extra constraints must be both-present or both-absent: " + a + " / " + b);
+    }
+    if (ha) {
+        require_nonempty_file(a, "extra_A");
+        require_nonempty_file(b, "extra_b");
+    }
+}
+
+struct ModelContract {
+    std::string model_dir;
+    std::string rounding_dir;
+    std::string gem_dir;
+    std::string model_name;
+};
+
+ModelContract parse_model_dir(const std::string& model_dir) {
+    std::string md = model_dir;
+    if (!md.empty() && md.back() == '/') md.pop_back();
+    if (!is_directory(md)) {
+        throw std::runtime_error("model-dir is not a directory: " + md);
+    }
+    auto slash = md.find_last_of('/');
+    std::string name = (slash == std::string::npos) ? md : md.substr(slash + 1);
+    ModelContract c;
+    c.model_dir = md;
+    c.rounding_dir = md + "/rounding";
+    c.gem_dir = md + "/gem";
+    c.model_name = name;
+    return c;
+}
+
+void validate_contract(const ModelContract& c, bool backmap) {
+    if (!is_directory(c.rounding_dir)) {
+        throw std::runtime_error("missing rounding/ dir: " + c.rounding_dir);
+    }
+    require_nonempty_file(c.rounding_dir + "/" + c.model_name + "_rounding_A.csv", "rounding_A");
+    require_nonempty_file(c.rounding_dir + "/" + c.model_name + "_rounding_b.csv", "rounding_b");
+    require_nonempty_file(c.rounding_dir + "/" + c.model_name + "_rounding_start.csv", "rounding_start");
+    if (backmap) {
+        require_nonempty_file(c.rounding_dir + "/" + c.model_name + "_rounding_T.csv", "rounding_T");
+        require_nonempty_file(c.rounding_dir + "/" + c.model_name + "_rounding_shift.csv", "rounding_shift");
+    }
+    ensure_file_absent_or_nonempty_pair(
+        c.rounding_dir + "/" + c.model_name + "_rounding_extra_A.csv",
+        c.rounding_dir + "/" + c.model_name + "_rounding_extra_b.csv"
+    );
+}
+
+std::string datestamp_compact() {
+    return current_datestamp_compact();
+}
+
+std::string allocate_run_dir(const std::string& out_root, const std::string& run_name) {
+    ensure_dir(out_root);
+    std::string date = datestamp_compact();
+    for (int idx = 1; idx < 1000000; ++idx) {
+        std::ostringstream oss;
+        oss << out_root << "/" << run_name << "_" << date << "_" << std::setw(3) << std::setfill('0') << idx;
+        std::string cand = oss.str();
+        if (!path_exists(cand)) {
+            ensure_dir(cand);
+            return cand;
+        }
+    }
+    throw std::runtime_error("could not allocate run directory under " + out_root);
+}
+
+void write_generated_config(const std::string& path, const RuntimeConfig& cfg) {
+    std::ofstream f(path);
+    if (!f.is_open()) {
+        throw std::runtime_error("cannot write generated config: " + path);
+    }
+    f << "# Auto-generated by `naja sample ...`\n";
+    f << "DATA_DIR=" << cfg.DATA_DIR << "\n";
+    f << "MODEL_NAME=" << cfg.MODEL_NAME << "\n";
+    f << "OUT_DIR=" << cfg.OUT_DIR << "\n";
+    f << "N_CHAINS=" << cfg.N_CHAINS << "\n";
+    f << "N_SAMPLES=" << cfg.N_SAMPLES << "\n";
+    f << "TPB_SS=" << cfg.TPB_SS << "\n";
+    f << "GPU_DEVICE=" << cfg.GPU_DEVICE << "\n";
+    f << "BACK_TRANSFORM=" << (cfg.BACK_TRANSFORM ? "true" : "false") << "\n";
+    f << "WRITE_DATA=" << (cfg.WRITE_DATA ? "true" : "false") << "\n";
+    f << "VERBOSE=" << (cfg.VERBOSE ? "true" : "false") << "\n";
+    if (cfg.BOUNDS_FILTER) {
+        f << "BOUNDS_POLICY=filter\n";
+        f << "BOUNDS_EPS=" << std::setprecision(12) << cfg.BOUNDS_EPS << "\n";
+        f << "WRITE_SAMPLES_VALID=" << (cfg.WRITE_SAMPLES_VALID ? "true" : "false") << "\n";
+    } else {
+        f << "BOUNDS_POLICY=ignore\n";
+    }
+    if (!cfg.GPU_LIST.empty()) f << "GPU_LIST=" << cfg.GPU_LIST << "\n";
+    if (!cfg.BULK_MODEL_LIST.empty()) f << "BULK_MODEL_LIST=" << cfg.BULK_MODEL_LIST << "\n";
+}
+
+std::vector<std::string> load_model_list(const std::string& path) {
+    require_nonempty_file(path, "model list");
+    std::ifstream f(path);
+    if (!f.is_open()) {
+        throw std::runtime_error("cannot open model list: " + path);
+    }
+    std::vector<std::string> models;
+    std::string line;
+    while (std::getline(f, line)) {
+        // trim
+        auto is_ws = [](unsigned char ch) { return ch == ' ' || ch == '\t' || ch == '\r' || ch == '\n'; };
+        while (!line.empty() && is_ws((unsigned char)line.front())) line.erase(line.begin());
+        while (!line.empty() && is_ws((unsigned char)line.back())) line.pop_back();
+        if (line.empty() || line[0] == '#') continue;
+        models.push_back(line);
+    }
+    if (models.empty()) {
+        throw std::runtime_error("no models in list: " + path);
+    }
+    return models;
+}
+
+void cmd_verify(int argc, char** argv) {
+    std::string model_dir;
+    bool backmap = false;
+
+    for (int i = 0; i < argc; ++i) {
+        std::string a = argv[i];
+        if (a == "--model-dir") model_dir = next_arg(i, argc, argv, a);
+        else if (a == "--backmap") backmap = true;
+        else die_usage("unknown flag: " + a);
+    }
+    if (model_dir.empty()) die_usage("missing --model-dir");
+    ModelContract c = parse_model_dir(model_dir);
+    validate_contract(c, backmap);
+
+    std::cout << "OK\n";
+    std::cout << "model_dir\t" << c.model_dir << "\n";
+    std::cout << "model_name\t" << c.model_name << "\n";
+}
+
+void cmd_inherit_rounding(int argc, char** argv) {
+    std::string base_model_dir;
+    std::string target_model_dir;
+    std::string mode = "symlink";
+
+    for (int i = 0; i < argc; ++i) {
+        std::string a = argv[i];
+        if (a == "--base-model-dir") base_model_dir = next_arg(i, argc, argv, a);
+        else if (a == "--target-model-dir") target_model_dir = next_arg(i, argc, argv, a);
+        else if (a == "--mode") mode = next_arg(i, argc, argv, a);
+        else die_usage("unknown flag: " + a);
+    }
+    if (base_model_dir.empty()) die_usage("missing --base-model-dir");
+    if (target_model_dir.empty()) die_usage("missing --target-model-dir");
+    if (mode != "symlink" && mode != "copy") die_usage("invalid --mode: " + mode);
+
+    ModelContract base = parse_model_dir(base_model_dir);
+    ModelContract target = parse_model_dir(target_model_dir);
+
+    std::string base_round = base.model_dir + "/rounding";
+    std::string target_round = target.model_dir + "/rounding";
+    ensure_dir(target_round);
+
+    const char* suffixes[] = {"A.csv", "b.csv", "T.csv", "shift.csv", "start.csv"};
+    for (const char* suf : suffixes) {
+        std::string src = base_round + "/" + base.model_name + "_rounding_" + suf;
+        std::string dst = target_round + "/" + target.model_name + "_rounding_" + suf;
+        require_nonempty_file(src, std::string("base rounding ") + suf);
+
+        // remove existing dst
+        if (path_exists(dst)) {
+            if (unlink(dst.c_str()) != 0) {
+                throw std::runtime_error("cannot remove existing: " + dst);
+            }
+        }
+
+        if (mode == "symlink") {
+            if (symlink(src.c_str(), dst.c_str()) != 0) {
+                throw std::runtime_error("symlink failed: " + dst + " <- " + src);
+            }
+        } else {
+            std::ifstream in(src, std::ios::binary);
+            std::ofstream out(dst, std::ios::binary);
+            if (!in.is_open() || !out.is_open()) {
+                throw std::runtime_error("copy failed: " + dst + " <- " + src);
+            }
+            out << in.rdbuf();
+        }
+        std::cout << dst << " <- " << src << "\n";
+    }
+
+    std::string prov = target_round + "/INHERITED_FROM.txt";
+    std::ofstream f(prov);
+    if (!f.is_open()) {
+        throw std::runtime_error("cannot write provenance file: " + prov);
+    }
+    f << "base_model_dir=" << base.model_dir << "\n";
+    f << "target_model_dir=" << target.model_dir << "\n";
+    f << "mode=" << mode << "\n";
+    f << "created_at=" << current_timestamp() << "\n";
+}
+
+void cmd_run(int argc, char** argv) {
+    std::string model_dir;
+    std::string out_root;
+    int gpu = 0;
+    int n_chains = -1;
+    int n_samples = -1;
+    int tpb = 128;
+    bool backmap = false;
+    bool write_npy = false;
+    bool verbose = false;
+    std::string bounds_policy = "ignore";
+    double bounds_eps = 1e-6;
+    bool write_samples_valid = false;
+    bool quiet = false;
+    bool dry_run = false;
+
+    for (int i = 0; i < argc; ++i) {
+        std::string a = argv[i];
+        if (a == "--model-dir") model_dir = next_arg(i, argc, argv, a);
+        else if (a == "--out-root") out_root = next_arg(i, argc, argv, a);
+        else if (a == "--gpu") gpu = std::stoi(next_arg(i, argc, argv, a));
+        else if (a == "--n-chains") n_chains = std::stoi(next_arg(i, argc, argv, a));
+        else if (a == "--n-samples") n_samples = std::stoi(next_arg(i, argc, argv, a));
+        else if (a == "--tpb") tpb = std::stoi(next_arg(i, argc, argv, a));
+        else if (a == "--backmap") backmap = true;
+        else if (a == "--write-npy") write_npy = true;
+        else if (a == "--verbose") verbose = true;
+        else if (a == "--bounds-policy") bounds_policy = next_arg(i, argc, argv, a);
+        else if (a == "--bounds-eps") bounds_eps = std::stod(next_arg(i, argc, argv, a));
+        else if (a == "--write-samples-valid") write_samples_valid = true;
+        else if (a == "--quiet") quiet = true;
+        else if (a == "--dry-run") dry_run = true;
+        else die_usage("unknown flag: " + a);
+    }
+    if (model_dir.empty()) die_usage("missing --model-dir");
+    if (out_root.empty()) die_usage("missing --out-root");
+    if (n_chains <= 0) die_usage("invalid --n-chains");
+    if (n_samples <= 0) die_usage("invalid --n-samples");
+    if (bounds_policy != "ignore" && bounds_policy != "filter") die_usage("invalid --bounds-policy: " + bounds_policy);
+    if (bounds_policy == "filter" && !backmap) {
+        throw std::runtime_error("bounds-policy=filter requires --backmap");
+    }
+
+    ModelContract c = parse_model_dir(model_dir);
+    validate_contract(c, backmap);
+
+    RuntimeConfig cfg;
+    cfg.DATA_DIR = c.model_dir.substr(0, c.model_dir.find_last_of('/'));
+    cfg.MODEL_NAME = c.model_name;
+    cfg.OUT_DIR = allocate_run_dir(out_root, c.model_name);
+    cfg.N_CHAINS = n_chains;
+    cfg.N_SAMPLES = n_samples;
+    cfg.TPB_SS = tpb;
+    cfg.GPU_DEVICE = gpu;
+    cfg.BACK_TRANSFORM = backmap;
+    cfg.WRITE_DATA = write_npy;
+    cfg.VERBOSE = verbose;
+    cfg.STATUS = !quiet;
+    cfg.BOUNDS_FILTER = (bounds_policy == "filter");
+    cfg.BOUNDS_EPS = bounds_eps;
+    cfg.WRITE_SAMPLES_VALID = write_samples_valid;
+    cfg.derive_paths();
+
+    std::string gen_cfg = cfg.OUT_DIR + "/config_generated.txt";
+    naja::status::phase(cfg.STATUS, "validate model contract");
+    naja::status::phase(cfg.STATUS, "write generated config");
+    write_generated_config(gen_cfg, cfg);
+    cfg.source_file = make_absolute_path(gen_cfg);
+
+    naja::status::kv(cfg.STATUS, "model", c.model_name);
+    naja::status::kv(cfg.STATUS, "output", make_absolute_path(cfg.OUT_DIR));
+    naja::status::kv(cfg.STATUS, "bounds", (cfg.BOUNDS_FILTER ? "filter" : "ignore"));
+    if (cfg.BOUNDS_FILTER) naja::status::kv(cfg.STATUS, "bounds_eps", std::to_string(cfg.BOUNDS_EPS));
+    if (dry_run) {
+        naja::status::phase(cfg.STATUS, "dry-run: not executing sampling");
+        return;
+    }
+
+    naja::status::phase(cfg.STATUS, "sampling");
+    int rc = run_sampling_job(cfg, cfg.VERBOSE, true);
+    if (rc != 0) {
+        throw std::runtime_error("sampling failed with return code " + std::to_string(rc));
+    }
+}
+
+void cmd_bulk(int argc, char** argv) {
+    std::string models_root;
+    std::string model_list;
+    std::string out_root;
+    std::string name;
+    std::string gpus;
+    int n_chains = -1;
+    int n_samples = -1;
+    int tpb = 128;
+    bool backmap = false;
+    bool write_npy = false;
+    bool verbose = false;
+    std::string bounds_policy = "ignore";
+    double bounds_eps = 1e-6;
+    bool write_samples_valid = false;
+    bool quiet = false;
+    bool dry_run = false;
+
+    for (int i = 0; i < argc; ++i) {
+        std::string a = argv[i];
+        if (a == "--models-root") models_root = next_arg(i, argc, argv, a);
+        else if (a == "--model-list") model_list = next_arg(i, argc, argv, a);
+        else if (a == "--out-root") out_root = next_arg(i, argc, argv, a);
+        else if (a == "--name") name = next_arg(i, argc, argv, a);
+        else if (a == "--gpus") gpus = next_arg(i, argc, argv, a);
+        else if (a == "--n-chains") n_chains = std::stoi(next_arg(i, argc, argv, a));
+        else if (a == "--n-samples") n_samples = std::stoi(next_arg(i, argc, argv, a));
+        else if (a == "--tpb") tpb = std::stoi(next_arg(i, argc, argv, a));
+        else if (a == "--backmap") backmap = true;
+        else if (a == "--write-npy") write_npy = true;
+        else if (a == "--verbose") verbose = true;
+        else if (a == "--bounds-policy") bounds_policy = next_arg(i, argc, argv, a);
+        else if (a == "--bounds-eps") bounds_eps = std::stod(next_arg(i, argc, argv, a));
+        else if (a == "--write-samples-valid") write_samples_valid = true;
+        else if (a == "--quiet") quiet = true;
+        else if (a == "--dry-run") dry_run = true;
+        else die_usage("unknown flag: " + a);
+    }
+
+    if (models_root.empty()) die_usage("missing --models-root");
+    if (model_list.empty()) die_usage("missing --model-list");
+    if (out_root.empty()) die_usage("missing --out-root");
+    if (name.empty()) die_usage("missing --name");
+    if (gpus.empty()) die_usage("missing --gpus");
+    if (n_chains <= 0) die_usage("invalid --n-chains");
+    if (n_samples <= 0) die_usage("invalid --n-samples");
+    if (bounds_policy != "ignore" && bounds_policy != "filter") die_usage("invalid --bounds-policy: " + bounds_policy);
+    if (bounds_policy == "filter" && !backmap) {
+        throw std::runtime_error("bounds-policy=filter requires --backmap");
+    }
+
+    if (!is_directory(models_root)) {
+        throw std::runtime_error("models-root is not a directory: " + models_root);
+    }
+
+    std::vector<std::string> models = load_model_list(model_list);
+    // upfront contract validation
+    for (const auto& m : models) {
+        ModelContract c = parse_model_dir(models_root + "/" + m);
+        validate_contract(c, backmap);
+    }
+
+    RuntimeConfig cfg;
+    cfg.DATA_DIR = models_root;
+    cfg.MODEL_NAME = name;
+    cfg.OUT_DIR = allocate_run_dir(out_root, name);
+    cfg.N_CHAINS = n_chains;
+    cfg.N_SAMPLES = n_samples;
+    cfg.TPB_SS = tpb;
+    cfg.GPU_DEVICE = 0; // will be overridden if GPU_LIST is empty; keep deterministic
+    cfg.BACK_TRANSFORM = backmap;
+    cfg.WRITE_DATA = write_npy;
+    cfg.VERBOSE = verbose;
+    cfg.STATUS = !quiet;
+    cfg.GPU_LIST = gpus;
+    cfg.BULK_MODEL_LIST = model_list;
+    cfg.BOUNDS_FILTER = (bounds_policy == "filter");
+    cfg.BOUNDS_EPS = bounds_eps;
+    cfg.WRITE_SAMPLES_VALID = write_samples_valid;
+    cfg.derive_paths();
+
+    std::string gen_cfg = cfg.OUT_DIR + "/bulk_config_generated.txt";
+    naja::status::phase(cfg.STATUS, "validate model contracts");
+    naja::status::phase(cfg.STATUS, "write generated bulk config");
+    write_generated_config(gen_cfg, cfg);
+    cfg.source_file = make_absolute_path(gen_cfg);
+
+    naja::status::kv(cfg.STATUS, "bulk_name", name);
+    naja::status::kv(cfg.STATUS, "jobs", std::to_string(models.size()));
+    naja::status::kv(cfg.STATUS, "gpus", gpus);
+    naja::status::kv(cfg.STATUS, "output", make_absolute_path(cfg.OUT_DIR));
+    naja::status::kv(cfg.STATUS, "bounds", (cfg.BOUNDS_FILTER ? "filter" : "ignore"));
+    if (cfg.BOUNDS_FILTER) naja::status::kv(cfg.STATUS, "bounds_eps", std::to_string(cfg.BOUNDS_EPS));
+    if (dry_run) {
+        naja::status::phase(cfg.STATUS, "dry-run: not executing bulk sampling");
+        return;
+    }
+
+    naja::status::phase(cfg.STATUS, "bulk sampling");
+    int rc = run_bulk_mode(cfg);
+    if (rc != 0) {
+        throw std::runtime_error("bulk sampling failed with return code " + std::to_string(rc));
+    }
+}
+
+} // namespace
+
+int naja_sample_cli_main(int argc, char** argv) {
+    if (argc < 1) die_usage("missing subcommand");
+    std::string sub = argv[0];
+
+    if (sub == "run") {
+        cmd_run(argc - 1, argv + 1);
+        return 0;
+    }
+    if (sub == "bulk") {
+        cmd_bulk(argc - 1, argv + 1);
+        return 0;
+    }
+    if (sub == "verify") {
+        cmd_verify(argc - 1, argv + 1);
+        return 0;
+    }
+    if (sub == "inherit-rounding") {
+        cmd_inherit_rounding(argc - 1, argv + 1);
+        return 0;
+    }
+
+    die_usage("unknown subcommand: " + sub);
+}
+
+

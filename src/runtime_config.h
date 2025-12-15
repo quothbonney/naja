@@ -20,6 +20,10 @@ struct RuntimeConfig {
     bool BACK_TRANSFORM = true;
     bool WRITE_DATA = true;
     bool VERBOSE = true;
+    bool STATUS = true;                 // print minimal phase updates (GNU-ish)
+    bool BOUNDS_FILTER = false;          // if true, compute validity vs gem/{l_bounds,u_bounds}.csv
+    double BOUNDS_EPS = 1e-6;            // tolerance for bounds filtering
+    bool WRITE_SAMPLES_VALID = false;    // if true, also write samples_valid.npy
     std::string GPU_LIST;
     std::string BULK_MODEL_LIST;
     std::string source_file;
@@ -118,6 +122,10 @@ struct RuntimeConfig {
                     else if (key == "BACK_TRANSFORM") cfg.BACK_TRANSFORM = (value == "true" || value == "1");
                     else if (key == "WRITE_DATA") cfg.WRITE_DATA = (value == "true" || value == "1");
                     else if (key == "VERBOSE") cfg.VERBOSE = !(value == "false" || value == "0");
+                    else if (key == "STATUS") cfg.STATUS = !(value == "false" || value == "0");
+                    else if (key == "BOUNDS_POLICY") cfg.BOUNDS_FILTER = (value == "filter");
+                    else if (key == "BOUNDS_EPS") cfg.BOUNDS_EPS = std::stod(value);
+                    else if (key == "WRITE_SAMPLES_VALID") cfg.WRITE_SAMPLES_VALID = (value == "true" || value == "1");
                     else if (key == "GPU_LIST") cfg.GPU_LIST = value;
                     else if (key == "BULK_MODEL_LIST") cfg.BULK_MODEL_LIST = value;
                 }

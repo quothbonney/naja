@@ -52,6 +52,37 @@ inline void save(const std::string& filename, const Eigen::MatrixXd& mat) {
     file.close();
 }
 
+// Write a 1D uint8 array to .npy (C-contiguous, shape (N,))
+inline void save_u8_1d(const std::string& filename, const std::vector<uint8_t>& v) {
+    std::ofstream file(filename, std::ios::binary);
+    if (!file.is_open()) {
+        throw std::runtime_error("Cannot write file: " + filename);
+    }
+
+    file.write("\x93NUMPY", 6);
+    file.put(0x01);
+    file.put(0x00);
+
+    std::ostringstream header;
+    header << "{'descr': '|u1', 'fortran_order': False, 'shape': (";
+    header << v.size() << ",), }";
+
+    std::string header_str = header.str();
+    size_t total_header_len = 6 + 2 + 2 + header_str.size();
+    size_t padding = (64 - (total_header_len % 64)) % 64;
+    header_str.append(padding, ' ');
+    header_str.push_back('\n');
+
+    uint16_t header_len = header_str.size();
+    file.write(reinterpret_cast<const char*>(&header_len), 2);
+    file.write(header_str.c_str(), header_len);
+
+    if (!v.empty()) {
+        file.write(reinterpret_cast<const char*>(v.data()), static_cast<std::streamsize>(v.size()));
+    }
+    file.close();
+}
+
 // Load NPY file.
 // OPTIMIZATION: Returns the matrix transposed (cols, rows) relative to file shape!
 // File shape (R, C) C-order -> Eigen Matrix (C, R) Col-order.

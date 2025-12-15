@@ -7,9 +7,19 @@
 #include "runtime_config.h"
 #include "utils.h"
 #include "job.h"
+#include "sample_cli.h"
 
 int main(int argc, char** argv) {
+    // New CLI entrypoint: `naja sample ...`
+    if (argc >= 2 && std::string(argv[1]) == "sample") {
+        // Fail loudly: let unexpected exceptions terminate with a stack trace in the caller.
+        return naja_sample_cli_main(argc - 2, argv + 2);
+    }
+
+    // Legacy config-driven entrypoint (kept for now):
+    //   naja [config_path]
     RuntimeConfig cfg = RuntimeConfig::load(argc > 1 ? argv[1] : "config.txt");
+
     const char* env_cfg = std::getenv("NAJA_CONFIG_PATH");
     if (env_cfg && *env_cfg) {
         cfg.source_file = env_cfg;
@@ -23,24 +33,7 @@ int main(int argc, char** argv) {
     ensure_dir(cfg.OUT_DIR);
 
     if (cfg.is_bulk_mode()) {
-        try {
-            // Bulk mode logic lives in job.cu now, but we need to expose it.
-            // For now, we implemented the worker functions in job.h/cu, 
-            // but run_bulk_mode logic was in main.cu and needs to move or be re-implemented.
-            
-            // Since we moved run_bulk_mode logic to job.cu (impl detail), 
-            // let's just call a bulk entry point.
-            // Wait, I didn't expose run_bulk_mode in job.h yet.
-            // I should add it to job.h
-            
-            // Re-declaring here to match what I'll put in job.h shortly
-            extern int run_bulk_mode(RuntimeConfig cfg);
-            return run_bulk_mode(cfg);
-        } catch (const std::exception& e) {
-            std::cerr << "bulk mode failed: " << e.what() << std::endl;
-            return 1;
-        }
+        return run_bulk_mode(cfg);
     }
-
     return run_sampling_job(cfg, cfg.VERBOSE, true);
 }

@@ -38,7 +38,7 @@ set(GPU_SOURCES
 add_executable(naja
     src/main.cu
     src/job.cu
-    config.h
+    src/sample_cli.cpp
     ${GPU_SOURCES}
 )
 
