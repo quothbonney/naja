@@ -92,8 +92,9 @@ void json_string(std::ostream& o, const std::string& s) {
 
 void write_run_manifest(const RuntimeConfig& cfg,
                         const ModelContract* model,
-                        const std::vector<std::string>& full_argv) {
-    const std::string out_path = cfg.OUT_DIR + "/run_manifest.json";
+                        const std::vector<std::string>& full_argv,
+                        const std::string& filename) {
+    const std::string out_path = cfg.OUT_DIR + "/" + filename;
 
     const std::string exe = binary_path();
     struct stat st{};

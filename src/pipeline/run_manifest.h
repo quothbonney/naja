@@ -13,7 +13,8 @@ namespace naja::pipeline {
 //   ["naja","sample","run",...]
 void write_run_manifest(const RuntimeConfig& cfg,
                         const ModelContract* model,
-                        const std::vector<std::string>& full_argv);
+                        const std::vector<std::string>& full_argv,
+                        const std::string& filename = "run_manifest.json");
 
 } // namespace naja::pipeline
 

@@ -24,6 +24,7 @@ struct RuntimeConfig {
     bool BOUNDS_FILTER = false;          // if true, compute validity vs gem/{l_bounds,u_bounds}.csv
     double BOUNDS_EPS = 1e-6;            // tolerance for bounds filtering
     bool WRITE_SAMPLES_VALID = false;    // if true, also write samples_valid.npy
+    bool SKIP_EXISTING = false;          // bulk: skip jobs that already have completed outputs
     std::string GPU_LIST;
     std::string BULK_MODEL_LIST;
     std::string source_file;
@@ -126,6 +127,7 @@ struct RuntimeConfig {
                     else if (key == "BOUNDS_POLICY") cfg.BOUNDS_FILTER = (value == "filter");
                     else if (key == "BOUNDS_EPS") cfg.BOUNDS_EPS = std::stod(value);
                     else if (key == "WRITE_SAMPLES_VALID") cfg.WRITE_SAMPLES_VALID = (value == "true" || value == "1");
+                    else if (key == "SKIP_EXISTING") cfg.SKIP_EXISTING = (value == "true" || value == "1");
                     else if (key == "GPU_LIST") cfg.GPU_LIST = value;
                     else if (key == "BULK_MODEL_LIST") cfg.BULK_MODEL_LIST = value;
                 }

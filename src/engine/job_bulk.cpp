@@ -12,6 +12,9 @@
 #include <thread>
 #include <vector>
 
+#include <filesystem>
+#include <sys/stat.h>
+
 #include "device_utils.h"
 #include "util/status.h"
 #include "utils.h"
@@ -81,6 +84,40 @@ std::string make_job_output_dir(const std::string& bulk_root, const std::string&
     }
 }
 
+bool file_nonempty(const std::string& path) {
+    if (!path_exists(path)) return false;
+    struct stat st;
+    if (stat(path.c_str(), &st) != 0) return false;
+    return st.st_size > 0;
+}
+
+std::string find_completed_job_dir(const RuntimeConfig& cfg, const std::string& model_name) {
+    namespace fs = std::filesystem;
+    const std::string model_root = cfg.OUT_DIR + "/" + model_name;
+    if (!is_directory(model_root)) return {};
+
+    std::string best;
+    std::time_t best_mtime = 0;
+    for (const auto& ent : fs::directory_iterator(model_root)) {
+        if (!ent.is_directory()) continue;
+        const std::string dir = ent.path().string();
+        if (!file_nonempty(dir + "/samples.npy")) continue;
+        if (!file_nonempty(dir + "/profile.json")) continue;
+        if (cfg.BOUNDS_FILTER) {
+            if (!file_nonempty(dir + "/valid_mask.npy")) continue;
+            if (!file_nonempty(dir + "/valid_fraction.txt")) continue;
+            if (!file_nonempty(dir + "/bounds_report.json")) continue;
+        }
+        struct stat st;
+        if (stat(dir.c_str(), &st) != 0) continue;
+        if (best.empty() || st.st_mtime > best_mtime) {
+            best = dir;
+            best_mtime = st.st_mtime;
+        }
+    }
+    return best;
+}
+
 } // namespace
 
 void bulk_worker(int device_id,
@@ -107,6 +144,27 @@ void bulk_worker(int device_id,
         result.device_id = device_id;
         result.output_dir = job_cfg.OUT_DIR;
 
+        if (base_cfg.SKIP_EXISTING) {
+            std::string done = find_completed_job_dir(base_cfg, job_name);
+            if (!done.empty()) {
+                result.success = true;
+                result.skipped = true;
+                result.message = "SKIP";
+                result.elapsed = 0.0;
+                result.output_dir = done;
+                {
+                    std::lock_guard<std::mutex> lock(log_mutex);
+                    std::cout << "[gpu " << device_id << "] "
+                              << job_name << " -> SKIP" << std::endl;
+                }
+                {
+                    std::lock_guard<std::mutex> lock(results_mutex);
+                    results.push_back(std::move(result));
+                }
+                continue;
+            }
+        }
+
         int rc = run_sampling_job(job_cfg, false, false);
         result.success = (rc == 0);
         if (!result.success) {
@@ -118,7 +176,7 @@ void bulk_worker(int device_id,
             std::lock_guard<std::mutex> lock(log_mutex);
             std::cout << "[gpu " << device_id << "] "
                       << job_name << " -> "
-                      << (result.success ? "OK" : "FAIL")
+                      << (result.skipped ? "SKIP" : (result.success ? "OK" : "FAIL"))
                       << " (" << std::fixed << std::setprecision(2) << result.elapsed << "s";
             if (!result.success && !result.message.empty()) {
                 std::cout << ", " << result.message;
@@ -191,7 +249,7 @@ int run_bulk_mode(RuntimeConfig cfg) {
                 }
             }
             summary << r.model_name << ","
-                    << (r.success ? "OK" : "FAIL") << ","
+                    << (r.skipped ? "SKIP" : (r.success ? "OK" : "FAIL")) << ","
                     << std::fixed << std::setprecision(2) << r.elapsed << ","
                     << r.device_id;
             if (!r.message.empty()) {

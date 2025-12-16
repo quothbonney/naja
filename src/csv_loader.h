@@ -51,11 +51,11 @@ inline Eigen::MatrixXd loadMatrix(const std::string& filename) {
 inline Eigen::VectorXd loadVector(const std::string& filename) {
     Eigen::MatrixXd mat = loadMatrix(filename);
     if (mat.cols() == 1) {
-        return mat.col(0);
+        return mat.col(0).eval();
     } else if (mat.rows() == 1) {
-        return mat.row(0).transpose();
+        return mat.row(0).transpose().eval();
     } else {
-        return Eigen::Map<Eigen::VectorXd>(mat.data(), mat.size());
+        return Eigen::Map<Eigen::VectorXd>(mat.data(), mat.size()).eval();
     }
 }
 

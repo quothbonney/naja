@@ -156,6 +156,12 @@ int run_sampling_job(RuntimeConfig cfg, bool verbose, bool show_device_banner) {
     profile.constraints = m;
     profile.thinning = thinning;
 
+    // Seed: ensure jobs do not share identical RNG streams by default.
+    // If cfg.SEED is set nonzero, use it; otherwise derive from model+gpu.
+    std::hash<std::string> h;
+    int seed = (int)(h(cfg.MODEL_NAME) ^ (h(cfg.MODEL_DIR) << 1) ^ (uint64_t)(cfg.GPU_DEVICE * 0x9e3779b9));
+    if (seed == 0) seed = 1;
+
     naja::status::phase(cfg.STATUS, "uploading to gpu");
     Timer upload_timer;
     DMatrix<double> A_d(A_host);
@@ -194,7 +200,8 @@ int run_sampling_job(RuntimeConfig cfg, bool verbose, bool show_device_banner) {
             cfg.N_SAMPLES,
             thinning,
             cfg.N_CHAINS,
-            cfg.TPB_SS
+            cfg.TPB_SS,
+            seed
         );
 
         cudaDeviceSynchronize();
@@ -214,7 +221,8 @@ int run_sampling_job(RuntimeConfig cfg, bool verbose, bool show_device_banner) {
             cfg.N_SAMPLES,
             thinning,
             cfg.N_CHAINS,
-            cfg.TPB_SS
+            cfg.TPB_SS,
+            seed
         );
         cudaDeviceSynchronize();
         profile.sampling_time = sampling_timer.elapsed();

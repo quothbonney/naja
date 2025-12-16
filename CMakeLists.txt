@@ -1,6 +1,8 @@
 cmake_minimum_required(VERSION 3.18)
 project(naja LANGUAGES CXX CUDA)
 
+enable_testing()
+
 # Standards
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -41,6 +43,17 @@ add_executable(naja
     src/engine/job_bulk.cpp
     src/engine/bounds_filter.cpp
     src/cli/sample_cli.cpp
+    src/cli/sample/common.cpp
+    src/cli/sample/rounding.cpp
+    src/cli/sample/cmd_run.cpp
+    src/cli/sample/cmd_bulk.cpp
+    src/cli/sample/cmd_verify.cpp
+    src/cli/sample/cmd_inherit_rounding.cpp
+    src/cli/sample/cmd_list.cpp
+    src/cli/prepare/cmd_prepare.cpp
+    src/cli/condition_cli.cpp
+    src/cli/condition/eflux.cpp
+    src/conditioning/eflux.cpp
     src/pipeline/model_contract.cpp
     src/pipeline/run_layout.cpp
     src/pipeline/config_io.cpp
@@ -65,6 +78,41 @@ target_include_directories(naja PRIVATE
     ${GPU_DIR}
     ${EIGEN_DIR}
 )
+
+add_executable(test_csv_loader
+    tests/test_csv_loader.cpp
+)
+target_include_directories(test_csv_loader PRIVATE
+    ${CMAKE_CURRENT_SOURCE_DIR}
+    ${CMAKE_CURRENT_SOURCE_DIR}/src
+    ${EIGEN_DIR}
+)
+add_test(NAME test_csv_loader COMMAND test_csv_loader)
+
+add_executable(test_eflux_smoke
+    tests/test_eflux_smoke.cpp
+    src/conditioning/eflux.cpp
+)
+target_include_directories(test_eflux_smoke PRIVATE
+    ${CMAKE_CURRENT_SOURCE_DIR}
+    ${CMAKE_CURRENT_SOURCE_DIR}/src
+    ${EIGEN_DIR}
+)
+target_compile_options(test_eflux_smoke PRIVATE -fsanitize=address -fno-omit-frame-pointer -O1 -g)
+target_link_options(test_eflux_smoke PRIVATE -fsanitize=address)
+
+add_executable(test_condition_cli
+    tests/test_condition_cli.cpp
+    src/cli/condition/eflux.cpp
+    src/conditioning/eflux.cpp
+    src/cli/sample/common.cpp
+)
+target_include_directories(test_condition_cli PRIVATE
+    ${CMAKE_CURRENT_SOURCE_DIR}
+    ${CMAKE_CURRENT_SOURCE_DIR}/src
+    ${EIGEN_DIR}
+)
+target_compile_options(test_condition_cli PRIVATE -O3 -march=native)
 
 # Coloring tool includes (disabled)
 #target_include_directories(cu_coloring PRIVATE
@@ -95,7 +143,7 @@ target_compile_options(naja PRIVATE
 # Optimization flags
 if(CMAKE_BUILD_TYPE STREQUAL "Release")
     target_compile_options(naja PRIVATE
-        $<$<COMPILE_LANGUAGE:CXX>:-O3 -march=native>
+        $<$<COMPILE_LANGUAGE:CXX>:-O3>
         $<$<COMPILE_LANGUAGE:CUDA>:-O3>
     )
     #target_compile_options(cu_coloring PRIVATE

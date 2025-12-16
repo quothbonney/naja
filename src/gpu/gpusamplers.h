@@ -33,7 +33,8 @@ namespace naja {
                                                 int nspc,
                                                 int thinning,
                                                 int nchains,
-                                                int tpb_ss = -1);
+                                                int tpb_ss = -1,
+                                                int seed = 0);
 
         DMatrix<double> CoordinateHitAndRunBackmap(    DMatrix<double>& A_d,
                                                        DVector<double>& b_d,
@@ -43,7 +44,8 @@ namespace naja {
                                                        int nspc,
                                                        int thinning,
                                                        int nchains,
-                                                       int tpb_ss = -1);
+                                                       int tpb_ss = -1,
+                                                       int seed = 0);
 
         void CoordinateHitAndRunStreamed(       DMatrix<double>& A_d,
                                                 DVector<double>& b_d,
@@ -53,6 +55,7 @@ namespace naja {
                                                 int thinning,
                                                 int nchains,
                                                 int tpb_ss,
+                                                int seed,
                                                 const std::function<void(const double*, int, int)>& host_sink);
 
         DVector<double> rhat(const DMatrix<double>& samples_d,

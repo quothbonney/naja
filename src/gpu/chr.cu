@@ -16,7 +16,8 @@ namespace naja {
                                         int nspc,
                                         int thinning,
                                         int nchains,
-                                        int tpb_ss)
+                                        int tpb_ss,
+                                        int seed)
         {
             // TODO: Implement logic for launch config when tpb_ss are not provided
             int N = A_d.cols;
@@ -34,7 +35,7 @@ namespace naja {
             std::pair<int, int> launchConfig = getOptimalLaunchConfig(initPrngStatesCHR<curandStateMRG32k3a>);
             int threadsPerBlock = launchConfig.first;
             int blocksPerGrid = (nchains + threadsPerBlock - 1) / threadsPerBlock;
-            initPrngStatesCHR<<<blocksPerGrid, threadsPerBlock>>>(gen.states, 0, nchains);
+            initPrngStatesCHR<<<blocksPerGrid, threadsPerBlock>>>(gen.states, seed, nchains);
             CUDA_CHECK(cudaGetLastError());
 
             int threads_ss = (tpb_ss > 0) ? tpb_ss : 128;
@@ -55,9 +56,10 @@ namespace naja {
                                                        int nspc,
                                                        int thinning,
                                                        int nchains,
-                                                       int tpb_ss)
+                                                       int tpb_ss,
+                                                       int seed)
         {
-            DMatrix<double> samples_d = CoordinateHitAndRun(A_d, b_d, X_d, nspc, thinning, nchains, tpb_ss);
+            DMatrix<double> samples_d = CoordinateHitAndRun(A_d, b_d, X_d, nspc, thinning, nchains, tpb_ss, seed);
 
             CUBLASHandle handle;
             DMatrix<double> result_d(transformation_d.rows, samples_d.cols);
@@ -74,6 +76,7 @@ namespace naja {
                                                 int thinning,
                                                 int nchains,
                                                 int tpb_ss,
+                                                int seed,
                                                 const std::function<void(const double*, int, int)>& host_sink)
         {
             if (nchains <= 0) {
@@ -113,7 +116,7 @@ namespace naja {
             auto launchConfig = getOptimalLaunchConfig(initPrngStatesCHR<curandStateMRG32k3a>);
             int threadsPerBlock = launchConfig.first;
             int blocksPerGrid = (nchains + threadsPerBlock - 1) / threadsPerBlock;
-            initPrngStatesCHR<<<blocksPerGrid, threadsPerBlock, 0, compute_stream>>>(gen.states, 0, nchains);
+            initPrngStatesCHR<<<blocksPerGrid, threadsPerBlock, 0, compute_stream>>>(gen.states, seed, nchains);
             CUDA_CHECK(cudaGetLastError());
 
             DMatrix<double> dev_chunk[2] = {

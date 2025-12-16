@@ -8,12 +8,16 @@
 #include "utils.h"
 #include "job.h"
 #include "cli/sample_cli.h"
+#include "cli/condition_cli.h"
 
 int main(int argc, char** argv) {
     // New CLI entrypoint: `naja sample ...`
     if (argc >= 2 && std::string(argv[1]) == "sample") {
         // Fail loudly: let unexpected exceptions terminate with a stack trace in the caller.
         return naja_sample_cli_main(argc - 2, argv + 2);
+    }
+    if (argc >= 2 && std::string(argv[1]) == "condition") {
+        return naja_condition_cli_main(argc - 2, argv + 2);
     }
 
     // Legacy config-driven entrypoint (kept for now):

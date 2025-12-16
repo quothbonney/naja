@@ -9,6 +9,7 @@ struct JobResult {
     std::string model_name;
     int device_id = 0;
     bool success = false;
+    bool skipped = false;
     std::string message;
     double elapsed = 0.0;
     std::string output_dir;
