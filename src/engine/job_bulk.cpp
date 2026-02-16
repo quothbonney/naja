@@ -165,10 +165,15 @@ void bulk_worker(int device_id,
             }
         }
 
-        int rc = run_sampling_job(job_cfg, false, false);
-        result.success = (rc == 0);
-        if (!result.success) {
-            result.message = "return code " + std::to_string(rc);
+        try {
+            int rc = run_sampling_job(job_cfg, false, false);
+            result.success = (rc == 0);
+            if (!result.success) {
+                result.message = "return code " + std::to_string(rc);
+            }
+        } catch (const std::runtime_error& e) {
+            result.success = false;
+            result.message = e.what();
         }
         result.elapsed = std::chrono::duration<double>(std::chrono::high_resolution_clock::now() - start).count();
 

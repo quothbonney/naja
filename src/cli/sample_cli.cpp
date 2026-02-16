@@ -21,6 +21,14 @@ int naja_sample_cli_main(int argc, char** argv) {
         naja::cli::sample::cmd_verify(argc - 1, argv + 1);
         return 0;
     }
+    if (sub == "eval-rounding") {
+        naja::cli::sample::cmd_eval_rounding(argc - 1, argv + 1);
+        return 0;
+    }
+    if (sub == "calibrate-rounding") {
+        naja::cli::sample::cmd_calibrate_rounding(argc - 1, argv + 1);
+        return 0;
+    }
     if (sub == "inherit-rounding") {
         naja::cli::sample::cmd_inherit_rounding(argc - 1, argv + 1);
         return 0;

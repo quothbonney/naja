@@ -31,7 +31,28 @@ namespace naja {
          * @param persist_state Whether to write the final state back to x0 for streaming.
          */
         template <typename Real, typename PRNGenerator, int ThreadsPerBlock>
-        __global__ void chrKernel(Real* A, Real* slack, Real* x0, Real* samples, int rows, int cols, PRNGenerator* global_states, int samples_per_chain, int thinning, int nchains, int persist_state);
+        __global__ void chrKernel(Real* A,
+                                  const Real* b,
+                                  Real* slack,
+                                  Real* x0,
+                                  Real* samples,
+                                  int rows,
+                                  int cols,
+                                  PRNGenerator* global_states,
+                                  int samples_per_chain,
+                                  int thinning,
+                                  int nchains,
+                                  int persist_state,
+                                  Real pair_prob,
+                                  int resync_interval,
+                                  Real ksparse_prob,
+                                  int ksparse_k,
+                                  int pair_mode,
+                                  const int* pair_i,
+                                  const int* pair_j,
+                                  const Real* pair_c,
+                                  const Real* pair_s,
+                                  int n_pairs);
 
 
         /**
@@ -55,7 +76,27 @@ namespace naja {
          * @param stream CUDA stream to launch the kernel on.
          */
         template <typename Real, typename PRNGenerator>
-        void launchChrKernel(DMatrix<Real> &A, DMatrix<Real> &slack, DMatrix<Real> &x0, DMatrix<Real> &samples, PRNGenerator *global_states, int samples_per_chain, int thinning, int threads_per_block, int blocks_per_grid, bool persist_state, cudaStream_t stream = 0);
+        void launchChrKernel(DMatrix<Real> &A,
+                             const DVector<Real> &b,
+                             DMatrix<Real> &slack,
+                             DMatrix<Real> &x0,
+                             DMatrix<Real> &samples,
+                             PRNGenerator *global_states,
+                             int samples_per_chain,
+                             int thinning,
+                             int threads_per_block,
+                             int blocks_per_grid,
+                             bool persist_state,
+                             Real pair_prob,
+                             int resync_interval,
+                             Real ksparse_prob,
+                             int ksparse_k,
+                             int pair_mode,
+                             const DVector<int>* pair_i,
+                             const DVector<int>* pair_j,
+                             const DVector<Real>* pair_c,
+                             const DVector<Real>* pair_s,
+                             cudaStream_t stream = 0);
 
         /**
          * @brief Initializes the states of a pseudo-random number generator (PRNG) for use in CUDA kernels.

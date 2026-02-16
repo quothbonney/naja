@@ -44,6 +44,45 @@ void write_generated_config(const std::string& path, const RuntimeConfig& cfg) {
     f << "WRITE_DATA=" << (cfg.WRITE_DATA ? "true" : "false") << "\n";
     f << "VERBOSE=" << (cfg.VERBOSE ? "true" : "false") << "\n";
     f << "STATUS=" << (cfg.STATUS ? "true" : "false") << "\n";
+    if (cfg.THINNING > 0) {
+        f << "THINNING=" << cfg.THINNING << "\n";
+    }
+    if (cfg.PAIR_PROB > 0.0) {
+        f << "PAIR_PROB=" << std::setprecision(12) << cfg.PAIR_PROB << "\n";
+    }
+    if (cfg.RESYNC_INTERVAL > 0) {
+        f << "RESYNC_INTERVAL=" << cfg.RESYNC_INTERVAL << "\n";
+    }
+    if (cfg.ITER_ROUNDING_PASSES > 0) {
+        f << "ITER_ROUNDING_PASSES=" << cfg.ITER_ROUNDING_PASSES << "\n";
+    }
+    if (cfg.ITER_ROUNDING_WARMUP > 0) {
+        f << "ITER_ROUNDING_WARMUP=" << cfg.ITER_ROUNDING_WARMUP << "\n";
+    }
+    if (cfg.EXTRA_CONSTRAINT_EPS > 0.0) {
+        f << "EXTRA_CONSTRAINT_EPS=" << std::setprecision(12) << cfg.EXTRA_CONSTRAINT_EPS << "\n";
+    }
+    if (cfg.CONSTRAINT_EPS > 0.0) {
+        f << "CONSTRAINT_EPS=" << std::setprecision(12) << cfg.CONSTRAINT_EPS << "\n";
+    }
+    if (!cfg.PAIR_SCHEDULE.empty()) {
+        f << "PAIR_SCHEDULE=" << cfg.PAIR_SCHEDULE << "\n";
+    }
+    if (!cfg.EXTRA_CONSTRAINTS.empty()) {
+        f << "EXTRA_CONSTRAINTS=" << cfg.EXTRA_CONSTRAINTS << "\n";
+    }
+    if (!cfg.START_POLICY.empty()) {
+        f << "START_POLICY=" << cfg.START_POLICY << "\n";
+    }
+    if (cfg.AFFINE_HULL_TOL > 0.0) {
+        f << "AFFINE_HULL_TOL=" << std::setprecision(12) << cfg.AFFINE_HULL_TOL << "\n";
+    }
+    if (cfg.KSPARSE_PROB > 0.0) {
+        f << "KSPARSE_PROB=" << std::setprecision(12) << cfg.KSPARSE_PROB << "\n";
+    }
+    if (cfg.KSPARSE_K != 8) {
+        f << "KSPARSE_K=" << cfg.KSPARSE_K << "\n";
+    }
     if (cfg.BOUNDS_FILTER) {
         f << "BOUNDS_POLICY=filter\n";
         f << "BOUNDS_EPS=" << std::setprecision(12) << cfg.BOUNDS_EPS << "\n";

@@ -15,6 +15,7 @@
 #include "cli/sample/rounding.h"
 #include "csv_loader.h"
 #include "pipeline/config_io.h"
+#include "pipeline/feasible_start_files.h"
 #include "pipeline/model_contract.h"
 #include "runtime_config.h"
 #include "utils.h"
@@ -339,6 +340,11 @@ void cmd_prepare(int argc, char** argv) {
             }
             naja::pipeline::validate_contract(c, true);
         } else {
+            naja::pipeline::validate_contract(c, true);
+        }
+
+        if (!dry_run) {
+            naja::pipeline::ensure_feasible_rounding_start_if_extra_present(c);
             naja::pipeline::validate_contract(c, true);
         }
 

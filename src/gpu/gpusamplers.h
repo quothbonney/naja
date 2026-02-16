@@ -34,7 +34,16 @@ namespace naja {
                                                 int thinning,
                                                 int nchains,
                                                 int tpb_ss = -1,
-                                                int seed = 0);
+                                                int seed = 0,
+                                                double pair_prob = 0.0,
+                                                int resync_interval = 0,
+                                                double ksparse_prob = 0.0,
+                                                int ksparse_k = 8,
+                                                int pair_mode = 1,
+                                                const DVector<int>* pair_i = nullptr,
+                                                const DVector<int>* pair_j = nullptr,
+                                                const DVector<double>* pair_c = nullptr,
+                                                const DVector<double>* pair_s = nullptr);
 
         DMatrix<double> CoordinateHitAndRunBackmap(    DMatrix<double>& A_d,
                                                        DVector<double>& b_d,
@@ -45,7 +54,16 @@ namespace naja {
                                                        int thinning,
                                                        int nchains,
                                                        int tpb_ss = -1,
-                                                       int seed = 0);
+                                                       int seed = 0,
+                                                       double pair_prob = 0.0,
+                                                       int resync_interval = 0,
+                                                       double ksparse_prob = 0.0,
+                                                       int ksparse_k = 8,
+                                                       int pair_mode = 1,
+                                                       const DVector<int>* pair_i = nullptr,
+                                                       const DVector<int>* pair_j = nullptr,
+                                                       const DVector<double>* pair_c = nullptr,
+                                                       const DVector<double>* pair_s = nullptr);
 
         void CoordinateHitAndRunStreamed(       DMatrix<double>& A_d,
                                                 DVector<double>& b_d,
@@ -56,6 +74,15 @@ namespace naja {
                                                 int nchains,
                                                 int tpb_ss,
                                                 int seed,
+                                                double pair_prob,
+                                                int resync_interval,
+                                                double ksparse_prob,
+                                                int ksparse_k,
+                                                int pair_mode,
+                                                const DVector<int>* pair_i,
+                                                const DVector<int>* pair_j,
+                                                const DVector<double>* pair_c,
+                                                const DVector<double>* pair_s,
                                                 const std::function<void(const double*, int, int)>& host_sink);
 
         DVector<double> rhat(const DMatrix<double>& samples_d,

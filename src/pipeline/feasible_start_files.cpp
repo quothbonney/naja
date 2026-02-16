@@ -1,0 +1,99 @@
+#include "pipeline/feasible_start_files.h"
+
+#include <Eigen/Dense>
+
+#include <filesystem>
+#include <iomanip>
+#include <fstream>
+#include <limits>
+#include <sstream>
+#include <stdexcept>
+#include <string>
+
+#include "csv_loader.h"
+#include "pipeline/feasible_start_lp.h"
+#include "utils.h"
+
+namespace naja::pipeline {
+namespace {
+
+static void write_vector_csv(const std::string& path, const Eigen::VectorXd& v) {
+    std::ofstream f(path);
+    if (!f.is_open()) throw std::runtime_error("cannot write: " + path);
+    for (int i = 0; i < v.size(); ++i) {
+        // Round-trip-safe for double.
+        f << std::setprecision(17) << v[i] << "\n";
+    }
+}
+
+static void require_feasible(const Eigen::MatrixXd& A, const Eigen::VectorXd& b, const Eigen::VectorXd& x, double eps) {
+    if (A.cols() != x.size()) throw std::runtime_error("dimension mismatch: A.cols != x.size");
+    if (A.rows() != b.size()) throw std::runtime_error("dimension mismatch: A.rows != b.size");
+    Eigen::VectorXd slack = (A * x) - b;
+    double max_v = slack.maxCoeff();
+    if (!std::isfinite(max_v)) {
+        throw std::runtime_error("computed start is infeasible: max(A*x-b) is non-finite");
+    }
+    if (max_v > eps) {
+        const int violated = (slack.array() > eps).count();
+        std::ostringstream oss;
+        oss << "computed start is infeasible: max(A*x-b)="
+            << std::scientific << std::setprecision(12) << max_v
+            << " > eps=" << std::scientific << std::setprecision(12) << eps
+            << ", violated=" << violated << "/" << slack.size();
+        throw std::runtime_error(oss.str());
+    }
+}
+
+static void remove_path_if_exists(const std::string& path) {
+    if (!path_exists(path)) return;
+    std::error_code ec;
+    std::filesystem::remove(path, ec);
+    if (ec) {
+        throw std::runtime_error("cannot remove: " + path);
+    }
+}
+
+} // namespace
+
+void ensure_feasible_rounding_start_if_extra_present(const ModelContract& c) {
+    const std::string prefix = c.rounding_dir + "/" + c.model_name + "_rounding";
+    const std::string A_path = prefix + "_A.csv";
+    const std::string b_path = prefix + "_b.csv";
+    const std::string start_path = prefix + "_start.csv";
+    const std::string extra_A = prefix + "_extra_A.csv";
+    const std::string extra_b = prefix + "_extra_b.csv";
+
+    bool has_extra_A = path_exists(extra_A);
+    bool has_extra_b = path_exists(extra_b);
+    if (!has_extra_A && !has_extra_b) return;
+    if (has_extra_A != has_extra_b) {
+        throw std::runtime_error("extra constraints must be both-present or both-absent: " + extra_A + " / " + extra_b);
+    }
+
+    Eigen::MatrixXd A = csv::loadMatrix(A_path);
+    Eigen::VectorXd b = csv::loadVector(b_path);
+    Eigen::MatrixXd Aex = csv::loadMatrix(extra_A);
+    Eigen::VectorXd bex = csv::loadVector(extra_b);
+    if (Aex.rows() != bex.size()) throw std::runtime_error("extra constraint matrices have mismatched dimensions");
+    if (Aex.cols() != A.cols()) throw std::runtime_error("extra constraint matrix has wrong number of columns");
+
+    Eigen::MatrixXd A_aug(A.rows() + Aex.rows(), A.cols());
+    A_aug.topRows(A.rows()) = A;
+    A_aug.bottomRows(Aex.rows()) = Aex;
+    Eigen::VectorXd b_aug(b.size() + bex.size());
+    b_aug.head(b.size()) = b;
+    b_aug.tail(bex.size()) = bex;
+
+    auto [x, r] = axis_aligned_cube_center_lp_gurobi(A_aug, b_aug);
+    (void)r;
+    require_feasible(A_aug, b_aug, x, 1e-9);
+
+    // Important: the current start file may be a symlink (symlink mode). Remove it first.
+    remove_path_if_exists(start_path);
+    write_vector_csv(start_path, x);
+}
+
+} // namespace naja::pipeline
+
+

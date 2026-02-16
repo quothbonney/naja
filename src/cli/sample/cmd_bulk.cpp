@@ -28,6 +28,7 @@ void cmd_bulk(int argc, char** argv) {
     int n_chains = -1;
     int n_samples = -1;
     int tpb = 128;
+    int thinning = 0;
     bool backmap = false;
     bool write_npy = false;
     bool verbose = false;
@@ -50,6 +51,7 @@ void cmd_bulk(int argc, char** argv) {
         else if (a == "--n-chains") n_chains = std::stoi(next_arg(i, argc, argv, a));
         else if (a == "--n-samples") n_samples = std::stoi(next_arg(i, argc, argv, a));
         else if (a == "--tpb") tpb = std::stoi(next_arg(i, argc, argv, a));
+        else if (a == "--thinning") thinning = std::stoi(next_arg(i, argc, argv, a));
         else if (a == "--backmap") backmap = true;
         else if (a == "--write-npy") write_npy = true;
         else if (a == "--verbose") verbose = true;
@@ -101,6 +103,7 @@ void cmd_bulk(int argc, char** argv) {
     cfg.BOUNDS_EPS = bounds_eps;
     cfg.WRITE_SAMPLES_VALID = write_samples_valid;
     cfg.SKIP_EXISTING = skip_existing;
+    cfg.THINNING = thinning;
 
     if (!resume_from.empty()) {
         if (!is_directory(resume_from)) {

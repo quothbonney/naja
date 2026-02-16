@@ -8,6 +8,7 @@
 
 #include "cli/sample/common.h"
 #include "job.h"
+#include "pipeline/pair_schedule.h"
 #include "pipeline/config_io.h"
 #include "pipeline/model_contract.h"
 #include "pipeline/run_manifest.h"
@@ -25,6 +26,19 @@ void cmd_run(int argc, char** argv) {
     int n_chains = -1;
     int n_samples = -1;
     int tpb = 128;
+    int thinning = 0;
+    double pair_prob = 0.0;
+    int resync_interval = 0;
+    int iter_rounding_passes = 0;
+    int iter_rounding_warmup = 0;
+    double extra_constraint_eps = 0.0;
+    double constraint_eps = 0.0;
+    std::string pair_schedule_path;
+    std::string start_policy = "file";
+    double ksparse_prob = 0.0;
+    int ksparse_k = 8;
+    std::string extra_constraints_mode = "auto";
+    double affine_hull_tol = 0.0;
     bool backmap = false;
     bool write_npy = false;
     bool verbose = false;
@@ -43,6 +57,19 @@ void cmd_run(int argc, char** argv) {
         else if (a == "--n-chains") n_chains = std::stoi(next_arg(i, argc, argv, a));
         else if (a == "--n-samples") n_samples = std::stoi(next_arg(i, argc, argv, a));
         else if (a == "--tpb") tpb = std::stoi(next_arg(i, argc, argv, a));
+        else if (a == "--thinning") thinning = std::stoi(next_arg(i, argc, argv, a));
+        else if (a == "--pair-prob") pair_prob = std::stod(next_arg(i, argc, argv, a));
+        else if (a == "--resync-interval") resync_interval = std::stoi(next_arg(i, argc, argv, a));
+        else if (a == "--iter-rounding-passes") iter_rounding_passes = std::stoi(next_arg(i, argc, argv, a));
+        else if (a == "--iter-rounding-warmup") iter_rounding_warmup = std::stoi(next_arg(i, argc, argv, a));
+        else if (a == "--extra-constraint-eps") extra_constraint_eps = std::stod(next_arg(i, argc, argv, a));
+        else if (a == "--constraint-eps") constraint_eps = std::stod(next_arg(i, argc, argv, a));
+        else if (a == "--pair-schedule") pair_schedule_path = next_arg(i, argc, argv, a);
+        else if (a == "--start-policy") start_policy = next_arg(i, argc, argv, a);
+        else if (a == "--ksparse-prob") ksparse_prob = std::stod(next_arg(i, argc, argv, a));
+        else if (a == "--ksparse-k") ksparse_k = std::stoi(next_arg(i, argc, argv, a));
+        else if (a == "--extra-constraints") extra_constraints_mode = next_arg(i, argc, argv, a);
+        else if (a == "--affine-hull-tol") affine_hull_tol = std::stod(next_arg(i, argc, argv, a));
         else if (a == "--backmap") backmap = true;
         else if (a == "--write-npy") write_npy = true;
         else if (a == "--verbose") verbose = true;
@@ -58,6 +85,19 @@ void cmd_run(int argc, char** argv) {
     if (out_root.empty()) die_usage("missing --out-root");
     if (n_chains <= 0) die_usage("invalid --n-chains");
     if (n_samples <= 0) die_usage("invalid --n-samples");
+    if (pair_prob < 0.0 || pair_prob > 1.0) die_usage("invalid --pair-prob (must be in [0,1])");
+    if (resync_interval < 0) die_usage("invalid --resync-interval (must be >=0)");
+    if (iter_rounding_passes < 0) die_usage("invalid --iter-rounding-passes (must be >=0)");
+    if (iter_rounding_warmup < 0) die_usage("invalid --iter-rounding-warmup (must be >=0)");
+    if (extra_constraint_eps < 0.0) die_usage("invalid --extra-constraint-eps (must be >=0)");
+    if (constraint_eps < 0.0) die_usage("invalid --constraint-eps (must be >=0)");
+    if (start_policy != "file" && start_policy != "cube_center") die_usage("invalid --start-policy (file|cube_center)");
+    if (ksparse_prob < 0.0 || ksparse_prob > 1.0) die_usage("invalid --ksparse-prob (must be in [0,1])");
+    if (ksparse_k <= 0) die_usage("invalid --ksparse-k (must be >0)");
+    if (affine_hull_tol < 0.0) die_usage("invalid --affine-hull-tol (must be >=0)");
+    if (extra_constraints_mode != "auto" && extra_constraints_mode != "ignore" && extra_constraints_mode != "require") {
+        die_usage("invalid --extra-constraints (auto|ignore|require)");
+    }
     if (bounds_policy != "ignore" && bounds_policy != "filter") die_usage("invalid --bounds-policy: " + bounds_policy);
     if (bounds_policy == "filter" && !backmap) {
         throw std::runtime_error("bounds-policy=filter requires --backmap");
@@ -75,6 +115,24 @@ void cmd_run(int argc, char** argv) {
     cfg.BOUNDS_FILTER = (bounds_policy == "filter");
     cfg.BOUNDS_EPS = bounds_eps;
     cfg.WRITE_SAMPLES_VALID = write_samples_valid;
+    cfg.THINNING = thinning;
+    cfg.PAIR_PROB = pair_prob;
+    cfg.RESYNC_INTERVAL = resync_interval;
+    cfg.ITER_ROUNDING_PASSES = iter_rounding_passes;
+    cfg.ITER_ROUNDING_WARMUP = iter_rounding_warmup;
+    cfg.EXTRA_CONSTRAINT_EPS = extra_constraint_eps;
+    cfg.CONSTRAINT_EPS = constraint_eps;
+    cfg.START_POLICY = start_policy;
+    cfg.KSPARSE_PROB = ksparse_prob;
+    cfg.KSPARSE_K = ksparse_k;
+    cfg.EXTRA_CONSTRAINTS = extra_constraints_mode;
+    cfg.AFFINE_HULL_TOL = affine_hull_tol;
+
+    if (!pair_schedule_path.empty()) {
+        // Validate early so a bad schedule doesn't waste GPU time.
+        (void)naja::pipeline::load_pair_schedule_csv(pair_schedule_path);
+        cfg.PAIR_SCHEDULE = pair_schedule_path;
+    }
 
     naja::pipeline::ModelContract c = naja::pipeline::parse_model_dir(model_dir);
     naja::pipeline::validate_contract(c, backmap);
