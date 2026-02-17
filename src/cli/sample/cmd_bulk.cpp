@@ -7,11 +7,9 @@
 #include <vector>
 
 #include "cli/sample/common.h"
-#include "job.h"
-#include "pipeline/config_io.h"
+#include "engine/job.h"
 #include "pipeline/model_contract.h"
 #include "pipeline/run_manifest.h"
-#include "pipeline/run_layout.h"
 #include "runtime_config.h"
 #include "util/status.h"
 #include "utils.h"

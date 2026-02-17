@@ -7,17 +7,39 @@
 #include <vector>
 
 #include "cli/sample/common.h"
-#include "job.h"
-#include "pipeline/pair_schedule.h"
-#include "pipeline/config_io.h"
+#include "engine/job.h"
 #include "pipeline/model_contract.h"
 #include "pipeline/run_manifest.h"
-#include "pipeline/run_layout.h"
+#include "rounding/config.h"
+#include "rounding/schedule_io.h"
 #include "runtime_config.h"
+#include "util/cli_parse.h"
 #include "util/status.h"
 #include "utils.h"
 
 namespace naja::cli::sample {
+
+namespace {
+
+void normalize_and_validate_rounding_flags(double pair_prob,
+                                           int resync_interval,
+                                           int iter_rounding_passes,
+                                           int iter_rounding_warmup,
+                                           const std::string& pair_schedule_path) {
+    naja::util::cli_parse::require_double_in_01("--pair-prob", pair_prob);
+    naja::util::cli_parse::require_int_ge("--resync-interval", resync_interval, 0);
+    naja::util::cli_parse::require_int_ge("--iter-rounding-passes", iter_rounding_passes, 0);
+    naja::util::cli_parse::require_int_ge("--iter-rounding-warmup", iter_rounding_warmup, 0);
+    naja::rounding::RoundingConfig cfg;
+    cfg.pair_prob = pair_prob;
+    cfg.resync_interval = resync_interval;
+    cfg.iter_rounding_passes = iter_rounding_passes;
+    cfg.iter_rounding_warmup = iter_rounding_warmup;
+    cfg.pair_schedule_path = pair_schedule_path;
+    naja::rounding::validate_rounding_config(cfg);
+}
+
+} // namespace
 
 void cmd_run(int argc, char** argv) {
     std::string model_dir;
@@ -64,7 +86,7 @@ void cmd_run(int argc, char** argv) {
         else if (a == "--iter-rounding-warmup") iter_rounding_warmup = std::stoi(next_arg(i, argc, argv, a));
         else if (a == "--extra-constraint-eps") extra_constraint_eps = std::stod(next_arg(i, argc, argv, a));
         else if (a == "--constraint-eps") constraint_eps = std::stod(next_arg(i, argc, argv, a));
-        else if (a == "--pair-schedule") pair_schedule_path = next_arg(i, argc, argv, a);
+        else if (a == "--pair-schedule" || a == "--pair-schedule-file") pair_schedule_path = next_arg(i, argc, argv, a);
         else if (a == "--start-policy") start_policy = next_arg(i, argc, argv, a);
         else if (a == "--ksparse-prob") ksparse_prob = std::stod(next_arg(i, argc, argv, a));
         else if (a == "--ksparse-k") ksparse_k = std::stoi(next_arg(i, argc, argv, a));
@@ -85,10 +107,17 @@ void cmd_run(int argc, char** argv) {
     if (out_root.empty()) die_usage("missing --out-root");
     if (n_chains <= 0) die_usage("invalid --n-chains");
     if (n_samples <= 0) die_usage("invalid --n-samples");
-    if (pair_prob < 0.0 || pair_prob > 1.0) die_usage("invalid --pair-prob (must be in [0,1])");
-    if (resync_interval < 0) die_usage("invalid --resync-interval (must be >=0)");
-    if (iter_rounding_passes < 0) die_usage("invalid --iter-rounding-passes (must be >=0)");
-    if (iter_rounding_warmup < 0) die_usage("invalid --iter-rounding-warmup (must be >=0)");
+    try {
+        normalize_and_validate_rounding_flags(
+            pair_prob,
+            resync_interval,
+            iter_rounding_passes,
+            iter_rounding_warmup,
+            pair_schedule_path
+        );
+    } catch (const std::invalid_argument& e) {
+        die_usage(e.what());
+    }
     if (extra_constraint_eps < 0.0) die_usage("invalid --extra-constraint-eps (must be >=0)");
     if (constraint_eps < 0.0) die_usage("invalid --constraint-eps (must be >=0)");
     if (start_policy != "file" && start_policy != "cube_center") die_usage("invalid --start-policy (file|cube_center)");
@@ -130,7 +159,7 @@ void cmd_run(int argc, char** argv) {
 
     if (!pair_schedule_path.empty()) {
         // Validate early so a bad schedule doesn't waste GPU time.
-        (void)naja::pipeline::load_pair_schedule_csv(pair_schedule_path);
+        (void)naja::rounding::load_pair_schedule_csv(pair_schedule_path);
         cfg.PAIR_SCHEDULE = pair_schedule_path;
     }
 

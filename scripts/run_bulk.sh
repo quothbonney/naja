@@ -3,13 +3,6 @@ set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PROJECT_DIR="$(dirname "$SCRIPT_DIR")"
-BUILD_DIR="${PROJECT_DIR}/build"
-EXE="${BUILD_DIR}/naja"
-
-if [[ ! -x "${EXE}" ]]; then
-    echo "error: ${EXE} not found. run ./scripts/build.sh first." >&2
-    exit 1
-fi
 
 MODELS_DIR="${PROJECT_DIR}/models/bulk_mock"
 mkdir -p "${MODELS_DIR}"
@@ -72,25 +65,21 @@ for i in $(seq 0 9); do
     echo "${name}" >> "${JOB_LIST}"
 done
 
-CONFIG="${MODELS_DIR}/bulk_config.txt"
-cat > "${CONFIG}" <<EOF
-MODEL_NAME=mock_job
-DATA_DIR=${MODELS_DIR}
-OUT_DIR=${MODELS_DIR}/bulk_out
-N_CHAINS=2
-N_SAMPLES=100
-TPB_SS=64
-BACK_TRANSFORM=true
-WRITE_DATA=false
-GPU_DEVICE=0
-GPU_LIST=0
-VERBOSE=false
-BULK_MODEL_LIST=${JOB_LIST}
-EOF
+OUT_ROOT="${MODELS_DIR}/bulk_out"
+mkdir -p "${OUT_ROOT}"
 
-echo "config      :: ${CONFIG}"
 echo "job list    :: ${JOB_LIST}"
+echo "out root    :: ${OUT_ROOT}"
 echo
 
-exec "${SCRIPT_DIR}/run.sh" "${CONFIG}"
+exec "${SCRIPT_DIR}/run.sh" sample bulk \
+  --models-root "${MODELS_DIR}" \
+  --model-list "${JOB_LIST}" \
+  --out-root "${OUT_ROOT}" \
+  --name mock_bulk \
+  --gpus 0 \
+  --n-chains 2 \
+  --n-samples 100 \
+  --tpb 64 \
+  --bounds-policy ignore
 

@@ -1,4 +1,4 @@
-#include "cli/prepare/commands.h"
+#include "cli/sample/commands.h"
 
 #include <Eigen/Dense>
 #include <fstream>
@@ -12,11 +12,11 @@
 #include <cmath>
 
 #include "cli/sample/common.h"
-#include "cli/sample/rounding.h"
+#include "rounding/inherit.h"
 #include "csv_loader.h"
-#include "pipeline/config_io.h"
 #include "pipeline/feasible_start_files.h"
 #include "pipeline/model_contract.h"
+#include "pipeline/text_io.h"
 #include "runtime_config.h"
 #include "utils.h"
 
@@ -36,30 +36,6 @@ bool rounding_present_enough(const naja::pipeline::ModelContract& c) {
     return true;
 }
 
-std::string read_all(const std::string& path) {
-    std::ifstream f(path);
-    if (!f.is_open()) throw std::runtime_error("cannot read: " + path);
-    std::ostringstream ss;
-    ss << f.rdbuf();
-    return ss.str();
-}
-
-std::vector<std::string> read_lines_nonempty_trim(const std::string& path) {
-    std::ifstream f(path);
-    if (!f.is_open()) throw std::runtime_error("cannot read: " + path);
-    std::vector<std::string> out;
-    std::string line;
-    auto is_ws = [](unsigned char ch) { return ch == ' ' || ch == '\t' || ch == '\r' || ch == '\n'; };
-    while (std::getline(f, line)) {
-        while (!line.empty() && is_ws((unsigned char)line.front())) line.erase(line.begin());
-        while (!line.empty() && is_ws((unsigned char)line.back())) line.pop_back();
-        if (line.empty()) continue;
-        out.push_back(line);
-    }
-    if (out.empty()) throw std::runtime_error("empty file: " + path);
-    return out;
-}
-
 std::string hash_string(const std::string& s) {
     return std::to_string(std::hash<std::string>{}(s));
 }
@@ -71,7 +47,7 @@ std::string signature_for_conditioning(const std::string& conditioner_cmd,
     std::string sig = conditioner_cmd;
     for (const auto& a : conditioner_args) sig.append("\nARG ").append(a);
     sig.append("\nROW_ID ").append(row_id);
-    sig.append("\nBASE_RXN_SHA ").append(hash_string(read_all(base_reaction_ids_path)));
+    sig.append("\nBASE_RXN_SHA ").append(hash_string(naja::pipeline::read_all_text(base_reaction_ids_path)));
     return sig;
 }
 
@@ -86,7 +62,7 @@ void ensure_conditioning_signature(const std::string& sig_path, const std::strin
         if (force) return;
         throw std::runtime_error("conditioning signature missing; use --force-conditioning to overwrite");
     }
-    std::string current = read_all(sig_path);
+    std::string current = naja::pipeline::read_all_text(sig_path);
     if (current != expected_sig) {
         if (force) return;
         throw std::runtime_error("conditioning signature mismatch; use --force-conditioning to overwrite");
@@ -299,8 +275,8 @@ void cmd_prepare(int argc, char** argv) {
                 throw std::runtime_error("conditioner did not produce required gem files for " + c.model_dir);
             }
 
-            auto base_rxn_lines = read_lines_nonempty_trim(base_model_dir + "/gem/reaction_ids.txt");
-            auto new_rxn_lines = read_lines_nonempty_trim(rxn);
+            auto base_rxn_lines = naja::pipeline::read_nonempty_trimmed_lines(base_model_dir + "/gem/reaction_ids.txt");
+            auto new_rxn_lines = naja::pipeline::read_nonempty_trimmed_lines(rxn);
             if (base_rxn_lines != new_rxn_lines) {
                 throw std::runtime_error("reaction_ids mismatch vs base for " + c.model_dir);
             }
@@ -327,7 +303,7 @@ void cmd_prepare(int argc, char** argv) {
 
         if (!dry_run) {
             ensure_dir(c.rounding_dir);
-            normalize_extra_constraints(c);
+            naja::rounding::normalize_extra_constraints(c);
         }
 
         if (!rounding_present_enough(c)) {
@@ -335,8 +311,8 @@ void cmd_prepare(int argc, char** argv) {
                 throw std::runtime_error("rounding contract missing/invalid and no --base-model-dir provided: " + c.model_dir);
             }
             if (!dry_run) {
-                inherit_rounding_impl(base, c, mode);
-                normalize_extra_constraints(c);
+                naja::rounding::inherit_rounding_impl(base, c, mode);
+                naja::rounding::normalize_extra_constraints(c);
             }
             naja::pipeline::validate_contract(c, true);
         } else {

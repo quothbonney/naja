@@ -4,7 +4,6 @@
 #include <fstream>
 #include <iostream>
 #include <random>
-#include <stdexcept>
 #include <string>
 #include <vector>
 
@@ -12,36 +11,15 @@
 
 #include "cli/sample/common.h"
 #include "csv_loader.h"
-#include "engine/iterative_rounding.h"
+#include "rounding/jacobi.h"
 #include "gpu/dmatrix.h"
 #include "gpu/dvector.h"
 #include "gpu/gpusamplers.h"
 #include "pipeline/model_contract.h"
-#include "pipeline/pair_schedule.h"
+#include "rounding/schedule_io.h"
 #include "utils.h"
 
 namespace naja::cli::sample {
-
-namespace {
-
-static std::vector<std::string> load_names(const std::string& path) {
-    require_nonempty_file(path, "model list");
-    std::ifstream f(path);
-    if (!f.is_open()) throw std::runtime_error("cannot open model list: " + path);
-    std::vector<std::string> names;
-    std::string line;
-    while (std::getline(f, line)) {
-        auto is_ws = [](unsigned char ch) { return ch == ' ' || ch == '\t' || ch == '\r' || ch == '\n'; };
-        while (!line.empty() && is_ws((unsigned char)line.front())) line.erase(line.begin());
-        while (!line.empty() && is_ws((unsigned char)line.back())) line.pop_back();
-        if (line.empty() || line[0] == '#') continue;
-        names.push_back(line);
-    }
-    if (names.empty()) throw std::runtime_error("no models in list: " + path);
-    return names;
-}
-
-} // namespace
 
 void cmd_calibrate_rounding(int argc, char** argv) {
     std::string models_root;
@@ -77,7 +55,7 @@ void cmd_calibrate_rounding(int argc, char** argv) {
     if (max_models < 0) die_usage("invalid --max-models (must be >=0)");
     if (seed == 0) seed = 1;
 
-    auto names = load_names(model_list);
+    auto names = naja::pipeline::load_model_list(model_list);
     if (max_models > 0 && (int)names.size() > max_models) {
         names.resize(max_models);
     }
@@ -97,7 +75,7 @@ void cmd_calibrate_rounding(int argc, char** argv) {
     std::mt19937_64 rng((uint64_t)seed);
     std::shuffle(perm.begin(), perm.end(), rng);
     const int n_pairs = d / 2;
-    naja::pipeline::PairSchedule sched;
+    naja::rounding::PairSchedule sched;
     sched.i.resize(n_pairs);
     sched.j.resize(n_pairs);
     sched.c.resize(n_pairs);
@@ -198,13 +176,13 @@ void cmd_calibrate_rounding(int argc, char** argv) {
             const double var_i = sum_var_i[k] / w;
             const double var_j = sum_var_j[k] / w;
             const double cov_ij = sum_cov[k] / w;
-            const auto cs = naja::engine::jacobi_rotation_cs(var_i, var_j, cov_ij);
+            const auto cs = naja::rounding::jacobi_rotation_cs(var_i, var_j, cov_ij);
             sched.c[k] = cs.first;
             sched.s[k] = cs.second;
         }
     }
 
-    naja::pipeline::write_pair_schedule_csv(out_csv, sched);
+    naja::rounding::write_pair_schedule_csv(out_csv, sched);
     std::cout << "OK\n";
     std::cout << "out              :: " << make_absolute_path(out_csv) << "\n";
     std::cout << "models           :: " << names.size() << "\n";

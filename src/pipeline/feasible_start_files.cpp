@@ -3,14 +3,13 @@
 #include <Eigen/Dense>
 
 #include <filesystem>
-#include <iomanip>
 #include <fstream>
-#include <limits>
-#include <sstream>
+#include <iomanip>
 #include <stdexcept>
 #include <string>
 
 #include "csv_loader.h"
+#include "util/start_feasibility.h"
 #include "pipeline/feasible_start_lp.h"
 #include "utils.h"
 
@@ -23,25 +22,6 @@ static void write_vector_csv(const std::string& path, const Eigen::VectorXd& v) 
     for (int i = 0; i < v.size(); ++i) {
         // Round-trip-safe for double.
         f << std::setprecision(17) << v[i] << "\n";
-    }
-}
-
-static void require_feasible(const Eigen::MatrixXd& A, const Eigen::VectorXd& b, const Eigen::VectorXd& x, double eps) {
-    if (A.cols() != x.size()) throw std::runtime_error("dimension mismatch: A.cols != x.size");
-    if (A.rows() != b.size()) throw std::runtime_error("dimension mismatch: A.rows != b.size");
-    Eigen::VectorXd slack = (A * x) - b;
-    double max_v = slack.maxCoeff();
-    if (!std::isfinite(max_v)) {
-        throw std::runtime_error("computed start is infeasible: max(A*x-b) is non-finite");
-    }
-    if (max_v > eps) {
-        const int violated = (slack.array() > eps).count();
-        std::ostringstream oss;
-        oss << "computed start is infeasible: max(A*x-b)="
-            << std::scientific << std::setprecision(12) << max_v
-            << " > eps=" << std::scientific << std::setprecision(12) << eps
-            << ", violated=" << violated << "/" << slack.size();
-        throw std::runtime_error(oss.str());
     }
 }
 
@@ -87,7 +67,7 @@ void ensure_feasible_rounding_start_if_extra_present(const ModelContract& c) {
 
     auto [x, r] = axis_aligned_cube_center_lp_gurobi(A_aug, b_aug);
     (void)r;
-    require_feasible(A_aug, b_aug, x, 1e-9);
+    naja::util::require_feasible_start(A_aug, b_aug, x, 1e-9, "feasible_start_files");
 
     // Important: the current start file may be a symlink (symlink mode). Remove it first.
     remove_path_if_exists(start_path);

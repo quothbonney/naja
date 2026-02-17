@@ -1,41 +1,20 @@
 #include "cli/sample/commands.h"
 
 #include <algorithm>
-#include <fstream>
 #include <iostream>
-#include <stdexcept>
 #include <string>
 #include <vector>
 
 #include "cli/sample/common.h"
 #include "csv_loader.h"
-#include "engine/chr_diagnostics.h"
-#include "engine/constraint_utils.h"
-#include "pipeline/config_io.h"
+#include "rounding/diagnostics.h"
+#include "util/constraint_utils.h"
 #include "pipeline/model_contract.h"
 #include "utils.h"
 
 namespace naja::cli::sample {
 
 namespace {
-
-static std::vector<std::string> load_names(const std::string& path) {
-    require_nonempty_file(path, "model list");
-    std::ifstream f(path);
-    if (!f.is_open()) throw std::runtime_error("cannot open model list: " + path);
-    std::vector<std::string> names;
-    std::string line;
-    while (std::getline(f, line)) {
-        // trim
-        auto is_ws = [](unsigned char ch) { return ch == ' ' || ch == '\t' || ch == '\r' || ch == '\n'; };
-        while (!line.empty() && is_ws((unsigned char)line.front())) line.erase(line.begin());
-        while (!line.empty() && is_ws((unsigned char)line.back())) line.pop_back();
-        if (line.empty() || line[0] == '#') continue;
-        names.push_back(line);
-    }
-    if (names.empty()) throw std::runtime_error("no models in list: " + path);
-    return names;
-}
 
 static double quantile(Eigen::VectorXd v, double q) {
     std::vector<double> a;
@@ -71,7 +50,7 @@ void cmd_eval_rounding(int argc, char** argv) {
     if (extra_eps < 0.0) die_usage("invalid --extra-constraint-eps (must be >=0)");
     if (tight_tol < 0.0) die_usage("invalid --tight-tol (must be >=0)");
 
-    auto names = load_names(model_list);
+    auto names = naja::pipeline::load_model_list(model_list);
 
     std::cout << "model,reduced_dim,constraints,extra_rows,tight_rank,axis_chord_p10,axis_chord_p50,axis_chord_p90,axis_chord_max\n";
 
@@ -106,8 +85,8 @@ void cmd_eval_rounding(int argc, char** argv) {
             b = std::move(b_aug);
         }
 
-        const int tight_rank = naja::engine::tight_constraint_rank(A, b, x0, tight_tol);
-        const auto chords = naja::engine::chr_axis_chords(A, b, x0).chord_len;
+        const int tight_rank = naja::util::tight_constraint_rank(A, b, x0, tight_tol);
+        const auto chords = naja::rounding::chr_axis_chords(A, b, x0).chord_len;
         const double p10 = quantile(chords, 0.10);
         const double p50 = quantile(chords, 0.50);
         const double p90 = quantile(chords, 0.90);

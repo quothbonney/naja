@@ -15,16 +15,16 @@ struct ProfileData {
     double backtransform_time = 0.0;
     double write_time = 0.0;
     double total_time = 0.0;
-    
+
     int n_chains = 0;
     int n_samples = 0;
     int reduced_dim = 0;
     int original_dim = 0;
     int constraints = 0;
     int thinning = 0;
-    
+
     double throughput = 0.0;
-    
+
     void write_json(const std::string& filename, const RuntimeConfig& cfg) const {
         std::ofstream f(filename);
         if (!f.is_open()) {
@@ -34,7 +34,7 @@ struct ProfileData {
         auto now = std::time(nullptr);
         char timestamp[100];
         std::strftime(timestamp, sizeof(timestamp), "%Y-%m-%d %H:%M:%S", std::localtime(&now));
-        
+
         f << "{\n";
         f << "  \"timestamp\": \"" << timestamp << "\",\n";
         f << "  \"config\": {\n";
@@ -65,4 +65,5 @@ struct ProfileData {
         f << "}\n";
     }
 };
+
 

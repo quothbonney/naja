@@ -1,4 +1,4 @@
-#include "engine/constraint_utils.h"
+#include "util/constraint_utils.h"
 
 #include <Eigen/Dense>
 #include <iostream>
@@ -37,7 +37,7 @@ int main() {
     b_all.head(2) = b_base;
     b_all.tail(2) = b_extra;
 
-    const int r_all = naja::engine::tight_constraint_rank(A_all, b_all, x0, tol);
+    const int r_all = naja::util::tight_constraint_rank(A_all, b_all, x0, tol);
     if (r_all != 2) {
         std::cerr << "expected tight rank 2 (point), got " << r_all << "\n";
         return 1;
@@ -46,7 +46,7 @@ int main() {
     // Relax only extra b: b_extra += eps
     Eigen::VectorXd b_relaxed = b_all;
     b_relaxed.tail(2).array() += eps;
-    const int r_relaxed = naja::engine::tight_constraint_rank(A_all, b_relaxed, x0, tol);
+    const int r_relaxed = naja::util::tight_constraint_rank(A_all, b_relaxed, x0, tol);
     if (r_relaxed != 1) {
         std::cerr << "expected tight rank 1 after relaxing extra constraints, got " << r_relaxed << "\n";
         return 1;

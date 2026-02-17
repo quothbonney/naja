@@ -1,4 +1,4 @@
-#include "cli/sample/rounding.h"
+#include "rounding/inherit.h"
 
 #include <fstream>
 #include <stdexcept>
@@ -9,7 +9,7 @@
 #include "cli/sample/common.h"
 #include "utils.h"
 
-namespace naja::cli::sample {
+namespace naja::rounding {
 
 void normalize_extra_constraints(const naja::pipeline::ModelContract& c) {
     const std::string extra_A = c.rounding_dir + "/" + c.model_name + "_rounding_extra_A.csv";
@@ -21,9 +21,9 @@ void normalize_extra_constraints(const naja::pipeline::ModelContract& c) {
     }
     if (!ha) return;
 
-    if (file_is_empty(extra_A) || file_is_empty(extra_b)) {
-        remove_if_exists(extra_A);
-        remove_if_exists(extra_b);
+    if (naja::cli::sample::file_is_empty(extra_A) || naja::cli::sample::file_is_empty(extra_b)) {
+        naja::cli::sample::remove_if_exists(extra_A);
+        naja::cli::sample::remove_if_exists(extra_b);
     }
 }
 
@@ -41,8 +41,8 @@ void inherit_rounding_impl(const naja::pipeline::ModelContract& base,
     for (const char* suf : suffixes) {
         std::string src = base_round + "/" + base.model_name + "_rounding_" + suf;
         std::string dst = target_round + "/" + target.model_name + "_rounding_" + suf;
-        require_nonempty_file(src, std::string("base rounding ") + suf);
-        remove_if_exists(dst);
+        naja::cli::sample::require_nonempty_file(src, std::string("base rounding ") + suf);
+        naja::cli::sample::remove_if_exists(dst);
 
         if (mode == "symlink") {
             if (symlink(src.c_str(), dst.c_str()) != 0) {
@@ -69,6 +69,6 @@ void inherit_rounding_impl(const naja::pipeline::ModelContract& base,
     f << "created_at=" << current_timestamp() << "\n";
 }
 
-} // namespace naja::cli::sample
+} // namespace naja::rounding
 
 

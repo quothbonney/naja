@@ -3,7 +3,7 @@
 #include <Eigen/Dense>
 #include <string>
 
-namespace naja::pipeline {
+namespace naja::rounding {
 
 struct PairSchedule {
     Eigen::VectorXi i;
@@ -12,11 +12,9 @@ struct PairSchedule {
     Eigen::VectorXd s;
 };
 
-// CSV format: 4 columns per row: i,j,c,s (no header).
 PairSchedule load_pair_schedule_csv(const std::string& path);
 void write_pair_schedule_csv(const std::string& path, const PairSchedule& sched);
 
-} // namespace naja::pipeline
-
+} // namespace naja::rounding
 
 

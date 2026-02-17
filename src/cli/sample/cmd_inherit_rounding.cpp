@@ -4,7 +4,7 @@
 #include <string>
 
 #include "cli/sample/common.h"
-#include "cli/sample/rounding.h"
+#include "rounding/inherit.h"
 #include "pipeline/model_contract.h"
 
 namespace naja::cli::sample {
@@ -28,7 +28,7 @@ void cmd_inherit_rounding(int argc, char** argv) {
     naja::pipeline::ModelContract base = naja::pipeline::parse_model_dir(base_model_dir);
     naja::pipeline::ModelContract target = naja::pipeline::parse_model_dir(target_model_dir);
 
-    inherit_rounding_impl(base, target, mode);
+    naja::rounding::inherit_rounding_impl(base, target, mode);
     std::cout << "OK\n";
     std::cout << "base_model_dir   :: " << base.model_dir << "\n";
     std::cout << "target_model_dir :: " << target.model_dir << "\n";

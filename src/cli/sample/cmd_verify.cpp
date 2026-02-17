@@ -6,7 +6,6 @@
 
 #include "cli/sample/common.h"
 #include "pipeline/model_contract.h"
-#include "pipeline/verify_report.h"
 #include "utils.h"
 
 namespace naja::cli::sample {

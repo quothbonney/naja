@@ -2,6 +2,8 @@ cmake_minimum_required(VERSION 3.18)
 project(naja LANGUAGES CXX CUDA)
 
 enable_testing()
+option(NAJA_ENABLE_ENV_DEP_TESTS "Enable tests that require external model data and/or valid Gurobi license" OFF)
+option(NAJA_ENABLE_GPU_TESTS "Enable GPU-based sampling correctness tests (require CUDA device)" OFF)
 
 # Standards
 set(CMAKE_CXX_STANDARD 17)
@@ -37,19 +39,18 @@ set(GPU_SOURCES
     ${GPU_DIR}/backmap.cu
 )
 
-# Demo executable
 add_executable(naja
     src/main.cu
     src/engine/job_sampling.cu
     src/engine/job_bulk.cpp
     src/engine/bounds_filter.cpp
-    src/engine/iterative_rounding.cpp
-    src/engine/constraint_utils.cpp
-    src/engine/chr_diagnostics.cpp
-    src/engine/extra_constraints.cpp
+    src/rounding/jacobi.cpp
+    src/rounding/diagnostics.cpp
+    src/rounding/inherit.cpp
+    src/util/constraint_utils.cpp
+    src/pipeline/extra_constraints.cpp
     src/cli/sample_cli.cpp
     src/cli/sample/common.cpp
-    src/cli/sample/rounding.cpp
     src/cli/sample/cmd_run.cpp
     src/cli/sample/cmd_bulk.cpp
     src/cli/sample/cmd_verify.cpp
@@ -65,27 +66,16 @@ add_executable(naja
     src/conditioning/eflux.cpp
     src/conditioning/eflux2.cpp
     src/conditioning/gpr.cpp
+    src/rounding/plan.cpp
+    src/rounding/runtime_warmup.cpp
+    src/rounding/schedule_io.cpp
     src/pipeline/model_contract.cpp
-    src/pipeline/run_layout.cpp
-    src/pipeline/config_io.cpp
-    src/pipeline/pair_schedule.cpp
     src/pipeline/feasible_start_files.cpp
-    src/pipeline/verify_report.cpp
     src/pipeline/run_manifest.cpp
     src/pipeline/feasible_start_lp.cpp
     ${GPU_SOURCES}
 )
 
-# Coloring Tool (temporarily disabled)
-#add_executable(cu_coloring
-#    src/coloring/main.cu
-#    src/coloring/soft_kernels.cu
-#    src/gpu/device_utils.cu
-#    src/gpu/dmatrix.cu
-#    src/gpu/dvector.cu
-#)
-
-# Include directories
 target_include_directories(naja PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}
     ${CMAKE_CURRENT_SOURCE_DIR}/src
@@ -115,6 +105,9 @@ target_include_directories(test_eflux_smoke PRIVATE
 )
 target_compile_options(test_eflux_smoke PRIVATE -fsanitize=address -fno-omit-frame-pointer -O1 -g)
 target_link_options(test_eflux_smoke PRIVATE -fsanitize=address)
+if(NAJA_ENABLE_ENV_DEP_TESTS)
+    add_test(NAME test_eflux_smoke COMMAND test_eflux_smoke)
+endif()
 
 add_executable(test_condition_cli
     tests/test_condition_cli.cpp
@@ -128,6 +121,9 @@ target_include_directories(test_condition_cli PRIVATE
     ${EIGEN_DIR}
 )
 target_compile_options(test_condition_cli PRIVATE -O3 -march=native)
+if(NAJA_ENABLE_ENV_DEP_TESTS)
+    add_test(NAME test_condition_cli COMMAND test_condition_cli)
+endif()
 
 add_executable(test_gpr_eflux2
     tests/test_gpr_eflux2.cpp
@@ -172,7 +168,7 @@ add_test(NAME test_chr_pair_steps COMMAND test_chr_pair_steps)
 
 add_executable(test_iterative_rounding_jacobi
     tests/test_iterative_rounding_jacobi.cpp
-    src/engine/iterative_rounding.cpp
+    src/rounding/jacobi.cpp
 )
 target_include_directories(test_iterative_rounding_jacobi PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}
@@ -182,7 +178,7 @@ add_test(NAME test_iterative_rounding_jacobi COMMAND test_iterative_rounding_jac
 
 add_executable(test_extra_constraint_eps
     tests/test_extra_constraint_eps.cpp
-    src/engine/constraint_utils.cpp
+    src/util/constraint_utils.cpp
 )
 target_include_directories(test_extra_constraint_eps PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}
@@ -193,7 +189,7 @@ add_test(NAME test_extra_constraint_eps COMMAND test_extra_constraint_eps)
 
 add_executable(test_extra_constraints_mode
     tests/test_extra_constraints_mode.cpp
-    src/engine/extra_constraints.cpp
+    src/pipeline/extra_constraints.cpp
 )
 target_include_directories(test_extra_constraints_mode PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}
@@ -204,7 +200,7 @@ add_test(NAME test_extra_constraints_mode COMMAND test_extra_constraints_mode)
 
 add_executable(test_pair_schedule_io
     tests/test_pair_schedule_io.cpp
-    src/pipeline/pair_schedule.cpp
+    src/rounding/schedule_io.cpp
 )
 target_include_directories(test_pair_schedule_io PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}
@@ -223,16 +219,10 @@ target_include_directories(test_feasible_start_lp PRIVATE
     ${EIGEN_DIR}
     ${GUROBI_DIR}/include
 )
+if(NAJA_ENABLE_ENV_DEP_TESTS)
+    add_test(NAME test_feasible_start_lp COMMAND test_feasible_start_lp)
+endif()
 
-# Coloring tool includes (disabled)
-#target_include_directories(cu_coloring PRIVATE
-#    ${CMAKE_CURRENT_SOURCE_DIR}
-#    ${CMAKE_CURRENT_SOURCE_DIR}/src
-#    ${GPU_DIR}
-#    ${EIGEN_DIR}
-#)
-
-# CUDA compile options
 target_compile_options(naja PRIVATE
     $<$<COMPILE_LANGUAGE:CUDA>:
         --expt-relaxed-constexpr
@@ -241,41 +231,21 @@ target_compile_options(naja PRIVATE
     >
 )
 
-# Coloring tool compile options (disabled)
-#target_compile_options(cu_coloring PRIVATE
-#    $<$<COMPILE_LANGUAGE:CUDA>:
-#        --expt-relaxed-constexpr
-#        -Xcudafe --diag_suppress=20012
-#        --use_fast_math
-#    >
-#)
-
-# Optimization flags
 if(CMAKE_BUILD_TYPE STREQUAL "Release")
     target_compile_options(naja PRIVATE
         $<$<COMPILE_LANGUAGE:CXX>:-O3>
         $<$<COMPILE_LANGUAGE:CUDA>:-O3>
     )
-    #target_compile_options(cu_coloring PRIVATE
-    #    $<$<COMPILE_LANGUAGE:CXX>:-O3 -march=native>
-    #    $<$<COMPILE_LANGUAGE:CUDA>:-O3>
-    #)
 endif()
 
-# Debug flags
 if(CMAKE_BUILD_TYPE STREQUAL "Debug")
     target_compile_options(naja PRIVATE
         $<$<COMPILE_LANGUAGE:CUDA>:-g -lineinfo>
     )
-    #target_compile_options(cu_coloring PRIVATE
-    #    $<$<COMPILE_LANGUAGE:CUDA>:-g -lineinfo>
-    #)
 endif()
 
-# Find CUDA toolkit
 find_package(CUDAToolkit REQUIRED)
 
-# Link libraries
 target_link_libraries(naja PRIVATE
     CUDA::cudart
     CUDA::curand
@@ -315,13 +285,58 @@ target_link_libraries(test_feasible_start_files PRIVATE
 set_target_properties(test_feasible_start_files PROPERTIES
     BUILD_RPATH "${GUROBI_DIR}/lib"
 )
+if(NAJA_ENABLE_ENV_DEP_TESTS)
+    add_test(NAME test_feasible_start_files COMMAND test_feasible_start_files)
+endif()
 
-# Coloring tool links (disabled)
-#target_link_libraries(cu_coloring PRIVATE
-#    CUDA::cudart
-#    CUDA::curand
-#    CUDA::cublas
-#)
+add_test(
+    NAME test_sample_cli_dry_run
+    COMMAND bash ${CMAKE_CURRENT_SOURCE_DIR}/tests/test_sample_cli_dry_run.sh
+)
+
+# ---- GPU sampling correctness tests (require CUDA device) ----
+if(NAJA_ENABLE_GPU_TESTS)
+    set(GPU_TEST_INCLUDES
+        ${CMAKE_CURRENT_SOURCE_DIR}
+        ${CMAKE_CURRENT_SOURCE_DIR}/src
+        ${GPU_DIR}
+        ${EIGEN_DIR}
+    )
+    set(GPU_TEST_LIBS CUDA::cudart CUDA::curand CUDA::cublas)
+    set(GPU_TEST_OPTS
+        $<$<COMPILE_LANGUAGE:CUDA>:--expt-relaxed-constexpr -Xcudafe --diag_suppress=20012>
+    )
+
+    # Detect CUDA runtime library path for RPATH
+    get_target_property(_cudart_loc CUDA::cudart IMPORTED_LOCATION)
+    if(_cudart_loc)
+        get_filename_component(CUDA_LIB_DIR "${_cudart_loc}" DIRECTORY)
+    else()
+        set(CUDA_LIB_DIR "${CUDAToolkit_LIBRARY_DIR}")
+    endif()
+
+    set(GPU_TEST_TARGETS
+        test_gpu_sampling_feasibility
+        test_gpu_sampling_cube_moments
+        test_gpu_sampling_simplex_moments
+        test_gpu_backmap_correctness
+        test_gpu_thin_polytope
+    )
+
+    add_executable(test_gpu_sampling_feasibility tests/test_gpu_sampling_feasibility.cu ${GPU_SOURCES})
+    add_executable(test_gpu_sampling_cube_moments tests/test_gpu_sampling_cube_moments.cu ${GPU_SOURCES})
+    add_executable(test_gpu_sampling_simplex_moments tests/test_gpu_sampling_simplex_moments.cu ${GPU_SOURCES})
+    add_executable(test_gpu_backmap_correctness tests/test_gpu_backmap_correctness.cu ${GPU_SOURCES})
+    add_executable(test_gpu_thin_polytope tests/test_gpu_thin_polytope.cu ${GPU_SOURCES})
+
+    foreach(T ${GPU_TEST_TARGETS})
+        target_include_directories(${T} PRIVATE ${GPU_TEST_INCLUDES})
+        target_link_libraries(${T} PRIVATE ${GPU_TEST_LIBS})
+        target_compile_options(${T} PRIVATE ${GPU_TEST_OPTS})
+        set_target_properties(${T} PROPERTIES BUILD_RPATH "${CUDA_LIB_DIR}")
+        add_test(NAME ${T} COMMAND ${T})
+    endforeach()
+endif()
 
 message(STATUS "CUDA version: ${CUDAToolkit_VERSION}")
 message(STATUS "CUDA architectures: ${CMAKE_CUDA_ARCHITECTURES}")

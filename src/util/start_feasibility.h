@@ -7,7 +7,7 @@
 #include <stdexcept>
 #include <string>
 
-namespace naja::engine {
+namespace naja::util {
 
 inline void require_feasible_start(const Eigen::MatrixXd& A,
                                    const Eigen::VectorXd& b,
@@ -34,6 +34,6 @@ inline void require_feasible_start(const Eigen::MatrixXd& A,
     }
 }
 
-} // namespace naja::engine
+} // namespace naja::util
 
 

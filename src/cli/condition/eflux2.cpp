@@ -7,6 +7,7 @@
 #include <vector>
 
 #include "conditioning/eflux2.h"
+#include "cli/condition/common.h"
 #include "cli/sample/common.h"
 
 namespace {
@@ -27,27 +28,16 @@ namespace {
 namespace naja::condition {
 
 int cmd_eflux2(int argc, char** argv) {
-    std::string base_model_dir;
-    std::string out_model_dir;
-    std::string row_id;
-    std::string reaction_scores;
+    ConditionCommonArgs common;
     naja::conditioning::Eflux2Params p;
     naja::conditioning::VanrijsewijkParams2 vr;
     bool use_vr = false;
 
-    std::vector<std::string> cmdline;
-    cmdline.reserve((size_t)argc + 3);
-    cmdline.push_back("naja");
-    cmdline.push_back("condition");
-    cmdline.push_back("eflux2");
-    for (int i = 0; i < argc; ++i) cmdline.push_back(argv[i]);
+    std::vector<std::string> cmdline = build_condition_cmdline("eflux2", argc, argv);
 
     for (int i = 0; i < argc; ++i) {
         std::string a = argv[i];
-        if (a == "--base-model-dir") base_model_dir = naja::cli::sample::next_arg(i, argc, argv, a);
-        else if (a == "--out-model-dir") out_model_dir = naja::cli::sample::next_arg(i, argc, argv, a);
-        else if (a == "--row-id") row_id = naja::cli::sample::next_arg(i, argc, argv, a);
-        else if (a == "--reaction-scores") reaction_scores = naja::cli::sample::next_arg(i, argc, argv, a);
+        if (parse_condition_common_flag(a, i, argc, argv, common)) {}
 
         else if (a == "--vanrijsewijk-expr-long") { vr.expr_operon_long_csv = naja::cli::sample::next_arg(i, argc, argv, a); use_vr = true; }
         else if (a == "--ijo-gene-ref") { vr.ijo_gene_reference_csv = naja::cli::sample::next_arg(i, argc, argv, a); use_vr = true; }
@@ -63,11 +53,11 @@ int cmd_eflux2(int argc, char** argv) {
         else die_usage("unknown flag: " + a);
     }
 
-    if (base_model_dir.empty()) die_usage("missing --base-model-dir");
-    if (out_model_dir.empty()) die_usage("missing --out-model-dir");
-    if (row_id.empty()) die_usage("missing --row-id");
-    if (!use_vr && reaction_scores.empty()) die_usage("missing --reaction-scores (or vanrijsewijk flags)");
-    if (use_vr && (!reaction_scores.empty())) die_usage("cannot pass both --reaction-scores and vanrijsewijk flags");
+    if (common.base_model_dir.empty()) die_usage("missing --base-model-dir");
+    if (common.out_model_dir.empty()) die_usage("missing --out-model-dir");
+    if (common.row_id.empty()) die_usage("missing --row-id");
+    if (!use_vr && common.reaction_scores.empty()) die_usage("missing --reaction-scores (or vanrijsewijk flags)");
+    if (use_vr && (!common.reaction_scores.empty())) die_usage("cannot pass both --reaction-scores and vanrijsewijk flags");
     if (use_vr) {
         if (vr.expr_operon_long_csv.empty()) die_usage("missing --vanrijsewijk-expr-long");
         if (vr.ijo_gene_reference_csv.empty()) die_usage("missing --ijo-gene-ref");
@@ -75,9 +65,9 @@ int cmd_eflux2(int argc, char** argv) {
     }
 
     if (use_vr) {
-        naja::conditioning::eflux2_condition_vanrijsewijk(base_model_dir, out_model_dir, row_id, vr, p, cmdline);
+        naja::conditioning::eflux2_condition_vanrijsewijk(common.base_model_dir, common.out_model_dir, common.row_id, vr, p, cmdline);
     } else {
-        naja::conditioning::eflux2_condition(base_model_dir, out_model_dir, row_id, reaction_scores, p, cmdline);
+        naja::conditioning::eflux2_condition(common.base_model_dir, common.out_model_dir, common.row_id, common.reaction_scores, p, cmdline);
     }
     return 0;
 }

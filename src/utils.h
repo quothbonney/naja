@@ -91,6 +91,27 @@ inline std::string current_datestamp_compact() {
     return {};
 }
 
+inline std::string trim_copy(const std::string& input) {
+    const char* ws = " \t\r\n";
+    size_t start = input.find_first_not_of(ws);
+    if (start == std::string::npos) return "";
+    size_t end = input.find_last_not_of(ws);
+    return input.substr(start, end - start + 1);
+}
+
+inline void require_nonempty_file(const std::string& path, const std::string& what) {
+    if (!path_exists(path)) {
+        throw std::runtime_error("missing " + what + ": " + path);
+    }
+    struct stat st;
+    if (stat(path.c_str(), &st) != 0) {
+        throw std::runtime_error("cannot stat " + what + ": " + path);
+    }
+    if (st.st_size == 0) {
+        throw std::runtime_error("empty " + what + ": " + path);
+    }
+}
+
 struct Timer {
     std::chrono::high_resolution_clock::time_point start;
     Timer() : start(std::chrono::high_resolution_clock::now()) {}

@@ -1,4 +1,4 @@
-#include "job.h"
+#include "engine/job.h"
 
 #include <atomic>
 #include <chrono>
@@ -20,14 +20,6 @@
 #include "utils.h"
 
 namespace {
-
-std::string trim_copy(const std::string& input) {
-    const char* whitespace = " \t\r\n";
-    size_t start = input.find_first_not_of(whitespace);
-    if (start == std::string::npos) return "";
-    size_t end = input.find_last_not_of(whitespace);
-    return input.substr(start, end - start + 1);
-}
 
 std::vector<std::string> load_bulk_jobs(const RuntimeConfig& cfg) {
     std::vector<std::string> jobs;

@@ -1,4 +1,4 @@
-#include "pipeline/pair_schedule.h"
+#include "rounding/schedule_io.h"
 
 #include <cmath>
 #include <fstream>
@@ -7,7 +7,7 @@
 #include <string>
 #include <vector>
 
-namespace naja::pipeline {
+namespace naja::rounding {
 
 PairSchedule load_pair_schedule_csv(const std::string& path) {
     std::ifstream f(path);
@@ -24,7 +24,6 @@ PairSchedule load_pair_schedule_csv(const std::string& path) {
     int lineno = 0;
     while (std::getline(f, line)) {
         ++lineno;
-        // trim leading ws
         while (!line.empty() && (line.front() == ' ' || line.front() == '\t')) line.erase(line.begin());
         if (line.empty() || line[0] == '#') continue;
 
@@ -47,7 +46,6 @@ PairSchedule load_pair_schedule_csv(const std::string& path) {
         if (!std::isfinite(c) || !std::isfinite(s)) {
             throw std::runtime_error("pair schedule parse error at line " + std::to_string(lineno) + ": non-finite c/s");
         }
-        // sanity: should be unit-norm (allow slack)
         const double n2 = c * c + s * s;
         if (!(n2 > 0.0)) {
             throw std::runtime_error("pair schedule parse error at line " + std::to_string(lineno) + ": zero norm");
@@ -89,7 +87,6 @@ void write_pair_schedule_csv(const std::string& path, const PairSchedule& sched)
     }
 }
 
-} // namespace naja::pipeline
-
+} // namespace naja::rounding
 
 

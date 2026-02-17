@@ -1,5 +1,5 @@
-#include "engine/extra_constraints.h"
-#include "engine/start_feasibility.h"
+#include "pipeline/extra_constraints.h"
+#include "util/start_feasibility.h"
 
 #include <Eigen/Dense>
 
@@ -25,24 +25,24 @@ int main() {
     {
         Eigen::MatrixXd A2 = A;
         Eigen::VectorXd b2 = b;
-        bool loaded = naja::engine::maybe_augment_extra_constraints(
-            A2, b2, &Ae, &be, naja::engine::ExtraConstraintsMode::Ignore, 0.0
+        bool loaded = naja::pipeline::maybe_augment_extra_constraints(
+            A2, b2, &Ae, &be, naja::pipeline::ExtraConstraintsMode::Ignore, 0.0
         );
         if (loaded) throw std::runtime_error("expected ignore mode to not load extra constraints");
-        naja::engine::require_feasible_start(A2, b2, x0, 1e-9, "ignore");
+        naja::util::require_feasible_start(A2, b2, x0, 1e-9, "ignore");
     }
 
     // Auto mode: should append and then feasibility check should fail.
     {
         Eigen::MatrixXd A2 = A;
         Eigen::VectorXd b2 = b;
-        bool loaded = naja::engine::maybe_augment_extra_constraints(
-            A2, b2, &Ae, &be, naja::engine::ExtraConstraintsMode::Auto, 0.0
+        bool loaded = naja::pipeline::maybe_augment_extra_constraints(
+            A2, b2, &Ae, &be, naja::pipeline::ExtraConstraintsMode::Auto, 0.0
         );
         if (!loaded) throw std::runtime_error("expected auto mode to load extra constraints");
         bool ok = false;
         try {
-            naja::engine::require_feasible_start(A2, b2, x0, 1e-9, "auto");
+            naja::util::require_feasible_start(A2, b2, x0, 1e-9, "auto");
         } catch (const std::runtime_error&) {
             ok = true;
         }

@@ -1,4 +1,4 @@
-#include "pipeline/pair_schedule.h"
+#include "rounding/schedule_io.h"
 
 #include <cmath>
 #include <fstream>
@@ -17,7 +17,7 @@ int main() {
         f << "2,3,0.6,0.8\n";
     }
 
-    auto s = naja::pipeline::load_pair_schedule_csv(path);
+    auto s = naja::rounding::load_pair_schedule_csv(path);
     if (s.i.size() != 2 || s.j.size() != 2 || s.c.size() != 2 || s.s.size() != 2) {
         std::cerr << "bad sizes\n";
         return 1;

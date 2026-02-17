@@ -1,7 +1,7 @@
 #include "cli/condition/registry.h"
 
+#include <array>
 #include <string>
-#include <utility>
 #include <vector>
 
 #include "cli/condition/eflux.h"
@@ -10,11 +10,11 @@
 namespace naja::condition {
 namespace {
 
-static const std::vector<std::pair<std::string, ConditionCmdFn>>& table() {
-    static const std::vector<std::pair<std::string, ConditionCmdFn>> t = {
+static const std::array<std::pair<const char*, ConditionCmdFn>, 2>& table() {
+    static const std::array<std::pair<const char*, ConditionCmdFn>, 2> t = {{
         {"eflux", &cmd_eflux},
         {"eflux2", &cmd_eflux2},
-    };
+    }};
     return t;
 }
 
@@ -29,6 +29,7 @@ ConditionCmdFn lookup_condition_cmd(const std::string& subcommand) {
 
 std::vector<std::string> list_condition_subcommands() {
     std::vector<std::string> out;
+    out.reserve(table().size());
     for (const auto& kv : table()) out.push_back(kv.first);
     return out;
 }

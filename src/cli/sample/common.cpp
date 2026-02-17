@@ -34,16 +34,7 @@ std::string next_arg(int& i, int argc, char** argv, const std::string& flag) {
 }
 
 void require_nonempty_file(const std::string& path, const std::string& what) {
-    if (!path_exists(path)) {
-        throw std::runtime_error("missing " + what + ": " + path);
-    }
-    struct stat st;
-    if (stat(path.c_str(), &st) != 0) {
-        throw std::runtime_error("cannot stat " + what + ": " + path);
-    }
-    if (st.st_size == 0) {
-        throw std::runtime_error("empty " + what + ": " + path);
-    }
+    ::require_nonempty_file(path, what);
 }
 
 bool file_is_empty(const std::string& path) {

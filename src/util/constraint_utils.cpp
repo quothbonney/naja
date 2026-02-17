@@ -1,8 +1,9 @@
-#include "engine/constraint_utils.h"
+#include "util/constraint_utils.h"
 
 #include <stdexcept>
+#include <vector>
 
-namespace naja::engine {
+namespace naja::util {
 
 int tight_constraint_rank(const Eigen::MatrixXd& A, const Eigen::VectorXd& b, const Eigen::VectorXd& x, double tol) {
     if (A.rows() != b.size()) {
@@ -30,7 +31,6 @@ int tight_constraint_rank(const Eigen::MatrixXd& A, const Eigen::VectorXd& b, co
     return (int)At.fullPivLu().rank();
 }
 
-} // namespace naja::engine
-
+} // namespace naja::util
 
 

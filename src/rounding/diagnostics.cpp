@@ -1,10 +1,10 @@
-#include "engine/chr_diagnostics.h"
+#include "rounding/diagnostics.h"
 
 #include <cmath>
 #include <limits>
 #include <stdexcept>
 
-namespace naja::engine {
+namespace naja::rounding {
 
 ChrAxisChordSummary chr_axis_chords(const Eigen::MatrixXd& A, const Eigen::VectorXd& b, const Eigen::VectorXd& x0) {
     if (A.rows() != b.size()) {
@@ -16,7 +16,6 @@ ChrAxisChordSummary chr_axis_chords(const Eigen::MatrixXd& A, const Eigen::Vecto
     const int m = A.rows();
     const int n = A.cols();
 
-    // slack = b - A*x0
     const Eigen::VectorXd slack = b - A * x0;
 
     ChrAxisChordSummary out;
@@ -45,7 +44,6 @@ ChrAxisChordSummary chr_axis_chords(const Eigen::MatrixXd& A, const Eigen::Vecto
             inv_max = std::max(inv_max, inv_dist);
         }
 
-        // chord endpoints in the kernel's alpha parameterization
         const double a_lo = 1.0 / inv_min;
         const double a_hi = 1.0 / inv_max;
         const double chord = a_hi - a_lo;
@@ -55,7 +53,6 @@ ChrAxisChordSummary chr_axis_chords(const Eigen::MatrixXd& A, const Eigen::Vecto
     return out;
 }
 
-} // namespace naja::engine
-
+} // namespace naja::rounding
 
 

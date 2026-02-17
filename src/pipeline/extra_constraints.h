@@ -3,7 +3,7 @@
 #include <Eigen/Dense>
 #include <string>
 
-namespace naja::engine {
+namespace naja::pipeline {
 
 enum class ExtraConstraintsMode {
     Auto,
@@ -23,7 +23,6 @@ bool maybe_augment_extra_constraints(Eigen::MatrixXd& A,
                                     ExtraConstraintsMode mode,
                                     double extra_eps);
 
-} // namespace naja::engine
-
+} // namespace naja::pipeline
 
 

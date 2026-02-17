@@ -9,49 +9,13 @@
 #include <utility>
 #include <vector>
 
-#include <sys/stat.h>
-
 #include "csv_loader.h"
 #include "npy.h"
+#include "pipeline/text_io.h"
 #include "utils.h"
 
 namespace naja::engine {
 namespace {
-
-std::string trim_copy(const std::string& input) {
-    const char* whitespace = " \t\r\n";
-    size_t start = input.find_first_not_of(whitespace);
-    if (start == std::string::npos) return "";
-    size_t end = input.find_last_not_of(whitespace);
-    return input.substr(start, end - start + 1);
-}
-
-void require_nonempty_file(const std::string& path, const std::string& what) {
-    if (!path_exists(path)) {
-        throw std::runtime_error("missing " + what + ": " + path);
-    }
-    struct stat st;
-    if (stat(path.c_str(), &st) != 0) {
-        throw std::runtime_error("cannot stat " + what + ": " + path);
-    }
-    if (st.st_size == 0) {
-        throw std::runtime_error("empty " + what + " is illegal: " + path);
-    }
-}
-
-std::vector<std::string> load_lines_nonempty(const std::string& path) {
-    std::ifstream file(path);
-    if (!file.is_open()) {
-        throw std::runtime_error("Cannot open file: " + path);
-    }
-    std::vector<std::string> lines;
-    std::string line;
-    while (std::getline(file, line)) {
-        line = trim_copy(line);
-        if (!line.empty()) lines.push_back(line);
-    }
-    return lines;
-}
 
 void write_bounds_report_json(const std::string& path,
                               const RuntimeConfig& cfg,
@@ -110,11 +74,11 @@ void bounds_filter_and_write(const RuntimeConfig& cfg, const Eigen::MatrixXd& sa
     const std::string lb_path = gem_dir + "/l_bounds.csv";
     const std::string ub_path = gem_dir + "/u_bounds.csv";
 
-    require_nonempty_file(rxn_ids_path, "gem/reaction_ids.txt");
-    require_nonempty_file(lb_path, "gem/l_bounds.csv");
-    require_nonempty_file(ub_path, "gem/u_bounds.csv");
+    ::require_nonempty_file(rxn_ids_path, "gem/reaction_ids.txt");
+    ::require_nonempty_file(lb_path, "gem/l_bounds.csv");
+    ::require_nonempty_file(ub_path, "gem/u_bounds.csv");
 
-    std::vector<std::string> rxn_ids = load_lines_nonempty(rxn_ids_path);
+    std::vector<std::string> rxn_ids = naja::pipeline::read_nonempty_trimmed_lines(rxn_ids_path);
     Eigen::VectorXd lb = csv::loadVector(lb_path);
     Eigen::VectorXd ub = csv::loadVector(ub_path);
 

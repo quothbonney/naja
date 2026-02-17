@@ -2,7 +2,7 @@
 
 #include <stdexcept>
 
-#include "engine/start_feasibility.h"
+#include "util/start_feasibility.h"
 
 static void expect_throws_infeasible() {
     Eigen::MatrixXd A(1, 1);
@@ -13,7 +13,7 @@ static void expect_throws_infeasible() {
     x0(0) = 2.0;
     bool threw = false;
     try {
-        naja::engine::require_feasible_start(A, b, x0, 1e-9, "unit");
+        naja::util::require_feasible_start(A, b, x0, 1e-9, "unit");
     } catch (const std::runtime_error&) {
         threw = true;
     }
@@ -33,7 +33,7 @@ static void expect_no_throw_feasible() {
          0.0, -1.0;
     b << 1.0, 0.0;
     x0 << 1.0, 0.0;
-    naja::engine::require_feasible_start(A, b, x0, 1e-9, "unit");
+    naja::util::require_feasible_start(A, b, x0, 1e-9, "unit");
 }
 
 int main() {

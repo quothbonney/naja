@@ -1,9 +1,9 @@
-#include "engine/extra_constraints.h"
+#include "pipeline/extra_constraints.h"
 
 #include <algorithm>
 #include <stdexcept>
 
-namespace naja::engine {
+namespace naja::pipeline {
 
 ExtraConstraintsMode parse_extra_constraints_mode(const std::string& s) {
     std::string t = s;
@@ -57,7 +57,6 @@ bool maybe_augment_extra_constraints(Eigen::MatrixXd& A,
     return true;
 }
 
-} // namespace naja::engine
-
+} // namespace naja::pipeline
 
 

@@ -2,7 +2,7 @@
 
 #include <utility>
 
-namespace naja::engine {
+namespace naja::rounding {
 
 // Given the 2x2 covariance block for coordinates (i,j):
 //   [ var_i   cov_ij ]
@@ -13,7 +13,6 @@ namespace naja::engine {
 // This is the classic Jacobi rotation angle that diagonalizes a symmetric 2x2 matrix.
 std::pair<double, double> jacobi_rotation_cs(double var_i, double var_j, double cov_ij);
 
-} // namespace naja::engine
-
+} // namespace naja::rounding
 
 

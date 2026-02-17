@@ -17,16 +17,6 @@
 namespace naja::pipeline {
 namespace {
 
-std::string read_all(const std::string& path) {
-    std::ifstream f(path);
-    if (!f.is_open()) {
-        throw std::runtime_error("cannot read file: " + path);
-    }
-    std::ostringstream ss;
-    ss << f.rdbuf();
-    return ss.str();
-}
-
 std::string exec_capture(const std::string& cmd) {
     std::array<char, 4096> buf{};
     std::string out;
@@ -64,15 +54,6 @@ std::string sha256sum(const std::string& path) {
     return out;
 }
 
-std::string git_head_or_empty(const std::string& cwd) {
-    std::string cmd = "git -C " + cwd + " rev-parse HEAD 2>/dev/null";
-    try {
-        return exec_capture(cmd);
-    } catch (...) {
-        return {};
-    }
-}
-
 void json_string(std::ostream& o, const std::string& s) {
     o << "\"";
     for (char c : s) {
@@ -102,25 +83,6 @@ void write_run_manifest(const RuntimeConfig& cfg,
         throw std::runtime_error("cannot stat binary: " + exe);
     }
 
-    // best-effort: repo root may not be a git checkout
-    std::string git_head = git_head_or_empty(std::string("."));
-    if (git_head.empty()) {
-        auto slash = exe.find_last_of('/');
-        if (slash != std::string::npos) {
-            git_head = git_head_or_empty(exe.substr(0, slash));
-        }
-    }
-
-    std::string inherited_from_path;
-    std::string inherited_from;
-    if (model) {
-        const std::string p = model->rounding_dir + "/INHERITED_FROM.txt";
-        if (path_exists(p)) {
-            inherited_from_path = make_absolute_path(p);
-            inherited_from = read_all(p);
-        }
-    }
-
     std::ofstream f(out_path);
     if (!f.is_open()) {
         throw std::runtime_error("cannot write run manifest: " + out_path);
@@ -148,10 +110,6 @@ void write_run_manifest(const RuntimeConfig& cfg,
     f << "    \"size\": " << (long long)st.st_size << "\n";
     f << "  },\n";
 
-    f << "  \"git_head\": ";
-    if (!git_head.empty()) json_string(f, git_head); else f << "null";
-    f << ",\n";
-
     f << "  \"config\": {\n";
     f << "    \"gpu_device\": " << cfg.GPU_DEVICE << ",\n";
     f << "    \"n_chains\": " << cfg.N_CHAINS << ",\n";
@@ -177,15 +135,6 @@ void write_run_manifest(const RuntimeConfig& cfg,
     f << "    \"shift\": "; json_string(f, make_absolute_path(cfg.SHIFT_FILE)); f << ",\n";
     f << "    \"extra_A\": "; json_string(f, make_absolute_path(cfg.A_EXTRA_FILE)); f << ",\n";
     f << "    \"extra_b\": "; json_string(f, make_absolute_path(cfg.B_EXTRA_FILE)); f << "\n";
-    f << "  },\n";
-
-    f << "  \"rounding_provenance\": {\n";
-    f << "    \"path\": ";
-    if (!inherited_from_path.empty()) json_string(f, inherited_from_path); else f << "null";
-    f << ",\n";
-    f << "    \"contents\": ";
-    if (!inherited_from.empty()) json_string(f, inherited_from); else f << "null";
-    f << "\n";
     f << "  }\n";
 
     f << "}\n";
