@@ -3,10 +3,14 @@
 #include <Eigen/Dense>
 #include <fstream>
 #include <cstdlib>
+#include <atomic>
+#include <exception>
 #include <iostream>
+#include <mutex>
 #include <stdexcept>
 #include <string>
 #include <sstream>
+#include <thread>
 #include <vector>
 #include <algorithm>
 #include <cmath>
@@ -151,6 +155,60 @@ void build_extra_from_bounds(const naja::pipeline::ModelContract& c,
     write_vector_csv(extra_b, b);
 }
 
+size_t choose_prepare_lp_workers(size_t n_models) {
+    if (n_models <= 1) return 1;
+    unsigned hw = std::thread::hardware_concurrency();
+    size_t workers = hw ? static_cast<size_t>(hw) : 8;
+    // Keep concurrency moderate by default to avoid oversubscribing memory
+    // and licenses while still materially reducing wall-clock time.
+    workers = std::min<size_t>(workers, 16);
+    workers = std::min(workers, n_models);
+    return std::max<size_t>(workers, 2);
+}
+
+void ensure_feasible_starts_parallel(const std::vector<naja::pipeline::ModelContract>& contracts) {
+    if (contracts.empty()) return;
+
+    const size_t n_workers = choose_prepare_lp_workers(contracts.size());
+    if (n_workers == 1) {
+        for (const auto& c : contracts) {
+            naja::pipeline::ensure_feasible_rounding_start_if_extra_present(c);
+            naja::pipeline::validate_contract(c, true);
+        }
+        return;
+    }
+
+    std::atomic<size_t> next_idx{0};
+    std::exception_ptr first_error;
+    std::mutex error_mutex;
+
+    auto worker = [&]() {
+        while (true) {
+            const size_t idx = next_idx.fetch_add(1);
+            if (idx >= contracts.size()) break;
+            try {
+                const auto& c = contracts[idx];
+                naja::pipeline::ensure_feasible_rounding_start_if_extra_present(c);
+                naja::pipeline::validate_contract(c, true);
+            } catch (...) {
+                std::lock_guard<std::mutex> lock(error_mutex);
+                if (!first_error) first_error = std::current_exception();
+            }
+        }
+    };
+
+    std::vector<std::thread> workers;
+    workers.reserve(n_workers);
+    for (size_t i = 0; i < n_workers; ++i) {
+        workers.emplace_back(worker);
+    }
+    for (auto& t : workers) {
+        t.join();
+    }
+
+    if (first_error) std::rethrow_exception(first_error);
+}
+
 } // namespace
 
 void cmd_prepare(int argc, char** argv) {
@@ -227,6 +285,8 @@ void cmd_prepare(int argc, char** argv) {
 
     std::vector<std::string> prepared;
     prepared.reserve(models.size());
+    std::vector<naja::pipeline::ModelContract> contracts_for_feasible_start;
+    contracts_for_feasible_start.reserve(models.size());
 
     for (const auto& name : models) {
         naja::pipeline::ModelContract c = naja::pipeline::parse_model_dir(models_root + "/" + name);
@@ -320,11 +380,13 @@ void cmd_prepare(int argc, char** argv) {
         }
 
         if (!dry_run) {
-            naja::pipeline::ensure_feasible_rounding_start_if_extra_present(c);
-            naja::pipeline::validate_contract(c, true);
+            contracts_for_feasible_start.push_back(c);
         }
-
         prepared.push_back(name);
+    }
+
+    if (!dry_run) {
+        ensure_feasible_starts_parallel(contracts_for_feasible_start);
     }
 
     if (!out_model_list.empty() && !dry_run) {
@@ -371,4 +433,3 @@ void cmd_prepare(int argc, char** argv) {
 }
 
 } // namespace naja::cli::sample
-

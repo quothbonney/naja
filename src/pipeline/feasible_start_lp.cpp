@@ -5,6 +5,7 @@
 #include <cmath>
 #include <cstdlib>
 #include <filesystem>
+#include <mutex>
 #include <stdexcept>
 #include <string>
 #include <vector>
@@ -12,13 +13,21 @@
 namespace naja::pipeline {
 
 static void ensure_gurobi_license_env() {
-    const char* path = "/data/rbg/users/jdcarson/gurobi.lic";
-    if (!std::filesystem::exists(path)) {
-        throw std::runtime_error(std::string("GRB_LICENSE_FILE is unset and license file does not exist: ") + path);
-    }
-    if (setenv("GRB_LICENSE_FILE", path, 1) != 0) {
-        throw std::runtime_error("failed to set GRB_LICENSE_FILE");
-    }
+    static std::once_flag once;
+    std::call_once(once, []() {
+        const char* existing = std::getenv("GRB_LICENSE_FILE");
+        if (existing != nullptr && existing[0] != '\0') {
+            return;
+        }
+
+        const char* path = "/data/rbg/users/jdcarson/gurobi.lic";
+        if (!std::filesystem::exists(path)) {
+            throw std::runtime_error(std::string("GRB_LICENSE_FILE is unset and license file does not exist: ") + path);
+        }
+        if (setenv("GRB_LICENSE_FILE", path, 1) != 0) {
+            throw std::runtime_error("failed to set GRB_LICENSE_FILE");
+        }
+    });
 }
 
 std::pair<Eigen::VectorXd, double> axis_aligned_cube_center_lp_gurobi(const Eigen::MatrixXd& A,
@@ -37,6 +46,7 @@ std::pair<Eigen::VectorXd, double> axis_aligned_cube_center_lp_gurobi(const Eige
         model.set(GRB_IntParam_NumericFocus, 3);
         model.set(GRB_DoubleParam_FeasibilityTol, 1e-9);
         model.set(GRB_DoubleParam_OptimalityTol, 1e-9);
+        model.set(GRB_IntParam_Threads, 1);
 
         std::vector<GRBVar> x((size_t)n);
         for (int j = 0; j < n; ++j) {
@@ -77,5 +87,4 @@ std::pair<Eigen::VectorXd, double> axis_aligned_cube_center_lp_gurobi(const Eige
 }
 
 } // namespace naja::pipeline
-
 

@@ -3,6 +3,7 @@
 #include <Eigen/Dense>
 
 #include <filesystem>
+#include <exception>
 #include <fstream>
 #include <iomanip>
 #include <stdexcept>
@@ -65,6 +66,20 @@ void ensure_feasible_rounding_start_if_extra_present(const ModelContract& c) {
     b_aug.head(b.size()) = b;
     b_aug.tail(bex.size()) = bex;
 
+    // Fast path: if the current start already satisfies augmented constraints,
+    // keep it and skip the LP solve.
+    if (path_exists(start_path)) {
+        try {
+            Eigen::VectorXd x_existing = csv::loadVector(start_path);
+            if (x_existing.size() == A_aug.cols()) {
+                naja::util::require_feasible_start(A_aug, b_aug, x_existing, 1e-9, "feasible_start_files(existing)");
+                return;
+            }
+        } catch (const std::exception&) {
+            // Fall through to LP recomputation.
+        }
+    }
+
     auto [x, r] = axis_aligned_cube_center_lp_gurobi(A_aug, b_aug);
     (void)r;
     naja::util::require_feasible_start(A_aug, b_aug, x, 1e-9, "feasible_start_files");
@@ -75,5 +90,3 @@ void ensure_feasible_rounding_start_if_extra_present(const ModelContract& c) {
 }
 
 } // namespace naja::pipeline
-
-
