@@ -26,20 +26,19 @@ namespace naja {
                                         const DVector<int>* pair_i,
                                         const DVector<int>* pair_j,
                                         const DVector<double>* pair_c,
-                                        const DVector<double>* pair_s)
+                                        const DVector<double>* pair_s,
+                                        double dikin_prob,
+                                        const DMatrix<double>* dikin_Av,
+                                        const DMatrix<double>* dikin_V,
+                                        int n_dikin_dirs)
         {
-            // TODO: Implement logic for launch config when tpb_ss are not provided
             int N = A_d.cols;
 
             DMatrix<double> samples_d(N, nchains * nspc), slack_d(b_d, nchains);
 
-            // Init cuBLAS handle
             CUBLASHandle handle;
-
-            // Init slack: slack = b - A*x0
             handle.GeMM(A_d, X_d, slack_d, -1.0, 1.0);
 
-            // Init PRNG
             PRNGState<curandStateMRG32k3a> gen(nchains);
             std::pair<int, int> launchConfig = getOptimalLaunchConfig(initPrngStatesCHR<curandStateMRG32k3a>);
             int threadsPerBlock = launchConfig.first;
@@ -50,7 +49,6 @@ namespace naja {
             int threads_ss = (tpb_ss > 0) ? tpb_ss : 128;
             int blocks_ss = nchains;
 
-            // Launch CHR kernel
             launchChrKernel(A_d, b_d, slack_d, X_d, samples_d, gen.states,
                             nspc, thinning, threads_ss, blocks_ss,
                             false,
@@ -59,12 +57,10 @@ namespace naja {
                             static_cast<double>(ksparse_prob),
                             ksparse_k,
                             pair_mode,
-                            pair_i,
-                            pair_j,
-                            pair_c,
-                            pair_s,
-                            0);
-
+                            pair_i, pair_j, pair_c, pair_s,
+                            0,
+                            static_cast<double>(dikin_prob),
+                            dikin_Av, dikin_V, n_dikin_dirs);
 
             return samples_d;
         }
@@ -89,7 +85,7 @@ namespace naja {
                                                        const DVector<double>* pair_c,
                                                        const DVector<double>* pair_s)
         {
-            DMatrix<double> samples_d = CoordinateHitAndRun(A_d, b_d, X_d, nspc, thinning, nchains, tpb_ss, seed, pair_prob, resync_interval, ksparse_prob, ksparse_k, pair_mode, pair_i, pair_j, pair_c, pair_s);
+            DMatrix<double> samples_d = CoordinateHitAndRun(A_d, b_d, X_d, nspc, thinning, nchains, tpb_ss, seed, pair_prob, resync_interval, ksparse_prob, ksparse_k, pair_mode, pair_i, pair_j, pair_c, pair_s, 0.0, nullptr, nullptr, 0);
 
             CUBLASHandle handle;
             DMatrix<double> result_d(transformation_d.rows, samples_d.cols);
@@ -251,7 +247,11 @@ namespace naja {
                                   const int* pair_j,
                                   const Real* pair_c,
                                   const Real* pair_s,
-                                  int n_pairs){
+                                  int n_pairs,
+                                  Real dikin_prob = Real(0.0),
+                                  const Real* dikin_Av = nullptr,
+                                  const Real* dikin_V = nullptr,
+                                  int n_dikin_dirs = 0){
 
             int tid = threadIdx.x;
             int bid = blockIdx.x;
@@ -277,6 +277,8 @@ namespace naja {
             __shared__ int k_shared;
             __shared__ int ks_idx_shared[32];
             __shared__ Real ks_coef_shared[32];
+            __shared__ int use_dikin_shared;
+            __shared__ int dikin_dir_shared;
 
             for (int t = 0; t < samples_per_chain * thinning; ++t){
                 
@@ -285,8 +287,10 @@ namespace naja {
                 if (tid == 0) {
                     PRNGenerator localState = global_states[bid];
                     Real ucoord = curand_uniform_double(&localState);
-                    const int want_ksparse = (ksparse_prob > Real(0.0) && ucoord < ksparse_prob) ? 1 : 0;
-                    const int want_pair = (!want_ksparse && pair_prob > Real(0.0) && ucoord < (ksparse_prob + pair_prob)) ? 1 : 0;
+                    // Direction selection: dikin > ksparse > pair > coordinate
+                    const int want_dikin = (dikin_prob > Real(0.0) && n_dikin_dirs > 0 && ucoord < dikin_prob) ? 1 : 0;
+                    const int want_ksparse = (!want_dikin && ksparse_prob > Real(0.0) && ucoord < (dikin_prob + ksparse_prob)) ? 1 : 0;
+                    const int want_pair = (!want_dikin && !want_ksparse && pair_prob > Real(0.0) && ucoord < (dikin_prob + ksparse_prob + pair_prob)) ? 1 : 0;
                     int use_pair = want_pair;
                     int use_ksparse = want_ksparse;
 
@@ -363,6 +367,20 @@ namespace naja {
                         }
                     }
 
+                    int use_dikin = want_dikin;
+                    int dikin_dir_idx = -1;
+                    if (use_dikin && dikin_Av != nullptr && dikin_V != nullptr) {
+                        dikin_dir_idx = static_cast<int>(curand_uniform_double(&localState) * static_cast<Real>(n_dikin_dirs));
+                        if (dikin_dir_idx >= n_dikin_dirs) dikin_dir_idx = n_dikin_dirs - 1;
+                        // Symmetrize: +/- direction with equal probability
+                        const Real sign = (curand_uniform_double(&localState) < Real(0.5)) ? Real(1.0) : Real(-1.0);
+                        ci = sign;  // reuse ci as the sign for the dikin direction
+                    } else {
+                        use_dikin = 0;
+                    }
+
+                    use_dikin_shared = use_dikin;
+                    dikin_dir_shared = dikin_dir_idx;
                     use_pair_shared = use_pair;
                     use_ksparse_shared = use_ksparse;
                     k_shared = k;
@@ -396,12 +414,18 @@ namespace naja {
 
                 Real partial_max = cuda::std::numeric_limits<Real>::lowest();
                 Real partial_min = cuda::std::numeric_limits<Real>::max();
+                const int use_dikin = use_dikin_shared;
+                const int dikin_dir_idx = dikin_dir_shared;
+
                 for (int i = tid; i < rows; i += threadstride){
 
                     // Get slack and projected direction
                     Real s = slack[IDX2C(i, bid, rows)];
                     Real ae;
-                    if (use_ksparse) {
+                    if (use_dikin) {
+                        // Dense direction: read precomputed (A*v_j)[i] from dikin_Av
+                        ae = dikin_Av[IDX2C(i, dikin_dir_idx, rows)] * ci;  // ci holds the sign
+                    } else if (use_ksparse) {
                         Real acc = Real(0.0);
                         for (int t = 0; t < k; ++t) {
                             const int idx = ks_idx_shared[t];
@@ -436,8 +460,14 @@ namespace naja {
                     PRNGenerator localState = global_states[bid];
                     Real usample = curand_uniform_double(&localState);
                     alpha = (1/aggregate_min) + usample * ((1/aggregate_max) - (1/aggregate_min));
-                    if (use_ksparse) {
-                        // Update all k coordinates touched by the sparse direction.
+                    if (use_dikin) {
+                        // Dense direction: update all d coordinates from dikin_V column
+                        // x += alpha * sign * v_j
+                        // ci holds the sign, alpha holds the step size
+                        for (int dd = 0; dd < cols; ++dd) {
+                            x_s[dd] += alpha * ci * dikin_V[IDX2C(dd, dikin_dir_idx, cols)];
+                        }
+                    } else if (use_ksparse) {
                         for (int t = 0; t < k; ++t) {
                             const int idx = ks_idx_shared[t];
                             const Real coef = ks_coef_shared[t];
@@ -463,7 +493,9 @@ namespace naja {
                 // Update slack
                 for (int i = tid; i < rows; i += threadstride){
                     Real ae;
-                    if (use_ksparse) {
+                    if (use_dikin) {
+                        ae = dikin_Av[IDX2C(i, dikin_dir_idx, rows)] * ci;
+                    } else if (use_ksparse) {
                         Real acc = Real(0.0);
                         for (int t = 0; t < k; ++t) {
                             const int idx = ks_idx_shared[t];
@@ -488,12 +520,14 @@ namespace naja {
                 }
             }
         }
-        template __global__ void chrKernel<double, curandState, 32>(double*, const double*, double*, double*, double*, int, int, curandState*, int, int, int, int, double, int, double, int, int, const int*, const int*, const double*, const double*, int);
-        template __global__ void chrKernel<double, curandState, 64>(double*, const double*, double*, double*, double*, int, int, curandState*, int, int, int, int, double, int, double, int, int, const int*, const int*, const double*, const double*, int);
-        template __global__ void chrKernel<double, curandState, 128>(double*, const double*, double*, double*, double*, int, int, curandState*, int, int, int, int, double, int, double, int, int, const int*, const int*, const double*, const double*, int);
-        template __global__ void chrKernel<double, curandState, 256>(double*, const double*, double*, double*, double*, int, int, curandState*, int, int, int, int, double, int, double, int, int, const int*, const int*, const double*, const double*, int);
-        template __global__ void chrKernel<double, curandState, 512>(double*, const double*, double*, double*, double*, int, int, curandState*, int, int, int, int, double, int, double, int, int, const int*, const int*, const double*, const double*, int);
-        template __global__ void chrKernel<double, curandState, 1024>(double*, const double*, double*, double*, double*, int, int, curandState*, int, int, int, int, double, int, double, int, int, const int*, const int*, const double*, const double*, int);
+        #define CHR_KERNEL_ARGS double*, const double*, double*, double*, double*, int, int, curandState*, int, int, int, int, double, int, double, int, int, const int*, const int*, const double*, const double*, int, double, const double*, const double*, int
+        template __global__ void chrKernel<double, curandState, 32>(CHR_KERNEL_ARGS);
+        template __global__ void chrKernel<double, curandState, 64>(CHR_KERNEL_ARGS);
+        template __global__ void chrKernel<double, curandState, 128>(CHR_KERNEL_ARGS);
+        template __global__ void chrKernel<double, curandState, 256>(CHR_KERNEL_ARGS);
+        template __global__ void chrKernel<double, curandState, 512>(CHR_KERNEL_ARGS);
+        template __global__ void chrKernel<double, curandState, 1024>(CHR_KERNEL_ARGS);
+        #undef CHR_KERNEL_ARGS
 
         template <typename Real, typename PRNGenerator>
         void launchChrKernel(DMatrix<Real>& A,
@@ -516,7 +550,11 @@ namespace naja {
                              const DVector<int>* pair_j,
                              const DVector<Real>* pair_c,
                              const DVector<Real>* pair_s,
-                             cudaStream_t stream){
+                             cudaStream_t stream,
+                             Real dikin_prob,
+                             const DMatrix<Real>* dikin_Av,
+                             const DMatrix<Real>* dikin_V,
+                             int n_dikin_dirs){
             int rows = A.rows;
             int cols = A.cols;
             size_t shared_memory_size = (cols) * sizeof(Real);
@@ -526,29 +564,26 @@ namespace naja {
             const Real* pair_c_ptr = (pair_c ? pair_c->dvec : nullptr);
             const Real* pair_s_ptr = (pair_s ? pair_s->dvec : nullptr);
             const int n_pairs = (pair_i ? pair_i->len : 0);
+            const Real* dk_Av = (dikin_Av ? dikin_Av->dmat : nullptr);
+            const Real* dk_V = (dikin_V ? dikin_V->dmat : nullptr);
+
+            #define LAUNCH_CHR(TPB) \
+                chrKernel<Real, PRNGenerator, TPB><<<blocks_per_grid, threads_per_block, shared_memory_size, stream>>>( \
+                    A.dmat, b.dvec, slack.dmat, x0.dmat, samples.dmat, rows, cols, global_states, \
+                    samples_per_chain, thinning, blocks_per_grid, persist_flag, pair_prob, resync_interval, \
+                    ksparse_prob, ksparse_k, pair_mode, pair_i_ptr, pair_j_ptr, pair_c_ptr, pair_s_ptr, n_pairs, \
+                    dikin_prob, dk_Av, dk_V, n_dikin_dirs)
+
             switch(threads_per_block){
-                case 32:
-                    chrKernel<Real, PRNGenerator, 32><<<blocks_per_grid, threads_per_block, shared_memory_size, stream>>>(A.dmat, b.dvec, slack.dmat, x0.dmat, samples.dmat, rows, cols, global_states, samples_per_chain, thinning, blocks_per_grid, persist_flag, pair_prob, resync_interval, ksparse_prob, ksparse_k, pair_mode, pair_i_ptr, pair_j_ptr, pair_c_ptr, pair_s_ptr, n_pairs);
-                    break;
-                case 64:    
-                    chrKernel<Real, PRNGenerator, 64><<<blocks_per_grid, threads_per_block, shared_memory_size, stream>>>(A.dmat, b.dvec, slack.dmat, x0.dmat, samples.dmat, rows, cols, global_states, samples_per_chain, thinning, blocks_per_grid, persist_flag, pair_prob, resync_interval, ksparse_prob, ksparse_k, pair_mode, pair_i_ptr, pair_j_ptr, pair_c_ptr, pair_s_ptr, n_pairs);
-                    break;
-                case 128:
-                    chrKernel<Real, PRNGenerator, 128><<<blocks_per_grid, threads_per_block, shared_memory_size, stream>>>(A.dmat, b.dvec, slack.dmat, x0.dmat, samples.dmat, rows, cols, global_states, samples_per_chain, thinning, blocks_per_grid, persist_flag, pair_prob, resync_interval, ksparse_prob, ksparse_k, pair_mode, pair_i_ptr, pair_j_ptr, pair_c_ptr, pair_s_ptr, n_pairs);
-                    break;
-                case 256:
-                    chrKernel<Real, PRNGenerator, 256><<<blocks_per_grid, threads_per_block, shared_memory_size, stream>>>(A.dmat, b.dvec, slack.dmat, x0.dmat, samples.dmat, rows, cols, global_states, samples_per_chain, thinning, blocks_per_grid, persist_flag, pair_prob, resync_interval, ksparse_prob, ksparse_k, pair_mode, pair_i_ptr, pair_j_ptr, pair_c_ptr, pair_s_ptr, n_pairs);
-                    break;
-                case 512:
-                    chrKernel<Real, PRNGenerator, 512><<<blocks_per_grid, threads_per_block, shared_memory_size, stream>>>(A.dmat, b.dvec, slack.dmat, x0.dmat, samples.dmat, rows, cols, global_states, samples_per_chain, thinning, blocks_per_grid, persist_flag, pair_prob, resync_interval, ksparse_prob, ksparse_k, pair_mode, pair_i_ptr, pair_j_ptr, pair_c_ptr, pair_s_ptr, n_pairs);
-                    break;
-                case 1024:
-                    chrKernel<Real, PRNGenerator, 1024><<<blocks_per_grid, threads_per_block, shared_memory_size, stream>>>(A.dmat, b.dvec, slack.dmat, x0.dmat, samples.dmat, rows, cols, global_states, samples_per_chain, thinning, blocks_per_grid, persist_flag, pair_prob, resync_interval, ksparse_prob, ksparse_k, pair_mode, pair_i_ptr, pair_j_ptr, pair_c_ptr, pair_s_ptr, n_pairs);
-                    break;
-                default:
-                    throw std::runtime_error("Invalid threads per block");
-                    break;
-                }
+                case 32:   LAUNCH_CHR(32);   break;
+                case 64:   LAUNCH_CHR(64);   break;
+                case 128:  LAUNCH_CHR(128);  break;
+                case 256:  LAUNCH_CHR(256);  break;
+                case 512:  LAUNCH_CHR(512);  break;
+                case 1024: LAUNCH_CHR(1024); break;
+                default: throw std::runtime_error("Invalid threads per block");
+            }
+            #undef LAUNCH_CHR
             CUDA_CHECK(cudaGetLastError());
         }
 

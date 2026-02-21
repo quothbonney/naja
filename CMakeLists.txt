@@ -47,6 +47,7 @@ add_executable(naja
     src/engine/bounds_filter.cpp
     src/rounding/jacobi.cpp
     src/rounding/dikin_precondition.cpp
+    src/rounding/dikin_directions.cpp
     src/rounding/inherit.cpp
     src/util/constraint_utils.cpp
     src/pipeline/extra_constraints.cpp

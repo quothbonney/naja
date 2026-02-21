@@ -96,7 +96,11 @@ namespace naja {
                              const DVector<int>* pair_j,
                              const DVector<Real>* pair_c,
                              const DVector<Real>* pair_s,
-                             cudaStream_t stream = 0);
+                             cudaStream_t stream = 0,
+                             Real dikin_prob = Real(0.0),
+                             const DMatrix<Real>* dikin_Av = nullptr,
+                             const DMatrix<Real>* dikin_V = nullptr,
+                             int n_dikin_dirs = 0);
 
         /**
          * @brief Initializes the states of a pseudo-random number generator (PRNG) for use in CUDA kernels.

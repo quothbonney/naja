@@ -43,7 +43,11 @@ namespace naja {
                                                 const DVector<int>* pair_i = nullptr,
                                                 const DVector<int>* pair_j = nullptr,
                                                 const DVector<double>* pair_c = nullptr,
-                                                const DVector<double>* pair_s = nullptr);
+                                                const DVector<double>* pair_s = nullptr,
+                                                double dikin_prob = 0.0,
+                                                const DMatrix<double>* dikin_Av = nullptr,
+                                                const DMatrix<double>* dikin_V = nullptr,
+                                                int n_dikin_dirs = 0);
 
         DMatrix<double> CoordinateHitAndRunBackmap(    DMatrix<double>& A_d,
                                                        DVector<double>& b_d,
