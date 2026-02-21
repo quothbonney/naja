@@ -171,6 +171,25 @@ int run_sampling_job(RuntimeConfig cfg, bool verbose, bool show_device_banner) {
     }
     naja::util::require_feasible_start(A_host, b_host, x0_host, 1e-9, extra_loaded ? "A+extra" : "A");
 
+    // Degenerate-rounding check: if tight constraints span the full dimension,
+    // the polytope is a point and sampling will produce identical copies.
+    // This is a warning (not an abort) so bulk jobs don't die from one bad model.
+    {
+        const double tight_tol = 1e-6;
+        Eigen::VectorXd slack_check = b_host - (A_host * x0_host);
+        int n_tight = 0;
+        for (int i = 0; i < m; ++i) {
+            if (slack_check[i] < tight_tol) ++n_tight;
+        }
+        if (n_tight >= n) {
+            std::cerr << "\n*** WARNING: polytope appears degenerate for model " << cfg.MODEL_NAME << " ***\n"
+                      << "  tight constraints: " << n_tight << " / " << m << "\n"
+                      << "  reduced dimension: " << n << "\n"
+                      << "  The feasible set may be a single point. Samples will likely be identical.\n"
+                      << "  Check rounding quality (tight constraint rank vs dimension).\n\n";
+        }
+    }
+
     bool hull_enabled = false;
     Eigen::MatrixXd hull_basis;   // (n_reduced_file x d)
     Eigen::VectorXd hull_shift;   // (n_reduced_file)
