@@ -379,6 +379,30 @@ void cmd_prepare(int argc, char** argv) {
             naja::pipeline::validate_contract(c, true);
         }
 
+        // Warn if gem bounds differ from base but no extra constraints exist.
+        // This catches the case where conditioning was done externally but
+        // build_extra_from_bounds was never triggered (missing --conditioner-cmd).
+        if (!dry_run && do_inherit) {
+            const std::string extra_A_path = c.rounding_dir + "/" + c.model_name + "_rounding_extra_A.csv";
+            const std::string model_lb_path = c.gem_dir + "/l_bounds.csv";
+            const std::string base_lb_path = base_model_dir + "/gem/l_bounds.csv";
+            if (!path_exists(extra_A_path) && path_exists(model_lb_path) && path_exists(base_lb_path)) {
+                // Quick byte-level comparison to detect any difference
+                std::ifstream f1(model_lb_path, std::ios::binary);
+                std::ifstream f2(base_lb_path, std::ios::binary);
+                if (f1.is_open() && f2.is_open()) {
+                    std::string s1((std::istreambuf_iterator<char>(f1)), std::istreambuf_iterator<char>());
+                    std::string s2((std::istreambuf_iterator<char>(f2)), std::istreambuf_iterator<char>());
+                    if (s1 != s2) {
+                        std::cerr << "*** WARNING: " << c.model_name
+                                  << " has different gem bounds from base but NO extra constraints. ***\n"
+                                  << "  Sampling will use the unconditioned base polytope.\n"
+                                  << "  To fix: rerun prepare with --conditioner-cmd, or condition + prepare with --force-conditioning.\n";
+                    }
+                }
+            }
+        }
+
         if (!dry_run) {
             contracts_for_feasible_start.push_back(c);
         }
