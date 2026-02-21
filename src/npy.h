@@ -83,6 +83,63 @@ inline void save_u8_1d(const std::string& filename, const std::vector<uint8_t>& 
     file.close();
 }
 
+// Write Eigen matrix as (cols, rows) float32 .npy — zero-copy transpose trick.
+//
+// Eigen col-major (R, C) has columns contiguous in memory. Writing that raw
+// memory as C-order shape (C, R) means numpy reads row k = Eigen column k.
+// For samples_out of shape (dim, n_samples), the file becomes (n_samples, dim)
+// with each row being one contiguous sample vector — exactly what downstream
+// consumers want. The only work is the float64->float32 downcast.
+//
+// This is FASTER than the old save(): no RowMajor conversion copy, and half
+// the bytes written to disk.
+inline void save_f32_samples(const std::string& filename, const Eigen::MatrixXd& mat) {
+    std::ofstream file(filename, std::ios::binary);
+    if (!file.is_open()) {
+        throw std::runtime_error("Cannot write file: " + filename);
+    }
+
+    // File shape is (cols, rows) — the "transpose" of the Eigen shape
+    const int file_rows = mat.cols();
+    const int file_cols = mat.rows();
+
+    // Magic + version
+    file.write("\x93NUMPY", 6);
+    file.put(0x01);
+    file.put(0x00);
+
+    // Header: float32, C-contiguous, shape (n_samples, dim)
+    std::ostringstream header;
+    header << "{'descr': '<f4', 'fortran_order': False, 'shape': ("
+           << file_rows << ", " << file_cols << "), }";
+
+    std::string header_str = header.str();
+    size_t total_header_len = 6 + 2 + 2 + header_str.size();
+    size_t padding = (64 - (total_header_len % 64)) % 64;
+    header_str.append(padding, ' ');
+    header_str.push_back('\n');
+
+    uint16_t header_len = header_str.size();
+    file.write(reinterpret_cast<const char*>(&header_len), 2);
+    file.write(header_str.c_str(), header_len);
+
+    // Downcast float64 -> float32 in chunks and write.
+    // Process one Eigen column (= one sample) at a time to stay cache-friendly.
+    // Each column is contiguous in memory (Eigen col-major).
+    const size_t n_elements = (size_t)mat.rows();
+    std::vector<float> buf(n_elements);
+    for (int c = 0; c < mat.cols(); ++c) {
+        const double* src = mat.data() + (size_t)c * n_elements;
+        for (size_t i = 0; i < n_elements; ++i) {
+            buf[i] = static_cast<float>(src[i]);
+        }
+        file.write(reinterpret_cast<const char*>(buf.data()),
+                    static_cast<std::streamsize>(n_elements * sizeof(float)));
+    }
+
+    file.close();
+}
+
 // Load NPY file.
 // OPTIMIZATION: Returns the matrix transposed (cols, rows) relative to file shape!
 // File shape (R, C) C-order -> Eigen Matrix (C, R) Col-order.

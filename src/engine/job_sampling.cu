@@ -417,7 +417,8 @@ int run_sampling_job(RuntimeConfig cfg, bool verbose, bool show_device_banner) {
         ensure_dir(cfg.OUT_DIR);
         naja::status::phase(cfg.STATUS, "writing npy");
         Timer npy_timer;
-        npy::save(cfg.NPY_FILE, samples_out);
+        // Write as (n_samples, dim) float32 — half the size, contiguous sample rows.
+        npy::save_f32_samples(cfg.NPY_FILE, samples_out);
         profile.write_time = npy_timer.elapsed();
     } else {
         profile.write_time = 0.0;
