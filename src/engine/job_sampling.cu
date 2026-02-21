@@ -271,6 +271,18 @@ int run_sampling_job(RuntimeConfig cfg, bool verbose, bool show_device_banner) {
         rounding_cfg, A_d, b_d, x0_host, n, cfg.TPB_SS, seed, cfg.STATUS, verbose);
     int pair_mode = rounding_plan.pair_mode; // 1=fixed (ei-ej)/sqrt(2); 2=jacobi rotated pairs
 
+    // Pre-sampling estimate so the user knows what to expect during the silent GPU phase
+    {
+        long long total_steps = (long long)cfg.N_CHAINS * (long long)cfg.N_SAMPLES * (long long)thinning;
+        if (cfg.STATUS) {
+            std::cout << "> sampling " << cfg.N_CHAINS << " chains x "
+                      << cfg.N_SAMPLES << " samples (thin=" << thinning
+                      << ", " << total_steps << " MCMC steps, "
+                      << m << " constraints x " << n << " dims)"
+                      << std::endl;
+        }
+    }
+
     if (cfg.BACK_TRANSFORM) {
         naja::status::phase(cfg.STATUS, "loading transform");
         Timer load_transform_timer;
@@ -393,6 +405,12 @@ int run_sampling_job(RuntimeConfig cfg, bool verbose, bool show_device_banner) {
         samples_out = samples_d.toHost();
         profile.download_time = download_timer.elapsed();
         }
+    }
+
+    // Post-sampling summary
+    if (cfg.STATUS) {
+        std::cout << "> done: " << std::fixed << std::setprecision(1) << profile.sampling_time << "s, "
+                  << std::setprecision(0) << profile.throughput << " samples/s" << std::endl;
     }
 
     if (cfg.WRITE_DATA) {
