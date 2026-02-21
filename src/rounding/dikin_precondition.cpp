@@ -82,11 +82,11 @@ DikinResult dikin_precondition(
     }
 
     if (tight_set.empty()) {
-        // No tight constraints — return identity transform
         DikinResult result;
-        result.P = Eigen::MatrixXd::Identity(d, d);
+        result.P_inv = Eigen::MatrixXd::Identity(d, d);
+        result.x_c = x_c;
         result.A_new = A;
-        result.b_new = slack;  // shifted so x_c maps to origin
+        result.b_new = slack;
         result.x0_new = Eigen::VectorXd::Zero(d);
         result.n_corrected = 0;
         return result;
@@ -173,10 +173,11 @@ DikinResult dikin_precondition(
     Eigen::VectorXd b_new = b - A * x_c;
 
     DikinResult result;
-    result.P = P;
+    result.P_inv = P_inv;
+    result.x_c = x_c;
     result.A_new = A_new;
     result.b_new = b_new;
-    result.x0_new = Eigen::VectorXd::Zero(d);  // x_c maps to origin
+    result.x0_new = Eigen::VectorXd::Zero(d);
     result.n_corrected = actual_k;
 
     return result;

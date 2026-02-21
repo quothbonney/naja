@@ -22,6 +22,7 @@
 #include "npy.h"
 #include "engine/profile.h"
 #include "rounding/config.h"
+#include "rounding/dikin_precondition.h"
 #include "rounding/plan.h"
 #include "util/status.h"
 #include "utils.h"
@@ -190,6 +191,30 @@ int run_sampling_job(RuntimeConfig cfg, bool verbose, bool show_device_banner) {
         }
     }
 
+    // Dikin preconditioner: analytic corrective rounding for augmented polytopes.
+    // When extra constraints are present (KO, conditioning), the base rounding may
+    // leave thin oblique directions that CHR can't mix through. The Dikin step
+    // identifies these from the barrier Hessian and rescales them in ~1 second.
+    Eigen::MatrixXd dikin_P_inv;    // for backmap: y_old = P_inv * z + x_c
+    Eigen::VectorXd dikin_x_c;
+    bool dikin_applied = false;
+    if (extra_loaded && n >= 2) {
+        naja::status::phase(cfg.STATUS, "dikin precondition");
+        auto dikin = naja::rounding::dikin_precondition(A_host, b_host, x0_host);
+        if (dikin.n_corrected > 0) {
+            dikin_P_inv = std::move(dikin.P_inv);
+            dikin_x_c = std::move(dikin.x_c);
+            A_host = std::move(dikin.A_new);
+            b_host = std::move(dikin.b_new);
+            x0_host = std::move(dikin.x0_new);
+            m = A_host.rows();
+            dikin_applied = true;
+            if (verbose) {
+                std::cout << "  dikin_corrected  " << dikin.n_corrected << " directions\n";
+            }
+        }
+    }
+
     bool hull_enabled = false;
     Eigen::MatrixXd hull_basis;   // (n_reduced_file x d)
     Eigen::VectorXd hull_shift;   // (n_reduced_file)
@@ -288,6 +313,12 @@ int run_sampling_job(RuntimeConfig cfg, bool verbose, bool show_device_banner) {
         Timer load_transform_timer;
         Eigen::MatrixXd T_host = csv::loadMatrix(cfg.T_FILE);
         Eigen::VectorXd shift_host = csv::loadVector(cfg.SHIFT_FILE);
+
+        // Compose Dikin preconditioner with backmap: v = T*(P_inv*z + x_c) + shift
+        if (dikin_applied) {
+            shift_host = T_host * dikin_x_c + shift_host;
+            T_host = T_host * dikin_P_inv;
+        }
 
         int n_orig = T_host.rows();
         profile.original_dim = n_orig;

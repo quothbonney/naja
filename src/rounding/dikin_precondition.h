@@ -5,10 +5,11 @@
 namespace naja::rounding {
 
 struct DikinResult {
-    Eigen::MatrixXd P;          // corrective transform (d x d): y_new = P * (y - x_c) maps to preconditioned space
-    Eigen::MatrixXd A_new;      // transformed constraints: A_new * y_new <= b_new
+    Eigen::MatrixXd P_inv;      // inverse corrective transform: y_old = P_inv * z + x_c
+    Eigen::VectorXd x_c;        // center point in original coords
+    Eigen::MatrixXd A_new;      // transformed constraints: A_new * z <= b_new
     Eigen::VectorXd b_new;
-    Eigen::VectorXd x0_new;     // start point in new coords (should be near origin)
+    Eigen::VectorXd x0_new;     // start point in new coords (zero)
     int n_corrected;            // number of directions that were rescaled
 };
 
