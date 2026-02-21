@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.18)
-project(naja LANGUAGES CXX CUDA)
+project(naja LANGUAGES C CXX CUDA)
 
 enable_testing()
 option(NAJA_ENABLE_ENV_DEP_TESTS "Enable tests that require external model data and/or valid Gurobi license" OFF)
@@ -25,6 +25,7 @@ set(CMAKE_CUDA_ARCHITECTURES 80)
 set(GPU_DIR "${CMAKE_CURRENT_SOURCE_DIR}/src/gpu")
 set(EIGEN_DIR "${CMAKE_CURRENT_SOURCE_DIR}/extern/eigen3")
 set(GUROBI_DIR "${CMAKE_CURRENT_SOURCE_DIR}/extern/gurobi/linux64")
+set(KISSFFT_DIR "${CMAKE_CURRENT_SOURCE_DIR}/extern/kissfft")
 
 if(NOT EXISTS "${EIGEN_DIR}")
     message(FATAL_ERROR "Eigen3 not found at ${EIGEN_DIR}. Please run scripts/setup_extern.sh")
@@ -45,10 +46,13 @@ add_executable(naja
     src/engine/job_bulk.cpp
     src/engine/bounds_filter.cpp
     src/rounding/jacobi.cpp
-    src/rounding/diagnostics.cpp
     src/rounding/inherit.cpp
     src/util/constraint_utils.cpp
     src/pipeline/extra_constraints.cpp
+    src/validate/mcmc.cpp
+    src/validate/chord_lengths.cpp
+    src/validate/bounds_check.cpp
+    src/cli/validate_cli.cpp
     src/cli/sample_cli.cpp
     src/cli/sample/common.cpp
     src/cli/sample/cmd_run.cpp
@@ -82,7 +86,14 @@ target_include_directories(naja PRIVATE
     ${GPU_DIR}
     ${EIGEN_DIR}
     ${GUROBI_DIR}/include
+    ${KISSFFT_DIR}
 )
+
+# kissfft is C — build as a separate static lib to avoid CUDA compiler issues
+add_library(kissfft STATIC ${KISSFFT_DIR}/kiss_fft.c ${KISSFFT_DIR}/kiss_fftr.c)
+target_include_directories(kissfft PUBLIC ${KISSFFT_DIR})
+set_target_properties(kissfft PROPERTIES LINKER_LANGUAGE C)
+target_link_libraries(naja PRIVATE kissfft)
 
 add_executable(test_csv_loader
     tests/test_csv_loader.cpp

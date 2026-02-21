@@ -61,25 +61,78 @@ int naja_validate_cli_main(int argc, char** argv) {
     if (samples_path.empty()) die("missing --samples");
     if (n_chains < 1) die("--n-chains must be >= 1");
 
-    // Load samples — auto-detect format
-    // New format: (n_samples, dim) float32 C-order → Eigen col-major (dim, n_samples)
-    // Old format: (dim, n_samples) float64 C-order → same after load_transposed
+    // Load samples — detect dtype and shape from npy header
     std::cerr << "loading " << samples_path << "..." << std::endl;
 
-    // Use npy::load_transposed which gives us (cols, rows) col-major from C-order (rows, cols)
-    Eigen::MatrixXd raw = npy::load_transposed(samples_path);
-    // raw is now (file_cols, file_rows) in Eigen col-major
-
-    // Determine orientation: if file was (n_samples, dim) then raw is (dim, n_samples) — correct
-    // If file was (dim, n_samples) old format, raw is (n_samples, dim) — need transpose
-    // Heuristic: the smaller dimension is likely dim (582 << 50000)
     Eigen::MatrixXf samples;
-    if (raw.rows() <= raw.cols()) {
-        // raw is (dim, n_samples) — correct orientation
-        samples = raw.cast<float>();
-    } else {
-        // raw is (n_samples, dim) — transpose
-        samples = raw.transpose().cast<float>();
+    {
+        std::ifstream file(samples_path, std::ios::binary);
+        if (!file.is_open()) throw std::runtime_error("cannot open: " + samples_path);
+
+        char magic[6]; file.read(magic, 6);
+        char ver[2]; file.read(ver, 2);
+        uint16_t header_len; file.read(reinterpret_cast<char*>(&header_len), 2);
+        std::string header(header_len, ' ');
+        file.read(&header[0], header_len);
+
+        // Parse dtype
+        bool is_f32 = header.find("'<f4'") != std::string::npos;
+        bool is_f64 = header.find("'<f8'") != std::string::npos;
+        if (!is_f32 && !is_f64) throw std::runtime_error("unsupported dtype in " + samples_path);
+
+        // Parse shape
+        auto sp = header.find("'shape':");
+        auto p1 = header.find('(', sp);
+        auto p2 = header.find(')', p1);
+        std::string shape_str = header.substr(p1 + 1, p2 - p1 - 1);
+        std::replace(shape_str.begin(), shape_str.end(), ',', ' ');
+        std::stringstream ss(shape_str);
+        int rows, cols;
+        ss >> rows >> cols;
+
+        // Read into (dim, n_samples) col-major float32
+        // Heuristic: smaller dim is the reduced dimension
+        int file_dim = std::min(rows, cols);
+        int file_nsamp = std::max(rows, cols);
+        samples.resize(file_dim, file_nsamp);
+
+        if (is_f32) {
+            // C-order (rows, cols) float32 → read directly
+            // If rows < cols: file is (dim, nsamp), C-order = row-major
+            //   Eigen col-major (dim, nsamp): col k = samples[:, k] is contiguous
+            //   C-order row k = file row k is contiguous
+            //   We need: samples(d, s) = file[d, s] = data[d * cols + s] (if rows=dim)
+            //            OR file[s, d] = data[s * cols + d] (if rows=nsamp, cols=dim)
+            // Simplest: read into buffer, interpret correctly
+            std::vector<float> buf(static_cast<size_t>(rows) * cols);
+            file.read(reinterpret_cast<char*>(buf.data()), buf.size() * sizeof(float));
+
+            if (rows <= cols) {
+                // file is (dim, nsamp) C-order — row d has all samples for dim d
+                for (int d = 0; d < file_dim; ++d)
+                    for (int s = 0; s < file_nsamp; ++s)
+                        samples(d, s) = buf[d * file_nsamp + s];
+            } else {
+                // file is (nsamp, dim) C-order — row s has all dims for sample s
+                for (int s = 0; s < file_nsamp; ++s)
+                    for (int d = 0; d < file_dim; ++d)
+                        samples(d, s) = buf[s * file_dim + d];
+            }
+        } else {
+            // float64 — read and cast
+            std::vector<double> buf(static_cast<size_t>(rows) * cols);
+            file.read(reinterpret_cast<char*>(buf.data()), buf.size() * sizeof(double));
+
+            if (rows <= cols) {
+                for (int d = 0; d < file_dim; ++d)
+                    for (int s = 0; s < file_nsamp; ++s)
+                        samples(d, s) = static_cast<float>(buf[d * file_nsamp + s]);
+            } else {
+                for (int s = 0; s < file_nsamp; ++s)
+                    for (int d = 0; d < file_dim; ++d)
+                        samples(d, s) = static_cast<float>(buf[s * file_dim + d]);
+            }
+        }
     }
 
     const int dim = samples.rows();
