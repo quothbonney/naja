@@ -27,6 +27,12 @@ void cmd_bulk(int argc, char** argv) {
     int n_samples = -1;
     int tpb = 128;
     int thinning = 0;
+    double constraint_eps = 0.0;
+    double affine_hull_tol = 0.0;
+    std::string start_policy = "file";
+    std::string extra_constraints_mode = "auto";
+    bool barrier_rotate = false;
+    bool barrier_whiten = false;
     bool backmap = false;
     bool write_npy = false;
     bool verbose = false;
@@ -50,6 +56,12 @@ void cmd_bulk(int argc, char** argv) {
         else if (a == "--n-samples") n_samples = std::stoi(next_arg(i, argc, argv, a));
         else if (a == "--tpb") tpb = std::stoi(next_arg(i, argc, argv, a));
         else if (a == "--thinning") thinning = std::stoi(next_arg(i, argc, argv, a));
+        else if (a == "--constraint-eps") constraint_eps = std::stod(next_arg(i, argc, argv, a));
+        else if (a == "--affine-hull-tol") affine_hull_tol = std::stod(next_arg(i, argc, argv, a));
+        else if (a == "--start-policy") start_policy = next_arg(i, argc, argv, a);
+        else if (a == "--extra-constraints") extra_constraints_mode = next_arg(i, argc, argv, a);
+        else if (a == "--barrier-rotate") barrier_rotate = true;
+        else if (a == "--barrier-whiten") { barrier_whiten = true; barrier_rotate = true; }
         else if (a == "--backmap") backmap = true;
         else if (a == "--write-npy") write_npy = true;
         else if (a == "--verbose") verbose = true;
@@ -102,6 +114,12 @@ void cmd_bulk(int argc, char** argv) {
     cfg.WRITE_SAMPLES_VALID = write_samples_valid;
     cfg.SKIP_EXISTING = skip_existing;
     cfg.THINNING = thinning;
+    cfg.CONSTRAINT_EPS = constraint_eps;
+    cfg.AFFINE_HULL_TOL = affine_hull_tol;
+    cfg.START_POLICY = start_policy;
+    cfg.EXTRA_CONSTRAINTS = extra_constraints_mode;
+    cfg.BARRIER_ROTATE = barrier_rotate;
+    cfg.BARRIER_WHITEN = barrier_whiten;
 
     if (!resume_from.empty()) {
         if (!is_directory(resume_from)) {
