@@ -247,11 +247,17 @@ int run_sampling_job(RuntimeConfig cfg, bool verbose, bool show_device_banner) {
     // augmented polytope outperforms base-only Q because it captures KO-induced
     // coupling that would otherwise be ignored.
     bool barrier_rotated = false;
+    bool barrier_whitened = false;
     Eigen::MatrixXd rotation_Q;
+    Eigen::VectorXd whiten_scale;       // S_i = 1/sqrt(clamp(lambda_i))
+    double barrier_condition = 1.0;     // pre-whitening condition number
     if (cfg.BARRIER_ROTATE && n >= 2) {
         naja::status::phase(cfg.STATUS, "barrier rotation (eigenbasis of H)");
         auto br = naja::rounding::compute_barrier_rotation(A_host, b_host, x0_host, verbose);
         rotation_Q = br.Q;
+        barrier_condition = br.eigenvalues[n - 1] / std::max(br.eigenvalues[0], 1e-30);
+
+        // 1) Pure orthogonal rotation into the eigenbasis.
         A_host = A_host * rotation_Q;
         x0_host = rotation_Q.transpose() * x0_host;
         if (hull_enabled) {
@@ -259,6 +265,41 @@ int run_sampling_job(RuntimeConfig cfg, bool verbose, bool show_device_banner) {
         }
         barrier_rotated = true;
         naja::util::require_feasible_start(A_host, b_host, x0_host, 1e-9, "barrier-rotated");
+
+        // 2) Optional diagonal whitening: scale dim i by 1/sqrt(lambda_i).
+        //    After this, the local barrier metric at x_c is ~ I.
+        //    Clamp eigenvalues so tiny values don't create extreme scales.
+        if (cfg.BARRIER_WHITEN) {
+            naja::status::phase(cfg.STATUS, "barrier whitening (diagonal rescale)");
+            double ev_median = br.eigenvalues[n / 2];
+            double ev_floor = std::max(ev_median * 1e-6, 1e-30);
+
+            whiten_scale.resize(n);
+            int n_clamped_ev = 0;
+            for (int i = 0; i < n; ++i) {
+                double ev = br.eigenvalues[i];
+                if (ev < ev_floor) { ev = ev_floor; ++n_clamped_ev; }
+                whiten_scale[i] = 1.0 / std::sqrt(ev);
+            }
+
+            // A_new = A_rot * diag(S),  x_new = diag(1/S) * x_rot
+            A_host = A_host * whiten_scale.asDiagonal();
+            x0_host = x0_host.cwiseQuotient(whiten_scale);
+            if (hull_enabled) {
+                hull_basis = hull_basis * whiten_scale.asDiagonal();
+            }
+            barrier_whitened = true;
+            naja::util::require_feasible_start(A_host, b_host, x0_host, 1e-9, "barrier-whitened");
+
+            if (verbose) {
+                double post_cond = whiten_scale.maxCoeff() / std::max(whiten_scale.minCoeff(), 1e-30);
+                std::cout << "  barrier_whiten: eigenvalue_clamp=" << n_clamped_ev
+                          << " scale_range=[" << std::scientific << std::setprecision(3)
+                          << whiten_scale.minCoeff() << ", " << whiten_scale.maxCoeff()
+                          << "] post_cond=" << std::fixed << std::setprecision(1) << post_cond * post_cond
+                          << "\n";
+            }
+        }
     }
 
     // --- Dikin escape directions (computed in the final sampling space) ---
@@ -279,7 +320,19 @@ int run_sampling_job(RuntimeConfig cfg, bool verbose, bool show_device_banner) {
         }
     }
 
-    int thinning = (cfg.THINNING > 0) ? cfg.THINNING : std::max(n / 6, 1);
+    int thinning;
+    if (cfg.THINNING > 0) {
+        thinning = cfg.THINNING;
+    } else if (cfg.BARRIER_ROTATE && barrier_condition > 1.0) {
+        // Adaptive thinning: the barrier condition number tells us how
+        // anisotropic the geometry is.  Whitening fixes the local metric
+        // but global anisotropy still requires more decorrelation steps.
+        if (barrier_condition <= 1e4)       thinning = std::max(n / 6, 50);
+        else if (barrier_condition <= 1e8)  thinning = 200;
+        else                                thinning = 500;
+    } else {
+        thinning = std::max(n / 6, 1);
+    }
     if (verbose) {
         std::cout << "  constraints     " << m << std::endl;
         std::cout << "  reduced_dim     " << n << std::endl;
@@ -376,6 +429,9 @@ int run_sampling_job(RuntimeConfig cfg, bool verbose, bool show_device_banner) {
         }
         if (barrier_rotated && !hull_enabled) {
             T_host = T_host * rotation_Q;
+            if (barrier_whitened) {
+                T_host = T_host * whiten_scale.asDiagonal();
+            }
         }
         // After optional composition, transform cols must match sampling dim.
         if (T_host.cols() != n) {
@@ -485,7 +541,10 @@ int run_sampling_job(RuntimeConfig cfg, bool verbose, bool show_device_banner) {
         samples_out = samples_d.toHost();
         profile.download_time = download_timer.elapsed();
 
-        // Undo rotation so samples are in the original reduced space.
+        // Undo whitening+rotation so samples are in the original reduced space.
+        if (barrier_whitened) {
+            samples_out = whiten_scale.asDiagonal() * samples_out;
+        }
         if (barrier_rotated) {
             samples_out = rotation_Q * samples_out;
         }

@@ -62,6 +62,7 @@ void cmd_run(int argc, char** argv) {
     std::string extra_constraints_mode = "auto";
     std::string pair_schedule_method;
     bool barrier_rotate = false;
+    bool barrier_whiten = false;
     double affine_hull_tol = 0.0;
     bool backmap = false;
     bool write_npy = false;
@@ -95,6 +96,7 @@ void cmd_run(int argc, char** argv) {
         else if (a == "--extra-constraints") extra_constraints_mode = next_arg(i, argc, argv, a);
         else if (a == "--pair-schedule-method") pair_schedule_method = next_arg(i, argc, argv, a);
         else if (a == "--barrier-rotate") barrier_rotate = true;
+        else if (a == "--barrier-whiten") { barrier_whiten = true; barrier_rotate = true; }
         else if (a == "--affine-hull-tol") affine_hull_tol = std::stod(next_arg(i, argc, argv, a));
         else if (a == "--backmap") backmap = true;
         else if (a == "--write-npy") write_npy = true;
@@ -164,6 +166,7 @@ void cmd_run(int argc, char** argv) {
     cfg.EXTRA_CONSTRAINTS = extra_constraints_mode;
     cfg.PAIR_SCHEDULE_METHOD = pair_schedule_method;
     cfg.BARRIER_ROTATE = barrier_rotate;
+    cfg.BARRIER_WHITEN = barrier_whiten;
     cfg.AFFINE_HULL_TOL = affine_hull_tol;
 
     if (!pair_schedule_path.empty()) {
