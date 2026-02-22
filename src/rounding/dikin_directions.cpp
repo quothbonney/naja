@@ -12,7 +12,8 @@ DikinDirections compute_dikin_directions(
     const Eigen::VectorXd& x_c,
     int n_base_rows,
     int max_directions,
-    double tight_factor) {
+    double tight_factor,
+    double eigenvalue_ratio) {
 
     const int m = A.rows();
     const int d = A.cols();
@@ -67,11 +68,12 @@ DikinDirections compute_dikin_directions(
     const auto& eigenvalues = eig.eigenvalues();
     const auto& eigenvectors = eig.eigenvectors();
 
-    // Select directions with eigenvalue significantly above noise
+    // Select directions with eigenvalue significantly above noise.
+    // eigenvalue_ratio=10 → strict (delta mode), =1 → always take max_directions.
     double median_eval = eigenvalues[d / 2];
     int k = 0;
     for (int j = d - 1; j >= 0 && k < max_directions; --j) {
-        if (eigenvalues[j] > 10.0 * std::max(median_eval, 1e-10)) {
+        if (eigenvalues[j] > eigenvalue_ratio * std::max(median_eval, 1e-10)) {
             ++k;
         } else {
             break;

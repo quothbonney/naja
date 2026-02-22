@@ -38,6 +38,8 @@ struct RuntimeConfig {
 
     double KSPARSE_PROB = 0.0;
     int KSPARSE_K = 8;
+    std::string PAIR_SCHEDULE_METHOD;  // "" or "barrier"
+    bool BARRIER_ROTATE = false;       // rotate polytope to eigenbasis of barrier Hessian
     std::string GPU_LIST;
     std::string BULK_MODEL_LIST;
     std::string source_file;

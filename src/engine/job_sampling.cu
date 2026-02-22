@@ -21,6 +21,8 @@
 #include "gpusamplers.h"
 #include "npy.h"
 #include "engine/profile.h"
+#include "rounding/barrier_rotation.h"
+#include "rounding/barrier_schedule.h"
 #include "rounding/config.h"
 #include "rounding/dikin_directions.h"
 #include "rounding/plan.h"
@@ -191,23 +193,6 @@ int run_sampling_job(RuntimeConfig cfg, bool verbose, bool show_device_banner) {
         }
     }
 
-    // Dikin escape directions: compute dense directions from the delta barrier
-    // Hessian (extra constraint rows only) and pass them to the kernel as a
-    // direction mixture. This doesn't transform the polytope — it adds escape
-    // hatches for KO-pinched oblique subspaces while preserving base rounding alignment.
-    naja::rounding::DikinDirections dikin_dirs;
-    int n_base_constraints = 0;
-    if (extra_loaded && n >= 2) {
-        naja::status::phase(cfg.STATUS, "dikin directions");
-        // n_base_constraints = total rows minus extra rows
-        // We augmented A_host in-place, so we need to know how many base rows there were
-        n_base_constraints = m - (A_extra_ptr ? (int)A_extra_ptr->rows() : 0);
-        dikin_dirs = naja::rounding::compute_dikin_directions(A_host, b_host, x0_host, n_base_constraints);
-        if (dikin_dirs.k > 0 && verbose) {
-            std::cout << "  dikin_directions " << dikin_dirs.k << " escape directions\n";
-        }
-    }
-
     bool hull_enabled = false;
     Eigen::MatrixXd hull_basis;   // (n_reduced_file x d)
     Eigen::VectorXd hull_shift;   // (n_reduced_file)
@@ -249,6 +234,48 @@ int run_sampling_job(RuntimeConfig cfg, bool verbose, bool show_device_banner) {
             }
         } else if (verbose) {
             std::cout << "  affine_hull_tol  " << std::setprecision(12) << cfg.AFFINE_HULL_TOL << " (no tight rows)\n";
+        }
+    }
+
+    // --- Barrier rotation: rotate to eigenbasis of H(x_c) = A'diag(1/s^2)A ---
+    // Applied AFTER affine-hull reduction so eigenvectors are in the final reduced space.
+    // Pure orthogonal Q: chord lengths are preserved, no direction is broken.
+    //
+    // Uses ALL constraint rows (base + extra) with current b (eps-inflated if
+    // --constraint-eps is set).  The eps helps by evening out Hessian weights
+    // so no single tight constraint dominates.  Computing Q from the full
+    // augmented polytope outperforms base-only Q because it captures KO-induced
+    // coupling that would otherwise be ignored.
+    bool barrier_rotated = false;
+    Eigen::MatrixXd rotation_Q;
+    if (cfg.BARRIER_ROTATE && n >= 2) {
+        naja::status::phase(cfg.STATUS, "barrier rotation (eigenbasis of H)");
+        auto br = naja::rounding::compute_barrier_rotation(A_host, b_host, x0_host, verbose);
+        rotation_Q = br.Q;
+        A_host = A_host * rotation_Q;
+        x0_host = rotation_Q.transpose() * x0_host;
+        if (hull_enabled) {
+            hull_basis = hull_basis * rotation_Q;
+        }
+        barrier_rotated = true;
+        naja::util::require_feasible_start(A_host, b_host, x0_host, 1e-9, "barrier-rotated");
+    }
+
+    // --- Dikin escape directions (computed in the final sampling space) ---
+    naja::rounding::DikinDirections dikin_dirs;
+    int n_base_constraints = 0;
+    if (cfg.PAIR_SCHEDULE_METHOD == "barrier" && n >= 2) {
+        naja::status::phase(cfg.STATUS, "barrier dikin directions (full Hessian)");
+        dikin_dirs = naja::rounding::compute_dikin_directions(A_host, b_host, x0_host, 0, 32, 1e15, 1.0);
+        if (dikin_dirs.k > 0 && verbose) {
+            std::cout << "  dikin_directions " << dikin_dirs.k << " escape directions (full Hessian)\n";
+        }
+    } else if (extra_loaded && n >= 2) {
+        naja::status::phase(cfg.STATUS, "dikin directions (delta)");
+        n_base_constraints = m - (A_extra_ptr ? (int)A_extra_ptr->rows() : 0);
+        dikin_dirs = naja::rounding::compute_dikin_directions(A_host, b_host, x0_host, n_base_constraints);
+        if (dikin_dirs.k > 0 && verbose) {
+            std::cout << "  dikin_directions " << dikin_dirs.k << " escape directions (delta)\n";
         }
     }
 
@@ -295,9 +322,26 @@ int run_sampling_job(RuntimeConfig cfg, bool verbose, bool show_device_banner) {
     profile.upload_time = upload_timer.elapsed();
 
     Eigen::MatrixXd samples_out;
-    naja::rounding::RoundingConfig rounding_cfg = naja::rounding::from_runtime_config(cfg);
-    naja::rounding::RoundingPlan rounding_plan = naja::rounding::build_rounding_plan(
-        rounding_cfg, A_d, b_d, x0_host, n, cfg.TPB_SS, seed, cfg.STATUS, verbose);
+    naja::rounding::RoundingPlan rounding_plan;
+
+    if (cfg.PAIR_SCHEDULE_METHOD == "barrier" && n >= 2) {
+        naja::status::phase(cfg.STATUS, "barrier-Hessian Jacobi schedule");
+        auto sched = naja::rounding::compute_barrier_pair_schedule(A_host, b_host, x0_host, verbose);
+        rounding_plan.pair_i_d = std::make_unique<naja::gpu::DVector<int>>(sched.i);
+        rounding_plan.pair_j_d = std::make_unique<naja::gpu::DVector<int>>(sched.j);
+        rounding_plan.pair_c_d = std::make_unique<naja::gpu::DVector<double>>(sched.c);
+        rounding_plan.pair_s_d = std::make_unique<naja::gpu::DVector<double>>(sched.s);
+        rounding_plan.pair_mode = 2;
+        // Auto-enable pair moves if user didn't set --pair-prob explicitly
+        if (cfg.PAIR_PROB <= 0.0) {
+            cfg.PAIR_PROB = 0.5;
+            if (verbose) std::cout << "  pair_prob (auto)  0.5\n";
+        }
+    } else {
+        naja::rounding::RoundingConfig rounding_cfg = naja::rounding::from_runtime_config(cfg);
+        rounding_plan = naja::rounding::build_rounding_plan(
+            rounding_cfg, A_d, b_d, x0_host, n, cfg.TPB_SS, seed, cfg.STATUS, verbose);
+    }
     int pair_mode = rounding_plan.pair_mode; // 1=fixed (ei-ej)/sqrt(2); 2=jacobi rotated pairs
 
     // Pre-sampling estimate so the user knows what to expect during the silent GPU phase
@@ -327,8 +371,11 @@ int run_sampling_job(RuntimeConfig cfg, bool verbose, bool show_device_banner) {
         }
         if (hull_enabled) {
             Eigen::MatrixXd T0 = T_host;
-            T_host = T0 * hull_basis;
+            T_host = T0 * hull_basis;  // hull_basis already includes rotation_Q if barrier_rotated
             shift_host = (T0 * hull_shift) + shift_host;
+        }
+        if (barrier_rotated && !hull_enabled) {
+            T_host = T_host * rotation_Q;
         }
         // After optional composition, transform cols must match sampling dim.
         if (T_host.cols() != n) {
@@ -437,6 +484,11 @@ int run_sampling_job(RuntimeConfig cfg, bool verbose, bool show_device_banner) {
         Timer download_timer;
         samples_out = samples_d.toHost();
         profile.download_time = download_timer.elapsed();
+
+        // Undo rotation so samples are in the original reduced space.
+        if (barrier_rotated) {
+            samples_out = rotation_Q * samples_out;
+        }
         }
     }
 

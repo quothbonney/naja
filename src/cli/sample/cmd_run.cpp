@@ -60,6 +60,8 @@ void cmd_run(int argc, char** argv) {
     double ksparse_prob = 0.0;
     int ksparse_k = 8;
     std::string extra_constraints_mode = "auto";
+    std::string pair_schedule_method;
+    bool barrier_rotate = false;
     double affine_hull_tol = 0.0;
     bool backmap = false;
     bool write_npy = false;
@@ -91,6 +93,8 @@ void cmd_run(int argc, char** argv) {
         else if (a == "--ksparse-prob") ksparse_prob = std::stod(next_arg(i, argc, argv, a));
         else if (a == "--ksparse-k") ksparse_k = std::stoi(next_arg(i, argc, argv, a));
         else if (a == "--extra-constraints") extra_constraints_mode = next_arg(i, argc, argv, a);
+        else if (a == "--pair-schedule-method") pair_schedule_method = next_arg(i, argc, argv, a);
+        else if (a == "--barrier-rotate") barrier_rotate = true;
         else if (a == "--affine-hull-tol") affine_hull_tol = std::stod(next_arg(i, argc, argv, a));
         else if (a == "--backmap") backmap = true;
         else if (a == "--write-npy") write_npy = true;
@@ -127,6 +131,9 @@ void cmd_run(int argc, char** argv) {
     if (extra_constraints_mode != "auto" && extra_constraints_mode != "ignore" && extra_constraints_mode != "require") {
         die_usage("invalid --extra-constraints (auto|ignore|require)");
     }
+    if (!pair_schedule_method.empty() && pair_schedule_method != "barrier") {
+        die_usage("invalid --pair-schedule-method (barrier)");
+    }
     if (bounds_policy != "ignore" && bounds_policy != "filter") die_usage("invalid --bounds-policy: " + bounds_policy);
     if (bounds_policy == "filter" && !backmap) {
         throw std::runtime_error("bounds-policy=filter requires --backmap");
@@ -155,6 +162,8 @@ void cmd_run(int argc, char** argv) {
     cfg.KSPARSE_PROB = ksparse_prob;
     cfg.KSPARSE_K = ksparse_k;
     cfg.EXTRA_CONSTRAINTS = extra_constraints_mode;
+    cfg.PAIR_SCHEDULE_METHOD = pair_schedule_method;
+    cfg.BARRIER_ROTATE = barrier_rotate;
     cfg.AFFINE_HULL_TOL = affine_hull_tol;
 
     if (!pair_schedule_path.empty()) {
