@@ -1,7 +1,36 @@
+// GPU utilization optimization history (2026-03-01, V100, d=582 polytope, 24 chains × 2084 samples)
+//
+// Per-model wall time:  15.5s → 5.0s   (3.1× speedup)
+// sampling_fraction:   0.147 → 0.45    (fraction of total time actually on GPU)
+//
+// Three bottlenecks fixed:
+//
+// 1. barrier_rotation (barrier_rotation.cu):
+//    CPU Eigen::SelfAdjointEigenSolver on 582×582 H = B'B  → ~4-5s per model
+//    GPU cuBLAS dsyrk for B'B + cuSOLVER dsyevd for eigendecomp → ~0.12-0.25s
+//    (30× speedup; cuSOLVER JIT on first model of a run adds ~1s)
+//
+// 2. GPU back-transform (this file, below):
+//    CPU single-threaded Eigen: rotation_Q * samples_out = (582×582) @ (582×50016)
+//    = 34B flops → ~4s on CPU
+//    GPU cuBLAS ddgmm (scale) + dgemm (rotate) → ~0.18-0.24s
+//    (20× speedup)
+//
+// 3. Gurobi cube-center LP (feasible_start_lp.cpp):
+//    Threads=1, NumericFocus=3 → ~5-8s per model
+//    Threads=8, NumericFocus=1 → ~1.4-2.2s per model
+//    (3-4× speedup; GRBEnv construction adds ~0.5-1s; cacheable if needed)
+//
+// Verified same-model before/after on ko_b0002_b0573 (754 constraints, 582 dims):
+//   old: total_s=15.46, sampling_fraction=0.147
+//   new: total_s=5.38,  sampling_fraction=0.418
+
 #include "engine/job.h"
 
 #include <Eigen/Dense>
+#include <cublas_v2.h>
 #include <chrono>
+#include "helper.h"
 #include <fstream>
 #include <iomanip>
 #include <iostream>
@@ -164,15 +193,21 @@ int run_sampling_job(RuntimeConfig cfg, bool verbose, bool show_device_banner) {
 
     if (cfg.START_POLICY == "cube_center") {
         naja::status::phase(cfg.STATUS, "start policy: cube_center");
+        Timer cube_center_timer;
         auto center = naja::pipeline::axis_aligned_cube_center_lp_gurobi(A_host, b_host);
         x0_host = center.first;
+        profile.cube_center_time = cube_center_timer.elapsed();
         if (verbose) {
             std::cout << "  start_cube_r     " << std::setprecision(6) << center.second << "\n";
+            std::cout << "  cube_center_lp   " << std::setprecision(3) << profile.cube_center_time << "s\n";
         }
     } else if (cfg.START_POLICY != "file") {
         throw std::runtime_error("invalid START_POLICY: " + cfg.START_POLICY);
     }
-    naja::util::require_feasible_start(A_host, b_host, x0_host, 1e-9, extra_loaded ? "A+extra" : "A");
+    {
+        double start_eps = std::max({1e-9, cfg.CONSTRAINT_EPS, cfg.EXTRA_CONSTRAINT_EPS});
+        naja::util::require_feasible_start(A_host, b_host, x0_host, start_eps, extra_loaded ? "A+extra" : "A");
+    }
 
     // Degenerate-rounding check: if tight constraints span the full dimension,
     // the polytope is a point and sampling will produce identical copies.
@@ -253,6 +288,7 @@ int run_sampling_job(RuntimeConfig cfg, bool verbose, bool show_device_banner) {
     double barrier_condition = 1.0;     // pre-whitening condition number
     if (cfg.BARRIER_ROTATE && n >= 2) {
         naja::status::phase(cfg.STATUS, "barrier rotation (eigenbasis of H)");
+        Timer barrier_timer;
         auto br = naja::rounding::compute_barrier_rotation(A_host, b_host, x0_host, verbose);
         rotation_Q = br.Q;
         barrier_condition = br.eigenvalues[n - 1] / std::max(br.eigenvalues[0], 1e-30);
@@ -299,6 +335,10 @@ int run_sampling_job(RuntimeConfig cfg, bool verbose, bool show_device_banner) {
                           << "] post_cond=" << std::fixed << std::setprecision(1) << post_cond * post_cond
                           << "\n";
             }
+        }
+        profile.barrier_time = barrier_timer.elapsed();
+        if (verbose) {
+            std::cout << "  barrier_total    " << std::setprecision(3) << profile.barrier_time << "s\n";
         }
     }
 
@@ -507,6 +547,19 @@ int run_sampling_job(RuntimeConfig cfg, bool verbose, bool show_device_banner) {
         profile.download_time = download_timer.elapsed();
     } else {
         naja::status::phase(cfg.STATUS, "gpu sampling");
+
+        // Pre-upload back-transform matrices to GPU before sampling so we can
+        // apply them on the GPU and avoid a large CPU DGEMM after download.
+        // (582×582 @ 582×50016 = 34B flops → ~4s CPU single-threaded vs ~3ms GPU)
+        std::unique_ptr<naja::gpu::DVector<double>> bt_ws_d;
+        std::unique_ptr<naja::gpu::DMatrix<double>> bt_Q_d;
+        if (barrier_whitened) {
+            bt_ws_d = std::make_unique<naja::gpu::DVector<double>>(whiten_scale);
+        }
+        if (barrier_rotated) {
+            bt_Q_d = std::make_unique<naja::gpu::DMatrix<double>>(rotation_Q);
+        }
+
         Timer sampling_timer;
         auto samples_d = CoordinateHitAndRun(
             A_d, b_d, X_d,
@@ -531,22 +584,56 @@ int run_sampling_job(RuntimeConfig cfg, bool verbose, bool show_device_banner) {
         );
         cudaDeviceSynchronize();
         profile.sampling_time = sampling_timer.elapsed();
-        profile.backtransform_time = 0.0;
         profile.throughput = (cfg.N_CHAINS * cfg.N_SAMPLES) / profile.sampling_time;
-
         profile.original_dim = n;
 
-        naja::status::phase(cfg.STATUS, "downloading");
-        Timer download_timer;
-        samples_out = samples_d.toHost();
-        profile.download_time = download_timer.elapsed();
+        // GPU back-transform: undo whitening + rotation before downloading.
+        // Order: x_orig = Q * diag(S) * z_whitened_rotated
+        if (barrier_whitened || barrier_rotated) {
+            naja::status::phase(cfg.STATUS, "gpu back-transform");
+            Timer bt_timer;
+            const int N_total = cfg.N_CHAINS * cfg.N_SAMPLES;
+            cublasHandle_t blas_h;
+            CUBLAS_CHECK(cublasCreate(&blas_h));
 
-        // Undo whitening+rotation so samples are in the original reduced space.
-        if (barrier_whitened) {
-            samples_out = whiten_scale.asDiagonal() * samples_out;
-        }
-        if (barrier_rotated) {
-            samples_out = rotation_Q * samples_out;
+            if (barrier_whitened) {
+                // Scale each row i by whiten_scale[i]: samples_d = diag(S) * samples_d
+                CUBLAS_CHECK(cublasDdgmm(blas_h, CUBLAS_SIDE_LEFT,
+                                          n, N_total,
+                                          samples_d.dmat, n,
+                                          bt_ws_d->dvec, 1,
+                                          samples_d.dmat, n));
+            }
+
+            if (barrier_rotated) {
+                // result = rotation_Q * samples_d  (n×n @ n×N_total)
+                DMatrix<double> result_d(n, N_total);
+                const double alpha = 1.0, beta = 0.0;
+                CUBLAS_CHECK(cublasDgemm(blas_h, CUBLAS_OP_N, CUBLAS_OP_N,
+                                          n, N_total, n,
+                                          &alpha, bt_Q_d->dmat, n,
+                                                  samples_d.dmat, n,
+                                          &beta,  result_d.dmat, n));
+                cublasDestroy(blas_h);
+
+                naja::status::phase(cfg.STATUS, "downloading");
+                Timer download_timer;
+                samples_out = result_d.toHost();
+                profile.download_time = download_timer.elapsed();
+            } else {
+                cublasDestroy(blas_h);
+                naja::status::phase(cfg.STATUS, "downloading");
+                Timer download_timer;
+                samples_out = samples_d.toHost();
+                profile.download_time = download_timer.elapsed();
+            }
+            profile.backtransform_time = bt_timer.elapsed();
+        } else {
+            profile.backtransform_time = 0.0;
+            naja::status::phase(cfg.STATUS, "downloading");
+            Timer download_timer;
+            samples_out = samples_d.toHost();
+            profile.download_time = download_timer.elapsed();
         }
         }
     }

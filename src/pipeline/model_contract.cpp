@@ -167,6 +167,9 @@ void write_generated_config(const std::string& path, const RuntimeConfig& cfg) {
     if (!cfg.PAIR_SCHEDULE.empty()) {
         f << "PAIR_SCHEDULE=" << cfg.PAIR_SCHEDULE << "\n";
     }
+    if (!cfg.PAIR_SCHEDULE_METHOD.empty()) {
+        f << "PAIR_SCHEDULE_METHOD=" << cfg.PAIR_SCHEDULE_METHOD << "\n";
+    }
     if (!cfg.EXTRA_CONSTRAINTS.empty()) {
         f << "EXTRA_CONSTRAINTS=" << cfg.EXTRA_CONSTRAINTS << "\n";
     }
@@ -182,6 +185,8 @@ void write_generated_config(const std::string& path, const RuntimeConfig& cfg) {
     if (cfg.KSPARSE_K != 8) {
         f << "KSPARSE_K=" << cfg.KSPARSE_K << "\n";
     }
+    f << "BARRIER_ROTATE=" << (cfg.BARRIER_ROTATE ? "true" : "false") << "\n";
+    f << "BARRIER_WHITEN=" << (cfg.BARRIER_WHITEN ? "true" : "false") << "\n";
     if (cfg.BOUNDS_FILTER) {
         f << "BOUNDS_POLICY=filter\n";
         f << "BOUNDS_EPS=" << std::setprecision(12) << cfg.BOUNDS_EPS << "\n";

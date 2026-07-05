@@ -34,4 +34,19 @@ echo "${OUT}" | grep -q "^> validate model contract$"
 echo "${OUT}" | grep -q "^> write generated config$"
 echo "${OUT}" | grep -q "^> dry-run: not executing sampling$"
 
+printf 'MODEL_X\n' > "${TMP}/models/model_list.txt"
+OUT="$("${EXE}" sample bulk \
+  --models-root "${TMP}/models" \
+  --model-list "${TMP}/models/model_list.txt" \
+  --out-root "${TMP}/bulk_out" \
+  --name dry_bulk \
+  --gpus 0 \
+  --n-chains 1 \
+  --n-samples 1 \
+  --pair-schedule-method barrier \
+  --dry-run \
+  --print-config)"
+echo "${OUT}" | grep -q "^> validate model contracts$"
+echo "${OUT}" | grep -q "^PAIR_SCHEDULE_METHOD=barrier$"
+echo "${OUT}" | grep -q "^> dry-run: not executing bulk sampling$"
 

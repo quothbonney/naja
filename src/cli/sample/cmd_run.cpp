@@ -107,6 +107,7 @@ void cmd_run(int argc, char** argv) {
         else if (a == "--quiet") quiet = true;
         else if (a == "--dry-run") dry_run = true;
         else if (a == "--print-config") print_config = true;
+        else if (a == "--help" || a == "-h") die_usage("", 0);
         else die_usage("unknown flag: " + a);
     }
     if (model_dir.empty()) die_usage("missing --model-dir");

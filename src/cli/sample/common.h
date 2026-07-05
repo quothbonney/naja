@@ -4,7 +4,7 @@
 
 namespace naja::cli::sample {
 
-[[noreturn]] void die_usage(const std::string& msg);
+[[noreturn]] void die_usage(const std::string& msg, int exit_code = 2);
 std::string next_arg(int& i, int argc, char** argv, const std::string& flag);
 
 void require_nonempty_file(const std::string& path, const std::string& what);

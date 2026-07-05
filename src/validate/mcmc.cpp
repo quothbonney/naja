@@ -100,12 +100,11 @@ EssResult compute_ess(const Eigen::MatrixXf& samples, int n_chains) {
     for (int d = 0; d < dim; ++d) {
         float min_ess = std::numeric_limits<float>::max();
         for (int c = 0; c < n_chains; ++c) {
-            const float* chain_data = samples.data() + static_cast<long>(d) + static_cast<long>(c * spc) * dim;
-            // Eigen col-major: column c*spc+i has element d at offset d + (c*spc+i)*dim
-            // We need contiguous chain data, so copy it out
+            // Naja stores columns interleaved by draw: draw0 chain0, draw0 chain1, ...
+            // Copy one chain into a contiguous buffer before the FFT.
             std::vector<float> chain(spc);
             for (int i = 0; i < spc; ++i) {
-                chain[i] = samples(d, c * spc + i);
+                chain[i] = samples(d, i * n_chains + c);
             }
             float e = ess_one_chain(chain.data(), spc);
             min_ess = std::min(min_ess, e);
@@ -145,10 +144,10 @@ RhatResult compute_split_rhat(const Eigen::MatrixXf& samples, int n_chains) {
 
         for (int c = 0; c < n_chains; ++c) {
             for (int h = 0; h < 2; ++h) {
-                int start = c * spc + h * half;
                 double s = 0.0, s2 = 0.0;
                 for (int i = 0; i < half; ++i) {
-                    double v = static_cast<double>(samples(d, start + i));
+                    const int sample_idx = h * half + i;
+                    double v = static_cast<double>(samples(d, sample_idx * n_chains + c));
                     s += v;
                     s2 += v * v;
                 }

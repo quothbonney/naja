@@ -17,6 +17,8 @@
 namespace naja::pipeline {
 namespace {
 
+constexpr double kPrepareStartFeasibilityEps = 1e-7;
+
 static void write_vector_csv(const std::string& path, const Eigen::VectorXd& v) {
     std::ofstream f(path);
     if (!f.is_open()) throw std::runtime_error("cannot write: " + path);
@@ -72,7 +74,7 @@ void ensure_feasible_rounding_start_if_extra_present(const ModelContract& c) {
         try {
             Eigen::VectorXd x_existing = csv::loadVector(start_path);
             if (x_existing.size() == A_aug.cols()) {
-                naja::util::require_feasible_start(A_aug, b_aug, x_existing, 1e-9, "feasible_start_files(existing)");
+                naja::util::require_feasible_start(A_aug, b_aug, x_existing, kPrepareStartFeasibilityEps, "feasible_start_files(existing)");
                 return;
             }
         } catch (const std::exception&) {
@@ -82,7 +84,7 @@ void ensure_feasible_rounding_start_if_extra_present(const ModelContract& c) {
 
     auto [x, r] = axis_aligned_cube_center_lp_gurobi(A_aug, b_aug);
     (void)r;
-    naja::util::require_feasible_start(A_aug, b_aug, x, 1e-9, "feasible_start_files");
+    naja::util::require_feasible_start(A_aug, b_aug, x, kPrepareStartFeasibilityEps, "feasible_start_files");
 
     // Important: the current start file may be a symlink (symlink mode). Remove it first.
     remove_path_if_exists(start_path);

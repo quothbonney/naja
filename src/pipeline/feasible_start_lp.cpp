@@ -43,10 +43,10 @@ std::pair<Eigen::VectorXd, double> axis_aligned_cube_center_lp_gurobi(const Eige
         env.set(GRB_IntParam_OutputFlag, 0);
         GRBModel model(env);
         model.set(GRB_IntAttr_ModelSense, GRB_MAXIMIZE);
-        model.set(GRB_IntParam_NumericFocus, 3);
-        model.set(GRB_DoubleParam_FeasibilityTol, 1e-9);
-        model.set(GRB_DoubleParam_OptimalityTol, 1e-9);
-        model.set(GRB_IntParam_Threads, 1);
+        model.set(GRB_IntParam_NumericFocus, 1);
+        model.set(GRB_DoubleParam_FeasibilityTol, 1e-7);
+        model.set(GRB_DoubleParam_OptimalityTol, 1e-7);
+        model.set(GRB_IntParam_Threads, 8);
 
         std::vector<GRBVar> x((size_t)n);
         for (int j = 0; j < n; ++j) {

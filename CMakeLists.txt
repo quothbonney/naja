@@ -19,7 +19,7 @@ endif()
 message(STATUS "Build type: ${CMAKE_BUILD_TYPE}")
 
 # CUDA architectures (A100)
-set(CMAKE_CUDA_ARCHITECTURES 80)
+set(CMAKE_CUDA_ARCHITECTURES 70 80)
 
 # Paths to local source copies
 set(GPU_DIR "${CMAKE_CURRENT_SOURCE_DIR}/src/gpu")
@@ -47,9 +47,9 @@ add_executable(naja
     src/engine/bounds_filter.cpp
     src/rounding/jacobi.cpp
     src/rounding/dikin_precondition.cpp
-    src/rounding/barrier_rotation.cpp
+    src/rounding/barrier_rotation.cu
     src/rounding/barrier_schedule.cpp
-    src/rounding/dikin_directions.cpp
+    src/rounding/dikin_directions.cu
     src/rounding/inherit.cpp
     src/util/constraint_utils.cpp
     src/pipeline/extra_constraints.cpp
@@ -172,6 +172,19 @@ target_include_directories(test_start_feasibility PRIVATE
 )
 add_test(NAME test_start_feasibility COMMAND test_start_feasibility)
 
+add_executable(test_mcmc_interleaved_layout
+    tests/test_mcmc_interleaved_layout.cpp
+    src/validate/mcmc.cpp
+)
+target_include_directories(test_mcmc_interleaved_layout PRIVATE
+    ${CMAKE_CURRENT_SOURCE_DIR}
+    ${CMAKE_CURRENT_SOURCE_DIR}/src
+    ${EIGEN_DIR}
+    ${KISSFFT_DIR}
+)
+target_link_libraries(test_mcmc_interleaved_layout PRIVATE kissfft)
+add_test(NAME test_mcmc_interleaved_layout COMMAND test_mcmc_interleaved_layout)
+
 add_executable(test_chr_pair_steps
     tests/test_chr_pair_steps.cpp
 )
@@ -265,6 +278,7 @@ target_link_libraries(naja PRIVATE
     CUDA::cudart
     CUDA::curand
     CUDA::cublas
+    CUDA::cusolver
     ${GUROBI_DIR}/lib/libgurobi_c++.a
     ${GUROBI_DIR}/lib/libgurobi130.so
 )

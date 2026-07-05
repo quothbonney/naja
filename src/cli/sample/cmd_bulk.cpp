@@ -29,8 +29,10 @@ void cmd_bulk(int argc, char** argv) {
     int thinning = 0;
     double constraint_eps = 0.0;
     double affine_hull_tol = 0.0;
+    double pair_prob = 0.0;
     std::string start_policy = "file";
     std::string extra_constraints_mode = "auto";
+    std::string pair_schedule_method;
     bool barrier_rotate = false;
     bool barrier_whiten = false;
     bool backmap = false;
@@ -43,6 +45,7 @@ void cmd_bulk(int argc, char** argv) {
     bool dry_run = false;
     bool print_config = false;
     bool skip_existing = false;
+    std::string flat_output;
 
     for (int i = 0; i < argc; ++i) {
         std::string a = argv[i];
@@ -58,8 +61,10 @@ void cmd_bulk(int argc, char** argv) {
         else if (a == "--thinning") thinning = std::stoi(next_arg(i, argc, argv, a));
         else if (a == "--constraint-eps") constraint_eps = std::stod(next_arg(i, argc, argv, a));
         else if (a == "--affine-hull-tol") affine_hull_tol = std::stod(next_arg(i, argc, argv, a));
+        else if (a == "--pair-prob") pair_prob = std::stod(next_arg(i, argc, argv, a));
         else if (a == "--start-policy") start_policy = next_arg(i, argc, argv, a);
         else if (a == "--extra-constraints") extra_constraints_mode = next_arg(i, argc, argv, a);
+        else if (a == "--pair-schedule-method") pair_schedule_method = next_arg(i, argc, argv, a);
         else if (a == "--barrier-rotate") barrier_rotate = true;
         else if (a == "--barrier-whiten") { barrier_whiten = true; barrier_rotate = true; }
         else if (a == "--backmap") backmap = true;
@@ -72,6 +77,8 @@ void cmd_bulk(int argc, char** argv) {
         else if (a == "--dry-run") dry_run = true;
         else if (a == "--print-config") print_config = true;
         else if (a == "--skip-existing") skip_existing = true;
+        else if (a == "--flat-output") flat_output = next_arg(i, argc, argv, a);
+        else if (a == "--help" || a == "-h") die_usage("", 0);
         else die_usage("unknown flag: " + a);
     }
 
@@ -84,6 +91,10 @@ void cmd_bulk(int argc, char** argv) {
     if (bounds_policy != "ignore" && bounds_policy != "filter") die_usage("invalid --bounds-policy: " + bounds_policy);
     if (bounds_policy == "filter" && !backmap) {
         throw std::runtime_error("bounds-policy=filter requires --backmap");
+    }
+    if (pair_prob < 0.0 || pair_prob > 1.0) die_usage("invalid --pair-prob (must be in [0,1])");
+    if (!pair_schedule_method.empty() && pair_schedule_method != "barrier") {
+        die_usage("invalid --pair-schedule-method (barrier)");
     }
 
     if (!is_directory(models_root)) {
@@ -113,11 +124,14 @@ void cmd_bulk(int argc, char** argv) {
     cfg.BOUNDS_EPS = bounds_eps;
     cfg.WRITE_SAMPLES_VALID = write_samples_valid;
     cfg.SKIP_EXISTING = skip_existing;
+    cfg.FLAT_OUTPUT_DIR = flat_output;
     cfg.THINNING = thinning;
+    cfg.PAIR_PROB = pair_prob;
     cfg.CONSTRAINT_EPS = constraint_eps;
     cfg.AFFINE_HULL_TOL = affine_hull_tol;
     cfg.START_POLICY = start_policy;
     cfg.EXTRA_CONSTRAINTS = extra_constraints_mode;
+    cfg.PAIR_SCHEDULE_METHOD = pair_schedule_method;
     cfg.BARRIER_ROTATE = barrier_rotate;
     cfg.BARRIER_WHITEN = barrier_whiten;
 
@@ -166,6 +180,9 @@ void cmd_bulk(int argc, char** argv) {
     naja::status::kv(cfg.STATUS, "jobs", std::to_string(models.size()));
     naja::status::kv(cfg.STATUS, "gpus", gpus);
     naja::status::kv(cfg.STATUS, "output", make_absolute_path(cfg.OUT_DIR));
+    if (!cfg.FLAT_OUTPUT_DIR.empty()) {
+        naja::status::kv(cfg.STATUS, "flat_output", make_absolute_path(cfg.FLAT_OUTPUT_DIR));
+    }
     naja::status::kv(cfg.STATUS, "bounds", (cfg.BOUNDS_FILTER ? "filter" : "ignore"));
     if (cfg.BOUNDS_FILTER) naja::status::kv(cfg.STATUS, "bounds_eps", std::to_string(cfg.BOUNDS_EPS));
     if (cfg.SKIP_EXISTING) naja::status::kv(cfg.STATUS, "skip_existing", "true");

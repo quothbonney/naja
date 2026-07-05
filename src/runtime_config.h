@@ -44,6 +44,7 @@ struct RuntimeConfig {
     std::string GPU_LIST;
     std::string BULK_MODEL_LIST;
     std::string source_file;
+    std::string FLAT_OUTPUT_DIR;     // if set, write samples as <dir>/<model>.npy (flat, no nesting)
 
     // Derived paths (populated after loading)
     std::string MODEL_DIR;
@@ -157,6 +158,9 @@ struct RuntimeConfig {
                     else if (key == "AFFINE_HULL_TOL") cfg.AFFINE_HULL_TOL = std::stod(value);
                     else if (key == "KSPARSE_PROB") cfg.KSPARSE_PROB = std::stod(value);
                     else if (key == "KSPARSE_K") cfg.KSPARSE_K = std::stoi(value);
+                    else if (key == "PAIR_SCHEDULE_METHOD") cfg.PAIR_SCHEDULE_METHOD = value;
+                    else if (key == "BARRIER_ROTATE") cfg.BARRIER_ROTATE = (value == "true" || value == "1");
+                    else if (key == "BARRIER_WHITEN") cfg.BARRIER_WHITEN = (value == "true" || value == "1");
                     else if (key == "GPU_LIST") cfg.GPU_LIST = value;
                     else if (key == "BULK_MODEL_LIST") cfg.BULK_MODEL_LIST = value;
                 }

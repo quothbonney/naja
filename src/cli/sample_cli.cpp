@@ -10,6 +10,7 @@
 int naja_sample_cli_main(int argc, char** argv) {
     if (argc < 1) naja::cli::sample::die_usage("missing subcommand");
     const std::string sub = argv[0];
+    if (sub == "--help" || sub == "-h") naja::cli::sample::die_usage("", 0);
     using CmdFn = void (*)(int, char**);
     const std::array<std::pair<const char*, CmdFn>, 8> kCommands = {{
         {"run", &naja::cli::sample::cmd_run},

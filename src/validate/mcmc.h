@@ -19,13 +19,15 @@ struct RhatResult {
 // (Geyer's initial positive sequence estimator). Returns the min ESS across
 // chains for each dimension.
 //
-// samples: (dim, n_total) column-major, chains concatenated [c0|c1|...|cK]
+// samples: (dim, n_total) column-major, naja CHR output order:
+// columns are interleaved by saved sample, i.e. col = sample_idx*n_chains + chain.
 EssResult compute_ess(const Eigen::MatrixXf& samples, int n_chains);
 
 // Compute split-R-hat convergence diagnostic. Each chain is split in half,
 // giving 2*n_chains half-chains. R-hat is sqrt(var_hat / W) per dimension.
 //
-// samples: (dim, n_total) column-major, chains concatenated
+// samples: (dim, n_total) column-major, naja CHR output order:
+// columns are interleaved by saved sample, i.e. col = sample_idx*n_chains + chain.
 RhatResult compute_split_rhat(const Eigen::MatrixXf& samples, int n_chains);
 
 } // namespace naja::validate

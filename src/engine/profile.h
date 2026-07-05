@@ -9,6 +9,8 @@
 
 struct ProfileData {
     double load_time = 0.0;
+    double cube_center_time = 0.0;
+    double barrier_time = 0.0;
     double upload_time = 0.0;
     double sampling_time = 0.0;
     double download_time = 0.0;
@@ -50,6 +52,8 @@ struct ProfileData {
         f << "  },\n";
         f << "  \"timing\": {\n";
         f << "    \"load_polytope_s\": " << std::fixed << std::setprecision(4) << load_time << ",\n";
+        f << "    \"cube_center_lp_s\": " << cube_center_time << ",\n";
+        f << "    \"barrier_rotation_s\": " << barrier_time << ",\n";
         f << "    \"upload_to_gpu_s\": " << upload_time << ",\n";
         f << "    \"gpu_sampling_s\": " << sampling_time << ",\n";
         f << "    \"download_from_gpu_s\": " << download_time << ",\n";

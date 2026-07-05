@@ -14,6 +14,7 @@
 
 #include <filesystem>
 #include <sys/stat.h>
+#include <unistd.h>
 
 #include "device_utils.h"
 #include "util/status.h"
@@ -110,6 +111,23 @@ std::string find_completed_job_dir(const RuntimeConfig& cfg, const std::string& 
     return best;
 }
 
+// Check if a flat-output .npy file already exists for skip-existing
+bool flat_output_exists(const std::string& flat_dir, const std::string& model_name) {
+    std::string npy_path = flat_dir + "/" + model_name + ".npy";
+    return file_nonempty(npy_path);
+}
+
+// Atomically rename a temp file to its final path.
+// Uses rename(2) which is atomic on POSIX (including NFS).
+void atomic_rename(const std::string& tmp_path, const std::string& final_path) {
+    if (std::rename(tmp_path.c_str(), final_path.c_str()) != 0) {
+        // Clean up temp file on failure
+        std::remove(tmp_path.c_str());
+        throw std::runtime_error("atomic rename failed: " + tmp_path + " -> " + final_path
+                                 + " (errno=" + std::to_string(errno) + ")");
+    }
+}
+
 } // namespace
 
 void bulk_worker(int device_id,
@@ -120,6 +138,9 @@ void bulk_worker(int device_id,
                  std::mutex& results_mutex,
                  std::mutex& log_mutex) {
     naja::gpu::set_device(device_id);
+    const bool flat_mode = !base_cfg.FLAT_OUTPUT_DIR.empty();
+    const pid_t pid = getpid();
+
     while (true) {
         size_t idx = next_index.fetch_add(1);
         if (idx >= jobs.size()) break;
@@ -127,8 +148,24 @@ void bulk_worker(int device_id,
         RuntimeConfig job_cfg = base_cfg;
         job_cfg.MODEL_NAME = job_name;
         job_cfg.GPU_DEVICE = device_id;
-        job_cfg.OUT_DIR = make_job_output_dir(base_cfg.OUT_DIR, job_name);
-        job_cfg.derive_paths();
+
+        // In flat mode: metadata goes to .meta/<model>/, npy goes to <flat_dir>/<model>.npy
+        // In normal mode: everything goes to the nested run directory
+        std::string flat_npy_final;
+        std::string flat_npy_tmp;
+        if (flat_mode) {
+            std::string meta_dir = base_cfg.OUT_DIR + "/.meta/" + job_name;
+            ensure_dir(meta_dir);
+            job_cfg.OUT_DIR = meta_dir;
+            job_cfg.derive_paths();
+            // Override NPY_FILE to write to a temp file in the flat output dir
+            flat_npy_final = base_cfg.FLAT_OUTPUT_DIR + "/" + job_name + ".npy";
+            flat_npy_tmp = flat_npy_final + ".tmp." + std::to_string(pid) + "." + std::to_string(device_id);
+            job_cfg.NPY_FILE = flat_npy_tmp;
+        } else {
+            job_cfg.OUT_DIR = make_job_output_dir(base_cfg.OUT_DIR, job_name);
+            job_cfg.derive_paths();
+        }
 
         auto start = std::chrono::high_resolution_clock::now();
         JobResult result;
@@ -137,13 +174,22 @@ void bulk_worker(int device_id,
         result.output_dir = job_cfg.OUT_DIR;
 
         if (base_cfg.SKIP_EXISTING) {
-            std::string done = find_completed_job_dir(base_cfg, job_name);
-            if (!done.empty()) {
+            bool already_done = false;
+            if (flat_mode) {
+                already_done = flat_output_exists(base_cfg.FLAT_OUTPUT_DIR, job_name);
+            } else {
+                already_done = !find_completed_job_dir(base_cfg, job_name).empty();
+            }
+            if (already_done) {
                 result.success = true;
                 result.skipped = true;
                 result.message = "SKIP";
                 result.elapsed = 0.0;
-                result.output_dir = done;
+                if (flat_mode) {
+                    result.output_dir = base_cfg.FLAT_OUTPUT_DIR + "/" + job_name + ".npy";
+                } else {
+                    result.output_dir = find_completed_job_dir(base_cfg, job_name);
+                }
                 {
                     std::lock_guard<std::mutex> lock(log_mutex);
                     std::cout << "[gpu " << device_id << "] "
@@ -163,9 +209,18 @@ void bulk_worker(int device_id,
             if (!result.success) {
                 result.message = "return code " + std::to_string(rc);
             }
+            // Atomic rename: tmp -> final
+            if (result.success && flat_mode) {
+                atomic_rename(flat_npy_tmp, flat_npy_final);
+                result.output_dir = flat_npy_final;
+            }
         } catch (const std::runtime_error& e) {
             result.success = false;
             result.message = e.what();
+            // Clean up temp file on failure
+            if (flat_mode) {
+                std::remove(flat_npy_tmp.c_str());
+            }
         }
         result.elapsed = std::chrono::duration<double>(std::chrono::high_resolution_clock::now() - start).count();
 
@@ -190,6 +245,9 @@ void bulk_worker(int device_id,
 
 int run_bulk_mode(RuntimeConfig cfg) {
     ensure_dir(cfg.OUT_DIR);
+    if (!cfg.FLAT_OUTPUT_DIR.empty()) {
+        ensure_dir(cfg.FLAT_OUTPUT_DIR);
+    }
     std::vector<std::string> jobs = load_bulk_jobs(cfg);
     if (jobs.empty()) {
         std::cerr << "bulk mode requires BULK_MODEL_LIST with at least one model name" << std::endl;
