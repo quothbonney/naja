@@ -43,6 +43,7 @@
 #include "csv_loader.h"
 #include "device_utils.h"
 #include "dmatrix.h"
+#include "pipeline/model_io.h"
 #include "dvector.h"
 #include "engine/bounds_filter.h"
 #include "pipeline/extra_constraints.h"
@@ -146,22 +147,19 @@ int run_sampling_job(RuntimeConfig cfg, bool verbose, bool show_device_banner) {
 
     naja::status::phase(cfg.STATUS, "loading polytope");
     Timer load_timer;
-    Eigen::MatrixXd A_host = csv::loadMatrix(cfg.A_FILE);
-    Eigen::VectorXd b_host = csv::loadVector(cfg.B_FILE);
-    Eigen::VectorXd x0_host = csv::loadVector(cfg.START_FILE);
-    bool has_extra_A = path_exists(cfg.A_EXTRA_FILE);
-    bool has_extra_b = path_exists(cfg.B_EXTRA_FILE);
+    // RoundingReader hides bundle (polytope.npz) vs legacy per-file CSV layout.
+    naja::pipeline::RoundingReader reader(cfg.MODEL_DIR + "/rounding", cfg.MODEL_NAME);
+    Eigen::MatrixXd A_host = reader.A();
+    Eigen::VectorXd b_host = reader.b();
+    Eigen::VectorXd x0_host = reader.start();
     bool extra_loaded = false;
     Eigen::MatrixXd A_extra;
     Eigen::VectorXd b_extra;
     Eigen::MatrixXd* A_extra_ptr = nullptr;
     Eigen::VectorXd* b_extra_ptr = nullptr;
-    if (has_extra_A || has_extra_b) {
-        if (!has_extra_A || !has_extra_b) {
-            throw std::runtime_error("incomplete extra constraint files (need both A_extra and b_extra)");
-        }
-        A_extra = csv::loadMatrix(cfg.A_EXTRA_FILE);
-        b_extra = csv::loadVector(cfg.B_EXTRA_FILE);
+    if (reader.has_extra()) {
+        A_extra = reader.extra_A();
+        b_extra = reader.extra_b();
         A_extra_ptr = &A_extra;
         b_extra_ptr = &b_extra;
     }
@@ -452,8 +450,8 @@ int run_sampling_job(RuntimeConfig cfg, bool verbose, bool show_device_banner) {
     if (cfg.BACK_TRANSFORM) {
         naja::status::phase(cfg.STATUS, "loading transform");
         Timer load_transform_timer;
-        Eigen::MatrixXd T_host = csv::loadMatrix(cfg.T_FILE);
-        Eigen::VectorXd shift_host = csv::loadVector(cfg.SHIFT_FILE);
+        Eigen::MatrixXd T_host = reader.T();
+        Eigen::VectorXd shift_host = reader.shift();
 
         int n_orig = T_host.rows();
         profile.original_dim = n_orig;

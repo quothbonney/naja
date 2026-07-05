@@ -232,12 +232,80 @@ Lets naja validate shapes before loading large files, enables `naja sample list`
 to show a useful summary without parsing CSVs, and gives a migration path
 for format versioning.
 
-### Recommended path
+---
 
-1. **Now (zero migration):** Add `manifest.json` (Option C). Pure addition, no
-   existing files change, immediately useful for tooling.
-2. **Next batch run prep:** Drop the name prefix (Option A) + use `.npy`
-   instead of `.csv` for T and shift (heaviest files). Write a one-shot
-   migration script.
-3. **Future:** If storage or load time becomes a bottleneck on non-symlinked
-   models, bundle A/b/start/extra into per-model NPZ (Option B hybrid).
+## Implemented: the bundle format
+
+A variant of Option B is now implemented and is the **preferred** layout. naja
+reads either layout and prefers a bundle whenever `polytope.npz` is present, so
+existing CSV models keep working and migration is lazy (model by model).
+
+The split is driven by the inheritance pattern: `inherit` shares the *entire*
+base rounding across KO variants, and only `extra_A`/`extra_b` differ per model.
+So the shared rounding is one file (one symlink to inherit), and the per-model
+KO delta is a separate small file.
+
+```
+rounding/
+├── polytope.npz     arrays: A, b, start, T, shift   (shared base rounding;
+│                    symlinked wholesale for KO inheritance)
+├── extra.npz        arrays: extra_A, extra_b          (per-model KO delta, optional)
+├── start.npy        per-model recomputed feasible start (sidecar, optional)
+└── manifest.json    metadata
+```
+
+All arrays are float64, C-contiguous; vectors are 1-D `(n,)`. `.npz` may be
+stored or deflate-compressed — naja reads both (via zlib).
+
+### The start.npy sidecar
+
+`prepare` recomputes a feasible start per KO variant (the shared base start can
+be infeasible once `extra` constraints are added). Because `polytope.npz` is
+**shared by symlink**, it must never be mutated. The recomputed start is instead
+written to a per-model `rounding/start.npy` sidecar, which overrides the
+bundle's `start` at load time. Inheriting a fresh base drops any stale sidecar.
+
+### Precedence rules (RoundingReader)
+
+- Layout = bundle iff `rounding/polytope.npz` exists; else legacy CSV.
+- `start`: `start.npy` sidecar → bundle `start` → legacy `_start.csv`.
+- `extra`: `extra.npz` → legacy `_extra_A/_b.csv` (checked even in bundle layout,
+  since `prepare` still writes the KO delta as CSVs alongside an inherited bundle).
+
+### Creating / converting bundles
+
+`tools/pack_model.py`:
+
+```bash
+# convert one model in place (keeps CSVs unless --remove-legacy)
+python tools/pack_model.py convert --model-dir /path/to/models/wt
+
+# convert a whole batch
+python tools/pack_model.py convert-all \
+    --models-root /path/to/models --model-list jobs.txt --remove-legacy
+```
+
+Or emit a bundle directly from arrays in the rounding pipeline (no CSV round-trip):
+
+```python
+from pack_model import write_bundle
+write_bundle(rounding_dir, "wt", A=A, b=b, start=start, T=T, shift=shift)
+```
+
+Conversion verifies a numpy round-trip before it will delete any legacy file.
+
+### Still open (future work)
+
+- `prepare`/`inherit` still *write* KO deltas as legacy `_extra_*.csv`; they are
+  read correctly alongside a bundle, but could emit `extra.npz` natively.
+- `gem/` (reaction_ids, l_bounds, u_bounds) is unchanged — still CSV, since it is
+  the human- and conditioner-facing contract.
+
+## Historical: alternatives considered
+
+The bundle above was chosen over two lighter options:
+
+- **Option A — drop the `<model>_rounding_` filename prefix only.** Trivial, but
+  still leaves ASCII CSVs and does nothing for load time or file count.
+- **Option C — add only `manifest.json`.** Zero migration and good hygiene; it
+  was folded into the bundle rather than shipped alone.

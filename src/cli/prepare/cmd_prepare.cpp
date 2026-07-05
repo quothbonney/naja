@@ -20,6 +20,7 @@
 #include "csv_loader.h"
 #include "pipeline/feasible_start_files.h"
 #include "pipeline/model_contract.h"
+#include "pipeline/model_io.h"
 #include "pipeline/text_io.h"
 #include "runtime_config.h"
 #include "utils.h"
@@ -31,6 +32,8 @@ namespace {
 bool rounding_present_enough(const naja::pipeline::ModelContract& c) {
     const std::string r = c.rounding_dir;
     if (!is_directory(r)) return false;
+    // Bundle layout: a single polytope.npz is the complete shared rounding.
+    if (path_exists(r + "/polytope.npz")) return true;
     const std::string base = r + "/" + c.model_name + "_rounding_";
     if (!path_exists(base + "A.csv")) return false;
     if (!path_exists(base + "b.csv")) return false;
@@ -109,15 +112,16 @@ void write_vector_csv(const std::string& path, const Eigen::VectorXd& v) {
 }
 
 void build_extra_from_bounds(const naja::pipeline::ModelContract& c,
-                             const std::string& base_round_prefix,
+                             const naja::pipeline::ModelContract& base,
                              const Eigen::VectorXd& lb_base,
                              const Eigen::VectorXd& ub_base,
                              const Eigen::VectorXd& lb_new,
                              const Eigen::VectorXd& ub_new) {
-    const std::string base_T_path = base_round_prefix + "_T.csv";
-    const std::string base_shift_path = base_round_prefix + "_shift.csv";
-    Eigen::MatrixXd T = csv::loadMatrix(base_T_path);
-    Eigen::VectorXd shift = csv::loadVector(base_shift_path);
+    // Read the base backmap (T, shift) through RoundingReader so a bundle base
+    // (polytope.npz) works as well as legacy CSVs.
+    naja::pipeline::RoundingReader base_reader(base.rounding_dir, base.model_name);
+    Eigen::MatrixXd T = base_reader.T();
+    Eigen::VectorXd shift = base_reader.shift();
     if (T.rows() != lb_base.size()) throw std::runtime_error("T rows != base bounds length");
     if (shift.size() != T.rows()) throw std::runtime_error("shift length != T rows");
 
@@ -351,8 +355,7 @@ void cmd_prepare(int argc, char** argv) {
 
             if (!dry_run) {
                 ensure_dir(c.rounding_dir);
-                std::string base_round_prefix = base_model_dir + "/rounding/" + base.model_name + "_rounding";
-                build_extra_from_bounds(c, base_round_prefix, lb_base, ub_base, lb_vec, ub_vec);
+                build_extra_from_bounds(c, base, lb_base, ub_base, lb_vec, ub_vec);
                 write_signature(sig_path, sig_expected);
             }
         } else {

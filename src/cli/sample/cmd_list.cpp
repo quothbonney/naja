@@ -55,6 +55,8 @@ bool has_gem(const std::string& model_dir) {
 bool has_rounding(const std::string& model_dir, const std::string& model_name) {
     const std::string r = model_dir + "/rounding";
     if (!is_directory(r)) return false;
+    // Bundle layout: a single polytope.npz is the complete shared rounding.
+    if (file_nonempty(r + "/polytope.npz")) return true;
     if (!file_nonempty(r + "/" + model_name + "_rounding_A.csv")) return false;
     if (!file_nonempty(r + "/" + model_name + "_rounding_b.csv")) return false;
     if (!file_nonempty(r + "/" + model_name + "_rounding_start.csv")) return false;

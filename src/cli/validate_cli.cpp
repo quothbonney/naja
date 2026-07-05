@@ -13,6 +13,7 @@
 #include "csv_loader.h"
 #include "npy.h"
 #include "pipeline/model_contract.h"
+#include "pipeline/model_io.h"
 #include "utils.h"
 #include "validate/bounds_check.h"
 #include "validate/chord_lengths.h"
@@ -169,35 +170,30 @@ int naja_validate_cli_main(int argc, char** argv) {
 
     if (!model_dir.empty()) {
         auto contract = naja::pipeline::parse_model_dir(model_dir);
-        std::string T_path = contract.rounding_dir + "/" + contract.model_name + "_rounding_T.csv";
-        std::string shift_path = contract.rounding_dir + "/" + contract.model_name + "_rounding_shift.csv";
+        naja::pipeline::RoundingReader reader(contract.rounding_dir, contract.model_name);
         std::string lb_path = contract.gem_dir + "/l_bounds.csv";
         std::string ub_path = contract.gem_dir + "/u_bounds.csv";
-        std::string A_path = contract.rounding_dir + "/" + contract.model_name + "_rounding_A.csv";
-        std::string b_path = contract.rounding_dir + "/" + contract.model_name + "_rounding_b.csv";
-        std::string start_path = contract.rounding_dir + "/" + contract.model_name + "_rounding_start.csv";
 
-        if (path_exists(T_path) && path_exists(lb_path)) {
+        if (reader.has_backmap() && path_exists(lb_path)) {
             std::cerr << "  checking bounds compliance..." << std::endl;
-            Eigen::MatrixXd T = csv::loadMatrix(T_path);
-            Eigen::VectorXd shift = csv::loadVector(shift_path);
+            Eigen::MatrixXd T = reader.T();
+            Eigen::VectorXd shift = reader.shift();
             Eigen::VectorXd lb = csv::loadVector(lb_path);
             Eigen::VectorXd ub = csv::loadVector(ub_path);
             bounds = naja::validate::check_bounds_backmap(samples, T, shift, lb, ub);
             has_bounds = true;
         }
 
-        if (path_exists(A_path) && path_exists(b_path) && path_exists(start_path)) {
-            Eigen::MatrixXd A = csv::loadMatrix(A_path);
-            Eigen::VectorXd b = csv::loadVector(b_path);
-            Eigen::VectorXd x0 = csv::loadVector(start_path);
+        // Chord diagnostics; skip quietly if this model has no rounding on disk.
+        try {
+            Eigen::MatrixXd A = reader.A();
+            Eigen::VectorXd b = reader.b();
+            Eigen::VectorXd x0 = reader.start();
 
             // Load extra constraints if present
-            std::string eA_path = contract.rounding_dir + "/" + contract.model_name + "_rounding_extra_A.csv";
-            std::string eb_path = contract.rounding_dir + "/" + contract.model_name + "_rounding_extra_b.csv";
-            if (path_exists(eA_path) && path_exists(eb_path)) {
-                Eigen::MatrixXd Aex = csv::loadMatrix(eA_path);
-                Eigen::VectorXd bex = csv::loadVector(eb_path);
+            if (reader.has_extra()) {
+                Eigen::MatrixXd Aex = reader.extra_A();
+                Eigen::VectorXd bex = reader.extra_b();
                 Eigen::MatrixXd A_aug(A.rows() + Aex.rows(), A.cols());
                 A_aug.topRows(A.rows()) = A;
                 A_aug.bottomRows(Aex.rows()) = Aex;
@@ -210,6 +206,8 @@ int naja_validate_cli_main(int argc, char** argv) {
 
             chords = naja::validate::chr_axis_chords(A, b, x0);
             has_chords = true;
+        } catch (const std::exception&) {
+            has_chords = false;
         }
     }
 

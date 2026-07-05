@@ -16,6 +16,7 @@
 #include "gpu/dvector.h"
 #include "gpu/gpusamplers.h"
 #include "pipeline/model_contract.h"
+#include "pipeline/model_io.h"
 #include "rounding/schedule_io.h"
 #include "utils.h"
 
@@ -63,7 +64,7 @@ void cmd_calibrate_rounding(int argc, char** argv) {
     // Determine reduced dim from first model.
     const std::string first_dir = make_absolute_path(models_root + "/" + names.front());
     auto first_contract = naja::pipeline::parse_model_dir(first_dir);
-    Eigen::MatrixXd A0 = csv::loadMatrix(first_contract.rounding_dir + "/" + first_contract.model_name + "_rounding_A.csv");
+    Eigen::MatrixXd A0 = naja::pipeline::RoundingReader(first_contract.rounding_dir, first_contract.model_name).A();
     const int d = (int)A0.cols();
     if (d < 2) {
         throw std::runtime_error("calibrate-rounding requires reduced_dim >= 2");
@@ -104,16 +105,15 @@ void cmd_calibrate_rounding(int argc, char** argv) {
             const std::string model_dir = make_absolute_path(models_root + "/" + names[mi]);
             auto c = naja::pipeline::parse_model_dir(model_dir);
 
-            Eigen::MatrixXd A = csv::loadMatrix(c.rounding_dir + "/" + c.model_name + "_rounding_A.csv");
-            Eigen::VectorXd b = csv::loadVector(c.rounding_dir + "/" + c.model_name + "_rounding_b.csv");
-            Eigen::VectorXd x0 = csv::loadVector(c.rounding_dir + "/" + c.model_name + "_rounding_start.csv");
+            naja::pipeline::RoundingReader reader(c.rounding_dir, c.model_name);
+            Eigen::MatrixXd A = reader.A();
+            Eigen::VectorXd b = reader.b();
+            Eigen::VectorXd x0 = reader.start();
 
             // Augment with extra constraints if present.
-            const std::string extra_A_path = c.rounding_dir + "/" + c.model_name + "_rounding_extra_A.csv";
-            const std::string extra_b_path = c.rounding_dir + "/" + c.model_name + "_rounding_extra_b.csv";
-            if (path_exists(extra_A_path) && path_exists(extra_b_path)) {
-                Eigen::MatrixXd A_extra = csv::loadMatrix(extra_A_path);
-                Eigen::VectorXd b_extra = csv::loadVector(extra_b_path);
+            if (reader.has_extra()) {
+                Eigen::MatrixXd A_extra = reader.extra_A();
+                Eigen::VectorXd b_extra = reader.extra_b();
                 if (extra_eps > 0.0) b_extra.array() += extra_eps;
                 Eigen::MatrixXd A_aug(A.rows() + A_extra.rows(), A.cols());
                 A_aug.topRows(A.rows()) = A;

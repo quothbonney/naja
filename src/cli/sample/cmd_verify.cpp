@@ -1,11 +1,14 @@
 #include "cli/sample/commands.h"
 
+#include <Eigen/Dense>
+
 #include <iostream>
 #include <stdexcept>
 #include <string>
 
 #include "cli/sample/common.h"
 #include "pipeline/model_contract.h"
+#include "pipeline/model_io.h"
 #include "utils.h"
 
 namespace naja::cli::sample {
@@ -25,28 +28,25 @@ void cmd_verify(int argc, char** argv) {
     naja::pipeline::ModelContract c = naja::pipeline::parse_model_dir(model_dir);
     naja::pipeline::validate_contract(c, backmap);
 
-    const std::string A_path = c.rounding_dir + "/" + c.model_name + "_rounding_A.csv";
-    const std::string b_path = c.rounding_dir + "/" + c.model_name + "_rounding_b.csv";
-    const std::string start_path = c.rounding_dir + "/" + c.model_name + "_rounding_start.csv";
-    const std::string T_path = c.rounding_dir + "/" + c.model_name + "_rounding_T.csv";
-    const std::string shift_path = c.rounding_dir + "/" + c.model_name + "_rounding_shift.csv";
-    const std::string extra_A_path = c.rounding_dir + "/" + c.model_name + "_rounding_extra_A.csv";
-    const std::string extra_b_path = c.rounding_dir + "/" + c.model_name + "_rounding_extra_b.csv";
+    // Load through RoundingReader so verification is layout-agnostic (bundle or
+    // legacy CSV) and reflects the actual arrays that sampling would consume.
+    naja::pipeline::RoundingReader reader(c.rounding_dir, c.model_name);
+    const bool bundle = reader.is_bundle();
 
-    naja::pipeline::CsvShape A = naja::pipeline::csv_shape(A_path);
-    naja::pipeline::CsvShape b = naja::pipeline::csv_shape(b_path);
-    naja::pipeline::CsvShape start = naja::pipeline::csv_shape(start_path);
-    if (b.rows != A.rows) throw std::runtime_error("b rows != A rows");
-    if (start.rows != A.cols) throw std::runtime_error("start dim != A cols");
+    Eigen::MatrixXd A = reader.A();
+    Eigen::VectorXd b = reader.b();
+    Eigen::VectorXd start = reader.start();
+    if (b.size() != A.rows()) throw std::runtime_error("b rows != A rows");
+    if (start.size() != A.cols()) throw std::runtime_error("start dim != A cols");
 
     int extra_rows = 0;
-    bool extra_present = path_exists(extra_A_path);
+    bool extra_present = reader.has_extra();
     if (extra_present) {
-        naja::pipeline::CsvShape extraA = naja::pipeline::csv_shape(extra_A_path);
-        naja::pipeline::CsvShape extrab = naja::pipeline::csv_shape(extra_b_path);
-        extra_rows = extraA.rows;
-        if (extraA.rows != extrab.rows) throw std::runtime_error("extra_A rows != extra_b rows");
-        if (extraA.cols != A.cols) throw std::runtime_error("extra_A cols != A cols");
+        Eigen::MatrixXd eA = reader.extra_A();
+        Eigen::VectorXd eb = reader.extra_b();
+        extra_rows = static_cast<int>(eA.rows());
+        if (eA.rows() != eb.size()) throw std::runtime_error("extra_A rows != extra_b rows");
+        if (eA.cols() != A.cols()) throw std::runtime_error("extra_A cols != A cols");
     }
 
     int rxn_ids_n = 0;
@@ -69,16 +69,18 @@ void cmd_verify(int argc, char** argv) {
     std::cout << "OK\n";
     std::cout << "model_dir           :: " << c.model_dir << "\n";
     std::cout << "model_name          :: " << c.model_name << "\n";
-    std::cout << "A                   :: " << A.rows << " x " << A.cols << "\n";
-    std::cout << "b                   :: " << b.rows << " x " << b.cols << "\n";
-    std::cout << "start               :: " << start.rows << " x " << start.cols << "\n";
+    std::cout << "rounding_layout     :: " << (bundle ? "bundle" : "legacy_csv") << "\n";
+    std::cout << "A                   :: " << A.rows() << " x " << A.cols() << "\n";
+    std::cout << "b                   :: " << b.size() << "\n";
+    std::cout << "start               :: " << start.size() << "\n";
     if (backmap) {
-        naja::pipeline::CsvShape T = naja::pipeline::csv_shape(T_path);
-        naja::pipeline::CsvShape shift = naja::pipeline::csv_shape(shift_path);
-        if (T.cols != A.cols) throw std::runtime_error("T cols != A cols");
-        if (shift.rows != T.rows) throw std::runtime_error("shift dim != T rows");
-        std::cout << "T                   :: " << T.rows << " x " << T.cols << "\n";
-        std::cout << "shift               :: " << shift.rows << " x " << shift.cols << "\n";
+        if (!reader.has_backmap()) throw std::runtime_error("backmap requested but T/shift absent");
+        Eigen::MatrixXd T = reader.T();
+        Eigen::VectorXd shift = reader.shift();
+        if (T.cols() != A.cols()) throw std::runtime_error("T cols != A cols");
+        if (shift.size() != T.rows()) throw std::runtime_error("shift dim != T rows");
+        std::cout << "T                   :: " << T.rows() << " x " << T.cols() << "\n";
+        std::cout << "shift               :: " << shift.size() << "\n";
     }
     std::cout << "extra_constraints   :: " << (extra_present ? "present" : "absent") << "\n";
     if (extra_present) std::cout << "extra_rows          :: " << extra_rows << "\n";
@@ -90,5 +92,3 @@ void cmd_verify(int argc, char** argv) {
 }
 
 } // namespace naja::cli::sample
-
-

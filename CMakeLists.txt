@@ -42,6 +42,8 @@ set(GPU_SOURCES
 
 add_executable(naja
     src/main.cu
+    src/npz.cpp
+    src/pipeline/model_io.cpp
     src/engine/job_sampling.cu
     src/engine/job_bulk.cpp
     src/engine/bounds_filter.cpp
@@ -273,12 +275,14 @@ if(CMAKE_BUILD_TYPE STREQUAL "Debug")
 endif()
 
 find_package(CUDAToolkit REQUIRED)
+find_package(ZLIB REQUIRED)  # for .npz (zip) member decompression in src/npz.cpp
 
 target_link_libraries(naja PRIVATE
     CUDA::cudart
     CUDA::curand
     CUDA::cublas
     CUDA::cusolver
+    ZLIB::ZLIB
     ${GUROBI_DIR}/lib/libgurobi_c++.a
     ${GUROBI_DIR}/lib/libgurobi130.so
 )
@@ -300,6 +304,8 @@ add_executable(test_feasible_start_files
     src/pipeline/feasible_start_files.cpp
     src/pipeline/feasible_start_lp.cpp
     src/pipeline/model_contract.cpp
+    src/pipeline/model_io.cpp
+    src/npz.cpp
 )
 target_include_directories(test_feasible_start_files PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}
@@ -308,6 +314,7 @@ target_include_directories(test_feasible_start_files PRIVATE
     ${GUROBI_DIR}/include
 )
 target_link_libraries(test_feasible_start_files PRIVATE
+    ZLIB::ZLIB
     ${GUROBI_DIR}/lib/libgurobi_c++.a
     ${GUROBI_DIR}/lib/libgurobi130.so
 )
@@ -321,6 +328,21 @@ endif()
 add_test(
     NAME test_sample_cli_dry_run
     COMMAND bash ${CMAKE_CURRENT_SOURCE_DIR}/tests/test_sample_cli_dry_run.sh
+)
+
+add_executable(test_npz_reader
+    tests/test_npz_reader.cpp
+    src/npz.cpp
+)
+target_include_directories(test_npz_reader PRIVATE
+    ${CMAKE_CURRENT_SOURCE_DIR}
+    ${CMAKE_CURRENT_SOURCE_DIR}/src
+    ${EIGEN_DIR}
+)
+target_link_libraries(test_npz_reader PRIVATE ZLIB::ZLIB)
+add_test(
+    NAME test_npz_reader
+    COMMAND bash ${CMAKE_CURRENT_SOURCE_DIR}/tests/test_npz_reader.sh $<TARGET_FILE:test_npz_reader>
 )
 
 # ---- GPU sampling correctness tests (require CUDA device) ----

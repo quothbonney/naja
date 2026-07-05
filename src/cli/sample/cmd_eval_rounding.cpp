@@ -10,6 +10,7 @@
 #include "rounding/diagnostics.h"
 #include "util/constraint_utils.h"
 #include "pipeline/model_contract.h"
+#include "pipeline/model_io.h"
 #include "utils.h"
 
 namespace naja::cli::sample {
@@ -58,20 +59,15 @@ void cmd_eval_rounding(int argc, char** argv) {
         const std::string model_dir = make_absolute_path(models_root + "/" + name);
         naja::pipeline::ModelContract c = naja::pipeline::parse_model_dir(model_dir);
 
-        const std::string A_path = c.rounding_dir + "/" + c.model_name + "_rounding_A.csv";
-        const std::string b_path = c.rounding_dir + "/" + c.model_name + "_rounding_b.csv";
-        const std::string start_path = c.rounding_dir + "/" + c.model_name + "_rounding_start.csv";
-        const std::string extra_A_path = c.rounding_dir + "/" + c.model_name + "_rounding_extra_A.csv";
-        const std::string extra_b_path = c.rounding_dir + "/" + c.model_name + "_rounding_extra_b.csv";
-
-        Eigen::MatrixXd A = csv::loadMatrix(A_path);
-        Eigen::VectorXd b = csv::loadVector(b_path);
-        Eigen::VectorXd x0 = csv::loadVector(start_path);
+        naja::pipeline::RoundingReader reader(c.rounding_dir, c.model_name);
+        Eigen::MatrixXd A = reader.A();
+        Eigen::VectorXd b = reader.b();
+        Eigen::VectorXd x0 = reader.start();
 
         int extra_rows = 0;
-        if (path_exists(extra_A_path) && path_exists(extra_b_path)) {
-            Eigen::MatrixXd A_extra = csv::loadMatrix(extra_A_path);
-            Eigen::VectorXd b_extra = csv::loadVector(extra_b_path);
+        if (reader.has_extra()) {
+            Eigen::MatrixXd A_extra = reader.extra_A();
+            Eigen::VectorXd b_extra = reader.extra_b();
             if (extra_eps > 0.0) b_extra.array() += extra_eps;
             extra_rows = (int)b_extra.size();
 

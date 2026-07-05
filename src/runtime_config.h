@@ -79,7 +79,24 @@ struct RuntimeConfig {
         SHIFT_FILE = ROUND_PREFIX + "_shift.csv";
         A_EXTRA_FILE = ROUND_PREFIX + "_extra_A.csv";
         B_EXTRA_FILE = ROUND_PREFIX + "_extra_b.csv";
-        
+
+        // Bundle layout: a single polytope.npz supersedes the per-file CSVs.
+        // Repoint the provenance paths at the actual on-disk sources so config
+        // snapshots and run manifests name real files. Loading itself goes
+        // through RoundingReader, which does the same detection.
+        const std::string bundle = ROUNDING_DIR + "/polytope.npz";
+        if (path_exists(bundle)) {
+            const std::string extra_bundle = ROUNDING_DIR + "/extra.npz";
+            const std::string start_sidecar = ROUNDING_DIR + "/start.npy";
+            A_FILE = bundle;
+            B_FILE = bundle;
+            T_FILE = bundle;
+            SHIFT_FILE = bundle;
+            START_FILE = path_exists(start_sidecar) ? start_sidecar : bundle;
+            A_EXTRA_FILE = extra_bundle;
+            B_EXTRA_FILE = extra_bundle;
+        }
+
         NPY_FILE = OUT_DIR + "/samples.npy";
         PROFILE_FILE = OUT_DIR + "/profile.json";
     }

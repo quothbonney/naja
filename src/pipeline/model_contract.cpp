@@ -70,6 +70,17 @@ void validate_contract(const ModelContract& c, bool backmap) {
     if (!is_directory(c.rounding_dir)) {
         throw std::runtime_error("missing rounding/ dir: " + c.rounding_dir);
     }
+
+    // Bundle layout: a single polytope.npz holds A/b/start (+ T/shift). Its
+    // internal shapes are validated at load time by RoundingReader; here we
+    // only confirm the archive is present and non-empty. extra.npz and the
+    // start.npy sidecar are optional.
+    const std::string bundle = c.rounding_dir + "/polytope.npz";
+    if (path_exists(bundle)) {
+        require_nonempty_file(bundle, "polytope.npz");
+        return;
+    }
+
     require_nonempty_file(c.rounding_dir + "/" + c.model_name + "_rounding_A.csv", "rounding_A");
     require_nonempty_file(c.rounding_dir + "/" + c.model_name + "_rounding_b.csv", "rounding_b");
     require_nonempty_file(c.rounding_dir + "/" + c.model_name + "_rounding_start.csv", "rounding_start");

@@ -3,6 +3,7 @@
 #include <fstream>
 #include <stdexcept>
 #include <string>
+#include <vector>
 
 #include <unistd.h>
 
@@ -37,13 +38,9 @@ void inherit_rounding_impl(const naja::pipeline::ModelContract& base,
     std::string target_round = target.model_dir + "/rounding";
     ensure_dir(target_round);
 
-    const char* suffixes[] = {"A.csv", "b.csv", "T.csv", "shift.csv", "start.csv"};
-    for (const char* suf : suffixes) {
-        std::string src = base_round + "/" + base.model_name + "_rounding_" + suf;
-        std::string dst = target_round + "/" + target.model_name + "_rounding_" + suf;
-        naja::cli::sample::require_nonempty_file(src, std::string("base rounding ") + suf);
+    // Link (or copy) one src->dst pair according to `mode`.
+    auto place = [&](const std::string& src, const std::string& dst) {
         naja::cli::sample::remove_if_exists(dst);
-
         if (mode == "symlink") {
             if (symlink(src.c_str(), dst.c_str()) != 0) {
                 throw std::runtime_error("symlink failed: " + dst + " <- " + src);
@@ -55,6 +52,30 @@ void inherit_rounding_impl(const naja::pipeline::ModelContract& base,
                 throw std::runtime_error("copy failed: " + dst + " <- " + src);
             }
             out << in.rdbuf();
+        }
+    };
+
+    const std::string base_bundle = base_round + "/polytope.npz";
+    if (path_exists(base_bundle)) {
+        // Bundle layout: the entire shared rounding (A/b/start/T/shift) is one
+        // file. Inherit it wholesale, plus the optional manifest. The per-model
+        // start.npy sidecar must NOT be inherited: drop any stale one so the
+        // base start is used until feasible-start recompute derives a new one.
+        naja::cli::sample::require_nonempty_file(base_bundle, "base polytope.npz");
+        place(base_bundle, target_round + "/polytope.npz");
+
+        const std::string base_manifest = base_round + "/manifest.json";
+        if (path_exists(base_manifest)) {
+            place(base_manifest, target_round + "/manifest.json");
+        }
+        naja::cli::sample::remove_if_exists(target_round + "/start.npy");
+    } else {
+        const char* suffixes[] = {"A.csv", "b.csv", "T.csv", "shift.csv", "start.csv"};
+        for (const char* suf : suffixes) {
+            std::string src = base_round + "/" + base.model_name + "_rounding_" + suf;
+            std::string dst = target_round + "/" + target.model_name + "_rounding_" + suf;
+            naja::cli::sample::require_nonempty_file(src, std::string("base rounding ") + suf);
+            place(src, dst);
         }
     }
 
