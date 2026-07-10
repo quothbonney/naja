@@ -216,10 +216,18 @@ void bulk_worker(int device_id,
             if (!result.success) {
                 result.message = "return code " + std::to_string(rc);
             }
-            // Atomic rename: tmp -> final
+            // Atomic rename: tmp -> final. Guard against the "sampled but wrote
+            // nothing" case (e.g. WRITE_DATA off) so we fail with a clear message
+            // instead of an opaque ENOENT from rename(2).
             if (result.success && flat_mode) {
-                atomic_rename(flat_npy_tmp, flat_npy_final);
-                result.output_dir = flat_npy_final;
+                if (!file_nonempty(flat_npy_tmp)) {
+                    result.success = false;
+                    result.message = "no samples written to " + flat_npy_tmp
+                        + " (flat-output needs sample data; ensure --write-npy / WRITE_DATA)";
+                } else {
+                    atomic_rename(flat_npy_tmp, flat_npy_final);
+                    result.output_dir = flat_npy_final;
+                }
             }
         } catch (const std::runtime_error& e) {
             result.success = false;

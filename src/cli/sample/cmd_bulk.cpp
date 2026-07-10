@@ -119,7 +119,10 @@ void cmd_bulk(int argc, char** argv) {
     cfg.TPB_SS = tpb;
     cfg.GPU_DEVICE = 0;
     cfg.BACK_TRANSFORM = backmap;
-    cfg.WRITE_DATA = write_npy;
+    // --flat-output / --stage-dir are meaningless without sample data, so they
+    // imply WRITE_DATA=true. Without this, bulk mode would sample for minutes,
+    // write nothing, then fail trying to rename a tmp file that was never created.
+    cfg.WRITE_DATA = write_npy || !flat_output.empty();
     cfg.VERBOSE = verbose;
     cfg.STATUS = !quiet;
     cfg.GPU_LIST = gpus;
