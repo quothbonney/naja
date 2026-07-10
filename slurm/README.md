@@ -1,7 +1,13 @@
 # naja Slurm layer (optional)
 
 A thin, **optional** scheduling layer for running large bulk sampling/prepare
-jobs on a Slurm + Pyxis/enroot cluster. **naja does not depend on this.** The
+jobs on a Slurm + Pyxis/enroot cluster. **naja does not depend on this.**
+
+> **Detailed usage guide: [`GUIDE.md`](GUIDE.md)** — step-by-step for bulk sample
+> and bulk prepare, the data-flow/staging internals, tuning, monitoring, resume,
+> and troubleshooting. This README is the quick overview.
+
+The
 binary runs standalone anywhere — `naja sample bulk --gpus 0,1,... --model-list
 L --models-root M --out-root O` — and on a cluster without Slurm (e.g. rosetta4)
 you just run that directly. This directory only adds cluster glue; nothing here
