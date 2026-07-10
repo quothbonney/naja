@@ -8,6 +8,26 @@ Naja is a GPU-first library for high-throughput sampling of large, high-dimensio
 
 ---
 
+## Building
+
+**See [`BUILDING.md`](BUILDING.md) for the full guide** (prerequisites, native &
+containerized builds, the GPU/CUDA support matrix, verification, and porting
+notes). In short — naja builds portably on A100 / H100 / B300; the GPU target is
+auto-detected (`NAJA_CUDA_ARCH=native`, the default), and Eigen/kissfft/Gurobi
+are vendored under `extern/`:
+
+```bash
+./scripts/build.sh                                   # native (auto-detect) -> build/naja
+NAJA_CUDA_ARCH='80;90;100;103' ./scripts/build.sh    # portable fat binary (CUDA 13)
+```
+
+Containerized / cross-cluster builds (recommended) are in
+[`docker/README.md`](docker/README.md). Requires CUDA **≥12.8** for Blackwell
+(CUDA 13 dropped Volta `sm_70`) and CMake ≥3.30. Gurobi's LP feasible-start needs
+a valid license (`GRB_LICENSE_FILE`) only at **runtime**, not to build.
+
+---
+
 Single model run (writes `samples.npy` and, with bounds filtering enabled, `valid_mask.npy` + `bounds_report.json`):
 ```bash
 ./build/naja sample run \

@@ -1,11 +1,15 @@
 # Build artifacts
 build/
+build*/
 build_dbg/
 cmake-build-debug/
 CMakeFiles/
 CMakeCache.txt
 cmake_install.cmake
 install_manifest.txt
+
+# Slurm / job logs
+logs/
 
 # External dependencies (will be added later as needed)
 extern/

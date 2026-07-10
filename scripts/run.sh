@@ -6,7 +6,12 @@ PROJECT_DIR="$(dirname "$SCRIPT_DIR")"
 BUILD_DIR="${PROJECT_DIR}/build"
 EXE="${BUILD_DIR}/naja"
 
-ENV_PATH="${ENV_PATH:-/data/rbg/users/jdcarson/envs/hop}"
+# Runtime libraries come from the container/toolchain (CUDA) and the vendored
+# Gurobi (extern/gurobi/linux64/lib, also baked into the binary's RPATH). No
+# CSAIL conda env is assumed. Set ENV_PATH only if you need to prepend an extra
+# lib dir (e.g. ENV_PATH=/path/to/env -> $ENV_PATH/lib on LD_LIBRARY_PATH).
+ENV_PATH="${ENV_PATH:-}"
+GUROBI_LIB="${PROJECT_DIR}/extern/gurobi/linux64/lib"
 
 if [[ ! -x "${EXE}" ]]; then
     echo "executable not found: ${EXE}" >&2
@@ -14,7 +19,7 @@ if [[ ! -x "${EXE}" ]]; then
     exit 1
 fi
 
-export LD_LIBRARY_PATH="${ENV_PATH}/lib:${LD_LIBRARY_PATH:-}"
+export LD_LIBRARY_PATH="${GUROBI_LIB}:${ENV_PATH:+${ENV_PATH}/lib:}${LD_LIBRARY_PATH:-}"
 cd "${PROJECT_DIR}"
 
 if [[ $# -lt 1 ]]; then

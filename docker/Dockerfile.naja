@@ -1,0 +1,42 @@
+# Portable build image for naja (bespoke GPU CHRR polytope sampler).
+#
+# Produces an image with naja prebuilt as a PORTABLE FAT BINARY that runs on
+# A100 (sm_80), H100 (sm_90) and B300 (sm_100/103) without rebuilding. Image
+# build needs no GPU (that's why the default arch is an explicit list, not
+# `native` -- `native` autodetects a device and can only be used when building
+# on the target GPU node, e.g. via scripts/build_container.sh).
+#
+#   docker build -f docker/Dockerfile.naja -t naja:latest .
+#   # single-arch (smaller/faster), e.g. H100 only:
+#   docker build -f docker/Dockerfile.naja --build-arg NAJA_CUDA_ARCH=90 -t naja:h100 .
+#
+# CUDA 13 supports Turing(75)..Blackwell(100/103) and DROPPED Volta(sm_70).
+# For an older cluster (CUDA 12.x, no Blackwell) override CUDA_TAG + arch, e.g.
+#   --build-arg CUDA_TAG=12.6.3-devel-ubuntu24.04 --build-arg NAJA_CUDA_ARCH="80;90"
+
+ARG CUDA_TAG=13.0.1-devel-ubuntu24.04
+FROM nvidia/cuda:${CUDA_TAG}
+
+# Minimal real dependency set (audited): a C/C++/CUDA toolchain (from the CUDA
+# -devel base: nvcc + cudart/curand/cublas/cusolver), CMake >=3.30 (knows
+# sm_100/103), Ninja, and zlib dev headers (find_package(ZLIB) for src/npz.cpp).
+# Eigen (header-only), kissfft (built from vendored C), and Gurobi 13 are all
+# vendored in-tree under extern/ and copied with the repo -- no apt/pip for them.
+RUN apt-get update && apt-get install -y --no-install-recommends \
+        build-essential ninja-build zlib1g-dev ca-certificates git python3-pip \
+    && pip3 install --no-cache-dir --break-system-packages "cmake>=3.30" ninja \
+    && rm -rf /var/lib/apt/lists/*
+
+ARG NAJA_CUDA_ARCH="80;90;100;103"
+ENV NAJA_CUDA_ARCH=${NAJA_CUDA_ARCH}
+
+WORKDIR /opt/naja
+COPY . .
+
+# Build the fat binary at image-build time (no GPU required for a fixed arch list).
+RUN ./scripts/build.sh clean
+
+# Gurobi's LP feasible-start needs a valid license at RUNTIME (set GRB_LICENSE_FILE
+# or mount ~/gurobi.lic). Building and non-LP paths need no license.
+ENV PATH="/opt/naja/build:${PATH}"
+CMD ["naja", "--help"]

@@ -693,16 +693,25 @@ All parameters are set via a key=value config file:
 
 ## Build System
 
-**Languages**: C++17, CUDA (C++14 device code)
-**GPU target**: SM_80 (NVIDIA A100)
+**Languages**: C++17 (host **and** device — device code was C++14; raised to
+C++17 for CUDA 13, which no longer accepts C++14).
+**GPU target**: portable via `NAJA_CUDA_ARCH` (`CMAKE_CUDA_ARCHITECTURES`),
+default `native`. Verified: A100 sm_80, H100 sm_90, B300 sm_100/103. Requires
+CUDA ≥12.8 for Blackwell; **CUDA 13 dropped Volta sm_70.** CMake ≥3.30.
 **Compiler flags**: `--expt-relaxed-constexpr --use_fast_math -O3`
 
-**Dependencies**:
-- **Eigen3**: Dense linear algebra (host-side matrix operations, eigendecomposition)
-- **Gurobi**: LP solver (inscribed-cube starting point computation)
-- **CUB**: Block-level parallel primitives (reductions in CHR kernel)
-- **cuBLAS**: GPU matrix multiply (slack computation, backmap)
-- **cuRAND**: GPU random number generation (MRG32k3a generator)
+**Dependencies** (vendored under `extern/`: eigen3, kissfft, gurobi):
+- **Eigen3** (3.4, header-only): host dense linear algebra / eigendecomposition
+- **Gurobi 13.0**: LP solver (inscribed-cube starting point); license needed at
+  runtime only (`GRB_LICENSE_FILE`), not to build
+- **kissfft**: FFT (built from vendored C sources)
+- **CUB** (CCCL): block-level reductions in the CHR kernel. Note: CUDA 13 removed
+  the `cub::Max`/`cub::Min` functors — naja uses local Max/Min ops instead.
+- **cuBLAS / cuSOLVER / cuRAND**: GPU GEMM/backmap, dense eigensolver, MRG32k3a RNG
+- **zlib**: `.npz` I/O
+- (Arrow/volesti/indicators were vendored but unused, and have been removed.)
+
+See `docker/README.md` for the containerized, cross-hardware build.
 
 **Build targets**:
 - Main executable: `naja` (~50 source files)

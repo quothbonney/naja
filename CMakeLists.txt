@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.18)
+cmake_minimum_required(VERSION 3.24)
 project(naja LANGUAGES C CXX CUDA)
 
 enable_testing()
@@ -8,7 +8,7 @@ option(NAJA_ENABLE_GPU_TESTS "Enable GPU-based sampling correctness tests (requi
 # Standards
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
-set(CMAKE_CUDA_STANDARD 14)
+set(CMAKE_CUDA_STANDARD 17)
 set(CMAKE_CUDA_STANDARD_REQUIRED ON)
 
 # Build type
@@ -18,8 +18,14 @@ endif()
 
 message(STATUS "Build type: ${CMAKE_BUILD_TYPE}")
 
-# CUDA architectures (A100)
-set(CMAKE_CUDA_ARCHITECTURES 70 80)
+# CUDA architectures. Default to `native` (auto-detect the build host's GPU) so
+# naja rebuilds correctly per cluster with no edits: A100->sm_80, H100->sm_90,
+# B300->sm_100/103. Override for a portable fat binary, e.g.:
+#   cmake -DCMAKE_CUDA_ARCHITECTURES="80;90;100;103" ...
+# (Note: CUDA 13 dropped Volta sm_70; Blackwell needs CUDA >= 12.8.)
+if(NOT DEFINED CMAKE_CUDA_ARCHITECTURES)
+    set(CMAKE_CUDA_ARCHITECTURES native)
+endif()
 
 # Paths to local source copies
 set(GPU_DIR "${CMAKE_CURRENT_SOURCE_DIR}/src/gpu")
@@ -28,7 +34,7 @@ set(GUROBI_DIR "${CMAKE_CURRENT_SOURCE_DIR}/extern/gurobi/linux64")
 set(KISSFFT_DIR "${CMAKE_CURRENT_SOURCE_DIR}/extern/kissfft")
 
 if(NOT EXISTS "${EIGEN_DIR}")
-    message(FATAL_ERROR "Eigen3 not found at ${EIGEN_DIR}. Please run scripts/setup_extern.sh")
+    message(FATAL_ERROR "Eigen3 not found at ${EIGEN_DIR}. Please run scripts/legacy/setup_extern.sh")
 endif()
 
 # GPU source files

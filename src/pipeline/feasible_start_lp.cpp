@@ -15,17 +15,16 @@ namespace naja::pipeline {
 static void ensure_gurobi_license_env() {
     static std::once_flag once;
     std::call_once(once, []() {
+        // Honor GRB_LICENSE_FILE if the environment provides it (Gurobi also
+        // searches its own default locations, e.g. ~/gurobi.lic, at GRBEnv
+        // construction). We deliberately do NOT hardcode a machine-specific
+        // fallback path -- that made the binary non-portable. If neither the
+        // env var nor a Gurobi default license is found, GRBEnv construction
+        // below throws a clear Gurobi error.
         const char* existing = std::getenv("GRB_LICENSE_FILE");
-        if (existing != nullptr && existing[0] != '\0') {
-            return;
-        }
-
-        const char* path = "/data/rbg/users/jdcarson/gurobi.lic";
-        if (!std::filesystem::exists(path)) {
-            throw std::runtime_error(std::string("GRB_LICENSE_FILE is unset and license file does not exist: ") + path);
-        }
-        if (setenv("GRB_LICENSE_FILE", path, 1) != 0) {
-            throw std::runtime_error("failed to set GRB_LICENSE_FILE");
+        if (existing != nullptr && existing[0] != '\0' && !std::filesystem::exists(existing)) {
+            throw std::runtime_error(
+                std::string("GRB_LICENSE_FILE points to a nonexistent file: ") + existing);
         }
     });
 }

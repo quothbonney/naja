@@ -7,6 +7,24 @@
 #include <functional>
 #include <stdexcept>
 
+namespace {
+    // CUDA 13's CCCL removed the cub::Max / cub::Min reduction functors. Provide
+    // dependency-free host/device replacements (portable across CUDA versions)
+    // for the cub::BlockReduce calls in the CHR kernel.
+    struct MaxOp {
+        template <typename T>
+        __host__ __device__ __forceinline__ T operator()(const T& a, const T& b) const {
+            return a > b ? a : b;
+        }
+    };
+    struct MinOp {
+        template <typename T>
+        __host__ __device__ __forceinline__ T operator()(const T& a, const T& b) const {
+            return a < b ? a : b;
+        }
+    };
+}  // namespace
+
 namespace naja {
     namespace gpu {
 
@@ -454,8 +472,8 @@ namespace naja {
                     partial_max = fmax(partial_max, inv_dist);
                     partial_min = fmin(partial_min, inv_dist);
                 }
-                Real aggregate_max = BlockReduce(temp_storage_max).Reduce(partial_max, cub::Max());
-                Real aggregate_min = BlockReduce(temp_storage_min).Reduce(partial_min, cub::Min());
+                Real aggregate_max = BlockReduce(temp_storage_max).Reduce(partial_max, MaxOp());
+                Real aggregate_min = BlockReduce(temp_storage_min).Reduce(partial_min, MinOp());
                 if(tid==0){
                     PRNGenerator localState = global_states[bid];
                     Real usample = curand_uniform_double(&localState);
