@@ -45,6 +45,10 @@ struct RuntimeConfig {
     std::string BULK_MODEL_LIST;
     std::string source_file;
     std::string FLAT_OUTPUT_DIR;     // if set, write samples as <dir>/<model>.npy (flat, no nesting)
+    std::string STAGE_DIR;           // if set (with FLAT_OUTPUT_DIR), write the .npy here first
+                                     // (node-local scratch); an external syncer moves it to
+                                     // FLAT_OUTPUT_DIR. skip-existing checks FLAT_OUTPUT_DIR (synced)
+                                     // and STAGE_DIR (this run). Keeps sampling off NFS.
 
     // Derived paths (populated after loading)
     std::string MODEL_DIR;

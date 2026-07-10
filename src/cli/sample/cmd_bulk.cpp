@@ -46,6 +46,7 @@ void cmd_bulk(int argc, char** argv) {
     bool print_config = false;
     bool skip_existing = false;
     std::string flat_output;
+    std::string stage_dir;
 
     for (int i = 0; i < argc; ++i) {
         std::string a = argv[i];
@@ -78,10 +79,13 @@ void cmd_bulk(int argc, char** argv) {
         else if (a == "--print-config") print_config = true;
         else if (a == "--skip-existing") skip_existing = true;
         else if (a == "--flat-output") flat_output = next_arg(i, argc, argv, a);
+        else if (a == "--stage-dir") stage_dir = next_arg(i, argc, argv, a);
         else if (a == "--help" || a == "-h") die_usage("", 0);
         else die_usage("unknown flag: " + a);
     }
 
+    if (!stage_dir.empty() && flat_output.empty())
+        die_usage("--stage-dir requires --flat-output (the canonical destination the staged .npy is synced to)");
     if (models_root.empty()) die_usage("missing --models-root");
     if (model_list.empty()) die_usage("missing --model-list");
     if (name.empty()) die_usage("missing --name");
@@ -125,6 +129,7 @@ void cmd_bulk(int argc, char** argv) {
     cfg.WRITE_SAMPLES_VALID = write_samples_valid;
     cfg.SKIP_EXISTING = skip_existing;
     cfg.FLAT_OUTPUT_DIR = flat_output;
+    cfg.STAGE_DIR = stage_dir;
     cfg.THINNING = thinning;
     cfg.PAIR_PROB = pair_prob;
     cfg.CONSTRAINT_EPS = constraint_eps;
@@ -182,6 +187,9 @@ void cmd_bulk(int argc, char** argv) {
     naja::status::kv(cfg.STATUS, "output", make_absolute_path(cfg.OUT_DIR));
     if (!cfg.FLAT_OUTPUT_DIR.empty()) {
         naja::status::kv(cfg.STATUS, "flat_output", make_absolute_path(cfg.FLAT_OUTPUT_DIR));
+    }
+    if (!cfg.STAGE_DIR.empty()) {
+        naja::status::kv(cfg.STATUS, "stage_dir", make_absolute_path(cfg.STAGE_DIR));
     }
     naja::status::kv(cfg.STATUS, "bounds", (cfg.BOUNDS_FILTER ? "filter" : "ignore"));
     if (cfg.BOUNDS_FILTER) naja::status::kv(cfg.STATUS, "bounds_eps", std::to_string(cfg.BOUNDS_EPS));

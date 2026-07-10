@@ -53,7 +53,9 @@ namespace naja::cli::sample {
     out << "KEY FLAGS (bulk):\n";
     out << "  --flat-output <dir>          write {model}.npy to a flat directory instead of\n";
     out << "                               nested run dirs (atomic via .tmp + rename)\n";
-    out << "  --skip-existing              skip models already present in --flat-output\n";
+    out << "  --stage-dir <dir>            write .npy to node-local scratch first (requires\n";
+    out << "                               --flat-output); an external syncer promotes to it\n";
+    out << "  --skip-existing              skip models already present in --flat-output/--stage-dir\n";
     out << "                               (safe to kill and restart — resumes automatically)\n";
     out << "  --gpus <0,1,2,3>             comma-separated GPU IDs; workers steal jobs from\n";
     out << "                               a shared queue so any GPU can do any model\n";

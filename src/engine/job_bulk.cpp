@@ -158,8 +158,12 @@ void bulk_worker(int device_id,
             ensure_dir(meta_dir);
             job_cfg.OUT_DIR = meta_dir;
             job_cfg.derive_paths();
-            // Override NPY_FILE to write to a temp file in the flat output dir
-            flat_npy_final = base_cfg.FLAT_OUTPUT_DIR + "/" + job_name + ".npy";
+            // Override NPY_FILE to write to a temp file in the write dir. With
+            // --stage-dir set, write to node-local scratch (kept off NFS during
+            // sampling); an external syncer promotes it to FLAT_OUTPUT_DIR.
+            const std::string& write_dir =
+                base_cfg.STAGE_DIR.empty() ? base_cfg.FLAT_OUTPUT_DIR : base_cfg.STAGE_DIR;
+            flat_npy_final = write_dir + "/" + job_name + ".npy";
             flat_npy_tmp = flat_npy_final + ".tmp." + std::to_string(pid) + "." + std::to_string(device_id);
             job_cfg.NPY_FILE = flat_npy_tmp;
         } else {
@@ -176,7 +180,10 @@ void bulk_worker(int device_id,
         if (base_cfg.SKIP_EXISTING) {
             bool already_done = false;
             if (flat_mode) {
-                already_done = flat_output_exists(base_cfg.FLAT_OUTPUT_DIR, job_name);
+                // Done if already synced to the canonical dir, or staged this run.
+                already_done = flat_output_exists(base_cfg.FLAT_OUTPUT_DIR, job_name)
+                    || (!base_cfg.STAGE_DIR.empty()
+                        && flat_output_exists(base_cfg.STAGE_DIR, job_name));
             } else {
                 already_done = !find_completed_job_dir(base_cfg, job_name).empty();
             }
@@ -247,6 +254,9 @@ int run_bulk_mode(RuntimeConfig cfg) {
     ensure_dir(cfg.OUT_DIR);
     if (!cfg.FLAT_OUTPUT_DIR.empty()) {
         ensure_dir(cfg.FLAT_OUTPUT_DIR);
+    }
+    if (!cfg.STAGE_DIR.empty()) {
+        ensure_dir(cfg.STAGE_DIR);
     }
     std::vector<std::string> jobs = load_bulk_jobs(cfg);
     if (jobs.empty()) {

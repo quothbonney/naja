@@ -1,0 +1,181 @@
+#!/usr/bin/env python3
+"""naja-slurm — OPTIONAL thin submit/status layer over `naja sample bulk`.
+
+Shards a model list, submits a per-node Slurm array (GPU sampling) or CPU array
+(prepare) driven by the templates in this dir, and reports progress. naja itself
+needs none of this — the binary runs standalone; this is cluster glue only.
+
+  naja-slurm sample  --models-root M --model-list L --out O [--tasks T] [-- <sample flags>]
+  naja-slurm prepare --models-root M --model-list L         [--tasks T] [-- <prepare flags>]
+  naja-slurm reround --cmd "python reround_ijo1366.py" [--mounts DIR]
+  naja-slurm migrate --cmd "python migrate_to_RS_V3.py ..." [--mounts DIR]
+  naja-slurm status  --out O
+"""
+import argparse, json, math, os, subprocess, sys, time
+from pathlib import Path
+
+HERE = Path(__file__).resolve().parent
+
+# Defaults mirror config.sh; override via env.
+DEF = dict(
+    GPU_PARTITION=os.environ.get("NAJA_GPU_PARTITION", "hpc-mid"),
+    CPU_PARTITION=os.environ.get("NAJA_CPU_PARTITION", "cd-gp-i64-erapids"),
+    GRES=os.environ.get("NAJA_GRES", "gpu:b300:8"),
+    GPUS_CSV=os.environ.get("NAJA_GPUS_CSV", "0,1,2,3,4,5,6,7"),
+    IMAGE=os.environ.get("NAJA_IMAGE", "/mnt/home/jack/dist-lab/images/nvidia+pytorch+26.04-py3.sqsh"),
+    REPO=os.environ.get("NAJA_REPO", "/mnt/home/jack/naja"),
+    STAGE_ROOT=os.environ.get("NAJA_STAGE_ROOT", "/tmp"),
+    SYNC_INTERVAL=os.environ.get("NAJA_SYNC_INTERVAL", "45"),
+    MAX_ARRAY=int(os.environ.get("NAJA_MAX_ARRAY", "1000")),
+)
+DEF["BIN"] = os.environ.get("NAJA_BIN", f"{DEF['REPO']}/build/naja")
+
+
+def read_models(path):
+    out = []
+    for ln in Path(path).read_text().splitlines():
+        s = ln.strip()
+        if s and not s.startswith("#"):
+            out.append(s)
+    return out
+
+
+def write_shards(models, tasks, shard_dir):
+    shard_dir.mkdir(parents=True, exist_ok=True)
+    for f in shard_dir.glob("shard_*.txt"):
+        f.unlink()
+    # contiguous split into `tasks` roughly-equal shards (correctness comes from
+    # --skip-existing, not shard boundaries, so contiguous is fine).
+    n = len(models)
+    per = math.ceil(n / tasks)
+    real = 0
+    for i in range(tasks):
+        chunk = models[i * per:(i + 1) * per]
+        if not chunk:
+            break
+        (shard_dir / f"shard_{i}.txt").write_text("\n".join(chunk) + "\n")
+        real += 1
+    return real  # number of non-empty shards
+
+
+def sbatch(env, extra_args, template):
+    e = dict(os.environ)
+    e.update({k: str(v) for k, v in env.items()})
+    cmd = ["sbatch", "--parsable", "--export=ALL", *extra_args, str(HERE / template)]
+    print("+", " ".join(cmd), file=sys.stderr)
+    jid = subprocess.check_output(cmd, env=e, text=True).strip().split(";")[0]
+    return jid
+
+
+def submit_array(models_root, model_list, out, tasks, sample_flags, is_gpu, prepare_flags=""):
+    out = Path(out).resolve()
+    slurm = out / "_slurm"
+    shard_dir, logdir, metadir = slurm / "shards", slurm / "logs", slurm / "meta"
+    for d in (shard_dir, logdir, metadir, out):
+        d.mkdir(parents=True, exist_ok=True)
+    models = read_models(model_list)
+    real = write_shards(models, tasks, shard_dir)
+    if real > DEF["MAX_ARRAY"]:
+        sys.exit(f"tasks={real} exceeds MaxArraySize cap ({DEF['MAX_ARRAY']}); "
+                 f"raise models-per-task (lower --tasks) or split the list.")
+    env = dict(MODELS_ROOT=str(Path(models_root).resolve()), SHARD_DIR=str(shard_dir),
+               OUT=str(out), METADIR=str(metadir), IMAGE=DEF["IMAGE"],
+               NAJA_REPO=DEF["REPO"], NAJA_BIN=DEF["BIN"], NAJA_GPUS_CSV=DEF["GPUS_CSV"],
+               NAJA_STAGE_ROOT=DEF["STAGE_ROOT"], NAJA_SYNC_INTERVAL=DEF["SYNC_INTERVAL"])
+    if os.environ.get("GRB_LICENSE_FILE"):
+        env["GRB_LICENSE_FILE"] = os.environ["GRB_LICENSE_FILE"]
+    if is_gpu:
+        env["SAMPLE_FLAGS"] = sample_flags
+        args = [f"--array=0-{real-1}", f"--partition={DEF['GPU_PARTITION']}",
+                f"--gres={DEF['GRES']}", f"--output={logdir}/sample_%A_%a.out"]
+        jid = sbatch(env, args, "sample.sbatch")
+    else:
+        env["PREPARE_FLAGS"] = prepare_flags
+        args = [f"--array=0-{real-1}", f"--partition={DEF['CPU_PARTITION']}",
+                "--cpus-per-task=32", f"--output={logdir}/prepare_%A_%a.out"]
+        jid = sbatch(env, args, "prepare.sbatch")
+    (slurm / "run.json").write_text(json.dumps(
+        dict(jobid=jid, phase="sample" if is_gpu else "prepare", tasks=real,
+             n_models=len(models), out=str(out), model_list=str(Path(model_list).resolve()),
+             flags=sample_flags if is_gpu else prepare_flags), indent=2))
+    print(f"submitted {'sample' if is_gpu else 'prepare'} array job {jid} "
+          f"({real} tasks, {len(models)} models). status: naja-slurm status --out {out}")
+
+
+def submit_oneshot(cmd, mounts, gpu):
+    env = dict(IMAGE=DEF["IMAGE"], NAJA_REPO=DEF["REPO"], ONESHOT_CMD=cmd)
+    if mounts:
+        env["MOUNTS_EXTRA"] = mounts
+    if os.environ.get("GRB_LICENSE_FILE"):
+        env["GRB_LICENSE_FILE"] = os.environ["GRB_LICENSE_FILE"]
+    args = [f"--partition={DEF['GPU_PARTITION'] if gpu else DEF['CPU_PARTITION']}",
+            "--cpus-per-task=32"]
+    if gpu:
+        args.append(f"--gres={DEF['GRES']}")
+    jid = sbatch(env, args, "oneshot.sbatch")
+    print(f"submitted oneshot job {jid}: {cmd}")
+
+
+def status(out):
+    out = Path(out).resolve()
+    run = json.loads((out / "_slurm" / "run.json").read_text())
+    total = run["n_models"]
+    done = len(list(out.glob("*.npy")))
+    print(f"phase={run['phase']} job={run['jobid']} tasks={run['tasks']}")
+    print(f"outputs: {done}/{total} .npy in {out}  ({100*done//max(total,1)}%)")
+    # queue state
+    try:
+        q = subprocess.check_output(
+            ["squeue", "-j", run["jobid"], "-o", "%.18i %.2t %.10M %R", "-h"], text=True)
+        print("queue:\n" + (q.rstrip() or "  (no active tasks — finished or not yet started)"))
+    except subprocess.CalledProcessError:
+        print("queue: (job not in squeue)")
+    # bulk_summary tallies
+    ok = fail = skip = 0
+    for csv in out.glob("_logs_shard_*.csv"):
+        for ln in csv.read_text().splitlines()[1:]:
+            st = ln.split(",")[1:2]
+            if st == ["OK"]: ok += 1
+            elif st == ["FAIL"]: fail += 1
+            elif st == ["SKIP"]: skip += 1
+    if ok or fail or skip:
+        print(f"bulk_summary: OK={ok} FAIL={fail} SKIP={skip}")
+
+
+def main():
+    p = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
+    sub = p.add_subparsers(dest="cmd", required=True)
+    for name in ("sample", "prepare"):
+        s = sub.add_parser(name)
+        s.add_argument("--models-root", required=True)
+        s.add_argument("--model-list", required=True)
+        s.add_argument("--out", required=(name == "sample"))
+        s.add_argument("--tasks", type=int, default=5)
+        s.add_argument("rest", nargs=argparse.REMAINDER, help="-- <flags passed to naja>")
+    for name in ("reround", "migrate"):
+        s = sub.add_parser(name)
+        s.add_argument("--cmd", required=True)
+        s.add_argument("--mounts", default="")
+        s.add_argument("--gpu", action="store_true")
+    st = sub.add_parser("status"); st.add_argument("--out", required=True)
+    a = p.parse_args()
+
+    def flags(rest):
+        r = rest or []
+        if r and r[0] == "--":
+            r = r[1:]
+        return " ".join(r)
+
+    if a.cmd == "sample":
+        submit_array(a.models_root, a.model_list, a.out, a.tasks, flags(a.rest), is_gpu=True)
+    elif a.cmd == "prepare":
+        out = a.out or Path(a.models_root).resolve()  # prepare writes into model dirs
+        submit_array(a.models_root, a.model_list, out, a.tasks, "", is_gpu=False, prepare_flags=flags(a.rest))
+    elif a.cmd in ("reround", "migrate"):
+        submit_oneshot(a.cmd, a.mounts, a.gpu)
+    elif a.cmd == "status":
+        status(a.out)
+
+
+if __name__ == "__main__":
+    main()
