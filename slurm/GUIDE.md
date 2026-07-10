@@ -240,6 +240,10 @@ Add `--gpu` to a oneshot if the command needs a GPU (reround/migrate don't).
 
 ## 8. Troubleshooting
 
+- **Job sampled for minutes then failed at `atomic rename ... ENOENT`** — the model
+  sampled but no `.npy` was written (`WRITE_DATA` off). `--flat-output`/`--stage-dir`
+  now **imply `WRITE_DATA=true`**, so current binaries handle this automatically; on
+  an older binary, pass `--write-npy` in the sample flags after `--`.
 - **`tasks=N exceeds MaxArraySize cap`** — lower `--tasks` (fewer, bigger shards)
   or split the model list; this cluster caps array indices at 1000.
 - **All tasks `PENDING`** — only 5 B300 nodes (40 GPUs); tasks beyond that queue
