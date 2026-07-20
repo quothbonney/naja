@@ -33,6 +33,12 @@ MOUNTS="${NAJA_REPO}:${NAJA_REPO},${MODELS_ROOT}:${MODELS_ROOT},${OUT}:${OUT},${
 if [[ -n "${GRB_LICENSE_FILE:-}" ]]; then
   MOUNTS="${MOUNTS},$(dirname "$GRB_LICENSE_FILE"):$(dirname "$GRB_LICENSE_FILE")"
 fi
+# Extra bind mounts (comma-separated src:dst). Needed when models inherit rounding
+# via symlinks to a shared base dir OUTSIDE models-root (else the symlinks dangle
+# in-container). Set NAJA_SAMPLE_MOUNTS=/path/to/base:/path/to/base.
+if [[ -n "${NAJA_SAMPLE_MOUNTS:-}" ]]; then
+  MOUNTS="${MOUNTS},${NAJA_SAMPLE_MOUNTS}"
+fi
 
 # Pass everything as ARGS to the task script (robust vs container env-propagation).
 srun --container-image="$IMAGE" \

@@ -173,44 +173,49 @@ size_t choose_prepare_lp_workers(size_t n_models) {
 void ensure_feasible_starts_parallel(const std::vector<naja::pipeline::ModelContract>& contracts) {
     if (contracts.empty()) return;
 
-    const size_t n_workers = choose_prepare_lp_workers(contracts.size());
-    if (n_workers == 1) {
-        for (const auto& c : contracts) {
+    std::mutex error_mutex;
+    std::vector<std::string> failures;  // "model_name: message" per failed model
+
+    auto do_one = [&](const naja::pipeline::ModelContract& c) {
+        try {
             naja::pipeline::ensure_feasible_rounding_start_if_extra_present(c);
             naja::pipeline::validate_contract(c, true);
-        }
-        return;
-    }
-
-    std::atomic<size_t> next_idx{0};
-    std::exception_ptr first_error;
-    std::mutex error_mutex;
-
-    auto worker = [&]() {
-        while (true) {
-            const size_t idx = next_idx.fetch_add(1);
-            if (idx >= contracts.size()) break;
-            try {
-                const auto& c = contracts[idx];
-                naja::pipeline::ensure_feasible_rounding_start_if_extra_present(c);
-                naja::pipeline::validate_contract(c, true);
-            } catch (...) {
-                std::lock_guard<std::mutex> lock(error_mutex);
-                if (!first_error) first_error = std::current_exception();
-            }
+        } catch (const std::exception& e) {
+            std::lock_guard<std::mutex> lock(error_mutex);
+            failures.push_back(c.model_name + ": " + e.what());
+        } catch (...) {
+            std::lock_guard<std::mutex> lock(error_mutex);
+            failures.push_back(c.model_name + ": unknown exception");
         }
     };
 
-    std::vector<std::thread> workers;
-    workers.reserve(n_workers);
-    for (size_t i = 0; i < n_workers; ++i) {
-        workers.emplace_back(worker);
-    }
-    for (auto& t : workers) {
-        t.join();
+    const size_t n_workers = choose_prepare_lp_workers(contracts.size());
+    if (n_workers == 1) {
+        for (const auto& c : contracts) do_one(c);
+    } else {
+        std::atomic<size_t> next_idx{0};
+        auto worker = [&]() {
+            while (true) {
+                const size_t idx = next_idx.fetch_add(1);
+                if (idx >= contracts.size()) break;
+                do_one(contracts[idx]);
+            }
+        };
+        std::vector<std::thread> workers;
+        workers.reserve(n_workers);
+        for (size_t i = 0; i < n_workers; ++i) workers.emplace_back(worker);
+        for (auto& t : workers) t.join();
     }
 
-    if (first_error) std::rethrow_exception(first_error);
+    // A per-model feasible-start failure must NOT abort the whole batch (one bad
+    // condition used to std::terminate all 8,920 others). Report every failure with
+    // a parseable marker so the caller can exclude just those conditions, and leave
+    // their start file absent so sampling with --start-policy file fails loudly too.
+    if (!failures.empty()) {
+        for (const auto& f : failures) std::cerr << "FEASIBLE_START_FAILED " << f << "\n";
+        std::cerr << "WARNING: feasible-start failed for " << failures.size() << "/"
+                  << contracts.size() << " conditions (samples for these will be missing)\n";
+    }
 }
 
 } // namespace
@@ -362,6 +367,25 @@ void cmd_prepare(int argc, char** argv) {
             if (!gem_present) {
                 throw std::runtime_error("gem/ missing and no conditioner provided for " + c.model_dir);
             }
+            if (do_inherit && !dry_run) {
+                auto base_rxn_lines = naja::pipeline::read_nonempty_trimmed_lines(
+                    base_model_dir + "/gem/reaction_ids.txt"
+                );
+                auto model_rxn_lines = naja::pipeline::read_nonempty_trimmed_lines(rxn);
+                if (base_rxn_lines != model_rxn_lines) {
+                    throw std::runtime_error("reaction_ids mismatch vs base for " + c.model_dir);
+                }
+
+                Eigen::VectorXd lb_vec = csv::loadVector(lb);
+                Eigen::VectorXd ub_vec = csv::loadVector(ub);
+                Eigen::VectorXd lb_base = csv::loadVector(base_model_dir + "/gem/l_bounds.csv");
+                Eigen::VectorXd ub_base = csv::loadVector(base_model_dir + "/gem/u_bounds.csv");
+                validate_bounds(lb_vec, ub_vec, (int)base_rxn_lines.size());
+                validate_bounds(lb_base, ub_base, lb_vec.size());
+
+                ensure_dir(c.rounding_dir);
+                build_extra_from_bounds(c, base, lb_base, ub_base, lb_vec, ub_vec);
+            }
         }
 
         if (!dry_run) {
@@ -382,27 +406,40 @@ void cmd_prepare(int argc, char** argv) {
             naja::pipeline::validate_contract(c, true);
         }
 
-        // Warn if gem bounds differ from base but no extra constraints exist.
-        // This catches the case where conditioning was done externally but
-        // build_extra_from_bounds was never triggered (missing --conditioner-cmd).
+        // A changed full-reaction model must have an exact reduced-space delta.
+        // Sampling without it silently falls back to the inherited base polytope.
         if (!dry_run && do_inherit) {
             const std::string extra_A_path = c.rounding_dir + "/" + c.model_name + "_rounding_extra_A.csv";
-            const std::string model_lb_path = c.gem_dir + "/l_bounds.csv";
-            const std::string base_lb_path = base_model_dir + "/gem/l_bounds.csv";
-            if (!path_exists(extra_A_path) && path_exists(model_lb_path) && path_exists(base_lb_path)) {
-                // Quick byte-level comparison to detect any difference
-                std::ifstream f1(model_lb_path, std::ios::binary);
-                std::ifstream f2(base_lb_path, std::ios::binary);
-                if (f1.is_open() && f2.is_open()) {
-                    std::string s1((std::istreambuf_iterator<char>(f1)), std::istreambuf_iterator<char>());
-                    std::string s2((std::istreambuf_iterator<char>(f2)), std::istreambuf_iterator<char>());
-                    if (s1 != s2) {
-                        std::cerr << "*** WARNING: " << c.model_name
-                                  << " has different gem bounds from base but NO extra constraints. ***\n"
-                                  << "  Sampling will use the unconditioned base polytope.\n"
-                                  << "  To fix: rerun prepare with --conditioner-cmd, or condition + prepare with --force-conditioning.\n";
-                    }
+            const std::string extra_b_path = c.rounding_dir + "/" + c.model_name + "_rounding_extra_b.csv";
+            Eigen::VectorXd model_lb = csv::loadVector(c.gem_dir + "/l_bounds.csv");
+            Eigen::VectorXd model_ub = csv::loadVector(c.gem_dir + "/u_bounds.csv");
+            Eigen::VectorXd base_lb = csv::loadVector(base_model_dir + "/gem/l_bounds.csv");
+            Eigen::VectorXd base_ub = csv::loadVector(base_model_dir + "/gem/u_bounds.csv");
+            validate_bounds(model_lb, model_ub, base_lb.size());
+            validate_bounds(base_lb, base_ub, model_lb.size());
+
+            bool bounds_differ = false;
+            for (int i = 0; i < model_lb.size(); ++i) {
+                if (std::abs(model_lb[i] - base_lb[i]) > 1e-9 ||
+                    std::abs(model_ub[i] - base_ub[i]) > 1e-9) {
+                    bounds_differ = true;
+                    break;
                 }
+            }
+            const bool has_extra_A = path_exists(extra_A_path);
+            const bool has_extra_b = path_exists(extra_b_path);
+            if (has_extra_A != has_extra_b) {
+                throw std::runtime_error("incomplete extra-constraint pair for " + c.model_dir);
+            }
+            if (bounds_differ && !has_extra_A) {
+                throw std::runtime_error(
+                    "conditioned GEM bounds have no reduced-space constraints for " + c.model_dir
+                );
+            }
+            if (!bounds_differ && has_extra_A) {
+                throw std::runtime_error(
+                    "unchanged GEM bounds have stale reduced-space constraints for " + c.model_dir
+                );
             }
         }
 

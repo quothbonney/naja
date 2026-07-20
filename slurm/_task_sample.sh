@@ -16,12 +16,21 @@ mkdir -p "$STAGE" "$OUT" "$METADIR"
 export LD_LIBRARY_PATH="${REPO}/extern/gurobi/linux64/lib:${LD_LIBRARY_PATH:-}"
 [[ -n "$GRB_LIC" ]] && export GRB_LICENSE_FILE="$GRB_LIC"
 
-# Background rate-limited drain: node-local NVMe -> NFS. rsync writes a dest temp
-# then renames (atomic on NFS); --remove-source-files frees NVMe. Only complete
-# *.npy match (in-flight files are *.npy.tmp.<pid>.<dev>).
+# Background rate-limited drain: node-local NVMe -> NFS. Uses cp + atomic mv
+# (rsync is NOT present in the CUDA container). The glob matches only COMPLETE
+# .npy (naja writes in-flight files as *.npy.tmp.<pid>.<dev>). We copy to a dest
+# .part then rename (atomic on the OUT filesystem) so readers never see a partial
+# file, then free the NVMe copy.
 drain() {
-  rsync -a --remove-source-files --include='*.npy' --exclude='*' \
-    "$STAGE"/ "$OUT"/ 2>/dev/null || true
+  shopt -s nullglob
+  local f b
+  for f in "$STAGE"/*.npy; do
+    b=$(basename "$f")
+    if cp -f "$f" "$OUT/.$b.part" 2>/dev/null && mv -f "$OUT/.$b.part" "$OUT/$b" 2>/dev/null; then
+      rm -f "$f" 2>/dev/null || true
+    fi
+  done
+  shopt -u nullglob
 }
 ( while true; do sleep "$SYNC_INTERVAL"; drain; done ) &
 SYNC_PID=$!

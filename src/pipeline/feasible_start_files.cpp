@@ -19,7 +19,14 @@
 namespace naja::pipeline {
 namespace {
 
-constexpr double kPrepareStartFeasibilityEps = 1e-7;
+// Start-feasibility tolerance. A KO can force reactions to ~0, collapsing the
+// conditioned polytope onto a near-degenerate face where LP solutions carry up to
+// ~3e-4 numerical slop on the KO rows. 1e-3 absorbs that slop while staying 10x
+// tighter than the sampler's default --constraint-eps (0.01) — so any start passing
+// here is safely interior to the polytope the sampler actually uses (the sampler
+// relaxes the same KO rows by 0.01). Was 1e-7, which spuriously rejected 162
+// perfectly-usable conditioned starts.
+constexpr double kPrepareStartFeasibilityEps = 1e-3;
 
 static void write_vector_csv(const std::string& path, const Eigen::VectorXd& v) {
     std::ofstream f(path);
@@ -73,8 +80,19 @@ void ensure_feasible_rounding_start_if_extra_present(const ModelContract& c) {
         // Fall through to LP recomputation.
     }
 
-    auto [x, r] = axis_aligned_cube_center_lp_gurobi(A_aug, b_aug);
-    (void)r;
+    Eigen::VectorXd x;
+    try {
+        auto [xc, r] = axis_aligned_cube_center_lp_gurobi(A_aug, b_aug);
+        (void)r;
+        x = std::move(xc);
+    } catch (const std::exception&) {
+        // Degenerate/thin KO polytope: the cube-center (max-r) LP is numerically
+        // infeasible in Gurobi even though the set is nonempty (scipy/HiGHS solve it).
+        // Any feasible point is a valid start — the sampler re-centers and relaxes the
+        // KO rows by --constraint-eps. Plain feasibility is far more robust (no radius
+        // variable / ||a_i|| coefficients to wreck conditioning).
+        x = feasible_point_lp_gurobi(A_aug, b_aug);
+    }
     naja::util::require_feasible_start(A_aug, b_aug, x, kPrepareStartFeasibilityEps, "feasible_start_files");
 
     // Write to the layout-appropriate location. For bundles this is a per-model

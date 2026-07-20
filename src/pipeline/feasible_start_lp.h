@@ -12,6 +12,12 @@ namespace naja::pipeline {
 std::pair<Eigen::VectorXd, double> axis_aligned_cube_center_lp_gurobi(const Eigen::MatrixXd& A,
                                                                       const Eigen::VectorXd& b);
 
+// Find ANY feasible point: minimize 0 s.t. A x <= b. Far more numerically robust
+// than the cube-center LP on degenerate/thin (KO-collapsed) polytopes — no radius
+// variable and no ||a_i||_1 coefficients that wreck conditioning. Used as the final
+// feasible-start fallback. Throws on solver failure or genuinely-empty polytope.
+Eigen::VectorXd feasible_point_lp_gurobi(const Eigen::MatrixXd& A, const Eigen::VectorXd& b);
+
 } // namespace naja::pipeline
 
 

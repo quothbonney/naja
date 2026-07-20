@@ -85,5 +85,48 @@ std::pair<Eigen::VectorXd, double> axis_aligned_cube_center_lp_gurobi(const Eige
     }
 }
 
+Eigen::VectorXd feasible_point_lp_gurobi(const Eigen::MatrixXd& A, const Eigen::VectorXd& b) {
+    if (A.rows() != b.size()) throw std::runtime_error("feasible_point: A.rows != b.size");
+    const int m = A.rows();
+    const int n = A.cols();
+    if (n <= 0 || m <= 0) throw std::runtime_error("feasible_point: empty A");
+
+    try {
+        ensure_gurobi_license_env();
+        GRBEnv env;
+        env.set(GRB_IntParam_OutputFlag, 0);
+        GRBModel model(env);
+        model.set(GRB_IntAttr_ModelSense, GRB_MINIMIZE);
+        model.set(GRB_IntParam_NumericFocus, 3);   // hardest numeric setting for degenerate systems
+        model.set(GRB_DoubleParam_FeasibilityTol, 1e-9);
+        model.set(GRB_IntParam_Threads, 8);
+
+        std::vector<GRBVar> x((size_t)n);
+        for (int j = 0; j < n; ++j) {
+            x[(size_t)j] = model.addVar(-GRB_INFINITY, GRB_INFINITY, 0.0, GRB_CONTINUOUS, "x_" + std::to_string(j));
+        }
+        for (int i = 0; i < m; ++i) {
+            if (!std::isfinite(b[i])) throw std::runtime_error("feasible_point: non-finite b");
+            GRBLinExpr lhs = 0.0;
+            for (int j = 0; j < n; ++j) {
+                const double a = A(i, j);
+                if (a != 0.0) lhs += a * x[(size_t)j];
+            }
+            model.addConstr(lhs <= b[i], "c_" + std::to_string(i));
+        }
+        model.setObjective(GRBLinExpr(0.0));  // pure feasibility
+        model.optimize();
+        const int status = model.get(GRB_IntAttr_Status);
+        if (status != GRB_OPTIMAL) {
+            throw std::runtime_error("feasible_point: LP status " + std::to_string(status));
+        }
+        Eigen::VectorXd x_out(n);
+        for (int j = 0; j < n; ++j) x_out[j] = x[(size_t)j].get(GRB_DoubleAttr_X);
+        return x_out;
+    } catch (const GRBException& e) {
+        throw std::runtime_error("gurobi error " + std::to_string(e.getErrorCode()) + ": " + std::string(e.getMessage()));
+    }
+}
+
 } // namespace naja::pipeline
 
