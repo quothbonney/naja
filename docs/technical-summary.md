@@ -711,7 +711,7 @@ CUDA ≥12.8 for Blackwell; **CUDA 13 dropped Volta sm_70.** CMake ≥3.30.
 - **zlib**: `.npz` I/O
 - (Arrow/volesti/indicators were vendored but unused, and have been removed.)
 
-See `docker/README.md` for the containerized, cross-hardware build.
+See [`docker/README.md`](../docker/README.md) for the containerized, cross-hardware build.
 
 **Build targets**:
 - Main executable: `naja` (~50 source files)

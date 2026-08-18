@@ -64,7 +64,7 @@ to NFS at a controlled rate.
 ## 2. Prerequisites
 
 1. **Built binary** at `$NAJA_BIN` (default `$NAJA_REPO/build/naja`). Build it
-   with `scripts/build_container.sh` (see `../BUILDING.md`).
+   with `scripts/build_container.sh` (see `../docs/building.md`).
 2. **Container image** with the CUDA runtime (`$NAJA_IMAGE`, an enroot `.sqsh`).
    Pyxis/`srun --container-image` must be available (it is on SUNK).
 3. **Gurobi license** for phases B and C at **runtime** (the feasible-start LP):

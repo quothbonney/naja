@@ -53,7 +53,7 @@ NAJA_CUDA_ARCH='80;90;100;103' ./scripts/build.sh    # portable fat binary
 ## 4. Containerized build (recommended; cross-cluster)
 
 The container is the reproducible, self-documenting build. See
-[`docker/README.md`](docker/README.md) for full detail. Two flows:
+[`docker/README.md`](../docker/README.md) for full detail. Two flows:
 
 **a) Dedicated image (public artifact — builds a portable fat binary, no GPU
 needed to build):**

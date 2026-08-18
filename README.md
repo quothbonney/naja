@@ -40,10 +40,11 @@ checking, add `--backmap --bounds-policy filter`.
 
 ## The longer version, elsewhere
 
-- [Building Naja](BUILDING.md) — prerequisites, portable CUDA builds, containers, and tests.
+- [Building Naja](docs/building.md) — prerequisites, portable CUDA builds, containers, and tests.
 - [Model format reference](docs/model-format.md) — the input contract, legacy CSV support, and the preferred `.npz` bundles.
-- [Architecture](ARCHITECTURE.md) — how the snake is assembled internally.
-- [Technical summary](TECHNICAL_SUMMARY.md) — algorithms, implementation notes, and performance context.
+- [GPU CHR mathematics](docs/gpu-chrr-mathematics.md) — the sampling algorithm and its CUDA realization.
+- [Architecture](docs/architecture.md) — how the snake is assembled internally.
+- [Technical summary](docs/technical-summary.md) — LLM-oriented repository context and implementation notes.
 - [Slurm guide](slurm/GUIDE.md) — running a small herd of jobs without losing track of them.
 - [Contributing](CONTRIBUTING.md) — tests, reproducibility expectations, and what must stay out of Git.
 - [Citation metadata](CITATION.cff) — for work that grows out of this one.
@@ -73,7 +74,7 @@ shaped pile of numbers.
 
 This repository does not distribute Eigen or Gurobi. Gurobi 13 development files
 are required to build the current executable, and a valid license is required
-when using the LP feasible-start path. The precise setup is in [BUILDING.md](BUILDING.md).
+when using the LP feasible-start path. The precise setup is in [docs/building.md](docs/building.md).
 
 The GPU correctness tests are meant to be run on each new hardware class. A100,
 H100, and B300/CUDA 13.2 are covered by the portable-build guidance; please do
