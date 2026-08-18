@@ -27,15 +27,37 @@ if(NOT DEFINED CMAKE_CUDA_ARCHITECTURES)
     set(CMAKE_CUDA_ARCHITECTURES native)
 endif()
 
-# Paths to local source copies
+# Dependency locations. A local extern/ tree remains supported for existing
+# deployments, while fresh clones can use standard system installations.
 set(GPU_DIR "${CMAKE_CURRENT_SOURCE_DIR}/src/gpu")
-set(EIGEN_DIR "${CMAKE_CURRENT_SOURCE_DIR}/extern/eigen3")
-set(GUROBI_DIR "${CMAKE_CURRENT_SOURCE_DIR}/extern/gurobi/linux64")
 set(KISSFFT_DIR "${CMAKE_CURRENT_SOURCE_DIR}/extern/kissfft")
 
-if(NOT EXISTS "${EIGEN_DIR}")
-    message(FATAL_ERROR "Eigen3 not found at ${EIGEN_DIR}. Please run scripts/legacy/setup_extern.sh")
+set(NAJA_EIGEN_ROOT "${CMAKE_CURRENT_SOURCE_DIR}/extern/eigen3" CACHE PATH
+    "Directory containing the Eigen headers (for example /usr/include/eigen3)")
+find_path(EIGEN_DIR Eigen/Core
+    HINTS "${NAJA_EIGEN_ROOT}" "$ENV{EIGEN3_ROOT}"
+    PATH_SUFFIXES include/eigen3 eigen3)
+if(NOT EIGEN_DIR)
+    message(FATAL_ERROR
+        "Eigen3 headers were not found. Install Eigen3 or configure -DNAJA_EIGEN_ROOT=/path/to/eigen3.")
 endif()
+
+set(NAJA_GUROBI_ROOT "${CMAKE_CURRENT_SOURCE_DIR}/extern/gurobi/linux64" CACHE PATH
+    "Gurobi installation root (contains include/ and lib/)")
+find_path(GUROBI_INCLUDE_DIR gurobi_c++.h
+    HINTS "${NAJA_GUROBI_ROOT}" "$ENV{GUROBI_HOME}"
+    PATH_SUFFIXES include)
+find_library(GUROBI_CXX_LIBRARY NAMES gurobi_c++
+    HINTS "${NAJA_GUROBI_ROOT}" "$ENV{GUROBI_HOME}"
+    PATH_SUFFIXES lib)
+find_library(GUROBI_LIBRARY NAMES gurobi130
+    HINTS "${NAJA_GUROBI_ROOT}" "$ENV{GUROBI_HOME}"
+    PATH_SUFFIXES lib)
+if(NOT GUROBI_INCLUDE_DIR OR NOT GUROBI_CXX_LIBRARY OR NOT GUROBI_LIBRARY)
+    message(FATAL_ERROR
+        "Gurobi 13 development files were not found. Install Gurobi 13 and set GUROBI_HOME, or configure -DNAJA_GUROBI_ROOT=/path/to/gurobi.")
+endif()
+get_filename_component(GUROBI_LIBRARY_DIR "${GUROBI_LIBRARY}" DIRECTORY)
 
 # GPU source files
 set(GPU_SOURCES
@@ -97,7 +119,7 @@ target_include_directories(naja PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}/src
     ${GPU_DIR}
     ${EIGEN_DIR}
-    ${GUROBI_DIR}/include
+    ${GUROBI_INCLUDE_DIR}
     ${KISSFFT_DIR}
 )
 
@@ -253,7 +275,7 @@ target_include_directories(test_feasible_start_lp PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}
     ${CMAKE_CURRENT_SOURCE_DIR}/src
     ${EIGEN_DIR}
-    ${GUROBI_DIR}/include
+    ${GUROBI_INCLUDE_DIR}
 )
 if(NAJA_ENABLE_ENV_DEP_TESTS)
     add_test(NAME test_feasible_start_lp COMMAND test_feasible_start_lp)
@@ -289,20 +311,20 @@ target_link_libraries(naja PRIVATE
     CUDA::cublas
     CUDA::cusolver
     ZLIB::ZLIB
-    ${GUROBI_DIR}/lib/libgurobi_c++.a
-    ${GUROBI_DIR}/lib/libgurobi130.so
+    ${GUROBI_CXX_LIBRARY}
+    ${GUROBI_LIBRARY}
 )
 
 target_link_libraries(test_feasible_start_lp PRIVATE
-    ${GUROBI_DIR}/lib/libgurobi_c++.a
-    ${GUROBI_DIR}/lib/libgurobi130.so
+    ${GUROBI_CXX_LIBRARY}
+    ${GUROBI_LIBRARY}
 )
 
 set_target_properties(naja PROPERTIES
-    BUILD_RPATH "${GUROBI_DIR}/lib"
+    BUILD_RPATH "${GUROBI_LIBRARY_DIR}"
 )
 set_target_properties(test_feasible_start_lp PROPERTIES
-    BUILD_RPATH "${GUROBI_DIR}/lib"
+    BUILD_RPATH "${GUROBI_LIBRARY_DIR}"
 )
 
 add_executable(test_feasible_start_files
@@ -317,15 +339,15 @@ target_include_directories(test_feasible_start_files PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}
     ${CMAKE_CURRENT_SOURCE_DIR}/src
     ${EIGEN_DIR}
-    ${GUROBI_DIR}/include
+    ${GUROBI_INCLUDE_DIR}
 )
 target_link_libraries(test_feasible_start_files PRIVATE
     ZLIB::ZLIB
-    ${GUROBI_DIR}/lib/libgurobi_c++.a
-    ${GUROBI_DIR}/lib/libgurobi130.so
+    ${GUROBI_CXX_LIBRARY}
+    ${GUROBI_LIBRARY}
 )
 set_target_properties(test_feasible_start_files PROPERTIES
-    BUILD_RPATH "${GUROBI_DIR}/lib"
+    BUILD_RPATH "${GUROBI_LIBRARY_DIR}"
 )
 if(NAJA_ENABLE_ENV_DEP_TESTS)
     add_test(NAME test_feasible_start_files COMMAND test_feasible_start_files)

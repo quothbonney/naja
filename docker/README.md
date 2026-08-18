@@ -12,11 +12,21 @@ A100, H100, B300 — with a single source of truth for the toolchain.
 | CMake ≥ 3.30 | pip (in image) | needed to emit Blackwell `sm_100/103` |
 | Ninja | pip/apt | faster CUDA builds |
 | zlib (`zlib1g-dev`) | apt | `.npz` I/O (`src/npz.cpp`) |
-| Eigen 3.4 | vendored `extern/eigen3` | header-only |
+| Eigen 3.4 | `libeigen3-dev` in the image | header-only |
 | kissfft | vendored `extern/kissfft` | built from C sources |
-| Gurobi 13.0 | vendored `extern/gurobi/linux64` | needs a valid license only to *run* the LP feasible-start; not to build |
+| Gurobi 13.0 | stage at `extern/gurobi/linux64` before the image build | proprietary development files; a license is needed only to *run* the LP feasible-start |
 
-No BLAS/LAPACK, no Arrow — those vendored dirs were unused and removed.
+No BLAS/LAPACK or Arrow dependencies are needed.
+
+Before building the image, copy a locally installed Gurobi 13 distribution into
+the ignored `extern/gurobi/linux64` path. This keeps proprietary files out of
+Git while making them available to Docker's build context:
+
+```bash
+mkdir -p extern/gurobi
+cp -a "$GUROBI_HOME" extern/gurobi/linux64
+docker build -f docker/Dockerfile.naja -t naja:latest .
+```
 
 ## GPU / arch support matrix
 

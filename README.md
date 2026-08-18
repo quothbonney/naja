@@ -142,7 +142,7 @@ models/ko_b0026/
     u_bounds.csv                   # upper bounds (n x 1)
 ```
 
-The `rounding/` files define the reduced-space polytope `Ay <= b` and the backmap `v = Ty + shift` to original reaction space. Base rounding files can be symlinked from a shared base model; only the extra constraints and gem bounds differ per condition.
+The `rounding/` files define the reduced-space polytope `Ay <= b` and the backmap `v = Ty + shift` to original reaction space. Base rounding files can be symlinked from a shared base model; only the extra constraints and gem bounds differ per condition. The preferred compact layout uses `rounding/polytope.npz`; both it and the legacy CSV layout are supported. See [the model-format reference](docs/model-format.md) for the complete contract and conversion workflow.
 
 ## Architecture
 
@@ -171,10 +171,12 @@ See `ARCHITECTURE.md` for a comprehensive Mermaid diagram of the full system.
 
 ## Dependencies
 
-- CUDA Toolkit (tested with 12.4)
-- Eigen3 (vendored in `extern/eigen3/`)
-- Gurobi (for feasible start LP; vendored in `extern/gurobi/`)
+- CUDA Toolkit (CUDA 13.2 verified; CUDA 12.8+ needed for Blackwell)
+- Eigen3 headers (install separately)
+- Gurobi 13 development files (for feasible-start LP; install separately)
 - kissfft (vendored in `extern/kissfft/`, for ESS autocovariance)
+
+See [BUILDING.md](BUILDING.md) for supported GPU architectures and exact dependency discovery settings.
 
 ## Tests
 

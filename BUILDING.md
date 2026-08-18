@@ -18,10 +18,14 @@ the steps below are hardware- and cluster-agnostic.
 | **Ninja** (optional) | faster builds; `build.sh` uses it if present |
 | **zlib** (`zlib1g-dev`) | `.npz` I/O |
 | C++17 host compiler | e.g. gcc within your CUDA version's supported range |
+| Eigen 3.4 headers | install with your package manager, or set `EIGEN3_ROOT` |
+| Gurobi 13.0 development files | proprietary; install separately and set `GUROBI_HOME` |
 
-Vendored under `extern/` (no system install needed): **Eigen 3.4** (header-only),
-**kissfft** (built from source), **Gurobi 13.0** (LP feasible-start). Gurobi needs
-a valid license **only at runtime** (see §5), not to build.
+**kissfft** is vendored under `extern/` and built from source. Eigen and Gurobi
+are intentionally not distributed in this repository. CMake looks in the
+repository's legacy `extern/` locations first, then in `EIGEN3_ROOT` and
+`GUROBI_HOME`. You can override either location explicitly with
+`-DNAJA_EIGEN_ROOT=/path/to/eigen3` and `-DNAJA_GUROBI_ROOT=/path/to/gurobi`.
 
 ## 2. Choosing the GPU architecture
 
@@ -71,8 +75,8 @@ NAJA_CUDA_ARCH=native ./scripts/build_container.sh
 
 The LP feasible-start (`src/pipeline/feasible_start_lp.cpp`) requires a valid
 Gurobi 13.x license **at runtime**. Point `GRB_LICENSE_FILE` at it (or place
-`~/gurobi.lic`). There is no longer any hardcoded license path. Building and all
-non-LP code paths need no license.
+`~/gurobi.lic`). There is no hardcoded license path. The Gurobi development
+libraries are required to build the current executable, but a license is not.
 
 ```bash
 export GRB_LICENSE_FILE=/path/to/gurobi.lic
@@ -103,7 +107,6 @@ reference samples to be re-baselined per hardware.
   target `sm_70`. Use `native` or `80;90;100;103`.
 - **CMake rejects `sm_103`** — CMake too old; install `cmake>=3.30` (the
   container does this via pip).
-- **Gurobi link errors** — the vendored C++ archive
-  (`extern/gurobi/linux64/lib/libgurobi_c++.a`) is a g++8.5-ABI build; it links
-  with modern gcc, but if not, rebuild the wrapper from
-  `extern/gurobi/linux64/src/` for your compiler.
+- **Gurobi not found** — set `GUROBI_HOME` to the Gurobi installation root, or
+  pass `-DNAJA_GUROBI_ROOT=/path/to/gurobi`. The build expects Gurobi 13's
+  `libgurobi130` and `gurobi_c++` development libraries.
