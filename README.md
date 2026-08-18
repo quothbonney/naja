@@ -1,192 +1,80 @@
-# Naja
+# Naja: GPU-Accelerated Convex Polytope Sampling
 
-GPU-accelerated polytope sampling for genome-scale metabolic models.
+> **Naja** *(noun)* — a genus of elapid snakes, including the true cobras.
+> From Sanskrit *nāga*: a divine serpent, capable of exerting a rather
+> disproportionate effect.
 
-Naja implements coordinate hit-and-run (CHR) on CUDA with built-in support for model conditioning, polytope rounding, multi-chain sampling, and quality diagnostics. It is designed for large-scale metabolic flux sampling where CPU-based approaches are intractable.
+<p align="center">
+  <img src="data/petitprince.jpg" alt="A boa constrictor digesting an elephant — or perhaps a hat" width="420">
+</p>
 
-## Quick Start
+Naja is a CUDA program for drawing many samples from large, high-dimensional
+convex polytopes. Its first home is genome-scale metabolic flux sampling, but
+the sampler itself is not especially interested in where your inequalities came
+from. Give it a well-formed polytope, a GPU, and a little patience.
 
-## Building
+It implements coordinate hit-and-run with GPU execution, model conditioning,
+rounding, multi-chain runs, and diagnostics for the question every MCMC result
+eventually has to answer: “should I believe this?”
 
-**See [`BUILDING.md`](BUILDING.md) for the full guide** (prerequisites, native &
-containerized builds, the GPU/CUDA support matrix, verification, and porting
-notes). In short — naja builds portably on A100 / H100 / B300; the GPU target is
-auto-detected (`NAJA_CUDA_ARCH=native`, the default), and Eigen/kissfft/Gurobi
-are vendored under `extern/`:
+## The short version
 
-```bash
-./scripts/build.sh                                   # native (auto-detect) -> build/naja
-NAJA_CUDA_ARCH='80;90;100;103' ./scripts/build.sh    # portable fat binary (CUDA 13)
-```
-
-Containerized / cross-cluster builds (recommended) are in
-[`docker/README.md`](docker/README.md). Requires CUDA **≥12.8** for Blackwell
-(CUDA 13 dropped Volta `sm_70`) and CMake ≥3.30. Gurobi's LP feasible-start needs
-a valid license (`GRB_LICENSE_FILE`) only at **runtime**, not to build.
-
----
-
-## Quick Start
-
-Build naja, then sample one model and validate the result:
+Naja needs a CUDA-capable Linux machine. Build it there; the build guide has the
+unpleasant but useful details about CUDA versions, Eigen, Gurobi, and containers.
 
 ```bash
+./scripts/build.sh
+
 ./build/naja sample run \
-  --model-dir models/ko_b0026 \
-  --out-root out/ \
-  --gpu 0 --n-chains 4 --n-samples 12500 --write-npy
+  --model-dir /path/to/models/MODEL_X \
+  --out-root /path/to/out \
+  --gpu 0 --n-chains 4 --n-samples 5000 --write-npy
 
-./build/naja validate --samples out/ko_b0026_20260221_001/samples.npy --n-chains 4
-```
-
-Output: `samples.npy` as `(n_samples, dim)` float32, C-contiguous. Each row is one flux sample vector.
-
-## Commands
-
-### `naja sample run` — Sample one model
-
-```bash
-naja sample run \
-  --model-dir models/ko_b0026 \
-  --out-root out/ \
-  --gpu 0 --n-chains 4 --n-samples 12500
-```
-
-Key flags (most have sensible defaults):
-
-| Flag | Default | Description |
-|------|---------|-------------|
-| `--model-dir` | required | Path to model directory (must have `rounding/` and `gem/`) |
-| `--out-root` | required | Output directory root |
-| `--gpu` | `0` | GPU device index |
-| `--n-chains` | required | Number of independent Markov chains |
-| `--n-samples` | required | Samples per chain |
-| `--thinning` | `dim/6` | Steps between saved samples |
-| `--pair-prob` | `0.0` | Fraction of pair-direction steps (0.3 recommended) |
-| `--start-policy` | `file` | Start point: `file` (from rounding) or `cube_center` (LP) |
-| `--constraint-eps` | `0.0` | Global constraint relaxation |
-| `--extra-constraints` | `auto` | How to handle extra constraint files: `auto`, `ignore`, `require` |
-| `--backmap` | off | Back-transform to original reaction space via T matrix |
-| `--write-npy` | off | Write samples.npy |
-| `--bounds-policy` | `ignore` | `ignore` or `filter` (check against gem bounds) |
-| `--verbose` | off | Print detailed config and timing |
-| `--quiet` | off | Suppress all status output |
-| `--dry-run` | off | Validate setup without sampling |
-
-### `naja sample prepare` — Prepare models for sampling
-
-Inherits rounding from a base model, builds extra constraints from conditioned bounds, and computes feasible start points (parallel LP, fast-path skip).
-
-```bash
-naja sample prepare \
-  --models-root models/ \
-  --model-list jobs.txt \
-  --base-model-dir base_model/ \
-  --mode symlink
-```
-
-### `naja sample bulk` — Multi-GPU batch sampling
-
-```bash
-naja sample bulk \
-  --models-root models/ \
-  --model-list jobs.txt \
-  --out-root out/ \
-  --name my_run \
-  --gpus 0,1,2,3 \
-  --n-chains 4 --n-samples 12500 --write-npy
-```
-
-### `naja condition eflux` — E-Flux expression conditioning
-
-```bash
-naja condition eflux \
-  --base-model-dir base_model/ \
-  --out-model-dir conditioned/ko_arca/ \
-  --row-id arca_glucose \
-  --reaction-scores scores.csv
-```
-
-### `naja validate` — Sample quality diagnostics
-
-Computes ESS (effective sample size), split-R-hat, bounds compliance, and chord lengths. Outputs JSON to stdout, one-line verdict to stderr.
-
-```bash
-naja validate \
-  --samples out/ko_b0026.npy \
-  --model-dir models/ko_b0026 \
+./build/naja validate \
+  --samples /path/to/out/MODEL_X_YYYYMMDD_001/samples.npy \
   --n-chains 4
 ```
 
-```
-[WARN] ESS min=4 p10=9 med=162  R-hat med=1.095 max=3.065 >1.1=279 >1.2=106  bounds=0/2583000
-```
+For a cautious first run, add `--dry-run`. For flux-space output and bounds
+checking, add `--backmap --bounds-policy filter`.
 
-## Model Directory Layout
+## The longer version, elsewhere
 
-Each model directory follows this contract:
+- [Building Naja](BUILDING.md) — prerequisites, portable CUDA builds, containers, and tests.
+- [Model format reference](docs/model-format.md) — the input contract, legacy CSV support, and the preferred `.npz` bundles.
+- [Architecture](ARCHITECTURE.md) — how the snake is assembled internally.
+- [Technical summary](TECHNICAL_SUMMARY.md) — algorithms, implementation notes, and performance context.
+- [Slurm guide](slurm/GUIDE.md) — running a small herd of jobs without losing track of them.
+- [Contributing](CONTRIBUTING.md) — tests, reproducibility expectations, and what must stay out of Git.
+- [Citation metadata](CITATION.cff) — for work that grows out of this one.
 
-```
-models/ko_b0026/
-  rounding/
-    ko_b0026_rounding_A.csv        # inequality matrix (m x d)
-    ko_b0026_rounding_b.csv        # inequality RHS (m x 1)
-    ko_b0026_rounding_start.csv    # feasible start point (d x 1)
-    ko_b0026_rounding_T.csv        # backmap matrix (n x d)
-    ko_b0026_rounding_shift.csv    # backmap shift (n x 1)
-    ko_b0026_rounding_extra_A.csv  # optional: extra constraints from conditioning
-    ko_b0026_rounding_extra_b.csv  # optional: extra constraint RHS
-  gem/
-    reaction_ids.txt               # reaction names (n lines)
-    l_bounds.csv                   # lower bounds (n x 1)
-    u_bounds.csv                   # upper bounds (n x 1)
-```
+## Commands worth knowing
 
-The `rounding/` files define the reduced-space polytope `Ay <= b` and the backmap `v = Ty + shift` to original reaction space. Base rounding files can be symlinked from a shared base model; only the extra constraints and gem bounds differ per condition. The preferred compact layout uses `rounding/polytope.npz`; both it and the legacy CSV layout are supported. See [the model-format reference](docs/model-format.md) for the complete contract and conversion workflow.
-
-## Architecture
-
-```
-src/
-  engine/       — core sampling orchestration (job_sampling.cu, job_bulk.cpp)
-  rounding/     — Jacobi pair rotations, schedule IO, Dikin preconditioner
-  pipeline/     — model contracts, extra constraints, feasible start LP
-  conditioning/ — E-Flux / E-Flux2 expression conditioning
-  validate/     — ESS, split-R-hat, bounds compliance, chord lengths
-  gpu/          — CUDA CHR kernels, DMatrix/DVector, backmap
-  cli/          — command dispatch and argument parsing
-  util/         — shared utilities (filesystem, status logging, CSV/NPY IO)
+```text
+naja sample run       sample one model
+naja sample bulk      distribute many models across one or more GPUs
+naja sample prepare   inherit rounding and prepare conditioned models
+naja condition eflux  condition a model from expression data
+naja validate         compute ESS, split-R-hat, bounds checks, and chord lengths
 ```
 
-See `ARCHITECTURE.md` for a comprehensive Mermaid diagram of the full system.
-
-## Key Features
-
-- **GPU CHR sampling** with pair-direction moves for better mixing in tilted polytopes
-- **Dikin preconditioner** for analytic corrective rounding when extra constraints pinch the base polytope
-- **Parallel model preparation** with fast-path LP skip (16 concurrent Gurobi workers)
-- **Float32 contiguous output** — `(n_samples, dim)` layout for efficient downstream access
-- **Built-in validation** via `naja validate` with ESS, split-R-hat, and bounds checking
-- **Degenerate polytope detection** — warns when tight constraints span the full dimension
-
-## Dependencies
-
-- CUDA Toolkit (CUDA 13.2 verified; CUDA 12.8+ needed for Blackwell)
-- Eigen3 headers (install separately)
-- Gurobi 13 development files (for feasible-start LP; install separately)
-- kissfft (vendored in `extern/kissfft/`, for ESS autocovariance)
-
-See [BUILDING.md](BUILDING.md) for supported GPU architectures and exact dependency discovery settings.
-
-## Tests
+Ask the executable when in doubt:
 
 ```bash
-# CPU tests (always available)
-ctest --test-dir build --output-on-failure
-
-# GPU correctness tests (requires CUDA device)
-cmake -S . -B build -DNAJA_ENABLE_GPU_TESTS=ON ...
-ctest --test-dir build -R test_gpu
+./build/naja --help
+./build/naja sample run --help
 ```
 
-GPU tests verify sampling feasibility, moment correctness (hypercube, simplex), backmap accuracy, and thin-polytope handling.
+Naja writes run manifests and generated configurations alongside output. Keep
+them with results: a sample without its command line is just an interestingly
+shaped pile of numbers.
+
+## A small warning label
+
+This repository does not distribute Eigen or Gurobi. Gurobi 13 development files
+are required to build the current executable, and a valid license is required
+when using the LP feasible-start path. The precise setup is in [BUILDING.md](BUILDING.md).
+
+The GPU correctness tests are meant to be run on each new hardware class. A100,
+H100, and B300/CUDA 13.2 are covered by the portable-build guidance; please do
+not mistake an untested GPU for a snake that has already eaten the elephant.
