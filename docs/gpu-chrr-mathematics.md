@@ -55,7 +55,7 @@ uniform variate $r$ gives
 
 $$
   \alpha = \alpha_{\min} + r(\alpha_{\max}-\alpha_{\min}),
-  \qquad r \sim \operatorname{Uniform}(0,1).
+  \qquad r \sim \mathrm{Uniform}(0,1).
 $$
 
 For any fixed direction, uniform sampling along this chord leaves the uniform
@@ -164,7 +164,7 @@ interior point $y_c$ of the conditioned polytope, it forms the log-barrier
 Hessian
 
 $$
-  H(y_c) = A_c^\top\operatorname{diag}(s^{-2})A_c.
+  H(y_c) = A_c^\top\mathrm{diag}(s^{-2})A_c.
 $$
 
 Tight conditioned constraints contribute more strongly, so $H$ identifies
