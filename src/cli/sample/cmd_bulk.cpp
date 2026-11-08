@@ -29,6 +29,7 @@ void cmd_bulk(int argc, char** argv) {
     int thinning = 0;
     int seed = 0;
     std::string sample_dtype = "float32";
+    std::string barrier_rotate_backend = "cpu";
     double constraint_eps = 0.0;
     double affine_hull_tol = 0.0;
     double pair_prob = 0.0;
@@ -62,6 +63,7 @@ void cmd_bulk(int argc, char** argv) {
         else if (a == "--n-samples") n_samples = std::stoi(next_arg(i, argc, argv, a));
         else if (a == "--seed") seed = std::stoi(next_arg(i, argc, argv, a));
         else if (a == "--sample-dtype") sample_dtype = next_arg(i, argc, argv, a);
+        else if (a == "--barrier-rotate-backend") barrier_rotate_backend = next_arg(i, argc, argv, a);
         else if (a == "--tpb") tpb = std::stoi(next_arg(i, argc, argv, a));
         else if (a == "--thinning") thinning = std::stoi(next_arg(i, argc, argv, a));
         else if (a == "--constraint-eps") constraint_eps = std::stod(next_arg(i, argc, argv, a));
@@ -97,6 +99,7 @@ void cmd_bulk(int argc, char** argv) {
     if (n_chains <= 0) die_usage("invalid --n-chains");
     if (n_samples <= 0) die_usage("invalid --n-samples");
     if (sample_dtype != "float32" && sample_dtype != "float64") die_usage("invalid --sample-dtype (float32|float64)");
+    if (barrier_rotate_backend != "cpu" && barrier_rotate_backend != "gpu") die_usage("invalid --barrier-rotate-backend (gpu|cpu)");
     if (bounds_policy != "ignore" && bounds_policy != "filter") die_usage("invalid --bounds-policy: " + bounds_policy);
     if (bounds_policy == "filter" && !backmap) {
         throw std::runtime_error("bounds-policy=filter requires --backmap");
@@ -123,6 +126,7 @@ void cmd_bulk(int argc, char** argv) {
     cfg.N_SAMPLES = n_samples;
     cfg.SEED = seed;
     cfg.SAMPLE_DTYPE = sample_dtype;
+    cfg.BARRIER_GPU_ROTATE = barrier_rotate_backend == "gpu";
     cfg.TPB_SS = tpb;
     cfg.GPU_DEVICE = 0;
     cfg.BACK_TRANSFORM = backmap;

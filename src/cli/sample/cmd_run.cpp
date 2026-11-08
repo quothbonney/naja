@@ -69,7 +69,7 @@ void cmd_run(int argc, char** argv) {
     bool write_npy = false;
     std::string sample_dtype = "float32";
     int host_prefault_threads = -1;
-    std::string barrier_rotate_backend = "gpu";
+    std::string barrier_rotate_backend = "cpu";
     bool verbose = false;
     std::string bounds_policy = "ignore";
     double bounds_eps = 1e-6;

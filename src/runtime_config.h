@@ -43,7 +43,7 @@ struct RuntimeConfig {
     int KSPARSE_K = 8;
     std::string PAIR_SCHEDULE_METHOD;  // "" or "barrier"
     bool BARRIER_ROTATE = false;       // rotate polytope to eigenbasis of barrier Hessian
-    bool BARRIER_GPU_ROTATE = true;    // GPU A*Q; CPU backend retained for reproducibility checks
+    bool BARRIER_GPU_ROTATE = false;   // Legacy-identical default; opt in to GPU A*Q explicitly
     bool BARRIER_WHITEN = false;       // + diagonal rescale by 1/sqrt(eigenvalue)
     std::string GPU_LIST;
     std::string BULK_MODEL_LIST;
