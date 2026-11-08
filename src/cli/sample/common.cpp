@@ -108,6 +108,8 @@ namespace naja::cli::sample {
     out << "    --models-root <dir> --model-list <file>\n";
     out << "    --out-root <dir> --name <runname> --gpus <csv>\n";
     out << "    --n-chains <n> --n-samples <n>\n";
+    out << "    [--seed <n>] [--sample-dtype float32|float64]\n";
+    out << "    [--barrier-rotate-backend gpu|cpu] default cpu for legacy-identical trajectories\n";
     out << "    [--tpb <n>] [--thinning <n>]\n";
     out << "    [--start-policy file|cube_center]\n";
     out << "    [--extra-constraints auto|ignore|require] [--constraint-eps <eps>]\n";
