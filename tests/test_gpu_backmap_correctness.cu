@@ -20,9 +20,29 @@
 #include "dvector.h"
 #include "gpusamplers.h"
 #include "device_utils.h"
+#include "backmap.cuh"
+#include "cublaswrapper.h"
 
 int main() {
     naja::gpu::set_device(0);
+
+    // Regression: the previous 2-D launch exceeded CUDA's grid.y limit at
+    // more than 8*65535 columns, despite requiring only a few MB of storage.
+    {
+        constexpr int many_columns = 600000;
+        Eigen::MatrixXd transform = Eigen::MatrixXd::Constant(1, 1, 2.0);
+        Eigen::VectorXd translation = Eigen::VectorXd::Constant(1, 3.0);
+        Eigen::MatrixXd input = Eigen::MatrixXd::Constant(1, many_columns, 0.25);
+        naja::gpu::DMatrix<double> transform_d(transform), input_d(input), output_d(1, many_columns);
+        naja::gpu::DVector<double> translation_d(translation);
+        naja::gpu::CUBLASHandle handle;
+        naja::gpu::backmap_into(transform_d, translation_d, input_d, output_d, handle);
+        const Eigen::MatrixXd result = output_d.toHost();
+        if ((result.array() != 3.5).any()) {
+            std::cerr << "[FAIL] large-column backmap\n";
+            return 1;
+        }
+    }
 
     const int d_reduced = 5;
     const int d_original = 8;
