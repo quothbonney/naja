@@ -109,6 +109,7 @@ void write_config_snapshot(const RuntimeConfig& cfg, const ProfileData& profile,
     dst << "WRITE_DATA=" << (cfg.WRITE_DATA ? "true" : "false") << "\n";
     dst << "SAMPLE_DTYPE=" << cfg.SAMPLE_DTYPE << "\n";
     dst << "HOST_PREFAULT_THREADS=" << cfg.HOST_PREFAULT_THREADS << "\n";
+    dst << "BARRIER_GPU_ROTATE=" << (cfg.BARRIER_GPU_ROTATE ? "true" : "false") << "\n";
     dst << "BOUNDS_POLICY=" << (cfg.BOUNDS_FILTER ? "filter" : "ignore") << "\n";
     if (cfg.BOUNDS_FILTER) {
         dst << "BOUNDS_EPS=" << std::setprecision(12) << cfg.BOUNDS_EPS << "\n";

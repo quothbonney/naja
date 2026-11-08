@@ -50,6 +50,7 @@ struct ProfileData {
         f << "    \"seed\": " << seed << ",\n";
         f << "    \"sample_dtype\": \"" << cfg.SAMPLE_DTYPE << "\",\n";
         f << "    \"host_prefault_threads\": " << cfg.HOST_PREFAULT_THREADS << ",\n";
+        f << "    \"barrier_rotate_backend\": \"" << (cfg.BARRIER_GPU_ROTATE ? "gpu" : "cpu") << "\",\n";
         f << "    \"tpb_ss\": " << cfg.TPB_SS << ",\n";
         f << "    \"gpu_device\": " << cfg.GPU_DEVICE << ",\n";
         f << "    \"back_transform\": " << (cfg.BACK_TRANSFORM ? "true" : "false") << "\n";
