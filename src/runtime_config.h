@@ -16,7 +16,7 @@ struct RuntimeConfig {
     int TPB_SS = 128;
     int GPU_DEVICE = 0;
     bool BACK_TRANSFORM = true;
-    int HOST_PREFAULT_THREADS = 0;      // Optional parallel first-touch before sample downloads
+    int HOST_PREFAULT_THREADS = -1;     // Auto: up to 8 available CPUs when chains >=64; 0 disables
     std::string SAMPLE_DTYPE = "float32"; // Export precision; sampling remains double precision
     bool WRITE_DATA = true;
     bool VERBOSE = true;
@@ -43,6 +43,7 @@ struct RuntimeConfig {
     int KSPARSE_K = 8;
     std::string PAIR_SCHEDULE_METHOD;  // "" or "barrier"
     bool BARRIER_ROTATE = false;       // rotate polytope to eigenbasis of barrier Hessian
+    bool BARRIER_GPU_ROTATE = true;    // GPU A*Q; CPU backend retained for reproducibility checks
     bool BARRIER_WHITEN = false;       // + diagonal rescale by 1/sqrt(eigenvalue)
     std::string GPU_LIST;
     std::string BULK_MODEL_LIST;
@@ -165,6 +166,7 @@ struct RuntimeConfig {
                     else if (key == "WRITE_DATA") cfg.WRITE_DATA = (value == "true" || value == "1");
                     else if (key == "SAMPLE_DTYPE") cfg.SAMPLE_DTYPE = value;
                     else if (key == "HOST_PREFAULT_THREADS") cfg.HOST_PREFAULT_THREADS = std::stoi(value);
+                    else if (key == "BARRIER_GPU_ROTATE") cfg.BARRIER_GPU_ROTATE = (value == "true" || value == "1");
                     else if (key == "VERBOSE") cfg.VERBOSE = !(value == "false" || value == "0");
                     else if (key == "STATUS") cfg.STATUS = !(value == "false" || value == "0");
                     else if (key == "BOUNDS_POLICY") cfg.BOUNDS_FILTER = (value == "filter");

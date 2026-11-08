@@ -155,6 +155,7 @@ void write_generated_config(const std::string& path, const RuntimeConfig& cfg) {
     f << "WRITE_DATA=" << (cfg.WRITE_DATA ? "true" : "false") << "\n";
     f << "SAMPLE_DTYPE=" << cfg.SAMPLE_DTYPE << "\n";
     f << "HOST_PREFAULT_THREADS=" << cfg.HOST_PREFAULT_THREADS << "\n";
+    f << "BARRIER_GPU_ROTATE=" << (cfg.BARRIER_GPU_ROTATE ? "true" : "false") << "\n";
     f << "VERBOSE=" << (cfg.VERBOSE ? "true" : "false") << "\n";
     f << "STATUS=" << (cfg.STATUS ? "true" : "false") << "\n";
     if (cfg.THINNING > 0) {

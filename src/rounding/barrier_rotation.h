@@ -28,5 +28,8 @@ BarrierRotation compute_barrier_rotation(
     const Eigen::VectorXd& x_c,
     bool verbose = false);
 
+// Column-major FP64 cuBLAS rotation; includes upload/download to the host pipeline.
+Eigen::MatrixXd rotate_matrix_gpu(const Eigen::MatrixXd& A, const Eigen::MatrixXd& Q);
+
 } // namespace naja::rounding
 

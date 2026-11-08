@@ -10,6 +10,7 @@
 #include <iostream>
 #include <stdexcept>
 #include <vector>
+#include <limits>
 
 #include "dmatrix.h"
 #include "dvector.h"
@@ -206,6 +207,31 @@ BarrierRotation compute_barrier_rotation(
     result.Q           = std::move(Q);
     result.eigenvalues = std::move(eigenvalues);
     return result;
+}
+
+Eigen::MatrixXd rotate_matrix_gpu(const Eigen::MatrixXd& A, const Eigen::MatrixXd& Q) {
+    if (A.rows() <= 0 || A.cols() <= 0 ||
+        A.rows() > std::numeric_limits<int>::max() ||
+        A.cols() > std::numeric_limits<int>::max() ||
+        Q.rows() != A.cols() || Q.cols() != A.cols()) {
+        throw std::invalid_argument("Invalid or unsupported GPU rotation dimensions");
+    }
+    const int m = static_cast<int>(A.rows());
+    const int d = static_cast<int>(A.cols());
+    naja::gpu::DMatrix<double> A_d(A), Q_d(Q), C_d(m, d);
+    cublasHandle_t handle = nullptr;
+    CUBLAS_CHECK(cublasCreate(&handle));
+    try {
+        const double alpha = 1.0, beta = 0.0;
+        CUBLAS_CHECK(cublasDgemm(handle, CUBLAS_OP_N, CUBLAS_OP_N,
+            m, d, d, &alpha, A_d.dmat, m, Q_d.dmat, d, &beta, C_d.dmat, m));
+        CUDA_CHECK(cudaDeviceSynchronize());
+    } catch (...) {
+        cublasDestroy(handle); // Preserve the original failure during cleanup.
+        throw;
+    }
+    CUBLAS_CHECK(cublasDestroy(handle));
+    return C_d.toHost();
 }
 
 } // namespace naja::rounding

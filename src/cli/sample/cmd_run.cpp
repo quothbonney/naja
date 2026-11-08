@@ -68,7 +68,8 @@ void cmd_run(int argc, char** argv) {
     bool backmap = false;
     bool write_npy = false;
     std::string sample_dtype = "float32";
-    int host_prefault_threads = 0;
+    int host_prefault_threads = -1;
+    std::string barrier_rotate_backend = "gpu";
     bool verbose = false;
     std::string bounds_policy = "ignore";
     double bounds_eps = 1e-6;
@@ -106,6 +107,7 @@ void cmd_run(int argc, char** argv) {
         else if (a == "--write-npy") write_npy = true;
         else if (a == "--sample-dtype") sample_dtype = next_arg(i, argc, argv, a);
         else if (a == "--host-prefault-threads") host_prefault_threads = std::stoi(next_arg(i, argc, argv, a));
+        else if (a == "--barrier-rotate-backend") barrier_rotate_backend = next_arg(i, argc, argv, a);
         else if (a == "--verbose") verbose = true;
         else if (a == "--bounds-policy") bounds_policy = next_arg(i, argc, argv, a);
         else if (a == "--bounds-eps") bounds_eps = std::stod(next_arg(i, argc, argv, a));
@@ -121,7 +123,8 @@ void cmd_run(int argc, char** argv) {
     if (n_chains <= 0) die_usage("invalid --n-chains");
     if (n_samples <= 0) die_usage("invalid --n-samples");
     if (sample_dtype != "float32" && sample_dtype != "float64") die_usage("invalid --sample-dtype (float32|float64)");
-    if (host_prefault_threads < 0) die_usage("invalid --host-prefault-threads (must be >=0)");
+    if (host_prefault_threads < -1) die_usage("invalid --host-prefault-threads (must be >=-1)");
+    if (barrier_rotate_backend != "cpu" && barrier_rotate_backend != "gpu") die_usage("invalid --barrier-rotate-backend (gpu|cpu)");
     try {
         normalize_and_validate_rounding_flags(
             pair_prob,
@@ -159,6 +162,7 @@ void cmd_run(int argc, char** argv) {
     cfg.WRITE_DATA = write_npy;
     cfg.SAMPLE_DTYPE = sample_dtype;
     cfg.HOST_PREFAULT_THREADS = host_prefault_threads;
+    cfg.BARRIER_GPU_ROTATE = barrier_rotate_backend == "gpu";
     cfg.VERBOSE = verbose;
     cfg.STATUS = !quiet;
     cfg.BOUNDS_FILTER = (bounds_policy == "filter");

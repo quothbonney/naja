@@ -93,7 +93,8 @@ namespace naja::cli::sample {
     out << "    [--tpb <n>] [--thinning <n>]\n";
     out << "    [--seed <nonzero-int>]       explicit sampling seed; 0 keeps legacy path-derived seed\n";
     out << "    [--sample-dtype float32|float64]  export dtype; default float32\n";
-    out << "    [--host-prefault-threads <n>] parallel first-touch before downloads; default 0\n";
+    out << "    [--host-prefault-threads <n>] -1=auto (default), 0=off; auto uses up to 8 available CPUs for >=64 chains\n";
+    out << "    [--barrier-rotate-backend gpu|cpu] A*Q backend, default gpu; cpu preserves legacy arithmetic\n";
     out << "    [--start-policy file|cube_center]\n";
     out << "    [--extra-constraints auto|ignore|require] [--extra-constraint-eps <eps>]\n";
     out << "    [--constraint-eps <eps>]\n";

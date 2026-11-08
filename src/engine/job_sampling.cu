@@ -39,6 +39,10 @@
 #include <stdexcept>
 #include <string>
 #include <vector>
+#include <thread>
+#if defined(__linux__)
+#include <sched.h>
+#endif
 
 #include "csv_loader.h"
 #include "device_utils.h"
@@ -116,6 +120,20 @@ void write_config_snapshot(const RuntimeConfig& cfg, const ProfileData& profile,
 } // namespace
 
 int run_sampling_job(RuntimeConfig cfg, bool verbose, bool show_device_banner) {
+    if (cfg.HOST_PREFAULT_THREADS < -1) {
+        throw std::invalid_argument("HOST_PREFAULT_THREADS must be >= -1");
+    }
+    if (cfg.HOST_PREFAULT_THREADS == -1) {
+        int available = static_cast<int>(std::max(1U, std::thread::hardware_concurrency()));
+#if defined(__linux__)
+        cpu_set_t allowed;
+        CPU_ZERO(&allowed);
+        if (sched_getaffinity(0, sizeof(allowed), &allowed) == 0) {
+            available = std::max(1, CPU_COUNT(&allowed));
+        }
+#endif
+        cfg.HOST_PREFAULT_THREADS = cfg.N_CHAINS >= 64 ? std::min(8, available) : 0;
+    }
     ensure_dir(cfg.OUT_DIR);
 
     Timer total_timer;
@@ -295,7 +313,11 @@ int run_sampling_job(RuntimeConfig cfg, bool verbose, bool show_device_banner) {
         barrier_condition = br.eigenvalues[n - 1] / std::max(br.eigenvalues[0], 1e-30);
 
         // 1) Pure orthogonal rotation into the eigenbasis.
-        A_host = A_host * rotation_Q;
+        if (cfg.BARRIER_GPU_ROTATE) {
+            A_host = naja::rounding::rotate_matrix_gpu(A_host, rotation_Q);
+        } else {
+            A_host = A_host * rotation_Q;
+        }
         x0_host = rotation_Q.transpose() * x0_host;
         if (hull_enabled) {
             hull_basis = hull_basis * rotation_Q;
