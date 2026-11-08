@@ -1,4 +1,6 @@
 #include "npz.h"
+#include "checked_size.h"
+#include <limits>
 
 #include <zlib.h>
 
@@ -155,13 +157,15 @@ Eigen::MatrixXd decode_npy_matrix(const std::vector<char>& blob) {
         throw std::runtime_error("npz: only 1-D and 2-D arrays supported");
     }
 
-    const size_t n = rows * cols;
-    const size_t need = n * static_cast<size_t>(h.itemsize);
-    if (h.data_offset + need > blob.size()) {
+    const size_t n = naja::checked_size_mul(rows, cols, "NPZ shape");
+    const size_t need = naja::checked_size_mul(n, static_cast<size_t>(h.itemsize), "NPZ data");
+    if (h.data_offset > blob.size() || need > blob.size() - h.data_offset) {
         throw std::runtime_error("npz: .npy data shorter than shape implies");
     }
     const char* data = blob.data() + h.data_offset;
 
+    if (rows > static_cast<size_t>(std::numeric_limits<Eigen::Index>::max()) || cols > static_cast<size_t>(std::numeric_limits<Eigen::Index>::max()))
+        throw std::overflow_error("NPZ shape exceeds Eigen index limit");
     Eigen::MatrixXd M(static_cast<Eigen::Index>(rows), static_cast<Eigen::Index>(cols));
 
     auto value_at = [&](size_t flat) -> double {
@@ -347,7 +351,7 @@ void save_npy_vector(const std::string& path, const Eigen::VectorXd& v) {
     file.write(reinterpret_cast<const char*>(&header_len), 2);
     file.write(header_str.data(), header_len);
     file.write(reinterpret_cast<const char*>(v.data()),
-               static_cast<std::streamsize>(v.size() * sizeof(double)));
+               naja::checked_streamsize(naja::checked_size_mul(v.size(), sizeof(double), "NPZ vector output"), "NPZ vector output"));
 }
 
 } // namespace npz

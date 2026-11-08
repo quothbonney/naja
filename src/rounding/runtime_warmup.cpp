@@ -7,6 +7,7 @@
 #include <vector>
 
 #include <cuda_runtime.h>
+#include "gpu/error_check.h"
 
 #include "rounding/jacobi.h"
 #include "gpusamplers.h"
@@ -83,7 +84,7 @@ PairSchedule estimate_runtime_pair_schedule(naja::gpu::DMatrix<double>& A_d,
             pc_tmp ? pc_tmp.get() : nullptr,
             ps_tmp ? ps_tmp.get() : nullptr
         );
-        cudaDeviceSynchronize();
+        CUDA_CHECK(cudaDeviceSynchronize());
         Eigen::MatrixXd W = warmup_samples_d.toHost();
 
         for (int k = 0; k < n_pairs; ++k) {

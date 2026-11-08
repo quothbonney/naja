@@ -1,5 +1,8 @@
 #pragma once
 #include "helper.h"
+#include <algorithm>
+#include <cmath>
+#include <limits>
 
 namespace naja {
     namespace gpu {
@@ -24,7 +27,7 @@ namespace naja {
             cublasHandle_t h;
 
             CUBLASHandle() { CUBLAS_CHECK(cublasCreate(&h)); }
-            ~CUBLASHandle() { CUBLAS_CHECK(cublasDestroy(h)); }
+            ~CUBLASHandle() { CUBLAS_CHECK_NOEXCEPT(cublasDestroy(h)); }
             operator cublasHandle_t() const { return h; }
 
             /// @brief Perform C = alpha * A * B + beta * C
@@ -73,13 +76,26 @@ namespace naja {
             /// @brief Perform result = norm_F(X)
             template <typename Real>
             __host__ void NrmF(const DMatrix<Real>& X, Real &result) {
-                CUBLAS_CHECK(cublasDnrm2(h, X.cols*X.rows, X.dmat, 1, &result));
+                const std::size_t count = naja::checked_size_mul(X.cols, X.rows, "matrix norm");
+                result = Real(0);
+                for (std::size_t offset = 0; offset < count;) {
+                    const int chunk = static_cast<int>(std::min<std::size_t>(count - offset, std::numeric_limits<int>::max()));
+                    Real part = Real(0);
+                    CUBLAS_CHECK(cublasDnrm2(h, chunk, X.dmat + offset, 1, &part));
+                    result = std::hypot(result, part);
+                    offset += static_cast<std::size_t>(chunk);
+                }
             }
 
             /// @bried Perform X = alpha*X
             template <typename Real>
             __host__ void Scal(const DMatrix<Real>& X, Real alpha) {
-                CUBLAS_CHECK(cublasDscal(h, X.cols*X.rows, &alpha, X.dmat, 1));
+                const std::size_t count = naja::checked_size_mul(X.cols, X.rows, "matrix scaling");
+                for (std::size_t offset = 0; offset < count;) {
+                    const int chunk = static_cast<int>(std::min<std::size_t>(count - offset, std::numeric_limits<int>::max()));
+                    CUBLAS_CHECK(cublasDscal(h, chunk, &alpha, X.dmat + offset, 1));
+                    offset += static_cast<std::size_t>(chunk);
+                }
             }
 
             /// @brief Perform x = alpha * x for vectors

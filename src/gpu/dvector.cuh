@@ -1,4 +1,5 @@
     #pragma once
+#include <cstddef>
 
 
     namespace naja {
@@ -6,8 +7,8 @@
             
             template<typename Real>
             __global__ void initializeKernel(Real* data, int len, Real value) {
-                int idx = blockIdx.x * blockDim.x + threadIdx.x;
-                if (idx < len) {
+                const std::size_t idx = static_cast<std::size_t>(blockIdx.x) * blockDim.x + threadIdx.x;
+                if (idx < static_cast<std::size_t>(len)) {
                     data[idx] = value;
                 }
             }

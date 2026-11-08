@@ -8,6 +8,7 @@
 #include <vector>
 
 #include <cuda_runtime.h>
+#include "gpu/error_check.h"
 
 #include "cli/sample/common.h"
 #include "csv_loader.h"
@@ -144,7 +145,7 @@ void cmd_calibrate_rounding(int argc, char** argv) {
                 /*pair_mode*/ 2,
                 &pair_i_d, &pair_j_d, &pair_c_d, &pair_s_d
             );
-            cudaDeviceSynchronize();
+            CUDA_CHECK(cudaDeviceSynchronize());
             Eigen::MatrixXd W = W_d.toHost(); // d x warmup
 
             // Update per-pair covariance moments.

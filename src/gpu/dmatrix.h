@@ -24,7 +24,7 @@ namespace naja {
         struct DMatrix {
             
             // Data allocated on device
-            Real *dmat;
+            Real *dmat = nullptr;
             
             // Meta data available on host
             int rows;

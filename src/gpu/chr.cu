@@ -52,7 +52,10 @@ namespace naja {
         {
             int N = A_d.cols;
 
-            DMatrix<double> samples_d(N, nchains * nspc), slack_d(b_d, nchains);
+            if (nchains <= 0 || nspc <= 0 || thinning <= 0)
+                throw std::invalid_argument("CHRR requires positive chains, samples and thinning");
+            const int sample_columns = naja::checked_int_product(nchains, nspc, "CHRR sample columns");
+            DMatrix<double> samples_d(N, sample_columns), slack_d(b_d, nchains);
 
             CUBLASHandle handle;
             handle.GeMM(A_d, X_d, slack_d, -1.0, 1.0);
@@ -60,7 +63,7 @@ namespace naja {
             PRNGState<curandStateMRG32k3a> gen(nchains);
             std::pair<int, int> launchConfig = getOptimalLaunchConfig(initPrngStatesCHR<curandStateMRG32k3a>);
             int threadsPerBlock = launchConfig.first;
-            int blocksPerGrid = (nchains + threadsPerBlock - 1) / threadsPerBlock;
+            int blocksPerGrid = 1 + (nchains - 1) / threadsPerBlock;
             initPrngStatesCHR<<<blocksPerGrid, threadsPerBlock>>>(gen.states, seed, nchains);
             CUDA_CHECK(cudaGetLastError());
 
@@ -135,6 +138,7 @@ namespace naja {
             if (nchains <= 0) {
                 throw std::invalid_argument("CoordinateHitAndRunStreamed: nchains must be positive");
             }
+            if (thinning <= 0) throw std::invalid_argument("streamed thinning must be positive");
             if (chunk_nspc <= 0) {
                 throw std::invalid_argument("CoordinateHitAndRunStreamed: chunk_nspc must be positive");
             }
@@ -150,12 +154,12 @@ namespace naja {
                 return;
             }
 
-            const int max_cols_per_chunk = nchains * chunk_nspc;
+            const int max_cols_per_chunk = naja::checked_int_product(nchains, chunk_nspc, "streamed sample columns");
             if (max_cols_per_chunk <= 0) {
                 throw std::invalid_argument("CoordinateHitAndRunStreamed: invalid chunk sizing");
             }
 
-            const size_t max_chunk_bytes = static_cast<size_t>(N) * static_cast<size_t>(max_cols_per_chunk) * sizeof(double);
+            const size_t max_chunk_bytes = naja::checked_matrix_bytes<double>(N, max_cols_per_chunk, "streamed chunk");
 
             CUBLASHandle handle;
             CudaStream compute_stream;
@@ -168,7 +172,7 @@ namespace naja {
             PRNGState<curandStateMRG32k3a> gen(nchains);
             auto launchConfig = getOptimalLaunchConfig(initPrngStatesCHR<curandStateMRG32k3a>);
             int threadsPerBlock = launchConfig.first;
-            int blocksPerGrid = (nchains + threadsPerBlock - 1) / threadsPerBlock;
+            int blocksPerGrid = 1 + (nchains - 1) / threadsPerBlock;
             initPrngStatesCHR<<<blocksPerGrid, threadsPerBlock, 0, compute_stream>>>(gen.states, seed, nchains);
             CUDA_CHECK(cudaGetLastError());
 
@@ -185,17 +189,17 @@ namespace naja {
             int cols_actual[2] = {0, 0};
             size_t bytes_actual[2] = {0, 0};
 
-            const int n_chunks = (nspc_total + chunk_nspc - 1) / chunk_nspc;
+            const int n_chunks = nspc_total / chunk_nspc + (nspc_total % chunk_nspc != 0);
             const int tpb = (tpb_ss > 0) ? tpb_ss : 128;
             const int blocks_ss = nchains;
 
             for (int c = 0; c < n_chunks; ++c) {
                 const int cur = c & 1;
                 const int prev = cur ^ 1;
-                const int samples_remaining = nspc_total - c * chunk_nspc;
+                const int samples_remaining = naja::checked_int_dimension(static_cast<std::int64_t>(nspc_total) - static_cast<std::int64_t>(c) * chunk_nspc, "streamed remaining samples");
                 const int nspc_this = std::min(chunk_nspc, samples_remaining);
-                const int cols_this = nchains * nspc_this;
-                const size_t bytes_this = static_cast<size_t>(N) * static_cast<size_t>(cols_this) * sizeof(double);
+                const int cols_this = naja::checked_int_product(nchains, nspc_this, "streamed chunk columns");
+                const size_t bytes_this = naja::checked_matrix_bytes<double>(N, cols_this, "streamed chunk bytes");
 
                 cols_actual[cur] = cols_this;
                 bytes_actual[cur] = bytes_this;
@@ -278,7 +282,7 @@ namespace naja {
             // Shared memory for x
             extern __shared__ Real x_s[];
             // Copy x0 to shared memory
-            for (int i = tid; i < cols; i += threadstride){
+            for (std::size_t i = static_cast<std::size_t>(tid); i < static_cast<std::size_t>(cols); i += threadstride){
                 x_s[i] = X0[IDX2C(i, bid, cols)];
             }
 
@@ -298,10 +302,10 @@ namespace naja {
             __shared__ int use_dikin_shared;
             __shared__ int dikin_dir_shared;
 
-            for (int t = 0; t < samples_per_chain * thinning; ++t){
+            for (std::uint64_t t = 0, steps = static_cast<std::uint64_t>(samples_per_chain) * static_cast<std::uint64_t>(thinning); t < steps; ++t){
                 
                 bool save = t % thinning == 0;
-                int colOffset = static_cast<int>(t / thinning) * nchains;
+                const std::size_t colOffset = static_cast<std::size_t>(t / thinning) * static_cast<std::size_t>(nchains);
                 if (tid == 0) {
                     PRNGenerator localState = global_states[bid];
                     Real ucoord = curand_uniform_double(&localState);
@@ -420,7 +424,7 @@ namespace naja {
                 // Optional numerical hygiene: resync slack = b - A*x every resync_interval iterations.
                 // This is expensive; keep resync_interval == 0 unless you know you need it.
                 if (resync_interval > 0 && (t % resync_interval) == 0) {
-                    for (int r = tid; r < rows; r += threadstride) {
+                    for (std::size_t r = static_cast<std::size_t>(tid); r < static_cast<std::size_t>(rows); r += threadstride) {
                         Real acc = Real(0.0);
                         for (int c = 0; c < cols; ++c) {
                             acc += A[IDX2C(r, c, rows)] * x_s[c];
@@ -435,7 +439,7 @@ namespace naja {
                 const int use_dikin = use_dikin_shared;
                 const int dikin_dir_idx = dikin_dir_shared;
 
-                for (int i = tid; i < rows; i += threadstride){
+                for (std::size_t i = static_cast<std::size_t>(tid); i < static_cast<std::size_t>(rows); i += threadstride){
 
                     // Get slack and projected direction
                     Real s = slack[IDX2C(i, bid, rows)];
@@ -504,12 +508,12 @@ namespace naja {
 
                 // save x
                 if(save){
-                    for (int i = tid; i < cols; i += threadstride)
+                    for (std::size_t i = static_cast<std::size_t>(tid); i < static_cast<std::size_t>(cols); i += threadstride)
                         samples[IDX2C(i, bid + colOffset, cols)] = x_s[i];
                 }
                 
                 // Update slack
-                for (int i = tid; i < rows; i += threadstride){
+                for (std::size_t i = static_cast<std::size_t>(tid); i < static_cast<std::size_t>(rows); i += threadstride){
                     Real ae;
                     if (use_dikin) {
                         ae = dikin_Av[IDX2C(i, dikin_dir_idx, rows)] * ci;
@@ -533,7 +537,7 @@ namespace naja {
             }
 
             if (persist_state) {
-                for (int i = tid; i < cols; i += threadstride) {
+                for (std::size_t i = static_cast<std::size_t>(tid); i < static_cast<std::size_t>(cols); i += threadstride) {
                     X0[IDX2C(i, bid, cols)] = x_s[i];
                 }
             }
@@ -607,8 +611,8 @@ namespace naja {
 
         template <typename PRNGenerator>
         __global__ void initPrngStatesCHR(PRNGenerator *states, int seed, int nstates){
-            int tid = threadIdx.x + blockIdx.x * blockDim.x;
-            if(tid < nstates)
+            const std::size_t tid = static_cast<std::size_t>(blockIdx.x) * blockDim.x + threadIdx.x;
+            if(tid < static_cast<std::size_t>(nstates))
                 curand_init(seed,tid,0,&states[tid]);
         }
 

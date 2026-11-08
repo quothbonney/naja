@@ -8,6 +8,8 @@
 #include <sstream>
 #include <cstring>
 #include <algorithm>
+#include <cstdint>
+#include "checked_size.h"
 
 namespace npy {
 
@@ -47,9 +49,10 @@ inline void save(const std::string& filename, const Eigen::MatrixXd& mat) {
     // Write data in row-major (C) order
     // Eigen is column-major by default. Copy to RowMajor temp then write block.
     Eigen::Matrix<double, Eigen::Dynamic, Eigen::Dynamic, Eigen::RowMajor> mat_row = mat;
-    file.write(reinterpret_cast<const char*>(mat_row.data()), mat.size() * sizeof(double));
+    file.write(reinterpret_cast<const char*>(mat_row.data()), naja::checked_streamsize(naja::checked_matrix_bytes<double>(mat.rows(), mat.cols(), "NPY output"), "NPY output"));
     
     file.close();
+    if (!file) throw std::runtime_error("Failed writing NPY file: " + filename);
 }
 
 // Write a 1D uint8 array to .npy (C-contiguous, shape (N,))
@@ -81,6 +84,7 @@ inline void save_u8_1d(const std::string& filename, const std::vector<uint8_t>& 
         file.write(reinterpret_cast<const char*>(v.data()), static_cast<std::streamsize>(v.size()));
     }
     file.close();
+    if (!file) throw std::runtime_error("Failed writing NPY file: " + filename);
 }
 
 // Write Eigen matrix as (cols, rows) float32 .npy — zero-copy transpose trick.
@@ -100,8 +104,8 @@ inline void save_f32_samples(const std::string& filename, const Eigen::MatrixXd&
     }
 
     // File shape is (cols, rows) — the "transpose" of the Eigen shape
-    const int file_rows = mat.cols();
-    const int file_cols = mat.rows();
+    const Eigen::Index file_rows = mat.cols();
+    const Eigen::Index file_cols = mat.rows();
 
     // Magic + version
     file.write("\x93NUMPY", 6);
@@ -128,16 +132,17 @@ inline void save_f32_samples(const std::string& filename, const Eigen::MatrixXd&
     // Each column is contiguous in memory (Eigen col-major).
     const size_t n_elements = (size_t)mat.rows();
     std::vector<float> buf(n_elements);
-    for (int c = 0; c < mat.cols(); ++c) {
+    for (Eigen::Index c = 0; c < mat.cols(); ++c) {
         const double* src = mat.data() + (size_t)c * n_elements;
         for (size_t i = 0; i < n_elements; ++i) {
             buf[i] = static_cast<float>(src[i]);
         }
         file.write(reinterpret_cast<const char*>(buf.data()),
-                    static_cast<std::streamsize>(n_elements * sizeof(float)));
+                    naja::checked_streamsize(naja::checked_size_mul(n_elements, sizeof(float), "NPY float32 column"), "NPY float32 column"));
     }
 
     file.close();
+    if (!file) throw std::runtime_error("Failed writing NPY file: " + filename);
 }
 
 // Write Eigen col-major samples directly as C-order (samples, dimensions) float64.
@@ -158,8 +163,9 @@ inline void save_f64_samples(const std::string& filename, const Eigen::MatrixXd&
     const uint16_t header_len = static_cast<uint16_t>(header_str.size());
     file.write(reinterpret_cast<const char*>(&header_len), 2);
     file.write(header_str.data(), header_len);
-    const size_t bytes = static_cast<size_t>(mat.size()) * sizeof(double);
-    file.write(reinterpret_cast<const char*>(mat.data()), static_cast<std::streamsize>(bytes));
+    const size_t bytes = naja::checked_matrix_bytes<double>(mat.rows(), mat.cols(), "NPY float64 output");
+    file.write(reinterpret_cast<const char*>(mat.data()), naja::checked_streamsize(bytes, "NPY float64 output"));
+    file.close();
     if (!file) throw std::runtime_error("Failed writing samples: " + filename);
 }
 
@@ -172,18 +178,19 @@ inline Eigen::MatrixXd load_transposed(const std::string& filename) {
     std::ifstream file(filename, std::ios::binary);
     if (!file.is_open()) throw std::runtime_error("Cannot open " + filename);
     
-    char magic[6];
+    char magic[6] = {};
     file.read(magic, 6);
     if (std::strncmp(magic, "\x93NUMPY", 6) != 0) throw std::runtime_error("Invalid NPY file");
     
-    char version[2];
+    char version[2] = {};
     file.read(version, 2);
     
-    uint16_t header_len;
+    uint16_t header_len = 0;
     file.read(reinterpret_cast<char*>(&header_len), 2);
     
     std::string header(header_len, ' ');
     file.read(&header[0], header_len);
+    if (!file) throw std::runtime_error("Truncated NPY header: " + filename);
     
     // Parse shape
     size_t shape_pos = header.find("'shape':");
@@ -195,8 +202,9 @@ inline Eigen::MatrixXd load_transposed(const std::string& filename) {
     
     std::replace(shape_str.begin(), shape_str.end(), ',', ' ');
     std::stringstream ss(shape_str);
-    int rows, cols;
-    ss >> rows >> cols;
+    Eigen::Index rows = 0, cols = 0;
+    if (!(ss >> rows >> cols) || rows < 0 || cols < 0) throw std::runtime_error("Invalid NPY shape");
+    const std::size_t data_bytes = naja::checked_matrix_bytes<double>(rows, cols, "NPY input");
     
     // Check fortran_order
     bool fortran_order = header.find("'fortran_order': True") != std::string::npos;
@@ -204,7 +212,8 @@ inline Eigen::MatrixXd load_transposed(const std::string& filename) {
     if (fortran_order) {
         // File is Col-major (R, C). Read into (R, C) Col-major.
         Eigen::MatrixXd mat(rows, cols);
-        file.read(reinterpret_cast<char*>(mat.data()), rows * cols * sizeof(double));
+        file.read(reinterpret_cast<char*>(mat.data()), naja::checked_streamsize(data_bytes, "NPY input"));
+        if (!file) throw std::runtime_error("Truncated NPY data: " + filename);
         // We promised transpose? No, this returns original.
         // This case is rare for NPY saved by numpy or us.
         // If we want consistent behavior (Transpose), we should transpose this?
@@ -221,7 +230,8 @@ inline Eigen::MatrixXd load_transposed(const std::string& filename) {
         // So the matrix we get is the Transpose of the file matrix.
         
         Eigen::MatrixXd mat(cols, rows);
-        file.read(reinterpret_cast<char*>(mat.data()), rows * cols * sizeof(double));
+        file.read(reinterpret_cast<char*>(mat.data()), naja::checked_streamsize(data_bytes, "NPY input"));
+        if (!file) throw std::runtime_error("Truncated NPY data: " + filename);
         return mat;
     }
 }

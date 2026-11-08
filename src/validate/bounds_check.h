@@ -1,12 +1,13 @@
 #pragma once
 
 #include <Eigen/Dense>
+#include <cstdint>
 
 namespace naja::validate {
 
 struct BoundsResult {
-    int n_violations;
-    int n_checked;       // n_samples * n_reactions
+    std::uint64_t n_violations;
+    std::uint64_t n_checked;       // n_samples * n_reactions
     double worst_violation;
 };
 

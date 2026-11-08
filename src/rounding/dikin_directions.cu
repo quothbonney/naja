@@ -12,15 +12,6 @@
 #include "dvector.h"
 #include "helper.h"
 
-#define CUSOLVER_CHECK(expr)                                                         \
-    do {                                                                             \
-        cusolverStatus_t _cs = (expr);                                               \
-        if (_cs != CUSOLVER_STATUS_SUCCESS) {                                        \
-            throw std::runtime_error(                                                \
-                std::string("cuSolver error ") + std::to_string(static_cast<int>(_cs)) + \
-                " at " __FILE__ ":" + std::to_string(__LINE__));                     \
-        }                                                                            \
-    } while (0)
 
 namespace naja::rounding {
 
@@ -33,8 +24,8 @@ DikinDirections compute_dikin_directions(
     double tight_factor,
     double eigenvalue_ratio) {
 
-    const int m = A.rows();
-    const int d = A.cols();
+    const int m = naja::checked_int_dimension(A.rows(), "Dikin constraints");
+    const int d = naja::checked_int_dimension(A.cols(), "Dikin dimension");
     DikinDirections result;
     result.k = 0;
 
@@ -94,7 +85,7 @@ DikinDirections compute_dikin_directions(
         d, H_d.dmat, d, d_W, &lwork));
 
     double* d_work = nullptr;
-    CUDA_CHECK(cudaMalloc(&d_work, static_cast<size_t>(lwork) * sizeof(double)));
+    CUDA_CHECK(cudaMalloc(&d_work, naja::checked_matrix_bytes<double>(lwork, 1, "cuSOLVER workspace")));
 
     int* d_info = nullptr;
     CUDA_CHECK(cudaMalloc(&d_info, sizeof(int)));
@@ -105,12 +96,12 @@ DikinDirections compute_dikin_directions(
 
     int h_info = 0;
     CUDA_CHECK(cudaMemcpy(&h_info, d_info, sizeof(int), cudaMemcpyDeviceToHost));
-    cudaFree(d_work);
-    cudaFree(d_info);
-    cusolverDnDestroy(solver_h);
+    CUDA_CHECK(cudaFree(d_work));
+    CUDA_CHECK(cudaFree(d_info));
+    CUSOLVER_CHECK(cusolverDnDestroy(solver_h));
 
     if (h_info != 0) {
-        cudaFree(d_W);
+        CUDA_CHECK(cudaFree(d_W));
         throw std::runtime_error(
             "cusolverDnDsyevd (dikin) failed: info=" + std::to_string(h_info));
     }
@@ -120,7 +111,7 @@ DikinDirections compute_dikin_directions(
     CUDA_CHECK(cudaMemcpy(eigenvalues.data(), d_W,
                           static_cast<size_t>(d) * sizeof(double),
                           cudaMemcpyDeviceToHost));
-    cudaFree(d_W);
+    CUDA_CHECK(cudaFree(d_W));
 
     Eigen::MatrixXd eigenvectors = H_d.toHost();  // d × d, columns = eigenvectors
 

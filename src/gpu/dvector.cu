@@ -5,52 +5,58 @@
 namespace naja {
     namespace gpu {
         template<typename Real>
-        DVector<Real>::DVector(const HVector<Real>& v) : len(v.size()) {
-            size_t size = len * sizeof(Real);
+        DVector<Real>::DVector(const HVector<Real>& v) : len(naja::checked_int_dimension(v.size(), "device vector")) {
+            size_t size = naja::checked_matrix_bytes<Real>(len, 1, "device vector");
             CUDA_CHECK(cudaMalloc(&dvec, size));
             CUDA_CHECK(cudaMemcpy(dvec, v.data(), size, cudaMemcpyHostToDevice));
         }
 
         template<typename Real>
         DVector<Real>::DVector(int len_) : len(len_) {
-            size_t size = len * sizeof(Real);
+            size_t size = naja::checked_matrix_bytes<Real>(len, 1, "device vector");
             CUDA_CHECK(cudaMalloc(&dvec, size));
         }
 
         template<typename Real>
         DVector<Real>::DVector(int len_, Real value) : len(len_) {
-            size_t size = len * sizeof(Real);
+            size_t size = naja::checked_matrix_bytes<Real>(len, 1, "device vector");
             CUDA_CHECK(cudaMalloc(&dvec, size));
             int blockSize = 256;
-            int numBlocks = (len + blockSize - 1) / blockSize;
-            initializeKernel<Real><<<numBlocks, blockSize>>>(dvec, len, value);
+            int numBlocks = len > 0 ? 1 + (len - 1) / blockSize : 0;
+            if (numBlocks > 0) {
+                initializeKernel<Real><<<numBlocks, blockSize>>>(dvec, len, value);
+                CUDA_CHECK(cudaGetLastError());
+            }
         }
 
         template<typename Real>
         void DVector<Real>::fill(Real value) {
             int blockSize = 256;
-            int numBlocks = (len + blockSize - 1) / blockSize;
-            initializeKernel<Real><<<numBlocks, blockSize>>>(dvec, len, value);
+            int numBlocks = len > 0 ? 1 + (len - 1) / blockSize : 0;
+            if (numBlocks > 0) {
+                initializeKernel<Real><<<numBlocks, blockSize>>>(dvec, len, value);
+                CUDA_CHECK(cudaGetLastError());
+            }
         }
 
         template<typename Real>
         HVector<Real> DVector<Real>::toHost() const {
             HVector<Real> v(len);
-            CUDA_CHECK(cudaMemcpy(v.data(), dvec, len * sizeof(Real), cudaMemcpyDeviceToHost));
+            CUDA_CHECK(cudaMemcpy(v.data(), dvec, naja::checked_matrix_bytes<Real>(len, 1, "device vector"), cudaMemcpyDeviceToHost));
             return v;
         }
 
         template<typename Real>
         DVector<Real>::~DVector() {
-            cudaFree(dvec);
+            CUDA_CHECK_NOEXCEPT(cudaFree(dvec));
             dvec = nullptr;
         }
 
         // Copy constructor (deep copy)
         template<typename Real>
         DVector<Real>::DVector(const DVector& other) : len(other.len) {
-            cudaMalloc(&dvec, len * sizeof(Real));  // Allocate new memory on the device
-            cudaMemcpy(dvec, other.dvec, len * sizeof(Real), cudaMemcpyDeviceToDevice);  // Copy the data from the other device vector
+            CUDA_CHECK(cudaMalloc(&dvec, naja::checked_matrix_bytes<Real>(len, 1, "device vector")));  // Allocate new memory on the device
+            CUDA_CHECK(cudaMemcpy(dvec, other.dvec, naja::checked_matrix_bytes<Real>(len, 1, "device vector"), cudaMemcpyDeviceToDevice));  // Copy the data from the other device vector
         }
 
         // Move constructor
@@ -66,13 +72,13 @@ namespace naja {
             if (this != &other) {  // Check for self-assignment
                 // Free existing memory
                 if (dvec) {
-                    cudaFree(dvec);
+                    CUDA_CHECK_NOEXCEPT(cudaFree(dvec));
                 }
 
                 // Allocate new memory and copy the data
                 len = other.len;
-                cudaMalloc(&dvec, len * sizeof(Real));
-                cudaMemcpy(dvec, other.dvec, len * sizeof(Real), cudaMemcpyDeviceToDevice);
+                CUDA_CHECK(cudaMalloc(&dvec, naja::checked_matrix_bytes<Real>(len, 1, "device vector")));
+                CUDA_CHECK(cudaMemcpy(dvec, other.dvec, naja::checked_matrix_bytes<Real>(len, 1, "device vector"), cudaMemcpyDeviceToDevice));
             }
             return *this;
         }
@@ -83,7 +89,7 @@ namespace naja {
             if (this != &other) {  // Check for self-assignment
                 // Free existing memory
                 if (dvec) {
-                    cudaFree(dvec);
+                    CUDA_CHECK_NOEXCEPT(cudaFree(dvec));
                 }
 
                 // Move data from the other object

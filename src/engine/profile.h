@@ -4,6 +4,7 @@
 #include <iostream>
 #include <iomanip>
 #include <ctime>
+#include <cstdint>
 #include <stdexcept>
 #include "runtime_config.h"
 
@@ -67,11 +68,13 @@ struct ProfileData {
         f << "    \"total_s\": " << total_time << "\n";
         f << "  },\n";
         f << "  \"performance\": {\n";
-        f << "    \"total_samples\": " << (n_chains * n_samples) << ",\n";
+        f << "    \"total_samples\": " << (static_cast<std::uint64_t>(n_chains) * static_cast<std::uint64_t>(n_samples)) << ",\n";
         f << "    \"throughput_samples_per_sec\": " << std::fixed << std::setprecision(1) << throughput << ",\n";
         f << "    \"sampling_fraction\": " << std::fixed << std::setprecision(3) << (sampling_time / total_time) << "\n";
         f << "  }\n";
         f << "}\n";
+        f.close();
+        if (!f) throw std::runtime_error("failed writing profile: " + filename);
     }
 };
 

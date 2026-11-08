@@ -12,8 +12,8 @@ namespace naja {
         struct PRNGState{
             PRNGenerator* states;
             public:
-                PRNGState(int nThreads){ CUDA_CHECK(cudaMalloc((void **)&states, nThreads * sizeof(PRNGenerator))); }
-                ~PRNGState(){ CUDA_CHECK(cudaFree(states)); }
+                PRNGState(int nThreads){ CUDA_CHECK(cudaMalloc((void **)&states, naja::checked_matrix_bytes<PRNGenerator>(nThreads, 1, "PRNG states"))); }
+                ~PRNGState(){ CUDA_CHECK_NOEXCEPT(cudaFree(states)); }
         };
 
     }

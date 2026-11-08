@@ -23,7 +23,7 @@ namespace naja {
         struct DVector{
 
             // Data allocated on device
-            Real    *dvec;
+            Real    *dvec = nullptr;
 
             // Meta data available on host
             int len;

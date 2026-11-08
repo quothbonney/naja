@@ -19,7 +19,7 @@ struct PinnedHostBuffer {
 
     ~PinnedHostBuffer() {
         if (ptr) {
-            cudaFreeHost(ptr);
+            CUDA_CHECK_NOEXCEPT(cudaFreeHost(ptr));
             ptr = nullptr;
         }
     }
@@ -36,7 +36,7 @@ struct PinnedHostBuffer {
     PinnedHostBuffer& operator=(PinnedHostBuffer&& other) noexcept {
         if (this != &other) {
             if (ptr) {
-                cudaFreeHost(ptr);
+                CUDA_CHECK_NOEXCEPT(cudaFreeHost(ptr));
             }
             ptr = other.ptr;
             size = other.size;

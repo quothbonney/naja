@@ -17,15 +17,6 @@
 #include "helper.h"
 
 // cuSOLVER error-checking macro (throws on failure, unlike CUDA_CHECK/CUBLAS_CHECK which only print)
-#define CUSOLVER_CHECK(expr)                                                         \
-    do {                                                                             \
-        cusolverStatus_t _cs = (expr);                                               \
-        if (_cs != CUSOLVER_STATUS_SUCCESS) {                                        \
-            throw std::runtime_error(                                                \
-                std::string("cuSolver error ") + std::to_string(static_cast<int>(_cs)) + \
-                " at " __FILE__ ":" + std::to_string(__LINE__));                     \
-        }                                                                            \
-    } while (0)
 
 namespace {
 
@@ -36,9 +27,9 @@ namespace {
 __global__ void scale_rows_kernel(double* __restrict__ B,
                                    const double* __restrict__ inv_s,
                                    int m, int d) {
-    int idx = blockIdx.x * blockDim.x + threadIdx.x;
-    const int stride = gridDim.x * blockDim.x;
-    const int total = m * d;
+    std::size_t idx = static_cast<std::size_t>(blockIdx.x) * blockDim.x + threadIdx.x;
+    const std::size_t stride = static_cast<std::size_t>(gridDim.x) * blockDim.x;
+    const std::size_t total = static_cast<std::size_t>(m) * static_cast<std::size_t>(d);
     for (; idx < total; idx += stride) {
         B[idx] *= inv_s[idx % m];
     }
@@ -54,8 +45,10 @@ BarrierRotation compute_barrier_rotation(
     const Eigen::VectorXd& x_c,
     bool verbose) {
 
-    const int m = static_cast<int>(A.rows());
-    const int d = static_cast<int>(A.cols());
+    const int m = naja::checked_int_dimension(A.rows(), "barrier constraints");
+    const int d = naja::checked_int_dimension(A.cols(), "barrier dimension");
+
+    if (m <= 0 || d <= 0) throw std::invalid_argument("barrier rotation requires a nonempty matrix");
 
     // ── 1. CPU: slack, tau, clamping  (O(m*d) but cheap vs GPU setup) ─────────
     Eigen::VectorXd slack = b - A * x_c;
@@ -86,9 +79,9 @@ BarrierRotation compute_barrier_rotation(
     naja::gpu::DVector<double> inv_slack_d(inv_slack);  // m
 
     {
-        const int total = m * d;
+        const std::size_t total = naja::checked_size_mul(m, d, "barrier Hessian row scaling");
         const int block = 256;
-        const int grid = std::min((total + block - 1) / block, 65535);
+        const int grid = static_cast<int>(std::min<std::size_t>((total - 1) / block + 1, 65535));
         scale_rows_kernel<<<grid, block>>>(B_d.dmat, inv_slack_d.dvec, m, d);
         CUDA_CHECK(cudaGetLastError());
     }
@@ -106,7 +99,7 @@ BarrierRotation compute_barrier_rotation(
             blas_h, CUBLAS_FILL_MODE_LOWER, CUBLAS_OP_T,
             d, m, &alpha, B_d.dmat, m, &beta, H_d.dmat, d));
     }
-    cublasDestroy(blas_h);
+    CUBLAS_CHECK(cublasDestroy(blas_h));
 
     // ── 4. Download H (lower triangle), fill upper, add ridge, re-upload ───────
     // H_d is d×d; toHost() copies all d*d elements (lower triangle filled, rest zero).
@@ -142,7 +135,7 @@ BarrierRotation compute_barrier_rotation(
         d, H_sym_d.dmat, d, d_W, &lwork));
 
     double* d_work = nullptr;
-    CUDA_CHECK(cudaMalloc(&d_work, static_cast<size_t>(lwork) * sizeof(double)));
+    CUDA_CHECK(cudaMalloc(&d_work, naja::checked_matrix_bytes<double>(lwork, 1, "cuSOLVER workspace")));
 
     int* d_info = nullptr;
     CUDA_CHECK(cudaMalloc(&d_info, sizeof(int)));
@@ -155,12 +148,12 @@ BarrierRotation compute_barrier_rotation(
     // Check convergence
     int h_info = 0;
     CUDA_CHECK(cudaMemcpy(&h_info, d_info, sizeof(int), cudaMemcpyDeviceToHost));
-    cudaFree(d_work);
-    cudaFree(d_info);
-    cusolverDnDestroy(solver_h);
+    CUDA_CHECK(cudaFree(d_work));
+    CUDA_CHECK(cudaFree(d_info));
+    CUSOLVER_CHECK(cusolverDnDestroy(solver_h));
 
     if (h_info != 0) {
-        cudaFree(d_W);
+        CUDA_CHECK(cudaFree(d_W));
         throw std::runtime_error(
             "cusolverDnDsyevd failed: info=" + std::to_string(h_info) +
             " (d=" + std::to_string(d) + ")");
@@ -171,7 +164,7 @@ BarrierRotation compute_barrier_rotation(
     CUDA_CHECK(cudaMemcpy(eigenvalues.data(), d_W,
                           static_cast<size_t>(d) * sizeof(double),
                           cudaMemcpyDeviceToHost));
-    cudaFree(d_W);
+    CUDA_CHECK(cudaFree(d_W));
 
     // Download eigenvectors (columns of H_sym_d after dsyevd)
     Eigen::MatrixXd Q = H_sym_d.toHost();  // d × d, columns = eigenvectors

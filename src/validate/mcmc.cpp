@@ -104,7 +104,7 @@ EssResult compute_ess(const Eigen::MatrixXf& samples, int n_chains) {
             // Copy one chain into a contiguous buffer before the FFT.
             std::vector<float> chain(spc);
             for (int i = 0; i < spc; ++i) {
-                chain[i] = samples(d, i * n_chains + c);
+                chain[i] = samples(d, static_cast<Eigen::Index>(i) * n_chains + c);
             }
             float e = ess_one_chain(chain.data(), spc);
             min_ess = std::min(min_ess, e);
@@ -147,7 +147,7 @@ RhatResult compute_split_rhat(const Eigen::MatrixXf& samples, int n_chains) {
                 double s = 0.0, s2 = 0.0;
                 for (int i = 0; i < half; ++i) {
                     const int sample_idx = h * half + i;
-                    double v = static_cast<double>(samples(d, sample_idx * n_chains + c));
+                    double v = static_cast<double>(samples(d, static_cast<Eigen::Index>(sample_idx) * n_chains + c));
                     s += v;
                     s2 += v * v;
                 }

@@ -82,8 +82,8 @@ void bounds_filter_and_write(const RuntimeConfig& cfg, const Eigen::MatrixXd& sa
     Eigen::VectorXd lb = csv::loadVector(lb_path);
     Eigen::VectorXd ub = csv::loadVector(ub_path);
 
-    const int dim = (int)samples_out.rows();
-    const int n_total = (int)samples_out.cols();
+    const int dim = naja::checked_int_dimension(samples_out.rows(), "bounds reaction count");
+    const int n_total = naja::checked_int_dimension(samples_out.cols(), "bounds sample count");
     if ((int)rxn_ids.size() != dim) {
         throw std::runtime_error("reaction_ids length mismatch: expected " + std::to_string(dim) + " got " + std::to_string(rxn_ids.size()));
     }
@@ -148,7 +148,7 @@ void bounds_filter_and_write(const RuntimeConfig& cfg, const Eigen::MatrixXd& sa
 
     double p99_violation = 0.0;
     if (n_total > 0) {
-        size_t k = (size_t)((99 * (n_total - 1)) / 100);
+        size_t k = naja::checked_size_mul(99, static_cast<std::size_t>(n_total - 1), "bounds percentile") / 100;
         std::nth_element(per_sample_violation.begin(),
                          per_sample_violation.begin() + (ptrdiff_t)k,
                          per_sample_violation.end());

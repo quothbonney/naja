@@ -1,12 +1,13 @@
 // Minimal standalone GPU sampler for RECON1 - sanity check for GPU code changes
 #include <iostream>
+#include <exception>
 #include <string>
 
 #include "cli/sample_cli.h"
 #include "cli/condition_cli.h"
 #include "cli/validate_cli.h"
 
-int main(int argc, char** argv) {
+int run_main(int argc, char** argv) {
     if (argc >= 2 && std::string(argv[1]) == "sample") {
         return naja_sample_cli_main(argc - 2, argv + 2);
     }
@@ -22,4 +23,12 @@ int main(int argc, char** argv) {
     std::cerr << "  naja condition <subcommand> <args...>\n";
     std::cerr << "  naja validate --samples <file.npy> [--model-dir <dir>] [--n-chains 4]\n";
     return 2;
+}
+
+int main(int argc, char** argv) {
+    try { return run_main(argc, argv); }
+    catch (const std::exception& error) {
+        std::cerr << "naja: " << error.what() << std::endl;
+        return 1;
+    }
 }

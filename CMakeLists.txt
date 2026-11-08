@@ -2,6 +2,7 @@ cmake_minimum_required(VERSION 3.24)
 project(naja LANGUAGES C CXX CUDA)
 
 enable_testing()
+
 option(NAJA_ENABLE_ENV_DEP_TESTS "Enable tests that require external model data and/or valid Gurobi license" OFF)
 option(NAJA_ENABLE_GPU_TESTS "Enable GPU-based sampling correctness tests (require CUDA device)" OFF)
 
@@ -41,6 +42,9 @@ if(NOT EIGEN_DIR)
     message(FATAL_ERROR
         "Eigen3 headers were not found. Install Eigen3 or configure -DNAJA_EIGEN_ROOT=/path/to/eigen3.")
 endif()
+add_executable(test_large_sizes_and_npy tests/test_large_sizes_and_npy.cpp)
+target_include_directories(test_large_sizes_and_npy PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/src ${EIGEN_DIR})
+add_test(NAME test_large_sizes_and_npy COMMAND test_large_sizes_and_npy)
 
 set(NAJA_GUROBI_ROOT "${CMAKE_CURRENT_SOURCE_DIR}/extern/gurobi/linux64" CACHE PATH
     "Gurobi installation root (contains include/ and lib/)")
@@ -395,12 +399,15 @@ if(NAJA_ENABLE_GPU_TESTS)
     endif()
 
     set(GPU_TEST_TARGETS
+        test_gpu_index_width
         test_gpu_sampling_feasibility
         test_gpu_sampling_cube_moments
         test_gpu_sampling_simplex_moments
         test_gpu_backmap_correctness
         test_gpu_thin_polytope
     )
+
+    add_executable(test_gpu_index_width tests/test_gpu_index_width.cu)
 
     add_executable(test_gpu_sampling_feasibility tests/test_gpu_sampling_feasibility.cu ${GPU_SOURCES})
     add_executable(test_gpu_sampling_cube_moments tests/test_gpu_sampling_cube_moments.cu ${GPU_SOURCES})

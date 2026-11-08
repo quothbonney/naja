@@ -135,6 +135,11 @@ int run_sampling_job(RuntimeConfig cfg, bool verbose, bool show_device_banner) {
 #endif
         cfg.HOST_PREFAULT_THREADS = cfg.N_CHAINS >= 64 ? std::min(8, available) : 0;
     }
+    if (cfg.N_CHAINS <= 0 || cfg.N_SAMPLES <= 0) throw std::invalid_argument("chains and samples must be positive");
+    (void)naja::checked_int_product(cfg.N_CHAINS, cfg.N_SAMPLES, "sample columns");
+    if (cfg.SAMPLE_DTYPE != "float32" && cfg.SAMPLE_DTYPE != "float64")
+        throw std::invalid_argument("SAMPLE_DTYPE must be float32 or float64");
+
     ensure_dir(cfg.OUT_DIR);
 
     Timer total_timer;
@@ -200,8 +205,8 @@ int run_sampling_job(RuntimeConfig cfg, bool verbose, bool show_device_banner) {
     }
     profile.load_time = load_timer.elapsed();
 
-    int m = A_host.rows();
-    int n = A_host.cols();
+    int m = naja::checked_int_dimension(A_host.rows(), "constraint rows");
+    int n = naja::checked_int_dimension(A_host.cols(), "reduced dimension");
     const int n_reduced_file = n;
 
     if (x0_host.size() != n) {
@@ -275,8 +280,8 @@ int run_sampling_job(RuntimeConfig cfg, bool verbose, bool show_device_banner) {
                 A_host = A_host * hull_basis;
                 b_host = slack0;
                 x0_host = Eigen::VectorXd::Zero(d);
-                m = A_host.rows();
-                n = A_host.cols();
+                m = naja::checked_int_dimension(A_host.rows(), "constraint rows");
+                n = naja::checked_int_dimension(A_host.cols(), "reduced dimension");
 
                 if (verbose) {
                     std::cout << "  affine_hull_tol  " << std::setprecision(12) << cfg.AFFINE_HULL_TOL << "\n";
@@ -480,7 +485,7 @@ int run_sampling_job(RuntimeConfig cfg, bool verbose, bool show_device_banner) {
         Eigen::MatrixXd T_host = reader.T();
         Eigen::VectorXd shift_host = reader.shift();
 
-        int n_orig = T_host.rows();
+        int n_orig = naja::checked_int_dimension(T_host.rows(), "backmap dimension");
         profile.original_dim = n_orig;
 
         const int expected_cols = hull_enabled ? n_reduced_file : n;
@@ -527,10 +532,10 @@ int run_sampling_job(RuntimeConfig cfg, bool verbose, bool show_device_banner) {
             rounding_plan.pair_s_d ? rounding_plan.pair_s_d.get() : nullptr
         );
 
-        cudaDeviceSynchronize();
+        CUDA_CHECK(cudaDeviceSynchronize());
         profile.sampling_time = sampling_timer.elapsed();
         profile.backtransform_time = 0.0;
-        profile.throughput = (cfg.N_CHAINS * cfg.N_SAMPLES) / profile.sampling_time;
+        profile.throughput = (static_cast<double>(cfg.N_CHAINS) * static_cast<double>(cfg.N_SAMPLES)) / profile.sampling_time;
 
         naja::status::phase(cfg.STATUS, "downloading");
         Timer download_timer;
@@ -561,10 +566,10 @@ int run_sampling_job(RuntimeConfig cfg, bool verbose, bool show_device_banner) {
                 rounding_plan.pair_c_d ? rounding_plan.pair_c_d.get() : nullptr,
                 rounding_plan.pair_s_d ? rounding_plan.pair_s_d.get() : nullptr
             );
-            cudaDeviceSynchronize();
+            CUDA_CHECK(cudaDeviceSynchronize());
             profile.sampling_time = sampling_timer.elapsed();
             profile.backtransform_time = 0.0;
-            profile.throughput = (cfg.N_CHAINS * cfg.N_SAMPLES) / profile.sampling_time;
+            profile.throughput = (static_cast<double>(cfg.N_CHAINS) * static_cast<double>(cfg.N_SAMPLES)) / profile.sampling_time;
             profile.original_dim = n_reduced_file;
         naja::status::phase(cfg.STATUS, "downloading");
         Timer download_timer;
@@ -607,9 +612,9 @@ int run_sampling_job(RuntimeConfig cfg, bool verbose, bool show_device_banner) {
                 dikin_V_d.get(),
                 dikin_dirs.k
         );
-        cudaDeviceSynchronize();
+        CUDA_CHECK(cudaDeviceSynchronize());
         profile.sampling_time = sampling_timer.elapsed();
-        profile.throughput = (cfg.N_CHAINS * cfg.N_SAMPLES) / profile.sampling_time;
+        profile.throughput = (static_cast<double>(cfg.N_CHAINS) * static_cast<double>(cfg.N_SAMPLES)) / profile.sampling_time;
         profile.original_dim = n;
 
         // GPU back-transform: undo whitening + rotation before downloading.
@@ -617,7 +622,7 @@ int run_sampling_job(RuntimeConfig cfg, bool verbose, bool show_device_banner) {
         if (barrier_whitened || barrier_rotated) {
             naja::status::phase(cfg.STATUS, "gpu back-transform");
             Timer bt_timer;
-            const int N_total = cfg.N_CHAINS * cfg.N_SAMPLES;
+            const int N_total = naja::checked_int_product(cfg.N_CHAINS, cfg.N_SAMPLES, "sample columns");
             cublasHandle_t blas_h;
             CUBLAS_CHECK(cublasCreate(&blas_h));
 
@@ -639,14 +644,14 @@ int run_sampling_job(RuntimeConfig cfg, bool verbose, bool show_device_banner) {
                                           &alpha, bt_Q_d->dmat, n,
                                                   samples_d.dmat, n,
                                           &beta,  result_d.dmat, n));
-                cublasDestroy(blas_h);
+                CUBLAS_CHECK(cublasDestroy(blas_h));
 
                 naja::status::phase(cfg.STATUS, "downloading");
                 Timer download_timer;
                 samples_out = result_d.toHost(cfg.HOST_PREFAULT_THREADS);
                 profile.download_time = download_timer.elapsed();
             } else {
-                cublasDestroy(blas_h);
+                CUBLAS_CHECK(cublasDestroy(blas_h));
                 naja::status::phase(cfg.STATUS, "downloading");
                 Timer download_timer;
                 samples_out = samples_d.toHost(cfg.HOST_PREFAULT_THREADS);
