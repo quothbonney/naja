@@ -1,6 +1,6 @@
 # Naja preprint closeout
 
-Snapshot: 2026-11-08 20:31 UTC. Tasks 1–7 are measured or lookup results; task 6 was waived. The single bounded Recon3D attempt is running. No further benchmark campaigns are planned and nothing has been uploaded.
+Snapshot: 2026-11-08 21:20 UTC. Tasks 1–7 are measured or lookup results; task 6 was waived. The single bounded Recon3D attempt and diagnostics are complete: feasible at 1e-7, but not converged within budget. No further benchmark campaigns are planned. Release code and the evidence archive are pushed to `origin/publication-prep`; raw data remain on the server.
 
 Local release: **`c9e5db8b8ed02c692b36e74e14b71eedcd871476`**, tag **`preprint-closeout-20261108`**, on `publication-prep` in `naja-test-jack/naja`. Executable: `benchmarks/build-closeout-release/naja`; SHA256 `2fc4654b47d9a2f8a3fb46df6fd5a70dc1fe1bbbb48f758d816a2b9a565b10b1`.
 
@@ -170,9 +170,9 @@ The separately completed fixed 16-chain protocol on new seeds 444001/555001/6660
 
 ## 8. One bounded Recon3D attempt
 
-**Running; no convergence claim yet.** One H100, at most one GPU-hour, immutable merged build `fcc66fe` (all five fixes, GPU rotation explicitly selected). Equality-only cached geometry: `d=4,861`, `m=18,477`, 10,600 reactions. Its provenance records equality elimination **128.842 s**, MVE rounding **0 s**, and total preparation **287.720 s**, including original-target GLPK FVA. This uses PolyRound's equality-elimination routine but no iterative PolyRound rounding. The 2,723 pruned entries are strictly inactive inequality rows, not removed reactions; no reactions were zero-pruned.
+**Completed within the GPU cap; did not meet the convergence target.** One H100, at most one GPU-hour, immutable merged build `fcc66fe` (all five fixes, GPU rotation explicitly selected). Equality-only cached geometry: `d=4,861`, `m=18,477`, 10,600 reactions. Its provenance records equality elimination **128.842 s**, MVE rounding **0 s**, and total preparation **287.720 s**, including original-target GLPK FVA. This uses PolyRound's equality-elimination routine but no iterative PolyRound rounding. The 2,723 pruned entries are strictly inactive inequality rows, not removed reactions; no reactions were zero-pruned.
 
-Pilot: 512 chains, 64 warmup + 64 retained, thinning 810, sampler **28.7482 s**; median lag-1 coordinate correlation **0.969697**. The predeclared lag rule requests thinning 60,612, reduced by the remaining-runtime cap to **5,409**. Main: 512 chains, 1,000 warmup + **800 retained**, float64, barrier whitening, TPB128; predicted sampler approximately 45 min. The 1,800 native draws require about **71.68 GB** for both reduced output buffers, leaving the recorded workspace margin. Diagnostics run after releasing the GPU; no repeat is planned.
+Pilot: 512 chains, 64 warmup + 64 retained, thinning 810, sampler **28.7482 s**; median lag-1 coordinate correlation **0.969697**. The predeclared lag rule requests thinning 60,612, reduced by the remaining-runtime cap to **5,409**. Main: 512 chains, 1,000 warmup + **800 retained**, float64, barrier whitening, TPB128; actual sampler **2,702.8533 s (45.05 min)**, barrier **1.4001 s**. The 1,800 native draws require about **71.68 GB** for both reduced output buffers, leaving the recorded workspace margin. The GPU allocation including pilot lasted **2,781 s = 0.7725 GPU-h**. CPU diagnostics ran after GPU release; no repeat was made.
 
 Executed main command (immutable merged candidate, not an instruction to launch another attempt):
 
@@ -186,17 +186,31 @@ Executed main command (immutable merged candidate, not an instruction to launch 
   --barrier-whiten --barrier-rotate-backend gpu --start-policy file --resync-interval 0
 ```
 
-Final observations will be added here. [Live attempt report](benchmarks/results/closeout/recon3d_bounded/RECON3D_ATTEMPT.md), [protocol](benchmarks/results/closeout/recon3d_bounded/protocol.json), [pilot decision](benchmarks/results/closeout/recon3d_bounded/pilot_decision.json), [capture status](benchmarks/results/closeout/recon3d_bounded/capture.json), [source geometry validation](benchmarks/results/closeout/recon3d_bounded/cached_geometry_validation.json).
+| Measured retained endpoint | Value |
+|---|---:|
+| Median classical split-Rhat | **2.014367** |
+| 95th percentile split-Rhat | 3.172150 |
+| Median pooled bulk ESS | 831.644 |
+| Reactions diagnosed | 10,600/10,600 |
+| Exactly constant sampled reactions / LP exclusions | 0 / 0 |
+| Bound-violation fraction at1e-7 | 0 |
+| Maximum original-bound violation | 1.804e-12 |
+| Maximum mass-balance residual | 2.694e-10 |
+| Retained points checked | 409,600 |
+
+The Rhat≤1.01 target was not reached; ESS and feasibility passed. These are actual measurements on every retained point, with no filtering or excluded reactions. Native output successfully stored **35,839,180,928 bytes** of F64 samples, including a sample matrix exceeding2^32 elements; the normalized retained file is **15,928,524,928 bytes**. Native process wall time was2,737.03s, normalization32.28s, and CPU diagnostics1,335.75s. This equality-only, pilot-trained, single-seed result establishes a valid bounded execution, not converged Recon3D sampling or a matched-quality CPU speedup.
+
+[Final result](benchmarks/results/closeout/recon3d_bounded/summary.json), [all-reaction metrics](benchmarks/results/closeout/recon3d_bounded/main/metrics.json), [all-point mass check](benchmarks/results/closeout/recon3d_bounded/main/mass_balance.json), [Slurm accounting](benchmarks/results/closeout/recon3d_bounded/slurm_accounting.psv). [Attempt report](benchmarks/results/closeout/recon3d_bounded/RECON3D_ATTEMPT.md), [protocol](benchmarks/results/closeout/recon3d_bounded/protocol.json), [pilot decision](benchmarks/results/closeout/recon3d_bounded/pilot_decision.json), [capture status](benchmarks/results/closeout/recon3d_bounded/capture.json), [source geometry validation](benchmarks/results/closeout/recon3d_bounded/cached_geometry_validation.json).
 
 ## 9. Data-availability manifest
 
-Nothing has been uploaded. The current manuscript source is absent locally and no connected document session was available. From the explicit task descriptions, **Table 2's barrier column** maps to task 2 and **Figure 2's byte annotations** map to task 4. The remaining numbered assignments for Tables 2–5, S1–S5 and Figures 1–3 require the manuscript/captions; they are not guessed.
+Raw sample arrays and profiler databases have not been uploaded; code and the small-file evidence package are pushed to GitHub. The current manuscript source is absent locally and no connected document session was available. From the explicit task descriptions, **Table 2's barrier column** maps to task 2 and **Figure 2's byte annotations** map to task 4. The remaining numbered assignments for Tables 2–5, S1–S5 and Figures 1–3 require the manuscript/captions; they are not guessed.
 
-The [file-exact inventory](benchmarks/results/closeout/data_availability_candidates.csv) lists result paths and byte sizes; the [machine-readable inventory](benchmarks/results/closeout/data_availability_inventory.json) records the inspected scope. The six retained 512-chain arrays alone total **103,520,256,768 bytes**. The [numbered mapping](benchmarks/results/closeout/paper_item_mapping.csv) distinguishes verified components from unassigned assets. The final closeout assets and Recon3D outcome are being added to that snapshot.
+The [file-exact inventory](benchmarks/results/closeout/data_availability_candidates.csv) lists result paths and byte sizes; the [machine-readable inventory](benchmarks/results/closeout/data_availability_inventory.json) records the inspected scope. The six retained 512-chain arrays alone total **103,520,256,768 bytes**. The [numbered mapping](benchmarks/results/closeout/paper_item_mapping.csv) distinguishes verified components from unassigned assets. The inventory includes the final closeout assets and completed Recon3D outcome.
 
 <!-- sized-inventory:start -->
 
-File-size snapshot 2026-11-08T20:41:39+00:00: 131 existing unique files. Sizes are logical file bytes; aliases and embedded archive members should not be added again to estimate a deposit total. Unassigned assets are organized by content, without inventing manuscript numbering.
+File-size snapshot 2026-11-08T21:20:52+00:00: 166 existing unique files. Sizes are logical file bytes; aliases and embedded archive members should not be added again to estimate a deposit total. Unassigned assets are organized by content, without inventing manuscript numbering.
 
 | Component / dataset | Existing file | Bytes |
 |---|---|---:|
@@ -271,22 +285,36 @@ File-size snapshot 2026-11-08T20:41:39+00:00: 131 existing unique files. Sizes a
 | Figure2_verified_byte_data_component | [benchmarks/results/closeout/task4/final_release/exact_PGI_KO/report.ncu-rep](/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/closeout/task4/final_release/exact_PGI_KO/report.ncu-rep) | 1,049,220 |
 | bounded_Recon3D (unassigned) | [benchmarks/results/closeout/recon3d_bounded/protocol.json](/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/closeout/recon3d_bounded/protocol.json) | 2,539 |
 | bounded_Recon3D (unassigned) | [benchmarks/results/closeout/recon3d_bounded/pilot_decision.json](/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/closeout/recon3d_bounded/pilot_decision.json) | 901 |
-| bounded_Recon3D (unassigned) | [benchmarks/results/closeout/recon3d_bounded/capture.json](/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/closeout/recon3d_bounded/capture.json) | 1,354 |
+| bounded_Recon3D (unassigned) | [benchmarks/results/closeout/recon3d_bounded/capture.json](/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/closeout/recon3d_bounded/capture.json) | 1,730 |
 | bounded_Recon3D (unassigned) | [benchmarks/results/closeout/recon3d_bounded/jobs.json](/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/closeout/recon3d_bounded/jobs.json) | 639 |
-| bounded_Recon3D (unassigned) | [benchmarks/results/closeout/recon3d_bounded/RECON3D_ATTEMPT.md](/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/closeout/recon3d_bounded/RECON3D_ATTEMPT.md) | 2,285 |
+| bounded_Recon3D (unassigned) | [benchmarks/results/closeout/recon3d_bounded/summary.json](/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/closeout/recon3d_bounded/summary.json) | 5,396 |
+| bounded_Recon3D (unassigned) | [benchmarks/results/closeout/recon3d_bounded/RECON3D_ATTEMPT.md](/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/closeout/recon3d_bounded/RECON3D_ATTEMPT.md) | 2,913 |
 | bounded_Recon3D (unassigned) | [benchmarks/results/closeout/recon3d_bounded/naja-fcc66fe-source.tar.gz](/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/closeout/recon3d_bounded/naja-fcc66fe-source.tar.gz) | 251,138 |
-| bounded_Recon3D (unassigned) | [benchmarks/scripts/recon3d_bounded.py](/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/scripts/recon3d_bounded.py) | 12,357 |
+| bounded_Recon3D (unassigned) | [benchmarks/scripts/recon3d_bounded.py](/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/scripts/recon3d_bounded.py) | 13,078 |
 | bounded_Recon3D (unassigned) | [benchmarks/scripts/recon3d_bounded_capture.sbatch](/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/scripts/recon3d_bounded_capture.sbatch) | 582 |
 | bounded_Recon3D (unassigned) | [benchmarks/scripts/recon3d_bounded_metrics.sbatch](/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/scripts/recon3d_bounded_metrics.sbatch) | 563 |
-| bounded_Recon3D (unassigned) | [benchmarks/scripts/recon3d_bounded_report.py](/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/scripts/recon3d_bounded_report.py) | 4,714 |
+| bounded_Recon3D (unassigned) | [benchmarks/scripts/recon3d_bounded_report.py](/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/scripts/recon3d_bounded_report.py) | 5,387 |
+| bounded_Recon3D (unassigned) | [benchmarks/results/closeout/recon3d_bounded/source_snapshots/capture_launched.py](/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/closeout/recon3d_bounded/source_snapshots/capture_launched.py) | 11,023 |
+| bounded_Recon3D (unassigned) | [benchmarks/results/closeout/recon3d_bounded/source_snapshots/diagnostics_final.py](/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/closeout/recon3d_bounded/source_snapshots/diagnostics_final.py) | 13,078 |
+| bounded_Recon3D (unassigned) | [benchmarks/results/closeout/recon3d_bounded/source_snapshots/provenance.json](/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/closeout/recon3d_bounded/source_snapshots/provenance.json) | 398 |
+| bounded_Recon3D (unassigned) | [benchmarks/results/closeout/recon3d_bounded/main/run.json](/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/closeout/recon3d_bounded/main/run.json) | 3,341 |
+| bounded_Recon3D (unassigned) | [benchmarks/results/closeout/recon3d_bounded/main/samples.npy](/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/closeout/recon3d_bounded/main/samples.npy) | 15,928,524,928 |
+| bounded_Recon3D (unassigned) | [benchmarks/results/closeout/recon3d_bounded/main/metrics.json](/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/closeout/recon3d_bounded/main/metrics.json) | 3,474 |
+| bounded_Recon3D (unassigned) | [benchmarks/results/closeout/recon3d_bounded/main/reaction_metrics.csv](/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/closeout/recon3d_bounded/main/reaction_metrics.csv) | 951,912 |
+| bounded_Recon3D (unassigned) | [benchmarks/results/closeout/recon3d_bounded/main/mass_balance.json](/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/closeout/recon3d_bounded/main/mass_balance.json) | 261 |
+| bounded_Recon3D (unassigned) | [benchmarks/results/closeout/recon3d_bounded/main/native/model_20261108_001/profile.json](/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/closeout/recon3d_bounded/main/native/model_20261108_001/profile.json) | 815 |
+| bounded_Recon3D (unassigned) | [benchmarks/results/closeout/recon3d_bounded/main/native/model_20261108_001/samples.npy](/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/closeout/recon3d_bounded/main/native/model_20261108_001/samples.npy) | 35,839,180,928 |
+| bounded_Recon3D (unassigned) | [benchmarks/results/closeout/recon3d_bounded/pilot/run.json](/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/closeout/recon3d_bounded/pilot/run.json) | 3,325 |
+| bounded_Recon3D (unassigned) | [benchmarks/results/closeout/recon3d_bounded/pilot/samples.npy](/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/closeout/recon3d_bounded/pilot/samples.npy) | 1,274,282,112 |
+| bounded_Recon3D (unassigned) | [benchmarks/results/closeout/recon3d_bounded/slurm_accounting.psv](/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/closeout/recon3d_bounded/slurm_accounting.psv) | 168 |
 | bulk512_measured_experimental_code (unassigned) | [benchmarks/results/coordinate_kernel/source.tar.gz](/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/coordinate_kernel/source.tar.gz) | 564,310 |
 | bulk512_measured_experimental_code (unassigned) | [benchmarks/results/coordinate_kernel/kernel.patch](/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/coordinate_kernel/kernel.patch) | 4,998 |
 | bulk512_measured_experimental_code (unassigned) | [benchmarks/results/coordinate_kernel/compiler_resources.json](/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/coordinate_kernel/compiler_resources.json) | 2,134 |
 | bulk512_measured_experimental_code (unassigned) | [benchmarks/scripts/build_coordinate_kernel.sh](/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/scripts/build_coordinate_kernel.sh) | 491 |
 | bulk512_measured_experimental_code (unassigned) | [benchmarks/build-h100-coordinate/CMakeCache.txt](/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/build-h100-coordinate/CMakeCache.txt) | 33,645 |
-| bulk512_original_inputs (unassigned) | [benchmarks/data/models/iJO1366/rounding/polytope.npz](/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/iJO1366/rounding/polytope.npz) | 15,524,304 |
+| bulk512_original_inputs, final_task2_prepared_inputs, final_task4_prepared_inputs (unassigned) | [benchmarks/data/models/iJO1366/rounding/polytope.npz](/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/iJO1366/rounding/polytope.npz) | 15,524,304 |
 | bulk512_original_inputs (unassigned) | [benchmarks/data/models/iJO1366/rounding/manifest.json](/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/iJO1366/rounding/manifest.json) | 123 |
-| bulk512_original_inputs (unassigned) | [benchmarks/data/models/iJO1366/meta.json](/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/iJO1366/meta.json) | 1,644 |
+| bulk512_original_inputs, final_task2_prepared_inputs (unassigned) | [benchmarks/data/models/iJO1366/meta.json](/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/iJO1366/meta.json) | 1,644 |
 | bulk512_original_inputs (unassigned) | [benchmarks/data/models/iJO1366/gem/A_eq.csv](/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/iJO1366/gem/A_eq.csv) | 116,562,936 |
 | bulk512_original_inputs (unassigned) | [benchmarks/data/models/iJO1366/gem/b_eq.csv](/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/iJO1366/gem/b_eq.csv) | 45,125 |
 | bulk512_original_inputs (unassigned) | [benchmarks/data/models/iJO1366/gem/l_bounds.csv](/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/iJO1366/gem/l_bounds.csv) | 65,211 |
@@ -325,6 +353,27 @@ File-size snapshot 2026-11-08T20:41:39+00:00: 131 existing unique files. Sizes a
 | bulk512_native_CPU_build (unassigned) | [benchmarks/audit/high-throughput/cpu-selected-budget.json](/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/audit/high-throughput/cpu-selected-budget.json) | 2,271 |
 | bulk512_native_CPU_build (unassigned) | [benchmarks/audit/high-throughput/full64-state.json](/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/audit/high-throughput/full64-state.json) | 9,976 |
 | final_release_source (unassigned) | [benchmarks/results/closeout/naja-preprint-closeout-20261108.tar.gz](/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/closeout/naja-preprint-closeout-20261108.tar.gz) | 251,524 |
+| final_task2_prepared_inputs (unassigned) | [benchmarks/data/models/e_coli_core/rounding/polytope.npz](/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/e_coli_core/rounding/polytope.npz) | 27,600 |
+| final_task2_prepared_inputs (unassigned) | [benchmarks/data/models/e_coli_core/meta.json](/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/e_coli_core/meta.json) | 1,517 |
+| final_task2_prepared_inputs (unassigned) | [benchmarks/data/models/iAB_RBC_283/rounding/polytope.npz](/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/iAB_RBC_283/rounding/polytope.npz) | 690,784 |
+| final_task2_prepared_inputs (unassigned) | [benchmarks/data/models/iAB_RBC_283/meta.json](/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/iAB_RBC_283/meta.json) | 1,663 |
+| final_task2_prepared_inputs (unassigned) | [benchmarks/data/models/iJR904/rounding/polytope.npz](/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/iJR904/rounding/polytope.npz) | 2,549,288 |
+| final_task2_prepared_inputs (unassigned) | [benchmarks/data/models/iJR904/meta.json](/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/iJR904/meta.json) | 1,646 |
+| final_task2_prepared_inputs (unassigned) | [benchmarks/data/models/iMM904/rounding/polytope.npz](/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/iMM904/rounding/polytope.npz) | 4,604,392 |
+| final_task2_prepared_inputs (unassigned) | [benchmarks/data/models/iMM904/meta.json](/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/iMM904/meta.json) | 1,643 |
+| final_task2_prepared_inputs (unassigned) | [benchmarks/data/models/iAF1260/rounding/polytope.npz](/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/iAF1260/rounding/polytope.npz) | 12,828,000 |
+| final_task2_prepared_inputs (unassigned) | [benchmarks/data/models/iAF1260/meta.json](/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/iAF1260/meta.json) | 1,648 |
+| final_task2_prepared_inputs (unassigned) | [benchmarks/data/models/iML1515/rounding/polytope.npz](/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/iML1515/rounding/polytope.npz) | 17,880,432 |
+| final_task2_prepared_inputs (unassigned) | [benchmarks/data/models/iML1515/meta.json](/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/iML1515/meta.json) | 1,644 |
+| final_task2_prepared_inputs (unassigned) | [benchmarks/data/models/RECON1/rounding/polytope.npz](/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/RECON1/rounding/polytope.npz) | 43,708,272 |
+| final_task2_prepared_inputs (unassigned) | [benchmarks/data/models/RECON1/meta.json](/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/RECON1/meta.json) | 1,673 |
+| uniformity_retained_inputs (unassigned) | [benchmarks/results/uniformity/hopsy1201/samples.npy](/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/uniformity/hopsy1201/samples.npy) | 192,000,128 |
+| uniformity_retained_inputs (unassigned) | [benchmarks/results/uniformity/hopsy2401/samples.npy](/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/uniformity/hopsy2401/samples.npy) | 192,000,128 |
+| uniformity_retained_inputs (unassigned) | [benchmarks/results/uniformity/naja_rotate/samples.npy](/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/uniformity/naja_rotate/samples.npy) | 96,000,128 |
+| uniformity_retained_inputs (unassigned) | [benchmarks/results/uniformity/naja_whiten/samples.npy](/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/uniformity/naja_whiten/samples.npy) | 96,000,128 |
+| uniformity_retained_inputs (unassigned) | [benchmarks/results/uniformity/naja_whiten_dikin_pair/samples.npy](/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/uniformity/naja_whiten_dikin_pair/samples.npy) | 96,000,128 |
+| final_task4_prepared_inputs (unassigned) | [benchmarks/results/knockout_panel/conditions/b4025/models/shared/rounding/polytope.npz](/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/knockout_panel/conditions/b4025/models/shared/rounding/polytope.npz) | 15,497,632 |
+| final_task4_prepared_inputs (unassigned) | [benchmarks/results/knockout_panel/conditions/b4025/condition.json](/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/knockout_panel/conditions/b4025/condition.json) | 3,026 |
 | bulk512_retained_array (unassigned) | [benchmarks/results/high_throughput/iJO1366/cpu_native512_physical64_thin2000/seed101001/samples.npy](/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/high_throughput/iJO1366/cpu_native512_physical64_thin2000/seed101001/samples.npy) | 28,557,312,128 |
 | bulk512_retained_array (unassigned) | [benchmarks/results/high_throughput/iJO1366/cpu_native512_physical64_thin2000/seed202001/budget12000/samples.npy](/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/high_throughput/iJO1366/cpu_native512_physical64_thin2000/seed202001/budget12000/samples.npy) | 28,557,312,128 |
 | bulk512_retained_array (unassigned) | [benchmarks/results/high_throughput/iJO1366/cpu_native512_physical64_thin2000/seed303001/budget12000/samples.npy](/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/high_throughput/iJO1366/cpu_native512_physical64_thin2000/seed303001/budget12000/samples.npy) | 28,557,312,128 |

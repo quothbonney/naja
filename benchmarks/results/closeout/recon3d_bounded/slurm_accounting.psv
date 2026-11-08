@@ -1,2 +1,2 @@
 955|bench-closeout-Recon3D|COMPLETED|2781|8|billing=8,cpu=8,gres/gpu=1,mem=192G,node=1
-956|metrics-closeout-Recon3D|RUNNING|16|16|billing=16,cpu=16,mem=384G,node=1
+956|metrics-closeout-Recon3D|COMPLETED|1371|16|billing=16,cpu=16,mem=384G,node=1

@@ -17,6 +17,7 @@ EXTENSIONS = {
     '.cpp', '.cu', '.cuh', '.h', '.gz',
 }
 MAX_BYTES = 1_000_000
+REPORT_NAMES = {'summary.json', 'result.json', 'comparison.csv', 'reaction_metrics.csv'}
 SECRET = re.compile(rb'(?i)(?:WLSSECRET|WLSACCESSID|GRB_WLSSECRET|GRB_WLSACCESSID)[\"\x27]?\s*[=:]\s*[\"\x27]?([A-Za-z0-9-]{20,})')
 
 
@@ -37,7 +38,7 @@ def main():
             reason = 'symlink; original target remains in workspace'
         elif '__pycache__' in p.parts or p.suffix not in EXTENSIONS:
             reason = 'raw data, profiler binary, cache, executable, or runtime state'
-        elif size > MAX_BYTES:
+        elif size > MAX_BYTES and not (p.name in REPORT_NAMES and size <= 10_000_000):
             reason = 'payload exceeds 1 MB Git evidence limit'
         elif any(x in p.name.lower() for x in ('gurobi.lic', 'credential', 'private_key')):
             reason = 'credential filename'
@@ -67,7 +68,8 @@ def main():
         'Start with ../../CLOSEOUT.md (repository root) and '
         '../results/RESULT_FILES.txt. Reports preserve their original paths.\n\n'
         'The package includes benchmark drivers, dependency lockfiles, reports, '
-        'tables, figures, logs and provenance files up to 1 MB each. '
+        'tables, figures, logs and provenance files up to 1 MB each, '
+        'plus named summary and reaction-diagnostic reports up to 10 MB. '
         'included.csv records SHA256 hashes of copied source files. '
         'server-only.csv inventories omitted original payloads and their sizes. '
         'Raw samples, prepared model arrays, profiler databases, environments, '

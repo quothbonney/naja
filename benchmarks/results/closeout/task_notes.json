@@ -1,5 +1,5 @@
 {
-  "generated_utc": "2026-11-08T20:56:50.976860+00:00",
+  "generated_utc": "2026-11-08T21:20:30.079615+00:00",
   "task5": {
     "status": "source_and_parser_validated",
     "validation": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/closeout/cli_validation.json",
@@ -311,7 +311,115 @@
       "note": "Main normalization and all-reaction diagnostics run after this GPU allocation ends.",
       "finished_utc": "2026-11-08T20:56:34.217814+00:00"
     },
-    "result": null,
+    "result": {
+      "status": "DID_NOT_MEET_TARGET",
+      "endpoint": "main",
+      "main_capture_complete": true,
+      "capture": {
+        "status": "native_capture_complete",
+        "started_utc": "2026-11-08T20:10:15.055696+00:00",
+        "job": "955",
+        "protocol_sha256": "2006a41ca9cbee36810ecfb7393e492e6f13f5c8fa6fea59b2e638513ebdadaf",
+        "source_sha256": "d958b14a5eaddb22a93415f34faeb8219b6a5d52e552c5b1631dbca45c6b75d0",
+        "device": {
+          "uuid": "GPU-884d19b4-3b1e-5246-0d07-a1a68b778800",
+          "free_bytes": 84465090560,
+          "total_bytes": 85017493504
+        },
+        "decision": {
+          "lag1": {
+            "median": 0.9696972948321285,
+            "p95": 0.9897998770054603,
+            "coordinates": 4861,
+            "definition": "Pooled lag1 over512chains after64 discarded warmup draws; each coordinate uses one pooled mean. Pilot estimate only, not a convergence claim."
+          },
+          "desired_thinning": 60612,
+          "budget_capped_thinning": 5409,
+          "selected_thinning": 5409,
+          "pilot_sampler_seconds": 28.7482,
+          "predicted_main_sampler_seconds": 2699.6356562500005,
+          "elapsed_allocation_proxy_seconds": 42.08519163355231,
+          "main_sampler_budget_seconds": 2700,
+          "rule": "Median pooled reduced-coordinate lag1 after pilot warmup; desired=max(810,ceil(810*log(0.1)/log(clip(medianrho,0.001,0.9999)))). Budget cap uses pilot GPU-sampler seconds per transition, at most2700 main sampler seconds and reserves180s of the remaining3600s allocation. Choose min(desired,budgetcap), no parameter retuning after main."
+        },
+        "main_run": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/closeout/recon3d_bounded/main",
+        "main_sampler_seconds": 2702.8533,
+        "allocated_gpu_wall_proxy_seconds": 2779.1621152684093,
+        "note": "Main normalization and all-reaction diagnostics run after this GPU allocation ends.",
+        "finished_utc": "2026-11-08T20:56:34.217814+00:00"
+      },
+      "quality_met": false,
+      "diagnostic_target_met": false,
+      "sample_integrity_met": true,
+      "all_reactions_diagnosed": true,
+      "source_commit": "fcc66fe63d5a6700786aebcf0b925374340e4c8b",
+      "binary_sha256": "5c01c66c90f46565eaafe0927265d135bcfa89af50a017df6c51de70044afe42",
+      "n": 10600,
+      "d": 4861,
+      "m": 18477,
+      "chains": 512,
+      "retained_per_chain": 800,
+      "warmup_per_chain": 1000,
+      "thinning": 5409,
+      "median_split_rhat": 2.0143671405386683,
+      "p95_split_rhat": 3.1721502800915204,
+      "median_bulk_ess": 831.6440378953325,
+      "sample_bound_violation_fraction": 0.0,
+      "maximum_absolute_bound_violation": 1.8038903704109543e-12,
+      "mass_balance": {
+        "maximum_stoichiometric_residual": 2.693951728360844e-10,
+        "points_checked": 409600,
+        "exactly_zero_sample_vectors": 0,
+        "method": "Every retained point explicitly backmapped in float64 blocks, then multiplied by original sparseS; no bound filtering."
+      },
+      "diagnosed_reactions": 10600,
+      "solver_exclusions": 0,
+      "exactly_constant_sampled_reactions": 0,
+      "samples_sha256": "2ddcbf5bc5a6232328f645f85a23514c8ce4f4c3fc7618f01b3c550b2d6b3ade",
+      "samples_bytes": 15928524928,
+      "native_samples_bytes": 35839180928,
+      "sampler_seconds": 2702.8533,
+      "barrier_seconds": 1.4001,
+      "native_process_wall_seconds": 2737.0321756601334,
+      "normalization_seconds": 32.27633259445429,
+      "cpu_diagnostics_seconds": 1335.7494624853134,
+      "allocated_gpu_wall_proxy_seconds": 2779.1621152684093,
+      "preprocessing": {
+        "equality_elimination_seconds": 128.84173853695393,
+        "mve_round_seconds": 0,
+        "total_cached_preprocessing_seconds": 287.7203431595117,
+        "FVA_seconds": 134.29445984959602,
+        "strictly_inactive_inequality_rows_removed": 2723,
+        "zero_pruned_reactions": 0,
+        "minimum_original_reaction_FVA_width": 0.2
+      },
+      "scope": "One exploratory pilot-trained attempt on cached equality-only geometry. PolyRound library equality elimination was used; no iterative PolyRound rounding. No CPU sampling speedup or multi-seed convergence claim. All10600 reactions active, no new LP exclusions.",
+      "criterion": {
+        "median_classical_split_rhat_max": 1.01,
+        "median_pooled_bulk_ess_min": 100,
+        "unmasked_bound_tolerance": 1e-07,
+        "mass_balance_tolerance": 1e-07
+      },
+      "pilot_decision": {
+        "lag1": {
+          "median": 0.9696972948321285,
+          "p95": 0.9897998770054603,
+          "coordinates": 4861,
+          "definition": "Pooled lag1 over512chains after64 discarded warmup draws; each coordinate uses one pooled mean. Pilot estimate only, not a convergence claim."
+        },
+        "desired_thinning": 60612,
+        "budget_capped_thinning": 5409,
+        "selected_thinning": 5409,
+        "pilot_sampler_seconds": 28.7482,
+        "predicted_main_sampler_seconds": 2699.6356562500005,
+        "elapsed_allocation_proxy_seconds": 42.08519163355231,
+        "main_sampler_budget_seconds": 2700,
+        "rule": "Median pooled reduced-coordinate lag1 after pilot warmup; desired=max(810,ceil(810*log(0.1)/log(clip(medianrho,0.001,0.9999)))). Budget cap uses pilot GPU-sampler seconds per transition, at most2700 main sampler seconds and reserves180s of the remaining3600s allocation. Choose min(desired,budgetcap), no parameter retuning after main."
+      },
+      "source_metrics": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/closeout/recon3d_bounded/main/metrics.json",
+      "cpu_diagnostics_source_sha256": "8ae311af890f2092dd95558abe93b3a3708a9a8fb34db03ec8cbccecff4f8a47",
+      "finished_utc": "2026-11-08T21:19:25.555187+00:00"
+    },
     "jobs": {
       "utc": "2026-11-08T20:10:13.280119+00:00",
       "capture_job": "955",
@@ -337,7 +445,7 @@
   },
   "task9": {
     "status": "sized_assets_inventory_complete_two_components_user_assigned_other_numbering_unverifiable",
-    "source_base_commit": "c9e5db8b8ed02c692b36e74e14b71eedcd871476",
+    "source_base_commit": "1deea978ba99e80af97ad2ada028bcbd9a3fe09a",
     "mapping": [
       {
         "paper_item": "Table2",

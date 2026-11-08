@@ -1,0 +1,6 @@
+{
+  "maximum_stoichiometric_residual": 2.693951728360844e-10,
+  "points_checked": 409600,
+  "exactly_zero_sample_vectors": 0,
+  "method": "Every retained point explicitly backmapped in float64 blocks, then multiplied by original sparseS; no bound filtering."
+}

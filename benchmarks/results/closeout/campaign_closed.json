@@ -1,10 +1,13 @@
 {
-  "snapshot_utc": "2026-11-08T21:04:30+00:00",
+  "snapshot_utc": "2026-11-08T21:20:24+00:00",
   "new_campaigns_authorized": false,
   "stopped_report_refresher_pid": 377586,
   "canceled_pending_cleanup_job": 851,
-  "remaining_cpu_diagnostics_job": 956,
+  "remaining_cpu_diagnostics_job": null,
   "release_commit": "c9e5db8b8ed02c692b36e74e14b71eedcd871476",
   "remote_branch": "origin/publication-prep",
-  "raw_payload_upload": false
+  "raw_payload_upload": false,
+  "recon3d_status": "DID_NOT_MEET_TARGET",
+  "recon3d_median_split_rhat": 2.0143671405386683,
+  "recon3d_maximum_mass_residual": 2.693951728360844e-10
 }

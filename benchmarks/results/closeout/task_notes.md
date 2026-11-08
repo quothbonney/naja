@@ -1,6 +1,6 @@
 # Closeout task notes: CLI, measured extensions and data availability
 
-Snapshot 2026-11-08T20:56:50.976860+00:00. Tasks5/7/9 use existing data or syntax checks; task8 is the separately authorized one-hour-bounded GPU attempt.
+Snapshot 2026-11-08T21:20:30.079615+00:00. Tasks5/7/9 use existing data or syntax checks; task8 is the separately authorized one-hour-bounded GPU attempt.
 
 ## Task 5 — exact prepare/bulk commands
 
@@ -56,7 +56,7 @@ Pilot:512chains,64warmup+64retained,thinning810. Main:512chains,1000warmup+800re
 
 [Frozen protocol](recon3d_bounded/protocol.json) · [Current capture](recon3d_bounded/capture.json) · [Slurm jobs](recon3d_bounded/jobs.json).
 
-Main-run quality remains unmeasured until CPU diagnostics finish; no convergence claim is assigned yet.
+Final diagnostic state: **DID_NOT_MEET_TARGET**. Full measured values are in [summary.json](recon3d_bounded/summary.json).
 
 ## Task 9 — data availability and numbering
 

@@ -1,0 +1,10 @@
+{
+  "remote": "https://github.com/quothbonney/naja.git",
+  "branch": "publication-prep",
+  "release_commit": "c9e5db8b8ed02c692b36e74e14b71eedcd871476",
+  "release_tag": "preprint-closeout-20261108",
+  "evidence_commit": "1deea978ba99e80af97ad2ada028bcbd9a3fe09a",
+  "raw_payloads_uploaded": false,
+  "credentials_persisted_in_git": false,
+  "updated_utc": "2026-11-08T21:13:47.772123+00:00"
+}

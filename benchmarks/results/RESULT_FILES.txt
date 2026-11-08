@@ -54,3 +54,8 @@ benchmarks/results/closeout/task1/wide_allocation_result.json
 benchmarks/results/closeout/task1/wide_output_result.json
 benchmarks/results/closeout/fresh16_original_mask_lookup.json
 benchmarks/results/closeout/recon3d_bounded/RECON3D_ATTEMPT.md
+benchmarks/results/closeout/recon3d_bounded/summary.json
+benchmarks/results/closeout/recon3d_bounded/main/run.json
+benchmarks/results/closeout/recon3d_bounded/main/metrics.json
+benchmarks/results/closeout/recon3d_bounded/main/mass_balance.json
+benchmarks/results/closeout/recon3d_bounded/slurm_accounting.psv

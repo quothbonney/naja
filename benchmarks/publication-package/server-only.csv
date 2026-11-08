@@ -88,12 +88,10 @@ benchmarks/results/barrier_profile/RECON1/gpu/profiled/trace.nsys-rep,302905,"ra
 benchmarks/results/barrier_profile/RECON1/gpu/profiled/trace.sqlite,913408,"raw data, profiler binary, cache, executable, or runtime state"
 benchmarks/results/barrier_profile/RECON1/gpu/unprofiled/native/RECON1_20261108_001/samples.npy,953472,"raw data, profiler binary, cache, executable, or runtime state"
 benchmarks/results/barrier_profile/Recon3D_nullspace_only/cpu/profiled/native/Recon3D_nullspace_only_20261108_001/samples.npy,4977792,"raw data, profiler binary, cache, executable, or runtime state"
-benchmarks/results/barrier_profile/Recon3D_nullspace_only/cpu/profiled/result.json,1201330,payload exceeds 1 MB Git evidence limit
 benchmarks/results/barrier_profile/Recon3D_nullspace_only/cpu/profiled/trace.nsys-rep,811173,"raw data, profiler binary, cache, executable, or runtime state"
 benchmarks/results/barrier_profile/Recon3D_nullspace_only/cpu/profiled/trace.sqlite,4112384,"raw data, profiler binary, cache, executable, or runtime state"
 benchmarks/results/barrier_profile/Recon3D_nullspace_only/cpu/unprofiled/native/Recon3D_nullspace_only_20261108_001/samples.npy,4977792,"raw data, profiler binary, cache, executable, or runtime state"
 benchmarks/results/barrier_profile/Recon3D_nullspace_only/gpu/profiled/native/Recon3D_nullspace_only_20261108_001/samples.npy,4977792,"raw data, profiler binary, cache, executable, or runtime state"
-benchmarks/results/barrier_profile/Recon3D_nullspace_only/gpu/profiled/result.json,1202695,payload exceeds 1 MB Git evidence limit
 benchmarks/results/barrier_profile/Recon3D_nullspace_only/gpu/profiled/trace.nsys-rep,684315,"raw data, profiler binary, cache, executable, or runtime state"
 benchmarks/results/barrier_profile/Recon3D_nullspace_only/gpu/profiled/trace.sqlite,1830912,"raw data, profiler binary, cache, executable, or runtime state"
 benchmarks/results/barrier_profile/Recon3D_nullspace_only/gpu/unprofiled/native/Recon3D_nullspace_only_20261108_001/samples.npy,4977792,"raw data, profiler binary, cache, executable, or runtime state"
@@ -107,7 +105,6 @@ benchmarks/results/barrier_profile/iJO1366/gpu/profiled/trace.nsys-rep,299177,"r
 benchmarks/results/barrier_profile/iJO1366/gpu/profiled/trace.sqlite,905216,"raw data, profiler binary, cache, executable, or runtime state"
 benchmarks/results/barrier_profile/iJO1366/gpu/unprofiled/native/iJO1366_20261108_001/samples.npy,595072,"raw data, profiler binary, cache, executable, or runtime state"
 benchmarks/results/barrier_profile/iJO1366/gpu/validation/native/iJO1366_20261108_001/samples.npy,595072,"raw data, profiler binary, cache, executable, or runtime state"
-benchmarks/results/barrier_profile/summary.json,3008984,payload exceeds 1 MB Git evidence limit
 benchmarks/results/barrier_profile/verification/BOX/cpu_instrumented/native/BOX_20261108_001/samples.npy,7041,"raw data, profiler binary, cache, executable, or runtime state"
 benchmarks/results/barrier_profile/verification/BOX/cpu_instrumented/samples.npy,6272,"raw data, profiler binary, cache, executable, or runtime state"
 benchmarks/results/barrier_profile/verification/BOX/reference/native/BOX_20261108_001/samples.npy,7041,"raw data, profiler binary, cache, executable, or runtime state"

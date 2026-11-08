@@ -1,5 +1,5 @@
 {
-  "snapshot_utc": "2026-11-08T20:56:50.976860+00:00",
+  "snapshot_utc": "2026-11-08T21:20:30.079615+00:00",
   "assets": [
     {
       "group": "bulk512",
@@ -286,7 +286,7 @@
       "relative_path": "closeout/fresh_seed_extension_timings.csv",
       "exists": true,
       "bytes": 2778,
-      "modified_utc": "2026-11-08T20:56:51.003780+00:00",
+      "modified_utc": "2026-11-08T21:20:30.110654+00:00",
       "paper_item": "unassigned_no_manuscript_source"
     },
     {
@@ -662,9 +662,9 @@
       "group": "bounded_Recon3D",
       "path": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/closeout/recon3d_bounded/summary.json",
       "relative_path": "closeout/recon3d_bounded/summary.json",
-      "exists": false,
-      "bytes": null,
-      "modified_utc": null,
+      "exists": true,
+      "bytes": 5396,
+      "modified_utc": "2026-11-08T21:19:25.559600+00:00",
       "paper_item": "unassigned_no_manuscript_source"
     },
     {
@@ -672,8 +672,8 @@
       "path": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/closeout/recon3d_bounded/RECON3D_ATTEMPT.md",
       "relative_path": "closeout/recon3d_bounded/RECON3D_ATTEMPT.md",
       "exists": true,
-      "bytes": 2301,
-      "modified_utc": "2026-11-08T20:56:50.900908+00:00",
+      "bytes": 2913,
+      "modified_utc": "2026-11-08T21:20:29.998989+00:00",
       "paper_item": "unassigned_no_manuscript_source"
     },
     {
@@ -753,8 +753,8 @@
       "path": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/closeout/recon3d_bounded/main/run.json",
       "relative_path": "closeout/recon3d_bounded/main/run.json",
       "exists": true,
-      "bytes": 2918,
-      "modified_utc": "2026-11-08T20:56:34.213786+00:00",
+      "bytes": 3341,
+      "modified_utc": "2026-11-08T20:57:09.799716+00:00",
       "paper_item": "unassigned_no_manuscript_source"
     },
     {
@@ -763,7 +763,34 @@
       "relative_path": "closeout/recon3d_bounded/main/samples.npy",
       "exists": true,
       "bytes": 15928524928,
-      "modified_utc": "2026-11-08T20:56:50.992757+00:00",
+      "modified_utc": "2026-11-08T20:57:08.994099+00:00",
+      "paper_item": "unassigned_no_manuscript_source"
+    },
+    {
+      "group": "bounded_Recon3D",
+      "path": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/closeout/recon3d_bounded/main/metrics.json",
+      "relative_path": "closeout/recon3d_bounded/main/metrics.json",
+      "exists": true,
+      "bytes": 3474,
+      "modified_utc": "2026-11-08T21:17:29.499751+00:00",
+      "paper_item": "unassigned_no_manuscript_source"
+    },
+    {
+      "group": "bounded_Recon3D",
+      "path": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/closeout/recon3d_bounded/main/reaction_metrics.csv",
+      "relative_path": "closeout/recon3d_bounded/main/reaction_metrics.csv",
+      "exists": true,
+      "bytes": 951912,
+      "modified_utc": "2026-11-08T21:17:29.568889+00:00",
+      "paper_item": "unassigned_no_manuscript_source"
+    },
+    {
+      "group": "bounded_Recon3D",
+      "path": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/closeout/recon3d_bounded/main/mass_balance.json",
+      "relative_path": "closeout/recon3d_bounded/main/mass_balance.json",
+      "exists": true,
+      "bytes": 261,
+      "modified_utc": "2026-11-08T21:19:14.479077+00:00",
       "paper_item": "unassigned_no_manuscript_source"
     },
     {
@@ -807,8 +834,8 @@
       "path": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/closeout/recon3d_bounded/slurm_accounting.psv",
       "relative_path": "closeout/recon3d_bounded/slurm_accounting.psv",
       "exists": true,
-      "bytes": 164,
-      "modified_utc": "2026-11-08T20:56:50.897658+00:00",
+      "bytes": 168,
+      "modified_utc": "2026-11-08T21:20:29.995842+00:00",
       "paper_item": "unassigned_no_manuscript_source"
     },
     {
