@@ -1,0 +1,111 @@
+{
+  "method": "naja",
+  "status": "complete",
+  "command": [
+    "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/build-h100/naja",
+    "sample",
+    "run",
+    "--model-dir",
+    "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/RECON1",
+    "--out-root",
+    "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/naja/RECON1/seed101/native",
+    "--gpu",
+    "0",
+    "--n-chains",
+    "16",
+    "--n-samples",
+    "11000",
+    "--seed",
+    "101",
+    "--tpb",
+    "128",
+    "--thinning",
+    "0",
+    "--constraint-eps",
+    "0",
+    "--extra-constraint-eps",
+    "0",
+    "--pair-prob",
+    "0.0",
+    "--bounds-policy",
+    "ignore",
+    "--write-npy",
+    "--barrier-rotate"
+  ],
+  "started_utc": "2026-11-07T23:57:34.163669+00:00",
+  "seed": 101,
+  "model": "RECON1",
+  "model_dir": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/RECON1",
+  "chains": 16,
+  "draws": 10000,
+  "warmup": 1000,
+  "barrier": "rotate",
+  "pair_probability": 0.0,
+  "pair_schedule_method": null,
+  "requested_thinning": 0,
+  "exe_sha256": "c7baf4f0ed282b936ac0dbac4b896bfbfc040eb06da6f84aff6605fddf4b0fc6",
+  "samples": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/naja/RECON1/seed101/samples.npy",
+  "notes": [
+    "All wall sampling time includes discarded warmup.",
+    "Reduced-space native path; no GPU backmap; external reaction-space diagnostics.",
+    "Dikin may auto-enable when extra constraints exist; unconditioned models have none.",
+    "Auto thinning is a pre-sampling geometry heuristic, not online adaptation."
+  ],
+  "preflight": {
+    "dimension": 931,
+    "native_matrix_elements": 163856000,
+    "signed_int_element_limit": 2147483647
+  },
+  "preflight_seconds": 0.1984974592924118,
+  "returncode": 0,
+  "wall_seconds": 17.243618369102478,
+  "profile": {
+    "timestamp": "2026-11-07 23:57:51",
+    "config": {
+      "n_chains": 16,
+      "n_samples": 11000,
+      "reduced_dim": 931,
+      "original_dim": 931,
+      "constraints": 2120,
+      "thinning": 155,
+      "seed": 101,
+      "tpb_ss": 128,
+      "gpu_device": 0,
+      "back_transform": false
+    },
+    "timing": {
+      "load_polytope_s": 0.0448,
+      "cube_center_lp_s": 0.0,
+      "barrier_rotation_s": 0.5254,
+      "upload_to_gpu_s": 0.0021,
+      "gpu_sampling_s": 14.645,
+      "download_from_gpu_s": 0.6358,
+      "backtransform_s": 0.6447,
+      "write_output_s": 0.6245,
+      "total_s": 16.8139
+    },
+    "performance": {
+      "total_samples": 176000,
+      "throughput_samples_per_sec": 12017.8,
+      "sampling_fraction": 0.871
+    }
+  },
+  "profile_path": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/naja/RECON1/seed101/native/RECON1_20261107_001/profile.json",
+  "raw_samples": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/naja/RECON1/seed101/native/RECON1_20261107_001/samples.npy",
+  "native_shape": [
+    176000,
+    931
+  ],
+  "native_dtype": "float32",
+  "native_layout": "draw-major interleaved chains; columns are reduced coordinates",
+  "analysis_shape": [
+    16,
+    10000,
+    931
+  ],
+  "analysis_layout": "chain, draw, reduced_coordinate",
+  "warmup_retained_draws_discarded_per_chain": 1000,
+  "normalization_seconds": 1.1220495887100697,
+  "wall_including_normalization_seconds": 18.365667957812548,
+  "finished_utc": "2026-11-07T23:57:52.747147+00:00"
+}

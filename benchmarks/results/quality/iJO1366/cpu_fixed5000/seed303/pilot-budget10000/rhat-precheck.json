@@ -1,0 +1,159 @@
+{
+  "prefixes": [
+    {
+      "schema_version": 2,
+      "diagnostic_mask_status": "model_lp_verified",
+      "shape": [
+        16,
+        100,
+        581
+      ],
+      "stage": "masked_classical_split_rhat_precheck",
+      "split_rhat_median": 1.320577930675521,
+      "split_rhat_p95": 1.6742000247244064,
+      "bulk_ess_median": null,
+      "bulk_ess_computed": false,
+      "diagnosed_reactions": 1705,
+      "sample_bound_violation_fraction": 0.0,
+      "bounds_tolerance": 1e-07,
+      "coordinate_bound_violation_fraction": 0.0,
+      "zero_tolerance_sample_bound_violation_fraction": 1.0,
+      "max_absolute_bound_violation": 4.814420944451315e-12,
+      "checked_samples": 1600,
+      "precheck_wall_seconds": 0.23083193227648735
+    },
+    {
+      "schema_version": 2,
+      "diagnostic_mask_status": "model_lp_verified",
+      "shape": [
+        16,
+        250,
+        581
+      ],
+      "stage": "masked_classical_split_rhat_precheck",
+      "split_rhat_median": 1.1241905048766159,
+      "split_rhat_p95": 1.3120507225131997,
+      "bulk_ess_median": null,
+      "bulk_ess_computed": false,
+      "diagnosed_reactions": 1705,
+      "sample_bound_violation_fraction": 0.0,
+      "bounds_tolerance": 1e-07,
+      "coordinate_bound_violation_fraction": 0.0,
+      "zero_tolerance_sample_bound_violation_fraction": 1.0,
+      "max_absolute_bound_violation": 4.814420944451315e-12,
+      "checked_samples": 4000,
+      "precheck_wall_seconds": 0.2432372961193323
+    },
+    {
+      "schema_version": 2,
+      "diagnostic_mask_status": "model_lp_verified",
+      "shape": [
+        16,
+        500,
+        581
+      ],
+      "stage": "masked_classical_split_rhat_precheck",
+      "split_rhat_median": 1.0693693254185364,
+      "split_rhat_p95": 1.1603945387747967,
+      "bulk_ess_median": null,
+      "bulk_ess_computed": false,
+      "diagnosed_reactions": 1705,
+      "sample_bound_violation_fraction": 0.0,
+      "bounds_tolerance": 1e-07,
+      "coordinate_bound_violation_fraction": 0.0,
+      "zero_tolerance_sample_bound_violation_fraction": 1.0,
+      "max_absolute_bound_violation": 4.918289950425598e-12,
+      "checked_samples": 8000,
+      "precheck_wall_seconds": 0.46887812577188015
+    },
+    {
+      "schema_version": 2,
+      "diagnostic_mask_status": "model_lp_verified",
+      "shape": [
+        16,
+        1000,
+        581
+      ],
+      "stage": "masked_classical_split_rhat_precheck",
+      "split_rhat_median": 1.0365976346930044,
+      "split_rhat_p95": 1.074549244945794,
+      "bulk_ess_median": null,
+      "bulk_ess_computed": false,
+      "diagnosed_reactions": 1705,
+      "sample_bound_violation_fraction": 0.0,
+      "bounds_tolerance": 1e-07,
+      "coordinate_bound_violation_fraction": 0.0,
+      "zero_tolerance_sample_bound_violation_fraction": 1.0,
+      "max_absolute_bound_violation": 5.563594354535113e-12,
+      "checked_samples": 16000,
+      "precheck_wall_seconds": 0.8865334317088127
+    },
+    {
+      "schema_version": 2,
+      "diagnostic_mask_status": "model_lp_verified",
+      "shape": [
+        16,
+        2000,
+        581
+      ],
+      "stage": "masked_classical_split_rhat_precheck",
+      "split_rhat_median": 1.0188674943640856,
+      "split_rhat_p95": 1.0379451148125114,
+      "bulk_ess_median": null,
+      "bulk_ess_computed": false,
+      "diagnosed_reactions": 1705,
+      "sample_bound_violation_fraction": 0.0,
+      "bounds_tolerance": 1e-07,
+      "coordinate_bound_violation_fraction": 0.0,
+      "zero_tolerance_sample_bound_violation_fraction": 1.0,
+      "max_absolute_bound_violation": 6.078879822200705e-12,
+      "checked_samples": 32000,
+      "precheck_wall_seconds": 1.677931634709239
+    },
+    {
+      "schema_version": 2,
+      "diagnostic_mask_status": "model_lp_verified",
+      "shape": [
+        16,
+        5000,
+        581
+      ],
+      "stage": "masked_classical_split_rhat_precheck",
+      "split_rhat_median": 1.0076428060879954,
+      "split_rhat_p95": 1.014542305933638,
+      "bulk_ess_median": null,
+      "bulk_ess_computed": false,
+      "diagnosed_reactions": 1705,
+      "sample_bound_violation_fraction": 0.0,
+      "bounds_tolerance": 1e-07,
+      "coordinate_bound_violation_fraction": 0.0,
+      "zero_tolerance_sample_bound_violation_fraction": 1.0,
+      "max_absolute_bound_violation": 6.078879822200705e-12,
+      "checked_samples": 80000,
+      "precheck_wall_seconds": 4.17106469720602
+    },
+    {
+      "schema_version": 2,
+      "diagnostic_mask_status": "model_lp_verified",
+      "shape": [
+        16,
+        10000,
+        581
+      ],
+      "stage": "masked_classical_split_rhat_precheck",
+      "split_rhat_median": 1.0038913587317158,
+      "split_rhat_p95": 1.0070016173822305,
+      "bulk_ess_median": null,
+      "bulk_ess_computed": false,
+      "diagnosed_reactions": 1705,
+      "sample_bound_violation_fraction": 0.0,
+      "bounds_tolerance": 1e-07,
+      "coordinate_bound_violation_fraction": 0.0,
+      "zero_tolerance_sample_bound_violation_fraction": 1.0,
+      "max_absolute_bound_violation": 6.078879822200705e-12,
+      "checked_samples": 160000,
+      "precheck_wall_seconds": 9.002403292804956
+    }
+  ],
+  "note": "ESS omitted only when masked split Rhat already fails the AND target."
+}

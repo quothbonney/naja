@@ -1,0 +1,86 @@
+diff --git a/src/gpu/dmatrix.cu b/src/gpu/dmatrix.cu
+index 9fbfaae..24d1dd1 100644
+--- a/src/gpu/dmatrix.cu
++++ b/src/gpu/dmatrix.cu
+@@ -34,22 +34,22 @@ namespace naja {
+         // Construct from Eigen
+         template<typename Real>
+         DMatrix<Real>::DMatrix(const HMatrix<Real>& m) : rows(m.rows()), cols(m.cols()), ownsData(true) {
+-            size_t size = rows * cols * sizeof(Real);
++            size_t size = static_cast<std::size_t>(rows) * static_cast<std::size_t>(cols) * sizeof(Real);
+             CUDA_CHECK(cudaMalloc(&dmat, size));
+-            CUDA_CHECK(cudaMemcpy(dmat, m.data(), rows * cols * sizeof(Real), cudaMemcpyHostToDevice));
++            CUDA_CHECK(cudaMemcpy(dmat, m.data(), static_cast<std::size_t>(rows) * static_cast<std::size_t>(cols) * sizeof(Real), cudaMemcpyHostToDevice));
+         }
+ 
+         // Construct from input dimensions
+         template<typename Real>
+         DMatrix<Real>::DMatrix(int rows_, int cols_) : rows(rows_), cols(cols_), ownsData(true) {
+-            size_t size = rows * cols * sizeof(Real);
++            size_t size = static_cast<std::size_t>(rows) * static_cast<std::size_t>(cols) * sizeof(Real);
+             CUDA_CHECK(cudaMalloc(&dmat, size));
+         }
+ 
+         // Construct from vector and broadcast
+         template<typename Real>
+         DMatrix<Real>::DMatrix(const HVector<Real>& v, int cols) : rows(v.size()), cols(cols), ownsData(true) {
+-            size_t size = rows * cols * sizeof(Real);
++            size_t size = static_cast<std::size_t>(rows) * static_cast<std::size_t>(cols) * sizeof(Real);
+             CUDA_CHECK(cudaMalloc(&dmat, size));
+             if (cols > 0) {
+                 CUDA_CHECK(cudaMemcpy(dmat, v.data(), rows * sizeof(Real), cudaMemcpyHostToDevice));
+@@ -60,7 +60,7 @@ namespace naja {
+         // Construct from device vector and broadcast
+         template<typename Real>
+         DMatrix<Real>::DMatrix(const DVector<Real>& v, int cols) : rows(v.len), cols(cols), ownsData(true) {
+-            size_t size = rows * cols * sizeof(Real);
++            size_t size = static_cast<std::size_t>(rows) * static_cast<std::size_t>(cols) * sizeof(Real);
+             CUDA_CHECK(cudaMalloc(&dmat, size));
+             if (cols > 0) {
+                 broadcastColumns(v.dvec, dmat, rows, cols);
+@@ -70,7 +70,7 @@ namespace naja {
+         // Construct from vector with a given number of cols, and broadcast to 'z' cols
+         template<typename Real>
+         DMatrix<Real>::DMatrix(const HVector<Real>& v, int cols, int z)  : rows(v.size()), cols(cols), ownsData(true) {
+-            size_t size = rows * cols * sizeof(Real);
++            size_t size = static_cast<std::size_t>(rows) * static_cast<std::size_t>(cols) * sizeof(Real);
+             CUDA_CHECK(cudaMalloc(&dmat, size));
+             int cols_to_fill = std::min(z, cols);
+             if (cols_to_fill > 0) {
+@@ -86,9 +86,9 @@ namespace naja {
+         // Copy constructor
+         template<typename Real>
+         DMatrix<Real>::DMatrix(const DMatrix &other) : rows(other.rows), cols(other.cols), ownsData(true) {
+-            size_t size = rows * cols * sizeof(Real);
++            size_t size = static_cast<std::size_t>(rows) * static_cast<std::size_t>(cols) * sizeof(Real);
+             CUDA_CHECK(cudaMalloc(&dmat, size));
+-            CUDA_CHECK(cudaMemcpy(dmat, other.dmat, rows * cols * sizeof(Real), cudaMemcpyDeviceToDevice));
++            CUDA_CHECK(cudaMemcpy(dmat, other.dmat, static_cast<std::size_t>(rows) * static_cast<std::size_t>(cols) * sizeof(Real), cudaMemcpyDeviceToDevice));
+         }
+ 
+         // Move constructor
+@@ -111,7 +111,7 @@ namespace naja {
+         template<typename Real>
+         HMatrix<Real> DMatrix<Real>::toHost() const {
+             HMatrix<Real> m(rows, cols);
+-            CUDA_CHECK(cudaMemcpy(m.data(), dmat, rows * cols * sizeof(Real), cudaMemcpyDeviceToHost));
++            CUDA_CHECK(cudaMemcpy(m.data(), dmat, static_cast<std::size_t>(rows) * static_cast<std::size_t>(cols) * sizeof(Real), cudaMemcpyDeviceToHost));
+             return m;
+         }
+ 
+diff --git a/src/gpu/helper.h b/src/gpu/helper.h
+index 42dca02..8b9996d 100644
+--- a/src/gpu/helper.h
++++ b/src/gpu/helper.h
+@@ -4,9 +4,10 @@
+ #include <curand.h>
+ #include <curand_kernel.h>
+ #include <iostream>
++#include <cstddef>
+ 
+ // Column major matrix indexing
+-#define IDX2C(i,j,ld) (((j)*(ld))+(i))
++#define IDX2C(i,j,ld) ((static_cast<std::size_t>(j) * static_cast<std::size_t>(ld)) + static_cast<std::size_t>(i))
+ 
+ // CUDA API error checking
+ #define CUDA_CHECK(cuda_error) \

@@ -1,0 +1,14 @@
+Traceback (most recent call last):
+  File "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/scripts/start_lp_microbench.py", line 91, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/scripts/start_lp_microbench.py", line 84, in main
+    if len(sys.argv)>1:worker(sys.argv[1]);return
+                       ^^^^^^^^^^^^^^^^^^^
+  File "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/scripts/start_lp_microbench.py", line 54, in worker
+    h,construction=make();report['first_model_construction_seconds']=construction
+                   ^^^^^^
+  File "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/scripts/start_lp_microbench.py", line 52, in make
+    assert h.passModel(lp)==highspy.HighsStatus.kOk
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

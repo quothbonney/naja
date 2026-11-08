@@ -1,0 +1,397 @@
+Device NVIDIA H100 80GB HBM3 (GH100)
+--------------------------------------------------------------------------- --------------- --------------- ----------------------------------------------------------------------
+Metric Name                                                                 Metric Type     Metric Unit     Metric Description                                                    
+--------------------------------------------------------------------------- --------------- --------------- ----------------------------------------------------------------------
+dram__bytes.avg                                                             Counter         byte            # of bytes accessed in DRAM (This counter metric represents the avg   
+                                                                                                            across all sub-unit instances)                                        
+dram__bytes.avg.peak_sustained                                              Counter         byte/cycle      # of bytes accessed in DRAM (This counter metric represents the avg   
+                                                                                                            peak sustained rate across all sub-unit instances)                    
+dram__bytes.avg.peak_sustained_active                                       Counter         byte            # of bytes accessed in DRAM (This counter metric represents the avg   
+                                                                                                            peak sustained rate achieved during unit active cycles across all     
+                                                                                                            sub-unit instances)                                                   
+dram__bytes.avg.peak_sustained_active.per_second                            Counter         byte/s          # of bytes accessed in DRAM (This counter metric represents the avg   
+                                                                                                            peak sustained rate achieved during unit active cycles per second     
+                                                                                                            across all sub-unit instances)                                        
+dram__bytes.avg.peak_sustained_elapsed                                      Counter         byte            # of bytes accessed in DRAM (This counter metric represents the avg   
+                                                                                                            peak sustained rate achieved during elapsed cycles across all         
+                                                                                                            sub-unit instances)                                                   
+dram__bytes.avg.peak_sustained_elapsed.per_second                           Counter         byte/s          # of bytes accessed in DRAM (This counter metric represents the avg   
+                                                                                                            peak sustained rate achieved during elapsed cycles per second across  
+                                                                                                            all sub-unit instances)                                               
+dram__bytes.avg.per_cycle_active                                            Counter         byte/cycle      # of bytes accessed in DRAM (This counter metric represents the avg   
+                                                                                                            of the number of operations per unit active cycle across all          
+                                                                                                            sub-unit instances)                                                   
+dram__bytes.avg.per_cycle_elapsed                                           Counter         byte/cycle      # of bytes accessed in DRAM (This counter metric represents the avg   
+                                                                                                            of the number of operations per elapsed cycle across all sub-unit     
+                                                                                                            instances)                                                            
+dram__bytes.avg.per_second                                                  Counter         byte/s          # of bytes accessed in DRAM (This counter metric represents the avg   
+                                                                                                            of the number of operations per second across all sub-unit instances) 
+dram__bytes.avg.pct_of_peak_sustained_active                                Counter         %               # of bytes accessed in DRAM (This counter metric represents the avg   
+                                                                                                            percent of the peak sustained rate achieved during unit active        
+                                                                                                            cycles across all sub-unit instances)                                 
+dram__bytes.avg.pct_of_peak_sustained_elapsed                               Counter         %               # of bytes accessed in DRAM (This counter metric represents the avg   
+                                                                                                            percent of the peak sustained rate achieved during elapsed cycles     
+                                                                                                            across all sub-unit instances)                                        
+dram__bytes.max                                                             Counter         byte            # of bytes accessed in DRAM (This counter metric represents the max   
+                                                                                                            across all sub-unit instances)                                        
+dram__bytes.max.peak_sustained                                              Counter         byte/cycle      # of bytes accessed in DRAM (This counter metric represents the max   
+                                                                                                            peak sustained rate across all sub-unit instances)                    
+dram__bytes.max.peak_sustained_active                                       Counter         byte            # of bytes accessed in DRAM (This counter metric represents the max   
+                                                                                                            peak sustained rate achieved during unit active cycles across all     
+                                                                                                            sub-unit instances)                                                   
+dram__bytes.max.peak_sustained_active.per_second                            Counter         byte/s          # of bytes accessed in DRAM (This counter metric represents the max   
+                                                                                                            peak sustained rate achieved during unit active cycles per second     
+                                                                                                            across all sub-unit instances)                                        
+dram__bytes.max.peak_sustained_elapsed                                      Counter         byte            # of bytes accessed in DRAM (This counter metric represents the max   
+                                                                                                            peak sustained rate achieved during elapsed cycles across all         
+                                                                                                            sub-unit instances)                                                   
+dram__bytes.max.peak_sustained_elapsed.per_second                           Counter         byte/s          # of bytes accessed in DRAM (This counter metric represents the max   
+                                                                                                            peak sustained rate achieved during elapsed cycles per second across  
+                                                                                                            all sub-unit instances)                                               
+dram__bytes.max.per_cycle_active                                            Counter         byte/cycle      # of bytes accessed in DRAM (This counter metric represents the max   
+                                                                                                            of the number of operations per unit active cycle across all          
+                                                                                                            sub-unit instances)                                                   
+dram__bytes.max.per_cycle_elapsed                                           Counter         byte/cycle      # of bytes accessed in DRAM (This counter metric represents the max   
+                                                                                                            of the number of operations per elapsed cycle across all sub-unit     
+                                                                                                            instances)                                                            
+dram__bytes.max.per_second                                                  Counter         byte/s          # of bytes accessed in DRAM (This counter metric represents the max   
+                                                                                                            of the number of operations per second across all sub-unit instances) 
+dram__bytes.max.pct_of_peak_sustained_active                                Counter         %               # of bytes accessed in DRAM (This counter metric represents the max   
+                                                                                                            percent of the peak sustained rate achieved during unit active        
+                                                                                                            cycles across all sub-unit instances)                                 
+dram__bytes.max.pct_of_peak_sustained_elapsed                               Counter         %               # of bytes accessed in DRAM (This counter metric represents the max   
+                                                                                                            percent of the peak sustained rate achieved during elapsed cycles     
+                                                                                                            across all sub-unit instances)                                        
+dram__bytes.min                                                             Counter         byte            # of bytes accessed in DRAM (This counter metric represents the min   
+                                                                                                            across all sub-unit instances)                                        
+dram__bytes.min.peak_sustained                                              Counter         byte/cycle      # of bytes accessed in DRAM (This counter metric represents the min   
+                                                                                                            peak sustained rate across all sub-unit instances)                    
+dram__bytes.min.peak_sustained_active                                       Counter         byte            # of bytes accessed in DRAM (This counter metric represents the min   
+                                                                                                            peak sustained rate achieved during unit active cycles across all     
+                                                                                                            sub-unit instances)                                                   
+dram__bytes.min.peak_sustained_active.per_second                            Counter         byte/s          # of bytes accessed in DRAM (This counter metric represents the min   
+                                                                                                            peak sustained rate achieved during unit active cycles per second     
+                                                                                                            across all sub-unit instances)                                        
+dram__bytes.min.peak_sustained_elapsed                                      Counter         byte            # of bytes accessed in DRAM (This counter metric represents the min   
+                                                                                                            peak sustained rate achieved during elapsed cycles across all         
+                                                                                                            sub-unit instances)                                                   
+dram__bytes.min.peak_sustained_elapsed.per_second                           Counter         byte/s          # of bytes accessed in DRAM (This counter metric represents the min   
+                                                                                                            peak sustained rate achieved during elapsed cycles per second across  
+                                                                                                            all sub-unit instances)                                               
+dram__bytes.min.per_cycle_active                                            Counter         byte/cycle      # of bytes accessed in DRAM (This counter metric represents the min   
+                                                                                                            of the number of operations per unit active cycle across all          
+                                                                                                            sub-unit instances)                                                   
+dram__bytes.min.per_cycle_elapsed                                           Counter         byte/cycle      # of bytes accessed in DRAM (This counter metric represents the min   
+                                                                                                            of the number of operations per elapsed cycle across all sub-unit     
+                                                                                                            instances)                                                            
+dram__bytes.min.per_second                                                  Counter         byte/s          # of bytes accessed in DRAM (This counter metric represents the min   
+                                                                                                            of the number of operations per second across all sub-unit instances) 
+dram__bytes.min.pct_of_peak_sustained_active                                Counter         %               # of bytes accessed in DRAM (This counter metric represents the min   
+                                                                                                            percent of the peak sustained rate achieved during unit active        
+                                                                                                            cycles across all sub-unit instances)                                 
+dram__bytes.min.pct_of_peak_sustained_elapsed                               Counter         %               # of bytes accessed in DRAM (This counter metric represents the min   
+                                                                                                            percent of the peak sustained rate achieved during elapsed cycles     
+                                                                                                            across all sub-unit instances)                                        
+dram__bytes.sum                                                             Counter         byte            # of bytes accessed in DRAM (This counter metric represents the sum   
+                                                                                                            across all sub-unit instances)                                        
+dram__bytes.sum.peak_sustained                                              Counter         byte/cycle      # of bytes accessed in DRAM (This counter metric represents the sum   
+                                                                                                            peak sustained rate across all sub-unit instances)                    
+dram__bytes.sum.peak_sustained_active                                       Counter         byte            # of bytes accessed in DRAM (This counter metric represents the sum   
+                                                                                                            peak sustained rate achieved during unit active cycles across all     
+                                                                                                            sub-unit instances)                                                   
+dram__bytes.sum.peak_sustained_active.per_second                            Counter         byte/s          # of bytes accessed in DRAM (This counter metric represents the sum   
+                                                                                                            peak sustained rate achieved during unit active cycles per second     
+                                                                                                            across all sub-unit instances)                                        
+dram__bytes.sum.peak_sustained_elapsed                                      Counter         byte            # of bytes accessed in DRAM (This counter metric represents the sum   
+                                                                                                            peak sustained rate achieved during elapsed cycles across all         
+                                                                                                            sub-unit instances)                                                   
+dram__bytes.sum.peak_sustained_elapsed.per_second                           Counter         byte/s          # of bytes accessed in DRAM (This counter metric represents the sum   
+                                                                                                            peak sustained rate achieved during elapsed cycles per second across  
+                                                                                                            all sub-unit instances)                                               
+dram__bytes.sum.per_cycle_active                                            Counter         byte/cycle      # of bytes accessed in DRAM (This counter metric represents the sum   
+                                                                                                            of the number of operations per unit active cycle across all          
+                                                                                                            sub-unit instances)                                                   
+dram__bytes.sum.per_cycle_elapsed                                           Counter         byte/cycle      # of bytes accessed in DRAM (This counter metric represents the sum   
+                                                                                                            of the number of operations per elapsed cycle across all sub-unit     
+                                                                                                            instances)                                                            
+dram__bytes.sum.per_second                                                  Counter         byte/s          # of bytes accessed in DRAM (This counter metric represents the sum   
+                                                                                                            of the number of operations per second across all sub-unit instances) 
+dram__bytes.sum.pct_of_peak_sustained_active                                Counter         %               # of bytes accessed in DRAM (This counter metric represents the sum   
+                                                                                                            percent of the peak sustained rate achieved during unit active        
+                                                                                                            cycles across all sub-unit instances)                                 
+dram__bytes.sum.pct_of_peak_sustained_elapsed                               Counter         %               # of bytes accessed in DRAM (This counter metric represents the sum   
+                                                                                                            percent of the peak sustained rate achieved during elapsed cycles     
+                                                                                                            across all sub-unit instances)                                        
+lts__t_bytes.avg                                                            Counter         byte            # of bytes requested (This counter metric represents the avg across   
+                                                                                                            all sub-unit instances)                                               
+lts__t_bytes.avg.peak_sustained                                             Counter         byte/cycle      # of bytes requested (This counter metric represents the avg peak     
+                                                                                                            sustained rate across all sub-unit instances)                         
+lts__t_bytes.avg.peak_sustained_active                                      Counter         byte            # of bytes requested (This counter metric represents the avg peak     
+                                                                                                            sustained rate achieved during unit active cycles across all          
+                                                                                                            sub-unit instances)                                                   
+lts__t_bytes.avg.peak_sustained_active.per_second                           Counter         byte/s          # of bytes requested (This counter metric represents the avg peak     
+                                                                                                            sustained rate achieved during unit active cycles per second across   
+                                                                                                            all sub-unit instances)                                               
+lts__t_bytes.avg.peak_sustained_elapsed                                     Counter         byte            # of bytes requested (This counter metric represents the avg peak     
+                                                                                                            sustained rate achieved during elapsed cycles across all sub-unit     
+                                                                                                            instances)                                                            
+lts__t_bytes.avg.peak_sustained_elapsed.per_second                          Counter         byte/s          # of bytes requested (This counter metric represents the avg peak     
+                                                                                                            sustained rate achieved during elapsed cycles per second across all   
+                                                                                                            sub-unit instances)                                                   
+lts__t_bytes.avg.per_cycle_active                                           Counter         byte/cycle      # of bytes requested (This counter metric represents the avg of the   
+                                                                                                            number of operations per unit active cycle across all sub-unit        
+                                                                                                            instances)                                                            
+lts__t_bytes.avg.per_cycle_elapsed                                          Counter         byte/cycle      # of bytes requested (This counter metric represents the avg of the   
+                                                                                                            number of operations per elapsed cycle across all sub-unit instances) 
+lts__t_bytes.avg.per_second                                                 Counter         byte/s          # of bytes requested (This counter metric represents the avg of the   
+                                                                                                            number of operations per second across all sub-unit instances)        
+lts__t_bytes.avg.pct_of_peak_sustained_active                               Counter         %               # of bytes requested (This counter metric represents the avg percent  
+                                                                                                            of the peak sustained rate achieved during unit active cycles across  
+                                                                                                            all sub-unit instances)                                               
+lts__t_bytes.avg.pct_of_peak_sustained_elapsed                              Counter         %               # of bytes requested (This counter metric represents the avg percent  
+                                                                                                            of the peak sustained rate achieved during elapsed cycles across all  
+                                                                                                            sub-unit instances)                                                   
+lts__t_bytes.max                                                            Counter         byte            # of bytes requested (This counter metric represents the max across   
+                                                                                                            all sub-unit instances)                                               
+lts__t_bytes.max.peak_sustained                                             Counter         byte/cycle      # of bytes requested (This counter metric represents the max peak     
+                                                                                                            sustained rate across all sub-unit instances)                         
+lts__t_bytes.max.peak_sustained_active                                      Counter         byte            # of bytes requested (This counter metric represents the max peak     
+                                                                                                            sustained rate achieved during unit active cycles across all          
+                                                                                                            sub-unit instances)                                                   
+lts__t_bytes.max.peak_sustained_active.per_second                           Counter         byte/s          # of bytes requested (This counter metric represents the max peak     
+                                                                                                            sustained rate achieved during unit active cycles per second across   
+                                                                                                            all sub-unit instances)                                               
+lts__t_bytes.max.peak_sustained_elapsed                                     Counter         byte            # of bytes requested (This counter metric represents the max peak     
+                                                                                                            sustained rate achieved during elapsed cycles across all sub-unit     
+                                                                                                            instances)                                                            
+lts__t_bytes.max.peak_sustained_elapsed.per_second                          Counter         byte/s          # of bytes requested (This counter metric represents the max peak     
+                                                                                                            sustained rate achieved during elapsed cycles per second across all   
+                                                                                                            sub-unit instances)                                                   
+lts__t_bytes.max.per_cycle_active                                           Counter         byte/cycle      # of bytes requested (This counter metric represents the max of the   
+                                                                                                            number of operations per unit active cycle across all sub-unit        
+                                                                                                            instances)                                                            
+lts__t_bytes.max.per_cycle_elapsed                                          Counter         byte/cycle      # of bytes requested (This counter metric represents the max of the   
+                                                                                                            number of operations per elapsed cycle across all sub-unit instances) 
+lts__t_bytes.max.per_second                                                 Counter         byte/s          # of bytes requested (This counter metric represents the max of the   
+                                                                                                            number of operations per second across all sub-unit instances)        
+lts__t_bytes.max.pct_of_peak_sustained_active                               Counter         %               # of bytes requested (This counter metric represents the max percent  
+                                                                                                            of the peak sustained rate achieved during unit active cycles across  
+                                                                                                            all sub-unit instances)                                               
+lts__t_bytes.max.pct_of_peak_sustained_elapsed                              Counter         %               # of bytes requested (This counter metric represents the max percent  
+                                                                                                            of the peak sustained rate achieved during elapsed cycles across all  
+                                                                                                            sub-unit instances)                                                   
+lts__t_bytes.min                                                            Counter         byte            # of bytes requested (This counter metric represents the min across   
+                                                                                                            all sub-unit instances)                                               
+lts__t_bytes.min.peak_sustained                                             Counter         byte/cycle      # of bytes requested (This counter metric represents the min peak     
+                                                                                                            sustained rate across all sub-unit instances)                         
+lts__t_bytes.min.peak_sustained_active                                      Counter         byte            # of bytes requested (This counter metric represents the min peak     
+                                                                                                            sustained rate achieved during unit active cycles across all          
+                                                                                                            sub-unit instances)                                                   
+lts__t_bytes.min.peak_sustained_active.per_second                           Counter         byte/s          # of bytes requested (This counter metric represents the min peak     
+                                                                                                            sustained rate achieved during unit active cycles per second across   
+                                                                                                            all sub-unit instances)                                               
+lts__t_bytes.min.peak_sustained_elapsed                                     Counter         byte            # of bytes requested (This counter metric represents the min peak     
+                                                                                                            sustained rate achieved during elapsed cycles across all sub-unit     
+                                                                                                            instances)                                                            
+lts__t_bytes.min.peak_sustained_elapsed.per_second                          Counter         byte/s          # of bytes requested (This counter metric represents the min peak     
+                                                                                                            sustained rate achieved during elapsed cycles per second across all   
+                                                                                                            sub-unit instances)                                                   
+lts__t_bytes.min.per_cycle_active                                           Counter         byte/cycle      # of bytes requested (This counter metric represents the min of the   
+                                                                                                            number of operations per unit active cycle across all sub-unit        
+                                                                                                            instances)                                                            
+lts__t_bytes.min.per_cycle_elapsed                                          Counter         byte/cycle      # of bytes requested (This counter metric represents the min of the   
+                                                                                                            number of operations per elapsed cycle across all sub-unit instances) 
+lts__t_bytes.min.per_second                                                 Counter         byte/s          # of bytes requested (This counter metric represents the min of the   
+                                                                                                            number of operations per second across all sub-unit instances)        
+lts__t_bytes.min.pct_of_peak_sustained_active                               Counter         %               # of bytes requested (This counter metric represents the min percent  
+                                                                                                            of the peak sustained rate achieved during unit active cycles across  
+                                                                                                            all sub-unit instances)                                               
+lts__t_bytes.min.pct_of_peak_sustained_elapsed                              Counter         %               # of bytes requested (This counter metric represents the min percent  
+                                                                                                            of the peak sustained rate achieved during elapsed cycles across all  
+                                                                                                            sub-unit instances)                                                   
+lts__t_bytes.sum                                                            Counter         byte            # of bytes requested (This counter metric represents the sum across   
+                                                                                                            all sub-unit instances)                                               
+lts__t_bytes.sum.peak_sustained                                             Counter         byte/cycle      # of bytes requested (This counter metric represents the sum peak     
+                                                                                                            sustained rate across all sub-unit instances)                         
+lts__t_bytes.sum.peak_sustained_active                                      Counter         byte            # of bytes requested (This counter metric represents the sum peak     
+                                                                                                            sustained rate achieved during unit active cycles across all          
+                                                                                                            sub-unit instances)                                                   
+lts__t_bytes.sum.peak_sustained_active.per_second                           Counter         byte/s          # of bytes requested (This counter metric represents the sum peak     
+                                                                                                            sustained rate achieved during unit active cycles per second across   
+                                                                                                            all sub-unit instances)                                               
+lts__t_bytes.sum.peak_sustained_elapsed                                     Counter         byte            # of bytes requested (This counter metric represents the sum peak     
+                                                                                                            sustained rate achieved during elapsed cycles across all sub-unit     
+                                                                                                            instances)                                                            
+lts__t_bytes.sum.peak_sustained_elapsed.per_second                          Counter         byte/s          # of bytes requested (This counter metric represents the sum peak     
+                                                                                                            sustained rate achieved during elapsed cycles per second across all   
+                                                                                                            sub-unit instances)                                                   
+lts__t_bytes.sum.per_cycle_active                                           Counter         byte/cycle      # of bytes requested (This counter metric represents the sum of the   
+                                                                                                            number of operations per unit active cycle across all sub-unit        
+                                                                                                            instances)                                                            
+lts__t_bytes.sum.per_cycle_elapsed                                          Counter         byte/cycle      # of bytes requested (This counter metric represents the sum of the   
+                                                                                                            number of operations per elapsed cycle across all sub-unit instances) 
+lts__t_bytes.sum.per_second                                                 Counter         byte/s          # of bytes requested (This counter metric represents the sum of the   
+                                                                                                            number of operations per second across all sub-unit instances)        
+lts__t_bytes.sum.pct_of_peak_sustained_active                               Counter         %               # of bytes requested (This counter metric represents the sum percent  
+                                                                                                            of the peak sustained rate achieved during unit active cycles across  
+                                                                                                            all sub-unit instances)                                               
+lts__t_bytes.sum.pct_of_peak_sustained_elapsed                              Counter         %               # of bytes requested (This counter metric represents the sum percent  
+                                                                                                            of the peak sustained rate achieved during elapsed cycles across all  
+                                                                                                            sub-unit instances)                                                   
+lts__t_sector_hit_rate.max_rate                                             Ratio                           proportion of L2 sector lookups that hit (This ratio metric           
+                                                                                                            represents the ratio's maximum value across all sub-unit instances)   
+lts__t_sector_hit_rate.pct                                                  Ratio           %               proportion of L2 sector lookups that hit (This ratio metric           
+                                                                                                            represents the value expressed as a percentage across all sub-unit    
+                                                                                                            instances)                                                            
+lts__t_sector_hit_rate.ratio                                                Ratio                           proportion of L2 sector lookups that hit (This ratio metric           
+                                                                                                            represents the value expressed as a ratio across all sub-unit         
+                                                                                                            instances)                                                            
+sm__throughput.avg.pct_of_peak_sustained_active                             Throughput      %               SM throughput assuming ideal load balancing across SMSPs (This        
+                                                                                                            throughput metric represents the percent of the peak sustained rate   
+                                                                                                            achieved during unit active cycles across all sub-unit instances)     
+sm__throughput.avg.pct_of_peak_sustained_elapsed                            Throughput      %               SM throughput assuming ideal load balancing across SMSPs (This        
+                                                                                                            throughput metric represents the percent of the peak sustained rate   
+                                                                                                            achieved during elapsed cycles across all sub-unit instances)         
+sm__throughput.max.pct_of_peak_sustained_active                             Throughput      %               SM throughput assuming ideal load balancing across SMSPs (This        
+                                                                                                            throughput metric represents the percent of the peak sustained rate   
+                                                                                                            achieved during unit active cycles across all sub-unit instances)     
+sm__throughput.max.pct_of_peak_sustained_elapsed                            Throughput      %               SM throughput assuming ideal load balancing across SMSPs (This        
+                                                                                                            throughput metric represents the percent of the peak sustained rate   
+                                                                                                            achieved during elapsed cycles across all sub-unit instances)         
+sm__throughput.min.pct_of_peak_sustained_active                             Throughput      %               SM throughput assuming ideal load balancing across SMSPs (This        
+                                                                                                            throughput metric represents the percent of the peak sustained rate   
+                                                                                                            achieved during unit active cycles across all sub-unit instances)     
+sm__throughput.min.pct_of_peak_sustained_elapsed                            Throughput      %               SM throughput assuming ideal load balancing across SMSPs (This        
+                                                                                                            throughput metric represents the percent of the peak sustained rate   
+                                                                                                            achieved during elapsed cycles across all sub-unit instances)         
+sm__throughput.sum.pct_of_peak_sustained_active                             Throughput      %               SM throughput assuming ideal load balancing across SMSPs (This        
+                                                                                                            throughput metric represents the percent of the peak sustained rate   
+                                                                                                            achieved during unit active cycles across all sub-unit instances)     
+sm__throughput.sum.pct_of_peak_sustained_elapsed                            Throughput      %               SM throughput assuming ideal load balancing across SMSPs (This        
+                                                                                                            throughput metric represents the percent of the peak sustained rate   
+                                                                                                            achieved during elapsed cycles across all sub-unit instances)         
+sm__warps_active.avg                                                        Counter         warp            cumulative # of warps in flight (This counter metric represents the   
+                                                                                                            avg across all sub-unit instances)                                    
+sm__warps_active.avg.peak_sustained                                         Counter         warp            cumulative # of warps in flight (This counter metric represents the   
+                                                                                                            avg peak sustained rate across all sub-unit instances)                
+sm__warps_active.avg.peak_sustained_active                                  Counter         warp            cumulative # of warps in flight (This counter metric represents the   
+                                                                                                            avg peak sustained rate achieved during unit active cycles across     
+                                                                                                            all sub-unit instances)                                               
+sm__warps_active.avg.peak_sustained_active.per_second                       Counter         warp/s          cumulative # of warps in flight (This counter metric represents the   
+                                                                                                            avg peak sustained rate achieved during unit active cycles per        
+                                                                                                            second across all sub-unit instances)                                 
+sm__warps_active.avg.peak_sustained_elapsed                                 Counter         warp            cumulative # of warps in flight (This counter metric represents the   
+                                                                                                            avg peak sustained rate achieved during elapsed cycles across all     
+                                                                                                            sub-unit instances)                                                   
+sm__warps_active.avg.peak_sustained_elapsed.per_second                      Counter         warp/s          cumulative # of warps in flight (This counter metric represents the   
+                                                                                                            avg peak sustained rate achieved during elapsed cycles per second     
+                                                                                                            across all sub-unit instances)                                        
+sm__warps_active.avg.per_cycle_active                                       Counter         warp            cumulative # of warps in flight (This counter metric represents the   
+                                                                                                            avg of the number of operations per unit active cycle across all      
+                                                                                                            sub-unit instances)                                                   
+sm__warps_active.avg.per_cycle_elapsed                                      Counter         warp            cumulative # of warps in flight (This counter metric represents the   
+                                                                                                            avg of the number of operations per elapsed cycle across all          
+                                                                                                            sub-unit instances)                                                   
+sm__warps_active.avg.per_second                                             Counter         warp/s          cumulative # of warps in flight (This counter metric represents the   
+                                                                                                            avg of the number of operations per second across all sub-unit        
+                                                                                                            instances)                                                            
+sm__warps_active.avg.pct_of_peak_sustained_active                           Counter         %               cumulative # of warps in flight (This counter metric represents the   
+                                                                                                            avg percent of the peak sustained rate achieved during unit active    
+                                                                                                            cycles across all sub-unit instances)                                 
+sm__warps_active.avg.pct_of_peak_sustained_elapsed                          Counter         %               cumulative # of warps in flight (This counter metric represents the   
+                                                                                                            avg percent of the peak sustained rate achieved during elapsed        
+                                                                                                            cycles across all sub-unit instances)                                 
+sm__warps_active.max                                                        Counter         warp            cumulative # of warps in flight (This counter metric represents the   
+                                                                                                            max across all sub-unit instances)                                    
+sm__warps_active.max.peak_sustained                                         Counter         warp            cumulative # of warps in flight (This counter metric represents the   
+                                                                                                            max peak sustained rate across all sub-unit instances)                
+sm__warps_active.max.peak_sustained_active                                  Counter         warp            cumulative # of warps in flight (This counter metric represents the   
+                                                                                                            max peak sustained rate achieved during unit active cycles across     
+                                                                                                            all sub-unit instances)                                               
+sm__warps_active.max.peak_sustained_active.per_second                       Counter         warp/s          cumulative # of warps in flight (This counter metric represents the   
+                                                                                                            max peak sustained rate achieved during unit active cycles per        
+                                                                                                            second across all sub-unit instances)                                 
+sm__warps_active.max.peak_sustained_elapsed                                 Counter         warp            cumulative # of warps in flight (This counter metric represents the   
+                                                                                                            max peak sustained rate achieved during elapsed cycles across all     
+                                                                                                            sub-unit instances)                                                   
+sm__warps_active.max.peak_sustained_elapsed.per_second                      Counter         warp/s          cumulative # of warps in flight (This counter metric represents the   
+                                                                                                            max peak sustained rate achieved during elapsed cycles per second     
+                                                                                                            across all sub-unit instances)                                        
+sm__warps_active.max.per_cycle_active                                       Counter         warp            cumulative # of warps in flight (This counter metric represents the   
+                                                                                                            max of the number of operations per unit active cycle across all      
+                                                                                                            sub-unit instances)                                                   
+sm__warps_active.max.per_cycle_elapsed                                      Counter         warp            cumulative # of warps in flight (This counter metric represents the   
+                                                                                                            max of the number of operations per elapsed cycle across all          
+                                                                                                            sub-unit instances)                                                   
+sm__warps_active.max.per_second                                             Counter         warp/s          cumulative # of warps in flight (This counter metric represents the   
+                                                                                                            max of the number of operations per second across all sub-unit        
+                                                                                                            instances)                                                            
+sm__warps_active.max.pct_of_peak_sustained_active                           Counter         %               cumulative # of warps in flight (This counter metric represents the   
+                                                                                                            max percent of the peak sustained rate achieved during unit active    
+                                                                                                            cycles across all sub-unit instances)                                 
+sm__warps_active.max.pct_of_peak_sustained_elapsed                          Counter         %               cumulative # of warps in flight (This counter metric represents the   
+                                                                                                            max percent of the peak sustained rate achieved during elapsed        
+                                                                                                            cycles across all sub-unit instances)                                 
+sm__warps_active.min                                                        Counter         warp            cumulative # of warps in flight (This counter metric represents the   
+                                                                                                            min across all sub-unit instances)                                    
+sm__warps_active.min.peak_sustained                                         Counter         warp            cumulative # of warps in flight (This counter metric represents the   
+                                                                                                            min peak sustained rate across all sub-unit instances)                
+sm__warps_active.min.peak_sustained_active                                  Counter         warp            cumulative # of warps in flight (This counter metric represents the   
+                                                                                                            min peak sustained rate achieved during unit active cycles across     
+                                                                                                            all sub-unit instances)                                               
+sm__warps_active.min.peak_sustained_active.per_second                       Counter         warp/s          cumulative # of warps in flight (This counter metric represents the   
+                                                                                                            min peak sustained rate achieved during unit active cycles per        
+                                                                                                            second across all sub-unit instances)                                 
+sm__warps_active.min.peak_sustained_elapsed                                 Counter         warp            cumulative # of warps in flight (This counter metric represents the   
+                                                                                                            min peak sustained rate achieved during elapsed cycles across all     
+                                                                                                            sub-unit instances)                                                   
+sm__warps_active.min.peak_sustained_elapsed.per_second                      Counter         warp/s          cumulative # of warps in flight (This counter metric represents the   
+                                                                                                            min peak sustained rate achieved during elapsed cycles per second     
+                                                                                                            across all sub-unit instances)                                        
+sm__warps_active.min.per_cycle_active                                       Counter         warp            cumulative # of warps in flight (This counter metric represents the   
+                                                                                                            min of the number of operations per unit active cycle across all      
+                                                                                                            sub-unit instances)                                                   
+sm__warps_active.min.per_cycle_elapsed                                      Counter         warp            cumulative # of warps in flight (This counter metric represents the   
+                                                                                                            min of the number of operations per elapsed cycle across all          
+                                                                                                            sub-unit instances)                                                   
+sm__warps_active.min.per_second                                             Counter         warp/s          cumulative # of warps in flight (This counter metric represents the   
+                                                                                                            min of the number of operations per second across all sub-unit        
+                                                                                                            instances)                                                            
+sm__warps_active.min.pct_of_peak_sustained_active                           Counter         %               cumulative # of warps in flight (This counter metric represents the   
+                                                                                                            min percent of the peak sustained rate achieved during unit active    
+                                                                                                            cycles across all sub-unit instances)                                 
+sm__warps_active.min.pct_of_peak_sustained_elapsed                          Counter         %               cumulative # of warps in flight (This counter metric represents the   
+                                                                                                            min percent of the peak sustained rate achieved during elapsed        
+                                                                                                            cycles across all sub-unit instances)                                 
+sm__warps_active.sum                                                        Counter         warp            cumulative # of warps in flight (This counter metric represents the   
+                                                                                                            sum across all sub-unit instances)                                    
+sm__warps_active.sum.peak_sustained                                         Counter         warp            cumulative # of warps in flight (This counter metric represents the   
+                                                                                                            sum peak sustained rate across all sub-unit instances)                
+sm__warps_active.sum.peak_sustained_active                                  Counter         warp            cumulative # of warps in flight (This counter metric represents the   
+                                                                                                            sum peak sustained rate achieved during unit active cycles across     
+                                                                                                            all sub-unit instances)                                               
+sm__warps_active.sum.peak_sustained_active.per_second                       Counter         warp/s          cumulative # of warps in flight (This counter metric represents the   
+                                                                                                            sum peak sustained rate achieved during unit active cycles per        
+                                                                                                            second across all sub-unit instances)                                 
+sm__warps_active.sum.peak_sustained_elapsed                                 Counter         warp            cumulative # of warps in flight (This counter metric represents the   
+                                                                                                            sum peak sustained rate achieved during elapsed cycles across all     
+                                                                                                            sub-unit instances)                                                   
+sm__warps_active.sum.peak_sustained_elapsed.per_second                      Counter         warp/s          cumulative # of warps in flight (This counter metric represents the   
+                                                                                                            sum peak sustained rate achieved during elapsed cycles per second     
+                                                                                                            across all sub-unit instances)                                        
+sm__warps_active.sum.per_cycle_active                                       Counter         warp            cumulative # of warps in flight (This counter metric represents the   
+                                                                                                            sum of the number of operations per unit active cycle across all      
+                                                                                                            sub-unit instances)                                                   
+sm__warps_active.sum.per_cycle_elapsed                                      Counter         warp            cumulative # of warps in flight (This counter metric represents the   
+                                                                                                            sum of the number of operations per elapsed cycle across all          
+                                                                                                            sub-unit instances)                                                   
+sm__warps_active.sum.per_second                                             Counter         warp/s          cumulative # of warps in flight (This counter metric represents the   
+                                                                                                            sum of the number of operations per second across all sub-unit        
+                                                                                                            instances)                                                            
+sm__warps_active.sum.pct_of_peak_sustained_active                           Counter         %               cumulative # of warps in flight (This counter metric represents the   
+                                                                                                            sum percent of the peak sustained rate achieved during unit active    
+                                                                                                            cycles across all sub-unit instances)                                 
+sm__warps_active.sum.pct_of_peak_sustained_elapsed                          Counter         %               cumulative # of warps in flight (This counter metric represents the   
+                                                                                                            sum percent of the peak sustained rate achieved during elapsed        
+                                                                                                            cycles across all sub-unit instances)                                 
+

@@ -1,0 +1,20 @@
+> validate model contract
+> write generated config
+model :: RECON1
+output :: /mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/barrier_profile/RECON1/cpu/profiled/native/RECON1_20261108_001
+bounds :: ignore
+> sampling
+> loading polytope
+> barrier rotation (eigenbasis of H)
+> uploading to gpu
+> sampling 16 chains x 8 samples (thin=1, 128 MCMC steps, 2120 constraints x 931 dims)
+> gpu sampling
+> gpu back-transform
+> downloading
+> done: 0.0s, 66558 samples/s
+> writing npy
+Collecting data...
+Generating '/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/tmp/nsys-report-f3de.qdstrm'
+[1/1] [0%                          ] trace.nsys-rep[1/1] [0%                          ] trace.nsys-rep[1/1] [7%                          ] trace.nsys-rep[1/1] [===24%                      ] trace.nsys-rep[1/1] [========41%                 ] trace.nsys-rep[1/1] [====================83%     ] trace.nsys-rep[1/1] [====================84%     ] trace.nsys-rep[1/1] [========================100%] trace.nsys-rep[1/1] [========================100%] trace.nsys-rep
+Generated:
+	/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/barrier_profile/RECON1/cpu/profiled/trace.nsys-rep

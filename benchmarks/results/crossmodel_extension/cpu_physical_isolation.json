@@ -1,0 +1,59 @@
+{
+  "status": "passed",
+  "cases": [
+    {
+      "affinity_source": "benchmarks/results/native_cpu/iAF1260/extension_20261108_worker_thin2000_n10000/seed101/physical_affinity.json",
+      "reserved_logical_cpus": 32,
+      "selected_distinct_physical_cores": 16,
+      "all_selected_core_siblings_reserved": true
+    },
+    {
+      "affinity_source": "benchmarks/results/native_cpu/iAF1260/extension_20261108_worker_thin2000_n10000/seed202/physical_affinity.json",
+      "reserved_logical_cpus": 32,
+      "selected_distinct_physical_cores": 16,
+      "all_selected_core_siblings_reserved": true
+    },
+    {
+      "affinity_source": "benchmarks/results/native_cpu/iAF1260/extension_20261108_worker_thin2000_n10000/seed303/physical_affinity.json",
+      "reserved_logical_cpus": 32,
+      "selected_distinct_physical_cores": 16,
+      "all_selected_core_siblings_reserved": true
+    },
+    {
+      "affinity_source": "benchmarks/results/native_cpu/iML1515/extension_20261108_worker_thin2000_n12000/seed101/physical_affinity.json",
+      "reserved_logical_cpus": 32,
+      "selected_distinct_physical_cores": 16,
+      "all_selected_core_siblings_reserved": true
+    },
+    {
+      "affinity_source": "benchmarks/results/native_cpu/iML1515/extension_20261108_worker_thin2000_n12000/seed202/physical_affinity.json",
+      "reserved_logical_cpus": 32,
+      "selected_distinct_physical_cores": 16,
+      "all_selected_core_siblings_reserved": true
+    },
+    {
+      "affinity_source": "benchmarks/results/native_cpu/iML1515/extension_20261108_worker_thin2000_n12000/seed303/physical_affinity.json",
+      "reserved_logical_cpus": 32,
+      "selected_distinct_physical_cores": 16,
+      "all_selected_core_siblings_reserved": true
+    },
+    {
+      "affinity_source": "benchmarks/results/native_cpu/iML1515/extension_20261108_worker_thin2000_n15000/seed101/physical_affinity.json",
+      "reserved_logical_cpus": 32,
+      "selected_distinct_physical_cores": 16,
+      "all_selected_core_siblings_reserved": true
+    },
+    {
+      "affinity_source": "benchmarks/results/native_cpu/iML1515/extension_20261108_worker_thin2000_n15000/seed202/physical_affinity.json",
+      "reserved_logical_cpus": 32,
+      "selected_distinct_physical_cores": 16,
+      "all_selected_core_siblings_reserved": true
+    },
+    {
+      "affinity_source": "benchmarks/results/native_cpu/iML1515/extension_20261108_worker_thin2000_n15000/seed303/physical_affinity.json",
+      "reserved_logical_cpus": 32,
+      "selected_distinct_physical_cores": 16,
+      "all_selected_core_siblings_reserved": true
+    }
+  ]
+}

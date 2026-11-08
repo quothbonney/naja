@@ -1,0 +1,40 @@
+{
+  "gene": "b3619",
+  "gene_name": "hldD",
+  "disabled_reaction_ids": [
+    "AGMHE"
+  ],
+  "knockout_reaction_ids": [
+    "AGMHE"
+  ],
+  "changed_bound_rows": 1,
+  "two_sided_encoding_rows": 2,
+  "stratum": "1-5",
+  "base_LP_varying_reactions": 1,
+  "base_LP_nearconstant_reactions": 0,
+  "all_affected_reactions_varying": true,
+  "base_point_max_KO_residual": 0.008975074121043248,
+  "base_point_weak_feasible_at_1e7": false,
+  "minimum_KO_T_row_norm": 0.00421886627737217,
+  "original_changed_bounds": {
+    "AGMHE": [
+      0.0,
+      1000.0
+    ]
+  },
+  "genes_with_identical_bound_change_signature": [
+    "b3619"
+  ],
+  "bound_change_signature": "3f70e2f9db22395fc98a390b36516ae8a1623a0b6383c569dc4625a6852ccdab",
+  "status": "problematic",
+  "base_geometry_sha256": "07374999682cb82ef566c2a7ba4cd1ca44b0718ab81f421846e24d3b85f5e103",
+  "base_dimension": 581,
+  "base_point_weak_feasible": false,
+  "constraint_epsilon": 0.0,
+  "rank_relative_tolerance": 1e-12,
+  "validation_tolerance": 1e-07,
+  "geometry_directory": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/knockout_panel/conditions/b3619/models/shared",
+  "LPs": [],
+  "facial_reductions": [],
+  "reason": "AssertionError({'round': 0, 'model_construction_seconds': 0.008556550368666649, 'solve_seconds': 2.153827963396907, 'pass_status': 'HighsStatus.kOk', 'run_status': 'HighsStatus.kOk', 'model_status': 'HighsModelStatus.kOptimal', 'iterations': 1052, 'radius': 4.182367948608823e-08, 'max_scaled_primal_violation': 2.6763837934762336e-07})"
+}

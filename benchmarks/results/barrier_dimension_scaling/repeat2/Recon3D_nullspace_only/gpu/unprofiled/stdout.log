@@ -1,0 +1,16 @@
+> validate model contract
+> write generated config
+model :: Recon3D_nullspace_only
+output :: /mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/barrier_dimension_scaling/repeat2/Recon3D_nullspace_only/gpu/unprofiled/native/Recon3D_nullspace_only_20261108_001
+bounds :: ignore
+> sampling
+> loading polytope
+> barrier rotation (eigenbasis of H)
+> barrier whitening (diagonal rescale)
+> uploading to gpu
+> sampling 16 chains x 8 samples (thin=1, 128 MCMC steps, 18477 constraints x 4861 dims)
+> gpu sampling
+> gpu back-transform
+> downloading
+> done: 0.0s, 33498 samples/s
+> writing npy

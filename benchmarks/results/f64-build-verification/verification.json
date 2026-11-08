@@ -1,0 +1,20 @@
+{
+  "binary_variant": "optional_float64_export_with_wide_indices",
+  "binary_sha256": "5e6968eb7d3cebf5f27c16d2662a2e640cc3f6b7a633b7e7ae3bc9136a99f3d5",
+  "frozen_benchmark_binary_sha256": "c7baf4f0ed282b936ac0dbac4b896bfbfc040eb06da6f84aff6605fddf4b0fc6",
+  "wide_only_binary_sha256": "da263d6060416d96da366392210b9468422890bda8200718da452941436a8f18",
+  "gpu_correctness_tests_passed": 5,
+  "default_f32_old_new_bitwise_equal": true,
+  "f64_cast_to_f32_matches_original": true,
+  "float64_dtype_and_shape_valid": true,
+  "f64_raw_shape": [
+    576,
+    3
+  ],
+  "f64_header_offset": 128,
+  "extra_precision_max_difference": 2.965578183022899e-08,
+  "complete_source_patch_sha256": "33f9f14beb50cb2aa5b7aa37c61f2868f04b15cd66461f0537751a1fb3aa5d2a",
+  "sampling_math_changed": false,
+  "default_output_dtype": "float32",
+  "explicit_flag": "--sample-dtype float64"
+}

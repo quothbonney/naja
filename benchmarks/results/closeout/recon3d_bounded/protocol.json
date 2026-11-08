@@ -1,0 +1,59 @@
+{
+  "frozen_utc": "2026-11-08T20:07:47.370789+00:00",
+  "source_commit": "fcc66fe63d5a6700786aebcf0b925374340e4c8b",
+  "exe": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/build-closeout/naja",
+  "binary_sha256": "5c01c66c90f46565eaafe0927265d135bcfa89af50a017df6c51de70044afe42",
+  "model": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/closeout/recon3d_bounded/model",
+  "source_model": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/Recon3D_nullspace_only",
+  "geometry_sha256": "8fed70ea2238e91ea05d95c46bdd3616474be087fa9d88e90891b146e88e2325",
+  "n": 10600,
+  "d": 4861,
+  "m": 18477,
+  "seed": 101,
+  "chains": 512,
+  "tpb": 128,
+  "barrier": "whiten",
+  "barrier_rotation_backend": "gpu",
+  "sample_dtype": "float64",
+  "pair_probability": 0,
+  "resync_interval": 0,
+  "host_prefault_threads": "auto; actual profile recorded",
+  "pilot": {
+    "warmup": 64,
+    "retained": 64,
+    "thinning": 810
+  },
+  "main": {
+    "warmup": 1000,
+    "retained": 800
+  },
+  "thinning_rule": "Median pooled reduced-coordinate lag1 after pilot warmup; desired=max(810,ceil(810*log(0.1)/log(clip(medianrho,0.001,0.9999)))). Budget cap uses pilot GPU-sampler seconds per transition, at most2700 main sampler seconds and reserves180s of the remaining3600s allocation. Choose min(desired,budgetcap), no parameter retuning after main.",
+  "budget": {
+    "gpu_count": 1,
+    "max_allocation_seconds": 3540,
+    "max_main_sampler_seconds": 2700,
+    "deadline_utc": "2026-11-08T22:00:00+00:00"
+  },
+  "criterion": {
+    "median_classical_split_rhat_max": 1.01,
+    "median_pooled_bulk_ess_min": 100,
+    "unmasked_bound_tolerance": 1e-07,
+    "mass_balance_tolerance": 1e-07
+  },
+  "memory": {
+    "native_main_elements": 4479897600,
+    "native_main_output_bytes": 35839180800,
+    "two_output_buffers_bytes": 71678361600,
+    "workspace_reserve_bytes": 8589934592
+  },
+  "preprocessing": {
+    "equality_elimination_seconds": 128.84173853695393,
+    "mve_round_seconds": 0,
+    "total_cached_preprocessing_seconds": 287.7203431595117,
+    "FVA_seconds": 134.29445984959602,
+    "strictly_inactive_inequality_rows_removed": 2723,
+    "zero_pruned_reactions": 0,
+    "minimum_original_reaction_FVA_width": 0.2
+  },
+  "scope": "One exploratory pilot-trained attempt on cached equality-only geometry. PolyRound library equality elimination was used; no iterative PolyRound rounding. No CPU sampling speedup or multi-seed convergence claim. All10600 reactions active, no new LP exclusions."
+}

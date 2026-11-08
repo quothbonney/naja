@@ -1,0 +1,58 @@
+{
+  "model": "iJR904",
+  "seed": 202,
+  "variant": "verified_f64_export",
+  "status": "complete",
+  "quality_met": true,
+  "strict_bounds_met": true,
+  "historical_float32_reproduced_bitwise": true,
+  "run_dir": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/precision_quality/iJR904/seed202",
+  "binary_sha256": "5e6968eb7d3cebf5f27c16d2662a2e640cc3f6b7a633b7e7ae3bc9136a99f3d5",
+  "sample_dtype": "float64",
+  "draws_per_chain": 20000,
+  "chains": 16,
+  "warmup": 1000,
+  "requested_thinning": 0,
+  "tpb": 128,
+  "wall_seconds": 5.558519970625639,
+  "native_process_wall_seconds": 4.427069444209337,
+  "sampling_phase_seconds": 2.7323,
+  "profile": {
+    "timestamp": "2026-11-08 04:08:45",
+    "config": {
+      "n_chains": 16,
+      "n_samples": 21000,
+      "reduced_dim": 232,
+      "original_dim": 232,
+      "constraints": 291,
+      "thinning": 50,
+      "seed": 202,
+      "sample_dtype": "float64",
+      "tpb_ss": 128,
+      "gpu_device": 0,
+      "back_transform": false
+    },
+    "timing": {
+      "load_polytope_s": 0.004,
+      "cube_center_lp_s": 0.0,
+      "barrier_rotation_s": 0.0776,
+      "upload_to_gpu_s": 0.0003,
+      "gpu_sampling_s": 2.7323,
+      "download_from_gpu_s": 0.3181,
+      "backtransform_s": 0.3202,
+      "write_output_s": 0.48,
+      "total_s": 3.948
+    },
+    "performance": {
+      "total_samples": 336000,
+      "throughput_samples_per_sec": 122973.0,
+      "sampling_fraction": 0.692
+    }
+  },
+  "split_rhat_median": 1.0070791632754665,
+  "bulk_ess_median": 2792.9048170605356,
+  "sample_bound_violation_fraction": 0.0,
+  "max_absolute_bound_violation": 1.995676281513558e-08,
+  "bounds_tolerance": 1e-07,
+  "precision_comparison": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/precision_quality/iJR904/seed202/precision_comparison.json"
+}

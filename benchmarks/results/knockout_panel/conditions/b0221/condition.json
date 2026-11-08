@@ -1,0 +1,107 @@
+{
+  "gene": "b0221",
+  "gene_name": "fadE",
+  "disabled_reaction_ids": [
+    "ACOAD1f",
+    "ACOAD2f",
+    "ACOAD3f",
+    "ACOAD4f",
+    "ACOAD5f",
+    "ACOAD6f",
+    "ACOAD7f",
+    "ACOAD8f"
+  ],
+  "knockout_reaction_ids": [
+    "ACOAD1f",
+    "ACOAD2f",
+    "ACOAD3f",
+    "ACOAD4f",
+    "ACOAD5f",
+    "ACOAD6f",
+    "ACOAD7f",
+    "ACOAD8f"
+  ],
+  "changed_bound_rows": 16,
+  "two_sided_encoding_rows": 16,
+  "stratum": "6-20",
+  "base_LP_varying_reactions": 8,
+  "base_LP_nearconstant_reactions": 0,
+  "all_affected_reactions_varying": true,
+  "base_point_max_KO_residual": 0.3517042176837272,
+  "base_point_weak_feasible_at_1e7": false,
+  "minimum_KO_T_row_norm": 0.06370109029682637,
+  "original_changed_bounds": {
+    "ACOAD1f": [
+      -1000.0,
+      1000.0
+    ],
+    "ACOAD2f": [
+      -1000.0,
+      1000.0
+    ],
+    "ACOAD3f": [
+      -1000.0,
+      1000.0
+    ],
+    "ACOAD4f": [
+      -1000.0,
+      1000.0
+    ],
+    "ACOAD5f": [
+      -1000.0,
+      1000.0
+    ],
+    "ACOAD6f": [
+      -1000.0,
+      1000.0
+    ],
+    "ACOAD7f": [
+      -1000.0,
+      1000.0
+    ],
+    "ACOAD8f": [
+      -1000.0,
+      1000.0
+    ]
+  },
+  "genes_with_identical_bound_change_signature": [
+    "b0221"
+  ],
+  "bound_change_signature": "191d03bff9f198ca201be2a54b13e85f4254da7dfcefd5ff52bc7c9814245a38",
+  "status": "precision_ambiguous",
+  "base_geometry_sha256": "07374999682cb82ef566c2a7ba4cd1ca44b0718ab81f421846e24d3b85f5e103",
+  "base_dimension": 581,
+  "base_point_weak_feasible": false,
+  "constraint_epsilon": 0.0,
+  "rank_relative_tolerance": 1e-12,
+  "validation_tolerance": 1e-07,
+  "geometry_directory": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/knockout_panel/conditions/b0221/models/shared",
+  "LPs": [],
+  "facial_reductions": [],
+  "reason": "Affine rank changes across1e-11/1e-12/1e-13; not released as exact same-target geometry",
+  "preparation_seconds": 0.04421152174472809,
+  "affine_rank_history": [
+    {
+      "rank": 8,
+      "singular_values": [
+        1.7386641864389982,
+        1.2165490942013266,
+        1.0034562874777249,
+        1.0022424275689825,
+        0.9940625078912614,
+        0.6631557083394742,
+        0.24021861001203387,
+        4.384230534783847e-12
+      ],
+      "relative_rank_threshold": 1e-12,
+      "ranks_at_1e11_1e12_1e13": [
+        7,
+        8,
+        8
+      ],
+      "scaled_equality_residual": 2.6645352591003757e-15,
+      "nullspace_residual": 2.220446049250313e-16,
+      "seconds": 0.004030600190162659
+    }
+  ]
+}

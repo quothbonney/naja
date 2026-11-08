@@ -1,0 +1,532 @@
+{
+  "gene": "b0494",
+  "gene_name": "tesA",
+  "disabled_reaction_ids": [
+    "LPLIPAL1A120pp",
+    "LPLIPAL1A140pp",
+    "LPLIPAL1A141pp",
+    "LPLIPAL1A160pp",
+    "LPLIPAL1A161pp",
+    "LPLIPAL1A180pp",
+    "LPLIPAL1A181pp",
+    "LPLIPAL1E120pp",
+    "LPLIPAL1E140pp",
+    "LPLIPAL1E141pp",
+    "LPLIPAL1E160pp",
+    "LPLIPAL1E161pp",
+    "LPLIPAL1E180pp",
+    "LPLIPAL1E181pp",
+    "LPLIPAL1G120pp",
+    "LPLIPAL1G140pp",
+    "LPLIPAL1G141pp",
+    "LPLIPAL1G160pp",
+    "LPLIPAL1G161pp",
+    "LPLIPAL1G180pp",
+    "LPLIPAL1G181pp"
+  ],
+  "knockout_reaction_ids": [
+    "LPLIPAL1A120pp",
+    "LPLIPAL1A140pp",
+    "LPLIPAL1A141pp",
+    "LPLIPAL1A160pp",
+    "LPLIPAL1A161pp",
+    "LPLIPAL1A180pp",
+    "LPLIPAL1A181pp",
+    "LPLIPAL1E120pp",
+    "LPLIPAL1E140pp",
+    "LPLIPAL1E141pp",
+    "LPLIPAL1E160pp",
+    "LPLIPAL1E161pp",
+    "LPLIPAL1E180pp",
+    "LPLIPAL1E181pp",
+    "LPLIPAL1G120pp",
+    "LPLIPAL1G140pp",
+    "LPLIPAL1G141pp",
+    "LPLIPAL1G160pp",
+    "LPLIPAL1G161pp",
+    "LPLIPAL1G180pp",
+    "LPLIPAL1G181pp"
+  ],
+  "changed_bound_rows": 21,
+  "two_sided_encoding_rows": 42,
+  "stratum": "21-50",
+  "base_LP_varying_reactions": 21,
+  "base_LP_nearconstant_reactions": 0,
+  "all_affected_reactions_varying": true,
+  "base_point_max_KO_residual": 0.11322361982729953,
+  "base_point_weak_feasible_at_1e7": false,
+  "minimum_KO_T_row_norm": 0.07057242900268779,
+  "original_changed_bounds": {
+    "LPLIPAL1A120pp": [
+      0.0,
+      1000.0
+    ],
+    "LPLIPAL1A140pp": [
+      0.0,
+      1000.0
+    ],
+    "LPLIPAL1A141pp": [
+      0.0,
+      1000.0
+    ],
+    "LPLIPAL1A160pp": [
+      0.0,
+      1000.0
+    ],
+    "LPLIPAL1A161pp": [
+      0.0,
+      1000.0
+    ],
+    "LPLIPAL1A180pp": [
+      0.0,
+      1000.0
+    ],
+    "LPLIPAL1A181pp": [
+      0.0,
+      1000.0
+    ],
+    "LPLIPAL1E120pp": [
+      0.0,
+      1000.0
+    ],
+    "LPLIPAL1E140pp": [
+      0.0,
+      1000.0
+    ],
+    "LPLIPAL1E141pp": [
+      0.0,
+      1000.0
+    ],
+    "LPLIPAL1E160pp": [
+      0.0,
+      1000.0
+    ],
+    "LPLIPAL1E161pp": [
+      0.0,
+      1000.0
+    ],
+    "LPLIPAL1E180pp": [
+      0.0,
+      1000.0
+    ],
+    "LPLIPAL1E181pp": [
+      0.0,
+      1000.0
+    ],
+    "LPLIPAL1G120pp": [
+      0.0,
+      1000.0
+    ],
+    "LPLIPAL1G140pp": [
+      0.0,
+      1000.0
+    ],
+    "LPLIPAL1G141pp": [
+      0.0,
+      1000.0
+    ],
+    "LPLIPAL1G160pp": [
+      0.0,
+      1000.0
+    ],
+    "LPLIPAL1G161pp": [
+      0.0,
+      1000.0
+    ],
+    "LPLIPAL1G180pp": [
+      0.0,
+      1000.0
+    ],
+    "LPLIPAL1G181pp": [
+      0.0,
+      1000.0
+    ]
+  },
+  "genes_with_identical_bound_change_signature": [
+    "b0494"
+  ],
+  "bound_change_signature": "b82e7322d248a1013a1fe35f9d52158e209b4f2dc2a2e99ea3aeee4f52754bba",
+  "status": "precision_ambiguous",
+  "base_geometry_sha256": "07374999682cb82ef566c2a7ba4cd1ca44b0718ab81f421846e24d3b85f5e103",
+  "base_dimension": 581,
+  "base_point_weak_feasible": false,
+  "constraint_epsilon": 0.0,
+  "rank_relative_tolerance": 1e-12,
+  "validation_tolerance": 1e-07,
+  "geometry_directory": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/knockout_panel/conditions/b0494/models/shared",
+  "LPs": [
+    {
+      "round": 0,
+      "model_construction_seconds": 0.00790269486606121,
+      "solve_seconds": 1.3834629394114017,
+      "pass_status": "HighsStatus.kOk",
+      "run_status": "HighsStatus.kOk",
+      "model_status": "HighsModelStatus.kOptimal",
+      "iterations": 1158,
+      "radius": -1.9323287724481335e-12,
+      "max_scaled_primal_violation": 6.001579233583243e-10
+    },
+    {
+      "round": 1,
+      "model_construction_seconds": 0.007826253771781921,
+      "solve_seconds": 1.3746137246489525,
+      "pass_status": "HighsStatus.kOk",
+      "run_status": "HighsStatus.kOk",
+      "model_status": "HighsModelStatus.kOptimal",
+      "iterations": 1088,
+      "radius": 1.9531229370442265e-12,
+      "max_scaled_primal_violation": 4.1602310485444605e-10
+    },
+    {
+      "round": 2,
+      "model_construction_seconds": 0.007620213553309441,
+      "solve_seconds": 1.4330601412802935,
+      "pass_status": "HighsStatus.kOk",
+      "run_status": "HighsStatus.kOk",
+      "model_status": "HighsModelStatus.kOptimal",
+      "iterations": 1084,
+      "radius": 0.242672895690426,
+      "max_scaled_primal_violation": 3.478421994884684e-10
+    }
+  ],
+  "facial_reductions": [
+    {
+      "iteration": 0,
+      "nonnegative": true,
+      "weight_sum": 1.0,
+      "dual_A_cancellation_inf": 1.94346522593949e-12,
+      "dual_b_cancellation_abs": 8.35004798864293e-11,
+      "support_base_rows": [
+        26,
+        115,
+        116,
+        334,
+        336,
+        368,
+        370
+      ],
+      "support_weights": [
+        0.015860325126397276,
+        0.009608134322534136,
+        0.00810023391732775,
+        0.10794259612666571,
+        0.15690291290609099,
+        0.32487307928640013,
+        0.37671271822270497
+      ],
+      "interpretation": "Positive dual support is universally tight by nonnegative slack cancellation; not merely active at one vertex."
+    },
+    {
+      "iteration": 1,
+      "nonnegative": true,
+      "weight_sum": 1.0,
+      "dual_A_cancellation_inf": 2.270421604607121e-12,
+      "dual_b_cancellation_abs": 7.394980007928155e-11,
+      "support_base_rows": [
+        88,
+        289
+      ],
+      "support_weights": [
+        0.49999999994527017,
+        0.49999999994519934
+      ],
+      "interpretation": "Positive dual support is universally tight by nonnegative slack cancellation; not merely active at one vertex."
+    }
+  ],
+  "projected_point_strict_interior": false,
+  "interior_method": "normalized_Chebyshev_LP_after_exact_affine_reduction",
+  "conditional_dimension": 552,
+  "rows": 738,
+  "affine_rank": 29,
+  "affine_rank_history": [
+    {
+      "rank": 21,
+      "singular_values": [
+        1.0230527977398847,
+        1.0230527976341046,
+        1.0230527976103243,
+        1.0230350687069483,
+        1.0230043902466501,
+        1.022985452623226,
+        1.018161001730935,
+        1.018161001664278,
+        1.0181610016393359,
+        1.0181522911595509,
+        1.0181349113683107,
+        1.01812495654118,
+        1.0058494444842556,
+        0.9802207687977782,
+        0.9801950706981172,
+        0.9801519472266009,
+        0.9801284413092838,
+        0.9801284412798346,
+        0.980128441123711,
+        0.9508547946860532,
+        0.9058465978222974
+      ],
+      "relative_rank_threshold": 1e-12,
+      "ranks_at_1e11_1e12_1e13": [
+        21,
+        21,
+        21
+      ],
+      "scaled_equality_residual": 1.5543122344752192e-15,
+      "nullspace_residual": 3.3306690738754696e-16,
+      "seconds": 0.00473967008292675
+    },
+    {
+      "rank": 27,
+      "singular_values": [
+        1.3969696816682482,
+        1.0865637003589153,
+        1.044148906386535,
+        1.0230527977398858,
+        1.023052797634103,
+        1.023052797610325,
+        1.0230350608522387,
+        1.023004357476142,
+        1.0229854482975371,
+        1.0181610017309353,
+        1.018161001664279,
+        1.0181610016393356,
+        1.0181522903981688,
+        1.0181349070251078,
+        1.018124956183395,
+        1.0020863216097826,
+        1.0013824189603533,
+        1.0007867591477952,
+        0.9857182291058747,
+        0.9802207621842584,
+        0.9801950103024012,
+        0.9801519346372305,
+        0.9801284413092827,
+        0.9801284412798337,
+        0.9801284411237106,
+        0.9224367105373109,
+        0.8264239613776734,
+        8.194474171833342e-13
+      ],
+      "relative_rank_threshold": 1e-12,
+      "ranks_at_1e11_1e12_1e13": [
+        27,
+        27,
+        28
+      ],
+      "scaled_equality_residual": 9.621192731401607e-13,
+      "nullspace_residual": 5.668588631802494e-13,
+      "seconds": 0.0061311256140470505
+    },
+    {
+      "rank": 29,
+      "singular_values": [
+        1.452589875697801,
+        1.2535022015323116,
+        1.0637600290652263,
+        1.0437697072286023,
+        1.0230527977398844,
+        1.023052797634103,
+        1.023052797610324,
+        1.0230350607077636,
+        1.0230043568464566,
+        1.0229854482180287,
+        1.0181610017309346,
+        1.0181610016642788,
+        1.0181610016393352,
+        1.0181522900936633,
+        1.018134905319427,
+        1.0181249560408654,
+        1.0062795298020584,
+        1.0018032109994557,
+        1.0013623422475528,
+        1.000761123230052,
+        0.9812967383845068,
+        0.9802207360033532,
+        0.9801947672794692,
+        0.9801518869357968,
+        0.9801284413092829,
+        0.9801284412798352,
+        0.9801284411237102,
+        0.9223287661090181,
+        1.871688051967138e-12,
+        7.487497830558982e-13
+      ],
+      "relative_rank_threshold": 1e-12,
+      "ranks_at_1e11_1e12_1e13": [
+        28,
+        29,
+        30
+      ],
+      "scaled_equality_residual": 9.467981954003335e-13,
+      "nullspace_residual": 5.274250071516003e-13,
+      "seconds": 0.00640462338924408
+    }
+  ],
+  "strict_interior_radius": 0.242672895690426,
+  "min_raw_start_slack": 4.1200757278657706e-14,
+  "certified_affine_constant_base_rows": [
+    {
+      "base_row": 26,
+      "projected_norm": 5.695317972618384e-16,
+      "original_norm": 0.028811719744454123,
+      "constant_bound": 9.853229343548264e-16,
+      "normalized_constant_bound": 3.4198685225809477e-14
+    },
+    {
+      "base_row": 88,
+      "projected_norm": 7.949006658063902e-16,
+      "original_norm": 0.04403579103517789,
+      "constant_bound": -1.4085954624931674e-15,
+      "normalized_constant_bound": -3.1987513551599746e-14
+    },
+    {
+      "base_row": 115,
+      "projected_norm": 8.415057444102993e-17,
+      "original_norm": 0.0174549732062639,
+      "constant_bound": 1.3877787807814457e-16,
+      "normalized_constant_bound": 7.950621088799075e-15
+    },
+    {
+      "base_row": 116,
+      "projected_norm": 1.4766988332869682e-16,
+      "original_norm": 0.014714606549065262,
+      "constant_bound": 2.498001805406602e-16,
+      "normalized_constant_bound": 1.697634114155289e-14
+    },
+    {
+      "base_row": 289,
+      "projected_norm": 2.153009826847765e-14,
+      "original_norm": 0.229246767627516,
+      "constant_bound": -3.957945082788683e-14,
+      "normalized_constant_bound": -1.7264998428329505e-13
+    },
+    {
+      "base_row": 334,
+      "projected_norm": 1.1140469351163506e-14,
+      "original_norm": 0.2033727430226193,
+      "constant_bound": 2.120525977034049e-14,
+      "normalized_constant_bound": 1.0426795378366914e-13
+    },
+    {
+      "base_row": 336,
+      "projected_norm": 5.605488004093006e-14,
+      "original_norm": 0.28746205819127363,
+      "constant_bound": 1.0064171718227044e-13,
+      "normalized_constant_bound": 3.5010435052025094e-13
+    },
+    {
+      "base_row": 368,
+      "projected_norm": 2.362840292846403e-13,
+      "original_norm": 0.5901620543156735,
+      "constant_bound": 4.1866510258614653e-13,
+      "normalized_constant_bound": 7.09407017148218e-13
+    },
+    {
+      "base_row": 370,
+      "projected_norm": 4.1016537305090294e-13,
+      "original_norm": 0.7776726428319826,
+      "constant_bound": 7.364109322338663e-13,
+      "normalized_constant_bound": 9.469420572030706e-13
+    },
+    {
+      "base_row": 405,
+      "projected_norm": 4.152851623714896e-13,
+      "original_norm": 0.3460489061992297,
+      "constant_bound": 6.858957846134217e-13,
+      "normalized_constant_bound": 1.9820775974900293e-12
+    },
+    {
+      "base_row": 616,
+      "projected_norm": 1.811312743648682e-13,
+      "original_norm": 0.11322361860886727,
+      "constant_bound": 9.686695889854491e-15,
+      "normalized_constant_bound": 8.555366812040631e-14
+    },
+    {
+      "base_row": 617,
+      "projected_norm": 2.0117425044902353e-13,
+      "original_norm": 0.11320874475844767,
+      "constant_bound": -2.2734591986761643e-13,
+      "normalized_constant_bound": -2.0082010480082796e-12
+    }
+  ],
+  "no_bound_epsilon_relaxation": true,
+  "source": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/knockout_panel/conditions/b0494/conditional_model.json",
+  "source_sha256": "b4f082dadb514b5db01c354ccf4ad209faf5379a0e289829a9140eb58c33d2a7",
+  "geometry_sha256": "8b1451f2b70efa3826d8c54f9ff402627ef2b1656ca96b0ce2abe0b605cc2890",
+  "embedding": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/knockout_panel/conditions/b0494/embedding.npz",
+  "effective_affine_face_signature_rounded_1e10": "927939b4860e5b68e1874730674b30119e48173f38ad2b8202538c3271d9d7ba",
+  "fixed_reaction_ids": [
+    "EX_glyc3p_e",
+    "EX_etha_e",
+    "EX_g3pe_e",
+    "EX_g3pg_e",
+    "ETHAt2pp",
+    "ETHAtex",
+    "G3PEabcpp",
+    "G3PGabcpp",
+    "GLYC3Pabcpp",
+    "GLYC3Pt6pp",
+    "GLYC3Ptex",
+    "GPDDA2pp",
+    "GPDDA4pp",
+    "LPLIPAL1A120pp",
+    "LPLIPAL1A140pp",
+    "LPLIPAL1A141pp",
+    "LPLIPAL1A160pp",
+    "LPLIPAL1A161pp",
+    "LPLIPAL1A180pp",
+    "LPLIPAL1A181pp",
+    "LPLIPAL1E120pp",
+    "LPLIPAL1E140pp",
+    "LPLIPAL1E141pp",
+    "LPLIPAL1E160pp",
+    "LPLIPAL1E161pp",
+    "LPLIPAL1E180pp",
+    "LPLIPAL1E181pp",
+    "LPLIPAL1G120pp",
+    "LPLIPAL1G140pp",
+    "LPLIPAL1G141pp",
+    "LPLIPAL1G160pp",
+    "LPLIPAL1G161pp",
+    "LPLIPAL1G180pp",
+    "LPLIPAL1G181pp",
+    "PLIPA2A120pp",
+    "PLIPA2A140pp",
+    "PLIPA2A141pp",
+    "PLIPA2A160pp",
+    "PLIPA2A161pp",
+    "PLIPA2A180pp",
+    "PLIPA2A181pp",
+    "PLIPA2E120pp",
+    "PLIPA2E140pp",
+    "PLIPA2E141pp",
+    "PLIPA2E160pp",
+    "PLIPA2E161pp",
+    "PLIPA2E180pp",
+    "PLIPA2E181pp",
+    "PLIPA2G120pp",
+    "PLIPA2G140pp",
+    "PLIPA2G141pp",
+    "PLIPA2G160pp",
+    "PLIPA2G161pp",
+    "PLIPA2G180pp",
+    "PLIPA2G181pp"
+  ],
+  "containment_proof": {
+    "retained_A_max_error": 0.0,
+    "retained_b_max_error": 0.0,
+    "dropped_rows": "Equality-span residual and constant-bound certificates recorded; numerical rank contract explicit."
+  },
+  "validation": {
+    "points": 33,
+    "max_original_bound_violation": 1.2286999054948168e-12,
+    "max_base_Az_minus_b_violation": 1.8617052344183094e-13,
+    "max_KO_flux_residual": 1.9129968088806236e-14
+  },
+  "preparation_seconds": 4.989309322088957,
+  "LP_solve_seconds": 4.191136805340648,
+  "LP_calls": 3,
+  "previous_status": "ready",
+  "sampling_eligible": false,
+  "reason": "Rank varies across1e-11/1e-12/1e-13 thresholds; point checks do not establish same-target affine equivalence. Retained for audit, excluded from sampling-ready list."
+}

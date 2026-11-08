@@ -1,0 +1,16 @@
+{
+  "status": "running",
+  "gene": "b0009",
+  "order": [
+    "rotate",
+    "off"
+  ],
+  "draws": 10000,
+  "cuda_uuid": "GPU-cf3f7f93-1940-2c2a-2cec-d30c96879dd0",
+  "cuda_visible_devices": "0",
+  "job": "949",
+  "protocol_sha256": "673a3840961c1ef5454993e1db85681f939cd145f17fcb306bdc84aa4ba61081",
+  "source_sha256": "9c02894f4febe2f5745c34d9c4a3a088ff44bfafc6b17f492f3e39ed2b8ccd93",
+  "started_utc": "2026-11-08T19:49:45.552303+00:00",
+  "runs": []
+}

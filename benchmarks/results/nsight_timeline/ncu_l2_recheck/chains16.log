@@ -1,0 +1,20 @@
+> validate model contract
+> write generated config
+model :: iJO1366
+output :: /mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/nsight_timeline/ncu_l2_recheck/native16/iJO1366_20261108_001
+bounds :: ignore
+> sampling
+==WARNING== Note: Running with unmodified GPU clocks. If not controlled otherwise, profiling results may be inconsistent.
+==PROF== Connected to process 4067093 (/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/build-h100-safe/naja)
+> loading polytope
+> barrier rotation (eigenbasis of H)
+> uploading to gpu
+> sampling 16 chains x 1200 samples (thin=96, 1843200 MCMC steps, 750 constraints x 581 dims)
+> gpu sampling
+==PROF== Profiling "chrKernel": 0%....50%....100% - 4 passes
+> gpu back-transform
+> downloading
+> done: 3.2s, 6020 samples/s
+> writing npy
+==PROF== Disconnected from process 4067093
+==PROF== Report: /mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/nsight_timeline/ncu_l2_recheck/chains16.ncu-rep

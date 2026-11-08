@@ -1,0 +1,12 @@
+{
+  "hopsy_version": "1.7.0",
+  "shape": [
+    2,
+    64,
+    3
+  ],
+  "full_vs_chunked_bitwise_equal": true,
+  "serial_vs_parallel_single_call_bitwise_equal": true,
+  "different_chain_outputs": true,
+  "parallel_multichunk_caveat": "Second parallel call failed hopsy model unpickling in a separate audit; current benchmark wrappers use one full chunk."
+}

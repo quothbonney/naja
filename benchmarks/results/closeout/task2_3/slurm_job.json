@@ -1,0 +1,20 @@
+{
+  "job": "952",
+  "argv": [
+    "sbatch",
+    "--parsable",
+    "--chdir=/mnt/home/jordan+123/history-native-20261015-r5",
+    "--deadline=2026-11-08T22:00:00",
+    "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/scripts/closeout_task2_3.sbatch",
+    "--binary",
+    "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/build-closeout/naja",
+    "--commit",
+    "fcc66fe63d5a6700786aebcf0b925374340e4c8b",
+    "--stage",
+    "both"
+  ],
+  "production_commit": "fcc66fe63d5a6700786aebcf0b925374340e4c8b",
+  "binary_sha256": "5c01c66c90f46565eaafe0927265d135bcfa89af50a017df6c51de70044afe42",
+  "correctness_test_binary_hash_verified": true,
+  "maximum_reserved_GPU_hours": 0.75
+}

@@ -1,0 +1,27 @@
+{
+  "model": "iAF1260",
+  "method": "gpu",
+  "seed": 303,
+  "chains": 16,
+  "warmup": 1000,
+  "thinning": 1000,
+  "tpb": 512,
+  "status": "complete",
+  "started_utc": "2026-11-08T03:32:44.664567+00:00",
+  "note": "Actual fresh selected-budget process time excludes pilot/search/diagnostics. Median split Rhat<=1.01 and bulk ESS>=100; bound metrics are independent. Fixed retained warmup1000 implies differing warmup moves.",
+  "pilot_process_seconds": 31.961642486974597,
+  "selected_draws": 5000,
+  "pilot_and_selection_seconds": 89.29578130319715,
+  "measured": {
+    "draws_per_chain": 5000,
+    "wall_seconds": 17.299183558672667,
+    "split_rhat_median": 1.0043073989724767,
+    "bulk_ess_median": 4427.076575717054,
+    "quality_met": true,
+    "sample_bound_violation_fraction": 0.0,
+    "max_absolute_bound_violation": 6.1970938549757215e-09,
+    "bounds_tolerance": 1e-07,
+    "run_dir": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/larger_quality/iAF1260/gpu/seed303/final"
+  },
+  "finished_utc": "2026-11-08T03:34:47.410589+00:00"
+}

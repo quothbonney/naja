@@ -1,0 +1,15 @@
+NAJA_BARRIER_STAGE {"name":"barrier.cpu_slack","seconds":0.00063227300000000004}
+NAJA_BARRIER_STAGE {"name":"barrier.upload_A","seconds":0.0015651409999999999}
+NAJA_BARRIER_STAGE {"name":"barrier.cublas_create","seconds":0.013881022999999999}
+NAJA_BARRIER_STAGE {"name":"barrier.hessian_syrk","seconds":0.026888001000000002}
+NAJA_BARRIER_STAGE {"name":"barrier.download_H","seconds":0.0038574759999999999}
+NAJA_BARRIER_STAGE {"name":"barrier.cpu_mirror_H","seconds":0.0026926110000000001}
+NAJA_BARRIER_STAGE {"name":"barrier.upload_H","seconds":0.00088472799999999999}
+NAJA_BARRIER_STAGE {"name":"barrier.cusolver_create","seconds":0.0034732270000000002}
+NAJA_BARRIER_STAGE {"name":"barrier.eigensolve_and_wait","seconds":0.039561433}
+NAJA_BARRIER_STAGE {"name":"barrier.download_Q","seconds":0.0034343450000000001}
+NAJA_BARRIER_STAGE {"name":"barrier.compute_eigenbasis","seconds":0.099846694999999999}
+NAJA_BARRIER_STAGE {"name":"barrier.cpu_rotate_A","seconds":0.40590177900000002}
+NAJA_BARRIER_STAGE {"name":"barrier.cpu_rotate_start","seconds":0.00035078699999999997}
+NAJA_BARRIER_STAGE {"name":"barrier.rotated_feasibility","seconds":0.00082067499999999999}
+NAJA_BARRIER_STAGE {"name":"barrier.total","seconds":0.50781155300000003}

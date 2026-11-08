@@ -1,0 +1,121 @@
+{
+  "method": "naja",
+  "status": "failed_backend_errors",
+  "command": [
+    "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/build-h100/naja",
+    "sample",
+    "run",
+    "--model-dir",
+    "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/iJO1366",
+    "--out-root",
+    "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/scaling-extension/iJO1366/chains512_tpb128/native",
+    "--gpu",
+    "0",
+    "--n-chains",
+    "512",
+    "--n-samples",
+    "11000",
+    "--seed",
+    "101",
+    "--tpb",
+    "128",
+    "--thinning",
+    "0",
+    "--constraint-eps",
+    "0",
+    "--extra-constraint-eps",
+    "0",
+    "--pair-prob",
+    "0.0",
+    "--bounds-policy",
+    "ignore",
+    "--write-npy",
+    "--barrier-rotate"
+  ],
+  "started_utc": "2026-11-07T23:49:02.755916+00:00",
+  "seed": 101,
+  "model": "iJO1366",
+  "model_dir": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/iJO1366",
+  "chains": 512,
+  "draws": 10000,
+  "warmup": 1000,
+  "barrier": "rotate",
+  "pair_probability": 0.0,
+  "pair_schedule_method": null,
+  "requested_thinning": 0,
+  "exe_sha256": "c7baf4f0ed282b936ac0dbac4b896bfbfc040eb06da6f84aff6605fddf4b0fc6",
+  "samples": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/scaling-extension/iJO1366/chains512_tpb128/samples.npy",
+  "notes": [
+    "All wall sampling time includes discarded warmup.",
+    "Reduced-space native path; no GPU backmap; external reaction-space diagnostics.",
+    "Dikin may auto-enable when extra constraints exist; unconditioned models have none.",
+    "Auto thinning is a pre-sampling geometry heuristic, not online adaptation."
+  ],
+  "returncode": 0,
+  "wall_seconds": 12.28839711099863,
+  "profile": {
+    "timestamp": "2026-11-07 23:49:14",
+    "config": {
+      "n_chains": 512,
+      "n_samples": 11000,
+      "reduced_dim": 581,
+      "original_dim": 581,
+      "constraints": 750,
+      "thinning": 96,
+      "seed": 101,
+      "tpb_ss": 128,
+      "gpu_device": 0,
+      "back_transform": false
+    },
+    "timing": {
+      "load_polytope_s": 0.0146,
+      "cube_center_lp_s": 0.0,
+      "barrier_rotation_s": 0.1481,
+      "upload_to_gpu_s": 0.0012,
+      "gpu_sampling_s": 0.2154,
+      "download_from_gpu_s": 0.0,
+      "backtransform_s": 0.0001,
+      "write_output_s": 11.0371,
+      "total_s": 11.7559
+    },
+    "performance": {
+      "total_samples": 5632000,
+      "throughput_samples_per_sec": 26143595.6,
+      "sampling_fraction": 0.018
+    }
+  },
+  "profile_path": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/scaling-extension/iJO1366/chains512_tpb128/native/iJO1366_20261107_001/profile.json",
+  "raw_samples": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/scaling-extension/iJO1366/chains512_tpb128/native/iJO1366_20261107_001/samples.npy",
+  "native_shape": [
+    5632000,
+    581
+  ],
+  "native_dtype": "float32",
+  "native_layout": "draw-major interleaved chains; columns are reduced coordinates",
+  "analysis_shape": [
+    512,
+    10000,
+    581
+  ],
+  "analysis_layout": "chain, draw, reduced_coordinate",
+  "warmup_retained_draws_discarded_per_chain": 1000,
+  "normalization_seconds": 22.661347476765513,
+  "wall_including_normalization_seconds": 34.949744587764144,
+  "finished_utc": "2026-11-07T23:49:37.720236+00:00",
+  "backend_error_logs": [
+    {
+      "log": "benchmarks/results/scaling-extension/iJO1366/chains512_tpb128/stderr.log",
+      "errors": [
+        "CUDA Error: out of memory at /mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/naja/src/gpu/dmatrix.cu:46",
+        "CUDA Error: out of memory at /mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/naja/src/gpu/dmatrix.cu:27",
+        "CUDA Error: an illegal memory access was encountered at /mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/naja/src/gpu/curandwrapper.h:16",
+        "cuBLAS Error: the library was not initialized at /mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/naja/src/engine/job_sampling.cu:597",
+        "CUDA Error: an illegal memory access was encountered at /mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/naja/src/gpu/dmatrix.cu:46",
+        "cuBLAS Error: the library was not initialized at /mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/naja/src/engine/job_sampling.cu:612",
+        "CUDA Error: an illegal memory access was encountered at /mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/naja/src/gpu/dmatrix.cu:114"
+      ]
+    }
+  ],
+  "performance_valid": false,
+  "failure_analysis": "Signed32-bit rows*cols overflows before size_t byte conversion; CUDA allocation fails and error macros only log; retained arrays are invalid."
+}

@@ -1,0 +1,100 @@
+{
+  "model": "Recon3D",
+  "updated_utc": "2026-11-08T03:40:13.819878+00:00",
+  "attempts": [
+    {
+      "attempt": "original",
+      "slurm_job_id": "150_6",
+      "status": "RUNNING",
+      "elapsed": "04:16:48",
+      "start": "2026-11-07T23:23:25",
+      "end": "Unknown",
+      "exit_code": "0:0",
+      "log": "benchmarks/logs/prep-150_6.log",
+      "model_dir": "benchmarks/data/models/Recon3D"
+    },
+    {
+      "attempt": "full_parallel_FVA",
+      "slurm_job_id": "363",
+      "status": "COMPLETED",
+      "elapsed": "00:02:24",
+      "start": "2026-11-08T00:13:51",
+      "end": "2026-11-08T00:16:15",
+      "exit_code": "0:0",
+      "log": "benchmarks/logs/zero-prune-363.log",
+      "model_dir": null
+    },
+    {
+      "attempt": "zero_pruned_default_noop",
+      "slurm_job_id": "367",
+      "status": "CANCELLED by 100154",
+      "elapsed": "00:01:33",
+      "start": "2026-11-08T00:16:15",
+      "end": "2026-11-08T00:17:48",
+      "exit_code": "0:0",
+      "log": "benchmarks/logs/zero-prune-367.log",
+      "model_dir": "benchmarks/data/models/Recon3D_zero_fva_default",
+      "note": "Cancelled: full FVA certified no zero reactions, so these duplicate candidates offered no variable reduction."
+    },
+    {
+      "attempt": "zero_pruned_presolve_noop",
+      "slurm_job_id": "368",
+      "status": "CANCELLED by 100154",
+      "elapsed": "00:01:22",
+      "start": "2026-11-08T00:16:26",
+      "end": "2026-11-08T00:17:48",
+      "exit_code": "0:0",
+      "log": "benchmarks/logs/zero-prune-368.log",
+      "model_dir": "benchmarks/data/models/Recon3D_zero_fva_presolve",
+      "note": "Cancelled: full FVA certified no zero reactions, so these duplicate candidates offered no variable reduction."
+    },
+    {
+      "attempt": "FVA_faces_upstream_assembly",
+      "slurm_job_id": "386",
+      "status": "CANCELLED",
+      "elapsed": "00:14:41",
+      "start": "2026-11-08T00:24:32",
+      "end": "2026-11-08T00:39:13",
+      "exit_code": "0:15",
+      "log": "benchmarks/logs/zero-prune-386.log",
+      "model_dir": "benchmarks/data/models/Recon3D_zero_fva_faces",
+      "note": "Replaced by opt-in exact-value bulk CSR assembly after coefficient equivalence and full core validation."
+    },
+    {
+      "attempt": "FVA_faces_bulk_assembly",
+      "slurm_job_id": "401",
+      "status": "TIMEOUT",
+      "elapsed": "03:00:07",
+      "start": "2026-11-08T00:39:14",
+      "end": "2026-11-08T03:39:21",
+      "exit_code": "0:0",
+      "log": "benchmarks/logs/zero-prune-401.log",
+      "model_dir": "benchmarks/data/models/Recon3D_zero_fva_faces_fast"
+    }
+  ],
+  "original_bounds_unchanged": true,
+  "FVA_precision": 1e-09,
+  "inactive_face_margin": 0.001,
+  "proof_note": "benchmarks/audit/zero_pruning.md",
+  "bulk_assembly_evidence": "benchmarks/audit/fast_sparse_assembly.json",
+  "FVA": {
+    "source": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/raw/Recon3D.json",
+    "source_sha256": "aba925f17547a42f9fdb4c1f685d89364cbf4979bbe7862e9f793af7169b26d5",
+    "solver": "glpk",
+    "feasibility_tolerance": 1e-09,
+    "objective_zero": true,
+    "fraction_of_optimum": 0.0,
+    "open_exchanges": false,
+    "loopless": false,
+    "bounds_modified": false,
+    "workers": 16,
+    "zero_cutoff": 1e-09,
+    "zero_reactions": 0,
+    "n": 10600,
+    "nonfinite_reactions": 0,
+    "wall_seconds": 134.29445984959602,
+    "hostname": "slurm-h100-206-077",
+    "status": "completed",
+    "optimization_status_note": "COBRApy checks each LP status; job completed without solver warnings/errors, all 21200 returned bounds finite. Per-LP status strings are not returned by the public FVA API."
+  }
+}

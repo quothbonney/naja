@@ -1,0 +1,129 @@
+{
+  "method": "naja",
+  "status": "complete",
+  "command": [
+    "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/build-h100-safe/naja",
+    "sample",
+    "run",
+    "--model-dir",
+    "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/iJO1366",
+    "--out-root",
+    "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/scaling-extension-safe/iJO1366/chains512_tpb512/native",
+    "--gpu",
+    "0",
+    "--n-chains",
+    "512",
+    "--n-samples",
+    "11000",
+    "--seed",
+    "101",
+    "--tpb",
+    "512",
+    "--thinning",
+    "0",
+    "--constraint-eps",
+    "0",
+    "--extra-constraint-eps",
+    "0",
+    "--pair-prob",
+    "0.0",
+    "--bounds-policy",
+    "ignore",
+    "--write-npy",
+    "--barrier-rotate"
+  ],
+  "started_utc": "2026-11-08T00:04:49.597166+00:00",
+  "seed": 101,
+  "model": "iJO1366",
+  "model_dir": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/iJO1366",
+  "chains": 512,
+  "draws": 10000,
+  "warmup": 1000,
+  "barrier": "rotate",
+  "pair_probability": 0.0,
+  "pair_schedule_method": null,
+  "requested_thinning": 0,
+  "exe_sha256": "da263d6060416d96da366392210b9468422890bda8200718da452941436a8f18",
+  "samples": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/scaling-extension-safe/iJO1366/chains512_tpb512/samples.npy",
+  "notes": [
+    "All wall sampling time includes discarded warmup.",
+    "Reduced-space native path; no GPU backmap; external reaction-space diagnostics.",
+    "Dikin may auto-enable when extra constraints exist; unconditioned models have none.",
+    "Auto thinning is a pre-sampling geometry heuristic, not online adaptation."
+  ],
+  "wide_index_proof": {
+    "binary_sha256": "da263d6060416d96da366392210b9468422890bda8200718da452941436a8f18",
+    "frozen_binary_sha256": "c7baf4f0ed282b936ac0dbac4b896bfbfc040eb06da6f84aff6605fddf4b0fc6",
+    "wide_index_build_verified": true,
+    "large_matrix_runtime_validated": false,
+    "gpu_correctness_tests_passed": 5,
+    "same_seed_original_samples_bitwise_equal": true,
+    "shape": [
+      4,
+      128,
+      3
+    ],
+    "source_change": "Cast-only DMatrix allocation/copy sizes and IDX2C offset products to size_t before multiplication.",
+    "patch_sha256": "81bc604f276602c95895f6d6f9953a9e2c605a3ea4c312f4b745a3d19acd36ee",
+    "scope": "Reduced-output path; per-axis int dimensions and sample-step counters still limited; large backmap, native validate, and float64 NPY readers not widened."
+  },
+  "wide_index_proof_path": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/safe-build-verification/wide-index-proof.json",
+  "preflight": {
+    "dimension": 581,
+    "native_matrix_elements": 3272192000,
+    "matrix_element_limit": 9223372036854775807,
+    "per_axis_signed_int_limit": 2147483647
+  },
+  "preflight_seconds": 0.20781013928353786,
+  "returncode": 0,
+  "wall_seconds": 35.16546006500721,
+  "profile": {
+    "timestamp": "2026-11-08 00:05:23",
+    "config": {
+      "n_chains": 512,
+      "n_samples": 11000,
+      "reduced_dim": 581,
+      "original_dim": 581,
+      "constraints": 750,
+      "thinning": 96,
+      "seed": 101,
+      "tpb_ss": 512,
+      "gpu_device": 0,
+      "back_transform": false
+    },
+    "timing": {
+      "load_polytope_s": 0.0145,
+      "cube_center_lp_s": 0.0,
+      "barrier_rotation_s": 0.1461,
+      "upload_to_gpu_s": 0.0013,
+      "gpu_sampling_s": 11.1568,
+      "download_from_gpu_s": 12.7179,
+      "backtransform_s": 12.8363,
+      "write_output_s": 9.3981,
+      "total_s": 33.8857
+    },
+    "performance": {
+      "total_samples": 5632000,
+      "throughput_samples_per_sec": 504803.2,
+      "sampling_fraction": 0.329
+    }
+  },
+  "profile_path": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/scaling-extension-safe/iJO1366/chains512_tpb512/native/iJO1366_20261108_001/profile.json",
+  "raw_samples": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/scaling-extension-safe/iJO1366/chains512_tpb512/native/iJO1366_20261108_001/samples.npy",
+  "native_shape": [
+    5632000,
+    581
+  ],
+  "native_dtype": "float32",
+  "native_layout": "draw-major interleaved chains; columns are reduced coordinates",
+  "analysis_shape": [
+    512,
+    10000,
+    581
+  ],
+  "analysis_layout": "chain, draw, reduced_coordinate",
+  "warmup_retained_draws_discarded_per_chain": 1000,
+  "normalization_seconds": 21.83914478123188,
+  "wall_including_normalization_seconds": 57.00460484623909,
+  "finished_utc": "2026-11-08T00:05:46.825928+00:00"
+}

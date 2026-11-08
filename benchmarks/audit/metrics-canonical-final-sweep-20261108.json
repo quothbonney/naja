@@ -1,0 +1,18 @@
+[
+  {
+    "run": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/naja/iAF1260/seed202/run.json",
+    "model": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/iAF1260"
+  },
+  {
+    "run": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/naja/iML1515/seed101/run.json",
+    "model": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/iML1515"
+  },
+  {
+    "run": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/naja/iML1515/seed202/run.json",
+    "model": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/iML1515"
+  },
+  {
+    "run": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/hopsy/iJO1366/default/seed303/run.json",
+    "model": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/iJO1366"
+  }
+]

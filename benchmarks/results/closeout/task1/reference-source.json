@@ -1,0 +1,7 @@
+{
+  "base_commit": "23873f01d3268a79bbf84499a66adce5e88cc6cb",
+  "seed": 101,
+  "only_source_change": "Derived seed replaced by constant101; original public commit has no --seed flag.",
+  "patch_sha256": "c9f227b0e1bf6e7c624c534ef0ca7f22482f941320013823e4b671d49eb61339",
+  "job_sampling_sha256": "0e7d4591da9d3cca284fa19422ec131e7a9f613b1058fa02684106577a2cb71e"
+}

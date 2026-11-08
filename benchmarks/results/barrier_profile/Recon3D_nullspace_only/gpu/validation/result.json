@@ -1,0 +1,262 @@
+{
+  "model": "Recon3D_nullspace_only",
+  "barrier": "whiten",
+  "mode": "gpu",
+  "role": "validation",
+  "binary_sha256": "8a9387cb0339b83132191a43b9e04d86a28d9381287cdc22c8dac1bb2214b54f",
+  "command": [
+    "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/build-h100-barrier-profile/naja",
+    "sample",
+    "run",
+    "--model-dir",
+    "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/Recon3D_nullspace_only",
+    "--out-root",
+    "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/barrier_profile/Recon3D_nullspace_only/gpu/validation/native",
+    "--gpu",
+    "0",
+    "--n-chains",
+    "16",
+    "--n-samples",
+    "8",
+    "--seed",
+    "101",
+    "--tpb",
+    "128",
+    "--thinning",
+    "1",
+    "--constraint-eps",
+    "0",
+    "--extra-constraint-eps",
+    "0",
+    "--pair-prob",
+    "0",
+    "--bounds-policy",
+    "ignore",
+    "--write-npy",
+    "--sample-dtype",
+    "float64",
+    "--host-prefault-threads",
+    "8",
+    "--barrier-whiten"
+  ],
+  "launched_command": [
+    "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/env-cpu/bin/python",
+    "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/scripts/nsight_timed_exec.py",
+    "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/barrier_profile/Recon3D_nullspace_only/gpu/validation/target-wall.json",
+    "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/build-h100-barrier-profile/naja",
+    "sample",
+    "run",
+    "--model-dir",
+    "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/Recon3D_nullspace_only",
+    "--out-root",
+    "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/barrier_profile/Recon3D_nullspace_only/gpu/validation/native",
+    "--gpu",
+    "0",
+    "--n-chains",
+    "16",
+    "--n-samples",
+    "8",
+    "--seed",
+    "101",
+    "--tpb",
+    "128",
+    "--thinning",
+    "1",
+    "--constraint-eps",
+    "0",
+    "--extra-constraint-eps",
+    "0",
+    "--pair-prob",
+    "0",
+    "--bounds-policy",
+    "ignore",
+    "--write-npy",
+    "--sample-dtype",
+    "float64",
+    "--host-prefault-threads",
+    "8",
+    "--barrier-whiten"
+  ],
+  "target_wall": {
+    "command": [
+      "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/build-h100-barrier-profile/naja",
+      "sample",
+      "run",
+      "--model-dir",
+      "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/Recon3D_nullspace_only",
+      "--out-root",
+      "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/barrier_profile/Recon3D_nullspace_only/gpu/validation/native",
+      "--gpu",
+      "0",
+      "--n-chains",
+      "16",
+      "--n-samples",
+      "8",
+      "--seed",
+      "101",
+      "--tpb",
+      "128",
+      "--thinning",
+      "1",
+      "--constraint-eps",
+      "0",
+      "--extra-constraint-eps",
+      "0",
+      "--pair-prob",
+      "0",
+      "--bounds-policy",
+      "ignore",
+      "--write-npy",
+      "--sample-dtype",
+      "float64",
+      "--host-prefault-threads",
+      "8",
+      "--barrier-whiten"
+    ],
+    "returncode": 0,
+    "target_wall_seconds": 98.61721167713404,
+    "start_epoch_ns": 1794111674559333510,
+    "end_epoch_ns": 1794111773176548737
+  },
+  "outer_command_wall_seconds": 98.79277780652046,
+  "profile": {
+    "timestamp": "2026-11-08 04:22:52",
+    "config": {
+      "n_chains": 16,
+      "n_samples": 8,
+      "reduced_dim": 4861,
+      "original_dim": 4861,
+      "constraints": 18477,
+      "thinning": 1,
+      "seed": 101,
+      "sample_dtype": "float64",
+      "host_prefault_threads": 8,
+      "tpb_ss": 128,
+      "gpu_device": 0,
+      "back_transform": false
+    },
+    "timing": {
+      "load_polytope_s": 1.507,
+      "cube_center_lp_s": 0.0,
+      "barrier_rotation_s": 95.9283,
+      "upload_to_gpu_s": 0.0798,
+      "gpu_sampling_s": 0.0079,
+      "download_from_gpu_s": 0.0023,
+      "backtransform_s": 0.0038,
+      "write_output_s": 0.0155,
+      "total_s": 98.0015
+    },
+    "performance": {
+      "total_samples": 128,
+      "throughput_samples_per_sec": 16245.9,
+      "sampling_fraction": 0.0
+    }
+  },
+  "stages": [
+    {
+      "name": "barrier.cpu_slack",
+      "seconds": 0.044709311
+    },
+    {
+      "name": "barrier.upload_A",
+      "seconds": 0.113113232
+    },
+    {
+      "name": "barrier.cublas_create",
+      "seconds": 0.01472107
+    },
+    {
+      "name": "barrier.hessian_syrk",
+      "seconds": 0.03903285
+    },
+    {
+      "name": "barrier.download_H",
+      "seconds": 0.093317709
+    },
+    {
+      "name": "barrier.cpu_mirror_H",
+      "seconds": 0.047321495
+    },
+    {
+      "name": "barrier.upload_H",
+      "seconds": 0.016491458
+    },
+    {
+      "name": "barrier.cusolver_create",
+      "seconds": 0.003816496
+    },
+    {
+      "name": "barrier.eigensolve_and_wait",
+      "seconds": 0.2271442
+    },
+    {
+      "name": "barrier.download_Q",
+      "seconds": 0.091416502
+    },
+    {
+      "name": "barrier.compute_eigenbasis",
+      "seconds": 0.700192216
+    },
+    {
+      "name": "rotation.upload_A",
+      "seconds": 0.061855742
+    },
+    {
+      "name": "rotation.dgemm_and_wait",
+      "seconds": 0.020476685
+    },
+    {
+      "name": "rotation.download_A",
+      "seconds": 0.350436709
+    },
+    {
+      "name": "rotation.validation_not_for_timing",
+      "seconds": 94.491178556
+    },
+    {
+      "name": "barrier.gpu_rotate_A",
+      "seconds": 94.992549943
+    },
+    {
+      "name": "barrier.cpu_rotate_start",
+      "seconds": 0.023469258
+    },
+    {
+      "name": "barrier.rotated_feasibility",
+      "seconds": 0.043749137
+    },
+    {
+      "name": "barrier.whiten",
+      "seconds": 0.102280783
+    },
+    {
+      "name": "barrier.total",
+      "seconds": 95.936722111
+    }
+  ],
+  "algebra_validation": [
+    {
+      "relative_frobenius": 2.3961190686687063e-15,
+      "maximum_absolute": 6.106226635438361e-15
+    }
+  ],
+  "run_dir": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/barrier_profile/Recon3D_nullspace_only/gpu/validation",
+  "exploratory_no_mve": true,
+  "slurm_job_id": "520",
+  "timing_eligible": false,
+  "feasibility": {
+    "checked_samples": 128,
+    "all_samples": true,
+    "max_original_bound_violation": 0.0,
+    "max_reduced_Az_minus_b_violation": 0.0,
+    "bound_violation_fraction": {
+      "0.0": 0.0,
+      "1e-07": 0.0,
+      "1e-06": 0.0
+    },
+    "declared_tolerance": 1e-07,
+    "declared_bounds_passed": true,
+    "no_filtering_or_clipping": true,
+    "scope": "Short feasibility test, no convergence inference."
+  }
+}

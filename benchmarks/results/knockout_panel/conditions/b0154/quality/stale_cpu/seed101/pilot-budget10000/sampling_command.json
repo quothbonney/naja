@@ -1,0 +1,29 @@
+{
+  "command": [
+    "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/env-cpu-native/bin/python",
+    "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/scripts/timed_cpu_baseline.py",
+    "sample",
+    "--model",
+    "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/knockout_panel/conditions/b0154/models/shared",
+    "--out",
+    "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/knockout_panel/conditions/b0154/quality/stale_cpu/seed101/pilot-budget10000",
+    "--seed",
+    "101",
+    "--chains",
+    "16",
+    "--draws",
+    "10000",
+    "--warmup",
+    "1000",
+    "--thinning",
+    "2000",
+    "--workers",
+    "16",
+    "--chunk",
+    "11000",
+    "--build-variant",
+    "native"
+  ],
+  "external_process_seconds": 24.16470279172063,
+  "orchestration_sha256": "0b62609c89b00df619b2212d3d39a4df88fbaa7520461f78f508c7283a38e620"
+}

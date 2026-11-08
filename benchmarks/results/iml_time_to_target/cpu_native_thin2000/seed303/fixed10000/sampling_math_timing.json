@@ -1,0 +1,115 @@
+{
+  "status": "complete",
+  "chain_tasks": 16,
+  "worker_count": 16,
+  "worker_draw_critical_path_seconds": 15.394697551,
+  "worker_draw_cpu_critical_path_seconds": 15.386523467,
+  "total_worker_draw_thread_cpu_seconds": 241.107627602,
+  "workers": {
+    "4106772": {
+      "draw_call_wall_seconds": 15.048270188,
+      "draw_call_thread_cpu_seconds": 15.040520938,
+      "chain_tasks": 1
+    },
+    "4106773": {
+      "draw_call_wall_seconds": 15.052889279,
+      "draw_call_thread_cpu_seconds": 15.046412262,
+      "chain_tasks": 1
+    },
+    "4106774": {
+      "draw_call_wall_seconds": 15.074034158,
+      "draw_call_thread_cpu_seconds": 15.067437373,
+      "chain_tasks": 1
+    },
+    "4106775": {
+      "draw_call_wall_seconds": 15.080054286,
+      "draw_call_thread_cpu_seconds": 15.072427517,
+      "chain_tasks": 1
+    },
+    "4106776": {
+      "draw_call_wall_seconds": 15.394697551,
+      "draw_call_thread_cpu_seconds": 15.386523467,
+      "chain_tasks": 1
+    },
+    "4106777": {
+      "draw_call_wall_seconds": 15.05164008,
+      "draw_call_thread_cpu_seconds": 15.043047316,
+      "chain_tasks": 1
+    },
+    "4106778": {
+      "draw_call_wall_seconds": 15.067441979,
+      "draw_call_thread_cpu_seconds": 15.060913454,
+      "chain_tasks": 1
+    },
+    "4106779": {
+      "draw_call_wall_seconds": 15.042372572,
+      "draw_call_thread_cpu_seconds": 15.035871848,
+      "chain_tasks": 1
+    },
+    "4106780": {
+      "draw_call_wall_seconds": 15.058319793,
+      "draw_call_thread_cpu_seconds": 15.049591795,
+      "chain_tasks": 1
+    },
+    "4106781": {
+      "draw_call_wall_seconds": 15.038660724,
+      "draw_call_thread_cpu_seconds": 15.032166254,
+      "chain_tasks": 1
+    },
+    "4106782": {
+      "draw_call_wall_seconds": 15.051400556,
+      "draw_call_thread_cpu_seconds": 15.044397127,
+      "chain_tasks": 1
+    },
+    "4106783": {
+      "draw_call_wall_seconds": 15.059344434,
+      "draw_call_thread_cpu_seconds": 15.052507405,
+      "chain_tasks": 1
+    },
+    "4106784": {
+      "draw_call_wall_seconds": 15.057229267,
+      "draw_call_thread_cpu_seconds": 15.050178289,
+      "chain_tasks": 1
+    },
+    "4106785": {
+      "draw_call_wall_seconds": 15.032105462,
+      "draw_call_thread_cpu_seconds": 15.025858458,
+      "chain_tasks": 1
+    },
+    "4106786": {
+      "draw_call_wall_seconds": 15.070021768,
+      "draw_call_thread_cpu_seconds": 15.062984125,
+      "chain_tasks": 1
+    },
+    "4106787": {
+      "draw_call_wall_seconds": 15.04477925,
+      "draw_call_thread_cpu_seconds": 15.036789974,
+      "chain_tasks": 1
+    }
+  },
+  "critical_path_definition": "Maximum over worker PIDs of accumulated MarkovChain.draw call durations. Gaps between tasks/calls, serialization and IPC are excluded; elapsed intervals include OS descheduling and Python binding/state-copy overhead. This is a compute critical-path proxy, not pure arithmetic-only time.",
+  "proof": {
+    "hopsy_misc_sha256": "23cc4f47b0fab9a33cb8ae76da3bf224a6fc2943e74b10b996944871d94c7dfe",
+    "instrumentation_module_sha256": "a01b0bfd384c37ad483abdc0840fc28611ce34132d654e91e1e794a09e0732ba",
+    "functions": {
+      "_sample_parallel_chain": {
+        "original_source_sha256": "19e00a31f68f821878e8a81367e164f32147a6f201b2942256512f4c20855b3c",
+        "original_ast_sha256": "7943adcf7e0a606d6558a3d78fd055d561288bb3de6c6fb56ee80ab2c5c0a29a",
+        "instrumented_ast_sha256": "1127cc60566e3aedd663b51598cb36a8b691a2e5bfc10aa5728f8740c3e1fe6f",
+        "instrumented_draw_call_sites": 1,
+        "transformation": "Original worker body preserved; timer statements around its one draw call site and one log emission before return."
+      },
+      "_sequential_sampling": {
+        "original_source_sha256": "773f61dc358432f3d262e71d70a78d9e2e75e98355c05672e7867b3c1828546a",
+        "original_ast_sha256": "c65b68471177c8cb84c6055ad406480bd1438689c56e288cf73605f4de618ce8",
+        "instrumented_ast_sha256": "6177a5348671c18b4267cc5513078a5b573de30f80cc150ba37622dc29b58f3b",
+        "instrumented_draw_call_sites": 1,
+        "transformation": "Original worker body preserved; timer statements around its one draw call site and one log emission before return."
+      }
+    }
+  },
+  "instrumented_wrapper_process_seconds": 24.267371213063598,
+  "unmodified_baseline_process_seconds": 21.382276635617018,
+  "hopsy_sample_phase_inclusive_seconds": 20.074460461735725,
+  "timing_note": "Wrapper process includes instrumentation/hopsy import setup. Unmodified baseline PROCESS_STARTED begins after those imports in this opt-in variant; use wrapper process for its full-process secondary timing."
+}

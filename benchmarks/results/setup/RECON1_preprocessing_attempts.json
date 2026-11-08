@@ -1,0 +1,202 @@
+{
+  "model": "RECON1",
+  "updated_utc": "2026-11-08T00:07:09.174012+00:00",
+  "source": "benchmarks/data/raw/RECON1.json",
+  "source_sha256": "c6cf6e625f065f761b29e4d0aaf492c2979a6e3d10e2f571ce25da461558746d",
+  "original_model_feasible": true,
+  "feasibility_evidence": "benchmarks/audit/recon1_feasibility.json",
+  "biological_bounds_modified": false,
+  "attempts": [
+    {
+      "attempt": "default_glpk",
+      "slurm_job_id": "150_5",
+      "backend": "glpk",
+      "settings": {
+        "presolve": false,
+        "reduce": true,
+        "feasibility_tolerance": 1e-09
+      },
+      "status": "failed",
+      "elapsed": "00:00:51",
+      "start_utc": "2026-11-07T23:22:58",
+      "end_utc": "2026-11-07T23:23:49",
+      "exit_code": "1:0",
+      "log": "benchmarks/logs/prep-150_5.log",
+      "model_dir": "benchmarks/data/models/RECON1",
+      "diagnostic_only": false,
+      "error": "ValueError: Optimization fails despite resetting"
+    },
+    {
+      "attempt": "glpk_presolve",
+      "slurm_job_id": "224",
+      "backend": "glpk",
+      "settings": {
+        "presolve": true,
+        "reduce": true,
+        "feasibility_tolerance": 1e-09
+      },
+      "status": "completed",
+      "elapsed": "00:26:00",
+      "start_utc": "2026-11-07T23:27:26",
+      "end_utc": "2026-11-07T23:53:26",
+      "exit_code": "0:0",
+      "log": "benchmarks/logs/recon1-presolve.log",
+      "model_dir": "benchmarks/data/models/RECON1",
+      "diagnostic_only": false,
+      "error": null
+    },
+    {
+      "attempt": "hybrid_initial_allocation",
+      "slurm_job_id": "258",
+      "backend": "hybrid",
+      "settings": {
+        "presolve": true,
+        "reduce": true,
+        "feasibility_tolerance": 1e-09
+      },
+      "status": "cancelled",
+      "elapsed": "00:02:08",
+      "start_utc": "2026-11-07T23:31:16",
+      "end_utc": "2026-11-07T23:33:24",
+      "exit_code": "0:0",
+      "log": "benchmarks/logs/recon1-hybrid-attempt30min.log",
+      "model_dir": "benchmarks/data/models/RECON1_hybrid",
+      "diagnostic_only": false,
+      "error": null,
+      "note": "Restarted after Slurm denied increasing a running 30-minute time limit; next allocation requested two hours."
+    },
+    {
+      "attempt": "hybrid_two_hour_retry",
+      "slurm_job_id": "277",
+      "backend": "hybrid",
+      "settings": {
+        "presolve": true,
+        "reduce": true,
+        "feasibility_tolerance": 1e-09
+      },
+      "status": "failed",
+      "elapsed": "00:00:14",
+      "start_utc": "2026-11-07T23:33:24",
+      "end_utc": "2026-11-07T23:33:38",
+      "exit_code": "1:0",
+      "log": "benchmarks/logs/recon1-hybrid.log",
+      "model_dir": "benchmarks/data/models/RECON1_hybrid",
+      "diagnostic_only": false,
+      "error": "ValueError: PolyRound does currently not support system reset for backend hybrid"
+    },
+    {
+      "attempt": "glpk_conservative",
+      "slurm_job_id": "292",
+      "backend": "glpk",
+      "settings": {
+        "presolve": false,
+        "reduce": false,
+        "feasibility_tolerance": 1e-09
+      },
+      "status": "timeout",
+      "elapsed": "00:20:24",
+      "start_utc": "2026-11-07T23:35:26",
+      "end_utc": "2026-11-07T23:55:50",
+      "exit_code": "0:0",
+      "log": "benchmarks/logs/recon1-conservative.log",
+      "model_dir": "benchmarks/data/models/RECON1_conservative",
+      "diagnostic_only": false,
+      "error": null
+    },
+    {
+      "attempt": "hybrid_failure_capture",
+      "slurm_job_id": "296",
+      "backend": "hybrid",
+      "settings": {
+        "presolve": true,
+        "reduce": true,
+        "feasibility_tolerance": 1e-09
+      },
+      "status": "failed",
+      "elapsed": "00:04:27",
+      "start_utc": "2026-11-07T23:36:05",
+      "end_utc": "2026-11-07T23:40:32",
+      "exit_code": "1:0",
+      "log": "benchmarks/logs/recon1-lp-capture.log",
+      "model_dir": "benchmarks/data/models/RECON1_capture",
+      "diagnostic_only": true,
+      "error": "ValueError: PolyRound does currently not support system reset for backend hybrid"
+    },
+    {
+      "attempt": "glpk_failure_capture",
+      "slurm_job_id": "323",
+      "backend": "glpk",
+      "settings": {
+        "presolve": false,
+        "reduce": true,
+        "feasibility_tolerance": 1e-09
+      },
+      "status": "failed",
+      "elapsed": "00:00:58",
+      "start_utc": "2026-11-07T23:40:12",
+      "end_utc": "2026-11-07T23:41:10",
+      "exit_code": "1:0",
+      "log": "benchmarks/logs/recon1-glpk-capture.log",
+      "model_dir": "benchmarks/data/models/RECON1_glpk_capture",
+      "diagnostic_only": true,
+      "error": "ValueError: Optimization fails despite resetting"
+    }
+  ],
+  "failed_lp_evidence": {
+    "hybrid": {
+      "optlang_status": "undefined",
+      "backend": "hybrid",
+      "native_status": "Unknown",
+      "variables": 3741,
+      "constraints": 9671,
+      "independent_status": 0,
+      "independent_success": true,
+      "independent_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "independent_wall_seconds": 0.22973923198878765,
+      "max_independent_inequality_violation": 6.187559229283739e-10,
+      "max_independent_equality_residual": 2.6193447411060333e-10
+    },
+    "glpk": {
+      "optlang_status": "infeasible",
+      "backend": "glpk",
+      "native_status": "None",
+      "variables": 3741,
+      "constraints": 10234,
+      "independent_status": 0,
+      "independent_success": true,
+      "independent_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "independent_wall_seconds": 0.21733559668064117,
+      "max_independent_inequality_violation": 5.820766091346741e-10,
+      "max_independent_equality_residual": 2.9103830456733704e-10
+    }
+  },
+  "published_validation": {
+    "status": "passed",
+    "errors": [],
+    "raw_sha256": "c6cf6e625f065f761b29e4d0aaf492c2979a6e3d10e2f571ce25da461558746d",
+    "model": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/RECON1",
+    "hostname": "slurm-h100-206-077",
+    "tolerance": 1e-06,
+    "n": 3741,
+    "d": 931,
+    "m": 2120,
+    "min_start_slack": 1044.7434296152915,
+    "max_start_bound_violation": 1.14054060341989e-07,
+    "max_S_shift": 2.867454895749688e-08,
+    "max_S_T": 6.2234505088312625e-09,
+    "pilot_chains": 2,
+    "pilot_draws": 64,
+    "pilot_thinning": 100,
+    "max_pilot_bound_violation": 1.528227219283102e-07,
+    "max_pilot_equality_residual": 4.1211023926734924e-08,
+    "preprocessing_backend": "glpk",
+    "strict_1e_minus_7_passed": false,
+    "strict_validation_file": "validation.strict1e-7.json",
+    "sample_metrics_bounds_tolerance": 1e-07,
+    "precision_caveat": "Preprocessing verification uses 1e-6; strict 1e-7 gate failed: center bound residual 1.14054e-7, pilot bound residual 1.52823e-7. Original bounds and bundle are unchanged; sample bound diagnostics retain 1e-7 and zero tolerance.",
+    "strict_errors": [
+      "original bounds or equality map residual exceeds tolerance",
+      "pilot original-space feasibility exceeds tolerance"
+    ]
+  }
+}

@@ -1,0 +1,198 @@
+{
+  "gene": "b4041",
+  "gene_name": "plsB",
+  "disabled_reaction_ids": [
+    "G3PAT120",
+    "G3PAT140",
+    "G3PAT141",
+    "G3PAT160",
+    "G3PAT161",
+    "G3PAT180",
+    "G3PAT181"
+  ],
+  "knockout_reaction_ids": [
+    "G3PAT120",
+    "G3PAT140",
+    "G3PAT141",
+    "G3PAT160",
+    "G3PAT161",
+    "G3PAT180",
+    "G3PAT181"
+  ],
+  "changed_bound_rows": 7,
+  "two_sided_encoding_rows": 14,
+  "stratum": "6-20",
+  "base_LP_varying_reactions": 7,
+  "base_LP_nearconstant_reactions": 0,
+  "all_affected_reactions_varying": true,
+  "base_point_max_KO_residual": 0.3051740203357977,
+  "base_point_weak_feasible_at_1e7": false,
+  "minimum_KO_T_row_norm": 0.3045513199711362,
+  "original_changed_bounds": {
+    "G3PAT120": [
+      0.0,
+      1000.0
+    ],
+    "G3PAT140": [
+      0.0,
+      1000.0
+    ],
+    "G3PAT141": [
+      0.0,
+      1000.0
+    ],
+    "G3PAT160": [
+      0.0,
+      1000.0
+    ],
+    "G3PAT161": [
+      0.0,
+      1000.0
+    ],
+    "G3PAT180": [
+      0.0,
+      1000.0
+    ],
+    "G3PAT181": [
+      0.0,
+      1000.0
+    ]
+  },
+  "genes_with_identical_bound_change_signature": [
+    "b4041"
+  ],
+  "bound_change_signature": "5b11e0cb7e938559fc9005f1254dd7f0c5389c12dc04ab764132d282835630dc",
+  "status": "ready",
+  "base_geometry_sha256": "07374999682cb82ef566c2a7ba4cd1ca44b0718ab81f421846e24d3b85f5e103",
+  "base_dimension": 581,
+  "base_point_weak_feasible": false,
+  "constraint_epsilon": 0.0,
+  "rank_relative_tolerance": 1e-12,
+  "validation_tolerance": 1e-07,
+  "geometry_directory": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/knockout_panel/conditions/b4041/models/shared",
+  "LPs": [],
+  "facial_reductions": [],
+  "initial_projection_strict_interior": true,
+  "projected_point_strict_interior": true,
+  "final_origin_strict_after_facial_reduction": true,
+  "interior_method": "analytic_projection_checked_all_normalized_constraints",
+  "conditional_dimension": 574,
+  "rows": 743,
+  "affine_rank": 7,
+  "affine_rank_history": [
+    {
+      "rank": 7,
+      "singular_values": [
+        1.0011538369020783,
+        1.0011538369007749,
+        1.0011538368987907,
+        1.001153645584152,
+        1.001153292602112,
+        1.001152858301193,
+        0.993050553365133
+      ],
+      "relative_rank_threshold": 1e-12,
+      "ranks_at_1e11_1e12_1e13": [
+        7,
+        7,
+        7
+      ],
+      "scaled_equality_residual": 1.1102230246251565e-15,
+      "nullspace_residual": 3.2612801348363973e-16,
+      "seconds": 0.003913603723049164,
+      "projected_origin_min_normalized_slack": 0.7764310848596716
+    }
+  ],
+  "strict_interior_radius": 0.7764310848596716,
+  "min_raw_start_slack": 2.528072260501201e-08,
+  "certified_affine_constant_base_rows": [
+    {
+      "base_row": 320,
+      "projected_norm": 2.0183752721904686e-16,
+      "original_norm": 0.3045513202415984,
+      "constant_bound": -1.6653345369377348e-16,
+      "normalized_constant_bound": -5.468157339185516e-16
+    },
+    {
+      "base_row": 321,
+      "projected_norm": 2.3071181988311963e-16,
+      "original_norm": 0.30455132058365875,
+      "constant_bound": -1.1102230246251565e-16,
+      "normalized_constant_bound": -3.6454382220292613e-16
+    },
+    {
+      "base_row": 322,
+      "projected_norm": 2.050236989903945e-16,
+      "original_norm": 0.3045513199711362,
+      "constant_bound": 5.551115123125783e-17,
+      "normalized_constant_bound": 1.8227191146805368e-16
+    },
+    {
+      "base_row": 323,
+      "projected_norm": 2.1088233611713234e-16,
+      "original_norm": 0.3051740150800719,
+      "constant_bound": -1.1102230246251565e-16,
+      "normalized_constant_bound": -3.637999861599799e-16
+    },
+    {
+      "base_row": 324,
+      "projected_norm": 1.9988374915425904e-16,
+      "original_norm": 0.30509755103568015,
+      "constant_bound": 1.1102230246251565e-16,
+      "normalized_constant_bound": 3.638911623041247e-16
+    },
+    {
+      "base_row": 325,
+      "projected_norm": 1.9548627865982548e-16,
+      "original_norm": 0.30455132054819767,
+      "constant_bound": 1.6653345369377348e-16,
+      "normalized_constant_bound": 5.4681573336805885e-16
+    },
+    {
+      "base_row": 328,
+      "projected_norm": 1.810243573574376e-16,
+      "original_norm": 0.30473892400595176,
+      "constant_bound": 0.0,
+      "normalized_constant_bound": 0.0
+    }
+  ],
+  "no_bound_epsilon_relaxation": true,
+  "source": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/knockout_panel/conditions/b4041/conditional_model.json",
+  "source_sha256": "80556018ce9875958b25ad1ffc782d43c0ec81ecc7e2d748feb2726fbcb17fcb",
+  "geometry_sha256": "49d0c2a7d0521b9e1faefa832c5bb902440864d3e07ffa52d6522252255e9bb7",
+  "embedding": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/knockout_panel/conditions/b4041/embedding.npz",
+  "effective_affine_face_signature_rounded_1e10": "02760ef4e708b119942a03364704ce815dd55d62b0c71f8570d37c0e9040fc2d",
+  "fixed_reaction_ids": [
+    "G3PAT120",
+    "G3PAT140",
+    "G3PAT141",
+    "G3PAT160",
+    "G3PAT161",
+    "G3PAT180",
+    "G3PAT181"
+  ],
+  "fixed_reaction_values": {
+    "G3PAT120": -1.6653345369377348e-16,
+    "G3PAT140": -1.1102230246251565e-16,
+    "G3PAT141": 5.551115123125783e-17,
+    "G3PAT160": -1.1102230246251565e-16,
+    "G3PAT161": 1.1102230246251565e-16,
+    "G3PAT180": 1.6653345369377348e-16,
+    "G3PAT181": 0.0
+  },
+  "containment_proof": {
+    "retained_A_max_error": 3.3881317890172014e-21,
+    "retained_b_max_error": 0.0,
+    "dropped_rows": "Equality-span residual and constant-bound certificates recorded; numerical rank contract explicit."
+  },
+  "validation": {
+    "points": 33,
+    "max_original_bound_violation": 1.4679633308417666e-12,
+    "max_base_Az_minus_b_violation": 3.3306690738754696e-16,
+    "max_KO_flux_residual": 1.6812316885093466e-16
+  },
+  "preparation_seconds": 0.5313463397324085,
+  "LP_solve_seconds": 0,
+  "LP_calls": 0,
+  "LP_skipped": true
+}

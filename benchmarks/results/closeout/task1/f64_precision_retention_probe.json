@@ -1,0 +1,28 @@
+{
+  "status": "passed",
+  "scope": "Deterministic4096-row retained subset; demonstrates real precision beyond widened FP32, not a full-array count.",
+  "cases": [
+    {
+      "label": "RECON1_reduced_f64",
+      "dtype": "float64",
+      "saved_rows_probed": [
+        16000,
+        20096
+      ],
+      "scalars_probed": 3813376,
+      "nonrepresentable_as_float32": 3813376,
+      "maximum_float32_roundtrip_difference": 2.383055921484356e-07
+    },
+    {
+      "label": "RECON1_reaction_f64",
+      "dtype": "float64",
+      "saved_rows_probed": [
+        16000,
+        20096
+      ],
+      "scalars_probed": 15323136,
+      "nonrepresentable_as_float32": 15323136,
+      "maximum_float32_roundtrip_difference": 0.031249928404577076
+    }
+  ]
+}

@@ -1,0 +1,281 @@
+{
+  "model": "iML1515",
+  "seed": 303,
+  "shape": [
+    16,
+    2000,
+    635
+  ],
+  "historical_run": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/larger_quality/iML1515/gpu/seed303/final",
+  "historical_binary_sha256": "c7baf4f0ed282b936ac0dbac4b896bfbfc040eb06da6f84aff6605fddf4b0fc6",
+  "new_binary_sha256": "5e6968eb7d3cebf5f27c16d2662a2e640cc3f6b7a633b7e7ae3bc9136a99f3d5",
+  "normalized_cast_to_float32_bit_mismatches": 0,
+  "normalized_cast_max_difference": 0.0,
+  "historical_float32_reproduced_bitwise": true,
+  "geometry_sha256": "edfd39e411b95db6e9326465c9fedb90de59642281b3755bd870d7967e6fb20b",
+  "no_filtering_or_clipping": true,
+  "representations": {
+    "float64_export": {
+      "sample_count": 32000,
+      "sample_bound_violation_fraction": {
+        "0.0": 1.0,
+        "1e-07": 0.0,
+        "1e-06": 0.0,
+        "1e-05": 0.0,
+        "0.001": 0.0
+      },
+      "nonexcluded_reaction_sample_violation_fraction": {
+        "0.0": 0.9929375,
+        "1e-07": 0.0,
+        "1e-06": 0.0,
+        "1e-05": 0.0,
+        "0.001": 0.0
+      },
+      "coordinate_bound_violation_fraction": {
+        "0.0": 0.13043630162241887,
+        "1e-07": 0.0,
+        "1e-06": 0.0,
+        "1e-05": 0.0,
+        "0.001": 0.0
+      },
+      "max_absolute_reaction_bound_violation": 9.740193604039784e-08,
+      "max_nonexcluded_reaction_bound_violation": 3.1215242096332034e-09,
+      "max_reduced_Az_minus_b_violation": 0.0,
+      "reduced_sample_violation_fraction_eps_1e9": 0.0,
+      "top_violations": [
+        {
+          "reaction": "EX_btn_e",
+          "max_violation": 9.740193604039784e-08,
+          "lp_mask_excluded": true
+        },
+        {
+          "reaction": "BIOMASS_Ec_iML1515_WT_75p37M",
+          "max_violation": 6.301117828430998e-09,
+          "lp_mask_excluded": true
+        },
+        {
+          "reaction": "I2FE2SS",
+          "max_violation": 3.1215242096332034e-09,
+          "lp_mask_excluded": false
+        },
+        {
+          "reaction": "COLIPAabctex",
+          "max_violation": 5.251742850566184e-11,
+          "lp_mask_excluded": true
+        },
+        {
+          "reaction": "EX_crn_e",
+          "max_violation": 3.897781252293584e-12,
+          "lp_mask_excluded": true
+        },
+        {
+          "reaction": "EX_fe3dhbzs_e",
+          "max_violation": 3.678605291829709e-12,
+          "lp_mask_excluded": true
+        },
+        {
+          "reaction": "SUCBZS",
+          "max_violation": 3.537257026238419e-12,
+          "lp_mask_excluded": true
+        },
+        {
+          "reaction": "EX_met__D_e",
+          "max_violation": 3.452501262672786e-12,
+          "lp_mask_excluded": true
+        },
+        {
+          "reaction": "EX_dms_e",
+          "max_violation": 3.430318584357213e-12,
+          "lp_mask_excluded": true
+        },
+        {
+          "reaction": "EX_ump_e",
+          "max_violation": 3.3641797026607962e-12,
+          "lp_mask_excluded": true
+        },
+        {
+          "reaction": "SHCHCS3",
+          "max_violation": 3.3298118178137365e-12,
+          "lp_mask_excluded": true
+        },
+        {
+          "reaction": "EX_feoxam_un_e",
+          "max_violation": 3.282075370557049e-12,
+          "lp_mask_excluded": true
+        },
+        {
+          "reaction": "SUCBZL",
+          "max_violation": 3.2440750772399163e-12,
+          "lp_mask_excluded": true
+        },
+        {
+          "reaction": "EX_glyb_e",
+          "max_violation": 3.1975032767205623e-12,
+          "lp_mask_excluded": true
+        },
+        {
+          "reaction": "AAMYL",
+          "max_violation": 3.132920182068788e-12,
+          "lp_mask_excluded": true
+        },
+        {
+          "reaction": "SEPHCHCS",
+          "max_violation": 3.0787689688914065e-12,
+          "lp_mask_excluded": true
+        },
+        {
+          "reaction": "EX_fecrm_un_e",
+          "max_violation": 2.9948679077403306e-12,
+          "lp_mask_excluded": true
+        },
+        {
+          "reaction": "DHNAOT4",
+          "max_violation": 2.9947674241162067e-12,
+          "lp_mask_excluded": true
+        },
+        {
+          "reaction": "DHNCOAT",
+          "max_violation": 2.980420971703641e-12,
+          "lp_mask_excluded": true
+        },
+        {
+          "reaction": "OMMBLHXy",
+          "max_violation": 2.926662073969521e-12,
+          "lp_mask_excluded": true
+        }
+      ]
+    },
+    "paired_float32_quantization": {
+      "sample_count": 32000,
+      "sample_bound_violation_fraction": {
+        "0.0": 1.0,
+        "1e-07": 3.125e-05,
+        "1e-06": 3.125e-05,
+        "1e-05": 0.0,
+        "0.001": 0.0
+      },
+      "nonexcluded_reaction_sample_violation_fraction": {
+        "0.0": 0.9929375,
+        "1e-07": 3.125e-05,
+        "1e-06": 3.125e-05,
+        "1e-05": 0.0,
+        "0.001": 0.0
+      },
+      "coordinate_bound_violation_fraction": {
+        "0.0": 0.13043631314528023,
+        "1e-07": 1.1522861356932154e-08,
+        "1e-06": 1.1522861356932154e-08,
+        "1e-05": 0.0,
+        "0.001": 0.0
+      },
+      "max_absolute_reaction_bound_violation": 3.0012861316208728e-06,
+      "max_nonexcluded_reaction_bound_violation": 3.0012861316208728e-06,
+      "max_reduced_Az_minus_b_violation": 3.0012862453077105e-06,
+      "reduced_sample_violation_fraction_eps_1e9": 3.125e-05,
+      "top_violations": [
+        {
+          "reaction": "INDOLEt2pp",
+          "max_violation": 3.0012861316208728e-06,
+          "lp_mask_excluded": false
+        },
+        {
+          "reaction": "EX_btn_e",
+          "max_violation": 9.740193774406594e-08,
+          "lp_mask_excluded": true
+        },
+        {
+          "reaction": "BIOMASS_Ec_iML1515_WT_75p37M",
+          "max_violation": 6.301117824237556e-09,
+          "lp_mask_excluded": true
+        },
+        {
+          "reaction": "I2FE2SS",
+          "max_violation": 3.1214871273032667e-09,
+          "lp_mask_excluded": false
+        },
+        {
+          "reaction": "COLIPAabctex",
+          "max_violation": 5.2517428471612055e-11,
+          "lp_mask_excluded": true
+        },
+        {
+          "reaction": "EX_crn_e",
+          "max_violation": 3.897781237769215e-12,
+          "lp_mask_excluded": true
+        },
+        {
+          "reaction": "EX_fe3dhbzs_e",
+          "max_violation": 3.678605340400199e-12,
+          "lp_mask_excluded": true
+        },
+        {
+          "reaction": "SUCBZS",
+          "max_violation": 3.5372570390788326e-12,
+          "lp_mask_excluded": true
+        },
+        {
+          "reaction": "EX_met__D_e",
+          "max_violation": 3.4525012483690785e-12,
+          "lp_mask_excluded": true
+        },
+        {
+          "reaction": "EX_dms_e",
+          "max_violation": 3.430318587797636e-12,
+          "lp_mask_excluded": true
+        },
+        {
+          "reaction": "EX_ump_e",
+          "max_violation": 3.364179701014062e-12,
+          "lp_mask_excluded": true
+        },
+        {
+          "reaction": "SHCHCS3",
+          "max_violation": 3.3298118363158645e-12,
+          "lp_mask_excluded": true
+        },
+        {
+          "reaction": "EX_feoxam_un_e",
+          "max_violation": 3.282075376627575e-12,
+          "lp_mask_excluded": true
+        },
+        {
+          "reaction": "SUCBZL",
+          "max_violation": 3.244075091380498e-12,
+          "lp_mask_excluded": true
+        },
+        {
+          "reaction": "EX_glyb_e",
+          "max_violation": 3.1975032607299404e-12,
+          "lp_mask_excluded": true
+        },
+        {
+          "reaction": "AAMYL",
+          "max_violation": 3.1329202093124737e-12,
+          "lp_mask_excluded": true
+        },
+        {
+          "reaction": "SEPHCHCS",
+          "max_violation": 3.078768991705592e-12,
+          "lp_mask_excluded": true
+        },
+        {
+          "reaction": "EX_fecrm_un_e",
+          "max_violation": 2.9948679026146805e-12,
+          "lp_mask_excluded": true
+        },
+        {
+          "reaction": "DHNAOT4",
+          "max_violation": 2.994767428938182e-12,
+          "lp_mask_excluded": true
+        },
+        {
+          "reaction": "DHNCOAT",
+          "max_violation": 2.9804209825436393e-12,
+          "lp_mask_excluded": true
+        }
+      ]
+    }
+  },
+  "analysis_wall_seconds": 6.547526067122817,
+  "causal_protocol": "Same GPU F64 points, T@Z64+shift versus T@float64(float32(Z64))+shift; compare cast coordinates to historical frozen F32 output."
+}

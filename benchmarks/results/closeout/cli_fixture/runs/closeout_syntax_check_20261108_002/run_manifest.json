@@ -1,0 +1,30 @@
+{
+  "argv": ["naja", "sample", "bulk", "--models-root", "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/closeout/cli_fixture/models", "--model-list", "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/closeout/cli_fixture/prepared.txt", "--out-root", "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/closeout/cli_fixture/runs", "--name", "closeout_syntax_check", "--gpus", "0", "--seed", "101", "--sample-dtype", "float64", "--n-chains", "16", "--n-samples", "11000", "--tpb", "512", "--thinning", "1000", "--start-policy", "file", "--extra-constraints", "auto", "--constraint-eps", "0", "--barrier-rotate", "--backmap", "--bounds-policy", "filter", "--bounds-eps", "1e-7", "--write-npy", "--dry-run"],
+  "model_dir": null,
+  "engine": {
+    "path": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/build-closeout/naja",
+    "sha256": "5c01c66c90f46565eaafe0927265d135bcfa89af50a017df6c51de70044afe42",
+    "size": 6719088
+  },
+  "config": {
+    "gpu_device": 0,
+    "n_chains": 16,
+    "n_samples": 11000,
+    "tpb_ss": 512,
+    "back_transform": true,
+    "write_data": true,
+    "bounds_policy": "filter",
+    "bounds_eps": 1e-07,
+    "write_samples_valid": false
+  },
+  "resolved_paths": {
+    "model_dir": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/closeout/cli_fixture/models/closeout_syntax_check",
+    "A": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/closeout/cli_fixture/models/closeout_syntax_check/rounding/closeout_syntax_check_rounding_A.csv",
+    "b": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/closeout/cli_fixture/models/closeout_syntax_check/rounding/closeout_syntax_check_rounding_b.csv",
+    "start": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/closeout/cli_fixture/models/closeout_syntax_check/rounding/closeout_syntax_check_rounding_start.csv",
+    "T": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/closeout/cli_fixture/models/closeout_syntax_check/rounding/closeout_syntax_check_rounding_T.csv",
+    "shift": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/closeout/cli_fixture/models/closeout_syntax_check/rounding/closeout_syntax_check_rounding_shift.csv",
+    "extra_A": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/closeout/cli_fixture/models/closeout_syntax_check/rounding/closeout_syntax_check_rounding_extra_A.csv",
+    "extra_b": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/closeout/cli_fixture/models/closeout_syntax_check/rounding/closeout_syntax_check_rounding_extra_b.csv"
+  }
+}

@@ -1,0 +1,286 @@
+{
+  "created_utc": "2026-11-08T03:15:44Z",
+  "job_id": "421",
+  "reserved_logical_cpus": 32,
+  "allowed_logical_cpus": [
+    3,
+    5,
+    7,
+    9,
+    11,
+    13,
+    15,
+    17,
+    19,
+    21,
+    23,
+    25,
+    27,
+    29,
+    31,
+    33,
+    67,
+    69,
+    71,
+    73,
+    75,
+    77,
+    79,
+    81,
+    83,
+    85,
+    87,
+    89,
+    91,
+    93,
+    95,
+    97
+  ],
+  "allowed_physical_core_count": 16,
+  "topology": [
+    {
+      "cpu": 3,
+      "socket": 1,
+      "core": 19,
+      "siblings": "3,67"
+    },
+    {
+      "cpu": 5,
+      "socket": 1,
+      "core": 8,
+      "siblings": "5,69"
+    },
+    {
+      "cpu": 7,
+      "socket": 1,
+      "core": 27,
+      "siblings": "7,71"
+    },
+    {
+      "cpu": 9,
+      "socket": 1,
+      "core": 2,
+      "siblings": "9,73"
+    },
+    {
+      "cpu": 11,
+      "socket": 1,
+      "core": 22,
+      "siblings": "11,75"
+    },
+    {
+      "cpu": 13,
+      "socket": 1,
+      "core": 12,
+      "siblings": "13,77"
+    },
+    {
+      "cpu": 15,
+      "socket": 1,
+      "core": 29,
+      "siblings": "15,79"
+    },
+    {
+      "cpu": 17,
+      "socket": 1,
+      "core": 4,
+      "siblings": "17,81"
+    },
+    {
+      "cpu": 19,
+      "socket": 1,
+      "core": 24,
+      "siblings": "19,83"
+    },
+    {
+      "cpu": 21,
+      "socket": 1,
+      "core": 9,
+      "siblings": "21,85"
+    },
+    {
+      "cpu": 23,
+      "socket": 1,
+      "core": 31,
+      "siblings": "23,87"
+    },
+    {
+      "cpu": 25,
+      "socket": 1,
+      "core": 1,
+      "siblings": "25,89"
+    },
+    {
+      "cpu": 27,
+      "socket": 1,
+      "core": 18,
+      "siblings": "27,91"
+    },
+    {
+      "cpu": 29,
+      "socket": 1,
+      "core": 13,
+      "siblings": "29,93"
+    },
+    {
+      "cpu": 31,
+      "socket": 1,
+      "core": 26,
+      "siblings": "31,95"
+    },
+    {
+      "cpu": 33,
+      "socket": 1,
+      "core": 3,
+      "siblings": "33,97"
+    },
+    {
+      "cpu": 67,
+      "socket": 1,
+      "core": 19,
+      "siblings": "3,67"
+    },
+    {
+      "cpu": 69,
+      "socket": 1,
+      "core": 8,
+      "siblings": "5,69"
+    },
+    {
+      "cpu": 71,
+      "socket": 1,
+      "core": 27,
+      "siblings": "7,71"
+    },
+    {
+      "cpu": 73,
+      "socket": 1,
+      "core": 2,
+      "siblings": "9,73"
+    },
+    {
+      "cpu": 75,
+      "socket": 1,
+      "core": 22,
+      "siblings": "11,75"
+    },
+    {
+      "cpu": 77,
+      "socket": 1,
+      "core": 12,
+      "siblings": "13,77"
+    },
+    {
+      "cpu": 79,
+      "socket": 1,
+      "core": 29,
+      "siblings": "15,79"
+    },
+    {
+      "cpu": 81,
+      "socket": 1,
+      "core": 4,
+      "siblings": "17,81"
+    },
+    {
+      "cpu": 83,
+      "socket": 1,
+      "core": 24,
+      "siblings": "19,83"
+    },
+    {
+      "cpu": 85,
+      "socket": 1,
+      "core": 9,
+      "siblings": "21,85"
+    },
+    {
+      "cpu": 87,
+      "socket": 1,
+      "core": 31,
+      "siblings": "23,87"
+    },
+    {
+      "cpu": 89,
+      "socket": 1,
+      "core": 1,
+      "siblings": "25,89"
+    },
+    {
+      "cpu": 91,
+      "socket": 1,
+      "core": 18,
+      "siblings": "27,91"
+    },
+    {
+      "cpu": 93,
+      "socket": 1,
+      "core": 13,
+      "siblings": "29,93"
+    },
+    {
+      "cpu": 95,
+      "socket": 1,
+      "core": 26,
+      "siblings": "31,95"
+    },
+    {
+      "cpu": 97,
+      "socket": 1,
+      "core": 3,
+      "siblings": "33,97"
+    }
+  ],
+  "selected_logical_cpus": [
+    3,
+    5,
+    7,
+    9,
+    11,
+    13,
+    15,
+    17,
+    19,
+    21,
+    23,
+    25,
+    27,
+    29,
+    31,
+    33
+  ],
+  "selected_physical_core_count": 16,
+  "selection": "one hardware thread per unique socket/core, round robin sockets",
+  "pilot_only": true,
+  "status": "completed",
+  "selected_budget_provenance": {
+    "model": "iAB_RBC_283",
+    "build": "wheel",
+    "draws": 250,
+    "thinning": "jadebeck",
+    "label": "physical16_wheel_jade",
+    "seed": 303,
+    "prior_run": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/quality/iAB_RBC_283/cpu_jade16/seed303/final-budget250",
+    "quality_json": "benchmarks/results/quality/iAB_RBC_283/cpu_jade16/seed303/quality.json",
+    "quality_sha256": "294551ff05342aac7c441a26d30e1355024e5d8bd2568a7487d6e1965c58a6a6",
+    "expected_thinning": 2817
+  },
+  "actual_python_affinity": [
+    3,
+    5,
+    7,
+    9,
+    11,
+    13,
+    15,
+    17,
+    19,
+    21,
+    23,
+    25,
+    27,
+    29,
+    31,
+    33
+  ]
+}

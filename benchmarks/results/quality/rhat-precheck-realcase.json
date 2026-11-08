@@ -1,0 +1,9 @@
+{
+  "old_full_median_rhat": 1.0183590327659904,
+  "new_streaming_median_rhat": 1.0183590327659904,
+  "absolute_difference": 0.0,
+  "new_precheck_seconds": 16.131320267915726,
+  "same_diagnosed_reaction_count": true,
+  "same_bound_violation_fraction": true,
+  "note": "Utility equivalence check on existing retained samples, executed on development shell; not sampler benchmark timing."
+}

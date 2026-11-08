@@ -1,0 +1,7 @@
+{
+  "unique_ready": 51,
+  "nontrivial_ready": 50,
+  "LP_skip_fraction_in_valid_nontrivial_subset": 0.42,
+  "median_preparation_seconds": 2.4931275052949786,
+  "scope": "Validity-selected completed targets; not a population LP-skip estimate or a sampling convergence table."
+}

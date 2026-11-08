@@ -1,0 +1,24 @@
+Running HiGHS 1.15.1 (git hash: 04024d7): Copyright (c) 2026 under MIT licence terms
+Includes third-party software components, see THIRD_PARTY_NOTICES.md for full details
+LP has 750 rows; 581 cols; 435750 nonzeros
+Coefficient ranges:
+  Matrix  [2e-12, 1e+00]
+  Cost    [1e+00, 1e+00]
+  Bound   [0e+00, 0e+00]
+  RHS     [1e-01, 4e+01]
+Presolving model
+750 rows, 581 cols, 435750 nonzeros 0s
+750 rows, 581 cols, 435750 nonzeros 0s
+Presolve reductions: rows 750(-0); columns 581(-0); nonzeros 435750(-0) - Not reduced
+Problem not reduced by presolve: solving the LP
+Using dual simplex solver
+  Iteration        Objective     Infeasibilities num(sum)
+          0    -1.0000002791e+03 Ph1: 750(3.21256e+09); Du: 79(1) 0.1s
+        928     6.5377502294e-11 Pr: 0(0); Du: 0(4.08881e-09) 1.5s
+        928     6.5377502294e-11 Pr: 0(0); Du: 0(4.08881e-09) 1.5s
+
+Model status        : Optimal
+Simplex   iterations: 928
+Objective value     :  6.5377502294e-11
+P-D objective error :  1.5998808320e-12
+HiGHS run time      :          1.53

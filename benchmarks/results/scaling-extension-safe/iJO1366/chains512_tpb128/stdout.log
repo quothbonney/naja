@@ -1,0 +1,15 @@
+> validate model contract
+> write generated config
+model :: iJO1366
+output :: /mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/scaling-extension-safe/iJO1366/chains512_tpb128/native/iJO1366_20261108_001
+bounds :: ignore
+> sampling
+> loading polytope
+> barrier rotation (eigenbasis of H)
+> uploading to gpu
+> sampling 512 chains x 11000 samples (thin=96, 540672000 MCMC steps, 750 constraints x 581 dims)
+> gpu sampling
+> gpu back-transform
+> downloading
+> done: 4.6s, 1228563 samples/s
+> writing npy

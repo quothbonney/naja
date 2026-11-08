@@ -1,0 +1,15 @@
+{
+  "status": "passed",
+  "scope": "No real Slurm changes. Failed-source mask cancelled, owned pending diagnostic released, foreign ownership untouched.",
+  "actions": [
+    [
+      "scancel",
+      "202_8"
+    ],
+    [
+      "scontrol",
+      "release",
+      "453"
+    ]
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "kind": "full_schema2",
+  "data": {
+    "estimator_code_sha256": "7f379323c6dd4b6097503c66a2acefd11597923d2b8537a018a322fa4307fee6",
+    "numpy_version": "2.5.4",
+    "arviz_version": "1.3.0",
+    "samples_sha256": "0ad48a1b368385cba546847165bad51ad3dacd7da734c2ce6cedb9a82f8cda63",
+    "shape": [
+      16,
+      10000,
+      24
+    ],
+    "dtype": "<f8",
+    "geometry_sha256": "28f24d9351c4a5686a52d732c4bd7561b12a0c77cdb83396ba778ce014fd90b2",
+    "mask_sha256": "b9bee8d9d765f707d8b6690ce65d8d011e45677912f946e49044212d84ae1102",
+    "mask_policy_sha256": "7f38d1f0b3f40b8d44b103ebb0808ff613d0d60c5307870dedaac20ad6a547d9",
+    "lower_bounds_sha256": "ebe6b3b964567d1cfd9d40ddf793ecd400bd3a0582a071b8539d1ede77d52f6d",
+    "upper_bounds_sha256": "661a881d2bd568929c90478448c658ffc299514b0e3305b1694100363f07e9e2",
+    "reaction_ids_sha256": "7e9aa2f53286e32efabb5eaedf38df48aeb206eac078caffe9f82cbce1bc4c7b"
+  },
+  "metrics_sha256": "06ab167b6ebf79bd5c8da4730c5890dddbebde27d6631930f687b5c1673af4fc"
+}

@@ -1,0 +1,7 @@
+{
+  "checked_utc": "2026-11-08T10:59:46.123632+00:00",
+  "controller_alive": false,
+  "sequence_status": "complete",
+  "hard_deadline_utc": "2026-11-08T11:00:00Z",
+  "terminal_cleanup_actions": []
+}

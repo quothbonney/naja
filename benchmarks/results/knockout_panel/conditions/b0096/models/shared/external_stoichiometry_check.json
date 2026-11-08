@@ -1,0 +1,8 @@
+{
+  "points": 33,
+  "max_original_Sv_minus_b": 1.8307931715406114e-11,
+  "tolerance": 1e-07,
+  "passed": true,
+  "external_validation_seconds": 0.029101446270942688,
+  "scope": "External diagnostics excluded from geometry preparation timer; common S loading is one-time in controller."
+}

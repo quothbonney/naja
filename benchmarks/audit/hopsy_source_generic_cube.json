@@ -1,0 +1,25 @@
+{
+  "status": "passed",
+  "hostname": "slurm-h100-206-077",
+  "hopsy_version": "1.7.0",
+  "hopsy_build": "9b787d9",
+  "flags": "-O3",
+  "chains": 4,
+  "draws": 10000,
+  "warmup": 1000,
+  "thinning": 10,
+  "means": [
+    0.0037663847124708,
+    -0.005395047826622327,
+    -0.0038988968274482525
+  ],
+  "variances": [
+    0.33367347469574843,
+    0.3333859114556237,
+    0.33150106206233515
+  ],
+  "expected_mean": 0,
+  "expected_variance": 0.3333333333333333,
+  "moment_absolute_tolerance": 0.03,
+  "max_absolute_coordinate": 0.999993420088764
+}

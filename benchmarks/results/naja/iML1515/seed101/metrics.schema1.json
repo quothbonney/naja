@@ -1,0 +1,92 @@
+{
+  "schema_version": 1,
+  "model": "iML1515",
+  "samples": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/naja/iML1515/seed101/samples.npy",
+  "model_dir": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/iML1515",
+  "shape": [
+    16,
+    10000,
+    635
+  ],
+  "sample_space": "reduced_affine_backmapped_to_reactions",
+  "n_reactions": 2712,
+  "constant_reactions_excluded": 233,
+  "constant_definition": "full-run max-min <= 1e-12 * max(1, max(abs(flux)))",
+  "diagnostic_definition": "classical split-Rhat; ArviZ pooled rank-normalized bulk ESS",
+  "arviz_version": "1.3.0",
+  "numpy_version": "2.5.4",
+  "split_rhat_median": 1.009959402603653,
+  "split_rhat_p95": 1.060971102029588,
+  "bulk_ess_median": 2255.27174581206,
+  "diagnosed_reactions": 2479,
+  "bounds_tolerance": 1e-07,
+  "sample_bound_violation_fraction": 0.0,
+  "coordinate_bound_violation_fraction": 0.0,
+  "zero_tolerance_sample_bound_violation_fraction": 1.0,
+  "zero_tolerance_coordinate_bound_violation_fraction": 0.13048023137905604,
+  "max_absolute_bound_violation": 6.959165719693162e-08,
+  "wall_seconds": 7.940217966213822,
+  "samples_per_second": 20150.580334294486,
+  "prefix_quality": [
+    {
+      "draws_per_chain": 100,
+      "split_rhat_median": 1.405363273155249,
+      "split_rhat_p95": 3.5521905205891233,
+      "bulk_ess_median": 41.97934079096736,
+      "diagnosed_reactions": 2479,
+      "quality_met": false
+    },
+    {
+      "draws_per_chain": 250,
+      "split_rhat_median": 1.2130713164279046,
+      "split_rhat_p95": 2.4294765241823284,
+      "bulk_ess_median": 66.48008845217505,
+      "diagnosed_reactions": 2479,
+      "quality_met": false
+    },
+    {
+      "draws_per_chain": 500,
+      "split_rhat_median": 1.1325020002065493,
+      "split_rhat_p95": 1.9230763170588365,
+      "bulk_ess_median": 114.60508837425343,
+      "diagnosed_reactions": 2479,
+      "quality_met": false
+    },
+    {
+      "draws_per_chain": 1000,
+      "split_rhat_median": 1.0789412755754162,
+      "split_rhat_p95": 1.5258665884079847,
+      "bulk_ess_median": 191.46706412162615,
+      "diagnosed_reactions": 2479,
+      "quality_met": false
+    },
+    {
+      "draws_per_chain": 2000,
+      "split_rhat_median": 1.0440655748121381,
+      "split_rhat_p95": 1.2790107472634036,
+      "bulk_ess_median": 430.6470169141175,
+      "diagnosed_reactions": 2479,
+      "quality_met": false
+    },
+    {
+      "draws_per_chain": 5000,
+      "split_rhat_median": 1.0181708521341564,
+      "split_rhat_p95": 1.1100045948751975,
+      "bulk_ess_median": 1154.3533541567417,
+      "diagnosed_reactions": 2479,
+      "quality_met": false
+    },
+    {
+      "draws_per_chain": 10000,
+      "split_rhat_median": 1.009959402603653,
+      "split_rhat_p95": 1.060971102029588,
+      "bulk_ess_median": 2255.27174581206,
+      "diagnosed_reactions": 2479,
+      "quality_met": true
+    }
+  ],
+  "first_quality_prefix_draws": 10000,
+  "estimated_time_to_quality_seconds": 7.940217966213822,
+  "time_to_quality_note": "Linear interpolation from total wall time; NOT measured time-to-quality. Includes fixed overhead proportionally. Independent budget runs required for measured comparison.",
+  "metrics_wall_seconds": 172.70367272756994
+}

@@ -1,0 +1,15 @@
+> validate model contract
+> write generated config
+model :: iAB_RBC_283
+output :: /mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/quality/iAB_RBC_283/naja128/seed202/budget5000/native/iAB_RBC_283_20261107_001
+bounds :: ignore
+> sampling
+> loading polytope
+> barrier rotation (eigenbasis of H)
+> uploading to gpu
+> sampling 16 chains x 6000 samples (thin=50, 4800000 MCMC steps, 188 constraints x 130 dims)
+> gpu sampling
+> gpu back-transform
+> downloading
+> done: 0.6s, 158412 samples/s
+> writing npy

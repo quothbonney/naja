@@ -1,0 +1,26 @@
+{
+  "label": "RECON1_reaction_f32",
+  "all_saved_including_warmup": {
+    "samples_checked": 176000,
+    "reaction_values_checked": 658416000,
+    "tolerance": 1e-07,
+    "sample_bound_violation_fraction": 0.6014602272727273,
+    "coordinate_bound_violation_fraction": 0.000212387001530947,
+    "maximum_original_bound_violation": 2.357616750714442e-07,
+    "invalid_samples": 105857
+  },
+  "retained": {
+    "samples_checked": 160000,
+    "reaction_values_checked": 598560000,
+    "tolerance": 1e-07,
+    "sample_bound_violation_fraction": 0.59701875,
+    "coordinate_bound_violation_fraction": 0.00021193197006148088,
+    "maximum_original_bound_violation": 2.357616750714442e-07,
+    "invalid_samples": 95523
+  },
+  "geometry_sha256": "b3e0d0641a0772412d7eae65429c8a93ee22c983c1a22f5fd2b34d253637bb2e",
+  "lower_bounds_sha256": "6190092d26b1498b6ce0a89fb11fea40608b6953201dd39c615c787b56042101",
+  "upper_bounds_sha256": "f87dfef7e35af6514491c8a7d086ee22db2ea03d3142523c9f14ee33744c0610",
+  "unmasked": true,
+  "no_filtering_or_clipping": true
+}

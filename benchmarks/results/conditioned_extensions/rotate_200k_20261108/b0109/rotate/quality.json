@@ -1,0 +1,13 @@
+{
+  "condition_id": "b0109",
+  "condition_root": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/knockout_panel/conditions/b0109",
+  "mode": "rotate",
+  "seed": 101,
+  "geometry_sha256": "a19007b07f60d5567430fbc48a1b4c2dcc2b91ba7c781de39612f32ec25b289c",
+  "pipeline_worker_sha256": "157b8b7ca3ef8e507b68e6c34324403f9bdd2b3603ecc76703c72c821dcfa256",
+  "selection_note": "All9 nontrivial exactKO cases that failed original rotate50k cap; everyone extended to200k, with original50k failures retained. Outcome-selected extension, not an unbiased panel.",
+  "criterion": "masked medianclassical splitRhat<=1.05,bulkESS>=100,unmaskedbounds/massbalance1e-7; unchangedfrozenmetrics",
+  "protocol": "16chains,1000warmup,thin1000,TPB512,float64",
+  "status": "running",
+  "current_phase": "capture-pilot"
+}

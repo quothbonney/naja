@@ -1,0 +1,143 @@
+{
+  "schema_version": 1,
+  "generated_utc": "2026-11-08T05:19:19.733369+00:00",
+  "condition_id": "b4025",
+  "criterion": {
+    "rhat": 1.05,
+    "bulk_ess": 100,
+    "bounds_and_mass_balance": 1e-07
+  },
+  "rows": [
+    {
+      "condition_id": "b4025",
+      "variant": "global_cpu",
+      "seed": 101,
+      "pilot_run": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/knockout_panel/conditions/b4025/quality/global_cpu/seed101/pilot-budget10000",
+      "prefix_curve_json": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/knockout_panel/conditions/b4025/quality/global_cpu/seed101/curve.json",
+      "selection_policy": "Earliest evaluated passing prefix with no later observed failure; avoids unstable early crossings. Actual selected budget is then rerun.",
+      "criterion": "masked median classical split-Rhat<=1.05 and pooled bulk ESS>=100; original/conditional bounds and mass balance<=1e-7",
+      "curve_only_has_actual_chain_lengths": true,
+      "interpolated_times_used": false,
+      "orchestration_sha256": "b1aadf247284377e6a540368c5c2c1328ca49065546528d2d123271e522def84",
+      "status": "complete",
+      "selected_draws": 2000,
+      "measured_run": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/knockout_panel/conditions/b4025/quality/global_cpu/seed101/selected-budget2000",
+      "measured_sampler_seconds": 3.962674942,
+      "timer_scope": "CPU max accumulated MarkovChain.draw intervals; binding/state-copy included, startup/IPC/list assembly excluded",
+      "secondary_process_seconds": 11.092980971559882,
+      "correction_seconds": 0.0,
+      "split_rhat_median": 1.037418018825218,
+      "split_rhat_p95": 1.0928080302200414,
+      "bulk_ess_median": 533.1535785214419,
+      "median_ess_per_sampler_second": 134.5438589652156,
+      "sample_bound_violation_fraction": 0.0,
+      "maximum_stoichiometric_residual": 3.783820479164035e-11,
+      "setup_proof": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/knockout_panel/conditions/b4025/models/global_reround/global_reround_proof.json",
+      "geometry_sha256": "e56a0881488f54d7fd9afcdab1ab08f7c84bb36491f5cc1c37c284786e908752",
+      "samples_sha256": "38087d01b590532a76729052958c36587fa71640bb10be6f4e15d0813675304b",
+      "state_file": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/knockout_panel/conditions/b4025/quality/global_cpu/seed101/quality.json"
+    },
+    {
+      "condition_id": "b4025",
+      "variant": "naja_rotate",
+      "seed": 101,
+      "pilot_run": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/knockout_panel/conditions/b4025/quality/naja_rotate/seed101/pilot-budget10000",
+      "prefix_curve_json": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/knockout_panel/conditions/b4025/quality/naja_rotate/seed101/curve.json",
+      "selection_policy": "Earliest evaluated passing prefix with no later observed failure; avoids unstable early crossings. Actual selected budget is then rerun.",
+      "criterion": "masked median classical split-Rhat<=1.05 and pooled bulk ESS>=100; original/conditional bounds and mass balance<=1e-7",
+      "curve_only_has_actual_chain_lengths": true,
+      "interpolated_times_used": false,
+      "orchestration_sha256": "0b62609c89b00df619b2212d3d39a4df88fbaa7520461f78f508c7283a38e620",
+      "status": "complete",
+      "selected_draws": 500,
+      "measured_run": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/knockout_panel/conditions/b4025/quality/naja_rotate/seed101/selected-budget500",
+      "measured_sampler_seconds": 4.0312,
+      "timer_scope": "GPU sampler phase: device allocation/slack/RNG init plus CHR kernel; excludes backmap/download/output/adapter",
+      "secondary_process_seconds": 5.318037612363696,
+      "correction_seconds": 0.1457,
+      "split_rhat_median": 1.0288812373709044,
+      "split_rhat_p95": 1.1735751598181137,
+      "bulk_ess_median": 683.0220539401139,
+      "median_ess_per_sampler_second": 169.43392884007588,
+      "sample_bound_violation_fraction": 0.0,
+      "maximum_stoichiometric_residual": 3.3200220350693144e-11,
+      "setup_proof": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/knockout_panel/conditions/b4025/models/global_reround/global_reround_proof.json",
+      "geometry_sha256": "125795397b8f773ea90959ec85684a961daa1453762776469e89c63f952fcc5f",
+      "samples_sha256": "c30be5065c8b652594df777e105c1651a75fe1f260dec0edddf1bdb6a806a67d",
+      "state_file": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/knockout_panel/conditions/b4025/quality/naja_rotate/seed101/quality.json"
+    },
+    {
+      "condition_id": "b4025",
+      "variant": "stale_cpu",
+      "seed": 101,
+      "pilot_run": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/knockout_panel/conditions/b4025/quality/stale_cpu/seed101/pilot-budget10000",
+      "prefix_curve_json": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/knockout_panel/conditions/b4025/quality/stale_cpu/seed101/curve.json",
+      "selection_policy": "Earliest evaluated passing prefix with no later observed failure; avoids unstable early crossings. Actual selected budget is then rerun.",
+      "criterion": "masked median classical split-Rhat<=1.05 and pooled bulk ESS>=100; original/conditional bounds and mass balance<=1e-7",
+      "curve_only_has_actual_chain_lengths": true,
+      "interpolated_times_used": false,
+      "orchestration_sha256": "b1aadf247284377e6a540368c5c2c1328ca49065546528d2d123271e522def84",
+      "status": "complete",
+      "selected_draws": 2000,
+      "measured_run": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/knockout_panel/conditions/b4025/quality/stale_cpu/seed101/selected-budget2000",
+      "measured_sampler_seconds": 3.962123082,
+      "timer_scope": "CPU max accumulated MarkovChain.draw intervals; binding/state-copy included, startup/IPC/list assembly excluded",
+      "secondary_process_seconds": 10.973776077851653,
+      "correction_seconds": 0.0,
+      "split_rhat_median": 1.0388134049667261,
+      "split_rhat_p95": 1.0925990426381076,
+      "bulk_ess_median": 529.2682222593766,
+      "median_ess_per_sampler_second": 133.58197393307947,
+      "sample_bound_violation_fraction": 0.0,
+      "maximum_stoichiometric_residual": 3.699235362475406e-11,
+      "setup_proof": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/knockout_panel/conditions/b4025/models/global_reround/global_reround_proof.json",
+      "geometry_sha256": "125795397b8f773ea90959ec85684a961daa1453762776469e89c63f952fcc5f",
+      "samples_sha256": "1dd8e35e10fda08bfe84d1a4644bf083bee00a78d030404465ff7c5a65b5fa93",
+      "state_file": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/knockout_panel/conditions/b4025/quality/stale_cpu/seed101/quality.json"
+    }
+  ],
+  "groups": [
+    {
+      "variant": "global_cpu",
+      "passing_seed_count": 1,
+      "seeds": [
+        101
+      ],
+      "median_measured_sampler_seconds": 3.962674942,
+      "median_selected_draws": 2000,
+      "median_ess_per_sampler_second": 134.5438589652156
+    },
+    {
+      "variant": "stale_cpu",
+      "passing_seed_count": 1,
+      "seeds": [
+        101
+      ],
+      "median_measured_sampler_seconds": 3.962123082,
+      "median_selected_draws": 2000,
+      "median_ess_per_sampler_second": 133.58197393307947
+    },
+    {
+      "variant": "naja_rotate",
+      "passing_seed_count": 1,
+      "seeds": [
+        101
+      ],
+      "median_measured_sampler_seconds": 4.0312,
+      "median_selected_draws": 500,
+      "median_ess_per_sampler_second": 169.43392884007588
+    }
+  ],
+  "mask_compilation": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/knockout_panel/conditions/b4025/quality/mask_compilation.json",
+  "curve_png": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/knockout_panel/conditions/b4025/quality/rhat_vs_chain_length.png",
+  "transition_curve_svg": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/knockout_panel/conditions/b4025/quality/rhat_vs_transitions.svg",
+  "transition_curve_png": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/knockout_panel/conditions/b4025/quality/rhat_vs_transitions.png",
+  "curve_csv": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/knockout_panel/conditions/b4025/quality/rhat_curve.csv",
+  "curve_svg": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/knockout_panel/conditions/b4025/quality/rhat_vs_chain_length.svg",
+  "curve_pdf": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/knockout_panel/conditions/b4025/quality/rhat_vs_chain_length.pdf",
+  "time_to_target_csv": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/knockout_panel/conditions/b4025/quality/time_to_target.csv",
+  "measured_time_plot_svg": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/knockout_panel/conditions/b4025/quality/time_to_target.svg",
+  "setup_proof": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/knockout_panel/conditions/b4025/models/global_reround/global_reround_proof.json",
+  "invalid_reference": "Independent raw-model582-D preparation is excluded; all main methods use the same cached projected target.",
+  "note": "Prefix curves use actual chain length, not inferred time. Only fresh selected-budget executions populate timing groups. Timer scopes are explicit; no global optimality or uniformity proof."
+}

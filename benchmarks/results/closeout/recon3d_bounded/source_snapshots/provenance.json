@@ -1,0 +1,5 @@
+{
+  "capture_script_sha256": "d958b14a5eaddb22a93415f34faeb8219b6a5d52e552c5b1631dbca45c6b75d0",
+  "cpu_analysis_script_sha256": "8ae311af890f2092dd95558abe93b3a3708a9a8fb34db03ec8cbccecff4f8a47",
+  "note": "GPU capture parameters and running loaded source frozen at launch. CPU-stage fallback, coverage, output-integrity, and JSON serialization guards enhanced before dependent CPU job starts."
+}

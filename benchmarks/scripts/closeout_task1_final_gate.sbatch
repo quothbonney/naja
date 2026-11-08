@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+#SBATCH --partition=hpc-mid
+#SBATCH --job-name=bench-closeout-task1-final
+#SBATCH --cpus-per-task=8
+#SBATCH --gpus=1
+#SBATCH --mem=64G
+#SBATCH --time=00:15:00
+#SBATCH --deadline=2026-11-08T22:00:00
+#SBATCH --output=benchmarks/logs/closeout-task1-final-%j.log
+set -euo pipefail
+ROOT="$SLURM_SUBMIT_DIR/benchmarks"
+export HOME="$ROOT/home" TMPDIR="$ROOT/tmp" XDG_CACHE_HOME="$ROOT/cache"
+export OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 MKL_NUM_THREADS=1
+srun --cpu-bind=cores "$ROOT/scripts/enter.sh" "$ROOT/env-cpu/bin/python" "$ROOT/scripts/closeout_task1_final_gate.py" --build "$ROOT/build-closeout-release" --commit "$1"

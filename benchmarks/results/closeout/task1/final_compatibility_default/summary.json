@@ -1,0 +1,52 @@
+{
+  "status": "passed",
+  "git_commit": "c9e5db8b8ed02c692b36e74e14b71eedcd871476",
+  "binary_sha256": "2fc4654b47d9a2f8a3fb46df6fd5a70dc1fe1bbbb48f758d816a2b9a565b10b1",
+  "correctness_tests": 7,
+  "negative_probes": 5,
+  "default_cpu_parity": {
+    "reference": "iJO_reference_seed101",
+    "candidate": "iJO_default_cpu_rotation",
+    "counterfactual_cast": false,
+    "bitwise_equal": true,
+    "all_saved_scalar_mismatches": 0,
+    "retained_scalar_mismatches": 0,
+    "maximum_absolute_coordinate_difference": 0.0,
+    "compared_saved_shape": [
+      176000,
+      581
+    ],
+    "retained_draws_per_chain": 10000
+  },
+  "explicit_gpu_parity": {
+    "reference": "iJO_default_gpu_rotation",
+    "candidate": "iJO_explicit_gpu_rotation",
+    "counterfactual_cast": false,
+    "bitwise_equal": true,
+    "all_saved_scalar_mismatches": 0,
+    "retained_scalar_mismatches": 0,
+    "maximum_absolute_coordinate_difference": 0.0,
+    "compared_saved_shape": [
+      176000,
+      581
+    ],
+    "retained_draws_per_chain": 10000
+  },
+  "auto_prefault": {
+    "effective_threads": 8,
+    "allowed_cpu_ids": [
+      0,
+      2,
+      4,
+      6,
+      64,
+      66,
+      68,
+      70
+    ]
+  },
+  "reference_scope": "Public23873f0 plus saved one-line constant-seed101 shim; CPU-default path is compared exactly. Explicit GPU backend is compared with immutable FCC GPU results, not claimed identical to CPU reference.",
+  "unchanged_export_evidence": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/closeout/task1/summary.json",
+  "source_sha256": "2d5aa140f26caf2183c5042e3505a71488829a60801a211512db641c31a5a4b0",
+  "utc": "2026-11-08T20:16:22.586220+00:00"
+}

@@ -1,0 +1,67 @@
+{
+  "extra_projection_singular_values": [
+    5.1809011902561044e-08,
+    2.8000139172091585e-11,
+    2.5378260333227468e-11,
+    1.2248883194030378e-11,
+    1.0701878998278713e-11,
+    8.170660033311252e-12,
+    7.2379769723306325e-12,
+    6.9990637546069105e-12
+  ],
+  "base_normal_residual": 4.6636007971086395e-15,
+  "affine_combination_shift": -5.181059039454684e-08,
+  "observed_fresh_sample_deviation_from_base_affine_hull_max": 2.4491239604758567e-07,
+  "observed_deviation_min": -2.4491239604758567e-07,
+  "observed_deviation_max": -1.7292035631585606e-12,
+  "strongest_reaction_coefficients": [
+    {
+      "reaction": "OCTNLL",
+      "coefficient": 0.6354261297300461
+    },
+    {
+      "reaction": "LIPOCT",
+      "coefficient": -0.6354261295334174
+    },
+    {
+      "reaction": "AACPS9",
+      "coefficient": -0.3028947965954053
+    },
+    {
+      "reaction": "FA80ACPHi",
+      "coefficient": 0.2881217267633876
+    },
+    {
+      "reaction": "FACOAE80",
+      "coefficient": 0.04440960511639023
+    },
+    {
+      "reaction": "3HAD100",
+      "coefficient": 0.03115773951125212
+    },
+    {
+      "reaction": "3OAR100",
+      "coefficient": 0.031157739298564
+    },
+    {
+      "reaction": "3OAS100",
+      "coefficient": 0.031157739158302857
+    },
+    {
+      "reaction": "HACD4",
+      "coefficient": -0.026681018212566094
+    },
+    {
+      "reaction": "ACACT4r",
+      "coefficient": -0.02668101816575255
+    },
+    {
+      "reaction": "ECOAH4",
+      "coefficient": -0.02668101794497029
+    },
+    {
+      "reaction": "ACOAD4f",
+      "coefficient": 0.026681016701778786
+    }
+  ]
+}

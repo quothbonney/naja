@@ -1,0 +1,9 @@
+{
+  "job": "883",
+  "command": [
+    "sbatch",
+    "--parsable",
+    "--chdir=/mnt/home/jordan+123/history-native-20261015-r5",
+    "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/scripts/fresh16_conservative.sbatch"
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "model": "iML1515",
+  "method": "cpu2000",
+  "seed": 101,
+  "chains": 16,
+  "warmup": 1000,
+  "thinning": 2000,
+  "tpb": null,
+  "status": "pilot_cap_no_passing_rhat",
+  "started_utc": "2026-11-08T03:32:07.662892+00:00",
+  "note": "Actual fresh selected-budget process time excludes pilot/search/diagnostics. Median split Rhat<=1.01 and bulk ESS>=100; bound metrics are independent. Fixed retained warmup1000 implies differing warmup moves.",
+  "pilot_process_seconds": 25.79498946480453,
+  "finished_utc": "2026-11-08T03:33:02.319339+00:00"
+}

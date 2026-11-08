@@ -1,0 +1,64 @@
+model in infeasible state, resetting lp
+{
+  "model_id": "iJO1366",
+  "n": 2583,
+  "d": 582,
+  "m": 754,
+  "original_metabolites": 1805,
+  "source": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/conditioned_prototype/iJO1366/iJO1366_PGI_capacity_0p1.json",
+  "source_sha256": "987b5d4c8f61b16249818c16320c265fb948a468e80660cd9198bd75ec481230",
+  "solver": "glpk",
+  "versions": {
+    "hopsy": "1.7.0",
+    "PolyRound": "0.5.0",
+    "cobra": "0.32.1",
+    "numpy": "2.5.4",
+    "scipy": "1.18.1",
+    "swiglpk": "5.0.13",
+    "highspy": "1.15.1",
+    "osqp": "1.1.3"
+  },
+  "timings": {
+    "load_model_seconds": 0.9375947937369347,
+    "construct_polytope_seconds": 0.5097320843487978,
+    "simplify_seconds": 75.14948547631502,
+    "equality_elimination_seconds": 6.070662152022123,
+    "round_seconds": 53.679459972307086,
+    "polyround_seconds": 134.89961659535766,
+    "write_seconds": 0.9564973320811987,
+    "total_seconds": 137.31083988025784,
+    "total_preprocessing_seconds": 137.31083988025784
+  },
+  "settings": {
+    "backend": "glpk",
+    "hp_flags": {
+      "FeasibilityTol": 1e-09
+    },
+    "thresh": 1e-07,
+    "verbose": false,
+    "sgp": false,
+    "reduce": true,
+    "regularize": false,
+    "check_lps": false,
+    "simplify_only": false,
+    "presolve": false,
+    "numerics_threshold": 1e-12,
+    "accepted_tol_violation": 100.0
+  },
+  "objective_constraint": "none; original model bounds",
+  "preprocessing_variant": "standard",
+  "zero_pruning": null,
+  "fva_face_pruning": null,
+  "fast_sparse_assembly": false,
+  "fast_sparse_assembly_sha256": null,
+  "min_start_slack": 2.690458394690979e-08,
+  "command": [
+    "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/cpu_baseline.py",
+    "prep",
+    "--model",
+    "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/conditioned_prototype/iJO1366/iJO1366_PGI_capacity_0p1.json",
+    "--out",
+    "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/conditioned_prototype/iJO1366/models/full_reround"
+  ],
+  "hostname": "slurm-h100-206-077"
+}

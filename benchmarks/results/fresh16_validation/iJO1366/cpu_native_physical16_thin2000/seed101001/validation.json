@@ -1,0 +1,33 @@
+{
+  "method": "cpu",
+  "seed": 101001,
+  "status": "complete",
+  "fixed_draws": 10000,
+  "note": "Fresh fixed selected configuration, no tuning. Cross-replicate16-chain RNG ranges disjoint; overlap with512study intentional. Fixed failures remain failures even if the separately labeled bounded extension passes.",
+  "fixed": {
+    "status": "PASS",
+    "quality_met": true,
+    "method": "cpu",
+    "seed": 101001,
+    "chains": 16,
+    "draws_per_chain": 10000,
+    "warmup": 1000,
+    "thinning": 2000,
+    "sampler_phase_seconds": 19.439253414049745,
+    "process_seconds_secondary": 24.059438021853566,
+    "split_rhat_median": 1.0094057239024707,
+    "pooled_bulk_ess_median": 2191.6592068843547,
+    "pooled_bulk_ess_per_sampler_phase_second": 112.7440010273404,
+    "transitions_including_warmup": 352000000,
+    "pooled_bulk_ess_per_total_transition": 6.226304565012371e-06,
+    "bounds_tolerance": 1e-07,
+    "sample_bound_violation_fraction": 0.0,
+    "schema_version": 2,
+    "diagnostic_mask_status": "model_lp_verified",
+    "run_dir": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/fresh16_validation/iJO1366/cpu_native_physical16_thin2000/seed101001/fixed",
+    "worker_draw_critical_path_seconds": 14.548550958,
+    "total_worker_draw_thread_cpu_seconds": 231.271277813,
+    "pooled_bulk_ess_per_worker_draw_second": 150.6445015184965
+  },
+  "fixed_status": "PASS"
+}

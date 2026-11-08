@@ -1,0 +1,21 @@
+> validate model contract
+> write generated config
+model :: Recon3D_nullspace_only
+output :: /mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/barrier_profile/Recon3D_nullspace_only/gpu/profiled/native/Recon3D_nullspace_only_20261108_001
+bounds :: ignore
+> sampling
+> loading polytope
+> barrier rotation (eigenbasis of H)
+> barrier whitening (diagonal rescale)
+> uploading to gpu
+> sampling 16 chains x 8 samples (thin=1, 128 MCMC steps, 18477 constraints x 4861 dims)
+> gpu sampling
+> gpu back-transform
+> downloading
+> done: 0.0s, 29598 samples/s
+> writing npy
+Collecting data...
+Generating '/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/tmp/nsys-report-6060.qdstrm'
+[1/1] [0%                          ] trace.nsys-rep[1/1] [0%                          ] trace.nsys-rep[1/1] [7%                          ] trace.nsys-rep[1/1] [11%                         ] trace.nsys-rep[1/1] [12%                         ] trace.nsys-rep[1/1] [============56%             ] trace.nsys-rep[1/1] [=================74%        ] trace.nsys-rep[1/1] [========================100%] trace.nsys-rep[1/1] [========================100%] trace.nsys-rep
+Generated:
+	/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/barrier_profile/Recon3D_nullspace_only/gpu/profiled/trace.nsys-rep

@@ -1,0 +1,5 @@
+a5f9f47cc6a4e0e9d5aa386c358a89d83cbe64fc869a5079e96dbfa903d06a74  benchmarks/build-closeout-release/CMakeFiles/naja.dir/src/gpu/dmatrix.cu.o
+b26aba9018b33aacc4e67ea50061a43911138b90613d7a12d126be9514671dea  benchmarks/build-closeout-release/CMakeFiles/naja.dir/src/gpu/dvector.cu.o
+552730c460a9f085787de95694ca18143b8b65dad222731f28ac0fbb78bff47a  benchmarks/build-closeout-release/CMakeFiles/naja.dir/src/gpu/backmap.cu.o
+aa19107e4ae5fb19b4ddce5ca7b6dec007c6859617e91eba41c362a92f4c3709  benchmarks/results/closeout/task1/wide_backmap_smoke.cu
+91abc94bf75d48fd99e39b88bbd12c865e87d67be443980bd7f5f44bb02794d8  benchmarks/results/closeout/task1/wide_backmap_smoke

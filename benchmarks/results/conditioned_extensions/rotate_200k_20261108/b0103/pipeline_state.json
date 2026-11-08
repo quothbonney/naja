@@ -1,0 +1,8 @@
+{
+  "pilot_captured": true,
+  "updated_utc": "2026-11-08T20:06:08.863908+00:00",
+  "latest_phase": "analyze-pilot",
+  "pilot_analyzed": true,
+  "selected_draws": null,
+  "terminal_status": "no_quality_within_cap"
+}

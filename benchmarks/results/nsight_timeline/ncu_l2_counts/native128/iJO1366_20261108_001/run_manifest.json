@@ -1,0 +1,30 @@
+{
+  "argv": ["naja", "sample", "run", "--model-dir", "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/iJO1366", "--out-root", "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/nsight_timeline/ncu_l2_counts/native128", "--gpu", "0", "--n-chains", "128", "--n-samples", "1200", "--seed", "101", "--tpb", "128", "--thinning", "0", "--constraint-eps", "0", "--extra-constraint-eps", "0", "--pair-prob", "0", "--bounds-policy", "ignore", "--write-npy", "--barrier-rotate"],
+  "model_dir": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/iJO1366",
+  "engine": {
+    "path": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/build-h100-safe/naja",
+    "sha256": "da263d6060416d96da366392210b9468422890bda8200718da452941436a8f18",
+    "size": 6761280
+  },
+  "config": {
+    "gpu_device": 0,
+    "n_chains": 128,
+    "n_samples": 1200,
+    "tpb_ss": 128,
+    "back_transform": false,
+    "write_data": true,
+    "bounds_policy": "ignore",
+    "bounds_eps": 1e-06,
+    "write_samples_valid": false
+  },
+  "resolved_paths": {
+    "model_dir": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/iJO1366",
+    "A": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/iJO1366/rounding/polytope.npz",
+    "b": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/iJO1366/rounding/polytope.npz",
+    "start": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/iJO1366/rounding/polytope.npz",
+    "T": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/iJO1366/rounding/polytope.npz",
+    "shift": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/iJO1366/rounding/polytope.npz",
+    "extra_A": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/iJO1366/rounding/extra.npz",
+    "extra_b": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/iJO1366/rounding/extra.npz"
+  }
+}

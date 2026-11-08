@@ -1,0 +1,30 @@
+{
+  "argv": ["naja", "sample", "run", "--model-dir", "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/e_coli_core", "--out-root", "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/closeout/task2_3/final-release/task2_barrier/e_coli_core/seed101/native", "--gpu", "0", "--n-chains", "16", "--n-samples", "8", "--seed", "101", "--tpb", "128", "--thinning", "1", "--constraint-eps", "0", "--extra-constraint-eps", "0", "--pair-prob", "0.0", "--bounds-policy", "ignore", "--write-npy", "--barrier-rotate", "--barrier-rotate-backend", "gpu", "--sample-dtype", "float64"],
+  "model_dir": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/e_coli_core",
+  "engine": {
+    "path": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/build-closeout-release/naja",
+    "sha256": "2fc4654b47d9a2f8a3fb46df6fd5a70dc1fe1bbbb48f758d816a2b9a565b10b1",
+    "size": 6719064
+  },
+  "config": {
+    "gpu_device": 0,
+    "n_chains": 16,
+    "n_samples": 8,
+    "tpb_ss": 128,
+    "back_transform": false,
+    "write_data": true,
+    "bounds_policy": "ignore",
+    "bounds_eps": 1e-06,
+    "write_samples_valid": false
+  },
+  "resolved_paths": {
+    "model_dir": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/e_coli_core",
+    "A": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/e_coli_core/rounding/polytope.npz",
+    "b": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/e_coli_core/rounding/polytope.npz",
+    "start": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/e_coli_core/rounding/polytope.npz",
+    "T": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/e_coli_core/rounding/polytope.npz",
+    "shift": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/e_coli_core/rounding/polytope.npz",
+    "extra_A": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/e_coli_core/rounding/extra.npz",
+    "extra_b": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/e_coli_core/rounding/extra.npz"
+  }
+}

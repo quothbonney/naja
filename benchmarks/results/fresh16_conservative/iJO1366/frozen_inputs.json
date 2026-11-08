@@ -1,0 +1,18 @@
+{
+  "created_utc": "2026-11-08T19:27:46.688279+00:00",
+  "status": "recorded_before_array883_started",
+  "sha256": {
+    "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/fresh16_conservative/iJO1366/protocol.json": "eb4b5f6fff225d06a64dc2981713afed0df5391ab1b1b76d836051c64e7c91e3",
+    "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/metrics.py": "854e524cade5cecc6a9c5541cb15957e0336c3461434c2363d9ef2a2b701947c",
+    "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/scripts/fresh16_conservative.py": "6844920da7ca499664db394515e14a71ee7b2ae2a4c24cbff4a2294b22f2ec75",
+    "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/scripts/fresh16_conservative.sbatch": "f49a7333f4a6cf2c95ffa1046a51c5a37e21e08cc24de572eb4b2f790bcb0936",
+    "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/scripts/hopsy_worker_timing.py": "a01b0bfd384c37ad483abdc0840fc28611ce34132d654e91e1e794a09e0732ba",
+    "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/build-h100/naja": "c7baf4f0ed282b936ac0dbac4b896bfbfc040eb06da6f84aff6605fddf4b0fc6",
+    "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/high_throughput/iJO1366/cached_target_audit/model/active_reactions.npy": "bf644913896895b801f54edfe4da95499319f17e39ed8fe036d5f3c2cabc0490",
+    "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/high_throughput/iJO1366/cached_target_audit/model/diagnostic_mask.json": "169f343761c97f08a01caa819a3776598bec02bf88e275d679f7d96b3dea2f1a",
+    "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/high_throughput/iJO1366/cached_target_audit/model/rounding/polytope.npz": "07374999682cb82ef566c2a7ba4cd1ca44b0718ab81f421846e24d3b85f5e103",
+    "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/high_throughput/iJO1366/cached_target_audit/model/gem/l_bounds.csv": "5e7a7a0d2698146dd2a1bd35242052ff0791f3ca93291d375c3407c6d94da1f4",
+    "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/high_throughput/iJO1366/cached_target_audit/model/gem/u_bounds.csv": "20a85ee6394424ddbe1505df4e35b36955c6278fa05251bf0029ee9013eb5ac7",
+    "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/high_throughput/iJO1366/cached_target_audit/model/gem/reaction_ids.txt": "e0de6cf944c436fe98f6edf368d76146ce2444736b3ca0472cc47887de4e6df7"
+  }
+}

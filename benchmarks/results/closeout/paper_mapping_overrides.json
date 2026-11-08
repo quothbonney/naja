@@ -1,0 +1,12 @@
+{
+  "Table2": {
+    "status": "USER_VERIFIED_BARRIER_COLUMN_COMPONENT",
+    "verified_artifact": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/closeout/task2_3/final-release/task2_barrier_summary.csv",
+    "mapping_note": "User explicitly assigns Task2 barrier-only column to Table2. Associated per-seed CSV, JSON and dimension SVG/PDF are in the same final-release directory. Other manuscript columns/caption are not verified without manuscript source."
+  },
+  "Figure2": {
+    "status": "USER_VERIFIED_BYTE_DATA_COMPONENT",
+    "verified_artifact": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/closeout/task4/final_release/summary.json",
+    "mapping_note": "User explicitly assigns Task4 measured-byte data to Figure2. Associated base/exact_PGI_KO metrics.csv and report.ncu-rep are listed by size. Both measured cases have m750; no m1500 conditional case is available. Final figure render numbering/caption not verified."
+  }
+}

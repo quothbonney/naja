@@ -1,0 +1,14 @@
+JobIDRaw|JobName|State|ExitCode|Elapsed
+466|bench-nsight-probe|COMPLETED|0:0|00:00:12
+466.batch|batch|COMPLETED|0:0|00:00:12
+476|bench-nsight-timeline|COMPLETED|0:0|00:03:27
+476.batch|batch|COMPLETED|0:0|00:03:27
+476.0|enter.sh|COMPLETED|0:0|00:03:26
+480|bench-nsight-compute|COMPLETED|0:0|00:06:39
+480.batch|batch|COMPLETED|0:0|00:06:39
+480.0|enter.sh|COMPLETED|0:0|00:06:39
+480.1|nvidia-smi|COMPLETED|0:0|00:00:00
+487|bench-nsight-l2-recheck|COMPLETED|0:0|00:00:23
+487.batch|batch|COMPLETED|0:0|00:00:23
+493|bench-nsight-l2-counts|COMPLETED|0:0|00:00:19
+493.batch|batch|COMPLETED|0:0|00:00:19

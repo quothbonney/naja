@@ -1,0 +1,8 @@
+> validate model contract
+> write generated config
+model :: Recon3D_nullspace_only
+output :: /mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/barrier_profile/Recon3D_nullspace_only/gpu/validation/native/Recon3D_nullspace_only_20261108_001
+bounds :: ignore
+> sampling
+> loading polytope
+> barrier rotation (eigenbasis of H)

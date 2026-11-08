@@ -1,0 +1,42 @@
+{
+  "cached_metrics_sha256": "2e01b9ac71e31f37608734b4506249300ce4591d430855bb51c17291b19cc707",
+  "pilot_analysis_file": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/quality/iJO1366/cpu_native2000/seed303/pilot-budget10000/samples.npy",
+  "final_analysis_file": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/quality/iJO1366/cpu_native2000/seed303/final-budget10000/samples.npy",
+  "exact_file_bytes_shape_dtype_geometry_mask_verified": true,
+  "pilot_identity": {
+    "estimator_code_sha256": "7f379323c6dd4b6097503c66a2acefd11597923d2b8537a018a322fa4307fee6",
+    "numpy_version": "2.5.4",
+    "arviz_version": "1.3.0",
+    "samples_sha256": "f8dc7cda87877e56e8f12fffba1e11a80175cf3fb0af3b76b0c354a78d101214",
+    "shape": [
+      16,
+      10000,
+      581
+    ],
+    "dtype": "<f8",
+    "geometry_sha256": "07374999682cb82ef566c2a7ba4cd1ca44b0718ab81f421846e24d3b85f5e103",
+    "mask_sha256": "23087281b6c9852bb02bbe5bb28d873cc0ccc677a5bf4bb45486b68760867ca8",
+    "mask_policy_sha256": "38572a6da692c96c7fc3008cb3313b8b61a12878e7908452260d473ef795f2aa",
+    "lower_bounds_sha256": "5e7a7a0d2698146dd2a1bd35242052ff0791f3ca93291d375c3407c6d94da1f4",
+    "upper_bounds_sha256": "20a85ee6394424ddbe1505df4e35b36955c6278fa05251bf0029ee9013eb5ac7",
+    "reaction_ids_sha256": "e0de6cf944c436fe98f6edf368d76146ce2444736b3ca0472cc47887de4e6df7"
+  },
+  "final_identity": {
+    "estimator_code_sha256": "7f379323c6dd4b6097503c66a2acefd11597923d2b8537a018a322fa4307fee6",
+    "numpy_version": "2.5.4",
+    "arviz_version": "1.3.0",
+    "samples_sha256": "f8dc7cda87877e56e8f12fffba1e11a80175cf3fb0af3b76b0c354a78d101214",
+    "shape": [
+      16,
+      10000,
+      581
+    ],
+    "dtype": "<f8",
+    "geometry_sha256": "07374999682cb82ef566c2a7ba4cd1ca44b0718ab81f421846e24d3b85f5e103",
+    "mask_sha256": "23087281b6c9852bb02bbe5bb28d873cc0ccc677a5bf4bb45486b68760867ca8",
+    "mask_policy_sha256": "38572a6da692c96c7fc3008cb3313b8b61a12878e7908452260d473ef795f2aa",
+    "lower_bounds_sha256": "5e7a7a0d2698146dd2a1bd35242052ff0791f3ca93291d375c3407c6d94da1f4",
+    "upper_bounds_sha256": "20a85ee6394424ddbe1505df4e35b36955c6278fa05251bf0029ee9013eb5ac7",
+    "reaction_ids_sha256": "e0de6cf944c436fe98f6edf368d76146ce2444736b3ca0472cc47887de4e6df7"
+  }
+}

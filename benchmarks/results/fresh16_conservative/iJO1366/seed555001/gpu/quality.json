@@ -1,0 +1,20 @@
+{
+  "method": "gpu",
+  "seed": 555001,
+  "status": "PASS",
+  "quality_met": true,
+  "chains": 16,
+  "retained_draws_per_chain": 3000,
+  "warmup_per_chain": 1000,
+  "thinning": 1000,
+  "sampler_compute_seconds": 10.3876,
+  "median_split_rhat": 1.004974768043853,
+  "p95_split_rhat": 1.0178313373158665,
+  "median_bulk_ess": 4191.054471076592,
+  "median_ess_per_compute_second": 403.46706371795136,
+  "sample_bound_violation_fraction": 0.0,
+  "maximum_absolute_bound_violation": 5.782774903144791e-12,
+  "process_seconds_secondary": 12.099253699183464,
+  "diagnostic_mask": "conservative478_exact_cached_target",
+  "source_run": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/fresh16_conservative/iJO1366/seed555001/gpu"
+}

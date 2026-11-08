@@ -1,0 +1,53 @@
+{
+  "model_id": "iJO1366_geneKO_b0029_exact_shared_global_reround",
+  "n": 2583,
+  "d": 579,
+  "m": 748,
+  "original_metabolites": 1805,
+  "source": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/knockout_panel/conditions/b0029/conditional_model.json",
+  "source_sha256": "86efcde48f62a89e21bcf5eee83b5717b08dd8fa71ed044988e32c08f5523965",
+  "solver": "highspy",
+  "versions": {
+    "hopsy": "1.7.0",
+    "PolyRound": "0.5.0",
+    "cobra": "0.32.1",
+    "numpy": "2.5.4",
+    "scipy": "1.18.1",
+    "swiglpk": "5.0.13"
+  },
+  "timings": {
+    "round_seconds": 58.16971791535616,
+    "polyround_seconds": 58.16971791535616,
+    "total_seconds": 61.316929863765836
+  },
+  "settings": {
+    "backend": "glpk",
+    "hp_flags": {
+      "FeasibilityTol": 1e-09
+    },
+    "thresh": 1e-07,
+    "verbose": false,
+    "sgp": false,
+    "reduce": true,
+    "regularize": false,
+    "check_lps": false,
+    "simplify_only": false,
+    "presolve": false,
+    "numerics_threshold": 1e-12,
+    "accepted_tol_violation": 100.0
+  },
+  "objective_constraint": "none; original model bounds",
+  "min_start_slack": 8.256957050338387e-14,
+  "command": [
+    "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/scripts/conditioned_global_reround.py",
+    "--source",
+    "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/knockout_panel/conditions/b0029/models/shared",
+    "--output",
+    "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/knockout_panel/conditions/b0029/models/global_reround"
+  ],
+  "hostname": "slurm-h100-206-077",
+  "preprocessing_variant": "full_global_PolyRound_on_exact_shared_augmented_system",
+  "precision_contract": 1e-07,
+  "numerical_reduction_policy": "No simplify or equality elimination: strict full-dimensional inherited A/b is the declared target.",
+  "original_shared_geometry_sha256": "0276f103027838eadc2f143bf1cb19b1edb44a9e97a6ccbcad0858b998443795"
+}

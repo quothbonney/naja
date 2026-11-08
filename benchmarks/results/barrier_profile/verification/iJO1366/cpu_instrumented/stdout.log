@@ -1,0 +1,15 @@
+> validate model contract
+> write generated config
+model :: iJO1366
+output :: /mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/barrier_profile/verification/iJO1366/cpu_instrumented/native/iJO1366_20261108_001
+bounds :: ignore
+> sampling
+> loading polytope
+> barrier rotation (eigenbasis of H)
+> uploading to gpu
+> sampling 16 chains x 356 samples (thin=96, 546816 MCMC steps, 750 constraints x 581 dims)
+> gpu sampling
+> gpu back-transform
+> downloading
+> done: 0.1s, 41630 samples/s
+> writing npy

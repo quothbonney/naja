@@ -1,0 +1,23 @@
+{
+  "status": "passed",
+  "seed": 202001,
+  "chains": 512,
+  "draws_per_chain": 5000,
+  "warmup_per_chain": 1000,
+  "process_seconds": 32.314093647524714,
+  "split_rhat_median": 1.0082294033341714,
+  "pooled_bulk_ess_median": 78554.70513374906,
+  "pooled_bulk_ess_median_per_chain": 153.42715846435362,
+  "pooled_bulk_ess_median_per_process_second": 2430.973493813787,
+  "bounds_tolerance": 1e-07,
+  "sample_bound_violation_fraction": 0.0,
+  "schema_version": 2,
+  "diagnostic_mask_status": "model_lp_verified",
+  "count_note": "GPU and CPU retained counts differ; both use the same pooled quality criterion. ESS/512 is an equivalent average from pooledESS, not independent single-chain ESS estimates.",
+  "timing_note": "Sampling process wall includes warmup and output; diagnostics are separate and excluded. One-seed pilot until distinct seeds202001/303001 complete.",
+  "sampler_phase_seconds": 13.098,
+  "pooled_bulk_ess_per_sampler_phase_second": 5997.458019067724,
+  "transitions_including_warmup": 1536000000,
+  "pooled_bulk_ess_per_total_transition": 5.114238615478454e-05,
+  "sampler_phase_scope": "GPU sampler phase includes allocation, initial slackGEMM/RNG init and CHRRsampling; excludes download/output; not isolated kernel-only time."
+}

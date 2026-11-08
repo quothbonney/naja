@@ -1,0 +1,23 @@
+{
+  "scope": "Final c9 rotation-OFF controls versus retained FCC rotation-OFF controls; does not assert rotated-path parity.",
+  "seeds": [
+    {
+      "seed": 101,
+      "final_samples_sha256": "9247eebd79ddd8058f625e768caff93ec0d9393e75418b7aa06ec6583bb2ca58",
+      "FCC_samples_sha256": "9247eebd79ddd8058f625e768caff93ec0d9393e75418b7aa06ec6583bb2ca58",
+      "bitwise_equal": true
+    },
+    {
+      "seed": 202,
+      "final_samples_sha256": "a4adcb722845eefb7fe0ba1c71094e1649b0ac4c324e30babc6db8ae5d9f19b7",
+      "FCC_samples_sha256": "a4adcb722845eefb7fe0ba1c71094e1649b0ac4c324e30babc6db8ae5d9f19b7",
+      "bitwise_equal": true
+    },
+    {
+      "seed": 303,
+      "final_samples_sha256": "c08b5d53753edba06e2c80cdd25dc13376551738f1e3dab371bebc60dda47c7b",
+      "FCC_samples_sha256": "c08b5d53753edba06e2c80cdd25dc13376551738f1e3dab371bebc60dda47c7b",
+      "bitwise_equal": true
+    }
+  ]
+}

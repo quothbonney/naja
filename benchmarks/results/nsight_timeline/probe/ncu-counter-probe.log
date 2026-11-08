@@ -1,0 +1,53 @@
+> validate model contract
+> write generated config
+model :: iJO1366
+output :: /mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/nsight_timeline/probe/ncu-native/iJO1366_20261108_001
+bounds :: ignore
+> sampling
+==PROF== Connected to process 4051157 (/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/build-h100-safe/naja)
+> loading polytope
+> barrier rotation (eigenbasis of H)
+> uploading to gpu
+> sampling 16 chains x 220 samples (thin=96, 337920 MCMC steps, 750 constraints x 581 dims)
+> gpu sampling
+> gpu back-transform
+> downloading
+> done: 0.1s, 41259 samples/s
+> writing npy
+==PROF== Disconnected from process 4051157
+==WARNING== No kernels were profiled.
+Available Kernels:
+1. Kernel2
+2. broadcastColumnsKernel
+3. chrKernel
+4. copy_info_kernel
+5. epilogue
+6. initPrngStatesCHR
+7. lacpy_kernel
+8. laed2_copy
+9. laed2_par
+10. laed3_epi1
+11. laed3_epi2
+12. laed4_par
+13. lansy_M_stage1
+14. lansy_M_stage2
+15. larft_T_64_batch
+16. merge_ker
+17. scale_max
+18. scale_rows_kernel
+19. setup_vhat_l_kernel
+20. sm90_xmma_gemm_f64f64_f64f64_f64_nn_n_tilesize32x32x32_stage3_warpsize2x2x1_tensor16x8x16_aligna8_alignc8_execute_kernel__5x_cublas
+21. sm90_xmma_gemm_f64f64_f64f64_f64_nn_n_tilesize32x64x32_stage3_warpsize2x2x1_tensor16x8x16_aligna8_alignc8_execute_kernel__5x_cublas
+22. sm90_xmma_gemm_f64f64_f64f64_f64_nn_n_tilesize64x64x32_stage3_warpsize2x2x1_tensor16x8x16_aligna8_alignc8_execute_kernel__5x_cublas
+23. sm90_xmma_gemm_f64f64_f64f64_f64_tn_n_tilesize32x32x32_stage3_warpsize2x2x1_tensor16x8x16_aligna8_alignc8_execute_kernel__5x_cublas
+24. sm90_xmma_gemm_f64f64_f64f64_f64_tn_n_tilesize32x32x32_stage5_warpsize2x2x1_tensor16x8x16_aligna8_alignc8_execute_kernel__5x_cublas
+25. sm90_xmma_gemm_f64f64_f64f64_f64_tn_n_tilesize64x64x32_stage3_warpsize2x2x1_tensor16x8x16_aligna8_alignc8_execute_kernel__5x_cublas
+26. sm90_xmma_gemm_f64f64_f64f64_f64_tn_n_tilesize64x64x32_stage3_warpsize2x2x1_tensor16x8x16_aligna8_alignc8_execute_split_k_kernel__5x_cublas
+27. sm90_xmma_syr2k_l_f64f64_f64f64_f64_nt_n_tilesize32x32x32_stage5_warpsize2x2x1_tensor16x8x16_aligna8_alignc8_execute_kernel__5x_cublas
+28. sm90_xmma_syrk_l_f64f64_f64f64_f64_tn_n_tilesize32x32x32_stage5_warpsize2x2x1_tensor16x8x16_aligna8_alignc8_execute_kernel__5x_cublas
+29. splitKreduce_kernel
+30. steqr_ker
+31. sytrd4_cta
+32. sytrd4_gpu
+33. transpose
+34. xx_set_info_ker

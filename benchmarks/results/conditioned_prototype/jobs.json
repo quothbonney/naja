@@ -1,0 +1,67 @@
+{
+  "preparation": "495",
+  "cpu_seed101": "496",
+  "gpu_seed101": "497",
+  "seed": 101,
+  "followup_seeds_not_submitted": [],
+  "prior_attempts": [
+    {
+      "preparation": "477",
+      "cpu_seed101": "478",
+      "gpu_seed101": "479",
+      "resource_hold": "All preparation and sampling depend on completion of higher-priority96logicalCPU512chain pilot468.",
+      "seed": 101,
+      "followup_seeds_not_submitted": [
+        202,
+        303
+      ]
+    }
+  ],
+  "prior_failure": "477 strict interior check rejected unscaled LP point before any sampling. Positive row-normalized equivalent LP now verifies every raw slack; target A/b unchanged.",
+  "resource_hold": "High priority468 completed; new jobs low prioritynice1000.",
+  "repeat_seed_jobs": [
+    {
+      "seed": 202,
+      "kind": "cpu",
+      "job": "516",
+      "pipelines": [
+        "full_cpu",
+        "stale_cpu"
+      ],
+      "dependency": "afterany:496"
+    },
+    {
+      "seed": 202,
+      "kind": "gpu",
+      "job": "517",
+      "pipelines": [
+        "naja_rotate"
+      ],
+      "dependency": "afterany:497"
+    },
+    {
+      "seed": 303,
+      "kind": "cpu",
+      "job": "518",
+      "pipelines": [
+        "full_cpu",
+        "stale_cpu"
+      ],
+      "dependency": "afterany:496"
+    },
+    {
+      "seed": 303,
+      "kind": "gpu",
+      "job": "519",
+      "pipelines": [
+        "naja_rotate"
+      ],
+      "dependency": "afterany:497"
+    }
+  ],
+  "exact_shared_global_reround_preparation": "523",
+  "cached_target_mask_audit": "527",
+  "cached_target_mask_retry": "533",
+  "cached_mask_initial_failure": "527: HiGHS passModel warned about tiny matrix coefficients; switched diagnostic LP backend to GLPK with all encoded coefficients retained, warm basis and checked raw primal residuals.",
+  "exact_global_cpu_pilot_sampler": "542"
+}

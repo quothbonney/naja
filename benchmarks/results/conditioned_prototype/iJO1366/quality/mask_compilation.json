@@ -1,0 +1,15 @@
+{
+  "status": "frozen_for_quality_assay",
+  "source_geometry_sha256": "677e9ddb4ff8834f04a914468e5d28f4146d7ddfc1da9bdad75a48718d789582",
+  "mask_sha256": "80ec4f0bf4dd09d69bcd95b13756e2676ec9173b168eaee7d5c5d1d2f9b7a4eb",
+  "excluded_reactions": 732,
+  "candidate_reactions": 948,
+  "verified_wide_candidates": 37,
+  "unresolved_candidates": 179,
+  "old_raw_mask_excluded": 878,
+  "scientific_mask_unchanged": false,
+  "policy": "Only optimal verified cached-target narrow LP ranges excluded. Time/iteration caps or unresolved LPs remain active. Same exact mask transported under proved square affine change. Later serial audit is retained separately and will not silently change this assay.",
+  "lp_time_ms": 1000,
+  "solver_feasibility_tolerance": 1e-09,
+  "range_tolerance": 1e-07
+}

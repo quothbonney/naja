@@ -1,0 +1,37 @@
+{
+  "status": "repaired_reference_available",
+  "shared_reduced_dimension": 581,
+  "fresh_reduced_dimension": 582,
+  "physical_reactions": 2583,
+  "raw_target_definition_identical": true,
+  "warning": "Positive capacity restriction cannot increase exact affine dimension. Independent numeric PolyRound preparations disagree by one dimension; determine whether this is confined to solver-nearconstant numerical directions before a same-target speedup claim.",
+  "repeat_jobs_held": [
+    516,
+    517,
+    518,
+    519
+  ],
+  "history": [
+    {
+      "status": "under_investigation",
+      "shared_reduced_dimension": 581,
+      "fresh_reduced_dimension": 582,
+      "physical_reactions": 2583,
+      "raw_target_definition_identical": true,
+      "warning": "Positive capacity restriction cannot increase exact affine dimension. Independent numeric PolyRound preparations disagree by one dimension; determine whether this is confined to solver-nearconstant numerical directions before a same-target speedup claim.",
+      "repeat_jobs_held": [
+        516,
+        517,
+        518,
+        519
+      ]
+    }
+  ],
+  "resolution": {
+    "target": "Exact cached581-D augmented A/b",
+    "proof": "iJO1366/models/global_reround/global_reround_proof.json",
+    "old_raw582_comparator_still_invalid": true,
+    "no_second_reduction": true,
+    "new_global_round_algorithm_seconds": 61.204393876716495
+  }
+}

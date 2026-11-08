@@ -1,0 +1,11 @@
+{
+  "model": "iJR904",
+  "variant": "cpu_default16",
+  "seed": 101,
+  "status": "no_quality_within_source_budget",
+  "source_run": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/hopsy/iJR904/default/seed101",
+  "source_draws_per_chain": 10000,
+  "source_split_rhat_median": 2.045987275986402,
+  "source_bulk_ess_median": 22.662079858439192,
+  "note": "No passing evaluated prefix; no extrapolation or measured qualifying time claimed."
+}

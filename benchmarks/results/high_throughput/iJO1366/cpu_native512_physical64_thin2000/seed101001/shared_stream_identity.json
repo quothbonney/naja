@@ -1,0 +1,8 @@
+{
+  "status": "passed",
+  "source_run": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/high_throughput/iJO1366/cpu_native512_physical48_thin2000/seed101001/budget12000",
+  "source_samples_sha256": "08d8c3a47733cb77121a462e25ab09074a6b710928d8fc59e17c766969b76ead",
+  "samples_sha256": "08d8c3a47733cb77121a462e25ab09074a6b710928d8fc59e17c766969b76ead",
+  "post_sampling_identity_seconds": 46.897852731868625,
+  "note": "Whole retained-file bytes match the validated48physicalCPU source. Independent full64 process timing; shared same-seed trajectory. This proof gates afterok pipeline execution and is excluded from sampler timing."
+}

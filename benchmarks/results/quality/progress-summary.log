@@ -1,0 +1,273 @@
+{
+  "measured_rows": 58,
+  "groups": [
+    {
+      "model": "e_coli_core",
+      "variant": "cpu_default1",
+      "seeds": [
+        101,
+        202,
+        303
+      ],
+      "measured_seed_count": 3,
+      "complete_three_seed_group": true,
+      "median_measured_seconds": 4.167780514806509,
+      "median_budget": 50000
+    },
+    {
+      "model": "e_coli_core",
+      "variant": "cpu_jade1",
+      "seeds": [
+        101,
+        202,
+        303
+      ],
+      "measured_seed_count": 3,
+      "complete_three_seed_group": true,
+      "median_measured_seconds": 3.350204596295953,
+      "median_budget": 500
+    },
+    {
+      "model": "e_coli_core",
+      "variant": "cpu_jade16",
+      "seeds": [
+        101,
+        202,
+        303
+      ],
+      "measured_seed_count": 3,
+      "complete_three_seed_group": true,
+      "median_measured_seconds": 7.1447444800287485,
+      "median_budget": 500
+    },
+    {
+      "model": "e_coli_core",
+      "variant": "cpu_nativejade1",
+      "seeds": [
+        101,
+        202,
+        303
+      ],
+      "measured_seed_count": 3,
+      "complete_three_seed_group": true,
+      "median_measured_seconds": 3.743988459929824,
+      "median_budget": 250
+    },
+    {
+      "model": "e_coli_core",
+      "variant": "naja128",
+      "seeds": [
+        101,
+        202,
+        303
+      ],
+      "measured_seed_count": 3,
+      "complete_three_seed_group": true,
+      "median_measured_seconds": 1.3066058196127415,
+      "median_budget": 500
+    },
+    {
+      "model": "iAB_RBC_283",
+      "variant": "cpu_jade16",
+      "seeds": [
+        101,
+        202,
+        303
+      ],
+      "measured_seed_count": 3,
+      "complete_three_seed_group": true,
+      "median_measured_seconds": 8.543835695832968,
+      "median_budget": 250
+    },
+    {
+      "model": "iAB_RBC_283",
+      "variant": "cpu_nativejade16",
+      "seeds": [
+        101,
+        202,
+        303
+      ],
+      "measured_seed_count": 3,
+      "complete_three_seed_group": true,
+      "median_measured_seconds": 9.325226744636893,
+      "median_budget": 250
+    },
+    {
+      "model": "iAB_RBC_283",
+      "variant": "naja128",
+      "seeds": [
+        101,
+        202,
+        303
+      ],
+      "measured_seed_count": 3,
+      "complete_three_seed_group": true,
+      "median_measured_seconds": 1.861650437116623,
+      "median_budget": 5000
+    },
+    {
+      "model": "iJO1366",
+      "variant": "cpu_fixed2000",
+      "seeds": [
+        202,
+        303
+      ],
+      "measured_seed_count": 2,
+      "complete_three_seed_group": false,
+      "median_measured_seconds": 51.72122466471046,
+      "median_budget": 10000.0
+    },
+    {
+      "model": "iJO1366",
+      "variant": "cpu_fixed500",
+      "seeds": [
+        101,
+        202,
+        303
+      ],
+      "measured_seed_count": 3,
+      "complete_three_seed_group": true,
+      "median_measured_seconds": 60.93273743055761,
+      "median_budget": 50000
+    },
+    {
+      "model": "iJO1366",
+      "variant": "cpu_fixed5000",
+      "seeds": [
+        101,
+        202,
+        303
+      ],
+      "measured_seed_count": 3,
+      "complete_three_seed_group": true,
+      "median_measured_seconds": 61.24202403612435,
+      "median_budget": 5000
+    },
+    {
+      "model": "iJO1366",
+      "variant": "cpu_jade16",
+      "seeds": [
+        101,
+        202,
+        303
+      ],
+      "measured_seed_count": 3,
+      "complete_three_seed_group": true,
+      "median_measured_seconds": 157.06556412763894,
+      "median_budget": 500
+    },
+    {
+      "model": "iJO1366",
+      "variant": "cpu_native2000",
+      "seeds": [
+        101,
+        202,
+        303
+      ],
+      "measured_seed_count": 3,
+      "complete_three_seed_group": true,
+      "median_measured_seconds": 35.59185820259154,
+      "median_budget": 10000
+    },
+    {
+      "model": "iJO1366",
+      "variant": "naja128",
+      "seeds": [
+        101,
+        202,
+        303
+      ],
+      "measured_seed_count": 3,
+      "complete_three_seed_group": true,
+      "median_measured_seconds": 27.981880543753505,
+      "median_budget": 50000
+    },
+    {
+      "model": "iJO1366",
+      "variant": "naja512",
+      "seeds": [
+        101,
+        202,
+        303
+      ],
+      "measured_seed_count": 3,
+      "complete_three_seed_group": true,
+      "median_measured_seconds": 21.571192607283592,
+      "median_budget": 50000
+    },
+    {
+      "model": "iJO1366",
+      "variant": "naja_tune_pair025",
+      "seeds": [
+        101,
+        202,
+        303
+      ],
+      "measured_seed_count": 3,
+      "complete_three_seed_group": true,
+      "median_measured_seconds": 21.719531174749136,
+      "median_budget": 50000
+    },
+    {
+      "model": "iJO1366",
+      "variant": "naja_tune_rotate_jacobi",
+      "seeds": [
+        101
+      ],
+      "measured_seed_count": 1,
+      "complete_three_seed_group": false,
+      "median_measured_seconds": 31.835562888532877,
+      "median_budget": 50000
+    },
+    {
+      "model": "iJO1366",
+      "variant": "naja_tune_whiten_jacobi",
+      "seeds": [
+        101
+      ],
+      "measured_seed_count": 1,
+      "complete_three_seed_group": false,
+      "median_measured_seconds": 31.438903810456395,
+      "median_budget": 50000
+    },
+    {
+      "model": "iJR904",
+      "variant": "cpu_jade16",
+      "seeds": [
+        101,
+        202,
+        303
+      ],
+      "measured_seed_count": 3,
+      "complete_three_seed_group": true,
+      "median_measured_seconds": 14.984863581135869,
+      "median_budget": 500
+    },
+    {
+      "model": "iJR904",
+      "variant": "cpu_nativejade16",
+      "seeds": [
+        101,
+        202,
+        303
+      ],
+      "measured_seed_count": 3,
+      "complete_three_seed_group": true,
+      "median_measured_seconds": 16.209394432604313,
+      "median_budget": 500
+    },
+    {
+      "model": "iJR904",
+      "variant": "naja128",
+      "seeds": [
+        101,
+        202,
+        303
+      ],
+      "measured_seed_count": 3,
+      "complete_three_seed_group": true,
+      "median_measured_seconds": 5.117171324789524,
+      "median_budget": 20000
+    }
+  ]
+}

@@ -1,0 +1,2 @@
+gene,draws,category,off_rhat,rotate_rhat,off_ess,rotate_ess,off_sampler_seconds,rotate_sampler_seconds,rotate_correction_seconds,off_bound_violation_fraction,rotate_bound_violation_fraction,off_mass_balance_max,rotate_mass_balance_max,gpu_uuid,order
+b0003,1000,rotate_only,1.237263636104132,1.0330630898865354,66.49785673632367,588.1392371471634,5.3927,5.3371,0.1557,0.0,0.0,4.593545682718414e-11,3.18080006778132e-11,GPU-cf3f7f93-1940-2c2a-2cec-d30c96879dd0,"['off', 'rotate']"

@@ -1,0 +1,7 @@
+{
+  "status": "failed",
+  "condition_id": "b0154",
+  "variant": "stale_cpu",
+  "seed": 101,
+  "error": "AssertionError('Sibling reservation incomplete')"
+}

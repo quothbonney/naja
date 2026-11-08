@@ -1,0 +1,7 @@
+CUDA Error: out of memory at /mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/naja/src/gpu/dmatrix.cu:46
+CUDA Error: out of memory at /mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/naja/src/gpu/dmatrix.cu:27
+CUDA Error: an illegal memory access was encountered at /mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/naja/src/gpu/curandwrapper.h:16
+cuBLAS Error: the library was not initialized at /mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/naja/src/engine/job_sampling.cu:597
+CUDA Error: an illegal memory access was encountered at /mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/naja/src/gpu/dmatrix.cu:46
+cuBLAS Error: the library was not initialized at /mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/naja/src/engine/job_sampling.cu:612
+CUDA Error: an illegal memory access was encountered at /mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/naja/src/gpu/dmatrix.cu:114

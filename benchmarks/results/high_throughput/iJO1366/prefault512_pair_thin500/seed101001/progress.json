@@ -1,0 +1,60 @@
+[
+  {
+    "host_prefault_threads": 0,
+    "process_seconds": 36.40920288860798,
+    "samples_sha256": "c68a22e73964704a20ce27557f59135246465dcde7f9f571f1ab26acb406380a",
+    "equals_frozen_reference": true,
+    "run_dir": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/high_throughput/iJO1366/naja512_tpb128_thin500_prefault0/seed101001",
+    "download_including_prefault_seconds": 6.8709,
+    "normalization_seconds": 10.00304302945733,
+    "quality": {
+      "status": "passed",
+      "seed": 101001,
+      "chains": 512,
+      "draws_per_chain": 5000,
+      "warmup_per_chain": 1000,
+      "process_seconds": 36.40920288860798,
+      "split_rhat_median": 1.0085405319215586,
+      "pooled_bulk_ess_median": 76563.25134403842,
+      "pooled_bulk_ess_median_per_chain": 149.53760028132504,
+      "pooled_bulk_ess_median_per_process_second": 2102.854368393607,
+      "bounds_tolerance": 1e-07,
+      "sample_bound_violation_fraction": 0.0,
+      "schema_version": 2,
+      "diagnostic_mask_status": "model_lp_verified",
+      "experimental_binary_sha256": "a656a1f93489af051acd540d08369092567dd0673af2b0e1ac922dc58a910603",
+      "host_prefault_threads": 0,
+      "diagnostics_reused_from": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/high_throughput/iJO1366/naja512_tpb128_thin500/seed101001/metrics.json",
+      "count_note": "PooledESS/512 is an equivalent average, not independent single-chain ESS estimates."
+    }
+  },
+  {
+    "host_prefault_threads": 8,
+    "process_seconds": 31.107235496863723,
+    "samples_sha256": "c68a22e73964704a20ce27557f59135246465dcde7f9f571f1ab26acb406380a",
+    "equals_frozen_reference": true,
+    "run_dir": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/high_throughput/iJO1366/naja512_tpb128_thin500_prefault8/seed101001",
+    "download_including_prefault_seconds": 1.4918,
+    "normalization_seconds": 9.954257808625698,
+    "quality": {
+      "status": "passed",
+      "seed": 101001,
+      "chains": 512,
+      "draws_per_chain": 5000,
+      "warmup_per_chain": 1000,
+      "process_seconds": 31.107235496863723,
+      "split_rhat_median": 1.0085405319215586,
+      "pooled_bulk_ess_median": 76563.25134403842,
+      "pooled_bulk_ess_median_per_chain": 149.53760028132504,
+      "pooled_bulk_ess_median_per_process_second": 2461.2682586904143,
+      "bounds_tolerance": 1e-07,
+      "sample_bound_violation_fraction": 0.0,
+      "schema_version": 2,
+      "diagnostic_mask_status": "model_lp_verified",
+      "experimental_binary_sha256": "a656a1f93489af051acd540d08369092567dd0673af2b0e1ac922dc58a910603",
+      "host_prefault_threads": 8,
+      "diagnostics_reused_from": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/high_throughput/iJO1366/naja512_tpb128_thin500/seed101001/metrics.json",
+      "count_note": "PooledESS/512 is an equivalent average, not independent single-chain ESS estimates."
+    }
+  }
+]

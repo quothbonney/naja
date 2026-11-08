@@ -1,0 +1,86 @@
+{
+  "label": "iJO_reference_seed101",
+  "model": "iJO1366",
+  "backmap": false,
+  "dtype": "float32",
+  "chains": 16,
+  "saved_draws_per_chain": 11000,
+  "retained_draws_per_chain": 10000,
+  "warmup_saved_draws": 1000,
+  "array": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/closeout/task1/iJO_reference_seed101/native/iJO1366_20261108_001/samples.npy",
+  "shape": [
+    176000,
+    581
+  ],
+  "profile": {
+    "timestamp": "2026-11-08 20:09:35",
+    "config": {
+      "n_chains": 16,
+      "n_samples": 11000,
+      "reduced_dim": 581,
+      "original_dim": 581,
+      "constraints": 750,
+      "thinning": 96,
+      "tpb_ss": 128,
+      "gpu_device": 0,
+      "back_transform": false
+    },
+    "timing": {
+      "load_polytope_s": 0.013,
+      "cube_center_lp_s": 0.0,
+      "barrier_rotation_s": 0.142,
+      "upload_to_gpu_s": 0.0006,
+      "gpu_sampling_s": 4.148,
+      "download_from_gpu_s": 0.4108,
+      "backtransform_s": 0.4154,
+      "write_output_s": 0.4346,
+      "total_s": 5.3841
+    },
+    "performance": {
+      "total_samples": 176000,
+      "throughput_samples_per_sec": 42430.5,
+      "sampling_fraction": 0.77
+    }
+  },
+  "execution": {
+    "command": [
+      "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/build-closeout-reference/naja",
+      "sample",
+      "run",
+      "--model-dir",
+      "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/iJO1366",
+      "--out-root",
+      "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/closeout/task1/iJO_reference_seed101/native",
+      "--n-chains",
+      "16",
+      "--n-samples",
+      "11000",
+      "--thinning",
+      "96",
+      "--tpb",
+      "128",
+      "--gpu",
+      "0",
+      "--start-policy",
+      "file",
+      "--extra-constraints",
+      "ignore",
+      "--constraint-eps",
+      "0",
+      "--extra-constraint-eps",
+      "0",
+      "--pair-prob",
+      "0",
+      "--bounds-policy",
+      "ignore",
+      "--barrier-rotate",
+      "--write-npy",
+      "--quiet"
+    ],
+    "returncode": 0,
+    "wall_seconds": 5.825140800327063,
+    "binary_sha256": "bb00edc059e8430dfda08666d93f598e5745fcc9a8fb6522dab9a107c2998758",
+    "utc": "2026-11-08T20:09:35.318500+00:00",
+    "job": "954"
+  }
+}

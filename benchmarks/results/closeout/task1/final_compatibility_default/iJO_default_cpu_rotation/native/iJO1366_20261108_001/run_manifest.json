@@ -1,0 +1,30 @@
+{
+  "argv": ["naja", "sample", "run", "--model-dir", "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/iJO1366", "--out-root", "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/closeout/task1/final_compatibility_default/iJO_default_cpu_rotation/native", "--n-chains", "16", "--n-samples", "11000", "--thinning", "96", "--tpb", "128", "--gpu", "0", "--start-policy", "file", "--extra-constraints", "ignore", "--constraint-eps", "0", "--extra-constraint-eps", "0", "--pair-prob", "0", "--bounds-policy", "ignore", "--barrier-rotate", "--write-npy", "--quiet", "--seed", "101", "--sample-dtype", "float32"],
+  "model_dir": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/iJO1366",
+  "engine": {
+    "path": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/build-closeout-release/naja",
+    "sha256": "2fc4654b47d9a2f8a3fb46df6fd5a70dc1fe1bbbb48f758d816a2b9a565b10b1",
+    "size": 6719064
+  },
+  "config": {
+    "gpu_device": 0,
+    "n_chains": 16,
+    "n_samples": 11000,
+    "tpb_ss": 128,
+    "back_transform": false,
+    "write_data": true,
+    "bounds_policy": "ignore",
+    "bounds_eps": 1e-06,
+    "write_samples_valid": false
+  },
+  "resolved_paths": {
+    "model_dir": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/iJO1366",
+    "A": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/iJO1366/rounding/polytope.npz",
+    "b": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/iJO1366/rounding/polytope.npz",
+    "start": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/iJO1366/rounding/polytope.npz",
+    "T": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/iJO1366/rounding/polytope.npz",
+    "shift": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/iJO1366/rounding/polytope.npz",
+    "extra_A": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/iJO1366/rounding/extra.npz",
+    "extra_b": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/iJO1366/rounding/extra.npz"
+  }
+}

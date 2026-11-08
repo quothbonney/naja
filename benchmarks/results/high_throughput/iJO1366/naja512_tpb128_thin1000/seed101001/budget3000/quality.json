@@ -1,0 +1,18 @@
+{
+  "status": "passed",
+  "seed": 101001,
+  "chains": 512,
+  "draws_per_chain": 3000,
+  "warmup_per_chain": 1000,
+  "process_seconds": 32.84656345099211,
+  "split_rhat_median": 1.0070239108209564,
+  "pooled_bulk_ess_median": 92376.94048165651,
+  "pooled_bulk_ess_median_per_chain": 180.42371187823537,
+  "pooled_bulk_ess_median_per_process_second": 2812.3776363845554,
+  "bounds_tolerance": 1e-07,
+  "sample_bound_violation_fraction": 0.0,
+  "schema_version": 2,
+  "diagnostic_mask_status": "model_lp_verified",
+  "count_note": "GPU and CPU retained counts differ; both use the same pooled quality criterion. ESS/512 is an equivalent average from pooledESS, not independent single-chain ESS estimates.",
+  "timing_note": "Sampling process wall includes warmup and output; diagnostics are separate and excluded. One-seed pilot until distinct seeds202001/303001 complete."
+}

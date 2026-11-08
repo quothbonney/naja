@@ -1,0 +1,1213 @@
+-- The C compiler identification is GNU 11.4.0
+-- The CXX compiler identification is GNU 11.4.0
+-- The CUDA compiler identification is NVIDIA 12.9.86 with host compiler GNU 11.4.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Detecting CUDA compiler ABI info
+-- Detecting CUDA compiler ABI info - done
+-- Check for working CUDA compiler: /mnt/home/jordan+123/history-native-20261015-r5/benchmarks/env-gpu/bin/nvcc - skipped
+-- Detecting CUDA compile features
+-- Detecting CUDA compile features - done
+-- Build type: Release
+-- Found CUDAToolkit: /mnt/home/jordan+123/history-native-20261015-r5/benchmarks/env-gpu/targets/x86_64-linux/include (found version "12.9.86")
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+-- Found Threads: TRUE
+-- Found ZLIB: /usr/lib/x86_64-linux-gnu/libz.so (found version "1.2.11")
+-- CUDA version: 12.9.86
+-- CUDA architectures: 90
+-- GPU dir: /mnt/home/jordan+123/history-native-20261015-r5/benchmarks/experimental/naja-coordinate/src/gpu
+-- Eigen dir: /mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/deps/eigen-3.4.0
+-- Configuring done (12.3s)
+CMake Warning at CMakeLists.txt:71 (add_executable):
+  Cannot generate a safe runtime search path for target naja because files in
+  some directories may conflict with libraries in implicit directories:
+
+    runtime library [libz.so.1] in /usr/lib/x86_64-linux-gnu may be hidden by files in:
+      /mnt/home/jordan+123/history-native-20261015-r5/benchmarks/env-gpu/lib
+
+  Some of these libraries may not be found correctly.
+
+
+-- Generating done (0.4s)
+-- Build files have been written to: /mnt/home/jordan+123/history-native-20261015-r5/benchmarks/build-h100-coordinate
+[1/135] Building C object CMakeFiles/kissfft.dir/extern/kissfft/kiss_fftr.c.o
+[2/135] Building C object CMakeFiles/kissfft.dir/extern/kissfft/kiss_fft.c.o
+[3/135] Building CXX object CMakeFiles/naja.dir/src/rounding/jacobi.cpp.o
+[4/135] Building CXX object CMakeFiles/naja.dir/src/npz.cpp.o
+[5/135] Building CXX object CMakeFiles/naja.dir/src/pipeline/model_io.cpp.o
+[6/135] Building CXX object CMakeFiles/naja.dir/src/engine/job_bulk.cpp.o
+[7/135] Building CXX object CMakeFiles/naja.dir/src/engine/bounds_filter.cpp.o
+[8/135] Building CUDA object CMakeFiles/naja.dir/src/main.cu.o
+ptxas info    : 0 bytes gmem
+[9/135] Building CXX object CMakeFiles/naja.dir/src/rounding/inherit.cpp.o
+[10/135] Building CXX object CMakeFiles/naja.dir/src/util/constraint_utils.cpp.o
+[11/135] Building CXX object CMakeFiles/naja.dir/src/rounding/barrier_schedule.cpp.o
+[12/135] Building CXX object CMakeFiles/naja.dir/src/pipeline/extra_constraints.cpp.o
+[13/135] Building CXX object CMakeFiles/naja.dir/src/validate/mcmc.cpp.o
+[14/135] Building CXX object CMakeFiles/naja.dir/src/cli/sample_cli.cpp.o
+[15/135] Building CXX object CMakeFiles/naja.dir/src/validate/chord_lengths.cpp.o
+[16/135] Building CXX object CMakeFiles/naja.dir/src/rounding/dikin_precondition.cpp.o
+[17/135] Building CXX object CMakeFiles/naja.dir/src/validate/bounds_check.cpp.o
+[18/135] Building CXX object CMakeFiles/naja.dir/src/cli/sample/common.cpp.o
+[19/135] Building CXX object CMakeFiles/naja.dir/src/cli/validate_cli.cpp.o
+[20/135] Building CXX object CMakeFiles/naja.dir/src/cli/sample/cmd_verify.cpp.o
+[21/135] Building CXX object CMakeFiles/naja.dir/src/cli/sample/cmd_bulk.cpp.o
+[22/135] Building CXX object CMakeFiles/naja.dir/src/cli/sample/cmd_run.cpp.o
+[23/135] Building CXX object CMakeFiles/naja.dir/src/cli/sample/cmd_eval_rounding.cpp.o
+[24/135] Building CXX object CMakeFiles/naja.dir/src/cli/sample/cmd_inherit_rounding.cpp.o
+[25/135] Building CXX object CMakeFiles/naja.dir/src/cli/sample/cmd_calibrate_rounding.cpp.o
+[26/135] Building CXX object CMakeFiles/naja.dir/src/cli/condition_cli.cpp.o
+[27/135] Building CUDA object CMakeFiles/naja.dir/src/rounding/barrier_rotation.cu.o
+ptxas info    : 218048 bytes gmem
+ptxas info    : Compiling entry function '_ZN52_GLOBAL__N__8d3e6a10_19_barrier_rotation_cu_b23eb5c717scale_rows_kernelEPdPKdii' for 'sm_90'
+ptxas info    : Function properties for _ZN52_GLOBAL__N__8d3e6a10_19_barrier_rotation_cu_b23eb5c717scale_rows_kernelEPdPKdii
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 28 registers, used 0 barriers
+ptxas info    : Compile time = 11.439 ms
+[28/135] Building CXX object CMakeFiles/naja.dir/src/cli/condition/eflux.cpp.o
+[29/135] Building CXX object CMakeFiles/naja.dir/src/cli/condition/registry.cpp.o
+[30/135] Building CXX object CMakeFiles/naja.dir/src/cli/condition/eflux2.cpp.o
+[31/135] Building CUDA object CMakeFiles/naja.dir/src/rounding/dikin_directions.cu.o
+ptxas info    : 218048 bytes gmem
+[32/135] Building CXX object CMakeFiles/naja.dir/src/conditioning/gpr.cpp.o
+[33/135] Building CXX object CMakeFiles/naja.dir/src/cli/prepare/cmd_prepare.cpp.o
+[34/135] Building CXX object CMakeFiles/naja.dir/src/cli/sample/cmd_list.cpp.o
+[35/135] Building CXX object CMakeFiles/naja.dir/src/rounding/plan.cpp.o
+[36/135] Building CXX object CMakeFiles/naja.dir/src/rounding/runtime_warmup.cpp.o
+[37/135] Building CUDA object CMakeFiles/naja.dir/src/engine/job_sampling.cu.o
+/mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/deps/eigen-3.4.0/Eigen/src/Core/PermutationMatrix.h(97): warning #20014-D: calling a __host__ function from a __host__ __device__ function is not allowed
+                              Index size() const { return Index(indices().size()); }
+                                                                       ^
+          detected during:
+            instantiation of "Eigen::Index Eigen::PermutationBase<Derived>::size() const [with Derived=Eigen::PermutationMatrix<-1, -1, int>]" at line 133
+            instantiation of "void Eigen::PermutationBase<Derived>::setIdentity() [with Derived=Eigen::PermutationMatrix<-1, -1, int>]" at line 143
+            instantiation of "void Eigen::PermutationBase<Derived>::setIdentity(Eigen::Index) [with Derived=Eigen::PermutationMatrix<-1, -1, int>]" at line 567 of /mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/deps/eigen-3.4.0/Eigen/src/LU/FullPivLU.h
+            instantiation of "void Eigen::FullPivLU<_MatrixType>::computeInPlace() [with _MatrixType=Eigen::Matrix<double, -1, -1, 0, -1, -1>]" at line 484 of /mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/deps/eigen-3.4.0/Eigen/src/LU/FullPivLU.h
+            instantiation of "Eigen::FullPivLU<_MatrixType>::FullPivLU(Eigen::EigenBase<InputType> &) [with _MatrixType=Eigen::Matrix<double, -1, -1, 0, -1, -1>, InputType=Eigen::Matrix<double, -1, -1, 0, -1, -1>]" at line 247 of /mnt/home/jordan+123/history-native-20261015-r5/benchmarks/experimental/naja-coordinate/src/engine/job_sampling.cu
+
+Remark: The warnings can be suppressed with "-diag-suppress <warning-number>"
+
+Warning #20014-D: calling a __host__ function from a __host__ __device__ function is not allowed
+          detected during:
+            instantiation of "void Eigen::internal::triangular_solver_selector<Lhs, Rhs, Side, Mode, 0, -1>::run(const Lhs &, Rhs &) [with Lhs=Eigen::Block<Eigen::Matrix<double, -1, -1, 0, -1, -1>, -1, -1, false>, Rhs=Eigen::Block<Eigen::Matrix<double, -1, -1, 0, -1, -1>, -1, -1, false>, Side=1, Mode=2]" at line 181 of /mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/deps/eigen-3.4.0/Eigen/src/Core/SolveTriangular.h
+            instantiation of "void Eigen::TriangularViewImpl<_MatrixType, _Mode, Eigen::Dense>::solveInPlace<Side,OtherDerived>(const Eigen::MatrixBase<OtherDerived> &) const [with _MatrixType=Eigen::Block<Eigen::Matrix<double, -1, -1, 0, -1, -1>, -1, -1, false>, _Mode=2U, Side=1, OtherDerived=Eigen::Block<Eigen::Matrix<double, -1, -1, 0, -1, -1>, -1, -1, false>]" at line 522 of /mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/deps/eigen-3.4.0/Eigen/src/Core/TriangularMatrix.h
+            instantiation of "void Eigen::TriangularViewImpl<_MatrixType, _Mode, Eigen::Dense>::solveInPlace(const Eigen::MatrixBase<OtherDerived> &) const [with _MatrixType=Eigen::Block<Eigen::Matrix<double, -1, -1, 0, -1, -1>, -1, -1, false>, _Mode=2U, OtherDerived=Eigen::Block<Eigen::Matrix<double, -1, -1, 0, -1, -1>, -1, -1, false>]" at line 687 of /mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/deps/eigen-3.4.0/Eigen/src/LU/FullPivLU.h
+            instantiation of "void Eigen::internal::kernel_retval<Eigen::FullPivLU<_MatrixType>>::evalTo(Dest &) const [with _MatrixType=Eigen::Matrix<double, -1, -1, 0, -1, -1>, Dest=Eigen::Matrix<double, -1, -1, 0, -1, -1>]" at line 56 of /mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/deps/eigen-3.4.0/Eigen/src/misc/Kernel.h
+            instantiation of "void Eigen::internal::kernel_retval_base<_DecompositionType>::evalTo(Dest &) const [with _DecompositionType=Eigen::FullPivLU<Eigen::Matrix<double, -1, -1, 0, -1, -1>>, Dest=Eigen::Matrix<double, -1, -1, 0, -1, -1>]" at line 62 of /mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/deps/eigen-3.4.0/Eigen/src/Core/ReturnByValue.h
+            instantiation of "void Eigen::ReturnByValue<Derived>::evalTo(Dest &) const [with Derived=Eigen::internal::kernel_retval_base<Eigen::FullPivLU<Eigen::Matrix<double, -1, -1, 0, -1, -1>>>, Dest=Eigen::Matrix<double, -1, -1, 0, -1, -1>]" at line 615 of /mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/deps/eigen-3.4.0/Eigen/src/Core/PlainObjectBase.h
+            instantiation of "Eigen::PlainObjectBase<Derived>::PlainObjectBase(const Eigen::ReturnByValue<OtherDerived> &) [with Derived=Eigen::Matrix<double, -1, -1, 0, -1, -1>, OtherDerived=Eigen::internal::kernel_retval_base<Eigen::FullPivLU<Eigen::Matrix<double, -1, -1, 0, -1, -1>>>]" at line 424 of /mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/deps/eigen-3.4.0/Eigen/src/Core/Matrix.h
+            instantiation of "Eigen::Matrix<_Scalar, _Rows, _Cols, _Options, _MaxRows, _MaxCols>::Matrix(const Eigen::EigenBase<OtherDerived> &) [with _Scalar=double, _Rows=-1, _Cols=-1, _Options=0, _MaxRows=-1, _MaxCols=-1, OtherDerived=Eigen::ReturnByValue<Eigen::internal::kernel_retval_base<Eigen::FullPivLU<Eigen::Matrix<double, -1, -1, 0, -1, -1>>>>]" at line 249 of /mnt/home/jordan+123/history-native-20261015-r5/benchmarks/experimental/naja-coordinate/src/engine/job_sampling.cu
+
+Warning #20014-D: calling a __host__ function from a __host__ __device__ function is not allowed
+          detected during:
+            instantiation of "void Eigen::internal::triangular_solver_selector<Lhs, Rhs, Side, Mode, 0, -1>::run(const Lhs &, Rhs &) [with Lhs=Eigen::Block<Eigen::Matrix<double, -1, -1, 0, -1, -1>, -1, -1, false>, Rhs=Eigen::Block<Eigen::Matrix<double, -1, -1, 0, -1, -1>, -1, -1, false>, Side=1, Mode=2]" at line 181 of /mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/deps/eigen-3.4.0/Eigen/src/Core/SolveTriangular.h
+            instantiation of "void Eigen::TriangularViewImpl<_MatrixType, _Mode, Eigen::Dense>::solveInPlace<Side,OtherDerived>(const Eigen::MatrixBase<OtherDerived> &) const [with _MatrixType=Eigen::Block<Eigen::Matrix<double, -1, -1, 0, -1, -1>, -1, -1, false>, _Mode=2U, Side=1, OtherDerived=Eigen::Block<Eigen::Matrix<double, -1, -1, 0, -1, -1>, -1, -1, false>]" at line 522 of /mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/deps/eigen-3.4.0/Eigen/src/Core/TriangularMatrix.h
+            instantiation of "void Eigen::TriangularViewImpl<_MatrixType, _Mode, Eigen::Dense>::solveInPlace(const Eigen::MatrixBase<OtherDerived> &) const [with _MatrixType=Eigen::Block<Eigen::Matrix<double, -1, -1, 0, -1, -1>, -1, -1, false>, _Mode=2U, OtherDerived=Eigen::Block<Eigen::Matrix<double, -1, -1, 0, -1, -1>, -1, -1, false>]" at line 687 of /mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/deps/eigen-3.4.0/Eigen/src/LU/FullPivLU.h
+            instantiation of "void Eigen::internal::kernel_retval<Eigen::FullPivLU<_MatrixType>>::evalTo(Dest &) const [with _MatrixType=Eigen::Matrix<double, -1, -1, 0, -1, -1>, Dest=Eigen::Matrix<double, -1, -1, 0, -1, -1>]" at line 56 of /mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/deps/eigen-3.4.0/Eigen/src/misc/Kernel.h
+            instantiation of "void Eigen::internal::kernel_retval_base<_DecompositionType>::evalTo(Dest &) const [with _DecompositionType=Eigen::FullPivLU<Eigen::Matrix<double, -1, -1, 0, -1, -1>>, Dest=Eigen::Matrix<double, -1, -1, 0, -1, -1>]" at line 62 of /mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/deps/eigen-3.4.0/Eigen/src/Core/ReturnByValue.h
+            instantiation of "void Eigen::ReturnByValue<Derived>::evalTo(Dest &) const [with Derived=Eigen::internal::kernel_retval_base<Eigen::FullPivLU<Eigen::Matrix<double, -1, -1, 0, -1, -1>>>, Dest=Eigen::Matrix<double, -1, -1, 0, -1, -1>]" at line 615 of /mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/deps/eigen-3.4.0/Eigen/src/Core/PlainObjectBase.h
+            instantiation of "Eigen::PlainObjectBase<Derived>::PlainObjectBase(const Eigen::ReturnByValue<OtherDerived> &) [with Derived=Eigen::Matrix<double, -1, -1, 0, -1, -1>, OtherDerived=Eigen::internal::kernel_retval_base<Eigen::FullPivLU<Eigen::Matrix<double, -1, -1, 0, -1, -1>>>]" at line 424 of /mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/deps/eigen-3.4.0/Eigen/src/Core/Matrix.h
+            instantiation of "Eigen::Matrix<_Scalar, _Rows, _Cols, _Options, _MaxRows, _MaxCols>::Matrix(const Eigen::EigenBase<OtherDerived> &) [with _Scalar=double, _Rows=-1, _Cols=-1, _Options=0, _MaxRows=-1, _MaxCols=-1, OtherDerived=Eigen::ReturnByValue<Eigen::internal::kernel_retval_base<Eigen::FullPivLU<Eigen::Matrix<double, -1, -1, 0, -1, -1>>>>]" at line 249 of /mnt/home/jordan+123/history-native-20261015-r5/benchmarks/experimental/naja-coordinate/src/engine/job_sampling.cu
+
+/mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/deps/eigen-3.4.0/Eigen/src/Core/ReturnByValue.h(62): warning #20014-D: calling a __host__ function from a __host__ __device__ function is not allowed
+      { static_cast<const Derived*>(this)->evalTo(dst); }
+                                                 ^
+          detected during:
+            instantiation of "void Eigen::ReturnByValue<Derived>::evalTo(Dest &) const [with Derived=Eigen::internal::kernel_retval_base<Eigen::FullPivLU<Eigen::Matrix<double, -1, -1, 0, -1, -1>>>, Dest=Eigen::Matrix<double, -1, -1, 0, -1, -1>]" at line 615 of /mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/deps/eigen-3.4.0/Eigen/src/Core/PlainObjectBase.h
+            instantiation of "Eigen::PlainObjectBase<Derived>::PlainObjectBase(const Eigen::ReturnByValue<OtherDerived> &) [with Derived=Eigen::Matrix<double, -1, -1, 0, -1, -1>, OtherDerived=Eigen::internal::kernel_retval_base<Eigen::FullPivLU<Eigen::Matrix<double, -1, -1, 0, -1, -1>>>]" at line 424 of /mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/deps/eigen-3.4.0/Eigen/src/Core/Matrix.h
+            instantiation of "Eigen::Matrix<_Scalar, _Rows, _Cols, _Options, _MaxRows, _MaxCols>::Matrix(const Eigen::EigenBase<OtherDerived> &) [with _Scalar=double, _Rows=-1, _Cols=-1, _Options=0, _MaxRows=-1, _MaxCols=-1, OtherDerived=Eigen::ReturnByValue<Eigen::internal::kernel_retval_base<Eigen::FullPivLU<Eigen::Matrix<double, -1, -1, 0, -1, -1>>>>]" at line 249 of /mnt/home/jordan+123/history-native-20261015-r5/benchmarks/experimental/naja-coordinate/src/engine/job_sampling.cu
+
+/mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/deps/eigen-3.4.0/Eigen/src/Core/ReturnByValue.h(64): warning #20014-D: calling a __host__ function from a __host__ __device__ function is not allowed
+      inline Index rows() const noexcept { return static_cast<const Derived*>(this)->rows(); }
+                                                                                         ^
+
+/mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/deps/eigen-3.4.0/Eigen/src/Core/ReturnByValue.h(66): warning #20014-D: calling a __host__ function from a __host__ __device__ function is not allowed
+      inline Index cols() const noexcept { return static_cast<const Derived*>(this)->cols(); }
+                                                                                         ^
+
+/mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/deps/eigen-3.4.0/Eigen/src/Core/PermutationMatrix.h(97): warning #20011-D: calling a __host__ function("Eigen::PermutationBase< ::Eigen::PermutationMatrix<(int)-1, (int)-1, int> > ::indices() const") from a __host__ __device__ function("Eigen::PermutationBase< ::Eigen::PermutationMatrix<(int)-1, (int)-1, int> > ::size const") is not allowed
+
+/mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/deps/eigen-3.4.0/Eigen/src/Core/ReturnByValue.h(64): warning #20011-D: calling a __host__ function("Eigen::internal::kernel_retval_base< ::Eigen::FullPivLU< ::Eigen::Matrix<double, (int)-1, (int)-1, (int)0, (int)-1, (int)-1> > > ::rows() const") from a __host__ __device__ function("Eigen::ReturnByValue< ::Eigen::internal::kernel_retval_base< ::Eigen::FullPivLU< ::Eigen::Matrix<double, (int)-1, (int)-1, (int)0, (int)-1, (int)-1> > > > ::rows const") is not allowed
+
+/mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/deps/eigen-3.4.0/Eigen/src/Core/ReturnByValue.h(66): warning #20011-D: calling a __host__ function("Eigen::internal::kernel_retval_base< ::Eigen::FullPivLU< ::Eigen::Matrix<double, (int)-1, (int)-1, (int)0, (int)-1, (int)-1> > > ::cols() const") from a __host__ __device__ function("Eigen::ReturnByValue< ::Eigen::internal::kernel_retval_base< ::Eigen::FullPivLU< ::Eigen::Matrix<double, (int)-1, (int)-1, (int)0, (int)-1, (int)-1> > > > ::cols const") is not allowed
+
+/mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/deps/eigen-3.4.0/Eigen/src/Core/ReturnByValue.h(62): warning #20011-D: calling a __host__ function("void Eigen::internal::kernel_retval_base< ::Eigen::FullPivLU< ::Eigen::Matrix<double, (int)-1, (int)-1, (int)0, (int)-1, (int)-1> > > ::evalTo< ::Eigen::Matrix<double, (int)-1, (int)-1, (int)0, (int)-1, (int)-1> > (T1 &) const") from a __host__ __device__ function("Eigen::ReturnByValue< ::Eigen::internal::kernel_retval_base< ::Eigen::FullPivLU< ::Eigen::Matrix<double, (int)-1, (int)-1, (int)0, (int)-1, (int)-1> > > > ::evalTo< ::Eigen::Matrix<double, (int)-1, (int)-1, (int)0, (int)-1, (int)-1> >  const") is not allowed
+
+/mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/deps/eigen-3.4.0/Eigen/src/Core/SolveTriangular.h(98): warning #20011-D: calling a __host__ function("Eigen::internal::gemm_blocking_space<(int)0, double, double, (int)-1, (int)-1, (int)-1, (int)4, (bool)0> ::gemm_blocking_space(long, long, long, long, bool)") from a __host__ __device__ function("Eigen::internal::triangular_solver_selector< ::Eigen::Block< ::Eigen::Matrix<double, (int)-1, (int)-1, (int)0, (int)-1, (int)-1> , (int)-1, (int)-1, (bool)0> ,  ::Eigen::Block< ::Eigen::Matrix<double, (int)-1, (int)-1, (int)0, (int)-1, (int)-1> , (int)-1, (int)-1, (bool)0> , (int)1, (int)2, (int)0, (int)-1> ::run") is not allowed
+
+/mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/deps/eigen-3.4.0/Eigen/src/Core/SolveTriangular.h(100): warning #20011-D: calling a __host__ function("Eigen::internal::triangular_solve_matrix<double, long, (int)1, (int)2, (bool)0, (int)0, (int)0, (int)1> ::run(long, long, const double *, long, double *, long, long,  ::Eigen::internal::level3_blocking<double, double>  &)") from a __host__ __device__ function("Eigen::internal::triangular_solver_selector< ::Eigen::Block< ::Eigen::Matrix<double, (int)-1, (int)-1, (int)0, (int)-1, (int)-1> , (int)-1, (int)-1, (bool)0> ,  ::Eigen::Block< ::Eigen::Matrix<double, (int)-1, (int)-1, (int)0, (int)-1, (int)-1> , (int)-1, (int)-1, (bool)0> , (int)1, (int)2, (int)0, (int)-1> ::run") is not allowed
+
+/mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/deps/eigen-3.4.0/Eigen/src/Core/SolveTriangular.h(100): warning #20011-D: calling a __host__ function("Eigen::internal::gemm_blocking_space<(int)0, double, double, (int)-1, (int)-1, (int)-1, (int)4, (bool)0> ::~gemm_blocking_space()") from a __host__ __device__ function("Eigen::internal::triangular_solver_selector< ::Eigen::Block< ::Eigen::Matrix<double, (int)-1, (int)-1, (int)0, (int)-1, (int)-1> , (int)-1, (int)-1, (bool)0> ,  ::Eigen::Block< ::Eigen::Matrix<double, (int)-1, (int)-1, (int)0, (int)-1, (int)-1> , (int)-1, (int)-1, (bool)0> , (int)1, (int)2, (int)0, (int)-1> ::run") is not allowed
+
+ptxas info    : 218048 bytes gmem
+[38/135] Building CXX object CMakeFiles/naja.dir/src/conditioning/eflux2.cpp.o
+[39/135] Building CXX object CMakeFiles/naja.dir/src/conditioning/eflux.cpp.o
+[40/135] Building CXX object CMakeFiles/naja.dir/src/pipeline/model_contract.cpp.o
+[41/135] Building CXX object CMakeFiles/naja.dir/src/rounding/schedule_io.cpp.o
+[42/135] Building CXX object CMakeFiles/naja.dir/src/pipeline/run_manifest.cpp.o
+[43/135] Linking C static library libkissfft.a
+[44/135] Building CXX object CMakeFiles/naja.dir/src/pipeline/feasible_start_files.cpp.o
+[45/135] Building CXX object CMakeFiles/naja.dir/src/pipeline/feasible_start_lp.cpp.o
+[46/135] Building CXX object CMakeFiles/test_eflux_smoke.dir/tests/test_eflux_smoke.cpp.o
+[47/135] Building CXX object CMakeFiles/test_csv_loader.dir/tests/test_csv_loader.cpp.o
+[48/135] Building CXX object CMakeFiles/test_condition_cli.dir/tests/test_condition_cli.cpp.o
+[49/135] Building CXX object CMakeFiles/test_condition_cli.dir/src/cli/condition/eflux.cpp.o
+[50/135] Building CXX object CMakeFiles/test_condition_cli.dir/src/cli/sample/common.cpp.o
+[51/135] Building CXX object CMakeFiles/test_gpr_eflux2.dir/tests/test_gpr_eflux2.cpp.o
+[52/135] Building CXX object CMakeFiles/test_gpr_eflux2.dir/src/conditioning/gpr.cpp.o
+[53/135] Building CUDA object CMakeFiles/naja.dir/src/gpu/device_utils.cu.o
+ptxas info    : 218048 bytes gmem
+[54/135] Building CXX object CMakeFiles/test_eflux_smoke.dir/src/conditioning/eflux.cpp.o
+[55/135] Building CXX object CMakeFiles/test_condition_cli.dir/src/conditioning/eflux.cpp.o
+[56/135] Building CXX object CMakeFiles/test_eflux2_bounds.dir/tests/test_eflux2_bounds.cpp.o
+[57/135] Building CXX object CMakeFiles/test_eflux2_bounds.dir/src/conditioning/gpr.cpp.o
+[58/135] Building CXX object CMakeFiles/test_mcmc_interleaved_layout.dir/tests/test_mcmc_interleaved_layout.cpp.o
+[59/135] Building CXX object CMakeFiles/test_start_feasibility.dir/tests/test_start_feasibility.cpp.o
+[60/135] Building CUDA object CMakeFiles/naja.dir/src/gpu/dvector.cu.o
+ptxas info    : 218048 bytes gmem
+ptxas info    : Compiling entry function '_ZN4naja3gpu16initializeKernelIiEEvPT_iS2_' for 'sm_90'
+ptxas info    : Function properties for _ZN4naja3gpu16initializeKernelIiEEvPT_iS2_
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 10 registers, used 0 barriers
+ptxas info    : Compile time = 6.657 ms
+ptxas info    : Compiling entry function '_ZN4naja3gpu16initializeKernelIdEEvPT_iS2_' for 'sm_90'
+ptxas info    : Function properties for _ZN4naja3gpu16initializeKernelIdEEvPT_iS2_
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 10 registers, used 0 barriers
+ptxas info    : Compile time = 0.995 ms
+[61/135] Building CUDA object CMakeFiles/naja.dir/src/gpu/backmap.cu.o
+ptxas info    : 218048 bytes gmem
+ptxas info    : Compiling entry function '_ZN4naja3gpu21add_shift_cols_kernelIdEEvPT_PKS2_ii' for 'sm_90'
+ptxas info    : Function properties for _ZN4naja3gpu21add_shift_cols_kernelIdEEvPT_PKS2_ii
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 12 registers, used 0 barriers
+ptxas info    : Compile time = 6.388 ms
+[62/135] Building CUDA object CMakeFiles/naja.dir/src/gpu/dmatrix.cu.o
+ptxas info    : 218048 bytes gmem
+ptxas info    : Compiling entry function '_ZN4naja3gpu22broadcastColumnsKernelIdEEvPKT_PS2_ii' for 'sm_90'
+ptxas info    : Function properties for _ZN4naja3gpu22broadcastColumnsKernelIdEEvPKT_PS2_ii
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 10 registers, used 0 barriers
+ptxas info    : Compile time = 6.204 ms
+[63/135] Building CXX object CMakeFiles/test_eflux2_bounds.dir/src/conditioning/eflux2.cpp.o
+[64/135] Building CXX object CMakeFiles/test_mcmc_interleaved_layout.dir/src/validate/mcmc.cpp.o
+[65/135] Building CXX object CMakeFiles/test_iterative_rounding_jacobi.dir/src/rounding/jacobi.cpp.o
+[66/135] Building CXX object CMakeFiles/test_iterative_rounding_jacobi.dir/tests/test_iterative_rounding_jacobi.cpp.o
+[67/135] Building CXX object CMakeFiles/test_chr_pair_steps.dir/tests/test_chr_pair_steps.cpp.o
+[68/135] Building CXX object CMakeFiles/test_extra_constraint_eps.dir/tests/test_extra_constraint_eps.cpp.o
+[69/135] Building CXX object CMakeFiles/test_pair_schedule_io.dir/tests/test_pair_schedule_io.cpp.o
+[70/135] Building CXX object CMakeFiles/test_extra_constraints_mode.dir/src/pipeline/extra_constraints.cpp.o
+[71/135] Building CXX object CMakeFiles/test_extra_constraints_mode.dir/tests/test_extra_constraints_mode.cpp.o
+[72/135] Building CXX object CMakeFiles/test_pair_schedule_io.dir/src/rounding/schedule_io.cpp.o
+[73/135] Building CXX object CMakeFiles/test_extra_constraint_eps.dir/src/util/constraint_utils.cpp.o
+[74/135] Building CXX object CMakeFiles/test_feasible_start_lp.dir/tests/test_feasible_start_lp.cpp.o
+[75/135] Building CXX object CMakeFiles/test_feasible_start_lp.dir/src/pipeline/feasible_start_lp.cpp.o
+[76/135] Building CXX object CMakeFiles/test_feasible_start_files.dir/src/pipeline/model_contract.cpp.o
+[77/135] Building CXX object CMakeFiles/test_feasible_start_files.dir/src/pipeline/feasible_start_lp.cpp.o
+[78/135] Building CXX object CMakeFiles/test_feasible_start_files.dir/src/pipeline/feasible_start_files.cpp.o
+[79/135] Building CXX object CMakeFiles/test_feasible_start_files.dir/src/pipeline/model_io.cpp.o
+[80/135] Building CXX object CMakeFiles/test_feasible_start_files.dir/tests/test_feasible_start_files.cpp.o
+[81/135] Building CXX object CMakeFiles/test_feasible_start_files.dir/src/npz.cpp.o
+[82/135] Building CXX object CMakeFiles/test_npz_reader.dir/tests/test_npz_reader.cpp.o
+[83/135] Building CXX object CMakeFiles/test_npz_reader.dir/src/npz.cpp.o
+[84/135] Building CUDA object CMakeFiles/test_gpu_sampling_feasibility.dir/src/gpu/device_utils.cu.o
+ptxas info    : 218048 bytes gmem
+[85/135] Building CUDA object CMakeFiles/test_gpu_sampling_feasibility.dir/tests/test_gpu_sampling_feasibility.cu.o
+ptxas info    : 0 bytes gmem
+[86/135] Building CUDA object CMakeFiles/test_gpu_sampling_feasibility.dir/src/gpu/dvector.cu.o
+ptxas info    : 218048 bytes gmem
+ptxas info    : Compiling entry function '_ZN4naja3gpu16initializeKernelIiEEvPT_iS2_' for 'sm_90'
+ptxas info    : Function properties for _ZN4naja3gpu16initializeKernelIiEEvPT_iS2_
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 10 registers, used 0 barriers
+ptxas info    : Compile time = 5.789 ms
+ptxas info    : Compiling entry function '_ZN4naja3gpu16initializeKernelIdEEvPT_iS2_' for 'sm_90'
+ptxas info    : Function properties for _ZN4naja3gpu16initializeKernelIdEEvPT_iS2_
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 10 registers, used 0 barriers
+ptxas info    : Compile time = 1.059 ms
+[87/135] Building CUDA object CMakeFiles/test_gpu_sampling_feasibility.dir/src/gpu/dmatrix.cu.o
+ptxas info    : 218048 bytes gmem
+ptxas info    : Compiling entry function '_ZN4naja3gpu22broadcastColumnsKernelIdEEvPKT_PS2_ii' for 'sm_90'
+ptxas info    : Function properties for _ZN4naja3gpu22broadcastColumnsKernelIdEEvPKT_PS2_ii
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 10 registers, used 0 barriers
+ptxas info    : Compile time = 7.172 ms
+[88/135] Building CUDA object CMakeFiles/test_gpu_sampling_feasibility.dir/src/gpu/backmap.cu.o
+ptxas info    : 218048 bytes gmem
+ptxas info    : Compiling entry function '_ZN4naja3gpu21add_shift_cols_kernelIdEEvPT_PKS2_ii' for 'sm_90'
+ptxas info    : Function properties for _ZN4naja3gpu21add_shift_cols_kernelIdEEvPT_PKS2_ii
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 12 registers, used 0 barriers
+ptxas info    : Compile time = 6.194 ms
+[89/135] Building CUDA object CMakeFiles/naja.dir/src/gpu/chr.cu.o
+ptxas info    : 218089 bytes gmem
+ptxas info    : Compiling entry function '_ZN3cub17CUB_200802_SM_90011EmptyKernelIvEEvv' for 'sm_90'
+ptxas info    : Function properties for _ZN3cub17CUB_200802_SM_90011EmptyKernelIvEEvv
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 4 registers, used 0 barriers
+ptxas info    : Compile time = 5.288 ms
+ptxas info    : Compiling entry function '_ZN4naja3gpu9chrKernelId19curandStateMRG32k3aLi1024ELb0EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i' for 'sm_90'
+ptxas info    : Function properties for _ZN4naja3gpu9chrKernelId19curandStateMRG32k3aLi1024ELb0EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 72 registers, used 1 barriers, 1040 bytes smem
+ptxas info    : Compile time = 162.718 ms
+ptxas info    : Compiling entry function '_ZN4naja3gpu9chrKernelId19curandStateMRG32k3aLi1024ELb1EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i' for 'sm_90'
+ptxas info    : Function properties for _ZN4naja3gpu9chrKernelId19curandStateMRG32k3aLi1024ELb1EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 64 registers, used 1 barriers, 608 bytes smem
+ptxas info    : Compile time = 67.306 ms
+ptxas info    : Compiling entry function '_ZN4naja3gpu9chrKernelId19curandStateMRG32k3aLi512ELb0EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i' for 'sm_90'
+ptxas info    : Function properties for _ZN4naja3gpu9chrKernelId19curandStateMRG32k3aLi512ELb0EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 104 registers, used 1 barriers, 752 bytes smem
+ptxas info    : Compile time = 166.020 ms
+ptxas info    : Compiling entry function '_ZN4naja3gpu9chrKernelId19curandStateMRG32k3aLi512ELb1EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i' for 'sm_90'
+ptxas info    : Function properties for _ZN4naja3gpu9chrKernelId19curandStateMRG32k3aLi512ELb1EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 64 registers, used 1 barriers, 320 bytes smem
+ptxas info    : Compile time = 64.891 ms
+ptxas info    : Compiling entry function '_ZN4naja3gpu9chrKernelId19curandStateMRG32k3aLi256ELb0EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i' for 'sm_90'
+ptxas info    : Function properties for _ZN4naja3gpu9chrKernelId19curandStateMRG32k3aLi256ELb0EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 104 registers, used 1 barriers, 608 bytes smem
+ptxas info    : Compile time = 163.005 ms
+ptxas info    : Compiling entry function '_ZN4naja3gpu9chrKernelId19curandStateMRG32k3aLi256ELb1EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i' for 'sm_90'
+ptxas info    : Function properties for _ZN4naja3gpu9chrKernelId19curandStateMRG32k3aLi256ELb1EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 64 registers, used 1 barriers, 176 bytes smem
+ptxas info    : Compile time = 58.594 ms
+ptxas info    : Compiling entry function '_ZN4naja3gpu9chrKernelId19curandStateMRG32k3aLi128ELb0EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i' for 'sm_90'
+ptxas info    : Function properties for _ZN4naja3gpu9chrKernelId19curandStateMRG32k3aLi128ELb0EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 104 registers, used 1 barriers, 544 bytes smem
+ptxas info    : Compile time = 150.411 ms
+ptxas info    : Compiling entry function '_ZN4naja3gpu9chrKernelId19curandStateMRG32k3aLi128ELb1EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i' for 'sm_90'
+ptxas info    : Function properties for _ZN4naja3gpu9chrKernelId19curandStateMRG32k3aLi128ELb1EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 64 registers, used 1 barriers, 112 bytes smem
+ptxas info    : Compile time = 55.267 ms
+ptxas info    : Compiling entry function '_ZN4naja3gpu9chrKernelId19curandStateMRG32k3aLi64ELb0EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i' for 'sm_90'
+ptxas info    : Function properties for _ZN4naja3gpu9chrKernelId19curandStateMRG32k3aLi64ELb0EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 106 registers, used 1 barriers, 512 bytes smem
+ptxas info    : Compile time = 148.186 ms
+ptxas info    : Compiling entry function '_ZN4naja3gpu9chrKernelId19curandStateMRG32k3aLi64ELb1EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i' for 'sm_90'
+ptxas info    : Function properties for _ZN4naja3gpu9chrKernelId19curandStateMRG32k3aLi64ELb1EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 56 registers, used 1 barriers, 80 bytes smem
+ptxas info    : Compile time = 57.434 ms
+ptxas info    : Compiling entry function '_ZN4naja3gpu9chrKernelId19curandStateMRG32k3aLi32ELb0EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i' for 'sm_90'
+ptxas info    : Function properties for _ZN4naja3gpu9chrKernelId19curandStateMRG32k3aLi32ELb0EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 104 registers, used 1 barriers, 496 bytes smem
+ptxas info    : Compile time = 142.173 ms
+ptxas info    : Compiling entry function '_ZN4naja3gpu9chrKernelId19curandStateMRG32k3aLi32ELb1EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i' for 'sm_90'
+ptxas info    : Function properties for _ZN4naja3gpu9chrKernelId19curandStateMRG32k3aLi32ELb1EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 64 registers, used 1 barriers, 64 bytes smem
+ptxas info    : Compile time = 54.244 ms
+ptxas info    : Compiling entry function '_ZN4naja3gpu9chrKernelId17curandStateXORWOWLi1024ELb0EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i' for 'sm_90'
+ptxas info    : Function properties for _ZN4naja3gpu9chrKernelId17curandStateXORWOWLi1024ELb0EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 72 registers, used 1 barriers, 1040 bytes smem
+ptxas info    : Compile time = 176.709 ms
+ptxas info    : Compiling entry function '_ZN4naja3gpu9chrKernelId17curandStateXORWOWLi512ELb0EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i' for 'sm_90'
+ptxas info    : Function properties for _ZN4naja3gpu9chrKernelId17curandStateXORWOWLi512ELb0EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 108 registers, used 1 barriers, 752 bytes smem
+ptxas info    : Compile time = 140.226 ms
+ptxas info    : Compiling entry function '_ZN4naja3gpu9chrKernelId17curandStateXORWOWLi256ELb0EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i' for 'sm_90'
+ptxas info    : Function properties for _ZN4naja3gpu9chrKernelId17curandStateXORWOWLi256ELb0EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 108 registers, used 1 barriers, 608 bytes smem
+ptxas info    : Compile time = 137.402 ms
+ptxas info    : Compiling entry function '_ZN4naja3gpu9chrKernelId17curandStateXORWOWLi128ELb0EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i' for 'sm_90'
+ptxas info    : Function properties for _ZN4naja3gpu9chrKernelId17curandStateXORWOWLi128ELb0EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 108 registers, used 1 barriers, 544 bytes smem
+ptxas info    : Compile time = 135.404 ms
+ptxas info    : Compiling entry function '_ZN4naja3gpu9chrKernelId17curandStateXORWOWLi64ELb0EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i' for 'sm_90'
+ptxas info    : Function properties for _ZN4naja3gpu9chrKernelId17curandStateXORWOWLi64ELb0EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 108 registers, used 1 barriers, 512 bytes smem
+ptxas info    : Compile time = 135.170 ms
+ptxas info    : Compiling entry function '_ZN4naja3gpu9chrKernelId17curandStateXORWOWLi32ELb0EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i' for 'sm_90'
+ptxas info    : Function properties for _ZN4naja3gpu9chrKernelId17curandStateXORWOWLi32ELb0EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 108 registers, used 1 barriers, 496 bytes smem
+ptxas info    : Compile time = 136.139 ms
+ptxas info    : Compiling entry function '_ZN4naja3gpu17initPrngStatesCHRI19curandStateMRG32k3aEEvPT_ii' for 'sm_90'
+ptxas info    : Function properties for _ZN4naja3gpu17initPrngStatesCHRI19curandStateMRG32k3aEEvPT_ii
+    72 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 78 registers, used 0 barriers, 72 bytes cumulative stack size
+ptxas info    : Compile time = 222.106 ms
+[90/135] Building CUDA object CMakeFiles/test_gpu_sampling_cube_moments.dir/tests/test_gpu_sampling_cube_moments.cu.o
+ptxas info    : 0 bytes gmem
+[91/135] Building CUDA object CMakeFiles/test_gpu_sampling_cube_moments.dir/src/gpu/device_utils.cu.o
+ptxas info    : 218048 bytes gmem
+[92/135] Building CUDA object CMakeFiles/test_gpu_sampling_cube_moments.dir/src/gpu/dvector.cu.o
+ptxas info    : 218048 bytes gmem
+ptxas info    : Compiling entry function '_ZN4naja3gpu16initializeKernelIiEEvPT_iS2_' for 'sm_90'
+ptxas info    : Function properties for _ZN4naja3gpu16initializeKernelIiEEvPT_iS2_
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 10 registers, used 0 barriers
+ptxas info    : Compile time = 5.837 ms
+ptxas info    : Compiling entry function '_ZN4naja3gpu16initializeKernelIdEEvPT_iS2_' for 'sm_90'
+ptxas info    : Function properties for _ZN4naja3gpu16initializeKernelIdEEvPT_iS2_
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 10 registers, used 0 barriers
+ptxas info    : Compile time = 1.021 ms
+[93/135] Building CUDA object CMakeFiles/test_gpu_sampling_cube_moments.dir/src/gpu/dmatrix.cu.o
+ptxas info    : 218048 bytes gmem
+ptxas info    : Compiling entry function '_ZN4naja3gpu22broadcastColumnsKernelIdEEvPKT_PS2_ii' for 'sm_90'
+ptxas info    : Function properties for _ZN4naja3gpu22broadcastColumnsKernelIdEEvPKT_PS2_ii
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 10 registers, used 0 barriers
+ptxas info    : Compile time = 6.168 ms
+[94/135] Building CUDA object CMakeFiles/test_gpu_sampling_cube_moments.dir/src/gpu/backmap.cu.o
+ptxas info    : 218048 bytes gmem
+ptxas info    : Compiling entry function '_ZN4naja3gpu21add_shift_cols_kernelIdEEvPT_PKS2_ii' for 'sm_90'
+ptxas info    : Function properties for _ZN4naja3gpu21add_shift_cols_kernelIdEEvPT_PKS2_ii
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 12 registers, used 0 barriers
+ptxas info    : Compile time = 6.171 ms
+[95/135] Building CUDA object CMakeFiles/test_gpu_sampling_simplex_moments.dir/tests/test_gpu_sampling_simplex_moments.cu.o
+ptxas info    : 0 bytes gmem
+[96/135] Building CUDA object CMakeFiles/test_gpu_sampling_simplex_moments.dir/src/gpu/device_utils.cu.o
+ptxas info    : 218048 bytes gmem
+[97/135] Building CUDA object CMakeFiles/test_gpu_sampling_feasibility.dir/src/gpu/chr.cu.o
+ptxas info    : 218089 bytes gmem
+ptxas info    : Compiling entry function '_ZN3cub17CUB_200802_SM_90011EmptyKernelIvEEvv' for 'sm_90'
+ptxas info    : Function properties for _ZN3cub17CUB_200802_SM_90011EmptyKernelIvEEvv
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 4 registers, used 0 barriers
+ptxas info    : Compile time = 6.116 ms
+ptxas info    : Compiling entry function '_ZN4naja3gpu9chrKernelId19curandStateMRG32k3aLi1024ELb0EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i' for 'sm_90'
+ptxas info    : Function properties for _ZN4naja3gpu9chrKernelId19curandStateMRG32k3aLi1024ELb0EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 72 registers, used 1 barriers, 1040 bytes smem
+ptxas info    : Compile time = 165.264 ms
+ptxas info    : Compiling entry function '_ZN4naja3gpu9chrKernelId19curandStateMRG32k3aLi1024ELb1EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i' for 'sm_90'
+ptxas info    : Function properties for _ZN4naja3gpu9chrKernelId19curandStateMRG32k3aLi1024ELb1EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 64 registers, used 1 barriers, 608 bytes smem
+ptxas info    : Compile time = 63.530 ms
+ptxas info    : Compiling entry function '_ZN4naja3gpu9chrKernelId19curandStateMRG32k3aLi512ELb0EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i' for 'sm_90'
+ptxas info    : Function properties for _ZN4naja3gpu9chrKernelId19curandStateMRG32k3aLi512ELb0EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 104 registers, used 1 barriers, 752 bytes smem
+ptxas info    : Compile time = 151.709 ms
+ptxas info    : Compiling entry function '_ZN4naja3gpu9chrKernelId19curandStateMRG32k3aLi512ELb1EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i' for 'sm_90'
+ptxas info    : Function properties for _ZN4naja3gpu9chrKernelId19curandStateMRG32k3aLi512ELb1EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 64 registers, used 1 barriers, 320 bytes smem
+ptxas info    : Compile time = 58.703 ms
+ptxas info    : Compiling entry function '_ZN4naja3gpu9chrKernelId19curandStateMRG32k3aLi256ELb0EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i' for 'sm_90'
+ptxas info    : Function properties for _ZN4naja3gpu9chrKernelId19curandStateMRG32k3aLi256ELb0EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 104 registers, used 1 barriers, 608 bytes smem
+ptxas info    : Compile time = 149.163 ms
+ptxas info    : Compiling entry function '_ZN4naja3gpu9chrKernelId19curandStateMRG32k3aLi256ELb1EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i' for 'sm_90'
+ptxas info    : Function properties for _ZN4naja3gpu9chrKernelId19curandStateMRG32k3aLi256ELb1EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 64 registers, used 1 barriers, 176 bytes smem
+ptxas info    : Compile time = 57.100 ms
+ptxas info    : Compiling entry function '_ZN4naja3gpu9chrKernelId19curandStateMRG32k3aLi128ELb0EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i' for 'sm_90'
+ptxas info    : Function properties for _ZN4naja3gpu9chrKernelId19curandStateMRG32k3aLi128ELb0EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 104 registers, used 1 barriers, 544 bytes smem
+ptxas info    : Compile time = 146.955 ms
+ptxas info    : Compiling entry function '_ZN4naja3gpu9chrKernelId19curandStateMRG32k3aLi128ELb1EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i' for 'sm_90'
+ptxas info    : Function properties for _ZN4naja3gpu9chrKernelId19curandStateMRG32k3aLi128ELb1EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 64 registers, used 1 barriers, 112 bytes smem
+ptxas info    : Compile time = 56.850 ms
+ptxas info    : Compiling entry function '_ZN4naja3gpu9chrKernelId19curandStateMRG32k3aLi64ELb0EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i' for 'sm_90'
+ptxas info    : Function properties for _ZN4naja3gpu9chrKernelId19curandStateMRG32k3aLi64ELb0EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 106 registers, used 1 barriers, 512 bytes smem
+ptxas info    : Compile time = 146.801 ms
+ptxas info    : Compiling entry function '_ZN4naja3gpu9chrKernelId19curandStateMRG32k3aLi64ELb1EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i' for 'sm_90'
+ptxas info    : Function properties for _ZN4naja3gpu9chrKernelId19curandStateMRG32k3aLi64ELb1EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 56 registers, used 1 barriers, 80 bytes smem
+ptxas info    : Compile time = 55.337 ms
+ptxas info    : Compiling entry function '_ZN4naja3gpu9chrKernelId19curandStateMRG32k3aLi32ELb0EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i' for 'sm_90'
+ptxas info    : Function properties for _ZN4naja3gpu9chrKernelId19curandStateMRG32k3aLi32ELb0EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 104 registers, used 1 barriers, 496 bytes smem
+ptxas info    : Compile time = 142.549 ms
+ptxas info    : Compiling entry function '_ZN4naja3gpu9chrKernelId19curandStateMRG32k3aLi32ELb1EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i' for 'sm_90'
+ptxas info    : Function properties for _ZN4naja3gpu9chrKernelId19curandStateMRG32k3aLi32ELb1EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 64 registers, used 1 barriers, 64 bytes smem
+ptxas info    : Compile time = 53.187 ms
+ptxas info    : Compiling entry function '_ZN4naja3gpu9chrKernelId17curandStateXORWOWLi1024ELb0EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i' for 'sm_90'
+ptxas info    : Function properties for _ZN4naja3gpu9chrKernelId17curandStateXORWOWLi1024ELb0EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 72 registers, used 1 barriers, 1040 bytes smem
+ptxas info    : Compile time = 151.116 ms
+ptxas info    : Compiling entry function '_ZN4naja3gpu9chrKernelId17curandStateXORWOWLi512ELb0EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i' for 'sm_90'
+ptxas info    : Function properties for _ZN4naja3gpu9chrKernelId17curandStateXORWOWLi512ELb0EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 108 registers, used 1 barriers, 752 bytes smem
+ptxas info    : Compile time = 139.430 ms
+ptxas info    : Compiling entry function '_ZN4naja3gpu9chrKernelId17curandStateXORWOWLi256ELb0EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i' for 'sm_90'
+ptxas info    : Function properties for _ZN4naja3gpu9chrKernelId17curandStateXORWOWLi256ELb0EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 108 registers, used 1 barriers, 608 bytes smem
+ptxas info    : Compile time = 137.036 ms
+ptxas info    : Compiling entry function '_ZN4naja3gpu9chrKernelId17curandStateXORWOWLi128ELb0EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i' for 'sm_90'
+ptxas info    : Function properties for _ZN4naja3gpu9chrKernelId17curandStateXORWOWLi128ELb0EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 108 registers, used 1 barriers, 544 bytes smem
+ptxas info    : Compile time = 135.000 ms
+ptxas info    : Compiling entry function '_ZN4naja3gpu9chrKernelId17curandStateXORWOWLi64ELb0EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i' for 'sm_90'
+ptxas info    : Function properties for _ZN4naja3gpu9chrKernelId17curandStateXORWOWLi64ELb0EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 108 registers, used 1 barriers, 512 bytes smem
+ptxas info    : Compile time = 134.857 ms
+ptxas info    : Compiling entry function '_ZN4naja3gpu9chrKernelId17curandStateXORWOWLi32ELb0EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i' for 'sm_90'
+ptxas info    : Function properties for _ZN4naja3gpu9chrKernelId17curandStateXORWOWLi32ELb0EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 108 registers, used 1 barriers, 496 bytes smem
+ptxas info    : Compile time = 133.627 ms
+ptxas info    : Compiling entry function '_ZN4naja3gpu17initPrngStatesCHRI19curandStateMRG32k3aEEvPT_ii' for 'sm_90'
+ptxas info    : Function properties for _ZN4naja3gpu17initPrngStatesCHRI19curandStateMRG32k3aEEvPT_ii
+    72 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 78 registers, used 0 barriers, 72 bytes cumulative stack size
+ptxas info    : Compile time = 220.605 ms
+[98/135] Building CUDA object CMakeFiles/test_gpu_sampling_simplex_moments.dir/src/gpu/dmatrix.cu.o
+ptxas info    : 218048 bytes gmem
+ptxas info    : Compiling entry function '_ZN4naja3gpu22broadcastColumnsKernelIdEEvPKT_PS2_ii' for 'sm_90'
+ptxas info    : Function properties for _ZN4naja3gpu22broadcastColumnsKernelIdEEvPKT_PS2_ii
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 10 registers, used 0 barriers
+ptxas info    : Compile time = 6.138 ms
+[99/135] Building CUDA object CMakeFiles/test_gpu_sampling_simplex_moments.dir/src/gpu/dvector.cu.o
+ptxas info    : 218048 bytes gmem
+ptxas info    : Compiling entry function '_ZN4naja3gpu16initializeKernelIiEEvPT_iS2_' for 'sm_90'
+ptxas info    : Function properties for _ZN4naja3gpu16initializeKernelIiEEvPT_iS2_
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 10 registers, used 0 barriers
+ptxas info    : Compile time = 5.691 ms
+ptxas info    : Compiling entry function '_ZN4naja3gpu16initializeKernelIdEEvPT_iS2_' for 'sm_90'
+ptxas info    : Function properties for _ZN4naja3gpu16initializeKernelIdEEvPT_iS2_
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 10 registers, used 0 barriers
+ptxas info    : Compile time = 1.027 ms
+[100/135] Building CUDA object CMakeFiles/test_gpu_sampling_simplex_moments.dir/src/gpu/backmap.cu.o
+ptxas info    : 218048 bytes gmem
+ptxas info    : Compiling entry function '_ZN4naja3gpu21add_shift_cols_kernelIdEEvPT_PKS2_ii' for 'sm_90'
+ptxas info    : Function properties for _ZN4naja3gpu21add_shift_cols_kernelIdEEvPT_PKS2_ii
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 12 registers, used 0 barriers
+ptxas info    : Compile time = 6.058 ms
+[101/135] Building CUDA object CMakeFiles/test_gpu_sampling_cube_moments.dir/src/gpu/chr.cu.o
+ptxas info    : 218089 bytes gmem
+ptxas info    : Compiling entry function '_ZN3cub17CUB_200802_SM_90011EmptyKernelIvEEvv' for 'sm_90'
+ptxas info    : Function properties for _ZN3cub17CUB_200802_SM_90011EmptyKernelIvEEvv
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 4 registers, used 0 barriers
+ptxas info    : Compile time = 5.509 ms
+ptxas info    : Compiling entry function '_ZN4naja3gpu9chrKernelId19curandStateMRG32k3aLi1024ELb0EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i' for 'sm_90'
+ptxas info    : Function properties for _ZN4naja3gpu9chrKernelId19curandStateMRG32k3aLi1024ELb0EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 72 registers, used 1 barriers, 1040 bytes smem
+ptxas info    : Compile time = 166.664 ms
+ptxas info    : Compiling entry function '_ZN4naja3gpu9chrKernelId19curandStateMRG32k3aLi1024ELb1EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i' for 'sm_90'
+ptxas info    : Function properties for _ZN4naja3gpu9chrKernelId19curandStateMRG32k3aLi1024ELb1EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 64 registers, used 1 barriers, 608 bytes smem
+ptxas info    : Compile time = 63.077 ms
+ptxas info    : Compiling entry function '_ZN4naja3gpu9chrKernelId19curandStateMRG32k3aLi512ELb0EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i' for 'sm_90'
+ptxas info    : Function properties for _ZN4naja3gpu9chrKernelId19curandStateMRG32k3aLi512ELb0EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 104 registers, used 1 barriers, 752 bytes smem
+ptxas info    : Compile time = 153.440 ms
+ptxas info    : Compiling entry function '_ZN4naja3gpu9chrKernelId19curandStateMRG32k3aLi512ELb1EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i' for 'sm_90'
+ptxas info    : Function properties for _ZN4naja3gpu9chrKernelId19curandStateMRG32k3aLi512ELb1EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 64 registers, used 1 barriers, 320 bytes smem
+ptxas info    : Compile time = 59.019 ms
+ptxas info    : Compiling entry function '_ZN4naja3gpu9chrKernelId19curandStateMRG32k3aLi256ELb0EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i' for 'sm_90'
+ptxas info    : Function properties for _ZN4naja3gpu9chrKernelId19curandStateMRG32k3aLi256ELb0EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 104 registers, used 1 barriers, 608 bytes smem
+ptxas info    : Compile time = 153.529 ms
+ptxas info    : Compiling entry function '_ZN4naja3gpu9chrKernelId19curandStateMRG32k3aLi256ELb1EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i' for 'sm_90'
+ptxas info    : Function properties for _ZN4naja3gpu9chrKernelId19curandStateMRG32k3aLi256ELb1EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 64 registers, used 1 barriers, 176 bytes smem
+ptxas info    : Compile time = 56.322 ms
+ptxas info    : Compiling entry function '_ZN4naja3gpu9chrKernelId19curandStateMRG32k3aLi128ELb0EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i' for 'sm_90'
+ptxas info    : Function properties for _ZN4naja3gpu9chrKernelId19curandStateMRG32k3aLi128ELb0EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 104 registers, used 1 barriers, 544 bytes smem
+ptxas info    : Compile time = 147.860 ms
+ptxas info    : Compiling entry function '_ZN4naja3gpu9chrKernelId19curandStateMRG32k3aLi128ELb1EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i' for 'sm_90'
+ptxas info    : Function properties for _ZN4naja3gpu9chrKernelId19curandStateMRG32k3aLi128ELb1EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 64 registers, used 1 barriers, 112 bytes smem
+ptxas info    : Compile time = 55.694 ms
+ptxas info    : Compiling entry function '_ZN4naja3gpu9chrKernelId19curandStateMRG32k3aLi64ELb0EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i' for 'sm_90'
+ptxas info    : Function properties for _ZN4naja3gpu9chrKernelId19curandStateMRG32k3aLi64ELb0EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 106 registers, used 1 barriers, 512 bytes smem
+ptxas info    : Compile time = 146.576 ms
+ptxas info    : Compiling entry function '_ZN4naja3gpu9chrKernelId19curandStateMRG32k3aLi64ELb1EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i' for 'sm_90'
+ptxas info    : Function properties for _ZN4naja3gpu9chrKernelId19curandStateMRG32k3aLi64ELb1EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 56 registers, used 1 barriers, 80 bytes smem
+ptxas info    : Compile time = 55.224 ms
+ptxas info    : Compiling entry function '_ZN4naja3gpu9chrKernelId19curandStateMRG32k3aLi32ELb0EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i' for 'sm_90'
+ptxas info    : Function properties for _ZN4naja3gpu9chrKernelId19curandStateMRG32k3aLi32ELb0EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 104 registers, used 1 barriers, 496 bytes smem
+ptxas info    : Compile time = 144.653 ms
+ptxas info    : Compiling entry function '_ZN4naja3gpu9chrKernelId19curandStateMRG32k3aLi32ELb1EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i' for 'sm_90'
+ptxas info    : Function properties for _ZN4naja3gpu9chrKernelId19curandStateMRG32k3aLi32ELb1EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 64 registers, used 1 barriers, 64 bytes smem
+ptxas info    : Compile time = 54.025 ms
+ptxas info    : Compiling entry function '_ZN4naja3gpu9chrKernelId17curandStateXORWOWLi1024ELb0EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i' for 'sm_90'
+ptxas info    : Function properties for _ZN4naja3gpu9chrKernelId17curandStateXORWOWLi1024ELb0EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 72 registers, used 1 barriers, 1040 bytes smem
+ptxas info    : Compile time = 152.116 ms
+ptxas info    : Compiling entry function '_ZN4naja3gpu9chrKernelId17curandStateXORWOWLi512ELb0EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i' for 'sm_90'
+ptxas info    : Function properties for _ZN4naja3gpu9chrKernelId17curandStateXORWOWLi512ELb0EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 108 registers, used 1 barriers, 752 bytes smem
+ptxas info    : Compile time = 142.618 ms
+ptxas info    : Compiling entry function '_ZN4naja3gpu9chrKernelId17curandStateXORWOWLi256ELb0EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i' for 'sm_90'
+ptxas info    : Function properties for _ZN4naja3gpu9chrKernelId17curandStateXORWOWLi256ELb0EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 108 registers, used 1 barriers, 608 bytes smem
+ptxas info    : Compile time = 138.654 ms
+ptxas info    : Compiling entry function '_ZN4naja3gpu9chrKernelId17curandStateXORWOWLi128ELb0EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i' for 'sm_90'
+ptxas info    : Function properties for _ZN4naja3gpu9chrKernelId17curandStateXORWOWLi128ELb0EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 108 registers, used 1 barriers, 544 bytes smem
+ptxas info    : Compile time = 137.510 ms
+ptxas info    : Compiling entry function '_ZN4naja3gpu9chrKernelId17curandStateXORWOWLi64ELb0EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i' for 'sm_90'
+ptxas info    : Function properties for _ZN4naja3gpu9chrKernelId17curandStateXORWOWLi64ELb0EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 108 registers, used 1 barriers, 512 bytes smem
+ptxas info    : Compile time = 136.383 ms
+ptxas info    : Compiling entry function '_ZN4naja3gpu9chrKernelId17curandStateXORWOWLi32ELb0EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i' for 'sm_90'
+ptxas info    : Function properties for _ZN4naja3gpu9chrKernelId17curandStateXORWOWLi32ELb0EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 108 registers, used 1 barriers, 496 bytes smem
+ptxas info    : Compile time = 136.007 ms
+ptxas info    : Compiling entry function '_ZN4naja3gpu17initPrngStatesCHRI19curandStateMRG32k3aEEvPT_ii' for 'sm_90'
+ptxas info    : Function properties for _ZN4naja3gpu17initPrngStatesCHRI19curandStateMRG32k3aEEvPT_ii
+    72 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 78 registers, used 0 barriers, 72 bytes cumulative stack size
+ptxas info    : Compile time = 220.179 ms
+[102/135] Building CUDA object CMakeFiles/test_gpu_backmap_correctness.dir/src/gpu/device_utils.cu.o
+ptxas info    : 218048 bytes gmem
+[103/135] Building CUDA object CMakeFiles/test_gpu_backmap_correctness.dir/src/gpu/dvector.cu.o
+ptxas info    : 218048 bytes gmem
+ptxas info    : Compiling entry function '_ZN4naja3gpu16initializeKernelIiEEvPT_iS2_' for 'sm_90'
+ptxas info    : Function properties for _ZN4naja3gpu16initializeKernelIiEEvPT_iS2_
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 10 registers, used 0 barriers
+ptxas info    : Compile time = 5.703 ms
+ptxas info    : Compiling entry function '_ZN4naja3gpu16initializeKernelIdEEvPT_iS2_' for 'sm_90'
+ptxas info    : Function properties for _ZN4naja3gpu16initializeKernelIdEEvPT_iS2_
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 10 registers, used 0 barriers
+ptxas info    : Compile time = 0.973 ms
+[104/135] Building CUDA object CMakeFiles/test_gpu_backmap_correctness.dir/src/gpu/dmatrix.cu.o
+ptxas info    : 218048 bytes gmem
+ptxas info    : Compiling entry function '_ZN4naja3gpu22broadcastColumnsKernelIdEEvPKT_PS2_ii' for 'sm_90'
+ptxas info    : Function properties for _ZN4naja3gpu22broadcastColumnsKernelIdEEvPKT_PS2_ii
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 10 registers, used 0 barriers
+ptxas info    : Compile time = 6.071 ms
+[105/135] Building CUDA object CMakeFiles/test_gpu_backmap_correctness.dir/src/gpu/backmap.cu.o
+ptxas info    : 218048 bytes gmem
+ptxas info    : Compiling entry function '_ZN4naja3gpu21add_shift_cols_kernelIdEEvPT_PKS2_ii' for 'sm_90'
+ptxas info    : Function properties for _ZN4naja3gpu21add_shift_cols_kernelIdEEvPT_PKS2_ii
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 12 registers, used 0 barriers
+ptxas info    : Compile time = 6.123 ms
+[106/135] Building CUDA object CMakeFiles/test_gpu_sampling_simplex_moments.dir/src/gpu/chr.cu.o
+ptxas info    : 218089 bytes gmem
+ptxas info    : Compiling entry function '_ZN3cub17CUB_200802_SM_90011EmptyKernelIvEEvv' for 'sm_90'
+ptxas info    : Function properties for _ZN3cub17CUB_200802_SM_90011EmptyKernelIvEEvv
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 4 registers, used 0 barriers
+ptxas info    : Compile time = 6.260 ms
+ptxas info    : Compiling entry function '_ZN4naja3gpu9chrKernelId19curandStateMRG32k3aLi1024ELb0EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i' for 'sm_90'
+ptxas info    : Function properties for _ZN4naja3gpu9chrKernelId19curandStateMRG32k3aLi1024ELb0EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 72 registers, used 1 barriers, 1040 bytes smem
+ptxas info    : Compile time = 164.317 ms
+ptxas info    : Compiling entry function '_ZN4naja3gpu9chrKernelId19curandStateMRG32k3aLi1024ELb1EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i' for 'sm_90'
+ptxas info    : Function properties for _ZN4naja3gpu9chrKernelId19curandStateMRG32k3aLi1024ELb1EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 64 registers, used 1 barriers, 608 bytes smem
+ptxas info    : Compile time = 64.001 ms
+ptxas info    : Compiling entry function '_ZN4naja3gpu9chrKernelId19curandStateMRG32k3aLi512ELb0EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i' for 'sm_90'
+ptxas info    : Function properties for _ZN4naja3gpu9chrKernelId19curandStateMRG32k3aLi512ELb0EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 104 registers, used 1 barriers, 752 bytes smem
+ptxas info    : Compile time = 153.257 ms
+ptxas info    : Compiling entry function '_ZN4naja3gpu9chrKernelId19curandStateMRG32k3aLi512ELb1EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i' for 'sm_90'
+ptxas info    : Function properties for _ZN4naja3gpu9chrKernelId19curandStateMRG32k3aLi512ELb1EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 64 registers, used 1 barriers, 320 bytes smem
+ptxas info    : Compile time = 59.398 ms
+ptxas info    : Compiling entry function '_ZN4naja3gpu9chrKernelId19curandStateMRG32k3aLi256ELb0EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i' for 'sm_90'
+ptxas info    : Function properties for _ZN4naja3gpu9chrKernelId19curandStateMRG32k3aLi256ELb0EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 104 registers, used 1 barriers, 608 bytes smem
+ptxas info    : Compile time = 149.549 ms
+ptxas info    : Compiling entry function '_ZN4naja3gpu9chrKernelId19curandStateMRG32k3aLi256ELb1EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i' for 'sm_90'
+ptxas info    : Function properties for _ZN4naja3gpu9chrKernelId19curandStateMRG32k3aLi256ELb1EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 64 registers, used 1 barriers, 176 bytes smem
+ptxas info    : Compile time = 57.683 ms
+ptxas info    : Compiling entry function '_ZN4naja3gpu9chrKernelId19curandStateMRG32k3aLi128ELb0EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i' for 'sm_90'
+ptxas info    : Function properties for _ZN4naja3gpu9chrKernelId19curandStateMRG32k3aLi128ELb0EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 104 registers, used 1 barriers, 544 bytes smem
+ptxas info    : Compile time = 150.625 ms
+ptxas info    : Compiling entry function '_ZN4naja3gpu9chrKernelId19curandStateMRG32k3aLi128ELb1EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i' for 'sm_90'
+ptxas info    : Function properties for _ZN4naja3gpu9chrKernelId19curandStateMRG32k3aLi128ELb1EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 64 registers, used 1 barriers, 112 bytes smem
+ptxas info    : Compile time = 57.775 ms
+ptxas info    : Compiling entry function '_ZN4naja3gpu9chrKernelId19curandStateMRG32k3aLi64ELb0EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i' for 'sm_90'
+ptxas info    : Function properties for _ZN4naja3gpu9chrKernelId19curandStateMRG32k3aLi64ELb0EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 106 registers, used 1 barriers, 512 bytes smem
+ptxas info    : Compile time = 148.097 ms
+ptxas info    : Compiling entry function '_ZN4naja3gpu9chrKernelId19curandStateMRG32k3aLi64ELb1EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i' for 'sm_90'
+ptxas info    : Function properties for _ZN4naja3gpu9chrKernelId19curandStateMRG32k3aLi64ELb1EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 56 registers, used 1 barriers, 80 bytes smem
+ptxas info    : Compile time = 55.450 ms
+ptxas info    : Compiling entry function '_ZN4naja3gpu9chrKernelId19curandStateMRG32k3aLi32ELb0EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i' for 'sm_90'
+ptxas info    : Function properties for _ZN4naja3gpu9chrKernelId19curandStateMRG32k3aLi32ELb0EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 104 registers, used 1 barriers, 496 bytes smem
+ptxas info    : Compile time = 143.090 ms
+ptxas info    : Compiling entry function '_ZN4naja3gpu9chrKernelId19curandStateMRG32k3aLi32ELb1EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i' for 'sm_90'
+ptxas info    : Function properties for _ZN4naja3gpu9chrKernelId19curandStateMRG32k3aLi32ELb1EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 64 registers, used 1 barriers, 64 bytes smem
+ptxas info    : Compile time = 53.646 ms
+ptxas info    : Compiling entry function '_ZN4naja3gpu9chrKernelId17curandStateXORWOWLi1024ELb0EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i' for 'sm_90'
+ptxas info    : Function properties for _ZN4naja3gpu9chrKernelId17curandStateXORWOWLi1024ELb0EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 72 registers, used 1 barriers, 1040 bytes smem
+ptxas info    : Compile time = 152.179 ms
+ptxas info    : Compiling entry function '_ZN4naja3gpu9chrKernelId17curandStateXORWOWLi512ELb0EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i' for 'sm_90'
+ptxas info    : Function properties for _ZN4naja3gpu9chrKernelId17curandStateXORWOWLi512ELb0EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 108 registers, used 1 barriers, 752 bytes smem
+ptxas info    : Compile time = 139.701 ms
+ptxas info    : Compiling entry function '_ZN4naja3gpu9chrKernelId17curandStateXORWOWLi256ELb0EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i' for 'sm_90'
+ptxas info    : Function properties for _ZN4naja3gpu9chrKernelId17curandStateXORWOWLi256ELb0EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 108 registers, used 1 barriers, 608 bytes smem
+ptxas info    : Compile time = 138.183 ms
+ptxas info    : Compiling entry function '_ZN4naja3gpu9chrKernelId17curandStateXORWOWLi128ELb0EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i' for 'sm_90'
+ptxas info    : Function properties for _ZN4naja3gpu9chrKernelId17curandStateXORWOWLi128ELb0EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 108 registers, used 1 barriers, 544 bytes smem
+ptxas info    : Compile time = 136.091 ms
+ptxas info    : Compiling entry function '_ZN4naja3gpu9chrKernelId17curandStateXORWOWLi64ELb0EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i' for 'sm_90'
+ptxas info    : Function properties for _ZN4naja3gpu9chrKernelId17curandStateXORWOWLi64ELb0EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 108 registers, used 1 barriers, 512 bytes smem
+ptxas info    : Compile time = 141.753 ms
+ptxas info    : Compiling entry function '_ZN4naja3gpu9chrKernelId17curandStateXORWOWLi32ELb0EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i' for 'sm_90'
+ptxas info    : Function properties for _ZN4naja3gpu9chrKernelId17curandStateXORWOWLi32ELb0EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 108 registers, used 1 barriers, 496 bytes smem
+ptxas info    : Compile time = 133.749 ms
+ptxas info    : Compiling entry function '_ZN4naja3gpu17initPrngStatesCHRI19curandStateMRG32k3aEEvPT_ii' for 'sm_90'
+ptxas info    : Function properties for _ZN4naja3gpu17initPrngStatesCHRI19curandStateMRG32k3aEEvPT_ii
+    72 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 78 registers, used 0 barriers, 72 bytes cumulative stack size
+ptxas info    : Compile time = 223.632 ms
+[107/135] Building CUDA object CMakeFiles/test_gpu_thin_polytope.dir/tests/test_gpu_thin_polytope.cu.o
+ptxas info    : 0 bytes gmem
+[108/135] Linking CXX executable naja
+[109/135] Linking CXX executable test_csv_loader
+[110/135] Linking CXX executable test_eflux_smoke
+[111/135] Linking CXX executable test_condition_cli
+[112/135] Linking CXX executable test_gpr_eflux2
+[113/135] Linking CXX executable test_eflux2_bounds
+[114/135] Building CUDA object CMakeFiles/test_gpu_backmap_correctness.dir/tests/test_gpu_backmap_correctness.cu.o
+/mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/deps/eigen-3.4.0/Eigen/src/Core/PermutationMatrix.h(97): warning #20014-D: calling a __host__ function from a __host__ __device__ function is not allowed
+                              Index size() const { return Index(indices().size()); }
+                                                                       ^
+          detected during:
+            instantiation of "Eigen::Index Eigen::PermutationBase<Derived>::size() const [with Derived=Eigen::PermutationMatrix<-1, -1, int>]" at line 133
+            instantiation of "void Eigen::PermutationBase<Derived>::setIdentity() [with Derived=Eigen::PermutationMatrix<-1, -1, int>]" at line 143
+            instantiation of "void Eigen::PermutationBase<Derived>::setIdentity(Eigen::Index) [with Derived=Eigen::PermutationMatrix<-1, -1, int>]" at line 576 of /mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/deps/eigen-3.4.0/Eigen/src/QR/ColPivHouseholderQR.h
+            instantiation of "void Eigen::ColPivHouseholderQR<_MatrixType>::computeInPlace() [with _MatrixType=Eigen::Matrix<double, -1, -1, 0, -1, -1>]" at line 477 of /mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/deps/eigen-3.4.0/Eigen/src/QR/ColPivHouseholderQR.h
+            instantiation of "Eigen::ColPivHouseholderQR<_MatrixType> &Eigen::ColPivHouseholderQR<_MatrixType>::compute(const Eigen::EigenBase<InputType> &) [with _MatrixType=Eigen::Matrix<double, -1, -1, 0, -1, -1>, InputType=Eigen::Matrix<double, -1, -1, 0, -1, -1>]" at line 188 of /mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/deps/eigen-3.4.0/Eigen/src/QR/CompleteOrthogonalDecomposition.h
+            instantiation of "Eigen::CompleteOrthogonalDecomposition<_MatrixType> &Eigen::CompleteOrthogonalDecomposition<_MatrixType>::compute(const Eigen::EigenBase<InputType> &) [with _MatrixType=Eigen::Matrix<double, -1, -1, 0, -1, -1>, InputType=Eigen::Matrix<double, -1, -1, 0, -1, -1>]" at line 123 of /mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/deps/eigen-3.4.0/Eigen/src/QR/CompleteOrthogonalDecomposition.h
+            instantiation of "Eigen::CompleteOrthogonalDecomposition<_MatrixType>::CompleteOrthogonalDecomposition(const Eigen::EigenBase<InputType> &) [with _MatrixType=Eigen::Matrix<double, -1, -1, 0, -1, -1>, InputType=Eigen::Matrix<double, -1, -1, 0, -1, -1>]" at line 630 of /mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/deps/eigen-3.4.0/Eigen/src/QR/CompleteOrthogonalDecomposition.h
+            instantiation of "const Eigen::CompleteOrthogonalDecomposition<Eigen::MatrixBase<Derived>::PlainObject> Eigen::MatrixBase<Derived>::completeOrthogonalDecomposition() const [with Derived=Eigen::Matrix<double, -1, -1, 0, -1, -1>]" at line 84 of /mnt/home/jordan+123/history-native-20261015-r5/benchmarks/experimental/naja-coordinate/tests/test_gpu_backmap_correctness.cu
+
+Remark: The warnings can be suppressed with "-diag-suppress <warning-number>"
+
+/mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/deps/eigen-3.4.0/Eigen/src/Core/util/BlasUtil.h(453): warning #20014-D: calling a __host__ function from a __host__ __device__ function is not allowed
+                                   ExtractType extract(const XprType& x) { return Base::extract(x.rhs()); }
+                                                                                               ^
+          detected during:
+            instantiation of "Eigen::internal::blas_traits<Eigen::CwiseBinaryOp<Eigen::internal::scalar_product_op<Scalar, Scalar>, const Eigen::CwiseNullaryOp<Eigen::internal::scalar_constant_op<Scalar>, Plain>, NestedXpr>>::ExtractType Eigen::internal::blas_traits<Eigen::CwiseBinaryOp<Eigen::internal::scalar_product_op<Scalar, Scalar>, const Eigen::CwiseNullaryOp<Eigen::internal::scalar_constant_op<Scalar>, Plain>, NestedXpr>>::extract(const Eigen::internal::blas_traits<Eigen::CwiseBinaryOp<Eigen::internal::scalar_product_op<Scalar, Scalar>, const Eigen::CwiseNullaryOp<Eigen::internal::scalar_constant_op<Scalar>, Plain>, NestedXpr>>::XprType &) [with Scalar=double, NestedXpr=const Eigen::Transpose<const Eigen::Block<const Eigen::Block<const Eigen::Block<Eigen::Matrix<double, -1, -1, 0, -1, -1>, -1, -1, false>, -1, 1, true>, -1, 1, false>>, Plain=const Eigen::Matrix<double, 1, -1, 1, 1, -1>]" at line 510
+            instantiation of "Eigen::internal::blas_traits<Eigen::Transpose<NestedXpr>>::ExtractType Eigen::internal::blas_traits<Eigen::Transpose<NestedXpr>>::extract(const Eigen::internal::blas_traits<Eigen::Transpose<NestedXpr>>::XprType &) [with NestedXpr=const Eigen::CwiseBinaryOp<Eigen::internal::scalar_product_op<double, double>, const Eigen::CwiseNullaryOp<Eigen::internal::scalar_constant_op<double>, const Eigen::Matrix<double, 1, -1, 1, 1, -1>>, const Eigen::Transpose<const Eigen::Block<const Eigen::Block<const Eigen::Block<Eigen::Matrix<double, -1, -1, 0, -1, -1>, -1, -1, false>, -1, 1, true>, -1, 1, false>>>]" at line 303 of /mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/deps/eigen-3.4.0/Eigen/src/Core/products/TriangularMatrixVector.h
+            instantiation of "void Eigen::internal::trmv_selector<Mode, 1>::run(const Lhs &, const Rhs &, Dest &, const Dest::Scalar &) [with Mode=6, Lhs=Eigen::Transpose<const Eigen::Block<const Eigen::Block<Eigen::Matrix<double, -1, -1, 0, -1, -1>, -1, -1, false>, -1, -1, false>>, Rhs=Eigen::Transpose<const Eigen::CwiseBinaryOp<Eigen::internal::scalar_product_op<double, double>, const Eigen::CwiseNullaryOp<Eigen::internal::scalar_constant_op<double>, const Eigen::Matrix<double, 1, -1, 1, 1, -1>>, const Eigen::Transpose<const Eigen::Block<const Eigen::Block<const Eigen::Block<Eigen::Matrix<double, -1, -1, 0, -1, -1>, -1, -1, false>, -1, 1, true>, -1, 1, false>>>>, Dest=Eigen::Transpose<Eigen::Block<Eigen::Block<Eigen::Matrix<double, -1, -1, 1, -1, -1>, 1, -1, true>, 1, -1, false>>]" at line 194 of /mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/deps/eigen-3.4.0/Eigen/src/Core/products/TriangularMatrixVector.h
+            instantiation of "void Eigen::internal::triangular_product_impl<Mode, false, Lhs, true, Rhs, false>::run(Dest &, const Lhs &, const Rhs &, const Dest::Scalar &) [with Mode=5, Lhs=Eigen::CwiseBinaryOp<Eigen::internal::scalar_product_op<double, double>, const Eigen::CwiseNullaryOp<Eigen::internal::scalar_constant_op<double>, const Eigen::Matrix<double, 1, -1, 1, 1, -1>>, const Eigen::Transpose<const Eigen::Block<const Eigen::Block<const Eigen::Block<Eigen::Matrix<double, -1, -1, 0, -1, -1>, -1, -1, false>, -1, 1, true>, -1, 1, false>>>, Rhs=const Eigen::Block<const Eigen::Block<Eigen::Matrix<double, -1, -1, 0, -1, -1>, -1, -1, false>, -1, -1, false>, Dest=Eigen::Block<Eigen::Block<Eigen::Matrix<double, -1, -1, 1, -1, -1>, 1, -1, true>, 1, -1, false>]" at line 783 of /mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/deps/eigen-3.4.0/Eigen/src/Core/ProductEvaluators.h
+            instantiation of "void Eigen::internal::generic_product_impl<Lhs, Rhs, Eigen::DenseShape, Eigen::TriangularShape, ProductTag>::scaleAndAddTo(Dest &, const Lhs &, const Rhs &, const Eigen::internal::generic_product_impl<Lhs, Rhs, Eigen::DenseShape, Eigen::TriangularShape, ProductTag>::Scalar &) [with Lhs=Eigen::CwiseBinaryOp<Eigen::internal::scalar_product_op<double, double>, const Eigen::CwiseNullaryOp<Eigen::internal::scalar_constant_op<double>, const Eigen::Matrix<double, 1, -1, 1, 1, -1>>, const Eigen::Transpose<const Eigen::Block<const Eigen::Block<const Eigen::Block<Eigen::Matrix<double, -1, -1, 0, -1, -1>, -1, -1, false>, -1, 1, true>, -1, 1, false>>>, Rhs=Eigen::TriangularView<const Eigen::Block<const Eigen::Block<Eigen::Matrix<double, -1, -1, 0, -1, -1>, -1, -1, false>, -1, -1, false>, 5U>, ProductTag=3, Dest=Eigen::Block<Eigen::Block<Eigen::Matrix<double, -1, -1, 1, -1, -1>, 1, -1, true>, 1, -1, false>]" at line 361 of /mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/deps/eigen-3.4.0/Eigen/src/Core/ProductEvaluators.h
+            [ 17 instantiation contexts not shown ]
+            instantiation of "void Eigen::internal::Assignment<DstXprType, Eigen::Inverse<Eigen::CompleteOrthogonalDecomposition<MatrixType>>, Eigen::internal::assign_op<DstXprType::Scalar, Eigen::CompleteOrthogonalDecomposition<MatrixType>::Scalar>, Eigen::internal::Dense2Dense, void>::run(DstXprType &, const Eigen::internal::Assignment<DstXprType, Eigen::Inverse<Eigen::CompleteOrthogonalDecomposition<MatrixType>>, Eigen::internal::assign_op<DstXprType::Scalar, Eigen::CompleteOrthogonalDecomposition<MatrixType>::Scalar>, Eigen::internal::Dense2Dense, void>::SrcXprType &, const Eigen::internal::assign_op<DstXprType::Scalar, Eigen::CompleteOrthogonalDecomposition<MatrixType>::Scalar> &) [with DstXprType=Eigen::Matrix<double, -1, -1, 0, -1, -1>, MatrixType=Eigen::Matrix<double, -1, -1, 0, -1, -1>]" at line 890 of /mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/deps/eigen-3.4.0/Eigen/src/Core/AssignEvaluator.h
+            instantiation of "void Eigen::internal::call_assignment_no_alias(Dst &, const Src &, const Func &) [with Dst=Eigen::Matrix<double, -1, -1, 0, -1, -1>, Src=Eigen::Inverse<Eigen::CompleteOrthogonalDecomposition<Eigen::Matrix<double, -1, -1, 0, -1, -1>>>, Func=Eigen::internal::assign_op<double, double>]" at line 797 of /mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/deps/eigen-3.4.0/Eigen/src/Core/PlainObjectBase.h
+            instantiation of "Derived &Eigen::PlainObjectBase<Derived>::_set_noalias(const Eigen::DenseBase<OtherDerived> &) [with Derived=Eigen::Matrix<double, -1, -1, 0, -1, -1>, OtherDerived=Eigen::Inverse<Eigen::CompleteOrthogonalDecomposition<Eigen::Matrix<double, -1, -1, 0, -1, -1>>>]" at line 594 of /mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/deps/eigen-3.4.0/Eigen/src/Core/PlainObjectBase.h
+            instantiation of "Eigen::PlainObjectBase<Derived>::PlainObjectBase(const Eigen::DenseBase<OtherDerived> &) [with Derived=Eigen::Matrix<double, -1, -1, 0, -1, -1>, OtherDerived=Eigen::Inverse<Eigen::CompleteOrthogonalDecomposition<Eigen::Matrix<double, -1, -1, 0, -1, -1>>>]" at line 424 of /mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/deps/eigen-3.4.0/Eigen/src/Core/Matrix.h
+            instantiation of "Eigen::Matrix<_Scalar, _Rows, _Cols, _Options, _MaxRows, _MaxCols>::Matrix(const Eigen::EigenBase<OtherDerived> &) [with _Scalar=double, _Rows=-1, _Cols=-1, _Options=0, _MaxRows=-1, _MaxCols=-1, OtherDerived=Eigen::Inverse<Eigen::CompleteOrthogonalDecomposition<Eigen::Matrix<double, -1, -1, 0, -1, -1>>>]" at line 84 of /mnt/home/jordan+123/history-native-20261015-r5/benchmarks/experimental/naja-coordinate/tests/test_gpu_backmap_correctness.cu
+
+/mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/deps/eigen-3.4.0/Eigen/src/Core/util/BlasUtil.h(455): warning #20014-D: calling a __host__ function from a __host__ __device__ function is not allowed
+    { return x.lhs().functor().m_other * Base::extractScalarFactor(x.rhs()); }
+                                                                  ^
+          detected during:
+            instantiation of "Scalar Eigen::internal::blas_traits<Eigen::CwiseBinaryOp<Eigen::internal::scalar_product_op<Scalar, Scalar>, const Eigen::CwiseNullaryOp<Eigen::internal::scalar_constant_op<Scalar>, Plain>, NestedXpr>>::extractScalarFactor(const Eigen::internal::blas_traits<Eigen::CwiseBinaryOp<Eigen::internal::scalar_product_op<Scalar, Scalar>, const Eigen::CwiseNullaryOp<Eigen::internal::scalar_constant_op<Scalar>, Plain>, NestedXpr>>::XprType &) [with Scalar=double, NestedXpr=const Eigen::Transpose<const Eigen::Block<const Eigen::Block<const Eigen::Block<Eigen::Matrix<double, -1, -1, 0, -1, -1>, -1, -1, false>, -1, 1, true>, -1, 1, false>>, Plain=const Eigen::Matrix<double, 1, -1, 1, 1, -1>]" at line 511
+            instantiation of "Eigen::internal::blas_traits<Eigen::Transpose<NestedXpr>>::Scalar Eigen::internal::blas_traits<Eigen::Transpose<NestedXpr>>::extractScalarFactor(const Eigen::internal::blas_traits<Eigen::Transpose<NestedXpr>>::XprType &) [with NestedXpr=const Eigen::CwiseBinaryOp<Eigen::internal::scalar_product_op<double, double>, const Eigen::CwiseNullaryOp<Eigen::internal::scalar_constant_op<double>, const Eigen::Matrix<double, 1, -1, 1, 1, -1>>, const Eigen::Transpose<const Eigen::Block<const Eigen::Block<const Eigen::Block<Eigen::Matrix<double, -1, -1, 0, -1, -1>, -1, -1, false>, -1, 1, true>, -1, 1, false>>>]" at line 306 of /mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/deps/eigen-3.4.0/Eigen/src/Core/products/TriangularMatrixVector.h
+            instantiation of "void Eigen::internal::trmv_selector<Mode, 1>::run(const Lhs &, const Rhs &, Dest &, const Dest::Scalar &) [with Mode=6, Lhs=Eigen::Transpose<const Eigen::Block<const Eigen::Block<Eigen::Matrix<double, -1, -1, 0, -1, -1>, -1, -1, false>, -1, -1, false>>, Rhs=Eigen::Transpose<const Eigen::CwiseBinaryOp<Eigen::internal::scalar_product_op<double, double>, const Eigen::CwiseNullaryOp<Eigen::internal::scalar_constant_op<double>, const Eigen::Matrix<double, 1, -1, 1, 1, -1>>, const Eigen::Transpose<const Eigen::Block<const Eigen::Block<const Eigen::Block<Eigen::Matrix<double, -1, -1, 0, -1, -1>, -1, -1, false>, -1, 1, true>, -1, 1, false>>>>, Dest=Eigen::Transpose<Eigen::Block<Eigen::Block<Eigen::Matrix<double, -1, -1, 1, -1, -1>, 1, -1, true>, 1, -1, false>>]" at line 194 of /mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/deps/eigen-3.4.0/Eigen/src/Core/products/TriangularMatrixVector.h
+            instantiation of "void Eigen::internal::triangular_product_impl<Mode, false, Lhs, true, Rhs, false>::run(Dest &, const Lhs &, const Rhs &, const Dest::Scalar &) [with Mode=5, Lhs=Eigen::CwiseBinaryOp<Eigen::internal::scalar_product_op<double, double>, const Eigen::CwiseNullaryOp<Eigen::internal::scalar_constant_op<double>, const Eigen::Matrix<double, 1, -1, 1, 1, -1>>, const Eigen::Transpose<const Eigen::Block<const Eigen::Block<const Eigen::Block<Eigen::Matrix<double, -1, -1, 0, -1, -1>, -1, -1, false>, -1, 1, true>, -1, 1, false>>>, Rhs=const Eigen::Block<const Eigen::Block<Eigen::Matrix<double, -1, -1, 0, -1, -1>, -1, -1, false>, -1, -1, false>, Dest=Eigen::Block<Eigen::Block<Eigen::Matrix<double, -1, -1, 1, -1, -1>, 1, -1, true>, 1, -1, false>]" at line 783 of /mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/deps/eigen-3.4.0/Eigen/src/Core/ProductEvaluators.h
+            instantiation of "void Eigen::internal::generic_product_impl<Lhs, Rhs, Eigen::DenseShape, Eigen::TriangularShape, ProductTag>::scaleAndAddTo(Dest &, const Lhs &, const Rhs &, const Eigen::internal::generic_product_impl<Lhs, Rhs, Eigen::DenseShape, Eigen::TriangularShape, ProductTag>::Scalar &) [with Lhs=Eigen::CwiseBinaryOp<Eigen::internal::scalar_product_op<double, double>, const Eigen::CwiseNullaryOp<Eigen::internal::scalar_constant_op<double>, const Eigen::Matrix<double, 1, -1, 1, 1, -1>>, const Eigen::Transpose<const Eigen::Block<const Eigen::Block<const Eigen::Block<Eigen::Matrix<double, -1, -1, 0, -1, -1>, -1, -1, false>, -1, 1, true>, -1, 1, false>>>, Rhs=Eigen::TriangularView<const Eigen::Block<const Eigen::Block<Eigen::Matrix<double, -1, -1, 0, -1, -1>, -1, -1, false>, -1, -1, false>, 5U>, ProductTag=3, Dest=Eigen::Block<Eigen::Block<Eigen::Matrix<double, -1, -1, 1, -1, -1>, 1, -1, true>, 1, -1, false>]" at line 361 of /mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/deps/eigen-3.4.0/Eigen/src/Core/ProductEvaluators.h
+            [ 17 instantiation contexts not shown ]
+            instantiation of "void Eigen::internal::Assignment<DstXprType, Eigen::Inverse<Eigen::CompleteOrthogonalDecomposition<MatrixType>>, Eigen::internal::assign_op<DstXprType::Scalar, Eigen::CompleteOrthogonalDecomposition<MatrixType>::Scalar>, Eigen::internal::Dense2Dense, void>::run(DstXprType &, const Eigen::internal::Assignment<DstXprType, Eigen::Inverse<Eigen::CompleteOrthogonalDecomposition<MatrixType>>, Eigen::internal::assign_op<DstXprType::Scalar, Eigen::CompleteOrthogonalDecomposition<MatrixType>::Scalar>, Eigen::internal::Dense2Dense, void>::SrcXprType &, const Eigen::internal::assign_op<DstXprType::Scalar, Eigen::CompleteOrthogonalDecomposition<MatrixType>::Scalar> &) [with DstXprType=Eigen::Matrix<double, -1, -1, 0, -1, -1>, MatrixType=Eigen::Matrix<double, -1, -1, 0, -1, -1>]" at line 890 of /mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/deps/eigen-3.4.0/Eigen/src/Core/AssignEvaluator.h
+            instantiation of "void Eigen::internal::call_assignment_no_alias(Dst &, const Src &, const Func &) [with Dst=Eigen::Matrix<double, -1, -1, 0, -1, -1>, Src=Eigen::Inverse<Eigen::CompleteOrthogonalDecomposition<Eigen::Matrix<double, -1, -1, 0, -1, -1>>>, Func=Eigen::internal::assign_op<double, double>]" at line 797 of /mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/deps/eigen-3.4.0/Eigen/src/Core/PlainObjectBase.h
+            instantiation of "Derived &Eigen::PlainObjectBase<Derived>::_set_noalias(const Eigen::DenseBase<OtherDerived> &) [with Derived=Eigen::Matrix<double, -1, -1, 0, -1, -1>, OtherDerived=Eigen::Inverse<Eigen::CompleteOrthogonalDecomposition<Eigen::Matrix<double, -1, -1, 0, -1, -1>>>]" at line 594 of /mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/deps/eigen-3.4.0/Eigen/src/Core/PlainObjectBase.h
+            instantiation of "Eigen::PlainObjectBase<Derived>::PlainObjectBase(const Eigen::DenseBase<OtherDerived> &) [with Derived=Eigen::Matrix<double, -1, -1, 0, -1, -1>, OtherDerived=Eigen::Inverse<Eigen::CompleteOrthogonalDecomposition<Eigen::Matrix<double, -1, -1, 0, -1, -1>>>]" at line 424 of /mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/deps/eigen-3.4.0/Eigen/src/Core/Matrix.h
+            instantiation of "Eigen::Matrix<_Scalar, _Rows, _Cols, _Options, _MaxRows, _MaxCols>::Matrix(const Eigen::EigenBase<OtherDerived> &) [with _Scalar=double, _Rows=-1, _Cols=-1, _Options=0, _MaxRows=-1, _MaxCols=-1, OtherDerived=Eigen::Inverse<Eigen::CompleteOrthogonalDecomposition<Eigen::Matrix<double, -1, -1, 0, -1, -1>>>]" at line 84 of /mnt/home/jordan+123/history-native-20261015-r5/benchmarks/experimental/naja-coordinate/tests/test_gpu_backmap_correctness.cu
+
+Warning #20014-D: calling a __host__ function from a __host__ __device__ function is not allowed
+          detected during:
+            instantiation of "const Eigen::Solve<Eigen::TriangularView<_MatrixType, _Mode>, Other> Eigen::TriangularView<_MatrixType, _Mode>::solve(const Eigen::MatrixBase<Other> &) const [with _MatrixType=const Eigen::Block<const Eigen::Matrix<double, -1, -1, 0, -1, -1>, -1, -1, false>, _Mode=2U, Other=Eigen::Block<Eigen::Matrix<double, -1, -1, 0, -1, -1>, -1, -1, false>]" at line 550 of /mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/deps/eigen-3.4.0/Eigen/src/QR/CompleteOrthogonalDecomposition.h
+            instantiation of "void Eigen::CompleteOrthogonalDecomposition<_MatrixType>::_solve_impl(const RhsType &, DstType &) const [with _MatrixType=Eigen::Matrix<double, -1, -1, 0, -1, -1>, RhsType=Eigen::CwiseNullaryOp<Eigen::internal::scalar_identity_op<double>, Eigen::Matrix<double, -1, -1, 0, -1, -1>>, DstType=Eigen::Matrix<double, -1, -1, 0, -1, -1>]" at line 147 of /mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/deps/eigen-3.4.0/Eigen/src/Core/Solve.h
+            instantiation of "void Eigen::internal::Assignment<DstXprType, Eigen::Solve<DecType, RhsType>, Eigen::internal::assign_op<Scalar, Scalar>, Eigen::internal::Dense2Dense, void>::run(DstXprType &, const Eigen::internal::Assignment<DstXprType, Eigen::Solve<DecType, RhsType>, Eigen::internal::assign_op<Scalar, Scalar>, Eigen::internal::Dense2Dense, void>::SrcXprType &, const Eigen::internal::assign_op<Scalar, Scalar> &) [with DstXprType=Eigen::Matrix<double, -1, -1, 0, -1, -1>, DecType=Eigen::CompleteOrthogonalDecomposition<Eigen::Matrix<double, -1, -1, 0, -1, -1>>, RhsType=Eigen::CwiseNullaryOp<Eigen::internal::scalar_identity_op<double>, Eigen::Matrix<double, -1, -1, 0, -1, -1>>, Scalar=double]" at line 890 of /mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/deps/eigen-3.4.0/Eigen/src/Core/AssignEvaluator.h
+            instantiation of "void Eigen::internal::call_assignment_no_alias(Dst &, const Src &, const Func &) [with Dst=Eigen::Matrix<double, -1, -1, 0, -1, -1>, Src=Eigen::Solve<Eigen::CompleteOrthogonalDecomposition<Eigen::Matrix<double, -1, -1, 0, -1, -1>>, Eigen::CwiseNullaryOp<Eigen::internal::scalar_identity_op<double>, Eigen::Matrix<double, -1, -1, 0, -1, -1>>>, Func=Eigen::internal::assign_op<double, double>]" at line 858 of /mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/deps/eigen-3.4.0/Eigen/src/Core/AssignEvaluator.h
+            instantiation of "void Eigen::internal::call_assignment(Dst &, const Src &, const Func &, Eigen::internal::enable_if<<expression>, void *>::type) [with Dst=Eigen::Matrix<double, -1, -1, 0, -1, -1>, Src=Eigen::Solve<Eigen::CompleteOrthogonalDecomposition<Eigen::Matrix<double, -1, -1, 0, -1, -1>>, Eigen::CwiseNullaryOp<Eigen::internal::scalar_identity_op<double>, Eigen::Matrix<double, -1, -1, 0, -1, -1>>>, Func=Eigen::internal::assign_op<double, double>]" at line 836 of /mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/deps/eigen-3.4.0/Eigen/src/Core/AssignEvaluator.h
+            [ 3 instantiation contexts not shown ]
+            instantiation of "void Eigen::internal::Assignment<DstXprType, Eigen::Inverse<Eigen::CompleteOrthogonalDecomposition<MatrixType>>, Eigen::internal::assign_op<DstXprType::Scalar, Eigen::CompleteOrthogonalDecomposition<MatrixType>::Scalar>, Eigen::internal::Dense2Dense, void>::run(DstXprType &, const Eigen::internal::Assignment<DstXprType, Eigen::Inverse<Eigen::CompleteOrthogonalDecomposition<MatrixType>>, Eigen::internal::assign_op<DstXprType::Scalar, Eigen::CompleteOrthogonalDecomposition<MatrixType>::Scalar>, Eigen::internal::Dense2Dense, void>::SrcXprType &, const Eigen::internal::assign_op<DstXprType::Scalar, Eigen::CompleteOrthogonalDecomposition<MatrixType>::Scalar> &) [with DstXprType=Eigen::Matrix<double, -1, -1, 0, -1, -1>, MatrixType=Eigen::Matrix<double, -1, -1, 0, -1, -1>]" at line 890 of /mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/deps/eigen-3.4.0/Eigen/src/Core/AssignEvaluator.h
+            instantiation of "void Eigen::internal::call_assignment_no_alias(Dst &, const Src &, const Func &) [with Dst=Eigen::Matrix<double, -1, -1, 0, -1, -1>, Src=Eigen::Inverse<Eigen::CompleteOrthogonalDecomposition<Eigen::Matrix<double, -1, -1, 0, -1, -1>>>, Func=Eigen::internal::assign_op<double, double>]" at line 797 of /mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/deps/eigen-3.4.0/Eigen/src/Core/PlainObjectBase.h
+            instantiation of "Derived &Eigen::PlainObjectBase<Derived>::_set_noalias(const Eigen::DenseBase<OtherDerived> &) [with Derived=Eigen::Matrix<double, -1, -1, 0, -1, -1>, OtherDerived=Eigen::Inverse<Eigen::CompleteOrthogonalDecomposition<Eigen::Matrix<double, -1, -1, 0, -1, -1>>>]" at line 594 of /mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/deps/eigen-3.4.0/Eigen/src/Core/PlainObjectBase.h
+            instantiation of "Eigen::PlainObjectBase<Derived>::PlainObjectBase(const Eigen::DenseBase<OtherDerived> &) [with Derived=Eigen::Matrix<double, -1, -1, 0, -1, -1>, OtherDerived=Eigen::Inverse<Eigen::CompleteOrthogonalDecomposition<Eigen::Matrix<double, -1, -1, 0, -1, -1>>>]" at line 424 of /mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/deps/eigen-3.4.0/Eigen/src/Core/Matrix.h
+            instantiation of "Eigen::Matrix<_Scalar, _Rows, _Cols, _Options, _MaxRows, _MaxCols>::Matrix(const Eigen::EigenBase<OtherDerived> &) [with _Scalar=double, _Rows=-1, _Cols=-1, _Options=0, _MaxRows=-1, _MaxCols=-1, OtherDerived=Eigen::Inverse<Eigen::CompleteOrthogonalDecomposition<Eigen::Matrix<double, -1, -1, 0, -1, -1>>>]" at line 84 of /mnt/home/jordan+123/history-native-20261015-r5/benchmarks/experimental/naja-coordinate/tests/test_gpu_backmap_correctness.cu
+
+Warning #20014-D: calling a __host__ function from a __host__ __device__ function is not allowed
+          detected during:
+            instantiation of "void Eigen::internal::triangular_solver_selector<Lhs, Rhs, Side, Mode, 0, -1>::run(const Lhs &, Rhs &) [with Lhs=const Eigen::Block<const Eigen::Matrix<double, -1, -1, 0, -1, -1>, -1, -1, false>, Rhs=Eigen::Block<Eigen::Matrix<double, -1, -1, 0, -1, -1>, -1, -1, false>, Side=1, Mode=2]" at line 181 of /mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/deps/eigen-3.4.0/Eigen/src/Core/SolveTriangular.h
+            instantiation of "void Eigen::TriangularViewImpl<_MatrixType, _Mode, Eigen::Dense>::solveInPlace<Side,OtherDerived>(const Eigen::MatrixBase<OtherDerived> &) const [with _MatrixType=const Eigen::Block<const Eigen::Matrix<double, -1, -1, 0, -1, -1>, -1, -1, false>, _Mode=2U, Side=1, OtherDerived=Eigen::Block<Eigen::Matrix<double, -1, -1, 0, -1, -1>, -1, -1, false>]" at line 522 of /mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/deps/eigen-3.4.0/Eigen/src/Core/TriangularMatrix.h
+            instantiation of "void Eigen::TriangularViewImpl<_MatrixType, _Mode, Eigen::Dense>::solveInPlace(const Eigen::MatrixBase<OtherDerived> &) const [with _MatrixType=const Eigen::Block<const Eigen::Matrix<double, -1, -1, 0, -1, -1>, -1, -1, false>, _Mode=2U, OtherDerived=Eigen::Block<Eigen::Matrix<double, -1, -1, 0, -1, -1>, -1, -1, false>]" at line 552 of /mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/deps/eigen-3.4.0/Eigen/src/Core/TriangularMatrix.h
+            instantiation of "void Eigen::TriangularViewImpl<_MatrixType, _Mode, Eigen::Dense>::_solve_impl(const RhsType &, DstType &) const [with _MatrixType=const Eigen::Block<const Eigen::Matrix<double, -1, -1, 0, -1, -1>, -1, -1, false>, _Mode=2U, RhsType=Eigen::Block<Eigen::Matrix<double, -1, -1, 0, -1, -1>, -1, -1, false>, DstType=Eigen::Block<Eigen::Matrix<double, -1, -1, 0, -1, -1>, -1, -1, false>]" at line 147 of /mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/deps/eigen-3.4.0/Eigen/src/Core/Solve.h
+            instantiation of "void Eigen::internal::Assignment<DstXprType, Eigen::Solve<DecType, RhsType>, Eigen::internal::assign_op<Scalar, Scalar>, Eigen::internal::Dense2Dense, void>::run(DstXprType &, const Eigen::internal::Assignment<DstXprType, Eigen::Solve<DecType, RhsType>, Eigen::internal::assign_op<Scalar, Scalar>, Eigen::internal::Dense2Dense, void>::SrcXprType &, const Eigen::internal::assign_op<Scalar, Scalar> &) [with DstXprType=Eigen::Block<Eigen::Matrix<double, -1, -1, 0, -1, -1>, -1, -1, false>, DecType=Eigen::TriangularView<const Eigen::Block<const Eigen::Matrix<double, -1, -1, 0, -1, -1>, -1, -1, false>, 2U>, RhsType=Eigen::Block<Eigen::Matrix<double, -1, -1, 0, -1, -1>, -1, -1, false>, Scalar=double]" at line 890 of /mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/deps/eigen-3.4.0/Eigen/src/Core/AssignEvaluator.h
+            [ 11 instantiation contexts not shown ]
+            instantiation of "void Eigen::internal::Assignment<DstXprType, Eigen::Inverse<Eigen::CompleteOrthogonalDecomposition<MatrixType>>, Eigen::internal::assign_op<DstXprType::Scalar, Eigen::CompleteOrthogonalDecomposition<MatrixType>::Scalar>, Eigen::internal::Dense2Dense, void>::run(DstXprType &, const Eigen::internal::Assignment<DstXprType, Eigen::Inverse<Eigen::CompleteOrthogonalDecomposition<MatrixType>>, Eigen::internal::assign_op<DstXprType::Scalar, Eigen::CompleteOrthogonalDecomposition<MatrixType>::Scalar>, Eigen::internal::Dense2Dense, void>::SrcXprType &, const Eigen::internal::assign_op<DstXprType::Scalar, Eigen::CompleteOrthogonalDecomposition<MatrixType>::Scalar> &) [with DstXprType=Eigen::Matrix<double, -1, -1, 0, -1, -1>, MatrixType=Eigen::Matrix<double, -1, -1, 0, -1, -1>]" at line 890 of /mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/deps/eigen-3.4.0/Eigen/src/Core/AssignEvaluator.h
+            instantiation of "void Eigen::internal::call_assignment_no_alias(Dst &, const Src &, const Func &) [with Dst=Eigen::Matrix<double, -1, -1, 0, -1, -1>, Src=Eigen::Inverse<Eigen::CompleteOrthogonalDecomposition<Eigen::Matrix<double, -1, -1, 0, -1, -1>>>, Func=Eigen::internal::assign_op<double, double>]" at line 797 of /mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/deps/eigen-3.4.0/Eigen/src/Core/PlainObjectBase.h
+            instantiation of "Derived &Eigen::PlainObjectBase<Derived>::_set_noalias(const Eigen::DenseBase<OtherDerived> &) [with Derived=Eigen::Matrix<double, -1, -1, 0, -1, -1>, OtherDerived=Eigen::Inverse<Eigen::CompleteOrthogonalDecomposition<Eigen::Matrix<double, -1, -1, 0, -1, -1>>>]" at line 594 of /mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/deps/eigen-3.4.0/Eigen/src/Core/PlainObjectBase.h
+            instantiation of "Eigen::PlainObjectBase<Derived>::PlainObjectBase(const Eigen::DenseBase<OtherDerived> &) [with Derived=Eigen::Matrix<double, -1, -1, 0, -1, -1>, OtherDerived=Eigen::Inverse<Eigen::CompleteOrthogonalDecomposition<Eigen::Matrix<double, -1, -1, 0, -1, -1>>>]" at line 424 of /mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/deps/eigen-3.4.0/Eigen/src/Core/Matrix.h
+            instantiation of "Eigen::Matrix<_Scalar, _Rows, _Cols, _Options, _MaxRows, _MaxCols>::Matrix(const Eigen::EigenBase<OtherDerived> &) [with _Scalar=double, _Rows=-1, _Cols=-1, _Options=0, _MaxRows=-1, _MaxCols=-1, OtherDerived=Eigen::Inverse<Eigen::CompleteOrthogonalDecomposition<Eigen::Matrix<double, -1, -1, 0, -1, -1>>>]" at line 84 of /mnt/home/jordan+123/history-native-20261015-r5/benchmarks/experimental/naja-coordinate/tests/test_gpu_backmap_correctness.cu
+
+Warning #20014-D: calling a __host__ function from a __host__ __device__ function is not allowed
+          detected during:
+            instantiation of "void Eigen::internal::triangular_solver_selector<Lhs, Rhs, Side, Mode, 0, -1>::run(const Lhs &, Rhs &) [with Lhs=const Eigen::Block<const Eigen::Matrix<double, -1, -1, 0, -1, -1>, -1, -1, false>, Rhs=Eigen::Block<Eigen::Matrix<double, -1, -1, 0, -1, -1>, -1, -1, false>, Side=1, Mode=2]" at line 181 of /mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/deps/eigen-3.4.0/Eigen/src/Core/SolveTriangular.h
+            instantiation of "void Eigen::TriangularViewImpl<_MatrixType, _Mode, Eigen::Dense>::solveInPlace<Side,OtherDerived>(const Eigen::MatrixBase<OtherDerived> &) const [with _MatrixType=const Eigen::Block<const Eigen::Matrix<double, -1, -1, 0, -1, -1>, -1, -1, false>, _Mode=2U, Side=1, OtherDerived=Eigen::Block<Eigen::Matrix<double, -1, -1, 0, -1, -1>, -1, -1, false>]" at line 522 of /mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/deps/eigen-3.4.0/Eigen/src/Core/TriangularMatrix.h
+            instantiation of "void Eigen::TriangularViewImpl<_MatrixType, _Mode, Eigen::Dense>::solveInPlace(const Eigen::MatrixBase<OtherDerived> &) const [with _MatrixType=const Eigen::Block<const Eigen::Matrix<double, -1, -1, 0, -1, -1>, -1, -1, false>, _Mode=2U, OtherDerived=Eigen::Block<Eigen::Matrix<double, -1, -1, 0, -1, -1>, -1, -1, false>]" at line 552 of /mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/deps/eigen-3.4.0/Eigen/src/Core/TriangularMatrix.h
+            instantiation of "void Eigen::TriangularViewImpl<_MatrixType, _Mode, Eigen::Dense>::_solve_impl(const RhsType &, DstType &) const [with _MatrixType=const Eigen::Block<const Eigen::Matrix<double, -1, -1, 0, -1, -1>, -1, -1, false>, _Mode=2U, RhsType=Eigen::Block<Eigen::Matrix<double, -1, -1, 0, -1, -1>, -1, -1, false>, DstType=Eigen::Block<Eigen::Matrix<double, -1, -1, 0, -1, -1>, -1, -1, false>]" at line 147 of /mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/deps/eigen-3.4.0/Eigen/src/Core/Solve.h
+            instantiation of "void Eigen::internal::Assignment<DstXprType, Eigen::Solve<DecType, RhsType>, Eigen::internal::assign_op<Scalar, Scalar>, Eigen::internal::Dense2Dense, void>::run(DstXprType &, const Eigen::internal::Assignment<DstXprType, Eigen::Solve<DecType, RhsType>, Eigen::internal::assign_op<Scalar, Scalar>, Eigen::internal::Dense2Dense, void>::SrcXprType &, const Eigen::internal::assign_op<Scalar, Scalar> &) [with DstXprType=Eigen::Block<Eigen::Matrix<double, -1, -1, 0, -1, -1>, -1, -1, false>, DecType=Eigen::TriangularView<const Eigen::Block<const Eigen::Matrix<double, -1, -1, 0, -1, -1>, -1, -1, false>, 2U>, RhsType=Eigen::Block<Eigen::Matrix<double, -1, -1, 0, -1, -1>, -1, -1, false>, Scalar=double]" at line 890 of /mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/deps/eigen-3.4.0/Eigen/src/Core/AssignEvaluator.h
+            [ 11 instantiation contexts not shown ]
+            instantiation of "void Eigen::internal::Assignment<DstXprType, Eigen::Inverse<Eigen::CompleteOrthogonalDecomposition<MatrixType>>, Eigen::internal::assign_op<DstXprType::Scalar, Eigen::CompleteOrthogonalDecomposition<MatrixType>::Scalar>, Eigen::internal::Dense2Dense, void>::run(DstXprType &, const Eigen::internal::Assignment<DstXprType, Eigen::Inverse<Eigen::CompleteOrthogonalDecomposition<MatrixType>>, Eigen::internal::assign_op<DstXprType::Scalar, Eigen::CompleteOrthogonalDecomposition<MatrixType>::Scalar>, Eigen::internal::Dense2Dense, void>::SrcXprType &, const Eigen::internal::assign_op<DstXprType::Scalar, Eigen::CompleteOrthogonalDecomposition<MatrixType>::Scalar> &) [with DstXprType=Eigen::Matrix<double, -1, -1, 0, -1, -1>, MatrixType=Eigen::Matrix<double, -1, -1, 0, -1, -1>]" at line 890 of /mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/deps/eigen-3.4.0/Eigen/src/Core/AssignEvaluator.h
+            instantiation of "void Eigen::internal::call_assignment_no_alias(Dst &, const Src &, const Func &) [with Dst=Eigen::Matrix<double, -1, -1, 0, -1, -1>, Src=Eigen::Inverse<Eigen::CompleteOrthogonalDecomposition<Eigen::Matrix<double, -1, -1, 0, -1, -1>>>, Func=Eigen::internal::assign_op<double, double>]" at line 797 of /mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/deps/eigen-3.4.0/Eigen/src/Core/PlainObjectBase.h
+            instantiation of "Derived &Eigen::PlainObjectBase<Derived>::_set_noalias(const Eigen::DenseBase<OtherDerived> &) [with Derived=Eigen::Matrix<double, -1, -1, 0, -1, -1>, OtherDerived=Eigen::Inverse<Eigen::CompleteOrthogonalDecomposition<Eigen::Matrix<double, -1, -1, 0, -1, -1>>>]" at line 594 of /mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/deps/eigen-3.4.0/Eigen/src/Core/PlainObjectBase.h
+            instantiation of "Eigen::PlainObjectBase<Derived>::PlainObjectBase(const Eigen::DenseBase<OtherDerived> &) [with Derived=Eigen::Matrix<double, -1, -1, 0, -1, -1>, OtherDerived=Eigen::Inverse<Eigen::CompleteOrthogonalDecomposition<Eigen::Matrix<double, -1, -1, 0, -1, -1>>>]" at line 424 of /mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/deps/eigen-3.4.0/Eigen/src/Core/Matrix.h
+            instantiation of "Eigen::Matrix<_Scalar, _Rows, _Cols, _Options, _MaxRows, _MaxCols>::Matrix(const Eigen::EigenBase<OtherDerived> &) [with _Scalar=double, _Rows=-1, _Cols=-1, _Options=0, _MaxRows=-1, _MaxCols=-1, OtherDerived=Eigen::Inverse<Eigen::CompleteOrthogonalDecomposition<Eigen::Matrix<double, -1, -1, 0, -1, -1>>>]" at line 84 of /mnt/home/jordan+123/history-native-20261015-r5/benchmarks/experimental/naja-coordinate/tests/test_gpu_backmap_correctness.cu
+
+/mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/deps/eigen-3.4.0/Eigen/src/Core/PermutationMatrix.h(91): warning #20014-D: calling a __host__ function from a __host__ __device__ function is not allowed
+                              Index rows() const { return Index(indices().size()); }
+                                                                       ^
+          detected during:
+            instantiation of "Eigen::Index Eigen::PermutationBase<Derived>::rows() const [with Derived=Eigen::PermutationMatrix<-1, -1, int>]" at line 102 of /mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/deps/eigen-3.4.0/Eigen/src/Core/Product.h
+            instantiation of "Eigen::Index Eigen::Product<_Lhs, _Rhs, Option>::rows() const noexcept [with _Lhs=Eigen::PermutationMatrix<-1, -1, int>, _Rhs=Eigen::Matrix<double, -1, -1, 0, -1, -1>, Option=2]" at line 143 of /mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/deps/eigen-3.4.0/Eigen/src/Core/ProductEvaluators.h
+            instantiation of "void Eigen::internal::Assignment<DstXprType, Eigen::Product<Lhs, Rhs, Options>, Eigen::internal::assign_op<Scalar, Scalar>, Eigen::internal::Dense2Dense, Eigen::internal::enable_if<<expression>, void>::type>::run(DstXprType &, const Eigen::internal::Assignment<DstXprType, Eigen::Product<Lhs, Rhs, Options>, Eigen::internal::assign_op<Scalar, Scalar>, Eigen::internal::Dense2Dense, Eigen::internal::enable_if<<expression>, void>::type>::SrcXprType &, const Eigen::internal::assign_op<Scalar, Scalar> &) [with DstXprType=Eigen::Matrix<double, -1, -1, 0, -1, -1>, Lhs=Eigen::PermutationMatrix<-1, -1, int>, Rhs=Eigen::Matrix<double, -1, -1, 0, -1, -1>, Options=2, Scalar=double]" at line 890 of /mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/deps/eigen-3.4.0/Eigen/src/Core/AssignEvaluator.h
+            instantiation of "void Eigen::internal::call_assignment_no_alias(Dst &, const Src &, const Func &) [with Dst=Eigen::Matrix<double, -1, -1, 0, -1, -1>, Src=Eigen::Product<Eigen::PermutationMatrix<-1, -1, int>, Eigen::Matrix<double, -1, -1, 0, -1, -1>, 2>, Func=Eigen::internal::assign_op<double, double>]" at line 858 of /mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/deps/eigen-3.4.0/Eigen/src/Core/AssignEvaluator.h
+            instantiation of "void Eigen::internal::call_assignment(Dst &, const Src &, const Func &, Eigen::internal::enable_if<<expression>, void *>::type) [with Dst=Eigen::Matrix<double, -1, -1, 0, -1, -1>, Src=Eigen::Product<Eigen::PermutationMatrix<-1, -1, int>, Eigen::Matrix<double, -1, -1, 0, -1, -1>, 2>, Func=Eigen::internal::assign_op<double, double>]" at line 836 of /mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/deps/eigen-3.4.0/Eigen/src/Core/AssignEvaluator.h
+            [ 10 instantiation contexts not shown ]
+            instantiation of "void Eigen::internal::Assignment<DstXprType, Eigen::Inverse<Eigen::CompleteOrthogonalDecomposition<MatrixType>>, Eigen::internal::assign_op<DstXprType::Scalar, Eigen::CompleteOrthogonalDecomposition<MatrixType>::Scalar>, Eigen::internal::Dense2Dense, void>::run(DstXprType &, const Eigen::internal::Assignment<DstXprType, Eigen::Inverse<Eigen::CompleteOrthogonalDecomposition<MatrixType>>, Eigen::internal::assign_op<DstXprType::Scalar, Eigen::CompleteOrthogonalDecomposition<MatrixType>::Scalar>, Eigen::internal::Dense2Dense, void>::SrcXprType &, const Eigen::internal::assign_op<DstXprType::Scalar, Eigen::CompleteOrthogonalDecomposition<MatrixType>::Scalar> &) [with DstXprType=Eigen::Matrix<double, -1, -1, 0, -1, -1>, MatrixType=Eigen::Matrix<double, -1, -1, 0, -1, -1>]" at line 890 of /mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/deps/eigen-3.4.0/Eigen/src/Core/AssignEvaluator.h
+            instantiation of "void Eigen::internal::call_assignment_no_alias(Dst &, const Src &, const Func &) [with Dst=Eigen::Matrix<double, -1, -1, 0, -1, -1>, Src=Eigen::Inverse<Eigen::CompleteOrthogonalDecomposition<Eigen::Matrix<double, -1, -1, 0, -1, -1>>>, Func=Eigen::internal::assign_op<double, double>]" at line 797 of /mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/deps/eigen-3.4.0/Eigen/src/Core/PlainObjectBase.h
+            instantiation of "Derived &Eigen::PlainObjectBase<Derived>::_set_noalias(const Eigen::DenseBase<OtherDerived> &) [with Derived=Eigen::Matrix<double, -1, -1, 0, -1, -1>, OtherDerived=Eigen::Inverse<Eigen::CompleteOrthogonalDecomposition<Eigen::Matrix<double, -1, -1, 0, -1, -1>>>]" at line 594 of /mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/deps/eigen-3.4.0/Eigen/src/Core/PlainObjectBase.h
+            instantiation of "Eigen::PlainObjectBase<Derived>::PlainObjectBase(const Eigen::DenseBase<OtherDerived> &) [with Derived=Eigen::Matrix<double, -1, -1, 0, -1, -1>, OtherDerived=Eigen::Inverse<Eigen::CompleteOrthogonalDecomposition<Eigen::Matrix<double, -1, -1, 0, -1, -1>>>]" at line 424 of /mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/deps/eigen-3.4.0/Eigen/src/Core/Matrix.h
+            instantiation of "Eigen::Matrix<_Scalar, _Rows, _Cols, _Options, _MaxRows, _MaxCols>::Matrix(const Eigen::EigenBase<OtherDerived> &) [with _Scalar=double, _Rows=-1, _Cols=-1, _Options=0, _MaxRows=-1, _MaxCols=-1, OtherDerived=Eigen::Inverse<Eigen::CompleteOrthogonalDecomposition<Eigen::Matrix<double, -1, -1, 0, -1, -1>>>]" at line 84 of /mnt/home/jordan+123/history-native-20261015-r5/benchmarks/experimental/naja-coordinate/tests/test_gpu_backmap_correctness.cu
+
+/mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/deps/eigen-3.4.0/Eigen/src/Core/ProductEvaluators.h(1030): warning #20014-D: calling a __host__ function from a __host__ __device__ function is not allowed
+            for(Index k=perm.indices().coeff(k0); k!=k0; k=perm.indices().coeff(k))
+                                    ^
+          detected during:
+            instantiation of "void Eigen::internal::permutation_matrix_product<ExpressionType, Side, Transposed, Eigen::DenseShape>::run(Dest &, const PermutationType &, const ExpressionType &) [with ExpressionType=Eigen::Matrix<double, -1, -1, 0, -1, -1>, Side=1, Transposed=false, Dest=Eigen::Matrix<double, -1, -1, 0, -1, -1>, PermutationType=Eigen::PermutationMatrix<-1, -1, int>]" at line 1063
+            instantiation of "void Eigen::internal::generic_product_impl<Lhs, Rhs, Eigen::PermutationShape, MatrixShape, ProductTag>::evalTo(Dest &, const Lhs &, const Rhs &) [with Lhs=Eigen::PermutationMatrix<-1, -1, int>, Rhs=Eigen::Matrix<double, -1, -1, 0, -1, -1>, ProductTag=3, MatrixShape=Eigen::DenseShape, Dest=Eigen::Matrix<double, -1, -1, 0, -1, -1>]" at line 148
+            instantiation of "void Eigen::internal::Assignment<DstXprType, Eigen::Product<Lhs, Rhs, Options>, Eigen::internal::assign_op<Scalar, Scalar>, Eigen::internal::Dense2Dense, Eigen::internal::enable_if<<expression>, void>::type>::run(DstXprType &, const Eigen::internal::Assignment<DstXprType, Eigen::Product<Lhs, Rhs, Options>, Eigen::internal::assign_op<Scalar, Scalar>, Eigen::internal::Dense2Dense, Eigen::internal::enable_if<<expression>, void>::type>::SrcXprType &, const Eigen::internal::assign_op<Scalar, Scalar> &) [with DstXprType=Eigen::Matrix<double, -1, -1, 0, -1, -1>, Lhs=Eigen::PermutationMatrix<-1, -1, int>, Rhs=Eigen::Matrix<double, -1, -1, 0, -1, -1>, Options=2, Scalar=double]" at line 890 of /mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/deps/eigen-3.4.0/Eigen/src/Core/AssignEvaluator.h
+            instantiation of "void Eigen::internal::call_assignment_no_alias(Dst &, const Src &, const Func &) [with Dst=Eigen::Matrix<double, -1, -1, 0, -1, -1>, Src=Eigen::Product<Eigen::PermutationMatrix<-1, -1, int>, Eigen::Matrix<double, -1, -1, 0, -1, -1>, 2>, Func=Eigen::internal::assign_op<double, double>]" at line 858 of /mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/deps/eigen-3.4.0/Eigen/src/Core/AssignEvaluator.h
+            instantiation of "void Eigen::internal::call_assignment(Dst &, const Src &, const Func &, Eigen::internal::enable_if<<expression>, void *>::type) [with Dst=Eigen::Matrix<double, -1, -1, 0, -1, -1>, Src=Eigen::Product<Eigen::PermutationMatrix<-1, -1, int>, Eigen::Matrix<double, -1, -1, 0, -1, -1>, 2>, Func=Eigen::internal::assign_op<double, double>]" at line 836 of /mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/deps/eigen-3.4.0/Eigen/src/Core/AssignEvaluator.h
+            [ 10 instantiation contexts not shown ]
+            instantiation of "void Eigen::internal::Assignment<DstXprType, Eigen::Inverse<Eigen::CompleteOrthogonalDecomposition<MatrixType>>, Eigen::internal::assign_op<DstXprType::Scalar, Eigen::CompleteOrthogonalDecomposition<MatrixType>::Scalar>, Eigen::internal::Dense2Dense, void>::run(DstXprType &, const Eigen::internal::Assignment<DstXprType, Eigen::Inverse<Eigen::CompleteOrthogonalDecomposition<MatrixType>>, Eigen::internal::assign_op<DstXprType::Scalar, Eigen::CompleteOrthogonalDecomposition<MatrixType>::Scalar>, Eigen::internal::Dense2Dense, void>::SrcXprType &, const Eigen::internal::assign_op<DstXprType::Scalar, Eigen::CompleteOrthogonalDecomposition<MatrixType>::Scalar> &) [with DstXprType=Eigen::Matrix<double, -1, -1, 0, -1, -1>, MatrixType=Eigen::Matrix<double, -1, -1, 0, -1, -1>]" at line 890 of /mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/deps/eigen-3.4.0/Eigen/src/Core/AssignEvaluator.h
+            instantiation of "void Eigen::internal::call_assignment_no_alias(Dst &, const Src &, const Func &) [with Dst=Eigen::Matrix<double, -1, -1, 0, -1, -1>, Src=Eigen::Inverse<Eigen::CompleteOrthogonalDecomposition<Eigen::Matrix<double, -1, -1, 0, -1, -1>>>, Func=Eigen::internal::assign_op<double, double>]" at line 797 of /mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/deps/eigen-3.4.0/Eigen/src/Core/PlainObjectBase.h
+            instantiation of "Derived &Eigen::PlainObjectBase<Derived>::_set_noalias(const Eigen::DenseBase<OtherDerived> &) [with Derived=Eigen::Matrix<double, -1, -1, 0, -1, -1>, OtherDerived=Eigen::Inverse<Eigen::CompleteOrthogonalDecomposition<Eigen::Matrix<double, -1, -1, 0, -1, -1>>>]" at line 594 of /mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/deps/eigen-3.4.0/Eigen/src/Core/PlainObjectBase.h
+            instantiation of "Eigen::PlainObjectBase<Derived>::PlainObjectBase(const Eigen::DenseBase<OtherDerived> &) [with Derived=Eigen::Matrix<double, -1, -1, 0, -1, -1>, OtherDerived=Eigen::Inverse<Eigen::CompleteOrthogonalDecomposition<Eigen::Matrix<double, -1, -1, 0, -1, -1>>>]" at line 424 of /mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/deps/eigen-3.4.0/Eigen/src/Core/Matrix.h
+            instantiation of "Eigen::Matrix<_Scalar, _Rows, _Cols, _Options, _MaxRows, _MaxCols>::Matrix(const Eigen::EigenBase<OtherDerived> &) [with _Scalar=double, _Rows=-1, _Cols=-1, _Options=0, _MaxRows=-1, _MaxCols=-1, OtherDerived=Eigen::Inverse<Eigen::CompleteOrthogonalDecomposition<Eigen::Matrix<double, -1, -1, 0, -1, -1>>>]" at line 84 of /mnt/home/jordan+123/history-native-20261015-r5/benchmarks/experimental/naja-coordinate/tests/test_gpu_backmap_correctness.cu
+
+/mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/deps/eigen-3.4.0/Eigen/src/Core/ProductEvaluators.h(1030): warning #20014-D: calling a __host__ function from a __host__ __device__ function is not allowed
+            for(Index k=perm.indices().coeff(k0); k!=k0; k=perm.indices().coeff(k))
+                                                                       ^
+          detected during:
+            instantiation of "void Eigen::internal::permutation_matrix_product<ExpressionType, Side, Transposed, Eigen::DenseShape>::run(Dest &, const PermutationType &, const ExpressionType &) [with ExpressionType=Eigen::Matrix<double, -1, -1, 0, -1, -1>, Side=1, Transposed=false, Dest=Eigen::Matrix<double, -1, -1, 0, -1, -1>, PermutationType=Eigen::PermutationMatrix<-1, -1, int>]" at line 1063
+            instantiation of "void Eigen::internal::generic_product_impl<Lhs, Rhs, Eigen::PermutationShape, MatrixShape, ProductTag>::evalTo(Dest &, const Lhs &, const Rhs &) [with Lhs=Eigen::PermutationMatrix<-1, -1, int>, Rhs=Eigen::Matrix<double, -1, -1, 0, -1, -1>, ProductTag=3, MatrixShape=Eigen::DenseShape, Dest=Eigen::Matrix<double, -1, -1, 0, -1, -1>]" at line 148
+            instantiation of "void Eigen::internal::Assignment<DstXprType, Eigen::Product<Lhs, Rhs, Options>, Eigen::internal::assign_op<Scalar, Scalar>, Eigen::internal::Dense2Dense, Eigen::internal::enable_if<<expression>, void>::type>::run(DstXprType &, const Eigen::internal::Assignment<DstXprType, Eigen::Product<Lhs, Rhs, Options>, Eigen::internal::assign_op<Scalar, Scalar>, Eigen::internal::Dense2Dense, Eigen::internal::enable_if<<expression>, void>::type>::SrcXprType &, const Eigen::internal::assign_op<Scalar, Scalar> &) [with DstXprType=Eigen::Matrix<double, -1, -1, 0, -1, -1>, Lhs=Eigen::PermutationMatrix<-1, -1, int>, Rhs=Eigen::Matrix<double, -1, -1, 0, -1, -1>, Options=2, Scalar=double]" at line 890 of /mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/deps/eigen-3.4.0/Eigen/src/Core/AssignEvaluator.h
+            instantiation of "void Eigen::internal::call_assignment_no_alias(Dst &, const Src &, const Func &) [with Dst=Eigen::Matrix<double, -1, -1, 0, -1, -1>, Src=Eigen::Product<Eigen::PermutationMatrix<-1, -1, int>, Eigen::Matrix<double, -1, -1, 0, -1, -1>, 2>, Func=Eigen::internal::assign_op<double, double>]" at line 858 of /mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/deps/eigen-3.4.0/Eigen/src/Core/AssignEvaluator.h
+            instantiation of "void Eigen::internal::call_assignment(Dst &, const Src &, const Func &, Eigen::internal::enable_if<<expression>, void *>::type) [with Dst=Eigen::Matrix<double, -1, -1, 0, -1, -1>, Src=Eigen::Product<Eigen::PermutationMatrix<-1, -1, int>, Eigen::Matrix<double, -1, -1, 0, -1, -1>, 2>, Func=Eigen::internal::assign_op<double, double>]" at line 836 of /mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/deps/eigen-3.4.0/Eigen/src/Core/AssignEvaluator.h
+            [ 10 instantiation contexts not shown ]
+            instantiation of "void Eigen::internal::Assignment<DstXprType, Eigen::Inverse<Eigen::CompleteOrthogonalDecomposition<MatrixType>>, Eigen::internal::assign_op<DstXprType::Scalar, Eigen::CompleteOrthogonalDecomposition<MatrixType>::Scalar>, Eigen::internal::Dense2Dense, void>::run(DstXprType &, const Eigen::internal::Assignment<DstXprType, Eigen::Inverse<Eigen::CompleteOrthogonalDecomposition<MatrixType>>, Eigen::internal::assign_op<DstXprType::Scalar, Eigen::CompleteOrthogonalDecomposition<MatrixType>::Scalar>, Eigen::internal::Dense2Dense, void>::SrcXprType &, const Eigen::internal::assign_op<DstXprType::Scalar, Eigen::CompleteOrthogonalDecomposition<MatrixType>::Scalar> &) [with DstXprType=Eigen::Matrix<double, -1, -1, 0, -1, -1>, MatrixType=Eigen::Matrix<double, -1, -1, 0, -1, -1>]" at line 890 of /mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/deps/eigen-3.4.0/Eigen/src/Core/AssignEvaluator.h
+            instantiation of "void Eigen::internal::call_assignment_no_alias(Dst &, const Src &, const Func &) [with Dst=Eigen::Matrix<double, -1, -1, 0, -1, -1>, Src=Eigen::Inverse<Eigen::CompleteOrthogonalDecomposition<Eigen::Matrix<double, -1, -1, 0, -1, -1>>>, Func=Eigen::internal::assign_op<double, double>]" at line 797 of /mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/deps/eigen-3.4.0/Eigen/src/Core/PlainObjectBase.h
+            instantiation of "Derived &Eigen::PlainObjectBase<Derived>::_set_noalias(const Eigen::DenseBase<OtherDerived> &) [with Derived=Eigen::Matrix<double, -1, -1, 0, -1, -1>, OtherDerived=Eigen::Inverse<Eigen::CompleteOrthogonalDecomposition<Eigen::Matrix<double, -1, -1, 0, -1, -1>>>]" at line 594 of /mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/deps/eigen-3.4.0/Eigen/src/Core/PlainObjectBase.h
+            instantiation of "Eigen::PlainObjectBase<Derived>::PlainObjectBase(const Eigen::DenseBase<OtherDerived> &) [with Derived=Eigen::Matrix<double, -1, -1, 0, -1, -1>, OtherDerived=Eigen::Inverse<Eigen::CompleteOrthogonalDecomposition<Eigen::Matrix<double, -1, -1, 0, -1, -1>>>]" at line 424 of /mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/deps/eigen-3.4.0/Eigen/src/Core/Matrix.h
+            instantiation of "Eigen::Matrix<_Scalar, _Rows, _Cols, _Options, _MaxRows, _MaxCols>::Matrix(const Eigen::EigenBase<OtherDerived> &) [with _Scalar=double, _Rows=-1, _Cols=-1, _Options=0, _MaxRows=-1, _MaxCols=-1, OtherDerived=Eigen::Inverse<Eigen::CompleteOrthogonalDecomposition<Eigen::Matrix<double, -1, -1, 0, -1, -1>>>]" at line 84 of /mnt/home/jordan+123/history-native-20261015-r5/benchmarks/experimental/naja-coordinate/tests/test_gpu_backmap_correctness.cu
+
+/mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/deps/eigen-3.4.0/Eigen/src/Core/ProductEvaluators.h(1046): warning #20014-D: calling a __host__ function from a __host__ __device__ function is not allowed
+                 (dst, ((Side==OnTheLeft) ^ Transposed) ? perm.indices().coeff(i) : i)
+                                                                      ^
+          detected during:
+            instantiation of "void Eigen::internal::permutation_matrix_product<ExpressionType, Side, Transposed, Eigen::DenseShape>::run(Dest &, const PermutationType &, const ExpressionType &) [with ExpressionType=Eigen::Matrix<double, -1, -1, 0, -1, -1>, Side=1, Transposed=false, Dest=Eigen::Matrix<double, -1, -1, 0, -1, -1>, PermutationType=Eigen::PermutationMatrix<-1, -1, int>]" at line 1063
+            instantiation of "void Eigen::internal::generic_product_impl<Lhs, Rhs, Eigen::PermutationShape, MatrixShape, ProductTag>::evalTo(Dest &, const Lhs &, const Rhs &) [with Lhs=Eigen::PermutationMatrix<-1, -1, int>, Rhs=Eigen::Matrix<double, -1, -1, 0, -1, -1>, ProductTag=3, MatrixShape=Eigen::DenseShape, Dest=Eigen::Matrix<double, -1, -1, 0, -1, -1>]" at line 148
+            instantiation of "void Eigen::internal::Assignment<DstXprType, Eigen::Product<Lhs, Rhs, Options>, Eigen::internal::assign_op<Scalar, Scalar>, Eigen::internal::Dense2Dense, Eigen::internal::enable_if<<expression>, void>::type>::run(DstXprType &, const Eigen::internal::Assignment<DstXprType, Eigen::Product<Lhs, Rhs, Options>, Eigen::internal::assign_op<Scalar, Scalar>, Eigen::internal::Dense2Dense, Eigen::internal::enable_if<<expression>, void>::type>::SrcXprType &, const Eigen::internal::assign_op<Scalar, Scalar> &) [with DstXprType=Eigen::Matrix<double, -1, -1, 0, -1, -1>, Lhs=Eigen::PermutationMatrix<-1, -1, int>, Rhs=Eigen::Matrix<double, -1, -1, 0, -1, -1>, Options=2, Scalar=double]" at line 890 of /mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/deps/eigen-3.4.0/Eigen/src/Core/AssignEvaluator.h
+            instantiation of "void Eigen::internal::call_assignment_no_alias(Dst &, const Src &, const Func &) [with Dst=Eigen::Matrix<double, -1, -1, 0, -1, -1>, Src=Eigen::Product<Eigen::PermutationMatrix<-1, -1, int>, Eigen::Matrix<double, -1, -1, 0, -1, -1>, 2>, Func=Eigen::internal::assign_op<double, double>]" at line 858 of /mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/deps/eigen-3.4.0/Eigen/src/Core/AssignEvaluator.h
+            instantiation of "void Eigen::internal::call_assignment(Dst &, const Src &, const Func &, Eigen::internal::enable_if<<expression>, void *>::type) [with Dst=Eigen::Matrix<double, -1, -1, 0, -1, -1>, Src=Eigen::Product<Eigen::PermutationMatrix<-1, -1, int>, Eigen::Matrix<double, -1, -1, 0, -1, -1>, 2>, Func=Eigen::internal::assign_op<double, double>]" at line 836 of /mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/deps/eigen-3.4.0/Eigen/src/Core/AssignEvaluator.h
+            [ 10 instantiation contexts not shown ]
+            instantiation of "void Eigen::internal::Assignment<DstXprType, Eigen::Inverse<Eigen::CompleteOrthogonalDecomposition<MatrixType>>, Eigen::internal::assign_op<DstXprType::Scalar, Eigen::CompleteOrthogonalDecomposition<MatrixType>::Scalar>, Eigen::internal::Dense2Dense, void>::run(DstXprType &, const Eigen::internal::Assignment<DstXprType, Eigen::Inverse<Eigen::CompleteOrthogonalDecomposition<MatrixType>>, Eigen::internal::assign_op<DstXprType::Scalar, Eigen::CompleteOrthogonalDecomposition<MatrixType>::Scalar>, Eigen::internal::Dense2Dense, void>::SrcXprType &, const Eigen::internal::assign_op<DstXprType::Scalar, Eigen::CompleteOrthogonalDecomposition<MatrixType>::Scalar> &) [with DstXprType=Eigen::Matrix<double, -1, -1, 0, -1, -1>, MatrixType=Eigen::Matrix<double, -1, -1, 0, -1, -1>]" at line 890 of /mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/deps/eigen-3.4.0/Eigen/src/Core/AssignEvaluator.h
+            instantiation of "void Eigen::internal::call_assignment_no_alias(Dst &, const Src &, const Func &) [with Dst=Eigen::Matrix<double, -1, -1, 0, -1, -1>, Src=Eigen::Inverse<Eigen::CompleteOrthogonalDecomposition<Eigen::Matrix<double, -1, -1, 0, -1, -1>>>, Func=Eigen::internal::assign_op<double, double>]" at line 797 of /mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/deps/eigen-3.4.0/Eigen/src/Core/PlainObjectBase.h
+            instantiation of "Derived &Eigen::PlainObjectBase<Derived>::_set_noalias(const Eigen::DenseBase<OtherDerived> &) [with Derived=Eigen::Matrix<double, -1, -1, 0, -1, -1>, OtherDerived=Eigen::Inverse<Eigen::CompleteOrthogonalDecomposition<Eigen::Matrix<double, -1, -1, 0, -1, -1>>>]" at line 594 of /mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/deps/eigen-3.4.0/Eigen/src/Core/PlainObjectBase.h
+            instantiation of "Eigen::PlainObjectBase<Derived>::PlainObjectBase(const Eigen::DenseBase<OtherDerived> &) [with Derived=Eigen::Matrix<double, -1, -1, 0, -1, -1>, OtherDerived=Eigen::Inverse<Eigen::CompleteOrthogonalDecomposition<Eigen::Matrix<double, -1, -1, 0, -1, -1>>>]" at line 424 of /mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/deps/eigen-3.4.0/Eigen/src/Core/Matrix.h
+            instantiation of "Eigen::Matrix<_Scalar, _Rows, _Cols, _Options, _MaxRows, _MaxCols>::Matrix(const Eigen::EigenBase<OtherDerived> &) [with _Scalar=double, _Rows=-1, _Cols=-1, _Options=0, _MaxRows=-1, _MaxCols=-1, OtherDerived=Eigen::Inverse<Eigen::CompleteOrthogonalDecomposition<Eigen::Matrix<double, -1, -1, 0, -1, -1>>>]" at line 84 of /mnt/home/jordan+123/history-native-20261015-r5/benchmarks/experimental/naja-coordinate/tests/test_gpu_backmap_correctness.cu
+
+/mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/deps/eigen-3.4.0/Eigen/src/Core/Inverse.h(57): warning #20014-D: calling a __host__ function from a __host__ __device__ function is not allowed
+                     constexpr Index rows() const noexcept { return m_xpr.cols(); }
+                                                                              ^
+
+/mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/deps/eigen-3.4.0/Eigen/src/Core/Inverse.h(58): warning #20014-D: calling a __host__ function from a __host__ __device__ function is not allowed
+                     constexpr Index cols() const noexcept { return m_xpr.rows(); }
+                                                                              ^
+
+/mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/deps/eigen-3.4.0/Eigen/src/Core/Solve.h(72): warning #20014-D: calling a __host__ function from a __host__ __device__ function is not allowed
+                     constexpr Index rows() const noexcept { return m_dec.cols(); }
+                                                                              ^
+
+/mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/deps/eigen-3.4.0/Eigen/src/Core/PermutationMatrix.h(91): warning #20011-D: calling a __host__ function("Eigen::PermutationBase< ::Eigen::PermutationMatrix<(int)-1, (int)-1, int> > ::indices() const") from a __host__ __device__ function("Eigen::PermutationBase< ::Eigen::PermutationMatrix<(int)-1, (int)-1, int> > ::rows const") is not allowed
+
+/mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/deps/eigen-3.4.0/Eigen/src/Core/PermutationMatrix.h(97): warning #20011-D: calling a __host__ function("Eigen::PermutationBase< ::Eigen::PermutationMatrix<(int)-1, (int)-1, int> > ::indices() const") from a __host__ __device__ function("Eigen::PermutationBase< ::Eigen::PermutationMatrix<(int)-1, (int)-1, int> > ::size const") is not allowed
+
+/mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/deps/eigen-3.4.0/Eigen/src/Core/Inverse.h(57): warning #20011-D: calling a __host__ function("Eigen::CompleteOrthogonalDecomposition< ::Eigen::Matrix<double, (int)-1, (int)-1, (int)0, (int)-1, (int)-1> > ::cols() const") from a __host__ __device__ function("Eigen::Inverse< ::Eigen::CompleteOrthogonalDecomposition< ::Eigen::Matrix<double, (int)-1, (int)-1, (int)0, (int)-1, (int)-1> > > ::rows const") is not allowed
+
+/mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/deps/eigen-3.4.0/Eigen/src/Core/Inverse.h(58): warning #20011-D: calling a __host__ function("Eigen::CompleteOrthogonalDecomposition< ::Eigen::Matrix<double, (int)-1, (int)-1, (int)0, (int)-1, (int)-1> > ::rows() const") from a __host__ __device__ function("Eigen::Inverse< ::Eigen::CompleteOrthogonalDecomposition< ::Eigen::Matrix<double, (int)-1, (int)-1, (int)0, (int)-1, (int)-1> > > ::cols const") is not allowed
+
+/mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/deps/eigen-3.4.0/Eigen/src/Core/Solve.h(72): warning #20011-D: calling a __host__ function("Eigen::CompleteOrthogonalDecomposition< ::Eigen::Matrix<double, (int)-1, (int)-1, (int)0, (int)-1, (int)-1> > ::cols() const") from a __host__ __device__ function("Eigen::Solve< ::Eigen::CompleteOrthogonalDecomposition< ::Eigen::Matrix<double, (int)-1, (int)-1, (int)0, (int)-1, (int)-1> > ,  ::Eigen::CwiseNullaryOp< ::Eigen::internal::scalar_identity_op<double> ,  ::Eigen::Matrix<double, (int)-1, (int)-1, (int)0, (int)-1, (int)-1> > > ::rows const") is not allowed
+
+/mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/deps/eigen-3.4.0/Eigen/src/Core/TriangularMatrix.h(285): warning #20011-D: calling a __host__ function("Eigen::Solve< ::Eigen::TriangularView<const  ::Eigen::Block<const  ::Eigen::Matrix<double, (int)-1, (int)-1, (int)0, (int)-1, (int)-1> , (int)-1, (int)-1, (bool)0> , (unsigned int)2u> ,  ::Eigen::Block< ::Eigen::Matrix<double, (int)-1, (int)-1, (int)0, (int)-1, (int)-1> , (int)-1, (int)-1, (bool)0> > ::Solve(const  ::Eigen::TriangularView<const  ::Eigen::Block<const  ::Eigen::Matrix<double, (int)-1, (int)-1, (int)0, (int)-1, (int)-1> , (int)-1, (int)-1, (bool)0> , (unsigned int)2u>  &, const  ::Eigen::Block< ::Eigen::Matrix<double, (int)-1, (int)-1, (int)0, (int)-1, (int)-1> , (int)-1, (int)-1, (bool)0>  &)") from a __host__ __device__ function("Eigen::TriangularView<const  ::Eigen::Block<const  ::Eigen::Matrix<double, (int)-1, (int)-1, (int)0, (int)-1, (int)-1> , (int)-1, (int)-1, (bool)0> , (unsigned int)2u> ::solve< ::Eigen::Block< ::Eigen::Matrix<double, (int)-1, (int)-1, (int)0, (int)-1, (int)-1> , (int)-1, (int)-1, (bool)0> >  const") is not allowed
+
+/mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/deps/eigen-3.4.0/Eigen/src/Core/ProductEvaluators.h(361): warning #20011-D: calling a __host__ function("void Eigen::internal::generic_product_impl< ::Eigen::CwiseBinaryOp< ::Eigen::internal::scalar_product_op<double, double> , const  ::Eigen::CwiseNullaryOp< ::Eigen::internal::scalar_constant_op<double> , const  ::Eigen::Matrix<double, (int)1, (int)-1, (int)1, (int)1, (int)-1> > , const  ::Eigen::Transpose<const  ::Eigen::Block<const  ::Eigen::Block<const  ::Eigen::Block< ::Eigen::Matrix<double, (int)-1, (int)-1, (int)0, (int)-1, (int)-1> , (int)-1, (int)-1, (bool)0> , (int)-1, (int)1, (bool)1> , (int)-1, (int)1, (bool)0> > > ,  ::Eigen::TriangularView<const  ::Eigen::Block<const  ::Eigen::Block< ::Eigen::Matrix<double, (int)-1, (int)-1, (int)0, (int)-1, (int)-1> , (int)-1, (int)-1, (bool)0> , (int)-1, (int)-1, (bool)0> , (unsigned int)5u> ,  ::Eigen::DenseShape,  ::Eigen::TriangularShape, (int)3> ::scaleAndAddTo< ::Eigen::Block< ::Eigen::Block< ::Eigen::Matrix<double, (int)-1, (int)-1, (int)1, (int)-1, (int)-1> , (int)1, (int)-1, (bool)1> , (int)1, (int)-1, (bool)0> > (T1 &, const  ::Eigen::CwiseBinaryOp< ::Eigen::internal::scalar_product_op<double, double> , const  ::Eigen::CwiseNullaryOp< ::Eigen::internal::scalar_constant_op<double> , const  ::Eigen::Matrix<double, (int)1, (int)-1, (int)1, (int)1, (int)-1> > , const  ::Eigen::Transpose<const  ::Eigen::Block<const  ::Eigen::Block<const  ::Eigen::Block< ::Eigen::Matrix<double, (int)-1, (int)-1, (int)0, (int)-1, (int)-1> , (int)-1, (int)-1, (bool)0> , (int)-1, (int)1, (bool)1> , (int)-1, (int)1, (bool)0> > >  &, const  ::Eigen::TriangularView<const  ::Eigen::Block<const  ::Eigen::Block< ::Eigen::Matrix<double, (int)-1, (int)-1, (int)0, (int)-1, (int)-1> , (int)-1, (int)-1, (bool)0> , (int)-1, (int)-1, (bool)0> , (unsigned int)5u>  &, const double &)") from a __host__ __device__ function("Eigen::internal::generic_product_impl_base< ::Eigen::CwiseBinaryOp< ::Eigen::internal::scalar_product_op<double, double> , const  ::Eigen::CwiseNullaryOp< ::Eigen::internal::scalar_constant_op<double> , const  ::Eigen::Matrix<double, (int)1, (int)-1, (int)1, (int)1, (int)-1> > , const  ::Eigen::Transpose<const  ::Eigen::Block<const  ::Eigen::Block<const  ::Eigen::Block< ::Eigen::Matrix<double, (int)-1, (int)-1, (int)0, (int)-1, (int)-1> , (int)-1, (int)-1, (bool)0> , (int)-1, (int)1, (bool)1> , (int)-1, (int)1, (bool)0> > > ,  ::Eigen::TriangularView<const  ::Eigen::Block<const  ::Eigen::Block< ::Eigen::Matrix<double, (int)-1, (int)-1, (int)0, (int)-1, (int)-1> , (int)-1, (int)-1, (bool)0> , (int)-1, (int)-1, (bool)0> , (unsigned int)5u> ,  ::Eigen::internal::generic_product_impl< ::Eigen::CwiseBinaryOp< ::Eigen::internal::scalar_product_op<double, double> , const  ::Eigen::CwiseNullaryOp< ::Eigen::internal::scalar_constant_op<double> , const  ::Eigen::Matrix<double, (int)1, (int)-1, (int)1, (int)1, (int)-1> > , const  ::Eigen::Transpose<const  ::Eigen::Block<const  ::Eigen::Block<const  ::Eigen::Block< ::Eigen::Matrix<double, (int)-1, (int)-1, (int)0, (int)-1, (int)-1> , (int)-1, (int)-1, (bool)0> , (int)-1, (int)1, (bool)1> , (int)-1, (int)1, (bool)0> > > ,  ::Eigen::TriangularView<const  ::Eigen::Block<const  ::Eigen::Block< ::Eigen::Matrix<double, (int)-1, (int)-1, (int)0, (int)-1, (int)-1> , (int)-1, (int)-1, (bool)0> , (int)-1, (int)-1, (bool)0> , (unsigned int)5u> ,  ::Eigen::DenseShape,  ::Eigen::TriangularShape, (int)3> > ::scaleAndAddTo< ::Eigen::Block< ::Eigen::Block< ::Eigen::Matrix<double, (int)-1, (int)-1, (int)1, (int)-1, (int)-1> , (int)1, (int)-1, (bool)1> , (int)1, (int)-1, (bool)0> > ") is not allowed
+
+/mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/deps/eigen-3.4.0/Eigen/src/Core/util/BlasUtil.h(453): warning #20011-D: calling a __host__ function("Eigen::internal::blas_traits< ::Eigen::Transpose<const  ::Eigen::Block<const  ::Eigen::Block<const  ::Eigen::Block< ::Eigen::Matrix<double, (int)-1, (int)-1, (int)0, (int)-1, (int)-1> , (int)-1, (int)-1, (bool)0> , (int)-1, (int)1, (bool)1> , (int)-1, (int)1, (bool)0> > > ::extract(const  ::Eigen::Transpose<const  ::Eigen::Block<const  ::Eigen::Block<const  ::Eigen::Block< ::Eigen::Matrix<double, (int)-1, (int)-1, (int)0, (int)-1, (int)-1> , (int)-1, (int)-1, (bool)0> , (int)-1, (int)1, (bool)1> , (int)-1, (int)1, (bool)0> >  &)") from a __host__ __device__ function("Eigen::internal::blas_traits< ::Eigen::CwiseBinaryOp< ::Eigen::internal::scalar_product_op<double, double> , const  ::Eigen::CwiseNullaryOp< ::Eigen::internal::scalar_constant_op<double> , const  ::Eigen::Matrix<double, (int)1, (int)-1, (int)1, (int)1, (int)-1> > , const  ::Eigen::Transpose<const  ::Eigen::Block<const  ::Eigen::Block<const  ::Eigen::Block< ::Eigen::Matrix<double, (int)-1, (int)-1, (int)0, (int)-1, (int)-1> , (int)-1, (int)-1, (bool)0> , (int)-1, (int)1, (bool)1> , (int)-1, (int)1, (bool)0> > > > ::extract") is not allowed
+
+/mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/deps/eigen-3.4.0/Eigen/src/Core/util/BlasUtil.h(455): warning #20011-D: calling a __host__ function("Eigen::internal::blas_traits< ::Eigen::Transpose<const  ::Eigen::Block<const  ::Eigen::Block<const  ::Eigen::Block< ::Eigen::Matrix<double, (int)-1, (int)-1, (int)0, (int)-1, (int)-1> , (int)-1, (int)-1, (bool)0> , (int)-1, (int)1, (bool)1> , (int)-1, (int)1, (bool)0> > > ::extractScalarFactor(const  ::Eigen::Transpose<const  ::Eigen::Block<const  ::Eigen::Block<const  ::Eigen::Block< ::Eigen::Matrix<double, (int)-1, (int)-1, (int)0, (int)-1, (int)-1> , (int)-1, (int)-1, (bool)0> , (int)-1, (int)1, (bool)1> , (int)-1, (int)1, (bool)0> >  &)") from a __host__ __device__ function("Eigen::internal::blas_traits< ::Eigen::CwiseBinaryOp< ::Eigen::internal::scalar_product_op<double, double> , const  ::Eigen::CwiseNullaryOp< ::Eigen::internal::scalar_constant_op<double> , const  ::Eigen::Matrix<double, (int)1, (int)-1, (int)1, (int)1, (int)-1> > , const  ::Eigen::Transpose<const  ::Eigen::Block<const  ::Eigen::Block<const  ::Eigen::Block< ::Eigen::Matrix<double, (int)-1, (int)-1, (int)0, (int)-1, (int)-1> , (int)-1, (int)-1, (bool)0> , (int)-1, (int)1, (bool)1> , (int)-1, (int)1, (bool)0> > > > ::extractScalarFactor") is not allowed
+
+/mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/deps/eigen-3.4.0/Eigen/src/Core/ProductEvaluators.h(361): warning #20011-D: calling a __host__ function("void Eigen::internal::generic_product_impl< ::Eigen::TriangularView<const  ::Eigen::Transpose<const  ::Eigen::Block< ::Eigen::Matrix<double, (int)-1, (int)-1, (int)0, (int)-1, (int)-1> , (int)-1, (int)-1, (bool)0> > , (unsigned int)6u> ,  ::Eigen::Block< ::Eigen::Matrix<double, (int)-1, (int)-1, (int)0, (int)-1, (int)-1> , (int)-1, (int)-1, (bool)0> ,  ::Eigen::TriangularShape,  ::Eigen::DenseShape, (int)3> ::scaleAndAddTo< ::Eigen::Matrix<double, (int)-1, (int)-1, (int)0, (int)-1, (int)-1> > (T1 &, const  ::Eigen::TriangularView<const  ::Eigen::Transpose<const  ::Eigen::Block< ::Eigen::Matrix<double, (int)-1, (int)-1, (int)0, (int)-1, (int)-1> , (int)-1, (int)-1, (bool)0> > , (unsigned int)6u>  &, const  ::Eigen::Block< ::Eigen::Matrix<double, (int)-1, (int)-1, (int)0, (int)-1, (int)-1> , (int)-1, (int)-1, (bool)0>  &, const double &)") from a __host__ __device__ function("Eigen::internal::generic_product_impl_base< ::Eigen::TriangularView<const  ::Eigen::Transpose<const  ::Eigen::Block< ::Eigen::Matrix<double, (int)-1, (int)-1, (int)0, (int)-1, (int)-1> , (int)-1, (int)-1, (bool)0> > , (unsigned int)6u> ,  ::Eigen::Block< ::Eigen::Matrix<double, (int)-1, (int)-1, (int)0, (int)-1, (int)-1> , (int)-1, (int)-1, (bool)0> ,  ::Eigen::internal::generic_product_impl< ::Eigen::TriangularView<const  ::Eigen::Transpose<const  ::Eigen::Block< ::Eigen::Matrix<double, (int)-1, (int)-1, (int)0, (int)-1, (int)-1> , (int)-1, (int)-1, (bool)0> > , (unsigned int)6u> ,  ::Eigen::Block< ::Eigen::Matrix<double, (int)-1, (int)-1, (int)0, (int)-1, (int)-1> , (int)-1, (int)-1, (bool)0> ,  ::Eigen::TriangularShape,  ::Eigen::DenseShape, (int)3> > ::scaleAndAddTo< ::Eigen::Matrix<double, (int)-1, (int)-1, (int)0, (int)-1, (int)-1> > ") is not allowed
+
+/mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/deps/eigen-3.4.0/Eigen/src/Core/ProductEvaluators.h(361): warning #20011-D: calling a __host__ function("void Eigen::internal::generic_product_impl< ::Eigen::TriangularView< ::Eigen::Matrix<double, (int)-1, (int)-1, (int)1, (int)-1, (int)-1> , (unsigned int)2u> ,  ::Eigen::Matrix<double, (int)-1, (int)-1, (int)0, (int)-1, (int)-1> ,  ::Eigen::TriangularShape,  ::Eigen::DenseShape, (int)3> ::scaleAndAddTo< ::Eigen::Matrix<double, (int)-1, (int)-1, (int)0, (int)-1, (int)-1> > (T1 &, const  ::Eigen::TriangularView< ::Eigen::Matrix<double, (int)-1, (int)-1, (int)1, (int)-1, (int)-1> , (unsigned int)2u>  &, const  ::Eigen::Matrix<double, (int)-1, (int)-1, (int)0, (int)-1, (int)-1>  &, const double &)") from a __host__ __device__ function("Eigen::internal::generic_product_impl_base< ::Eigen::TriangularView< ::Eigen::Matrix<double, (int)-1, (int)-1, (int)1, (int)-1, (int)-1> , (unsigned int)2u> ,  ::Eigen::Matrix<double, (int)-1, (int)-1, (int)0, (int)-1, (int)-1> ,  ::Eigen::internal::generic_product_impl< ::Eigen::TriangularView< ::Eigen::Matrix<double, (int)-1, (int)-1, (int)1, (int)-1, (int)-1> , (unsigned int)2u> ,  ::Eigen::Matrix<double, (int)-1, (int)-1, (int)0, (int)-1, (int)-1> ,  ::Eigen::TriangularShape,  ::Eigen::DenseShape, (int)3> > ::scaleAndAddTo< ::Eigen::Matrix<double, (int)-1, (int)-1, (int)0, (int)-1, (int)-1> > ") is not allowed
+
+/mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/deps/eigen-3.4.0/Eigen/src/Core/ProductEvaluators.h(361): warning #20011-D: calling a __host__ function("void Eigen::internal::generic_product_impl< ::Eigen::TriangularView<const  ::Eigen::Transpose<const  ::Eigen::Matrix<double, (int)-1, (int)-1, (int)1, (int)-1, (int)-1> > , (unsigned int)1u> ,  ::Eigen::Matrix<double, (int)-1, (int)-1, (int)0, (int)-1, (int)-1> ,  ::Eigen::TriangularShape,  ::Eigen::DenseShape, (int)3> ::scaleAndAddTo< ::Eigen::Matrix<double, (int)-1, (int)-1, (int)0, (int)-1, (int)-1> > (T1 &, const  ::Eigen::TriangularView<const  ::Eigen::Transpose<const  ::Eigen::Matrix<double, (int)-1, (int)-1, (int)1, (int)-1, (int)-1> > , (unsigned int)1u>  &, const  ::Eigen::Matrix<double, (int)-1, (int)-1, (int)0, (int)-1, (int)-1>  &, const double &)") from a __host__ __device__ function("Eigen::internal::generic_product_impl_base< ::Eigen::TriangularView<const  ::Eigen::Transpose<const  ::Eigen::Matrix<double, (int)-1, (int)-1, (int)1, (int)-1, (int)-1> > , (unsigned int)1u> ,  ::Eigen::Matrix<double, (int)-1, (int)-1, (int)0, (int)-1, (int)-1> ,  ::Eigen::internal::generic_product_impl< ::Eigen::TriangularView<const  ::Eigen::Transpose<const  ::Eigen::Matrix<double, (int)-1, (int)-1, (int)1, (int)-1, (int)-1> > , (unsigned int)1u> ,  ::Eigen::Matrix<double, (int)-1, (int)-1, (int)0, (int)-1, (int)-1> ,  ::Eigen::TriangularShape,  ::Eigen::DenseShape, (int)3> > ::scaleAndAddTo< ::Eigen::Matrix<double, (int)-1, (int)-1, (int)0, (int)-1, (int)-1> > ") is not allowed
+
+/mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/deps/eigen-3.4.0/Eigen/src/Core/ProductEvaluators.h(361): warning #20011-D: calling a __host__ function("void Eigen::internal::generic_product_impl< ::Eigen::TriangularView<const  ::Eigen::Block< ::Eigen::Matrix<double, (int)-1, (int)-1, (int)0, (int)-1, (int)-1> , (int)-1, (int)-1, (bool)0> , (unsigned int)5u> ,  ::Eigen::Matrix<double, (int)-1, (int)-1, (int)0, (int)-1, (int)-1> ,  ::Eigen::TriangularShape,  ::Eigen::DenseShape, (int)3> ::scaleAndAddTo< ::Eigen::Block< ::Eigen::Matrix<double, (int)-1, (int)-1, (int)0, (int)-1, (int)-1> , (int)-1, (int)-1, (bool)0> > (T1 &, const  ::Eigen::TriangularView<const  ::Eigen::Block< ::Eigen::Matrix<double, (int)-1, (int)-1, (int)0, (int)-1, (int)-1> , (int)-1, (int)-1, (bool)0> , (unsigned int)5u>  &, const  ::Eigen::Matrix<double, (int)-1, (int)-1, (int)0, (int)-1, (int)-1>  &, const double &)") from a __host__ __device__ function("Eigen::internal::generic_product_impl_base< ::Eigen::TriangularView<const  ::Eigen::Block< ::Eigen::Matrix<double, (int)-1, (int)-1, (int)0, (int)-1, (int)-1> , (int)-1, (int)-1, (bool)0> , (unsigned int)5u> ,  ::Eigen::Matrix<double, (int)-1, (int)-1, (int)0, (int)-1, (int)-1> ,  ::Eigen::internal::generic_product_impl< ::Eigen::TriangularView<const  ::Eigen::Block< ::Eigen::Matrix<double, (int)-1, (int)-1, (int)0, (int)-1, (int)-1> , (int)-1, (int)-1, (bool)0> , (unsigned int)5u> ,  ::Eigen::Matrix<double, (int)-1, (int)-1, (int)0, (int)-1, (int)-1> ,  ::Eigen::TriangularShape,  ::Eigen::DenseShape, (int)3> > ::scaleAndAddTo< ::Eigen::Block< ::Eigen::Matrix<double, (int)-1, (int)-1, (int)0, (int)-1, (int)-1> , (int)-1, (int)-1, (bool)0> > ") is not allowed
+
+/mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/deps/eigen-3.4.0/Eigen/src/Core/SolveTriangular.h(98): warning #20011-D: calling a __host__ function("Eigen::internal::gemm_blocking_space<(int)0, double, double, (int)-1, (int)-1, (int)-1, (int)4, (bool)0> ::gemm_blocking_space(long, long, long, long, bool)") from a __host__ __device__ function("Eigen::internal::triangular_solver_selector<const  ::Eigen::Block<const  ::Eigen::Matrix<double, (int)-1, (int)-1, (int)0, (int)-1, (int)-1> , (int)-1, (int)-1, (bool)0> ,  ::Eigen::Block< ::Eigen::Matrix<double, (int)-1, (int)-1, (int)0, (int)-1, (int)-1> , (int)-1, (int)-1, (bool)0> , (int)1, (int)2, (int)0, (int)-1> ::run") is not allowed
+
+/mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/deps/eigen-3.4.0/Eigen/src/Core/SolveTriangular.h(100): warning #20011-D: calling a __host__ function("Eigen::internal::triangular_solve_matrix<double, long, (int)1, (int)2, (bool)0, (int)0, (int)0, (int)1> ::run(long, long, const double *, long, double *, long, long,  ::Eigen::internal::level3_blocking<double, double>  &)") from a __host__ __device__ function("Eigen::internal::triangular_solver_selector<const  ::Eigen::Block<const  ::Eigen::Matrix<double, (int)-1, (int)-1, (int)0, (int)-1, (int)-1> , (int)-1, (int)-1, (bool)0> ,  ::Eigen::Block< ::Eigen::Matrix<double, (int)-1, (int)-1, (int)0, (int)-1, (int)-1> , (int)-1, (int)-1, (bool)0> , (int)1, (int)2, (int)0, (int)-1> ::run") is not allowed
+
+/mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/deps/eigen-3.4.0/Eigen/src/Core/SolveTriangular.h(100): warning #20011-D: calling a __host__ function("Eigen::internal::gemm_blocking_space<(int)0, double, double, (int)-1, (int)-1, (int)-1, (int)4, (bool)0> ::~gemm_blocking_space()") from a __host__ __device__ function("Eigen::internal::triangular_solver_selector<const  ::Eigen::Block<const  ::Eigen::Matrix<double, (int)-1, (int)-1, (int)0, (int)-1, (int)-1> , (int)-1, (int)-1, (bool)0> ,  ::Eigen::Block< ::Eigen::Matrix<double, (int)-1, (int)-1, (int)0, (int)-1, (int)-1> , (int)-1, (int)-1, (bool)0> , (int)1, (int)2, (int)0, (int)-1> ::run") is not allowed
+
+/mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/deps/eigen-3.4.0/Eigen/src/Core/ProductEvaluators.h(1030): warning #20011-D: calling a __host__ function("Eigen::PermutationMatrix<(int)-1, (int)-1, int> ::indices() const") from a __host__ __device__ function("Eigen::internal::permutation_matrix_product< ::Eigen::Matrix<double, (int)-1, (int)-1, (int)0, (int)-1, (int)-1> , (int)1, (bool)0,  ::Eigen::DenseShape> ::run< ::Eigen::Matrix<double, (int)-1, (int)-1, (int)0, (int)-1, (int)-1> ,  ::Eigen::PermutationMatrix<(int)-1, (int)-1, int> > ") is not allowed
+
+/mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/deps/eigen-3.4.0/Eigen/src/Core/ProductEvaluators.h(1030): warning #20011-D: calling a __host__ function("Eigen::PermutationMatrix<(int)-1, (int)-1, int> ::indices() const") from a __host__ __device__ function("Eigen::internal::permutation_matrix_product< ::Eigen::Matrix<double, (int)-1, (int)-1, (int)0, (int)-1, (int)-1> , (int)1, (bool)0,  ::Eigen::DenseShape> ::run< ::Eigen::Matrix<double, (int)-1, (int)-1, (int)0, (int)-1, (int)-1> ,  ::Eigen::PermutationMatrix<(int)-1, (int)-1, int> > ") is not allowed
+
+/mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/deps/eigen-3.4.0/Eigen/src/Core/ProductEvaluators.h(1046): warning #20011-D: calling a __host__ function("Eigen::PermutationMatrix<(int)-1, (int)-1, int> ::indices() const") from a __host__ __device__ function("Eigen::internal::permutation_matrix_product< ::Eigen::Matrix<double, (int)-1, (int)-1, (int)0, (int)-1, (int)-1> , (int)1, (bool)0,  ::Eigen::DenseShape> ::run< ::Eigen::Matrix<double, (int)-1, (int)-1, (int)0, (int)-1, (int)-1> ,  ::Eigen::PermutationMatrix<(int)-1, (int)-1, int> > ") is not allowed
+
+/mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/deps/eigen-3.4.0/Eigen/src/Core/AssignEvaluator.h(890): warning #20011-D: calling a __host__ function("Eigen::internal::Assignment< ::Eigen::Matrix<double, (int)-1, (int)-1, (int)0, (int)-1, (int)-1> ,  ::Eigen::Inverse< ::Eigen::CompleteOrthogonalDecomposition< ::Eigen::Matrix<double, (int)-1, (int)-1, (int)0, (int)-1, (int)-1> > > ,  ::Eigen::internal::assign_op<double, double> ,  ::Eigen::internal::Dense2Dense, void> ::run( ::Eigen::Matrix<double, (int)-1, (int)-1, (int)0, (int)-1, (int)-1>  &, const  ::Eigen::Inverse< ::Eigen::CompleteOrthogonalDecomposition< ::Eigen::Matrix<double, (int)-1, (int)-1, (int)0, (int)-1, (int)-1> > >  &, const  ::Eigen::internal::assign_op<double, double>  &)") from a __host__ __device__ function("Eigen::internal::call_assignment_no_alias< ::Eigen::Matrix<double, (int)-1, (int)-1, (int)0, (int)-1, (int)-1> ,  ::Eigen::Inverse< ::Eigen::CompleteOrthogonalDecomposition< ::Eigen::Matrix<double, (int)-1, (int)-1, (int)0, (int)-1, (int)-1> > > ,  ::Eigen::internal::assign_op<double, double> > ") is not allowed
+
+/mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/deps/eigen-3.4.0/Eigen/src/Core/AssignEvaluator.h(890): warning #20011-D: calling a __host__ function("Eigen::internal::Assignment< ::Eigen::Matrix<double, (int)-1, (int)-1, (int)0, (int)-1, (int)-1> ,  ::Eigen::Solve< ::Eigen::CompleteOrthogonalDecomposition< ::Eigen::Matrix<double, (int)-1, (int)-1, (int)0, (int)-1, (int)-1> > ,  ::Eigen::CwiseNullaryOp< ::Eigen::internal::scalar_identity_op<double> ,  ::Eigen::Matrix<double, (int)-1, (int)-1, (int)0, (int)-1, (int)-1> > > ,  ::Eigen::internal::assign_op<double, double> ,  ::Eigen::internal::Dense2Dense, void> ::run( ::Eigen::Matrix<double, (int)-1, (int)-1, (int)0, (int)-1, (int)-1>  &, const  ::Eigen::Solve< ::Eigen::CompleteOrthogonalDecomposition< ::Eigen::Matrix<double, (int)-1, (int)-1, (int)0, (int)-1, (int)-1> > ,  ::Eigen::CwiseNullaryOp< ::Eigen::internal::scalar_identity_op<double> ,  ::Eigen::Matrix<double, (int)-1, (int)-1, (int)0, (int)-1, (int)-1> > >  &, const  ::Eigen::internal::assign_op<double, double>  &)") from a __host__ __device__ function("Eigen::internal::call_assignment_no_alias< ::Eigen::Matrix<double, (int)-1, (int)-1, (int)0, (int)-1, (int)-1> ,  ::Eigen::Solve< ::Eigen::CompleteOrthogonalDecomposition< ::Eigen::Matrix<double, (int)-1, (int)-1, (int)0, (int)-1, (int)-1> > ,  ::Eigen::CwiseNullaryOp< ::Eigen::internal::scalar_identity_op<double> ,  ::Eigen::Matrix<double, (int)-1, (int)-1, (int)0, (int)-1, (int)-1> > > ,  ::Eigen::internal::assign_op<double, double> > ") is not allowed
+
+/mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/deps/eigen-3.4.0/Eigen/src/Core/AssignEvaluator.h(890): warning #20011-D: calling a __host__ function("Eigen::internal::Assignment< ::Eigen::Block< ::Eigen::Matrix<double, (int)-1, (int)-1, (int)0, (int)-1, (int)-1> , (int)-1, (int)-1, (bool)0> ,  ::Eigen::Solve< ::Eigen::TriangularView<const  ::Eigen::Block<const  ::Eigen::Matrix<double, (int)-1, (int)-1, (int)0, (int)-1, (int)-1> , (int)-1, (int)-1, (bool)0> , (unsigned int)2u> ,  ::Eigen::Block< ::Eigen::Matrix<double, (int)-1, (int)-1, (int)0, (int)-1, (int)-1> , (int)-1, (int)-1, (bool)0> > ,  ::Eigen::internal::assign_op<double, double> ,  ::Eigen::internal::Dense2Dense, void> ::run( ::Eigen::Block< ::Eigen::Matrix<double, (int)-1, (int)-1, (int)0, (int)-1, (int)-1> , (int)-1, (int)-1, (bool)0>  &, const  ::Eigen::Solve< ::Eigen::TriangularView<const  ::Eigen::Block<const  ::Eigen::Matrix<double, (int)-1, (int)-1, (int)0, (int)-1, (int)-1> , (int)-1, (int)-1, (bool)0> , (unsigned int)2u> ,  ::Eigen::Block< ::Eigen::Matrix<double, (int)-1, (int)-1, (int)0, (int)-1, (int)-1> , (int)-1, (int)-1, (bool)0> >  &, const  ::Eigen::internal::assign_op<double, double>  &)") from a __host__ __device__ function("Eigen::internal::call_assignment_no_alias< ::Eigen::Block< ::Eigen::Matrix<double, (int)-1, (int)-1, (int)0, (int)-1, (int)-1> , (int)-1, (int)-1, (bool)0> ,  ::Eigen::Solve< ::Eigen::TriangularView<const  ::Eigen::Block<const  ::Eigen::Matrix<double, (int)-1, (int)-1, (int)0, (int)-1, (int)-1> , (int)-1, (int)-1, (bool)0> , (unsigned int)2u> ,  ::Eigen::Block< ::Eigen::Matrix<double, (int)-1, (int)-1, (int)0, (int)-1, (int)-1> , (int)-1, (int)-1, (bool)0> > ,  ::Eigen::internal::assign_op<double, double> > ") is not allowed
+
+ptxas info    : 0 bytes gmem
+[115/135] Building CUDA object CMakeFiles/test_gpu_thin_polytope.dir/src/gpu/device_utils.cu.o
+ptxas info    : 218048 bytes gmem
+[116/135] Linking CXX executable test_start_feasibility
+[117/135] Linking CXX executable test_mcmc_interleaved_layout
+[118/135] Linking CXX executable test_chr_pair_steps
+[119/135] Linking CXX executable test_iterative_rounding_jacobi
+[120/135] Linking CXX executable test_extra_constraint_eps
+[121/135] Linking CXX executable test_extra_constraints_mode
+[122/135] Linking CXX executable test_pair_schedule_io
+[123/135] Linking CXX executable test_feasible_start_lp
+[124/135] Linking CXX executable test_feasible_start_files
+[125/135] Linking CXX executable test_npz_reader
+[126/135] Linking CUDA executable test_gpu_sampling_feasibility
+[127/135] Building CUDA object CMakeFiles/test_gpu_thin_polytope.dir/src/gpu/dvector.cu.o
+ptxas info    : 218048 bytes gmem
+ptxas info    : Compiling entry function '_ZN4naja3gpu16initializeKernelIiEEvPT_iS2_' for 'sm_90'
+ptxas info    : Function properties for _ZN4naja3gpu16initializeKernelIiEEvPT_iS2_
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 10 registers, used 0 barriers
+ptxas info    : Compile time = 6.660 ms
+ptxas info    : Compiling entry function '_ZN4naja3gpu16initializeKernelIdEEvPT_iS2_' for 'sm_90'
+ptxas info    : Function properties for _ZN4naja3gpu16initializeKernelIdEEvPT_iS2_
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 10 registers, used 0 barriers
+ptxas info    : Compile time = 1.004 ms
+[128/135] Linking CUDA executable test_gpu_sampling_cube_moments
+[129/135] Linking CUDA executable test_gpu_sampling_simplex_moments
+[130/135] Building CUDA object CMakeFiles/test_gpu_thin_polytope.dir/src/gpu/dmatrix.cu.o
+ptxas info    : 218048 bytes gmem
+ptxas info    : Compiling entry function '_ZN4naja3gpu22broadcastColumnsKernelIdEEvPKT_PS2_ii' for 'sm_90'
+ptxas info    : Function properties for _ZN4naja3gpu22broadcastColumnsKernelIdEEvPKT_PS2_ii
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 10 registers, used 0 barriers
+ptxas info    : Compile time = 5.908 ms
+[131/135] Building CUDA object CMakeFiles/test_gpu_thin_polytope.dir/src/gpu/backmap.cu.o
+ptxas info    : 218048 bytes gmem
+ptxas info    : Compiling entry function '_ZN4naja3gpu21add_shift_cols_kernelIdEEvPT_PKS2_ii' for 'sm_90'
+ptxas info    : Function properties for _ZN4naja3gpu21add_shift_cols_kernelIdEEvPT_PKS2_ii
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 12 registers, used 0 barriers
+ptxas info    : Compile time = 7.220 ms
+[132/135] Building CUDA object CMakeFiles/test_gpu_backmap_correctness.dir/src/gpu/chr.cu.o
+ptxas info    : 218089 bytes gmem
+ptxas info    : Compiling entry function '_ZN3cub17CUB_200802_SM_90011EmptyKernelIvEEvv' for 'sm_90'
+ptxas info    : Function properties for _ZN3cub17CUB_200802_SM_90011EmptyKernelIvEEvv
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 4 registers, used 0 barriers
+ptxas info    : Compile time = 5.378 ms
+ptxas info    : Compiling entry function '_ZN4naja3gpu9chrKernelId19curandStateMRG32k3aLi1024ELb0EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i' for 'sm_90'
+ptxas info    : Function properties for _ZN4naja3gpu9chrKernelId19curandStateMRG32k3aLi1024ELb0EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 72 registers, used 1 barriers, 1040 bytes smem
+ptxas info    : Compile time = 182.258 ms
+ptxas info    : Compiling entry function '_ZN4naja3gpu9chrKernelId19curandStateMRG32k3aLi1024ELb1EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i' for 'sm_90'
+ptxas info    : Function properties for _ZN4naja3gpu9chrKernelId19curandStateMRG32k3aLi1024ELb1EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 64 registers, used 1 barriers, 608 bytes smem
+ptxas info    : Compile time = 63.814 ms
+ptxas info    : Compiling entry function '_ZN4naja3gpu9chrKernelId19curandStateMRG32k3aLi512ELb0EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i' for 'sm_90'
+ptxas info    : Function properties for _ZN4naja3gpu9chrKernelId19curandStateMRG32k3aLi512ELb0EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 104 registers, used 1 barriers, 752 bytes smem
+ptxas info    : Compile time = 175.239 ms
+ptxas info    : Compiling entry function '_ZN4naja3gpu9chrKernelId19curandStateMRG32k3aLi512ELb1EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i' for 'sm_90'
+ptxas info    : Function properties for _ZN4naja3gpu9chrKernelId19curandStateMRG32k3aLi512ELb1EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 64 registers, used 1 barriers, 320 bytes smem
+ptxas info    : Compile time = 59.959 ms
+ptxas info    : Compiling entry function '_ZN4naja3gpu9chrKernelId19curandStateMRG32k3aLi256ELb0EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i' for 'sm_90'
+ptxas info    : Function properties for _ZN4naja3gpu9chrKernelId19curandStateMRG32k3aLi256ELb0EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 104 registers, used 1 barriers, 608 bytes smem
+ptxas info    : Compile time = 172.394 ms
+ptxas info    : Compiling entry function '_ZN4naja3gpu9chrKernelId19curandStateMRG32k3aLi256ELb1EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i' for 'sm_90'
+ptxas info    : Function properties for _ZN4naja3gpu9chrKernelId19curandStateMRG32k3aLi256ELb1EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 64 registers, used 1 barriers, 176 bytes smem
+ptxas info    : Compile time = 57.910 ms
+ptxas info    : Compiling entry function '_ZN4naja3gpu9chrKernelId19curandStateMRG32k3aLi128ELb0EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i' for 'sm_90'
+ptxas info    : Function properties for _ZN4naja3gpu9chrKernelId19curandStateMRG32k3aLi128ELb0EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 104 registers, used 1 barriers, 544 bytes smem
+ptxas info    : Compile time = 166.178 ms
+ptxas info    : Compiling entry function '_ZN4naja3gpu9chrKernelId19curandStateMRG32k3aLi128ELb1EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i' for 'sm_90'
+ptxas info    : Function properties for _ZN4naja3gpu9chrKernelId19curandStateMRG32k3aLi128ELb1EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 64 registers, used 1 barriers, 112 bytes smem
+ptxas info    : Compile time = 58.549 ms
+ptxas info    : Compiling entry function '_ZN4naja3gpu9chrKernelId19curandStateMRG32k3aLi64ELb0EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i' for 'sm_90'
+ptxas info    : Function properties for _ZN4naja3gpu9chrKernelId19curandStateMRG32k3aLi64ELb0EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 106 registers, used 1 barriers, 512 bytes smem
+ptxas info    : Compile time = 162.857 ms
+ptxas info    : Compiling entry function '_ZN4naja3gpu9chrKernelId19curandStateMRG32k3aLi64ELb1EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i' for 'sm_90'
+ptxas info    : Function properties for _ZN4naja3gpu9chrKernelId19curandStateMRG32k3aLi64ELb1EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 56 registers, used 1 barriers, 80 bytes smem
+ptxas info    : Compile time = 56.077 ms
+ptxas info    : Compiling entry function '_ZN4naja3gpu9chrKernelId19curandStateMRG32k3aLi32ELb0EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i' for 'sm_90'
+ptxas info    : Function properties for _ZN4naja3gpu9chrKernelId19curandStateMRG32k3aLi32ELb0EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 104 registers, used 1 barriers, 496 bytes smem
+ptxas info    : Compile time = 154.237 ms
+ptxas info    : Compiling entry function '_ZN4naja3gpu9chrKernelId19curandStateMRG32k3aLi32ELb1EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i' for 'sm_90'
+ptxas info    : Function properties for _ZN4naja3gpu9chrKernelId19curandStateMRG32k3aLi32ELb1EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 64 registers, used 1 barriers, 64 bytes smem
+ptxas info    : Compile time = 53.761 ms
+ptxas info    : Compiling entry function '_ZN4naja3gpu9chrKernelId17curandStateXORWOWLi1024ELb0EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i' for 'sm_90'
+ptxas info    : Function properties for _ZN4naja3gpu9chrKernelId17curandStateXORWOWLi1024ELb0EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 72 registers, used 1 barriers, 1040 bytes smem
+ptxas info    : Compile time = 157.863 ms
+ptxas info    : Compiling entry function '_ZN4naja3gpu9chrKernelId17curandStateXORWOWLi512ELb0EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i' for 'sm_90'
+ptxas info    : Function properties for _ZN4naja3gpu9chrKernelId17curandStateXORWOWLi512ELb0EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 108 registers, used 1 barriers, 752 bytes smem
+ptxas info    : Compile time = 147.960 ms
+ptxas info    : Compiling entry function '_ZN4naja3gpu9chrKernelId17curandStateXORWOWLi256ELb0EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i' for 'sm_90'
+ptxas info    : Function properties for _ZN4naja3gpu9chrKernelId17curandStateXORWOWLi256ELb0EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 108 registers, used 1 barriers, 608 bytes smem
+ptxas info    : Compile time = 144.077 ms
+ptxas info    : Compiling entry function '_ZN4naja3gpu9chrKernelId17curandStateXORWOWLi128ELb0EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i' for 'sm_90'
+ptxas info    : Function properties for _ZN4naja3gpu9chrKernelId17curandStateXORWOWLi128ELb0EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 108 registers, used 1 barriers, 544 bytes smem
+ptxas info    : Compile time = 146.762 ms
+ptxas info    : Compiling entry function '_ZN4naja3gpu9chrKernelId17curandStateXORWOWLi64ELb0EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i' for 'sm_90'
+ptxas info    : Function properties for _ZN4naja3gpu9chrKernelId17curandStateXORWOWLi64ELb0EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 108 registers, used 1 barriers, 512 bytes smem
+ptxas info    : Compile time = 146.096 ms
+ptxas info    : Compiling entry function '_ZN4naja3gpu9chrKernelId17curandStateXORWOWLi32ELb0EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i' for 'sm_90'
+ptxas info    : Function properties for _ZN4naja3gpu9chrKernelId17curandStateXORWOWLi32ELb0EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 108 registers, used 1 barriers, 496 bytes smem
+ptxas info    : Compile time = 145.705 ms
+ptxas info    : Compiling entry function '_ZN4naja3gpu17initPrngStatesCHRI19curandStateMRG32k3aEEvPT_ii' for 'sm_90'
+ptxas info    : Function properties for _ZN4naja3gpu17initPrngStatesCHRI19curandStateMRG32k3aEEvPT_ii
+    72 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 78 registers, used 0 barriers, 72 bytes cumulative stack size
+ptxas info    : Compile time = 228.770 ms
+[133/135] Linking CUDA executable test_gpu_backmap_correctness
+[134/135] Building CUDA object CMakeFiles/test_gpu_thin_polytope.dir/src/gpu/chr.cu.o
+ptxas info    : 218089 bytes gmem
+ptxas info    : Compiling entry function '_ZN3cub17CUB_200802_SM_90011EmptyKernelIvEEvv' for 'sm_90'
+ptxas info    : Function properties for _ZN3cub17CUB_200802_SM_90011EmptyKernelIvEEvv
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 4 registers, used 0 barriers
+ptxas info    : Compile time = 5.281 ms
+ptxas info    : Compiling entry function '_ZN4naja3gpu9chrKernelId19curandStateMRG32k3aLi1024ELb0EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i' for 'sm_90'
+ptxas info    : Function properties for _ZN4naja3gpu9chrKernelId19curandStateMRG32k3aLi1024ELb0EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 72 registers, used 1 barriers, 1040 bytes smem
+ptxas info    : Compile time = 163.552 ms
+ptxas info    : Compiling entry function '_ZN4naja3gpu9chrKernelId19curandStateMRG32k3aLi1024ELb1EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i' for 'sm_90'
+ptxas info    : Function properties for _ZN4naja3gpu9chrKernelId19curandStateMRG32k3aLi1024ELb1EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 64 registers, used 1 barriers, 608 bytes smem
+ptxas info    : Compile time = 61.710 ms
+ptxas info    : Compiling entry function '_ZN4naja3gpu9chrKernelId19curandStateMRG32k3aLi512ELb0EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i' for 'sm_90'
+ptxas info    : Function properties for _ZN4naja3gpu9chrKernelId19curandStateMRG32k3aLi512ELb0EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 104 registers, used 1 barriers, 752 bytes smem
+ptxas info    : Compile time = 149.356 ms
+ptxas info    : Compiling entry function '_ZN4naja3gpu9chrKernelId19curandStateMRG32k3aLi512ELb1EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i' for 'sm_90'
+ptxas info    : Function properties for _ZN4naja3gpu9chrKernelId19curandStateMRG32k3aLi512ELb1EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 64 registers, used 1 barriers, 320 bytes smem
+ptxas info    : Compile time = 57.890 ms
+ptxas info    : Compiling entry function '_ZN4naja3gpu9chrKernelId19curandStateMRG32k3aLi256ELb0EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i' for 'sm_90'
+ptxas info    : Function properties for _ZN4naja3gpu9chrKernelId19curandStateMRG32k3aLi256ELb0EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 104 registers, used 1 barriers, 608 bytes smem
+ptxas info    : Compile time = 146.271 ms
+ptxas info    : Compiling entry function '_ZN4naja3gpu9chrKernelId19curandStateMRG32k3aLi256ELb1EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i' for 'sm_90'
+ptxas info    : Function properties for _ZN4naja3gpu9chrKernelId19curandStateMRG32k3aLi256ELb1EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 64 registers, used 1 barriers, 176 bytes smem
+ptxas info    : Compile time = 55.368 ms
+ptxas info    : Compiling entry function '_ZN4naja3gpu9chrKernelId19curandStateMRG32k3aLi128ELb0EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i' for 'sm_90'
+ptxas info    : Function properties for _ZN4naja3gpu9chrKernelId19curandStateMRG32k3aLi128ELb0EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 104 registers, used 1 barriers, 544 bytes smem
+ptxas info    : Compile time = 142.661 ms
+ptxas info    : Compiling entry function '_ZN4naja3gpu9chrKernelId19curandStateMRG32k3aLi128ELb1EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i' for 'sm_90'
+ptxas info    : Function properties for _ZN4naja3gpu9chrKernelId19curandStateMRG32k3aLi128ELb1EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 64 registers, used 1 barriers, 112 bytes smem
+ptxas info    : Compile time = 54.227 ms
+ptxas info    : Compiling entry function '_ZN4naja3gpu9chrKernelId19curandStateMRG32k3aLi64ELb0EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i' for 'sm_90'
+ptxas info    : Function properties for _ZN4naja3gpu9chrKernelId19curandStateMRG32k3aLi64ELb0EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 106 registers, used 1 barriers, 512 bytes smem
+ptxas info    : Compile time = 141.433 ms
+ptxas info    : Compiling entry function '_ZN4naja3gpu9chrKernelId19curandStateMRG32k3aLi64ELb1EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i' for 'sm_90'
+ptxas info    : Function properties for _ZN4naja3gpu9chrKernelId19curandStateMRG32k3aLi64ELb1EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 56 registers, used 1 barriers, 80 bytes smem
+ptxas info    : Compile time = 54.406 ms
+ptxas info    : Compiling entry function '_ZN4naja3gpu9chrKernelId19curandStateMRG32k3aLi32ELb0EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i' for 'sm_90'
+ptxas info    : Function properties for _ZN4naja3gpu9chrKernelId19curandStateMRG32k3aLi32ELb0EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 104 registers, used 1 barriers, 496 bytes smem
+ptxas info    : Compile time = 140.680 ms
+ptxas info    : Compiling entry function '_ZN4naja3gpu9chrKernelId19curandStateMRG32k3aLi32ELb1EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i' for 'sm_90'
+ptxas info    : Function properties for _ZN4naja3gpu9chrKernelId19curandStateMRG32k3aLi32ELb1EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 64 registers, used 1 barriers, 64 bytes smem
+ptxas info    : Compile time = 52.654 ms
+ptxas info    : Compiling entry function '_ZN4naja3gpu9chrKernelId17curandStateXORWOWLi1024ELb0EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i' for 'sm_90'
+ptxas info    : Function properties for _ZN4naja3gpu9chrKernelId17curandStateXORWOWLi1024ELb0EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 72 registers, used 1 barriers, 1040 bytes smem
+ptxas info    : Compile time = 148.622 ms
+ptxas info    : Compiling entry function '_ZN4naja3gpu9chrKernelId17curandStateXORWOWLi512ELb0EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i' for 'sm_90'
+ptxas info    : Function properties for _ZN4naja3gpu9chrKernelId17curandStateXORWOWLi512ELb0EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 108 registers, used 1 barriers, 752 bytes smem
+ptxas info    : Compile time = 137.983 ms
+ptxas info    : Compiling entry function '_ZN4naja3gpu9chrKernelId17curandStateXORWOWLi256ELb0EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i' for 'sm_90'
+ptxas info    : Function properties for _ZN4naja3gpu9chrKernelId17curandStateXORWOWLi256ELb0EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 108 registers, used 1 barriers, 608 bytes smem
+ptxas info    : Compile time = 137.543 ms
+ptxas info    : Compiling entry function '_ZN4naja3gpu9chrKernelId17curandStateXORWOWLi128ELb0EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i' for 'sm_90'
+ptxas info    : Function properties for _ZN4naja3gpu9chrKernelId17curandStateXORWOWLi128ELb0EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 108 registers, used 1 barriers, 544 bytes smem
+ptxas info    : Compile time = 135.494 ms
+ptxas info    : Compiling entry function '_ZN4naja3gpu9chrKernelId17curandStateXORWOWLi64ELb0EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i' for 'sm_90'
+ptxas info    : Function properties for _ZN4naja3gpu9chrKernelId17curandStateXORWOWLi64ELb0EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 108 registers, used 1 barriers, 512 bytes smem
+ptxas info    : Compile time = 133.632 ms
+ptxas info    : Compiling entry function '_ZN4naja3gpu9chrKernelId17curandStateXORWOWLi32ELb0EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i' for 'sm_90'
+ptxas info    : Function properties for _ZN4naja3gpu9chrKernelId17curandStateXORWOWLi32ELb0EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 108 registers, used 1 barriers, 496 bytes smem
+ptxas info    : Compile time = 133.249 ms
+ptxas info    : Compiling entry function '_ZN4naja3gpu17initPrngStatesCHRI19curandStateMRG32k3aEEvPT_ii' for 'sm_90'
+ptxas info    : Function properties for _ZN4naja3gpu17initPrngStatesCHRI19curandStateMRG32k3aEEvPT_ii
+    72 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 78 registers, used 0 barriers, 72 bytes cumulative stack size
+ptxas info    : Compile time = 213.986 ms
+[135/135] Linking CUDA executable test_gpu_thin_polytope

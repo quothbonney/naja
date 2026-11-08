@@ -1,0 +1,24 @@
+{
+  "utc": "2026-11-08T19:28:42.236717+00:00",
+  "model": "iAF1260",
+  "seed": 303,
+  "draws": 10000,
+  "command": [
+    "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/env-cpu-native/bin/python",
+    "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/scripts/native_physical_pilot.py",
+    "--worker-timing",
+    "--model",
+    "iAF1260",
+    "--label",
+    "extension_20261108_worker_thin2000_n10000",
+    "--seed",
+    "303",
+    "--draws",
+    "10000",
+    "--thinning",
+    "2000",
+    "--reuse-diagnostics-from",
+    "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/larger_quality/iAF1260/cpu2000/seed303/final"
+  ],
+  "job": "852"
+}

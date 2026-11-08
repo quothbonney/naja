@@ -1,0 +1,233 @@
+{
+  "gene": "b1288",
+  "gene_name": "fabI",
+  "disabled_reaction_ids": [
+    "EAR100x",
+    "EAR100y",
+    "EAR120x",
+    "EAR120y",
+    "EAR121x",
+    "EAR121y",
+    "EAR140x",
+    "EAR140y",
+    "EAR141x",
+    "EAR141y",
+    "EAR160x",
+    "EAR160y",
+    "EAR161x",
+    "EAR161y",
+    "EAR180x",
+    "EAR180y",
+    "EAR181x",
+    "EAR181y",
+    "EAR40x",
+    "EAR40y",
+    "EAR60x",
+    "EAR60y",
+    "EGMEACPR",
+    "EAR80x",
+    "EAR80y",
+    "EPMEACPR"
+  ],
+  "knockout_reaction_ids": [
+    "EAR100x",
+    "EAR100y",
+    "EAR120x",
+    "EAR120y",
+    "EAR121x",
+    "EAR121y",
+    "EAR140x",
+    "EAR140y",
+    "EAR141x",
+    "EAR141y",
+    "EAR160x",
+    "EAR160y",
+    "EAR161x",
+    "EAR161y",
+    "EAR180x",
+    "EAR180y",
+    "EAR181x",
+    "EAR181y",
+    "EAR40x",
+    "EAR40y",
+    "EAR60x",
+    "EAR60y",
+    "EGMEACPR",
+    "EAR80x",
+    "EAR80y",
+    "EPMEACPR"
+  ],
+  "changed_bound_rows": 26,
+  "two_sided_encoding_rows": 52,
+  "stratum": "21-50",
+  "base_LP_varying_reactions": 26,
+  "base_LP_nearconstant_reactions": 0,
+  "all_affected_reactions_varying": true,
+  "base_point_max_KO_residual": 0.12793748658308118,
+  "base_point_weak_feasible_at_1e7": false,
+  "minimum_KO_T_row_norm": 1.3688825236720784e-08,
+  "original_changed_bounds": {
+    "EAR100x": [
+      0.0,
+      1000.0
+    ],
+    "EAR100y": [
+      0.0,
+      1000.0
+    ],
+    "EAR120x": [
+      0.0,
+      1000.0
+    ],
+    "EAR120y": [
+      0.0,
+      1000.0
+    ],
+    "EAR121x": [
+      0.0,
+      1000.0
+    ],
+    "EAR121y": [
+      0.0,
+      1000.0
+    ],
+    "EAR140x": [
+      0.0,
+      1000.0
+    ],
+    "EAR140y": [
+      0.0,
+      1000.0
+    ],
+    "EAR141x": [
+      0.0,
+      1000.0
+    ],
+    "EAR141y": [
+      0.0,
+      1000.0
+    ],
+    "EAR160x": [
+      0.0,
+      1000.0
+    ],
+    "EAR160y": [
+      0.0,
+      1000.0
+    ],
+    "EAR161x": [
+      0.0,
+      1000.0
+    ],
+    "EAR161y": [
+      0.0,
+      1000.0
+    ],
+    "EAR180x": [
+      0.0,
+      1000.0
+    ],
+    "EAR180y": [
+      0.0,
+      1000.0
+    ],
+    "EAR181x": [
+      0.0,
+      1000.0
+    ],
+    "EAR181y": [
+      0.0,
+      1000.0
+    ],
+    "EAR40x": [
+      0.0,
+      1000.0
+    ],
+    "EAR40y": [
+      0.0,
+      1000.0
+    ],
+    "EAR60x": [
+      0.0,
+      1000.0
+    ],
+    "EAR60y": [
+      0.0,
+      1000.0
+    ],
+    "EGMEACPR": [
+      0.0,
+      1000.0
+    ],
+    "EAR80x": [
+      0.0,
+      1000.0
+    ],
+    "EAR80y": [
+      0.0,
+      1000.0
+    ],
+    "EPMEACPR": [
+      0.0,
+      1000.0
+    ]
+  },
+  "genes_with_identical_bound_change_signature": [
+    "b1288"
+  ],
+  "bound_change_signature": "c2dea1c0eb2ee37152348d905819e1e40913cdc5c3f42254d8c4d100b6499a4d",
+  "status": "precision_ambiguous",
+  "base_geometry_sha256": "07374999682cb82ef566c2a7ba4cd1ca44b0718ab81f421846e24d3b85f5e103",
+  "base_dimension": 581,
+  "base_point_weak_feasible": false,
+  "constraint_epsilon": 0.0,
+  "rank_relative_tolerance": 1e-12,
+  "validation_tolerance": 1e-07,
+  "geometry_directory": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/knockout_panel/conditions/b1288/models/shared",
+  "LPs": [],
+  "facial_reductions": [],
+  "reason": "Affine rank changes across1e-11/1e-12/1e-13; not released as exact same-target geometry",
+  "preparation_seconds": 0.046055255457758904,
+  "affine_rank_history": [
+    {
+      "rank": 26,
+      "singular_values": [
+        1.4150555959297466,
+        1.2767669131121024,
+        1.2752754941897817,
+        1.2752754941877598,
+        1.197383953485759,
+        1.1784046343709305,
+        1.1754631484214346,
+        1.149436683206734,
+        1.0919529366391758,
+        1.0671354192094664,
+        1.0009180764459615,
+        1.0009180763809962,
+        1.0009180763254295,
+        1.0009180763048706,
+        1.0009171380926385,
+        1.000917138019212,
+        1.0009171379563808,
+        1.0009171379331392,
+        1.0009003804766041,
+        0.9904918010836826,
+        0.9335430738003565,
+        0.623970112353364,
+        1.9265176804195073e-05,
+        6.199544808301938e-12,
+        3.2527624412327092e-12,
+        2.291298366857686e-12
+      ],
+      "relative_rank_threshold": 1e-12,
+      "ranks_at_1e11_1e12_1e13": [
+        23,
+        26,
+        26
+      ],
+      "scaled_equality_residual": 5.329070518200751e-15,
+      "nullspace_residual": 3.122502256758253e-16,
+      "seconds": 0.006874933838844299
+    }
+  ]
+}

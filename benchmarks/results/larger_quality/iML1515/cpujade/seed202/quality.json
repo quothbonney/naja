@@ -1,0 +1,28 @@
+{
+  "model": "iML1515",
+  "method": "cpujade",
+  "seed": 202,
+  "chains": 16,
+  "warmup": 1000,
+  "thinning": "jadebeck",
+  "tpb": null,
+  "status": "complete",
+  "started_utc": "2026-11-08T03:53:50.073054+00:00",
+  "note": "Actual fresh selected-budget process time excludes pilot/search/diagnostics. Median split Rhat<=1.01 and bulk ESS>=100; bound metrics are independent. Fixed retained warmup1000 implies differing warmup moves.",
+  "screening_budget_source": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/hopsy/iML1515/jadebeck/seed202/metrics.json",
+  "pilot_process_seconds": 80.19949110597372,
+  "selected_draws": 500,
+  "pilot_and_selection_seconds": 86.14882000721991,
+  "measured": {
+    "draws_per_chain": 500,
+    "wall_seconds": 78.89570819586515,
+    "split_rhat_median": 1.0054409845020367,
+    "bulk_ess_median": 2794.2042175265096,
+    "quality_met": true,
+    "sample_bound_violation_fraction": 0.0,
+    "max_absolute_bound_violation": 8.16865050683091e-08,
+    "bounds_tolerance": 1e-07,
+    "run_dir": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/larger_quality/iML1515/cpujade/seed202/final"
+  },
+  "finished_utc": "2026-11-08T03:56:35.788784+00:00"
+}

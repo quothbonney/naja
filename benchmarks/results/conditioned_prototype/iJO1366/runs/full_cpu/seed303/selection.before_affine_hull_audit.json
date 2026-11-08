@@ -1,0 +1,520 @@
+{
+  "status": "passing",
+  "evaluated_budgets": [
+    {
+      "draws": 10000,
+      "record": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/conditioned_prototype/iJO1366/runs/full_cpu/seed303/budget10000/conditioned_diagnostics.json",
+      "sampling_phase_seconds": 19.396020038053393,
+      "sampling_process_seconds": 23.73460477218032,
+      "comparison_eligible": true
+    }
+  ],
+  "prior_budget_search_sampling_phase_seconds": 0,
+  "model": "iJO1366",
+  "pipeline": "full_cpu",
+  "seed": 303,
+  "draws": 10000,
+  "chains": 16,
+  "warmup": 1000,
+  "thinning": 2000,
+  "quality_met": true,
+  "bounds_met": true,
+  "comparison_eligible": true,
+  "split_rhat_median": 1.0096850196400113,
+  "split_rhat_p95": 1.0176271832025439,
+  "bulk_ess_median": 2094.836446271694,
+  "sample_bound_violation_fraction": 0.0,
+  "maximum_PGI_capacity_violation": 0.0,
+  "maximum_stoichiometric_residual": 4.228128958061461e-11,
+  "sampling_process_inclusive_seconds": 23.73460477218032,
+  "per_condition_preprocessing_seconds": 142.12267717160285,
+  "sampling_phase_seconds": 19.396020038053393,
+  "sampling_phase_scope": "hopsy.sample call including multiprocessing/IPC, warmup and retained sampling; excludes imports/load/chain initialization and output writes",
+  "mathematical_compute_timer_status": "validated_worker_draw_call_critical_path_proxy; includes pybind/state copy and OS descheduling",
+  "worker_draw_critical_path_seconds": 14.335102974,
+  "total_worker_draw_thread_cpu_seconds": 227.44334642500002,
+  "median_bulk_ess_per_worker_compute_second": 146.13333786797074,
+  "sampling_math_timing": {
+    "status": "complete",
+    "chain_tasks": 16,
+    "worker_count": 16,
+    "worker_draw_critical_path_seconds": 14.335102974,
+    "worker_draw_cpu_critical_path_seconds": 14.327583774,
+    "total_worker_draw_thread_cpu_seconds": 227.44334642500002,
+    "workers": {
+      "4092064": {
+        "draw_call_wall_seconds": 14.269883936,
+        "draw_call_thread_cpu_seconds": 14.261334731,
+        "chain_tasks": 1
+      },
+      "4092065": {
+        "draw_call_wall_seconds": 14.215342211,
+        "draw_call_thread_cpu_seconds": 14.207668024,
+        "chain_tasks": 1
+      },
+      "4092066": {
+        "draw_call_wall_seconds": 14.276658837,
+        "draw_call_thread_cpu_seconds": 14.268687389,
+        "chain_tasks": 1
+      },
+      "4092067": {
+        "draw_call_wall_seconds": 14.156470558,
+        "draw_call_thread_cpu_seconds": 14.148372909,
+        "chain_tasks": 1
+      },
+      "4092068": {
+        "draw_call_wall_seconds": 14.258004053,
+        "draw_call_thread_cpu_seconds": 14.250628235,
+        "chain_tasks": 1
+      },
+      "4092069": {
+        "draw_call_wall_seconds": 14.084900162,
+        "draw_call_thread_cpu_seconds": 14.076961315,
+        "chain_tasks": 1
+      },
+      "4092070": {
+        "draw_call_wall_seconds": 14.179568047,
+        "draw_call_thread_cpu_seconds": 14.171534296,
+        "chain_tasks": 1
+      },
+      "4092071": {
+        "draw_call_wall_seconds": 14.17783447,
+        "draw_call_thread_cpu_seconds": 14.169945502,
+        "chain_tasks": 1
+      },
+      "4092072": {
+        "draw_call_wall_seconds": 14.227195549,
+        "draw_call_thread_cpu_seconds": 14.219813466,
+        "chain_tasks": 1
+      },
+      "4092073": {
+        "draw_call_wall_seconds": 14.194538549,
+        "draw_call_thread_cpu_seconds": 14.187339712,
+        "chain_tasks": 1
+      },
+      "4092074": {
+        "draw_call_wall_seconds": 14.238456398,
+        "draw_call_thread_cpu_seconds": 14.22961593,
+        "chain_tasks": 1
+      },
+      "4092075": {
+        "draw_call_wall_seconds": 14.269479573,
+        "draw_call_thread_cpu_seconds": 14.260436994,
+        "chain_tasks": 1
+      },
+      "4092076": {
+        "draw_call_wall_seconds": 14.251723287,
+        "draw_call_thread_cpu_seconds": 14.236979112,
+        "chain_tasks": 1
+      },
+      "4092077": {
+        "draw_call_wall_seconds": 14.141992028,
+        "draw_call_thread_cpu_seconds": 14.134735021,
+        "chain_tasks": 1
+      },
+      "4092078": {
+        "draw_call_wall_seconds": 14.299605579,
+        "draw_call_thread_cpu_seconds": 14.291710015,
+        "chain_tasks": 1
+      },
+      "4092079": {
+        "draw_call_wall_seconds": 14.335102974,
+        "draw_call_thread_cpu_seconds": 14.327583774,
+        "chain_tasks": 1
+      }
+    },
+    "critical_path_definition": "Maximum over worker PIDs of accumulated MarkovChain.draw call durations. Gaps between tasks/calls, serialization and IPC are excluded; elapsed intervals include OS descheduling and Python binding/state-copy overhead. This is a compute critical-path proxy, not pure arithmetic-only time.",
+    "proof": {
+      "hopsy_misc_sha256": "23cc4f47b0fab9a33cb8ae76da3bf224a6fc2943e74b10b996944871d94c7dfe",
+      "instrumentation_module_sha256": "a01b0bfd384c37ad483abdc0840fc28611ce34132d654e91e1e794a09e0732ba",
+      "functions": {
+        "_sample_parallel_chain": {
+          "original_source_sha256": "19e00a31f68f821878e8a81367e164f32147a6f201b2942256512f4c20855b3c",
+          "original_ast_sha256": "7943adcf7e0a606d6558a3d78fd055d561288bb3de6c6fb56ee80ab2c5c0a29a",
+          "instrumented_ast_sha256": "1127cc60566e3aedd663b51598cb36a8b691a2e5bfc10aa5728f8740c3e1fe6f",
+          "instrumented_draw_call_sites": 1,
+          "transformation": "Original worker body preserved; timer statements around its one draw call site and one log emission before return."
+        },
+        "_sequential_sampling": {
+          "original_source_sha256": "773f61dc358432f3d262e71d70a78d9e2e75e98355c05672e7867b3c1828546a",
+          "original_ast_sha256": "c65b68471177c8cb84c6055ad406480bd1438689c56e288cf73605f4de618ce8",
+          "instrumented_ast_sha256": "6177a5348671c18b4267cc5513078a5b573de30f80cc150ba37622dc29b58f3b",
+          "instrumented_draw_call_sites": 1,
+          "transformation": "Original worker body preserved; timer statements around its one draw call site and one log emission before return."
+        }
+      }
+    },
+    "instrumented_wrapper_process_seconds": 23.73460477218032,
+    "unmodified_baseline_process_seconds": 20.358957501128316,
+    "hopsy_sample_phase_inclusive_seconds": 19.396020038053393,
+    "timing_note": "Wrapper process includes instrumentation/hopsy import setup. Unmodified baseline PROCESS_STARTED begins after those imports in this opt-in variant; use wrapper process for its full-process secondary timing."
+  },
+  "sampling_subprocess_external_seconds": 24.219446955248713,
+  "primary_sampler_seconds": 14.335102974,
+  "primary_sampler_scope": "CPU MarkovChain.draw critical-path proxy; Python binding/state-copy included, IPC/startup/list assembly excluded",
+  "primary_median_ess_per_sampler_second": 146.13333786797074,
+  "median_bulk_ess_per_sampling_phase_second": 108.00341730735468,
+  "measured_sampling_phase_time_to_quality_seconds": 19.396020038053393,
+  "primary_interpretation": "Compare setup/correction and output-excluded selected-budget sampler phase separately; neither is an unqualified pure-kernel speedup.",
+  "end_to_end_role": "secondary operational timing",
+  "diagnostic_process_seconds": 43.831513879820704,
+  "independent_check_seconds": 10.153800819069147,
+  "script_sha256": "7c06efa69612ed4c66a3736c13b4228ebfe9f32a55c8385897f122e828739929",
+  "per_condition_total_seconds": 165.85728194378316,
+  "conditioning_geometry_algorithm_seconds": 134.89961659535766,
+  "conditioning_geometry_algorithm_scope": "PolyRound simplify/equality-eliminate/round phase",
+  "gpu_barrier_correction_seconds": null,
+  "correction_timing_policy": "Naja correction included in sampling process; do not add it twice.",
+  "geometry_sha256": "b84280c80561f9537c64ceb56e547becdde8a9de6e23b87de8eb08351c1019b6",
+  "samples_sha256": "b6b98bd5373539c16ea77dc2fb4b4ff5c7611680ebae2bfe76d6e9ce9443b966",
+  "run_dir": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/conditioned_prototype/iJO1366/runs/full_cpu/seed303/budget10000",
+  "physical_affinity": {
+    "reserved_logical_cpus": 32,
+    "allowed": [
+      5,
+      7,
+      9,
+      11,
+      13,
+      15,
+      17,
+      19,
+      21,
+      23,
+      25,
+      27,
+      29,
+      31,
+      33,
+      35,
+      69,
+      71,
+      73,
+      75,
+      77,
+      79,
+      81,
+      83,
+      85,
+      87,
+      89,
+      91,
+      93,
+      95,
+      97,
+      99
+    ],
+    "selected": [
+      5,
+      7,
+      9,
+      11,
+      13,
+      15,
+      17,
+      19,
+      21,
+      23,
+      25,
+      27,
+      29,
+      31,
+      33,
+      35
+    ],
+    "physical_cores": 16,
+    "topology": [
+      {
+        "cpu": 5,
+        "socket": 1,
+        "core": 8,
+        "siblings": [
+          5,
+          69
+        ]
+      },
+      {
+        "cpu": 7,
+        "socket": 1,
+        "core": 27,
+        "siblings": [
+          7,
+          71
+        ]
+      },
+      {
+        "cpu": 9,
+        "socket": 1,
+        "core": 2,
+        "siblings": [
+          9,
+          73
+        ]
+      },
+      {
+        "cpu": 11,
+        "socket": 1,
+        "core": 22,
+        "siblings": [
+          11,
+          75
+        ]
+      },
+      {
+        "cpu": 13,
+        "socket": 1,
+        "core": 12,
+        "siblings": [
+          13,
+          77
+        ]
+      },
+      {
+        "cpu": 15,
+        "socket": 1,
+        "core": 29,
+        "siblings": [
+          15,
+          79
+        ]
+      },
+      {
+        "cpu": 17,
+        "socket": 1,
+        "core": 4,
+        "siblings": [
+          17,
+          81
+        ]
+      },
+      {
+        "cpu": 19,
+        "socket": 1,
+        "core": 24,
+        "siblings": [
+          19,
+          83
+        ]
+      },
+      {
+        "cpu": 21,
+        "socket": 1,
+        "core": 9,
+        "siblings": [
+          21,
+          85
+        ]
+      },
+      {
+        "cpu": 23,
+        "socket": 1,
+        "core": 31,
+        "siblings": [
+          23,
+          87
+        ]
+      },
+      {
+        "cpu": 25,
+        "socket": 1,
+        "core": 1,
+        "siblings": [
+          25,
+          89
+        ]
+      },
+      {
+        "cpu": 27,
+        "socket": 1,
+        "core": 18,
+        "siblings": [
+          27,
+          91
+        ]
+      },
+      {
+        "cpu": 29,
+        "socket": 1,
+        "core": 13,
+        "siblings": [
+          29,
+          93
+        ]
+      },
+      {
+        "cpu": 31,
+        "socket": 1,
+        "core": 26,
+        "siblings": [
+          31,
+          95
+        ]
+      },
+      {
+        "cpu": 33,
+        "socket": 1,
+        "core": 3,
+        "siblings": [
+          33,
+          97
+        ]
+      },
+      {
+        "cpu": 35,
+        "socket": 1,
+        "core": 21,
+        "siblings": [
+          35,
+          99
+        ]
+      },
+      {
+        "cpu": 69,
+        "socket": 1,
+        "core": 8,
+        "siblings": [
+          5,
+          69
+        ]
+      },
+      {
+        "cpu": 71,
+        "socket": 1,
+        "core": 27,
+        "siblings": [
+          7,
+          71
+        ]
+      },
+      {
+        "cpu": 73,
+        "socket": 1,
+        "core": 2,
+        "siblings": [
+          9,
+          73
+        ]
+      },
+      {
+        "cpu": 75,
+        "socket": 1,
+        "core": 22,
+        "siblings": [
+          11,
+          75
+        ]
+      },
+      {
+        "cpu": 77,
+        "socket": 1,
+        "core": 12,
+        "siblings": [
+          13,
+          77
+        ]
+      },
+      {
+        "cpu": 79,
+        "socket": 1,
+        "core": 29,
+        "siblings": [
+          15,
+          79
+        ]
+      },
+      {
+        "cpu": 81,
+        "socket": 1,
+        "core": 4,
+        "siblings": [
+          17,
+          81
+        ]
+      },
+      {
+        "cpu": 83,
+        "socket": 1,
+        "core": 24,
+        "siblings": [
+          19,
+          83
+        ]
+      },
+      {
+        "cpu": 85,
+        "socket": 1,
+        "core": 9,
+        "siblings": [
+          21,
+          85
+        ]
+      },
+      {
+        "cpu": 87,
+        "socket": 1,
+        "core": 31,
+        "siblings": [
+          23,
+          87
+        ]
+      },
+      {
+        "cpu": 89,
+        "socket": 1,
+        "core": 1,
+        "siblings": [
+          25,
+          89
+        ]
+      },
+      {
+        "cpu": 91,
+        "socket": 1,
+        "core": 18,
+        "siblings": [
+          27,
+          91
+        ]
+      },
+      {
+        "cpu": 93,
+        "socket": 1,
+        "core": 13,
+        "siblings": [
+          29,
+          93
+        ]
+      },
+      {
+        "cpu": 95,
+        "socket": 1,
+        "core": 26,
+        "siblings": [
+          31,
+          95
+        ]
+      },
+      {
+        "cpu": 97,
+        "socket": 1,
+        "core": 3,
+        "siblings": [
+          33,
+          97
+        ]
+      },
+      {
+        "cpu": 99,
+        "socket": 1,
+        "core": 21,
+        "siblings": [
+          35,
+          99
+        ]
+      }
+    ]
+  },
+  "criterion": "median split-Rhat<=1.05 and median pooled bulk ESS>=100, independently require original+PGI bounds<=1e-7 and mass balance<=1e-7",
+  "no_filtering": true,
+  "deadline_utc": "2026-11-08T11:00:00+00:00"
+}

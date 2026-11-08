@@ -1,0 +1,86 @@
+{
+  "scope": "Fresh same-GPU, alternating build-order audit. Clock/power telemetry is diagnostic only and is not the Nsight utilization figure.",
+  "rows": [
+    {
+      "seed": 101001,
+      "build": "reference",
+      "begin_utc": "2026-11-08T04:53:55.645600+00:00",
+      "end_utc": "2026-11-08T04:55:08.276117+00:00",
+      "sampler_phase_seconds": 25.9872,
+      "sample_sha256": "086e64c6efc4e245ddb088994d388d1d250dccd0479b562578b657ff94ab5412",
+      "binary_sha256": "a656a1f93489af051acd540d08369092567dd0673af2b0e1ac922dc58a910603",
+      "run_dir": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/coordinate_kernel/clock_audit1024/seed101001/reference"
+    },
+    {
+      "seed": 101001,
+      "build": "coordinate",
+      "begin_utc": "2026-11-08T04:55:08.279603+00:00",
+      "end_utc": "2026-11-08T04:56:22.496348+00:00",
+      "sampler_phase_seconds": 26.1784,
+      "sample_sha256": "086e64c6efc4e245ddb088994d388d1d250dccd0479b562578b657ff94ab5412",
+      "binary_sha256": "51854688114677b14de3c110c262d210281de1f351f1ae6df6be994c2cc67e82",
+      "run_dir": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/coordinate_kernel/clock_audit1024/seed101001/coordinate"
+    },
+    {
+      "seed": 202001,
+      "build": "coordinate",
+      "begin_utc": "2026-11-08T04:56:22.499934+00:00",
+      "end_utc": "2026-11-08T04:57:36.228131+00:00",
+      "sampler_phase_seconds": 25.8832,
+      "sample_sha256": "9c6854ce07ddfa52b98563328f809247e9d5bd303eb5832d22a9c708828165ae",
+      "binary_sha256": "51854688114677b14de3c110c262d210281de1f351f1ae6df6be994c2cc67e82",
+      "run_dir": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/coordinate_kernel/clock_audit1024/seed202001/coordinate"
+    },
+    {
+      "seed": 202001,
+      "build": "reference",
+      "begin_utc": "2026-11-08T04:57:36.231663+00:00",
+      "end_utc": "2026-11-08T04:58:49.704956+00:00",
+      "sampler_phase_seconds": 26.0287,
+      "sample_sha256": "9c6854ce07ddfa52b98563328f809247e9d5bd303eb5832d22a9c708828165ae",
+      "binary_sha256": "a656a1f93489af051acd540d08369092567dd0673af2b0e1ac922dc58a910603",
+      "run_dir": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/coordinate_kernel/clock_audit1024/seed202001/reference"
+    },
+    {
+      "seed": 303001,
+      "build": "reference",
+      "begin_utc": "2026-11-08T04:58:49.708746+00:00",
+      "end_utc": "2026-11-08T05:00:03.829975+00:00",
+      "sampler_phase_seconds": 26.159,
+      "sample_sha256": "6936b80728c03f76e039736b80f9aaf00f0f564c1a6c865aac31eef944bb9efb",
+      "binary_sha256": "a656a1f93489af051acd540d08369092567dd0673af2b0e1ac922dc58a910603",
+      "run_dir": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/coordinate_kernel/clock_audit1024/seed303001/reference"
+    },
+    {
+      "seed": 303001,
+      "build": "coordinate",
+      "begin_utc": "2026-11-08T05:00:03.834637+00:00",
+      "end_utc": "2026-11-08T05:01:19.966420+00:00",
+      "sampler_phase_seconds": 25.8383,
+      "sample_sha256": "6936b80728c03f76e039736b80f9aaf00f0f564c1a6c865aac31eef944bb9efb",
+      "binary_sha256": "51854688114677b14de3c110c262d210281de1f351f1ae6df6be994c2cc67e82",
+      "run_dir": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/coordinate_kernel/clock_audit1024/seed303001/coordinate"
+    }
+  ],
+  "all_paired_outputs_bitwise_identical": true,
+  "clock_query": [
+    "nvidia-smi",
+    "--query-gpu=timestamp,uuid,clocks.sm,clocks.mem,power.draw,power.limit,pstate",
+    "--format=csv",
+    "--loop-ms=200"
+  ],
+  "pairs": [
+    {
+      "seed": 101001,
+      "sampling_speedup": 0.9926962686795221
+    },
+    {
+      "seed": 202001,
+      "sampling_speedup": 1.0056214069357732
+    },
+    {
+      "seed": 303001,
+      "sampling_speedup": 1.0124118072783426
+    }
+  ]
+}

@@ -1,0 +1,198 @@
+{
+  "gene": "b3918",
+  "gene_name": "cdh",
+  "disabled_reaction_ids": [
+    "CDAPPA120",
+    "CDAPPA140",
+    "CDAPPA141",
+    "CDAPPA160",
+    "CDAPPA161",
+    "CDAPPA180",
+    "CDAPPA181"
+  ],
+  "knockout_reaction_ids": [
+    "CDAPPA120",
+    "CDAPPA140",
+    "CDAPPA141",
+    "CDAPPA160",
+    "CDAPPA161",
+    "CDAPPA180",
+    "CDAPPA181"
+  ],
+  "changed_bound_rows": 7,
+  "two_sided_encoding_rows": 14,
+  "stratum": "6-20",
+  "base_LP_varying_reactions": 7,
+  "base_LP_nearconstant_reactions": 0,
+  "all_affected_reactions_varying": true,
+  "base_point_max_KO_residual": 0.4420373802704957,
+  "base_point_weak_feasible_at_1e7": false,
+  "minimum_KO_T_row_norm": 0.44203737230831186,
+  "original_changed_bounds": {
+    "CDAPPA120": [
+      0.0,
+      1000.0
+    ],
+    "CDAPPA140": [
+      0.0,
+      1000.0
+    ],
+    "CDAPPA141": [
+      0.0,
+      1000.0
+    ],
+    "CDAPPA160": [
+      0.0,
+      1000.0
+    ],
+    "CDAPPA161": [
+      0.0,
+      1000.0
+    ],
+    "CDAPPA180": [
+      0.0,
+      1000.0
+    ],
+    "CDAPPA181": [
+      0.0,
+      1000.0
+    ]
+  },
+  "genes_with_identical_bound_change_signature": [
+    "b3918"
+  ],
+  "bound_change_signature": "3d34e9c649178dfad70641ca6ac79c8dcdbae547bc8648ab6a351f05588523ec",
+  "status": "ready",
+  "base_geometry_sha256": "07374999682cb82ef566c2a7ba4cd1ca44b0718ab81f421846e24d3b85f5e103",
+  "base_dimension": 581,
+  "base_point_weak_feasible": false,
+  "constraint_epsilon": 0.0,
+  "rank_relative_tolerance": 1e-12,
+  "validation_tolerance": 1e-07,
+  "geometry_directory": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/knockout_panel/conditions/b3918/models/shared",
+  "LPs": [],
+  "facial_reductions": [],
+  "initial_projection_strict_interior": true,
+  "projected_point_strict_interior": true,
+  "final_origin_strict_after_facial_reduction": true,
+  "interior_method": "analytic_projection_checked_all_normalized_constraints",
+  "conditional_dimension": 574,
+  "rows": 743,
+  "affine_rank": 7,
+  "affine_rank_history": [
+    {
+      "rank": 7,
+      "singular_values": [
+        1.0009374368857236,
+        1.0009374368856696,
+        1.0009374368856534,
+        1.0009374368856228,
+        1.0009374368855803,
+        1.0009374368855337,
+        0.9943568195798461
+      ],
+      "relative_rank_threshold": 1e-12,
+      "ranks_at_1e11_1e12_1e13": [
+        7,
+        7,
+        7
+      ],
+      "scaled_equality_residual": 1.1102230246251565e-15,
+      "nullspace_residual": 2.220446049250313e-16,
+      "seconds": 0.003749258816242218,
+      "projected_origin_min_normalized_slack": 0.9857805069870759
+    }
+  ],
+  "strict_interior_radius": 0.9857805069870759,
+  "min_raw_start_slack": 2.5288449080767393e-08,
+  "certified_affine_constant_base_rows": [
+    {
+      "base_row": 183,
+      "projected_norm": 2.7254801885192376e-16,
+      "original_norm": 0.4420373730802785,
+      "constant_bound": -4.440892098500626e-16,
+      "normalized_constant_bound": -1.0046417721548885e-15
+    },
+    {
+      "base_row": 184,
+      "projected_norm": 3.0570234482949456e-16,
+      "original_norm": 0.442037374256997,
+      "constant_bound": 2.7755575615628914e-16,
+      "normalized_constant_bound": 6.279011059253113e-16
+    },
+    {
+      "base_row": 185,
+      "projected_norm": 3.22693600241924e-16,
+      "original_norm": 0.44203737584141733,
+      "constant_bound": 5.551115123125783e-17,
+      "normalized_constant_bound": 1.2558022073493775e-16
+    },
+    {
+      "base_row": 186,
+      "projected_norm": 2.792841450595789e-16,
+      "original_norm": 0.4420373747126261,
+      "constant_bound": -1.1102230246251565e-16,
+      "normalized_constant_bound": -2.511604421112414e-16
+    },
+    {
+      "base_row": 187,
+      "projected_norm": 3.31624959225461e-16,
+      "original_norm": 0.4420373748215934,
+      "constant_bound": 0.0,
+      "normalized_constant_bound": 0.0
+    },
+    {
+      "base_row": 188,
+      "projected_norm": 3.1422230444843623e-16,
+      "original_norm": 0.4420373738053045,
+      "constant_bound": 0.0,
+      "normalized_constant_bound": 0.0
+    },
+    {
+      "base_row": 189,
+      "projected_norm": 2.0082724103088802e-16,
+      "original_norm": 0.44203737230831186,
+      "constant_bound": 3.3306690738754696e-16,
+      "normalized_constant_bound": 7.534813304320335e-16
+    }
+  ],
+  "no_bound_epsilon_relaxation": true,
+  "source": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/knockout_panel/conditions/b3918/conditional_model.json",
+  "source_sha256": "0be32e10c8e26d81e69122d78272325c7fb8d8b1bcca7358bdd5b8fbbe1d745a",
+  "geometry_sha256": "a84fa40236f470b1af3f98051daa3a627573eb24eb17d60566a8bcd8deee8412",
+  "embedding": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/knockout_panel/conditions/b3918/embedding.npz",
+  "effective_affine_face_signature_rounded_1e10": "0984a0aaea2a69e9f5559925c551688554f75cff51b88c86a5865d966516e057",
+  "fixed_reaction_ids": [
+    "CDAPPA120",
+    "CDAPPA140",
+    "CDAPPA141",
+    "CDAPPA160",
+    "CDAPPA161",
+    "CDAPPA180",
+    "CDAPPA181"
+  ],
+  "fixed_reaction_values": {
+    "CDAPPA120": -4.440892098500626e-16,
+    "CDAPPA140": 2.7755575615628914e-16,
+    "CDAPPA141": 5.551115123125783e-17,
+    "CDAPPA160": -1.1102230246251565e-16,
+    "CDAPPA161": 0.0,
+    "CDAPPA180": 0.0,
+    "CDAPPA181": 3.3306690738754696e-16
+  },
+  "containment_proof": {
+    "retained_A_max_error": 6.776263578034403e-21,
+    "retained_b_max_error": 0.0,
+    "dropped_rows": "Equality-span residual and constant-bound certificates recorded; numerical rank contract explicit."
+  },
+  "validation": {
+    "points": 33,
+    "max_original_bound_violation": 1.469605134722489e-12,
+    "max_base_Az_minus_b_violation": 4.996003610813204e-16,
+    "max_KO_flux_residual": 4.462205740586583e-16
+  },
+  "preparation_seconds": 0.5231975372880697,
+  "LP_solve_seconds": 0,
+  "LP_calls": 0,
+  "LP_skipped": true
+}

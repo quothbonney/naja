@@ -1,0 +1,490 @@
+{
+  "model": "RECON1",
+  "seed": 303,
+  "started_utc": "2026-11-08T00:29:05.333628+00:00",
+  "causal_protocol": "One GPU float64 trajectory: X64=T@Z64+shift; Xquant=T@float64(float32(Z64))+shift. Both backmaps float64, same matrix and sample points.",
+  "primary_tolerance": 1e-07,
+  "no_bounds_filtering_or_clipping": true,
+  "new_binary_sha256": "5e6968eb7d3cebf5f27c16d2662a2e640cc3f6b7a633b7e7ae3bc9136a99f3d5",
+  "historical_binary_sha256": "c7baf4f0ed282b936ac0dbac4b896bfbfc040eb06da6f84aff6605fddf4b0fc6",
+  "geometry_sha256": "b3e0d0641a0772412d7eae65429c8a93ee22c983c1a22f5fd2b34d253637bb2e",
+  "mask_sha256": "b3bc458567cb2fe0700df91ab456d89956e220ad65318234690f98f5c6d133f9",
+  "mask_policy": "Candidates T_row_max<=candidate_tolerance; exclude only successful original-model min/max LP range<=range_tolerance. No objective/biomass constraint added. Diagnostic aggregation only; sampling target unchanged.",
+  "preprocessing": {
+    "model_id": "RECON1",
+    "n": 3741,
+    "d": 931,
+    "m": 2120,
+    "original_metabolites": 2766,
+    "source": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/raw/RECON1.json",
+    "source_sha256": "c6cf6e625f065f761b29e4d0aaf492c2979a6e3d10e2f571ce25da461558746d",
+    "solver": "glpk",
+    "versions": {
+      "hopsy": "1.7.0",
+      "PolyRound": "0.5.0",
+      "cobra": "0.32.1",
+      "numpy": "2.5.4",
+      "scipy": "1.18.1",
+      "swiglpk": "5.0.13"
+    },
+    "timings": {
+      "load_model_seconds": 1.531696556136012,
+      "construct_polytope_seconds": 0.9031095653772354,
+      "simplify_seconds": 1322.2328761816025,
+      "equality_elimination_seconds": 17.370937118306756,
+      "round_seconds": 209.92863508313894,
+      "polyround_seconds": 1549.5324548315257,
+      "write_seconds": 2.048623599112034,
+      "total_seconds": 1554.022049985826
+    },
+    "settings": {
+      "backend": "glpk",
+      "hp_flags": {
+        "FeasibilityTol": 1e-09
+      },
+      "thresh": 1e-07,
+      "verbose": true,
+      "sgp": false,
+      "reduce": true,
+      "regularize": false,
+      "check_lps": false,
+      "simplify_only": false,
+      "presolve": true,
+      "numerics_threshold": 1e-12,
+      "accepted_tol_violation": 100.0
+    },
+    "objective_constraint": "none; original model bounds",
+    "min_start_slack": 1044.7434296152915,
+    "command": [
+      "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/cpu_baseline.py",
+      "prep",
+      "--model",
+      "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/raw/RECON1.json",
+      "--out",
+      "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/RECON1",
+      "--presolve",
+      "--verbose"
+    ],
+    "hostname": "slurm-h100-206-077"
+  },
+  "shape": [
+    16,
+    10000,
+    931
+  ],
+  "raw_shape": [
+    176000,
+    931
+  ],
+  "new_raw_header_offset": 128,
+  "historical_reproduction": {
+    "raw_cast_bitwise_equal": true,
+    "raw_cast_value_equal": true,
+    "raw_bit_mismatches": 0,
+    "raw_value_mismatches": 0,
+    "raw_cast_max_absolute_difference": 0.0,
+    "normalized_cast_value_mismatches": 0
+  },
+  "max_absolute_reduced_export_rounding_error": 4.472179941927834e-07,
+  "max_absolute_flux_difference_from_paired_quantization": 0.11196963445399888,
+  "T_max_absolute_entry": 665724.4957755465,
+  "T_max_row_l1_norm": 20261078.566700052,
+  "representations": {
+    "float64_export": {
+      "sample_count": 160000,
+      "sample_bound_violation_fraction": {
+        "0.0": 1.0,
+        "1e-07": 0.59409375,
+        "1e-06": 0.0,
+        "1e-05": 0.0,
+        "0.001": 0.0
+      },
+      "nonexcluded_reaction_sample_violation_fraction": {
+        "0.0": 0.0,
+        "1e-07": 0.0,
+        "1e-06": 0.0,
+        "1e-05": 0.0,
+        "0.001": 0.0
+      },
+      "coordinate_bound_violation_fraction": {
+        "0.0": 0.12271110331462176,
+        "1e-07": 0.00019897921678695536,
+        "1e-06": 0.0,
+        "1e-05": 0.0,
+        "0.001": 0.0
+      },
+      "max_absolute_reaction_bound_violation": 2.709130893634374e-07,
+      "max_nonexcluded_reaction_bound_violation": 0.0,
+      "max_reduced_Az_minus_b_violation": 0.0,
+      "reduced_sample_violation_fraction_eps_1e9": 0.0,
+      "top_violations": [
+        {
+          "reaction": "GALC",
+          "max_violation": 2.709130893634374e-07,
+          "lp_mask_excluded": true
+        },
+        {
+          "reaction": "ARSA",
+          "max_violation": 1.912512416093342e-07,
+          "lp_mask_excluded": true
+        },
+        {
+          "reaction": "GAL3ST11",
+          "max_violation": 1.910699135667728e-07,
+          "lp_mask_excluded": true
+        },
+        {
+          "reaction": "BMTer_U",
+          "max_violation": 8.955297733363814e-08,
+          "lp_mask_excluded": true
+        },
+        {
+          "reaction": "ABO3g",
+          "max_violation": 5.494835464426644e-08,
+          "lp_mask_excluded": true
+        },
+        {
+          "reaction": "MANtg",
+          "max_violation": 5.469511178910118e-08,
+          "lp_mask_excluded": true
+        },
+        {
+          "reaction": "ACGALtly",
+          "max_violation": 5.1937411150263406e-08,
+          "lp_mask_excluded": true
+        },
+        {
+          "reaction": "ACGALK2",
+          "max_violation": 5.135362838276572e-08,
+          "lp_mask_excluded": true
+        },
+        {
+          "reaction": "UAGALDP",
+          "max_violation": 4.9866636457475794e-08,
+          "lp_mask_excluded": true
+        },
+        {
+          "reaction": "FUT92g",
+          "max_violation": 4.966564870047839e-08,
+          "lp_mask_excluded": true
+        },
+        {
+          "reaction": "GMAND",
+          "max_violation": 4.923278733988232e-08,
+          "lp_mask_excluded": true
+        },
+        {
+          "reaction": "GFUCS",
+          "max_violation": 4.8830521977772944e-08,
+          "lp_mask_excluded": true
+        },
+        {
+          "reaction": "FUCASEly",
+          "max_violation": 4.556951982495171e-08,
+          "lp_mask_excluded": true
+        },
+        {
+          "reaction": "FUCtly",
+          "max_violation": 4.5361167480919945e-08,
+          "lp_mask_excluded": true
+        },
+        {
+          "reaction": "FK",
+          "max_violation": 4.5075291964371384e-08,
+          "lp_mask_excluded": true
+        },
+        {
+          "reaction": "S2L2FN2M2MASNtly",
+          "max_violation": 4.4774795731901416e-08,
+          "lp_mask_excluded": true
+        },
+        {
+          "reaction": "B3GNT38g",
+          "max_violation": 4.4513104480733235e-08,
+          "lp_mask_excluded": true
+        },
+        {
+          "reaction": "GAL3ST12",
+          "max_violation": 4.3437608016662596e-08,
+          "lp_mask_excluded": true
+        },
+        {
+          "reaction": "NADK",
+          "max_violation": 4.220038260506464e-08,
+          "lp_mask_excluded": true
+        },
+        {
+          "reaction": "BMTer_L",
+          "max_violation": 3.130836703616564e-08,
+          "lp_mask_excluded": true
+        }
+      ]
+    },
+    "paired_float32_quantization": {
+      "sample_count": 160000,
+      "sample_bound_violation_fraction": {
+        "0.0": 1.0,
+        "1e-07": 0.59409375,
+        "1e-06": 1.25e-05,
+        "1e-05": 1.25e-05,
+        "0.001": 6.25e-06
+      },
+      "nonexcluded_reaction_sample_violation_fraction": {
+        "0.0": 1.25e-05,
+        "1e-07": 1.25e-05,
+        "1e-06": 1.25e-05,
+        "1e-05": 1.25e-05,
+        "0.001": 6.25e-06
+      },
+      "coordinate_bound_violation_fraction": {
+        "0.0": 0.12271110665597434,
+        "1e-07": 0.0001989825581395349,
+        "1e-06": 3.3413525795241914e-09,
+        "1e-05": 3.3413525795241914e-09,
+        "0.001": 1.6706762897620957e-09
+      },
+      "max_absolute_reaction_bound_violation": 0.016507840831764042,
+      "max_nonexcluded_reaction_bound_violation": 0.016507840831764042,
+      "max_reduced_Az_minus_b_violation": 0.016507840831764042,
+      "reduced_sample_violation_fraction_eps_1e9": 1.25e-05,
+      "top_violations": [
+        {
+          "reaction": "ALASERNaEx",
+          "max_violation": 0.016507840831764042,
+          "lp_mask_excluded": false
+        },
+        {
+          "reaction": "ARTFR202",
+          "max_violation": 0.00017684799786366057,
+          "lp_mask_excluded": false
+        },
+        {
+          "reaction": "GALC",
+          "max_violation": 2.7091308832339126e-07,
+          "lp_mask_excluded": true
+        },
+        {
+          "reaction": "ARSA",
+          "max_violation": 1.912512420777126e-07,
+          "lp_mask_excluded": true
+        },
+        {
+          "reaction": "GAL3ST11",
+          "max_violation": 1.910699140377351e-07,
+          "lp_mask_excluded": true
+        },
+        {
+          "reaction": "BMTer_U",
+          "max_violation": 8.955297638336548e-08,
+          "lp_mask_excluded": true
+        },
+        {
+          "reaction": "ABO3g",
+          "max_violation": 5.4948354491056284e-08,
+          "lp_mask_excluded": true
+        },
+        {
+          "reaction": "MANtg",
+          "max_violation": 5.46951121201943e-08,
+          "lp_mask_excluded": true
+        },
+        {
+          "reaction": "ACGALtly",
+          "max_violation": 5.1937410840672136e-08,
+          "lp_mask_excluded": true
+        },
+        {
+          "reaction": "ACGALK2",
+          "max_violation": 5.135362809148403e-08,
+          "lp_mask_excluded": true
+        },
+        {
+          "reaction": "UAGALDP",
+          "max_violation": 4.986663615034321e-08,
+          "lp_mask_excluded": true
+        },
+        {
+          "reaction": "FUT92g",
+          "max_violation": 4.966564874464017e-08,
+          "lp_mask_excluded": true
+        },
+        {
+          "reaction": "GMAND",
+          "max_violation": 4.9232787605978696e-08,
+          "lp_mask_excluded": true
+        },
+        {
+          "reaction": "GFUCS",
+          "max_violation": 4.8830522231964124e-08,
+          "lp_mask_excluded": true
+        },
+        {
+          "reaction": "FUCASEly",
+          "max_violation": 4.556952024979612e-08,
+          "lp_mask_excluded": true
+        },
+        {
+          "reaction": "FUCtly",
+          "max_violation": 4.536116788457773e-08,
+          "lp_mask_excluded": true
+        },
+        {
+          "reaction": "FK",
+          "max_violation": 4.507529139829993e-08,
+          "lp_mask_excluded": true
+        },
+        {
+          "reaction": "S2L2FN2M2MASNtly",
+          "max_violation": 4.4774796163236567e-08,
+          "lp_mask_excluded": true
+        },
+        {
+          "reaction": "B3GNT38g",
+          "max_violation": 4.4513104650855726e-08,
+          "lp_mask_excluded": true
+        },
+        {
+          "reaction": "GAL3ST12",
+          "max_violation": 4.3437608210856784e-08,
+          "lp_mask_excluded": true
+        }
+      ]
+    },
+    "historical_frozen_float32": {
+      "sample_count": 160000,
+      "sample_bound_violation_fraction": {
+        "0.0": 1.0,
+        "1e-07": 0.59409375,
+        "1e-06": 1.25e-05,
+        "1e-05": 1.25e-05,
+        "0.001": 6.25e-06
+      },
+      "nonexcluded_reaction_sample_violation_fraction": {
+        "0.0": 1.25e-05,
+        "1e-07": 1.25e-05,
+        "1e-06": 1.25e-05,
+        "1e-05": 1.25e-05,
+        "0.001": 6.25e-06
+      },
+      "coordinate_bound_violation_fraction": {
+        "0.0": 0.12271110665597434,
+        "1e-07": 0.0001989825581395349,
+        "1e-06": 3.3413525795241914e-09,
+        "1e-05": 3.3413525795241914e-09,
+        "0.001": 1.6706762897620957e-09
+      },
+      "max_absolute_reaction_bound_violation": 0.016507840831764042,
+      "max_nonexcluded_reaction_bound_violation": 0.016507840831764042,
+      "max_reduced_Az_minus_b_violation": 0.016507840831764042,
+      "reduced_sample_violation_fraction_eps_1e9": 1.25e-05,
+      "top_violations": [
+        {
+          "reaction": "ALASERNaEx",
+          "max_violation": 0.016507840831764042,
+          "lp_mask_excluded": false
+        },
+        {
+          "reaction": "ARTFR202",
+          "max_violation": 0.00017684799786366057,
+          "lp_mask_excluded": false
+        },
+        {
+          "reaction": "GALC",
+          "max_violation": 2.7091308832339126e-07,
+          "lp_mask_excluded": true
+        },
+        {
+          "reaction": "ARSA",
+          "max_violation": 1.912512420777126e-07,
+          "lp_mask_excluded": true
+        },
+        {
+          "reaction": "GAL3ST11",
+          "max_violation": 1.910699140377351e-07,
+          "lp_mask_excluded": true
+        },
+        {
+          "reaction": "BMTer_U",
+          "max_violation": 8.955297638336548e-08,
+          "lp_mask_excluded": true
+        },
+        {
+          "reaction": "ABO3g",
+          "max_violation": 5.4948354491056284e-08,
+          "lp_mask_excluded": true
+        },
+        {
+          "reaction": "MANtg",
+          "max_violation": 5.46951121201943e-08,
+          "lp_mask_excluded": true
+        },
+        {
+          "reaction": "ACGALtly",
+          "max_violation": 5.1937410840672136e-08,
+          "lp_mask_excluded": true
+        },
+        {
+          "reaction": "ACGALK2",
+          "max_violation": 5.135362809148403e-08,
+          "lp_mask_excluded": true
+        },
+        {
+          "reaction": "UAGALDP",
+          "max_violation": 4.986663615034321e-08,
+          "lp_mask_excluded": true
+        },
+        {
+          "reaction": "FUT92g",
+          "max_violation": 4.966564874464017e-08,
+          "lp_mask_excluded": true
+        },
+        {
+          "reaction": "GMAND",
+          "max_violation": 4.9232787605978696e-08,
+          "lp_mask_excluded": true
+        },
+        {
+          "reaction": "GFUCS",
+          "max_violation": 4.8830522231964124e-08,
+          "lp_mask_excluded": true
+        },
+        {
+          "reaction": "FUCASEly",
+          "max_violation": 4.556952024979612e-08,
+          "lp_mask_excluded": true
+        },
+        {
+          "reaction": "FUCtly",
+          "max_violation": 4.536116788457773e-08,
+          "lp_mask_excluded": true
+        },
+        {
+          "reaction": "FK",
+          "max_violation": 4.507529139829993e-08,
+          "lp_mask_excluded": true
+        },
+        {
+          "reaction": "S2L2FN2M2MASNtly",
+          "max_violation": 4.4774796163236567e-08,
+          "lp_mask_excluded": true
+        },
+        {
+          "reaction": "B3GNT38g",
+          "max_violation": 4.4513104650855726e-08,
+          "lp_mask_excluded": true
+        },
+        {
+          "reaction": "GAL3ST12",
+          "max_violation": 4.3437608210856784e-08,
+          "lp_mask_excluded": true
+        }
+      ]
+    }
+  },
+  "conclusion": "Paired export quantization increases bound violations, but full-precision residual violations remain and require separate geometry/slack investigation.",
+  "new_measured_process_wall_seconds": 17.697461085394025,
+  "new_normalization_seconds": 2.0447648726403713,
+  "new_wall_including_normalization_seconds": 19.742225958034396,
+  "historical_wall_including_normalization_seconds": 18.39868240058422,
+  "analysis_wall_seconds": 60.24347499385476
+}

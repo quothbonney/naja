@@ -1,0 +1,32 @@
+[
+  {
+    "model": "e_coli_core",
+    "seed": 101,
+    "shape": [
+      16,
+      10000,
+      24
+    ],
+    "native_interleaving_and_exact_warmup_slice": "pass"
+  },
+  {
+    "model": "iAB_RBC_283",
+    "seed": 202,
+    "shape": [
+      16,
+      10000,
+      130
+    ],
+    "native_interleaving_and_exact_warmup_slice": "pass"
+  },
+  {
+    "model": "iJO1366",
+    "seed": 303,
+    "shape": [
+      16,
+      10000,
+      581
+    ],
+    "native_interleaving_and_exact_warmup_slice": "pass"
+  }
+]

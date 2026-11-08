@@ -1,0 +1,207 @@
+{
+  "model": "iJO1366",
+  "groups": [
+    {
+      "thinning": 200,
+      "tpb": 512,
+      "status": "incomplete",
+      "rows": [
+        {
+          "seed": 101,
+          "status": "pilot_cap_no_passing_rhat",
+          "pilot_process_seconds": 9.079782193526626,
+          "pilot_and_selection_seconds": null,
+          "selected_draws": null,
+          "preserved_prior_attempts": [],
+          "pilot_rhat_precheck_seconds": 18.85699806921184
+        },
+        {
+          "seed": 202,
+          "status": "pilot_cap_no_passing_rhat",
+          "pilot_process_seconds": 8.826483832672238,
+          "pilot_and_selection_seconds": null,
+          "selected_draws": null,
+          "preserved_prior_attempts": [],
+          "pilot_rhat_precheck_seconds": 18.432032637298107
+        },
+        {
+          "seed": 303,
+          "status": "pilot_cap_no_passing_rhat",
+          "pilot_process_seconds": 9.170548481866717,
+          "pilot_and_selection_seconds": null,
+          "selected_draws": null,
+          "preserved_prior_attempts": [],
+          "pilot_rhat_precheck_seconds": 18.70627712458372
+        }
+      ]
+    },
+    {
+      "thinning": 500,
+      "tpb": 512,
+      "status": "complete",
+      "rows": [
+        {
+          "seed": 101,
+          "status": "complete",
+          "pilot_process_seconds": 16.762878719717264,
+          "pilot_and_selection_seconds": 37.10031139664352,
+          "selected_draws": 5000,
+          "preserved_prior_attempts": [
+            "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/gpu_thinning/iJO1366/thin500/seed101/prior-attempt-1794108312941190817.json"
+          ],
+          "pilot_rhat_precheck_seconds": 18.41626387089491,
+          "pilot_full_metrics_seconds": 36.76807011477649,
+          "draws_per_chain": 5000,
+          "wall_seconds": 10.130688861012459,
+          "split_rhat_median": 1.007935827870879,
+          "bulk_ess_median": 2486.1455931010178,
+          "quality_met": true,
+          "sample_bound_violation_fraction": 0.0,
+          "diagnostics_reused_from": null,
+          "run_dir": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/gpu_thinning/iJO1366/thin500/seed101/final",
+          "sampler_phase_seconds": 7.7554,
+          "pooled_bulk_ess_per_sampler_phase_second": 320.56961511991875,
+          "transitions_including_warmup": 48000000,
+          "pooled_bulk_ess_per_total_transition": 5.17946998562712e-05
+        },
+        {
+          "seed": 202,
+          "status": "complete",
+          "pilot_process_seconds": 17.20370058901608,
+          "pilot_and_selection_seconds": 38.779285525903106,
+          "selected_draws": 5000,
+          "preserved_prior_attempts": [
+            "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/gpu_thinning/iJO1366/thin500/seed202/prior-attempt-1794108313005876673.json"
+          ],
+          "pilot_rhat_precheck_seconds": 18.547270065173507,
+          "pilot_full_metrics_seconds": 38.44210964627564,
+          "draws_per_chain": 5000,
+          "wall_seconds": 9.770558441057801,
+          "split_rhat_median": 1.0077508880075197,
+          "bulk_ess_median": 2457.177611279926,
+          "quality_met": true,
+          "sample_bound_violation_fraction": 0.0,
+          "diagnostics_reused_from": null,
+          "run_dir": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/gpu_thinning/iJO1366/thin500/seed202/final",
+          "sampler_phase_seconds": 7.8585,
+          "pooled_bulk_ess_per_sampler_phase_second": 312.67768801678767,
+          "transitions_including_warmup": 48000000,
+          "pooled_bulk_ess_per_total_transition": 5.119120023499846e-05
+        },
+        {
+          "seed": 303,
+          "status": "complete",
+          "pilot_process_seconds": 17.04925152286887,
+          "pilot_and_selection_seconds": 37.32538321055472,
+          "selected_draws": 5000,
+          "preserved_prior_attempts": [
+            "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/gpu_thinning/iJO1366/thin500/seed303/prior-attempt-1794108312940989255.json"
+          ],
+          "pilot_rhat_precheck_seconds": 18.4450040217489,
+          "pilot_full_metrics_seconds": 36.98233139514923,
+          "draws_per_chain": 5000,
+          "wall_seconds": 9.904836667701602,
+          "split_rhat_median": 1.0078786894403424,
+          "bulk_ess_median": 2526.552030910726,
+          "quality_met": true,
+          "sample_bound_violation_fraction": 0.0,
+          "diagnostics_reused_from": null,
+          "run_dir": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/gpu_thinning/iJO1366/thin500/seed303/final",
+          "sampler_phase_seconds": 7.8169,
+          "pooled_bulk_ess_per_sampler_phase_second": 323.2166243537369,
+          "transitions_including_warmup": 48000000,
+          "pooled_bulk_ess_per_total_transition": 5.263650064397346e-05
+        }
+      ],
+      "measured_process_seconds_median": 9.904836667701602,
+      "sampler_phase_seconds_median": 7.8169,
+      "pooled_bulk_ess_per_sampler_phase_second_median": 320.56961511991875,
+      "baseline_auto96_process_seconds_median": 21.571192607283592,
+      "speedup_vs_gpu_auto96": 2.1778443533172513,
+      "physical_native_cpu_process_seconds_median": 25.801467960700393,
+      "speedup_vs_physical_native_cpu": 2.6049362373471197
+    },
+    {
+      "thinning": 1000,
+      "tpb": 512,
+      "status": "complete",
+      "rows": [
+        {
+          "seed": 101,
+          "status": "complete",
+          "pilot_process_seconds": 31.431149762123823,
+          "pilot_and_selection_seconds": 89.74973312020302,
+          "selected_draws": 2000,
+          "preserved_prior_attempts": [],
+          "pilot_rhat_precheck_seconds": 18.483837760984898,
+          "pilot_full_metrics_seconds": 39.06474286131561,
+          "draws_per_chain": 2000,
+          "wall_seconds": 9.327967597171664,
+          "split_rhat_median": 1.009419701047283,
+          "bulk_ess_median": 2016.3714335464674,
+          "quality_met": true,
+          "sample_bound_violation_fraction": 0.0,
+          "diagnostics_reused_from": null,
+          "run_dir": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/gpu_thinning/iJO1366/thin1000/seed101/final",
+          "sampler_phase_seconds": 7.8001,
+          "pooled_bulk_ess_per_sampler_phase_second": 258.50584396949625,
+          "transitions_including_warmup": 48000000,
+          "pooled_bulk_ess_per_total_transition": 4.200773819888474e-05
+        },
+        {
+          "seed": 202,
+          "status": "complete",
+          "pilot_process_seconds": 31.475494097918272,
+          "pilot_and_selection_seconds": 90.08824162185192,
+          "selected_draws": 2000,
+          "preserved_prior_attempts": [],
+          "pilot_rhat_precheck_seconds": 18.4917862880975,
+          "pilot_full_metrics_seconds": 39.39550204388797,
+          "draws_per_chain": 2000,
+          "wall_seconds": 9.467148780822754,
+          "split_rhat_median": 1.0099289223878138,
+          "bulk_ess_median": 1987.914079294251,
+          "quality_met": true,
+          "sample_bound_violation_fraction": 0.0,
+          "diagnostics_reused_from": null,
+          "run_dir": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/gpu_thinning/iJO1366/thin1000/seed202/final",
+          "sampler_phase_seconds": 7.8268,
+          "pooled_bulk_ess_per_sampler_phase_second": 253.98810232716448,
+          "transitions_including_warmup": 48000000,
+          "pooled_bulk_ess_per_total_transition": 4.141487665196356e-05
+        },
+        {
+          "seed": 303,
+          "status": "complete",
+          "pilot_process_seconds": 31.421934405341744,
+          "pilot_and_selection_seconds": 89.59529065899551,
+          "selected_draws": 2000,
+          "preserved_prior_attempts": [],
+          "pilot_rhat_precheck_seconds": 18.477107958868146,
+          "pilot_full_metrics_seconds": 38.97239824011922,
+          "draws_per_chain": 2000,
+          "wall_seconds": 9.723631436005235,
+          "split_rhat_median": 1.0097048517262501,
+          "bulk_ess_median": 2015.0117158080998,
+          "quality_met": true,
+          "sample_bound_violation_fraction": 0.0,
+          "diagnostics_reused_from": null,
+          "run_dir": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/gpu_thinning/iJO1366/thin1000/seed303/final",
+          "sampler_phase_seconds": 7.8132,
+          "pooled_bulk_ess_per_sampler_phase_second": 257.89839192752004,
+          "transitions_including_warmup": 48000000,
+          "pooled_bulk_ess_per_total_transition": 4.197941074600208e-05
+        }
+      ],
+      "measured_process_seconds_median": 9.467148780822754,
+      "sampler_phase_seconds_median": 7.8132,
+      "pooled_bulk_ess_per_sampler_phase_second_median": 257.89839192752004,
+      "baseline_auto96_process_seconds_median": 21.571192607283592,
+      "speedup_vs_gpu_auto96": 2.278531066394514,
+      "physical_native_cpu_process_seconds_median": 25.801467960700393,
+      "speedup_vs_physical_native_cpu": 2.7253683826080195
+    }
+  ],
+  "primary_scope": "Sampling phase and ESS/s. GPU gpu_sampling_s includes sampler allocation/slackGEMM/RNG initialization, not isolated CHRRkernel time. Existing process-speedup fields are secondary operational measurements.",
+  "timing_note": "Each final is a fresh exact selected-budget process. Pilots, prefix search and diagnostics are excluded and recorded separately. Resume selection elapsed excludes the preserved failed attempt and reused pilot/precheck work; component costs remain recorded. Warmup1000 retained draws means warmup moves change with thinning. Selection is empirical on three seeds; no general optimality claim."
+}

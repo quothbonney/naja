@@ -1,0 +1,549 @@
+{
+  "gene": "b3821",
+  "gene_name": "pldA",
+  "disabled_reaction_ids": [
+    "PLIPA1E181pp",
+    "PLIPA1G120pp",
+    "PLIPA1G140pp",
+    "PLIPA1G141pp",
+    "PLIPA1G160pp",
+    "PLIPA1G161pp",
+    "PLIPA1G180pp",
+    "PLIPA1G181pp",
+    "PLIPA2A120pp",
+    "PLIPA2A140pp",
+    "PLIPA2A141pp",
+    "PLIPA2A160pp",
+    "PLIPA2A161pp",
+    "PLIPA2A180pp",
+    "PLIPA2A181pp",
+    "PLIPA2E120pp",
+    "PLIPA2E140pp",
+    "PLIPA2E141pp",
+    "PLIPA2E160pp",
+    "PLIPA2E161pp",
+    "PLIPA2E180pp",
+    "PLIPA2E181pp",
+    "PLIPA2G120pp",
+    "PLIPA2G140pp",
+    "PLIPA2G141pp",
+    "PLIPA2G160pp",
+    "PLIPA2G161pp",
+    "PLIPA2G180pp",
+    "PLIPA2G181pp",
+    "PLIPA1A120pp",
+    "PLIPA1A140pp",
+    "PLIPA1A141pp",
+    "PLIPA1A160pp",
+    "PLIPA1A161pp",
+    "PLIPA1A180pp",
+    "PLIPA1A181pp",
+    "PLIPA1E120pp",
+    "PLIPA1E140pp",
+    "PLIPA1E141pp",
+    "PLIPA1E160pp",
+    "PLIPA1E161pp",
+    "PLIPA1E180pp"
+  ],
+  "knockout_reaction_ids": [
+    "PLIPA1E181pp",
+    "PLIPA1G120pp",
+    "PLIPA1G140pp",
+    "PLIPA1G141pp",
+    "PLIPA1G160pp",
+    "PLIPA1G161pp",
+    "PLIPA1G180pp",
+    "PLIPA1G181pp",
+    "PLIPA2A120pp",
+    "PLIPA2A140pp",
+    "PLIPA2A141pp",
+    "PLIPA2A160pp",
+    "PLIPA2A161pp",
+    "PLIPA2A180pp",
+    "PLIPA2A181pp",
+    "PLIPA2E120pp",
+    "PLIPA2E140pp",
+    "PLIPA2E141pp",
+    "PLIPA2E160pp",
+    "PLIPA2E161pp",
+    "PLIPA2E180pp",
+    "PLIPA2E181pp",
+    "PLIPA2G120pp",
+    "PLIPA2G140pp",
+    "PLIPA2G141pp",
+    "PLIPA2G160pp",
+    "PLIPA2G161pp",
+    "PLIPA2G180pp",
+    "PLIPA2G181pp",
+    "PLIPA1A120pp",
+    "PLIPA1A140pp",
+    "PLIPA1A141pp",
+    "PLIPA1A160pp",
+    "PLIPA1A161pp",
+    "PLIPA1A180pp",
+    "PLIPA1A181pp",
+    "PLIPA1E120pp",
+    "PLIPA1E140pp",
+    "PLIPA1E141pp",
+    "PLIPA1E160pp",
+    "PLIPA1E161pp",
+    "PLIPA1E180pp"
+  ],
+  "changed_bound_rows": 42,
+  "two_sided_encoding_rows": 84,
+  "stratum": "21-50",
+  "base_LP_varying_reactions": 42,
+  "base_LP_nearconstant_reactions": 0,
+  "all_affected_reactions_varying": true,
+  "base_point_max_KO_residual": 0.2558253296863535,
+  "base_point_weak_feasible_at_1e7": false,
+  "minimum_KO_T_row_norm": 0.07057242900268769,
+  "original_changed_bounds": {
+    "PLIPA1E181pp": [
+      0.0,
+      1000.0
+    ],
+    "PLIPA1G120pp": [
+      0.0,
+      1000.0
+    ],
+    "PLIPA1G140pp": [
+      0.0,
+      1000.0
+    ],
+    "PLIPA1G141pp": [
+      0.0,
+      1000.0
+    ],
+    "PLIPA1G160pp": [
+      0.0,
+      1000.0
+    ],
+    "PLIPA1G161pp": [
+      0.0,
+      1000.0
+    ],
+    "PLIPA1G180pp": [
+      0.0,
+      1000.0
+    ],
+    "PLIPA1G181pp": [
+      0.0,
+      1000.0
+    ],
+    "PLIPA2A120pp": [
+      0.0,
+      1000.0
+    ],
+    "PLIPA2A140pp": [
+      0.0,
+      1000.0
+    ],
+    "PLIPA2A141pp": [
+      0.0,
+      1000.0
+    ],
+    "PLIPA2A160pp": [
+      0.0,
+      1000.0
+    ],
+    "PLIPA2A161pp": [
+      0.0,
+      1000.0
+    ],
+    "PLIPA2A180pp": [
+      0.0,
+      1000.0
+    ],
+    "PLIPA2A181pp": [
+      0.0,
+      1000.0
+    ],
+    "PLIPA2E120pp": [
+      0.0,
+      1000.0
+    ],
+    "PLIPA2E140pp": [
+      0.0,
+      1000.0
+    ],
+    "PLIPA2E141pp": [
+      0.0,
+      1000.0
+    ],
+    "PLIPA2E160pp": [
+      0.0,
+      1000.0
+    ],
+    "PLIPA2E161pp": [
+      0.0,
+      1000.0
+    ],
+    "PLIPA2E180pp": [
+      0.0,
+      1000.0
+    ],
+    "PLIPA2E181pp": [
+      0.0,
+      1000.0
+    ],
+    "PLIPA2G120pp": [
+      0.0,
+      1000.0
+    ],
+    "PLIPA2G140pp": [
+      0.0,
+      1000.0
+    ],
+    "PLIPA2G141pp": [
+      0.0,
+      1000.0
+    ],
+    "PLIPA2G160pp": [
+      0.0,
+      1000.0
+    ],
+    "PLIPA2G161pp": [
+      0.0,
+      1000.0
+    ],
+    "PLIPA2G180pp": [
+      0.0,
+      1000.0
+    ],
+    "PLIPA2G181pp": [
+      0.0,
+      1000.0
+    ],
+    "PLIPA1A120pp": [
+      0.0,
+      1000.0
+    ],
+    "PLIPA1A140pp": [
+      0.0,
+      1000.0
+    ],
+    "PLIPA1A141pp": [
+      0.0,
+      1000.0
+    ],
+    "PLIPA1A160pp": [
+      0.0,
+      1000.0
+    ],
+    "PLIPA1A161pp": [
+      0.0,
+      1000.0
+    ],
+    "PLIPA1A180pp": [
+      0.0,
+      1000.0
+    ],
+    "PLIPA1A181pp": [
+      0.0,
+      1000.0
+    ],
+    "PLIPA1E120pp": [
+      0.0,
+      1000.0
+    ],
+    "PLIPA1E140pp": [
+      0.0,
+      1000.0
+    ],
+    "PLIPA1E141pp": [
+      0.0,
+      1000.0
+    ],
+    "PLIPA1E160pp": [
+      0.0,
+      1000.0
+    ],
+    "PLIPA1E161pp": [
+      0.0,
+      1000.0
+    ],
+    "PLIPA1E180pp": [
+      0.0,
+      1000.0
+    ]
+  },
+  "genes_with_identical_bound_change_signature": [
+    "b3821"
+  ],
+  "bound_change_signature": "6b74b9f6d134af9c81a2624c0b2b0361e753c27df63236ee80bb1a37e1ae6be0",
+  "status": "problematic",
+  "base_geometry_sha256": "07374999682cb82ef566c2a7ba4cd1ca44b0718ab81f421846e24d3b85f5e103",
+  "base_dimension": 581,
+  "base_point_weak_feasible": false,
+  "constraint_epsilon": 0.0,
+  "rank_relative_tolerance": 1e-12,
+  "validation_tolerance": 1e-07,
+  "geometry_directory": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/knockout_panel/conditions/b3821/models/shared",
+  "LPs": [
+    {
+      "round": 0,
+      "model_construction_seconds": 0.007654884830117226,
+      "solve_seconds": 1.2706932369619608,
+      "pass_status": "HighsStatus.kOk",
+      "run_status": "HighsStatus.kOk",
+      "model_status": "HighsModelStatus.kOptimal",
+      "iterations": 1185,
+      "radius": -3.070654841508251e-12,
+      "max_scaled_primal_violation": 6.603618096789887e-09
+    },
+    {
+      "round": 1,
+      "model_construction_seconds": 0.007509132847189903,
+      "solve_seconds": 1.23738170042634,
+      "pass_status": "HighsStatus.kOk",
+      "run_status": "HighsStatus.kOk",
+      "model_status": "HighsModelStatus.kOptimal",
+      "iterations": 1039,
+      "radius": 7.46863749741517e-12,
+      "max_scaled_primal_violation": 8.666312112382002e-11
+    },
+    {
+      "round": 2,
+      "model_construction_seconds": 0.007566720247268677,
+      "solve_seconds": 1.3753596618771553,
+      "pass_status": "HighsStatus.kOk",
+      "run_status": "HighsStatus.kOk",
+      "model_status": "HighsModelStatus.kOptimal",
+      "iterations": 1088,
+      "radius": -7.994144768900812e-12,
+      "max_scaled_primal_violation": 6.412352759888051e-08
+    }
+  ],
+  "facial_reductions": [
+    {
+      "iteration": 0,
+      "nonnegative": true,
+      "weight_sum": 1.0,
+      "dual_A_cancellation_inf": 1.886787517640845e-11,
+      "dual_b_cancellation_abs": 2.3364247096343553e-10,
+      "support_base_rows": [
+        98,
+        593
+      ],
+      "support_weights": [
+        0.49999999989471555,
+        0.4999999998949073
+      ],
+      "interpretation": "Positive dual support is universally tight by nonnegative slack cancellation; not merely active at one vertex."
+    },
+    {
+      "iteration": 1,
+      "nonnegative": true,
+      "weight_sum": 0.9999999999999999,
+      "dual_A_cancellation_inf": 7.61399362225081e-13,
+      "dual_b_cancellation_abs": 3.0764418790241166e-11,
+      "support_base_rows": [
+        97,
+        591
+      ],
+      "support_weights": [
+        0.4999999999878475,
+        0.4999999999850583
+      ],
+      "interpretation": "Positive dual support is universally tight by nonnegative slack cancellation; not merely active at one vertex."
+    }
+  ],
+  "projected_point_strict_interior": false,
+  "reason": "Facial exposing dual did not pass cancellation certificate",
+  "failed_certificate": {
+    "iteration": 2,
+    "nonnegative": true,
+    "weight_sum": 1.0,
+    "dual_A_cancellation_inf": 2.8559056003224475e-08,
+    "dual_b_cancellation_abs": 6.824315975017704e-08,
+    "support_base_rows": [
+      85,
+      558,
+      572
+    ],
+    "support_weights": [
+      0.4999999431648037,
+      0.4999999431648259,
+      1.1364960555623155e-07
+    ],
+    "interpretation": "Positive dual support is universally tight by nonnegative slack cancellation; not merely active at one vertex."
+  },
+  "preparation_seconds": 4.1594798024743795,
+  "affine_rank_history": [
+    {
+      "rank": 42,
+      "singular_values": [
+        1.0516512554269315,
+        1.0516512552540211,
+        1.0516512552148485,
+        1.0516229800851677,
+        1.0515708175865126,
+        1.0515342063299322,
+        1.051129844398821,
+        1.0295400606402516,
+        1.02954006054357,
+        1.0295400605017173,
+        1.029520191911531,
+        1.0294882916961312,
+        1.0294677402538956,
+        1.0172760040468425,
+        1.0172760039903688,
+        1.0172760039653634,
+        1.0172679114801937,
+        1.017251966667766,
+        1.0172427822014458,
+        1.0110315860196206,
+        1.0045617382477146,
+        1.0045617382065284,
+        1.0045617381854977,
+        1.004550141347802,
+        1.0045301262884807,
+        1.0045177772048184,
+        1.0025685938320006,
+        1.0025685937947915,
+        1.0025685937871016,
+        1.0025666504249047,
+        1.0025626720681802,
+        1.0025604148520102,
+        0.9965855614981229,
+        0.983104265164995,
+        0.9342592230772527,
+        0.9157202727499334,
+        0.9156386484444422,
+        0.9155023467417034,
+        0.9154271854841795,
+        0.915427185422093,
+        0.9154271849639263,
+        0.849742715344869
+      ],
+      "relative_rank_threshold": 1e-12,
+      "ranks_at_1e11_1e12_1e13": [
+        42,
+        42,
+        42
+      ],
+      "scaled_equality_residual": 7.993605777301127e-15,
+      "nullspace_residual": 4.440892098500626e-16,
+      "seconds": 0.007935164496302605
+    },
+    {
+      "rank": 44,
+      "singular_values": [
+        1.4168785154713857,
+        1.0516743854382224,
+        1.0516512552548634,
+        1.0516512552150994,
+        1.0516245984391062,
+        1.0515729174370338,
+        1.0515343167073046,
+        1.0511619412071667,
+        1.034096563481711,
+        1.0295400605461746,
+        1.0295400605017306,
+        1.0295218912898194,
+        1.029490352597943,
+        1.0294679621432488,
+        1.0172936597755013,
+        1.0172760039917785,
+        1.0172760039654776,
+        1.0172683708849848,
+        1.0172524611471434,
+        1.0172428066662826,
+        1.0123974007091818,
+        1.0047682922867063,
+        1.0045617382072423,
+        1.004561738185953,
+        1.0045510650180884,
+        1.0045312892649745,
+        1.0045178741040943,
+        1.0025685937948559,
+        1.0025685937872106,
+        1.0025668755589836,
+        1.0025635370862669,
+        1.0025605193712963,
+        1.0025592040171978,
+        0.996314473900897,
+        0.9830444277816845,
+        0.9341455738870449,
+        0.9157196002582866,
+        0.9156296416455053,
+        0.9154961466449507,
+        0.9154271854836012,
+        0.9154271854217035,
+        0.9050771639877406,
+        0.8494231321802967,
+        2.376635482322248e-12
+      ],
+      "relative_rank_threshold": 1e-12,
+      "ranks_at_1e11_1e12_1e13": [
+        43,
+        44,
+        44
+      ],
+      "scaled_equality_residual": 9.992007221626409e-15,
+      "nullspace_residual": 6.661338147750939e-16,
+      "seconds": 0.008400904014706612
+    },
+    {
+      "rank": 45,
+      "singular_values": [
+        1.419013311414834,
+        1.4147148743225741,
+        1.0516744483950415,
+        1.0516512552548634,
+        1.051651255215099,
+        1.0516248091172873,
+        1.0515844369481817,
+        1.051543642199692,
+        1.0511967293665356,
+        1.0349223135415593,
+        1.0332209377849384,
+        1.0295400605461746,
+        1.0295400605017302,
+        1.0295210880306118,
+        1.0294764991979013,
+        1.0172940140719129,
+        1.0172760039917779,
+        1.017276003965477,
+        1.0172700412918467,
+        1.0172665102083533,
+        1.0172458513316827,
+        1.013580787292348,
+        1.0049915477354407,
+        1.0046113326274453,
+        1.0045617382072425,
+        1.0045617381859533,
+        1.0045504322866552,
+        1.0045225028832292,
+        1.002568593794855,
+        1.0025685937872106,
+        1.0025669877100698,
+        1.002564693829469,
+        1.0025605003460414,
+        1.0025475616648927,
+        0.9961249114972741,
+        0.9829797040325927,
+        0.934008863680669,
+        0.9156827221825514,
+        0.9154987751104768,
+        0.9154271854836009,
+        0.9154271854217031,
+        0.9068066498477352,
+        0.9036210777169513,
+        0.8491249939164669,
+        2.5414721994905025e-12,
+        1.2449420006907159e-12
+      ],
+      "relative_rank_threshold": 1e-12,
+      "ranks_at_1e11_1e12_1e13": [
+        44,
+        45,
+        46
+      ],
+      "scaled_equality_residual": 6.266098750984384e-13,
+      "nullspace_residual": 8.03948413104303e-13,
+      "seconds": 0.008626449853181839
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "status": "complete",
+  "shared_mask_ready": true,
+  "same_cached_target": true,
+  "global_proof": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/knockout_panel/conditions/b0085/models/global_reround/global_reround_proof.json",
+  "shared_geometry_preparation_seconds": 4.608732046559453,
+  "shared_interior_LP_calls": 2,
+  "shared_interior_LP_seconds": 3.9464157819747925,
+  "mandatory_hull_projection": true,
+  "baseline_label": "Inherited rounding after required orthonormal affine-hull projection",
+  "global_round_algorithm_seconds": 89.63082230463624
+}

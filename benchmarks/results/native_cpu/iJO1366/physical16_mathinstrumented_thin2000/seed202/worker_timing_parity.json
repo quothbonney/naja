@@ -1,0 +1,10 @@
+{
+  "status": "passed",
+  "bitwise_equal": true,
+  "samples_sha256": "6a76e699ada0430df4c2c8c08168fb225564f29b04a32db6f07831efce5a538d",
+  "reference_samples_sha256": "6a76e699ada0430df4c2c8c08168fb225564f29b04a32db6f07831efce5a538d",
+  "reference_run": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/native_cpu/iJO1366/physical16_thin2000/seed202",
+  "instrumented_run": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/native_cpu/iJO1366/physical16_mathinstrumented_thin2000/seed202",
+  "seed": 202,
+  "model": "iJO1366"
+}

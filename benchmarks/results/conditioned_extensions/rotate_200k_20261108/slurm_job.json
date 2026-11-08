@@ -1,0 +1,12 @@
+{
+  "job": "884",
+  "command": [
+    "sbatch",
+    "--parsable",
+    "--chdir=/mnt/home/jordan+123/history-native-20261015-r5",
+    "--array=0-8%2",
+    "--deadline=2026-11-08T22:00:00",
+    "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/scripts/conditioned_gpu_extension.sbatch",
+    "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/conditioned_extensions/rotate_200k_20261108/manifest.json"
+  ]
+}

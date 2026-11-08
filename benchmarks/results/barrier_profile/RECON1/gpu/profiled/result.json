@@ -1,0 +1,1714 @@
+{
+  "model": "RECON1",
+  "barrier": "rotate",
+  "mode": "gpu",
+  "role": "profiled",
+  "binary_sha256": "8a9387cb0339b83132191a43b9e04d86a28d9381287cdc22c8dac1bb2214b54f",
+  "command": [
+    "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/build-h100-barrier-profile/naja",
+    "sample",
+    "run",
+    "--model-dir",
+    "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/RECON1",
+    "--out-root",
+    "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/barrier_profile/RECON1/gpu/profiled/native",
+    "--gpu",
+    "0",
+    "--n-chains",
+    "16",
+    "--n-samples",
+    "8",
+    "--seed",
+    "101",
+    "--tpb",
+    "128",
+    "--thinning",
+    "1",
+    "--constraint-eps",
+    "0",
+    "--extra-constraint-eps",
+    "0",
+    "--pair-prob",
+    "0",
+    "--bounds-policy",
+    "ignore",
+    "--write-npy",
+    "--sample-dtype",
+    "float64",
+    "--host-prefault-threads",
+    "8",
+    "--barrier-rotate"
+  ],
+  "launched_command": [
+    "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/tools/nsight/extracted/opt/nvidia/nsight-systems/2025.3.2/target-linux-x64/nsys",
+    "profile",
+    "-t",
+    "cuda,nvtx,osrt",
+    "--sample=none",
+    "--cpuctxsw=none",
+    "-o",
+    "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/barrier_profile/RECON1/gpu/profiled/trace",
+    "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/env-cpu/bin/python",
+    "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/scripts/nsight_timed_exec.py",
+    "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/barrier_profile/RECON1/gpu/profiled/target-wall.json",
+    "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/build-h100-barrier-profile/naja",
+    "sample",
+    "run",
+    "--model-dir",
+    "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/RECON1",
+    "--out-root",
+    "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/barrier_profile/RECON1/gpu/profiled/native",
+    "--gpu",
+    "0",
+    "--n-chains",
+    "16",
+    "--n-samples",
+    "8",
+    "--seed",
+    "101",
+    "--tpb",
+    "128",
+    "--thinning",
+    "1",
+    "--constraint-eps",
+    "0",
+    "--extra-constraint-eps",
+    "0",
+    "--pair-prob",
+    "0",
+    "--bounds-policy",
+    "ignore",
+    "--write-npy",
+    "--sample-dtype",
+    "float64",
+    "--host-prefault-threads",
+    "8",
+    "--barrier-rotate"
+  ],
+  "target_wall": {
+    "command": [
+      "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/build-h100-barrier-profile/naja",
+      "sample",
+      "run",
+      "--model-dir",
+      "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/RECON1",
+      "--out-root",
+      "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/barrier_profile/RECON1/gpu/profiled/native",
+      "--gpu",
+      "0",
+      "--n-chains",
+      "16",
+      "--n-samples",
+      "8",
+      "--seed",
+      "101",
+      "--tpb",
+      "128",
+      "--thinning",
+      "1",
+      "--constraint-eps",
+      "0",
+      "--extra-constraint-eps",
+      "0",
+      "--pair-prob",
+      "0",
+      "--bounds-policy",
+      "ignore",
+      "--write-npy",
+      "--sample-dtype",
+      "float64",
+      "--host-prefault-threads",
+      "8",
+      "--barrier-rotate"
+    ],
+    "returncode": 0,
+    "target_wall_seconds": 1.2304680962115526,
+    "start_epoch_ns": 1794111423663927271,
+    "end_epoch_ns": 1794111424894397983
+  },
+  "outer_command_wall_seconds": 5.434696365147829,
+  "profile": {
+    "timestamp": "2026-11-08 04:17:04",
+    "config": {
+      "n_chains": 16,
+      "n_samples": 8,
+      "reduced_dim": 931,
+      "original_dim": 931,
+      "constraints": 2120,
+      "thinning": 1,
+      "seed": 101,
+      "sample_dtype": "float64",
+      "host_prefault_threads": 8,
+      "tpb_ss": 128,
+      "gpu_device": 0,
+      "back_transform": false
+    },
+    "timing": {
+      "load_polytope_s": 0.0425,
+      "cube_center_lp_s": 0.0,
+      "barrier_rotation_s": 0.1422,
+      "upload_to_gpu_s": 0.0019,
+      "gpu_sampling_s": 0.0019,
+      "download_from_gpu_s": 0.0012,
+      "backtransform_s": 0.0018,
+      "write_output_s": 0.0077,
+      "total_s": 0.627
+    },
+    "performance": {
+      "total_samples": 128,
+      "throughput_samples_per_sec": 66508.8,
+      "sampling_fraction": 0.003
+    }
+  },
+  "stages": [
+    {
+      "name": "barrier.cpu_slack",
+      "seconds": 0.0007577
+    },
+    {
+      "name": "barrier.upload_A",
+      "seconds": 0.001710457
+    },
+    {
+      "name": "barrier.cublas_create",
+      "seconds": 0.024101628
+    },
+    {
+      "name": "barrier.hessian_syrk",
+      "seconds": 0.027742252
+    },
+    {
+      "name": "barrier.download_H",
+      "seconds": 0.003486891
+    },
+    {
+      "name": "barrier.cpu_mirror_H",
+      "seconds": 0.002663548
+    },
+    {
+      "name": "barrier.upload_H",
+      "seconds": 0.000922151
+    },
+    {
+      "name": "barrier.cusolver_create",
+      "seconds": 0.006152756
+    },
+    {
+      "name": "barrier.eigensolve_and_wait",
+      "seconds": 0.053373934
+    },
+    {
+      "name": "barrier.download_Q",
+      "seconds": 0.003756616
+    },
+    {
+      "name": "barrier.compute_eigenbasis",
+      "seconds": 0.12795941
+    },
+    {
+      "name": "rotation.upload_A",
+      "seconds": 0.001630176
+    },
+    {
+      "name": "rotation.dgemm_and_wait",
+      "seconds": 0.000289419
+    },
+    {
+      "name": "rotation.download_A",
+      "seconds": 0.007430978
+    },
+    {
+      "name": "barrier.gpu_rotate_A",
+      "seconds": 0.011658455
+    },
+    {
+      "name": "barrier.cpu_rotate_start",
+      "seconds": 0.000358239
+    },
+    {
+      "name": "barrier.rotated_feasibility",
+      "seconds": 0.000901782
+    },
+    {
+      "name": "barrier.total",
+      "seconds": 0.142241461
+    }
+  ],
+  "algebra_validation": [],
+  "run_dir": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/barrier_profile/RECON1/gpu/profiled",
+  "exploratory_no_mve": false,
+  "slurm_job_id": "515",
+  "timing_eligible": true,
+  "feasibility": {
+    "checked_samples": 128,
+    "all_samples": true,
+    "max_original_bound_violation": 1.2536844406866767e-07,
+    "max_reduced_Az_minus_b_violation": 0.0,
+    "bound_violation_fraction": {
+      "0.0": 1.0,
+      "1e-07": 1.0,
+      "1e-06": 0.0
+    },
+    "declared_tolerance": 1e-06,
+    "declared_bounds_passed": true,
+    "no_filtering_or_clipping": true,
+    "scope": "Short feasibility test, no convergence inference."
+  },
+  "trace": {
+    "barrier_nvtx_seconds": 0.141709019,
+    "gpu_kernel_sum_seconds": 0.009551438,
+    "gpu_kernel_union_seconds": 0.009551438,
+    "ranges": [
+      {
+        "name": "barrier.total",
+        "start_ns": 1066179300,
+        "end_ns": 1207888319,
+        "wall_seconds": 0.141709019,
+        "gpu_kernel_sum_seconds": 0.009551438,
+        "gpu_kernel_union_seconds": 0.009551438,
+        "gpu_memcpy_sum_seconds": 0.016041988
+      },
+      {
+        "name": "barrier.compute_eigenbasis",
+        "start_ns": 1066180453,
+        "end_ns": 1194139885,
+        "wall_seconds": 0.127959432,
+        "gpu_kernel_sum_seconds": 0.00946203,
+        "gpu_kernel_union_seconds": 0.00946203,
+        "gpu_memcpy_sum_seconds": 0.007310707
+      },
+      {
+        "name": "barrier.cpu_slack",
+        "start_ns": 1066189377,
+        "end_ns": 1066949792,
+        "wall_seconds": 0.000760415,
+        "gpu_kernel_sum_seconds": 0.0,
+        "gpu_kernel_union_seconds": 0.0,
+        "gpu_memcpy_sum_seconds": 0.0
+      },
+      {
+        "name": "barrier.upload_A",
+        "start_ns": 1067018871,
+        "end_ns": 1068731220,
+        "wall_seconds": 0.001712349,
+        "gpu_kernel_sum_seconds": 0.0,
+        "gpu_kernel_union_seconds": 0.0,
+        "gpu_memcpy_sum_seconds": 0.00124371
+      },
+      {
+        "name": "barrier.cublas_create",
+        "start_ns": 1069609244,
+        "end_ns": 1093711217,
+        "wall_seconds": 0.024101973,
+        "gpu_kernel_sum_seconds": 3.023e-06,
+        "gpu_kernel_union_seconds": 3.023e-06,
+        "gpu_memcpy_sum_seconds": 0.0
+      },
+      {
+        "name": "barrier.hessian_syrk",
+        "start_ns": 1093950583,
+        "end_ns": 1121694918,
+        "wall_seconds": 0.027744335,
+        "gpu_kernel_sum_seconds": 8.5695e-05,
+        "gpu_kernel_union_seconds": 8.5695e-05,
+        "gpu_memcpy_sum_seconds": 0.0
+      },
+      {
+        "name": "barrier.download_H",
+        "start_ns": 1122045761,
+        "end_ns": 1125533953,
+        "wall_seconds": 0.003488192,
+        "gpu_kernel_sum_seconds": 0.0,
+        "gpu_kernel_union_seconds": 0.0,
+        "gpu_memcpy_sum_seconds": 0.002653531
+      },
+      {
+        "name": "barrier.cpu_mirror_H",
+        "start_ns": 1125562771,
+        "end_ns": 1128228302,
+        "wall_seconds": 0.002665531,
+        "gpu_kernel_sum_seconds": 0.0,
+        "gpu_kernel_union_seconds": 0.0,
+        "gpu_memcpy_sum_seconds": 0.0
+      },
+      {
+        "name": "barrier.upload_H",
+        "start_ns": 1128252798,
+        "end_ns": 1129175785,
+        "wall_seconds": 0.000922987,
+        "gpu_kernel_sum_seconds": 0.0,
+        "gpu_kernel_union_seconds": 0.0,
+        "gpu_memcpy_sum_seconds": 0.000514561
+      },
+      {
+        "name": "barrier.cusolver_create",
+        "start_ns": 1129193002,
+        "end_ns": 1135346762,
+        "wall_seconds": 0.00615376,
+        "gpu_kernel_sum_seconds": 0.0,
+        "gpu_kernel_union_seconds": 0.0,
+        "gpu_memcpy_sum_seconds": 0.0
+      },
+      {
+        "name": "barrier.eigensolve_and_wait",
+        "start_ns": 1135561316,
+        "end_ns": 1188938217,
+        "wall_seconds": 0.053376901,
+        "gpu_kernel_sum_seconds": 0.009367055,
+        "gpu_kernel_union_seconds": 0.009367055,
+        "gpu_memcpy_sum_seconds": 1.0016e-05
+      },
+      {
+        "name": "barrier.download_Q",
+        "start_ns": 1189911861,
+        "end_ns": 1193669871,
+        "wall_seconds": 0.00375801,
+        "gpu_kernel_sum_seconds": 0.0,
+        "gpu_kernel_union_seconds": 0.0,
+        "gpu_memcpy_sum_seconds": 0.002878427
+      },
+      {
+        "name": "barrier.gpu_rotate_A",
+        "start_ns": 1194933757,
+        "end_ns": 1206590794,
+        "wall_seconds": 0.011657037,
+        "gpu_kernel_sum_seconds": 8.9408e-05,
+        "gpu_kernel_union_seconds": 8.9408e-05,
+        "gpu_memcpy_sum_seconds": 0.008731281
+      },
+      {
+        "name": "rotation.upload_A",
+        "start_ns": 1194935171,
+        "end_ns": 1196566840,
+        "wall_seconds": 0.001631669,
+        "gpu_kernel_sum_seconds": 0.0,
+        "gpu_kernel_union_seconds": 0.0,
+        "gpu_memcpy_sum_seconds": 0.001313056
+      },
+      {
+        "name": "rotation.dgemm_and_wait",
+        "start_ns": 1197739025,
+        "end_ns": 1198027816,
+        "wall_seconds": 0.000288791,
+        "gpu_kernel_sum_seconds": 8.9408e-05,
+        "gpu_kernel_union_seconds": 8.9408e-05,
+        "gpu_memcpy_sum_seconds": 0.0
+      },
+      {
+        "name": "rotation.download_A",
+        "start_ns": 1198280117,
+        "end_ns": 1205713048,
+        "wall_seconds": 0.007432931,
+        "gpu_kernel_sum_seconds": 0.0,
+        "gpu_kernel_union_seconds": 0.0,
+        "gpu_memcpy_sum_seconds": 0.006883892
+      },
+      {
+        "name": "barrier.cpu_rotate_start",
+        "start_ns": 1206602372,
+        "end_ns": 1206960790,
+        "wall_seconds": 0.000358418,
+        "gpu_kernel_sum_seconds": 0.0,
+        "gpu_kernel_union_seconds": 0.0,
+        "gpu_memcpy_sum_seconds": 0.0
+      },
+      {
+        "name": "barrier.rotated_feasibility",
+        "start_ns": 1206973117,
+        "end_ns": 1207875568,
+        "wall_seconds": 0.000902451,
+        "gpu_kernel_sum_seconds": 0.0,
+        "gpu_kernel_union_seconds": 0.0,
+        "gpu_memcpy_sum_seconds": 0.0
+      }
+    ],
+    "kernels": [
+      {
+        "start_ns": 1069602987,
+        "end_ns": 1069612267,
+        "name": "scale_rows_kernel",
+        "inside_barrier_overlap_ns": 9280
+      },
+      {
+        "start_ns": 1121601108,
+        "end_ns": 1121686803,
+        "name": "sm90_xmma_syrk_l_f64f64_f64f64_f64_tn_n_tilesize32x32x32_stage5_warpsize2x2x1_tensor16x8x16_aligna8_alignc8_execute_kernel__5x_cublas",
+        "inside_barrier_overlap_ns": 85695
+      },
+      {
+        "start_ns": 1135769180,
+        "end_ns": 1135770076,
+        "name": "copy_info_kernel",
+        "inside_barrier_overlap_ns": 896
+      },
+      {
+        "start_ns": 1135989627,
+        "end_ns": 1135993595,
+        "name": "lansy_M_stage1",
+        "inside_barrier_overlap_ns": 3968
+      },
+      {
+        "start_ns": 1136007259,
+        "end_ns": 1136009627,
+        "name": "lansy_M_stage2",
+        "inside_barrier_overlap_ns": 2368
+      },
+      {
+        "start_ns": 1136064187,
+        "end_ns": 1136065083,
+        "name": "copy_info_kernel",
+        "inside_barrier_overlap_ns": 896
+      },
+      {
+        "start_ns": 1147152169,
+        "end_ns": 1147153129,
+        "name": "xx_set_info_ker",
+        "inside_barrier_overlap_ns": 960
+      },
+      {
+        "start_ns": 1147198505,
+        "end_ns": 1147210345,
+        "name": "transpose",
+        "inside_barrier_overlap_ns": 11840
+      },
+      {
+        "start_ns": 1147236521,
+        "end_ns": 1147527688,
+        "name": "sytrd4_gpu",
+        "inside_barrier_overlap_ns": 291167
+      },
+      {
+        "start_ns": 1151419426,
+        "end_ns": 1151430338,
+        "name": "sm90_xmma_syr2k_l_f64f64_f64f64_f64_nt_n_tilesize32x32x32_stage5_warpsize2x2x1_tensor16x8x16_aligna8_alignc8_execute_kernel__5x_cublas",
+        "inside_barrier_overlap_ns": 10912
+      },
+      {
+        "start_ns": 1151501793,
+        "end_ns": 1151506817,
+        "name": "transpose",
+        "inside_barrier_overlap_ns": 5024
+      },
+      {
+        "start_ns": 1151517697,
+        "end_ns": 1151808385,
+        "name": "sytrd4_gpu",
+        "inside_barrier_overlap_ns": 290688
+      },
+      {
+        "start_ns": 1151810209,
+        "end_ns": 1151820993,
+        "name": "sm90_xmma_syr2k_l_f64f64_f64f64_f64_nt_n_tilesize32x32x32_stage5_warpsize2x2x1_tensor16x8x16_aligna8_alignc8_execute_kernel__5x_cublas",
+        "inside_barrier_overlap_ns": 10784
+      },
+      {
+        "start_ns": 1151824961,
+        "end_ns": 1151829793,
+        "name": "transpose",
+        "inside_barrier_overlap_ns": 4832
+      },
+      {
+        "start_ns": 1151830593,
+        "end_ns": 1152119968,
+        "name": "sytrd4_gpu",
+        "inside_barrier_overlap_ns": 289375
+      },
+      {
+        "start_ns": 1152120832,
+        "end_ns": 1152131328,
+        "name": "sm90_xmma_syr2k_l_f64f64_f64f64_f64_nt_n_tilesize32x32x32_stage5_warpsize2x2x1_tensor16x8x16_aligna8_alignc8_execute_kernel__5x_cublas",
+        "inside_barrier_overlap_ns": 10496
+      },
+      {
+        "start_ns": 1152135328,
+        "end_ns": 1152139872,
+        "name": "transpose",
+        "inside_barrier_overlap_ns": 4544
+      },
+      {
+        "start_ns": 1152140800,
+        "end_ns": 1152431296,
+        "name": "sytrd4_gpu",
+        "inside_barrier_overlap_ns": 290496
+      },
+      {
+        "start_ns": 1152432288,
+        "end_ns": 1152442912,
+        "name": "sm90_xmma_syr2k_l_f64f64_f64f64_f64_nt_n_tilesize32x32x32_stage5_warpsize2x2x1_tensor16x8x16_aligna8_alignc8_execute_kernel__5x_cublas",
+        "inside_barrier_overlap_ns": 10624
+      },
+      {
+        "start_ns": 1152446912,
+        "end_ns": 1152451168,
+        "name": "transpose",
+        "inside_barrier_overlap_ns": 4256
+      },
+      {
+        "start_ns": 1152452128,
+        "end_ns": 1152737663,
+        "name": "sytrd4_gpu",
+        "inside_barrier_overlap_ns": 285535
+      },
+      {
+        "start_ns": 1152738751,
+        "end_ns": 1152749119,
+        "name": "sm90_xmma_syr2k_l_f64f64_f64f64_f64_nt_n_tilesize32x32x32_stage5_warpsize2x2x1_tensor16x8x16_aligna8_alignc8_execute_kernel__5x_cublas",
+        "inside_barrier_overlap_ns": 10368
+      },
+      {
+        "start_ns": 1152752959,
+        "end_ns": 1152757055,
+        "name": "transpose",
+        "inside_barrier_overlap_ns": 4096
+      },
+      {
+        "start_ns": 1152757951,
+        "end_ns": 1153040511,
+        "name": "sytrd4_gpu",
+        "inside_barrier_overlap_ns": 282560
+      },
+      {
+        "start_ns": 1153041535,
+        "end_ns": 1153051967,
+        "name": "sm90_xmma_syr2k_l_f64f64_f64f64_f64_nt_n_tilesize32x32x32_stage5_warpsize2x2x1_tensor16x8x16_aligna8_alignc8_execute_kernel__5x_cublas",
+        "inside_barrier_overlap_ns": 10432
+      },
+      {
+        "start_ns": 1153056351,
+        "end_ns": 1153060223,
+        "name": "transpose",
+        "inside_barrier_overlap_ns": 3872
+      },
+      {
+        "start_ns": 1153061279,
+        "end_ns": 1153340926,
+        "name": "sytrd4_gpu",
+        "inside_barrier_overlap_ns": 279647
+      },
+      {
+        "start_ns": 1153342014,
+        "end_ns": 1153352190,
+        "name": "sm90_xmma_syr2k_l_f64f64_f64f64_f64_nt_n_tilesize32x32x32_stage5_warpsize2x2x1_tensor16x8x16_aligna8_alignc8_execute_kernel__5x_cublas",
+        "inside_barrier_overlap_ns": 10176
+      },
+      {
+        "start_ns": 1153356830,
+        "end_ns": 1153360414,
+        "name": "transpose",
+        "inside_barrier_overlap_ns": 3584
+      },
+      {
+        "start_ns": 1153361342,
+        "end_ns": 1153639582,
+        "name": "sytrd4_gpu",
+        "inside_barrier_overlap_ns": 278240
+      },
+      {
+        "start_ns": 1153640574,
+        "end_ns": 1153647070,
+        "name": "sm90_xmma_syr2k_l_f64f64_f64f64_f64_nt_n_tilesize32x32x32_stage5_warpsize2x2x1_tensor16x8x16_aligna8_alignc8_execute_kernel__5x_cublas",
+        "inside_barrier_overlap_ns": 6496
+      },
+      {
+        "start_ns": 1153651102,
+        "end_ns": 1153654590,
+        "name": "transpose",
+        "inside_barrier_overlap_ns": 3488
+      },
+      {
+        "start_ns": 1153655518,
+        "end_ns": 1153933725,
+        "name": "sytrd4_gpu",
+        "inside_barrier_overlap_ns": 278207
+      },
+      {
+        "start_ns": 1153934653,
+        "end_ns": 1153941053,
+        "name": "sm90_xmma_syr2k_l_f64f64_f64f64_f64_nt_n_tilesize32x32x32_stage5_warpsize2x2x1_tensor16x8x16_aligna8_alignc8_execute_kernel__5x_cublas",
+        "inside_barrier_overlap_ns": 6400
+      },
+      {
+        "start_ns": 1153945149,
+        "end_ns": 1153948445,
+        "name": "transpose",
+        "inside_barrier_overlap_ns": 3296
+      },
+      {
+        "start_ns": 1153949469,
+        "end_ns": 1154229757,
+        "name": "sytrd4_gpu",
+        "inside_barrier_overlap_ns": 280288
+      },
+      {
+        "start_ns": 1154230749,
+        "end_ns": 1154237085,
+        "name": "sm90_xmma_syr2k_l_f64f64_f64f64_f64_nt_n_tilesize32x32x32_stage5_warpsize2x2x1_tensor16x8x16_aligna8_alignc8_execute_kernel__5x_cublas",
+        "inside_barrier_overlap_ns": 6336
+      },
+      {
+        "start_ns": 1154241213,
+        "end_ns": 1154244221,
+        "name": "transpose",
+        "inside_barrier_overlap_ns": 3008
+      },
+      {
+        "start_ns": 1154245149,
+        "end_ns": 1154525596,
+        "name": "sytrd4_gpu",
+        "inside_barrier_overlap_ns": 280447
+      },
+      {
+        "start_ns": 1154526524,
+        "end_ns": 1154532604,
+        "name": "sm90_xmma_syr2k_l_f64f64_f64f64_f64_nt_n_tilesize32x32x32_stage5_warpsize2x2x1_tensor16x8x16_aligna8_alignc8_execute_kernel__5x_cublas",
+        "inside_barrier_overlap_ns": 6080
+      },
+      {
+        "start_ns": 1154536732,
+        "end_ns": 1154539644,
+        "name": "transpose",
+        "inside_barrier_overlap_ns": 2912
+      },
+      {
+        "start_ns": 1154540668,
+        "end_ns": 1154818140,
+        "name": "sytrd4_gpu",
+        "inside_barrier_overlap_ns": 277472
+      },
+      {
+        "start_ns": 1154819164,
+        "end_ns": 1154825788,
+        "name": "sm90_xmma_syr2k_l_f64f64_f64f64_f64_nt_n_tilesize32x32x32_stage5_warpsize2x2x1_tensor16x8x16_aligna8_alignc8_execute_kernel__5x_cublas",
+        "inside_barrier_overlap_ns": 6624
+      },
+      {
+        "start_ns": 1154830140,
+        "end_ns": 1154832828,
+        "name": "transpose",
+        "inside_barrier_overlap_ns": 2688
+      },
+      {
+        "start_ns": 1154833724,
+        "end_ns": 1155107355,
+        "name": "sytrd4_gpu",
+        "inside_barrier_overlap_ns": 273631
+      },
+      {
+        "start_ns": 1155108379,
+        "end_ns": 1155114523,
+        "name": "sm90_xmma_syr2k_l_f64f64_f64f64_f64_nt_n_tilesize32x32x32_stage5_warpsize2x2x1_tensor16x8x16_aligna8_alignc8_execute_kernel__5x_cublas",
+        "inside_barrier_overlap_ns": 6144
+      },
+      {
+        "start_ns": 1155118715,
+        "end_ns": 1155121243,
+        "name": "transpose",
+        "inside_barrier_overlap_ns": 2528
+      },
+      {
+        "start_ns": 1155122075,
+        "end_ns": 1155391675,
+        "name": "sytrd4_gpu",
+        "inside_barrier_overlap_ns": 269600
+      },
+      {
+        "start_ns": 1155392603,
+        "end_ns": 1155398907,
+        "name": "sm90_xmma_syr2k_l_f64f64_f64f64_f64_nt_n_tilesize32x32x32_stage5_warpsize2x2x1_tensor16x8x16_aligna8_alignc8_execute_kernel__5x_cublas",
+        "inside_barrier_overlap_ns": 6304
+      },
+      {
+        "start_ns": 1155402747,
+        "end_ns": 1155405147,
+        "name": "transpose",
+        "inside_barrier_overlap_ns": 2400
+      },
+      {
+        "start_ns": 1155412123,
+        "end_ns": 1155675962,
+        "name": "sytrd4_gpu",
+        "inside_barrier_overlap_ns": 263839
+      },
+      {
+        "start_ns": 1155676890,
+        "end_ns": 1155683194,
+        "name": "sm90_xmma_syr2k_l_f64f64_f64f64_f64_nt_n_tilesize32x32x32_stage5_warpsize2x2x1_tensor16x8x16_aligna8_alignc8_execute_kernel__5x_cublas",
+        "inside_barrier_overlap_ns": 6304
+      },
+      {
+        "start_ns": 1155687226,
+        "end_ns": 1155689530,
+        "name": "transpose",
+        "inside_barrier_overlap_ns": 2304
+      },
+      {
+        "start_ns": 1155690458,
+        "end_ns": 1155955354,
+        "name": "sytrd4_gpu",
+        "inside_barrier_overlap_ns": 264896
+      },
+      {
+        "start_ns": 1155956346,
+        "end_ns": 1155962362,
+        "name": "sm90_xmma_syr2k_l_f64f64_f64f64_f64_nt_n_tilesize32x32x32_stage5_warpsize2x2x1_tensor16x8x16_aligna8_alignc8_execute_kernel__5x_cublas",
+        "inside_barrier_overlap_ns": 6016
+      },
+      {
+        "start_ns": 1155966330,
+        "end_ns": 1155968506,
+        "name": "transpose",
+        "inside_barrier_overlap_ns": 2176
+      },
+      {
+        "start_ns": 1155969498,
+        "end_ns": 1156230585,
+        "name": "sytrd4_gpu",
+        "inside_barrier_overlap_ns": 261087
+      },
+      {
+        "start_ns": 1156231609,
+        "end_ns": 1156237561,
+        "name": "sm90_xmma_syr2k_l_f64f64_f64f64_f64_nt_n_tilesize32x32x32_stage5_warpsize2x2x1_tensor16x8x16_aligna8_alignc8_execute_kernel__5x_cublas",
+        "inside_barrier_overlap_ns": 5952
+      },
+      {
+        "start_ns": 1156241657,
+        "end_ns": 1156243577,
+        "name": "transpose",
+        "inside_barrier_overlap_ns": 1920
+      },
+      {
+        "start_ns": 1156244537,
+        "end_ns": 1156501721,
+        "name": "sytrd4_gpu",
+        "inside_barrier_overlap_ns": 257184
+      },
+      {
+        "start_ns": 1156502809,
+        "end_ns": 1156508601,
+        "name": "sm90_xmma_syr2k_l_f64f64_f64f64_f64_nt_n_tilesize32x32x32_stage5_warpsize2x2x1_tensor16x8x16_aligna8_alignc8_execute_kernel__5x_cublas",
+        "inside_barrier_overlap_ns": 5792
+      },
+      {
+        "start_ns": 1156513145,
+        "end_ns": 1156515001,
+        "name": "transpose",
+        "inside_barrier_overlap_ns": 1856
+      },
+      {
+        "start_ns": 1156515993,
+        "end_ns": 1156773561,
+        "name": "sytrd4_gpu",
+        "inside_barrier_overlap_ns": 257568
+      },
+      {
+        "start_ns": 1156774617,
+        "end_ns": 1156780025,
+        "name": "sm90_xmma_syr2k_l_f64f64_f64f64_f64_nt_n_tilesize32x32x32_stage5_warpsize2x2x1_tensor16x8x16_aligna8_alignc8_execute_kernel__5x_cublas",
+        "inside_barrier_overlap_ns": 5408
+      },
+      {
+        "start_ns": 1156784025,
+        "end_ns": 1156785721,
+        "name": "transpose",
+        "inside_barrier_overlap_ns": 1696
+      },
+      {
+        "start_ns": 1156786585,
+        "end_ns": 1157041176,
+        "name": "sytrd4_gpu",
+        "inside_barrier_overlap_ns": 254591
+      },
+      {
+        "start_ns": 1157042232,
+        "end_ns": 1157047384,
+        "name": "sm90_xmma_syr2k_l_f64f64_f64f64_f64_nt_n_tilesize32x32x32_stage5_warpsize2x2x1_tensor16x8x16_aligna8_alignc8_execute_kernel__5x_cublas",
+        "inside_barrier_overlap_ns": 5152
+      },
+      {
+        "start_ns": 1157051512,
+        "end_ns": 1157053176,
+        "name": "transpose",
+        "inside_barrier_overlap_ns": 1664
+      },
+      {
+        "start_ns": 1157054072,
+        "end_ns": 1157307384,
+        "name": "sytrd4_gpu",
+        "inside_barrier_overlap_ns": 253312
+      },
+      {
+        "start_ns": 1157308472,
+        "end_ns": 1157313752,
+        "name": "sm90_xmma_syr2k_l_f64f64_f64f64_f64_nt_n_tilesize32x32x32_stage5_warpsize2x2x1_tensor16x8x16_aligna8_alignc8_execute_kernel__5x_cublas",
+        "inside_barrier_overlap_ns": 5280
+      },
+      {
+        "start_ns": 1157318072,
+        "end_ns": 1157319672,
+        "name": "transpose",
+        "inside_barrier_overlap_ns": 1600
+      },
+      {
+        "start_ns": 1157320536,
+        "end_ns": 1157573079,
+        "name": "sytrd4_gpu",
+        "inside_barrier_overlap_ns": 252543
+      },
+      {
+        "start_ns": 1157574071,
+        "end_ns": 1157579191,
+        "name": "sm90_xmma_syr2k_l_f64f64_f64f64_f64_nt_n_tilesize32x32x32_stage5_warpsize2x2x1_tensor16x8x16_aligna8_alignc8_execute_kernel__5x_cublas",
+        "inside_barrier_overlap_ns": 5120
+      },
+      {
+        "start_ns": 1157583415,
+        "end_ns": 1157584919,
+        "name": "transpose",
+        "inside_barrier_overlap_ns": 1504
+      },
+      {
+        "start_ns": 1157585975,
+        "end_ns": 1157836439,
+        "name": "sytrd4_gpu",
+        "inside_barrier_overlap_ns": 250464
+      },
+      {
+        "start_ns": 1157837463,
+        "end_ns": 1157842615,
+        "name": "sm90_xmma_syr2k_l_f64f64_f64f64_f64_nt_n_tilesize32x32x32_stage5_warpsize2x2x1_tensor16x8x16_aligna8_alignc8_execute_kernel__5x_cublas",
+        "inside_barrier_overlap_ns": 5152
+      },
+      {
+        "start_ns": 1157846967,
+        "end_ns": 1157848439,
+        "name": "transpose",
+        "inside_barrier_overlap_ns": 1472
+      },
+      {
+        "start_ns": 1157849495,
+        "end_ns": 1158100694,
+        "name": "sytrd4_gpu",
+        "inside_barrier_overlap_ns": 251199
+      },
+      {
+        "start_ns": 1158101750,
+        "end_ns": 1158106870,
+        "name": "sm90_xmma_syr2k_l_f64f64_f64f64_f64_nt_n_tilesize32x32x32_stage5_warpsize2x2x1_tensor16x8x16_aligna8_alignc8_execute_kernel__5x_cublas",
+        "inside_barrier_overlap_ns": 5120
+      },
+      {
+        "start_ns": 1158110870,
+        "end_ns": 1158112278,
+        "name": "transpose",
+        "inside_barrier_overlap_ns": 1408
+      },
+      {
+        "start_ns": 1158113430,
+        "end_ns": 1158363926,
+        "name": "sytrd4_gpu",
+        "inside_barrier_overlap_ns": 250496
+      },
+      {
+        "start_ns": 1158364886,
+        "end_ns": 1158369846,
+        "name": "sm90_xmma_syr2k_l_f64f64_f64f64_f64_nt_n_tilesize32x32x32_stage5_warpsize2x2x1_tensor16x8x16_aligna8_alignc8_execute_kernel__5x_cublas",
+        "inside_barrier_overlap_ns": 4960
+      },
+      {
+        "start_ns": 1158373942,
+        "end_ns": 1158375286,
+        "name": "transpose",
+        "inside_barrier_overlap_ns": 1344
+      },
+      {
+        "start_ns": 1158376246,
+        "end_ns": 1158626773,
+        "name": "sytrd4_gpu",
+        "inside_barrier_overlap_ns": 250527
+      },
+      {
+        "start_ns": 1158627797,
+        "end_ns": 1158632757,
+        "name": "sm90_xmma_syr2k_l_f64f64_f64f64_f64_nt_n_tilesize32x32x32_stage5_warpsize2x2x1_tensor16x8x16_aligna8_alignc8_execute_kernel__5x_cublas",
+        "inside_barrier_overlap_ns": 4960
+      },
+      {
+        "start_ns": 1158640693,
+        "end_ns": 1158958869,
+        "name": "sytrd4_cta",
+        "inside_barrier_overlap_ns": 318176
+      },
+      {
+        "start_ns": 1158964661,
+        "end_ns": 1158968629,
+        "name": "epilogue",
+        "inside_barrier_overlap_ns": 3968
+      },
+      {
+        "start_ns": 1163408461,
+        "end_ns": 1163418925,
+        "name": "scale_max",
+        "inside_barrier_overlap_ns": 10464
+      },
+      {
+        "start_ns": 1163458381,
+        "end_ns": 1163486861,
+        "name": "steqr_ker",
+        "inside_barrier_overlap_ns": 28480
+      },
+      {
+        "start_ns": 1163492365,
+        "end_ns": 1163501037,
+        "name": "laed2_par",
+        "inside_barrier_overlap_ns": 8672
+      },
+      {
+        "start_ns": 1163506957,
+        "end_ns": 1163509101,
+        "name": "laed2_copy",
+        "inside_barrier_overlap_ns": 2144
+      },
+      {
+        "start_ns": 1163873613,
+        "end_ns": 1163892845,
+        "name": "laed4_par",
+        "inside_barrier_overlap_ns": 19232
+      },
+      {
+        "start_ns": 1163898829,
+        "end_ns": 1163901453,
+        "name": "laed3_epi1",
+        "inside_barrier_overlap_ns": 2624
+      },
+      {
+        "start_ns": 1163915789,
+        "end_ns": 1163919149,
+        "name": "laed3_epi2",
+        "inside_barrier_overlap_ns": 3360
+      },
+      {
+        "start_ns": 1163942061,
+        "end_ns": 1163957133,
+        "name": "laed2_par",
+        "inside_barrier_overlap_ns": 15072
+      },
+      {
+        "start_ns": 1163958093,
+        "end_ns": 1163959885,
+        "name": "laed2_copy",
+        "inside_barrier_overlap_ns": 1792
+      },
+      {
+        "start_ns": 1164031756,
+        "end_ns": 1164049292,
+        "name": "laed4_par",
+        "inside_barrier_overlap_ns": 17536
+      },
+      {
+        "start_ns": 1164055212,
+        "end_ns": 1164059340,
+        "name": "laed3_epi1",
+        "inside_barrier_overlap_ns": 4128
+      },
+      {
+        "start_ns": 1164069708,
+        "end_ns": 1164073740,
+        "name": "laed3_epi2",
+        "inside_barrier_overlap_ns": 4032
+      },
+      {
+        "start_ns": 1164098668,
+        "end_ns": 1164126732,
+        "name": "laed2_par",
+        "inside_barrier_overlap_ns": 28064
+      },
+      {
+        "start_ns": 1164127628,
+        "end_ns": 1164129580,
+        "name": "laed2_copy",
+        "inside_barrier_overlap_ns": 1952
+      },
+      {
+        "start_ns": 1164193100,
+        "end_ns": 1164220076,
+        "name": "laed4_par",
+        "inside_barrier_overlap_ns": 26976
+      },
+      {
+        "start_ns": 1164225836,
+        "end_ns": 1164232684,
+        "name": "laed3_epi1",
+        "inside_barrier_overlap_ns": 6848
+      },
+      {
+        "start_ns": 1164238988,
+        "end_ns": 1164244972,
+        "name": "laed3_epi2",
+        "inside_barrier_overlap_ns": 5984
+      },
+      {
+        "start_ns": 1164261740,
+        "end_ns": 1164314732,
+        "name": "laed2_par",
+        "inside_barrier_overlap_ns": 52992
+      },
+      {
+        "start_ns": 1164315756,
+        "end_ns": 1164317964,
+        "name": "laed2_copy",
+        "inside_barrier_overlap_ns": 2208
+      },
+      {
+        "start_ns": 1164364364,
+        "end_ns": 1164394348,
+        "name": "laed4_par",
+        "inside_barrier_overlap_ns": 29984
+      },
+      {
+        "start_ns": 1164399660,
+        "end_ns": 1164412332,
+        "name": "laed3_epi1",
+        "inside_barrier_overlap_ns": 12672
+      },
+      {
+        "start_ns": 1164418444,
+        "end_ns": 1164428620,
+        "name": "laed3_epi2",
+        "inside_barrier_overlap_ns": 10176
+      },
+      {
+        "start_ns": 1164437388,
+        "end_ns": 1164538636,
+        "name": "laed2_par",
+        "inside_barrier_overlap_ns": 101248
+      },
+      {
+        "start_ns": 1164539596,
+        "end_ns": 1164542348,
+        "name": "laed2_copy",
+        "inside_barrier_overlap_ns": 2752
+      },
+      {
+        "start_ns": 1164558540,
+        "end_ns": 1164588811,
+        "name": "laed4_par",
+        "inside_barrier_overlap_ns": 30271
+      },
+      {
+        "start_ns": 1164594411,
+        "end_ns": 1164623275,
+        "name": "laed3_epi1",
+        "inside_barrier_overlap_ns": 28864
+      },
+      {
+        "start_ns": 1164629579,
+        "end_ns": 1164651979,
+        "name": "laed3_epi2",
+        "inside_barrier_overlap_ns": 22400
+      },
+      {
+        "start_ns": 1164661483,
+        "end_ns": 1164856203,
+        "name": "laed2_par",
+        "inside_barrier_overlap_ns": 194720
+      },
+      {
+        "start_ns": 1164857227,
+        "end_ns": 1164861195,
+        "name": "laed2_copy",
+        "inside_barrier_overlap_ns": 3968
+      },
+      {
+        "start_ns": 1164877099,
+        "end_ns": 1164913803,
+        "name": "laed4_par",
+        "inside_barrier_overlap_ns": 36704
+      },
+      {
+        "start_ns": 1164920171,
+        "end_ns": 1164964907,
+        "name": "laed3_epi1",
+        "inside_barrier_overlap_ns": 44736
+      },
+      {
+        "start_ns": 1164971723,
+        "end_ns": 1165092747,
+        "name": "laed3_epi2",
+        "inside_barrier_overlap_ns": 121024
+      },
+      {
+        "start_ns": 1165111595,
+        "end_ns": 1165445322,
+        "name": "laed2_par",
+        "inside_barrier_overlap_ns": 333727
+      },
+      {
+        "start_ns": 1165446378,
+        "end_ns": 1165452810,
+        "name": "laed2_copy",
+        "inside_barrier_overlap_ns": 6432
+      },
+      {
+        "start_ns": 1165453834,
+        "end_ns": 1165497290,
+        "name": "laed4_par",
+        "inside_barrier_overlap_ns": 43456
+      },
+      {
+        "start_ns": 1165498346,
+        "end_ns": 1165570346,
+        "name": "laed3_epi1",
+        "inside_barrier_overlap_ns": 72000
+      },
+      {
+        "start_ns": 1165571370,
+        "end_ns": 1165579914,
+        "name": "laed3_epi2",
+        "inside_barrier_overlap_ns": 8544
+      },
+      {
+        "start_ns": 1175150842,
+        "end_ns": 1175159386,
+        "name": "sm90_xmma_gemm_f64f64_f64f64_f64_nn_n_tilesize32x32x32_stage3_warpsize2x2x1_tensor16x8x16_aligna8_alignc8_execute_kernel__5x_cublas",
+        "inside_barrier_overlap_ns": 8544
+      },
+      {
+        "start_ns": 1175202106,
+        "end_ns": 1175215994,
+        "name": "sm90_xmma_gemm_f64f64_f64f64_f64_nn_n_tilesize32x32x32_stage3_warpsize2x2x1_tensor16x8x16_aligna8_alignc8_execute_kernel__5x_cublas",
+        "inside_barrier_overlap_ns": 13888
+      },
+      {
+        "start_ns": 1175232826,
+        "end_ns": 1175234202,
+        "name": "scale_max",
+        "inside_barrier_overlap_ns": 1376
+      },
+      {
+        "start_ns": 1175250586,
+        "end_ns": 1175256250,
+        "name": "merge_ker",
+        "inside_barrier_overlap_ns": 5664
+      },
+      {
+        "start_ns": 1175263098,
+        "end_ns": 1175268474,
+        "name": "merge_ker",
+        "inside_barrier_overlap_ns": 5376
+      },
+      {
+        "start_ns": 1175271002,
+        "end_ns": 1175271898,
+        "name": "copy_info_kernel",
+        "inside_barrier_overlap_ns": 896
+      },
+      {
+        "start_ns": 1175538201,
+        "end_ns": 1175539577,
+        "name": "setup_vhat_l_kernel",
+        "inside_barrier_overlap_ns": 1376
+      },
+      {
+        "start_ns": 1176306360,
+        "end_ns": 1176308088,
+        "name": "gemmcn_skinny_kernel",
+        "inside_barrier_overlap_ns": 1728
+      },
+      {
+        "start_ns": 1176326712,
+        "end_ns": 1176338968,
+        "name": "larft_T_64",
+        "inside_barrier_overlap_ns": 12256
+      },
+      {
+        "start_ns": 1176596311,
+        "end_ns": 1176597463,
+        "name": "setup_vhat_l_kernel",
+        "inside_barrier_overlap_ns": 1152
+      },
+      {
+        "start_ns": 1176719575,
+        "end_ns": 1176723895,
+        "name": "sm90_xmma_gemm_f64f64_f64f64_f64_tn_n_tilesize64x64x32_stage3_warpsize2x2x1_tensor16x8x16_aligna8_alignc8_execute_kernel__5x_cublas",
+        "inside_barrier_overlap_ns": 4320
+      },
+      {
+        "start_ns": 1176748247,
+        "end_ns": 1176752375,
+        "name": "sm90_xmma_gemm_f64f64_f64f64_f64_tn_n_tilesize64x64x32_stage3_warpsize2x2x1_tensor16x8x16_aligna8_alignc8_execute_split_k_kernel__5x_cublas",
+        "inside_barrier_overlap_ns": 4128
+      },
+      {
+        "start_ns": 1176792983,
+        "end_ns": 1176795991,
+        "name": "sm90_xmma_gemm_f64f64_f64f64_f64_nn_n_tilesize32x32x32_stage3_warpsize2x2x1_tensor16x8x16_aligna8_alignc8_execute_kernel__5x_cublas",
+        "inside_barrier_overlap_ns": 3008
+      },
+      {
+        "start_ns": 1176806999,
+        "end_ns": 1176810007,
+        "name": "sm90_xmma_gemm_f64f64_f64f64_f64_nn_n_tilesize32x32x32_stage3_warpsize2x2x1_tensor16x8x16_aligna8_alignc8_execute_kernel__5x_cublas",
+        "inside_barrier_overlap_ns": 3008
+      },
+      {
+        "start_ns": 1176811831,
+        "end_ns": 1176813175,
+        "name": "setup_vhat_l_kernel",
+        "inside_barrier_overlap_ns": 1344
+      },
+      {
+        "start_ns": 1176870103,
+        "end_ns": 1176873975,
+        "name": "sm90_xmma_gemm_f64f64_f64f64_f64_tn_n_tilesize32x32x32_stage3_warpsize2x2x1_tensor16x8x16_aligna8_alignc8_execute_kernel__5x_cublas",
+        "inside_barrier_overlap_ns": 3872
+      },
+      {
+        "start_ns": 1176896055,
+        "end_ns": 1176908823,
+        "name": "larft_T_64_batch",
+        "inside_barrier_overlap_ns": 12768
+      },
+      {
+        "start_ns": 1176916567,
+        "end_ns": 1176919287,
+        "name": "sm90_xmma_gemm_f64f64_f64f64_f64_nn_n_tilesize32x32x32_stage3_warpsize2x2x1_tensor16x8x16_aligna8_alignc8_execute_kernel__5x_cublas",
+        "inside_barrier_overlap_ns": 2720
+      },
+      {
+        "start_ns": 1176934807,
+        "end_ns": 1176937399,
+        "name": "sm90_xmma_gemm_f64f64_f64f64_f64_nn_n_tilesize32x32x32_stage3_warpsize2x2x1_tensor16x8x16_aligna8_alignc8_execute_kernel__5x_cublas",
+        "inside_barrier_overlap_ns": 2592
+      },
+      {
+        "start_ns": 1176938807,
+        "end_ns": 1176940215,
+        "name": "setup_vhat_l_kernel",
+        "inside_barrier_overlap_ns": 1408
+      },
+      {
+        "start_ns": 1176954583,
+        "end_ns": 1176959095,
+        "name": "sm90_xmma_gemm_f64f64_f64f64_f64_tn_n_tilesize32x32x32_stage3_warpsize2x2x1_tensor16x8x16_aligna8_alignc8_execute_kernel__5x_cublas",
+        "inside_barrier_overlap_ns": 4512
+      },
+      {
+        "start_ns": 1176971959,
+        "end_ns": 1176975863,
+        "name": "sm90_xmma_gemm_f64f64_f64f64_f64_nn_n_tilesize32x32x32_stage3_warpsize2x2x1_tensor16x8x16_aligna8_alignc8_execute_kernel__5x_cublas",
+        "inside_barrier_overlap_ns": 3904
+      },
+      {
+        "start_ns": 1177028759,
+        "end_ns": 1177034039,
+        "name": "sm90_xmma_gemm_f64f64_f64f64_f64_nn_n_tilesize32x64x32_stage3_warpsize2x2x1_tensor16x8x16_aligna8_alignc8_execute_kernel__5x_cublas",
+        "inside_barrier_overlap_ns": 5280
+      },
+      {
+        "start_ns": 1177034935,
+        "end_ns": 1177036759,
+        "name": "setup_vhat_l_kernel",
+        "inside_barrier_overlap_ns": 1824
+      },
+      {
+        "start_ns": 1177048151,
+        "end_ns": 1177053271,
+        "name": "sm90_xmma_gemm_f64f64_f64f64_f64_tn_n_tilesize32x32x32_stage3_warpsize2x2x1_tensor16x8x16_aligna8_alignc8_execute_kernel__5x_cublas",
+        "inside_barrier_overlap_ns": 5120
+      },
+      {
+        "start_ns": 1177054263,
+        "end_ns": 1177066967,
+        "name": "larft_T_64_batch",
+        "inside_barrier_overlap_ns": 12704
+      },
+      {
+        "start_ns": 1177067831,
+        "end_ns": 1177070647,
+        "name": "sm90_xmma_gemm_f64f64_f64f64_f64_nn_n_tilesize32x32x32_stage3_warpsize2x2x1_tensor16x8x16_aligna8_alignc8_execute_kernel__5x_cublas",
+        "inside_barrier_overlap_ns": 2816
+      },
+      {
+        "start_ns": 1177071575,
+        "end_ns": 1177074134,
+        "name": "sm90_xmma_gemm_f64f64_f64f64_f64_nn_n_tilesize32x32x32_stage3_warpsize2x2x1_tensor16x8x16_aligna8_alignc8_execute_kernel__5x_cublas",
+        "inside_barrier_overlap_ns": 2559
+      },
+      {
+        "start_ns": 1177074998,
+        "end_ns": 1177076406,
+        "name": "setup_vhat_l_kernel",
+        "inside_barrier_overlap_ns": 1408
+      },
+      {
+        "start_ns": 1177119414,
+        "end_ns": 1177125526,
+        "name": "sm90_xmma_gemm_f64f64_f64f64_f64_tn_n_tilesize32x32x32_stage5_warpsize2x2x1_tensor16x8x16_aligna8_alignc8_execute_kernel__5x_cublas",
+        "inside_barrier_overlap_ns": 6112
+      },
+      {
+        "start_ns": 1177126806,
+        "end_ns": 1177130838,
+        "name": "sm90_xmma_gemm_f64f64_f64f64_f64_nn_n_tilesize32x32x32_stage3_warpsize2x2x1_tensor16x8x16_aligna8_alignc8_execute_kernel__5x_cublas",
+        "inside_barrier_overlap_ns": 4032
+      },
+      {
+        "start_ns": 1177143862,
+        "end_ns": 1177150390,
+        "name": "sm90_xmma_gemm_f64f64_f64f64_f64_nn_n_tilesize32x32x32_stage3_warpsize2x2x1_tensor16x8x16_aligna8_alignc8_execute_kernel__5x_cublas",
+        "inside_barrier_overlap_ns": 6528
+      },
+      {
+        "start_ns": 1177151446,
+        "end_ns": 1177153334,
+        "name": "setup_vhat_l_kernel",
+        "inside_barrier_overlap_ns": 1888
+      },
+      {
+        "start_ns": 1177164822,
+        "end_ns": 1177171382,
+        "name": "sm90_xmma_gemm_f64f64_f64f64_f64_tn_n_tilesize32x32x32_stage5_warpsize2x2x1_tensor16x8x16_aligna8_alignc8_execute_kernel__5x_cublas",
+        "inside_barrier_overlap_ns": 6560
+      },
+      {
+        "start_ns": 1177172374,
+        "end_ns": 1177185302,
+        "name": "larft_T_64_batch",
+        "inside_barrier_overlap_ns": 12928
+      },
+      {
+        "start_ns": 1177186230,
+        "end_ns": 1177188918,
+        "name": "sm90_xmma_gemm_f64f64_f64f64_f64_nn_n_tilesize32x32x32_stage3_warpsize2x2x1_tensor16x8x16_aligna8_alignc8_execute_kernel__5x_cublas",
+        "inside_barrier_overlap_ns": 2688
+      },
+      {
+        "start_ns": 1177189782,
+        "end_ns": 1177192374,
+        "name": "sm90_xmma_gemm_f64f64_f64f64_f64_nn_n_tilesize32x32x32_stage3_warpsize2x2x1_tensor16x8x16_aligna8_alignc8_execute_kernel__5x_cublas",
+        "inside_barrier_overlap_ns": 2592
+      },
+      {
+        "start_ns": 1177193430,
+        "end_ns": 1177194838,
+        "name": "setup_vhat_l_kernel",
+        "inside_barrier_overlap_ns": 1408
+      },
+      {
+        "start_ns": 1177202998,
+        "end_ns": 1177210134,
+        "name": "sm90_xmma_gemm_f64f64_f64f64_f64_tn_n_tilesize32x32x32_stage5_warpsize2x2x1_tensor16x8x16_aligna8_alignc8_execute_kernel__5x_cublas",
+        "inside_barrier_overlap_ns": 7136
+      },
+      {
+        "start_ns": 1177211126,
+        "end_ns": 1177214774,
+        "name": "sm90_xmma_gemm_f64f64_f64f64_f64_nn_n_tilesize32x32x32_stage3_warpsize2x2x1_tensor16x8x16_aligna8_alignc8_execute_kernel__5x_cublas",
+        "inside_barrier_overlap_ns": 3648
+      },
+      {
+        "start_ns": 1177228054,
+        "end_ns": 1177235766,
+        "name": "sm90_xmma_gemm_f64f64_f64f64_f64_nn_n_tilesize32x64x32_stage3_warpsize2x2x1_tensor16x8x16_aligna8_alignc8_execute_kernel__5x_cublas",
+        "inside_barrier_overlap_ns": 7712
+      },
+      {
+        "start_ns": 1177236726,
+        "end_ns": 1177238550,
+        "name": "setup_vhat_l_kernel",
+        "inside_barrier_overlap_ns": 1824
+      },
+      {
+        "start_ns": 1177769269,
+        "end_ns": 1177772757,
+        "name": "Kernel2",
+        "inside_barrier_overlap_ns": 3488
+      },
+      {
+        "start_ns": 1188072868,
+        "end_ns": 1188074820,
+        "name": "splitKreduce_kernel",
+        "inside_barrier_overlap_ns": 1952
+      },
+      {
+        "start_ns": 1188106980,
+        "end_ns": 1188120004,
+        "name": "larft_T_64_batch",
+        "inside_barrier_overlap_ns": 13024
+      },
+      {
+        "start_ns": 1188171044,
+        "end_ns": 1188173796,
+        "name": "sm90_xmma_gemm_f64f64_f64f64_f64_nn_n_tilesize32x32x32_stage3_warpsize2x2x1_tensor16x8x16_aligna8_alignc8_execute_kernel__5x_cublas",
+        "inside_barrier_overlap_ns": 2752
+      },
+      {
+        "start_ns": 1188182084,
+        "end_ns": 1188184676,
+        "name": "sm90_xmma_gemm_f64f64_f64f64_f64_nn_n_tilesize32x32x32_stage3_warpsize2x2x1_tensor16x8x16_aligna8_alignc8_execute_kernel__5x_cublas",
+        "inside_barrier_overlap_ns": 2592
+      },
+      {
+        "start_ns": 1188190564,
+        "end_ns": 1188192004,
+        "name": "setup_vhat_l_kernel",
+        "inside_barrier_overlap_ns": 1440
+      },
+      {
+        "start_ns": 1188237476,
+        "end_ns": 1188246020,
+        "name": "sm90_xmma_gemm_f64f64_f64f64_f64_tn_n_tilesize32x32x32_stage5_warpsize2x2x1_tensor16x8x16_aligna8_alignc8_execute_kernel__5x_cublas",
+        "inside_barrier_overlap_ns": 8544
+      },
+      {
+        "start_ns": 1188246948,
+        "end_ns": 1188250852,
+        "name": "sm90_xmma_gemm_f64f64_f64f64_f64_nn_n_tilesize32x32x32_stage3_warpsize2x2x1_tensor16x8x16_aligna8_alignc8_execute_kernel__5x_cublas",
+        "inside_barrier_overlap_ns": 3904
+      },
+      {
+        "start_ns": 1188328484,
+        "end_ns": 1188338468,
+        "name": "sm90_xmma_gemm_f64f64_f64f64_f64_nn_n_tilesize64x64x32_stage3_warpsize2x2x1_tensor16x8x16_aligna8_alignc8_execute_kernel__5x_cublas",
+        "inside_barrier_overlap_ns": 9984
+      },
+      {
+        "start_ns": 1188339364,
+        "end_ns": 1188341316,
+        "name": "setup_vhat_l_kernel",
+        "inside_barrier_overlap_ns": 1952
+      },
+      {
+        "start_ns": 1188364388,
+        "end_ns": 1188368260,
+        "name": "Kernel2",
+        "inside_barrier_overlap_ns": 3872
+      },
+      {
+        "start_ns": 1188369348,
+        "end_ns": 1188371300,
+        "name": "splitKreduce_kernel",
+        "inside_barrier_overlap_ns": 1952
+      },
+      {
+        "start_ns": 1188374692,
+        "end_ns": 1188387716,
+        "name": "larft_T_64_batch",
+        "inside_barrier_overlap_ns": 13024
+      },
+      {
+        "start_ns": 1188388708,
+        "end_ns": 1188391492,
+        "name": "sm90_xmma_gemm_f64f64_f64f64_f64_nn_n_tilesize32x32x32_stage3_warpsize2x2x1_tensor16x8x16_aligna8_alignc8_execute_kernel__5x_cublas",
+        "inside_barrier_overlap_ns": 2784
+      },
+      {
+        "start_ns": 1188392548,
+        "end_ns": 1188395139,
+        "name": "sm90_xmma_gemm_f64f64_f64f64_f64_nn_n_tilesize32x32x32_stage3_warpsize2x2x1_tensor16x8x16_aligna8_alignc8_execute_kernel__5x_cublas",
+        "inside_barrier_overlap_ns": 2591
+      },
+      {
+        "start_ns": 1188396099,
+        "end_ns": 1188397571,
+        "name": "setup_vhat_l_kernel",
+        "inside_barrier_overlap_ns": 1472
+      },
+      {
+        "start_ns": 1188410819,
+        "end_ns": 1188420835,
+        "name": "sm90_xmma_gemm_f64f64_f64f64_f64_tn_n_tilesize32x32x32_stage5_warpsize2x2x1_tensor16x8x16_aligna8_alignc8_execute_kernel__5x_cublas",
+        "inside_barrier_overlap_ns": 10016
+      },
+      {
+        "start_ns": 1188421827,
+        "end_ns": 1188425731,
+        "name": "sm90_xmma_gemm_f64f64_f64f64_f64_nn_n_tilesize32x32x32_stage3_warpsize2x2x1_tensor16x8x16_aligna8_alignc8_execute_kernel__5x_cublas",
+        "inside_barrier_overlap_ns": 3904
+      },
+      {
+        "start_ns": 1188436291,
+        "end_ns": 1188446819,
+        "name": "sm90_xmma_gemm_f64f64_f64f64_f64_nn_n_tilesize64x64x32_stage3_warpsize2x2x1_tensor16x8x16_aligna8_alignc8_execute_kernel__5x_cublas",
+        "inside_barrier_overlap_ns": 10528
+      },
+      {
+        "start_ns": 1188447747,
+        "end_ns": 1188449763,
+        "name": "setup_vhat_l_kernel",
+        "inside_barrier_overlap_ns": 2016
+      },
+      {
+        "start_ns": 1188451395,
+        "end_ns": 1188455043,
+        "name": "Kernel2",
+        "inside_barrier_overlap_ns": 3648
+      },
+      {
+        "start_ns": 1188456035,
+        "end_ns": 1188458179,
+        "name": "splitKreduce_kernel",
+        "inside_barrier_overlap_ns": 2144
+      },
+      {
+        "start_ns": 1188459171,
+        "end_ns": 1188472387,
+        "name": "larft_T_64_batch",
+        "inside_barrier_overlap_ns": 13216
+      },
+      {
+        "start_ns": 1188473283,
+        "end_ns": 1188476067,
+        "name": "sm90_xmma_gemm_f64f64_f64f64_f64_nn_n_tilesize32x32x32_stage3_warpsize2x2x1_tensor16x8x16_aligna8_alignc8_execute_kernel__5x_cublas",
+        "inside_barrier_overlap_ns": 2784
+      },
+      {
+        "start_ns": 1188476963,
+        "end_ns": 1188479555,
+        "name": "sm90_xmma_gemm_f64f64_f64f64_f64_nn_n_tilesize32x32x32_stage3_warpsize2x2x1_tensor16x8x16_aligna8_alignc8_execute_kernel__5x_cublas",
+        "inside_barrier_overlap_ns": 2592
+      },
+      {
+        "start_ns": 1188480547,
+        "end_ns": 1188482083,
+        "name": "setup_vhat_l_kernel",
+        "inside_barrier_overlap_ns": 1536
+      },
+      {
+        "start_ns": 1188494115,
+        "end_ns": 1188504899,
+        "name": "sm90_xmma_gemm_f64f64_f64f64_f64_tn_n_tilesize32x32x32_stage5_warpsize2x2x1_tensor16x8x16_aligna8_alignc8_execute_kernel__5x_cublas",
+        "inside_barrier_overlap_ns": 10784
+      },
+      {
+        "start_ns": 1188505827,
+        "end_ns": 1188509763,
+        "name": "sm90_xmma_gemm_f64f64_f64f64_f64_nn_n_tilesize32x32x32_stage3_warpsize2x2x1_tensor16x8x16_aligna8_alignc8_execute_kernel__5x_cublas",
+        "inside_barrier_overlap_ns": 3936
+      },
+      {
+        "start_ns": 1188518499,
+        "end_ns": 1188529379,
+        "name": "sm90_xmma_gemm_f64f64_f64f64_f64_nn_n_tilesize64x64x32_stage3_warpsize2x2x1_tensor16x8x16_aligna8_alignc8_execute_kernel__5x_cublas",
+        "inside_barrier_overlap_ns": 10880
+      },
+      {
+        "start_ns": 1188530307,
+        "end_ns": 1188532291,
+        "name": "setup_vhat_l_kernel",
+        "inside_barrier_overlap_ns": 1984
+      },
+      {
+        "start_ns": 1188534307,
+        "end_ns": 1188538115,
+        "name": "Kernel2",
+        "inside_barrier_overlap_ns": 3808
+      },
+      {
+        "start_ns": 1188538979,
+        "end_ns": 1188541123,
+        "name": "splitKreduce_kernel",
+        "inside_barrier_overlap_ns": 2144
+      },
+      {
+        "start_ns": 1188542083,
+        "end_ns": 1188555267,
+        "name": "larft_T_64_batch",
+        "inside_barrier_overlap_ns": 13184
+      },
+      {
+        "start_ns": 1188556291,
+        "end_ns": 1188559075,
+        "name": "sm90_xmma_gemm_f64f64_f64f64_f64_nn_n_tilesize32x32x32_stage3_warpsize2x2x1_tensor16x8x16_aligna8_alignc8_execute_kernel__5x_cublas",
+        "inside_barrier_overlap_ns": 2784
+      },
+      {
+        "start_ns": 1188560067,
+        "end_ns": 1188562659,
+        "name": "sm90_xmma_gemm_f64f64_f64f64_f64_nn_n_tilesize32x32x32_stage3_warpsize2x2x1_tensor16x8x16_aligna8_alignc8_execute_kernel__5x_cublas",
+        "inside_barrier_overlap_ns": 2592
+      },
+      {
+        "start_ns": 1188563715,
+        "end_ns": 1188565347,
+        "name": "setup_vhat_l_kernel",
+        "inside_barrier_overlap_ns": 1632
+      },
+      {
+        "start_ns": 1188576547,
+        "end_ns": 1188588643,
+        "name": "sm90_xmma_gemm_f64f64_f64f64_f64_tn_n_tilesize32x32x32_stage5_warpsize2x2x1_tensor16x8x16_aligna8_alignc8_execute_kernel__5x_cublas",
+        "inside_barrier_overlap_ns": 12096
+      },
+      {
+        "start_ns": 1188589731,
+        "end_ns": 1188593699,
+        "name": "sm90_xmma_gemm_f64f64_f64f64_f64_nn_n_tilesize32x32x32_stage3_warpsize2x2x1_tensor16x8x16_aligna8_alignc8_execute_kernel__5x_cublas",
+        "inside_barrier_overlap_ns": 3968
+      },
+      {
+        "start_ns": 1188606371,
+        "end_ns": 1188617539,
+        "name": "sm90_xmma_gemm_f64f64_f64f64_f64_nn_n_tilesize64x64x32_stage3_warpsize2x2x1_tensor16x8x16_aligna8_alignc8_execute_kernel__5x_cublas",
+        "inside_barrier_overlap_ns": 11168
+      },
+      {
+        "start_ns": 1188890051,
+        "end_ns": 1188894595,
+        "name": "lacpy_kernel",
+        "inside_barrier_overlap_ns": 4544
+      },
+      {
+        "start_ns": 1197934259,
+        "end_ns": 1198023667,
+        "name": "sm90_xmma_gemm_f64f64_f64f64_f64_nn_n_tilesize64x128x32_stage3_warpsize2x4x1_tensor16x8x16_aligna8_alignc8_execute_kernel__5x_cublas",
+        "inside_barrier_overlap_ns": 89408
+      },
+      {
+        "start_ns": 1210972286,
+        "end_ns": 1210973790,
+        "name": "broadcastColumnsKernel",
+        "inside_barrier_overlap_ns": 0
+      },
+      {
+        "start_ns": 1211363837,
+        "end_ns": 1211372509,
+        "name": "Kernel2",
+        "inside_barrier_overlap_ns": 0
+      },
+      {
+        "start_ns": 1211384125,
+        "end_ns": 1211386269,
+        "name": "splitKreduce_kernel",
+        "inside_barrier_overlap_ns": 0
+      },
+      {
+        "start_ns": 1212170556,
+        "end_ns": 1212307899,
+        "name": "initPrngStatesCHR",
+        "inside_barrier_overlap_ns": 0
+      },
+      {
+        "start_ns": 1212315035,
+        "end_ns": 1212372379,
+        "name": "chrKernel",
+        "inside_barrier_overlap_ns": 0
+      },
+      {
+        "start_ns": 1212984090,
+        "end_ns": 1212998874,
+        "name": "sm90_xmma_gemm_f64f64_f64f64_f64_nn_n_tilesize32x32x32_stage5_warpsize2x2x1_tensor16x8x16_aligna8_alignc8_execute_kernel__5x_cublas",
+        "inside_barrier_overlap_ns": 0
+      }
+    ],
+    "gpu_identity": [
+      [
+        0,
+        "NVIDIA H100 80GB HBM3",
+        "0000:bb:00.0",
+        "edefc586-3f13-ab62-907d-ba075a79f443"
+      ]
+    ]
+  }
+}

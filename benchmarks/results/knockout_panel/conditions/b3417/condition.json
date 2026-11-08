@@ -1,0 +1,140 @@
+{
+  "gene": "b3417",
+  "gene_name": "malP",
+  "disabled_reaction_ids": [
+    "MLTP1",
+    "MLTP2",
+    "MLTP3"
+  ],
+  "knockout_reaction_ids": [
+    "MLTP1",
+    "MLTP2",
+    "MLTP3"
+  ],
+  "changed_bound_rows": 6,
+  "two_sided_encoding_rows": 6,
+  "stratum": "6-20",
+  "base_LP_varying_reactions": 3,
+  "base_LP_nearconstant_reactions": 0,
+  "all_affected_reactions_varying": true,
+  "base_point_max_KO_residual": 0.47617012985653195,
+  "base_point_weak_feasible_at_1e7": false,
+  "minimum_KO_T_row_norm": 0.47617012379686025,
+  "original_changed_bounds": {
+    "MLTP1": [
+      -1000.0,
+      1000.0
+    ],
+    "MLTP2": [
+      -1000.0,
+      1000.0
+    ],
+    "MLTP3": [
+      -1000.0,
+      1000.0
+    ]
+  },
+  "genes_with_identical_bound_change_signature": [
+    "b3417"
+  ],
+  "bound_change_signature": "68be25fed26f8f6753864d904f0e59e36d45752ab96a57c386737835568707ce",
+  "status": "ready",
+  "base_geometry_sha256": "07374999682cb82ef566c2a7ba4cd1ca44b0718ab81f421846e24d3b85f5e103",
+  "base_dimension": 581,
+  "base_point_weak_feasible": false,
+  "constraint_epsilon": 0.0,
+  "rank_relative_tolerance": 1e-12,
+  "validation_tolerance": 1e-07,
+  "geometry_directory": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/knockout_panel/conditions/b3417/models/shared",
+  "LPs": [],
+  "facial_reductions": [],
+  "initial_projection_strict_interior": true,
+  "projected_point_strict_interior": true,
+  "final_origin_strict_after_facial_reduction": true,
+  "interior_method": "analytic_projection_checked_all_normalized_constraints",
+  "conditional_dimension": 578,
+  "rows": 747,
+  "affine_rank": 3,
+  "affine_rank_history": [
+    {
+      "rank": 3,
+      "singular_values": [
+        1.0027031935955044,
+        1.0027031935892337,
+        0.9945715716424472
+      ],
+      "relative_rank_threshold": 1e-12,
+      "ranks_at_1e11_1e12_1e13": [
+        3,
+        3,
+        3
+      ],
+      "scaled_equality_residual": 8.881784197001252e-16,
+      "nullspace_residual": 2.8449465006019636e-16,
+      "seconds": 0.003224845975637436,
+      "projected_origin_min_normalized_slack": 0.8659290708932106
+    }
+  ],
+  "strict_interior_radius": 0.8659290708932106,
+  "min_raw_start_slack": 2.5101374639543387e-08,
+  "certified_affine_constant_base_rows": [
+    {
+      "base_row": 473,
+      "projected_norm": 7.793278170778886e-13,
+      "original_norm": 0.47617012506983003,
+      "constant_bound": -7.210898544940392e-14,
+      "normalized_constant_bound": -1.5143534138944393e-13
+    },
+    {
+      "base_row": 474,
+      "projected_norm": 5.196333450913015e-13,
+      "original_norm": 0.47617012384620766,
+      "constant_bound": -1.7069679003611782e-13,
+      "normalized_constant_bound": -3.584785804227589e-13
+    },
+    {
+      "base_row": 477,
+      "projected_norm": 3.1890709023610545e-13,
+      "original_norm": 0.47617012379686036,
+      "constant_bound": 2.426947531830592e-13,
+      "normalized_constant_bound": 5.096807654538939e-13
+    }
+  ],
+  "no_bound_epsilon_relaxation": true,
+  "source": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/knockout_panel/conditions/b3417/conditional_model.json",
+  "source_sha256": "db8e310bff2f6e1eec4f7c94f4769ad57816b8d6cb529ff6fe2c13c44c79048d",
+  "geometry_sha256": "a8edb2e672bb4fc4252170dbe82d6df75f899155e6100fca045bd71408455a2d",
+  "embedding": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/knockout_panel/conditions/b3417/embedding.npz",
+  "effective_affine_face_signature_rounded_1e10": "5036bbda63ecf44c65085610c48e601c3575481d115a195d9a016f8cf2b69f6f",
+  "fixed_reaction_ids": [
+    "MLTG3",
+    "MLTG4",
+    "MLTG5",
+    "MLTP1",
+    "MLTP2",
+    "MLTP3"
+  ],
+  "fixed_reaction_values": {
+    "MLTG3": -7.210898544940392e-14,
+    "MLTG4": -1.7069679003611782e-13,
+    "MLTG5": 2.426947531830592e-13,
+    "MLTP1": 1.1102230246251565e-16,
+    "MLTP2": 4.440892098500626e-16,
+    "MLTP3": 2.220446049250313e-16
+  },
+  "containment_proof": {
+    "retained_A_max_error": 5.293955920339377e-23,
+    "retained_b_max_error": 0.0,
+    "dropped_rows": "Equality-span residual and constant-bound certificates recorded; numerical rank contract explicit."
+  },
+  "validation": {
+    "points": 33,
+    "max_original_bound_violation": 1.4680299629735824e-12,
+    "max_base_Az_minus_b_violation": 1.7574830479816228e-13,
+    "max_KO_flux_residual": 4.465163731341114e-16
+  },
+  "preparation_seconds": 0.5331232845783234,
+  "LP_solve_seconds": 0,
+  "LP_calls": 0,
+  "LP_skipped": true
+}

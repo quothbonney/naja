@@ -1,0 +1,657 @@
+{
+  "choices": [
+    {
+      "model": "iML1515",
+      "method": "cpu",
+      "status": "selected",
+      "selected_draws": 12000,
+      "tpb": null,
+      "curves": [
+        {
+          "seed": 101,
+          "source": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/native_cpu/iML1515/extension_20261108_worker_thin2000_n12000/seed101",
+          "curve": [
+            {
+              "draws_per_chain": 250,
+              "split_rhat_median": 1.3227943899982493,
+              "split_rhat_p95": 1.832038269012346,
+              "bulk_ess_median": 49.76069541413474,
+              "diagnosed_reactions": 2084,
+              "quality_met": false
+            },
+            {
+              "draws_per_chain": 500,
+              "split_rhat_median": 1.1891217707541246,
+              "split_rhat_p95": 1.455535108812845,
+              "bulk_ess_median": 83.82766506863776,
+              "diagnosed_reactions": 2084,
+              "quality_met": false
+            },
+            {
+              "draws_per_chain": 1000,
+              "split_rhat_median": 1.1026991516383617,
+              "split_rhat_p95": 1.2305558771300638,
+              "bulk_ess_median": 165.60603939222221,
+              "diagnosed_reactions": 2084,
+              "quality_met": false
+            },
+            {
+              "draws_per_chain": 2000,
+              "split_rhat_median": 1.049424978259177,
+              "split_rhat_p95": 1.115262845105663,
+              "bulk_ess_median": 391.9720473178155,
+              "diagnosed_reactions": 2084,
+              "quality_met": false
+            },
+            {
+              "draws_per_chain": 5000,
+              "split_rhat_median": 1.021618230987076,
+              "split_rhat_p95": 1.0459184810145747,
+              "bulk_ess_median": 972.920340285518,
+              "diagnosed_reactions": 2084,
+              "quality_met": false
+            },
+            {
+              "draws_per_chain": 10000,
+              "split_rhat_median": 1.0109073090943714,
+              "split_rhat_p95": 1.0219232283986823,
+              "bulk_ess_median": 1881.6134237795084,
+              "diagnosed_reactions": 2084,
+              "quality_met": false
+            },
+            {
+              "draws_per_chain": 12000,
+              "split_rhat_median": 1.0086028354328176,
+              "split_rhat_p95": 1.0185183966648712,
+              "bulk_ess_median": 2248.60312706388,
+              "diagnosed_reactions": 2084,
+              "quality_met": true
+            }
+          ],
+          "metrics": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/crossmodel_extension/budget_curves/iML1515/cpu/seed101/metrics.json"
+        },
+        {
+          "seed": 202,
+          "source": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/native_cpu/iML1515/extension_20261108_worker_thin2000_n12000/seed202",
+          "curve": [
+            {
+              "draws_per_chain": 250,
+              "split_rhat_median": 1.331605060342142,
+              "split_rhat_p95": 1.7907566955661522,
+              "bulk_ess_median": 49.679547383359434,
+              "diagnosed_reactions": 2084,
+              "quality_met": false
+            },
+            {
+              "draws_per_chain": 500,
+              "split_rhat_median": 1.1865763147971662,
+              "split_rhat_p95": 1.4440289602294938,
+              "bulk_ess_median": 86.69938875054055,
+              "diagnosed_reactions": 2084,
+              "quality_met": false
+            },
+            {
+              "draws_per_chain": 1000,
+              "split_rhat_median": 1.0975403814173936,
+              "split_rhat_p95": 1.223915222775365,
+              "bulk_ess_median": 177.1639436353274,
+              "diagnosed_reactions": 2084,
+              "quality_met": false
+            },
+            {
+              "draws_per_chain": 2000,
+              "split_rhat_median": 1.052292907415441,
+              "split_rhat_p95": 1.1065986636536738,
+              "bulk_ess_median": 385.0856353343317,
+              "diagnosed_reactions": 2084,
+              "quality_met": false
+            },
+            {
+              "draws_per_chain": 5000,
+              "split_rhat_median": 1.021299317340174,
+              "split_rhat_p95": 1.0422739427243672,
+              "bulk_ess_median": 980.4838635092715,
+              "diagnosed_reactions": 2084,
+              "quality_met": false
+            },
+            {
+              "draws_per_chain": 10000,
+              "split_rhat_median": 1.0110090356669426,
+              "split_rhat_p95": 1.0203654054919276,
+              "bulk_ess_median": 1893.1805607237682,
+              "diagnosed_reactions": 2084,
+              "quality_met": false
+            },
+            {
+              "draws_per_chain": 12000,
+              "split_rhat_median": 1.0089085721097906,
+              "split_rhat_p95": 1.0174365587063683,
+              "bulk_ess_median": 2245.0095381881397,
+              "diagnosed_reactions": 2084,
+              "quality_met": true
+            }
+          ],
+          "metrics": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/crossmodel_extension/budget_curves/iML1515/cpu/seed202/metrics.json"
+        },
+        {
+          "seed": 303,
+          "source": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/native_cpu/iML1515/extension_20261108_worker_thin2000_n12000/seed303",
+          "curve": [
+            {
+              "draws_per_chain": 250,
+              "split_rhat_median": 1.2925590317980862,
+              "split_rhat_p95": 1.7832615340783466,
+              "bulk_ess_median": 53.75225628038113,
+              "diagnosed_reactions": 2084,
+              "quality_met": false
+            },
+            {
+              "draws_per_chain": 500,
+              "split_rhat_median": 1.1772300326427798,
+              "split_rhat_p95": 1.4244846482494762,
+              "bulk_ess_median": 89.07218874237262,
+              "diagnosed_reactions": 2084,
+              "quality_met": false
+            },
+            {
+              "draws_per_chain": 1000,
+              "split_rhat_median": 1.0966195343961935,
+              "split_rhat_p95": 1.2376609689892135,
+              "bulk_ess_median": 175.5152362400699,
+              "diagnosed_reactions": 2084,
+              "quality_met": false
+            },
+            {
+              "draws_per_chain": 2000,
+              "split_rhat_median": 1.0524885119861578,
+              "split_rhat_p95": 1.1140829981658456,
+              "bulk_ess_median": 393.00082332527586,
+              "diagnosed_reactions": 2084,
+              "quality_met": false
+            },
+            {
+              "draws_per_chain": 5000,
+              "split_rhat_median": 1.021392817180066,
+              "split_rhat_p95": 1.0447623351800261,
+              "bulk_ess_median": 991.1667145175528,
+              "diagnosed_reactions": 2084,
+              "quality_met": false
+            },
+            {
+              "draws_per_chain": 10000,
+              "split_rhat_median": 1.011017997476544,
+              "split_rhat_p95": 1.0217970265325762,
+              "bulk_ess_median": 1888.9196518909605,
+              "diagnosed_reactions": 2084,
+              "quality_met": false
+            },
+            {
+              "draws_per_chain": 12000,
+              "split_rhat_median": 1.009592656961074,
+              "split_rhat_p95": 1.01738422624284,
+              "bulk_ess_median": 2264.525356330484,
+              "diagnosed_reactions": 2084,
+              "quality_met": true
+            }
+          ],
+          "metrics": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/crossmodel_extension/budget_curves/iML1515/cpu/seed303/metrics.json"
+        }
+      ],
+      "selection": "Earliest evaluated budget passing in all3seeds with no observed later failure; common exact-cached-target mask. Fresh executions supply times, never prefix interpolation."
+    },
+    {
+      "model": "iML1515",
+      "method": "gpu",
+      "status": "selected",
+      "selected_draws": 2000,
+      "tpb": 512,
+      "curves": [
+        {
+          "seed": 101,
+          "source": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/crossmodel_extension/gpu_tpb128/iML1515/seed101",
+          "curve": [
+            {
+              "draws_per_chain": 250,
+              "split_rhat_median": 1.0467864759814618,
+              "split_rhat_p95": 1.268949228455693,
+              "bulk_ess_median": 392.06069457783894,
+              "diagnosed_reactions": 2084,
+              "quality_met": false
+            },
+            {
+              "draws_per_chain": 500,
+              "split_rhat_median": 1.0252741395969625,
+              "split_rhat_p95": 1.1490873121564296,
+              "bulk_ess_median": 778.2638063301832,
+              "diagnosed_reactions": 2084,
+              "quality_met": false
+            },
+            {
+              "draws_per_chain": 1000,
+              "split_rhat_median": 1.0138824270994344,
+              "split_rhat_p95": 1.0715955047326997,
+              "bulk_ess_median": 1446.1138296387148,
+              "diagnosed_reactions": 2084,
+              "quality_met": false
+            },
+            {
+              "draws_per_chain": 2000,
+              "split_rhat_median": 1.0071749860809356,
+              "split_rhat_p95": 1.0367598832583682,
+              "bulk_ess_median": 2732.878052645257,
+              "diagnosed_reactions": 2084,
+              "quality_met": true
+            }
+          ],
+          "metrics": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/crossmodel_extension/budget_curves/iML1515/gpu/seed101/metrics.json"
+        },
+        {
+          "seed": 202,
+          "source": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/crossmodel_extension/gpu_tpb128/iML1515/seed202",
+          "curve": [
+            {
+              "draws_per_chain": 250,
+              "split_rhat_median": 1.0468101346815075,
+              "split_rhat_p95": 1.2418670273591055,
+              "bulk_ess_median": 369.0088102499158,
+              "diagnosed_reactions": 2084,
+              "quality_met": false
+            },
+            {
+              "draws_per_chain": 500,
+              "split_rhat_median": 1.0251094550780988,
+              "split_rhat_p95": 1.1230022740573231,
+              "bulk_ess_median": 771.1821700468529,
+              "diagnosed_reactions": 2084,
+              "quality_met": false
+            },
+            {
+              "draws_per_chain": 1000,
+              "split_rhat_median": 1.0131995935845577,
+              "split_rhat_p95": 1.0687461678387642,
+              "bulk_ess_median": 1557.337814152618,
+              "diagnosed_reactions": 2084,
+              "quality_met": false
+            },
+            {
+              "draws_per_chain": 2000,
+              "split_rhat_median": 1.0068790067853228,
+              "split_rhat_p95": 1.0378053903739837,
+              "bulk_ess_median": 2934.2614726048905,
+              "diagnosed_reactions": 2084,
+              "quality_met": true
+            }
+          ],
+          "metrics": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/crossmodel_extension/budget_curves/iML1515/gpu/seed202/metrics.json"
+        },
+        {
+          "seed": 303,
+          "source": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/crossmodel_extension/gpu_tpb128/iML1515/seed303",
+          "curve": [
+            {
+              "draws_per_chain": 250,
+              "split_rhat_median": 1.0504209145321943,
+              "split_rhat_p95": 1.3007039704085952,
+              "bulk_ess_median": 335.7568930547836,
+              "diagnosed_reactions": 2084,
+              "quality_met": false
+            },
+            {
+              "draws_per_chain": 500,
+              "split_rhat_median": 1.025165202550896,
+              "split_rhat_p95": 1.1254846596933699,
+              "bulk_ess_median": 770.0775845511502,
+              "diagnosed_reactions": 2084,
+              "quality_met": false
+            },
+            {
+              "draws_per_chain": 1000,
+              "split_rhat_median": 1.0137399906646416,
+              "split_rhat_p95": 1.0685041839846363,
+              "bulk_ess_median": 1434.195154762806,
+              "diagnosed_reactions": 2084,
+              "quality_met": false
+            },
+            {
+              "draws_per_chain": 2000,
+              "split_rhat_median": 1.0073430927369906,
+              "split_rhat_p95": 1.0326259378043627,
+              "bulk_ess_median": 2848.9778168240396,
+              "diagnosed_reactions": 2084,
+              "quality_met": true
+            }
+          ],
+          "metrics": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/crossmodel_extension/budget_curves/iML1515/gpu/seed303/metrics.json"
+        }
+      ],
+      "selection": "Earliest evaluated budget passing in all3seeds with no observed later failure; common exact-cached-target mask. Fresh executions supply times, never prefix interpolation."
+    },
+    {
+      "model": "iAF1260",
+      "method": "cpu",
+      "status": "selected",
+      "selected_draws": 10000,
+      "tpb": null,
+      "curves": [
+        {
+          "seed": 101,
+          "source": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/native_cpu/iAF1260/extension_20261108_worker_thin2000_n10000/seed101",
+          "curve": [
+            {
+              "draws_per_chain": 250,
+              "split_rhat_median": 1.1949070496771905,
+              "split_rhat_p95": 1.58560599823186,
+              "bulk_ess_median": 77.75954951101187,
+              "diagnosed_reactions": 2382,
+              "quality_met": false
+            },
+            {
+              "draws_per_chain": 500,
+              "split_rhat_median": 1.1000878900769324,
+              "split_rhat_p95": 1.3067945653970248,
+              "bulk_ess_median": 165.01106871592685,
+              "diagnosed_reactions": 2382,
+              "quality_met": false
+            },
+            {
+              "draws_per_chain": 1000,
+              "split_rhat_median": 1.055696886131952,
+              "split_rhat_p95": 1.1571415425817975,
+              "bulk_ess_median": 306.82591798888814,
+              "diagnosed_reactions": 2382,
+              "quality_met": false
+            },
+            {
+              "draws_per_chain": 2000,
+              "split_rhat_median": 1.0302813745787822,
+              "split_rhat_p95": 1.0791740780160919,
+              "bulk_ess_median": 612.3552075515973,
+              "diagnosed_reactions": 2382,
+              "quality_met": false
+            },
+            {
+              "draws_per_chain": 5000,
+              "split_rhat_median": 1.013137741469131,
+              "split_rhat_p95": 1.0287549462619492,
+              "bulk_ess_median": 1495.7091612196236,
+              "diagnosed_reactions": 2382,
+              "quality_met": false
+            },
+            {
+              "draws_per_chain": 10000,
+              "split_rhat_median": 1.0068075253079922,
+              "split_rhat_p95": 1.0145267217887453,
+              "bulk_ess_median": 2935.3227054370545,
+              "diagnosed_reactions": 2382,
+              "quality_met": true
+            }
+          ],
+          "metrics": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/crossmodel_extension/budget_curves/iAF1260/cpu/seed101/metrics.json"
+        },
+        {
+          "seed": 202,
+          "source": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/native_cpu/iAF1260/extension_20261108_worker_thin2000_n10000/seed202",
+          "curve": [
+            {
+              "draws_per_chain": 250,
+              "split_rhat_median": 1.209087250582964,
+              "split_rhat_p95": 1.57099844480382,
+              "bulk_ess_median": 75.59794317791729,
+              "diagnosed_reactions": 2382,
+              "quality_met": false
+            },
+            {
+              "draws_per_chain": 500,
+              "split_rhat_median": 1.1126150845097706,
+              "split_rhat_p95": 1.3504277055320222,
+              "bulk_ess_median": 148.6260089311592,
+              "diagnosed_reactions": 2382,
+              "quality_met": false
+            },
+            {
+              "draws_per_chain": 1000,
+              "split_rhat_median": 1.0610573304442286,
+              "split_rhat_p95": 1.1639629343265312,
+              "bulk_ess_median": 311.1168946634804,
+              "diagnosed_reactions": 2382,
+              "quality_met": false
+            },
+            {
+              "draws_per_chain": 2000,
+              "split_rhat_median": 1.0327852158350361,
+              "split_rhat_p95": 1.0788940038633408,
+              "bulk_ess_median": 613.6967131444754,
+              "diagnosed_reactions": 2382,
+              "quality_met": false
+            },
+            {
+              "draws_per_chain": 5000,
+              "split_rhat_median": 1.0133222749034878,
+              "split_rhat_p95": 1.029032091294988,
+              "bulk_ess_median": 1487.0770762067991,
+              "diagnosed_reactions": 2382,
+              "quality_met": false
+            },
+            {
+              "draws_per_chain": 10000,
+              "split_rhat_median": 1.006701330160166,
+              "split_rhat_p95": 1.0148267412138514,
+              "bulk_ess_median": 2980.582451543358,
+              "diagnosed_reactions": 2382,
+              "quality_met": true
+            }
+          ],
+          "metrics": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/crossmodel_extension/budget_curves/iAF1260/cpu/seed202/metrics.json"
+        },
+        {
+          "seed": 303,
+          "source": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/native_cpu/iAF1260/extension_20261108_worker_thin2000_n10000/seed303",
+          "curve": [
+            {
+              "draws_per_chain": 250,
+              "split_rhat_median": 1.1943736739388964,
+              "split_rhat_p95": 1.6261650752829693,
+              "bulk_ess_median": 76.29998754682563,
+              "diagnosed_reactions": 2382,
+              "quality_met": false
+            },
+            {
+              "draws_per_chain": 500,
+              "split_rhat_median": 1.1051697251421253,
+              "split_rhat_p95": 1.3026553143821622,
+              "bulk_ess_median": 149.37492604251025,
+              "diagnosed_reactions": 2382,
+              "quality_met": false
+            },
+            {
+              "draws_per_chain": 1000,
+              "split_rhat_median": 1.059503249453317,
+              "split_rhat_p95": 1.1505331124382774,
+              "bulk_ess_median": 325.19757362619674,
+              "diagnosed_reactions": 2382,
+              "quality_met": false
+            },
+            {
+              "draws_per_chain": 2000,
+              "split_rhat_median": 1.0281503292782181,
+              "split_rhat_p95": 1.07208720705032,
+              "bulk_ess_median": 647.5316789741171,
+              "diagnosed_reactions": 2382,
+              "quality_met": false
+            },
+            {
+              "draws_per_chain": 5000,
+              "split_rhat_median": 1.011710562654093,
+              "split_rhat_p95": 1.0291435739971098,
+              "bulk_ess_median": 1500.391699184417,
+              "diagnosed_reactions": 2382,
+              "quality_met": false
+            },
+            {
+              "draws_per_chain": 10000,
+              "split_rhat_median": 1.0060725063455587,
+              "split_rhat_p95": 1.0145061310416337,
+              "bulk_ess_median": 2885.1246733983835,
+              "diagnosed_reactions": 2382,
+              "quality_met": true
+            }
+          ],
+          "metrics": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/crossmodel_extension/budget_curves/iAF1260/cpu/seed303/metrics.json"
+        }
+      ],
+      "selection": "Earliest evaluated budget passing in all3seeds with no observed later failure; common exact-cached-target mask. Fresh executions supply times, never prefix interpolation."
+    },
+    {
+      "model": "iAF1260",
+      "method": "gpu",
+      "status": "selected",
+      "selected_draws": 1000,
+      "tpb": 512,
+      "curves": [
+        {
+          "seed": 101,
+          "source": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/crossmodel_extension/gpu_tpb128/iAF1260/seed101",
+          "curve": [
+            {
+              "draws_per_chain": 250,
+              "split_rhat_median": 1.0277373948417634,
+              "split_rhat_p95": 1.2037023739950128,
+              "bulk_ess_median": 667.1250618936383,
+              "diagnosed_reactions": 2382,
+              "quality_met": false
+            },
+            {
+              "draws_per_chain": 500,
+              "split_rhat_median": 1.0155708534589571,
+              "split_rhat_p95": 1.1065840514426466,
+              "bulk_ess_median": 1206.5762836559225,
+              "diagnosed_reactions": 2382,
+              "quality_met": false
+            },
+            {
+              "draws_per_chain": 1000,
+              "split_rhat_median": 1.0081833785272667,
+              "split_rhat_p95": 1.058076585661047,
+              "bulk_ess_median": 2335.3343714340162,
+              "diagnosed_reactions": 2382,
+              "quality_met": true
+            },
+            {
+              "draws_per_chain": 2000,
+              "split_rhat_median": 1.0043187231742516,
+              "split_rhat_p95": 1.0267101241504681,
+              "bulk_ess_median": 4393.286732791239,
+              "diagnosed_reactions": 2382,
+              "quality_met": true
+            },
+            {
+              "draws_per_chain": 5000,
+              "split_rhat_median": 1.0017350634050515,
+              "split_rhat_p95": 1.0113007685058288,
+              "bulk_ess_median": 10917.023001218411,
+              "diagnosed_reactions": 2382,
+              "quality_met": true
+            }
+          ],
+          "metrics": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/crossmodel_extension/budget_curves/iAF1260/gpu/seed101/metrics.json"
+        },
+        {
+          "seed": 202,
+          "source": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/crossmodel_extension/gpu_tpb128/iAF1260/seed202",
+          "curve": [
+            {
+              "draws_per_chain": 250,
+              "split_rhat_median": 1.0284031311075605,
+              "split_rhat_p95": 1.2312075466785077,
+              "bulk_ess_median": 644.5565566805449,
+              "diagnosed_reactions": 2382,
+              "quality_met": false
+            },
+            {
+              "draws_per_chain": 500,
+              "split_rhat_median": 1.0168985864249382,
+              "split_rhat_p95": 1.106908244338864,
+              "bulk_ess_median": 1261.6651532978294,
+              "diagnosed_reactions": 2382,
+              "quality_met": false
+            },
+            {
+              "draws_per_chain": 1000,
+              "split_rhat_median": 1.008559831886647,
+              "split_rhat_p95": 1.0511310198492272,
+              "bulk_ess_median": 2397.0744509359847,
+              "diagnosed_reactions": 2382,
+              "quality_met": true
+            },
+            {
+              "draws_per_chain": 2000,
+              "split_rhat_median": 1.0041925955367819,
+              "split_rhat_p95": 1.0284539358007454,
+              "bulk_ess_median": 4434.4898870522675,
+              "diagnosed_reactions": 2382,
+              "quality_met": true
+            },
+            {
+              "draws_per_chain": 5000,
+              "split_rhat_median": 1.0015535434346323,
+              "split_rhat_p95": 1.0102721701702215,
+              "bulk_ess_median": 10835.426338691384,
+              "diagnosed_reactions": 2382,
+              "quality_met": true
+            }
+          ],
+          "metrics": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/crossmodel_extension/budget_curves/iAF1260/gpu/seed202/metrics.json"
+        },
+        {
+          "seed": 303,
+          "source": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/crossmodel_extension/gpu_tpb128/iAF1260/seed303",
+          "curve": [
+            {
+              "draws_per_chain": 250,
+              "split_rhat_median": 1.029044808953075,
+              "split_rhat_p95": 1.214238263726067,
+              "bulk_ess_median": 655.3654395337956,
+              "diagnosed_reactions": 2382,
+              "quality_met": false
+            },
+            {
+              "draws_per_chain": 500,
+              "split_rhat_median": 1.0152322763684487,
+              "split_rhat_p95": 1.1090840501651766,
+              "bulk_ess_median": 1270.1539259710976,
+              "diagnosed_reactions": 2382,
+              "quality_met": false
+            },
+            {
+              "draws_per_chain": 1000,
+              "split_rhat_median": 1.0076415376752168,
+              "split_rhat_p95": 1.0541621738039821,
+              "bulk_ess_median": 2435.16075032386,
+              "diagnosed_reactions": 2382,
+              "quality_met": true
+            },
+            {
+              "draws_per_chain": 2000,
+              "split_rhat_median": 1.0041865250593358,
+              "split_rhat_p95": 1.0283915705603766,
+              "bulk_ess_median": 4726.525622679039,
+              "diagnosed_reactions": 2382,
+              "quality_met": true
+            },
+            {
+              "draws_per_chain": 5000,
+              "split_rhat_median": 1.0017237776470163,
+              "split_rhat_p95": 1.011371032790289,
+              "bulk_ess_median": 11091.692842668006,
+              "diagnosed_reactions": 2382,
+              "quality_met": true
+            }
+          ],
+          "metrics": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/crossmodel_extension/budget_curves/iAF1260/gpu/seed303/metrics.json"
+        }
+      ],
+      "selection": "Earliest evaluated budget passing in all3seeds with no observed later failure; common exact-cached-target mask. Fresh executions supply times, never prefix interpolation."
+    }
+  ],
+  "generated_utc": "2026-11-08T19:43:33.505860+00:00"
+}

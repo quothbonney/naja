@@ -1,0 +1,5 @@
+{
+  "old_pid": 358228,
+  "new_pid": 358467,
+  "reason": "Durable per-job Slurm deadline and45-minute admission bound; saved source/state before restart."
+}

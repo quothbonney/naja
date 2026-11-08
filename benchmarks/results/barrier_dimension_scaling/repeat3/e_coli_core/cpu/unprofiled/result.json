@@ -1,0 +1,237 @@
+{
+  "model": "e_coli_core",
+  "barrier": "rotate",
+  "mode": "cpu",
+  "role": "unprofiled",
+  "binary_sha256": "8a9387cb0339b83132191a43b9e04d86a28d9381287cdc22c8dac1bb2214b54f",
+  "command": [
+    "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/build-h100-barrier-profile/naja",
+    "sample",
+    "run",
+    "--model-dir",
+    "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/e_coli_core",
+    "--out-root",
+    "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/barrier_dimension_scaling/repeat3/e_coli_core/cpu/unprofiled/native",
+    "--gpu",
+    "0",
+    "--n-chains",
+    "16",
+    "--n-samples",
+    "8",
+    "--seed",
+    "101",
+    "--tpb",
+    "128",
+    "--thinning",
+    "1",
+    "--constraint-eps",
+    "0",
+    "--extra-constraint-eps",
+    "0",
+    "--pair-prob",
+    "0",
+    "--bounds-policy",
+    "ignore",
+    "--write-npy",
+    "--sample-dtype",
+    "float64",
+    "--host-prefault-threads",
+    "8",
+    "--barrier-rotate"
+  ],
+  "launched_command": [
+    "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/env-cpu/bin/python",
+    "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/scripts/nsight_timed_exec.py",
+    "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/barrier_dimension_scaling/repeat3/e_coli_core/cpu/unprofiled/target-wall.json",
+    "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/build-h100-barrier-profile/naja",
+    "sample",
+    "run",
+    "--model-dir",
+    "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/e_coli_core",
+    "--out-root",
+    "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/barrier_dimension_scaling/repeat3/e_coli_core/cpu/unprofiled/native",
+    "--gpu",
+    "0",
+    "--n-chains",
+    "16",
+    "--n-samples",
+    "8",
+    "--seed",
+    "101",
+    "--tpb",
+    "128",
+    "--thinning",
+    "1",
+    "--constraint-eps",
+    "0",
+    "--extra-constraint-eps",
+    "0",
+    "--pair-prob",
+    "0",
+    "--bounds-policy",
+    "ignore",
+    "--write-npy",
+    "--sample-dtype",
+    "float64",
+    "--host-prefault-threads",
+    "8",
+    "--barrier-rotate"
+  ],
+  "target_wall": {
+    "command": [
+      "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/build-h100-barrier-profile/naja",
+      "sample",
+      "run",
+      "--model-dir",
+      "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/e_coli_core",
+      "--out-root",
+      "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/barrier_dimension_scaling/repeat3/e_coli_core/cpu/unprofiled/native",
+      "--gpu",
+      "0",
+      "--n-chains",
+      "16",
+      "--n-samples",
+      "8",
+      "--seed",
+      "101",
+      "--tpb",
+      "128",
+      "--thinning",
+      "1",
+      "--constraint-eps",
+      "0",
+      "--extra-constraint-eps",
+      "0",
+      "--pair-prob",
+      "0",
+      "--bounds-policy",
+      "ignore",
+      "--write-npy",
+      "--sample-dtype",
+      "float64",
+      "--host-prefault-threads",
+      "8",
+      "--barrier-rotate"
+    ],
+    "returncode": 0,
+    "target_wall_seconds": 0.8137694131582975,
+    "start_epoch_ns": 1794165538703254374,
+    "end_epoch_ns": 1794165539517026675
+  },
+  "outer_command_wall_seconds": 0.9775000605732203,
+  "profile": {
+    "timestamp": "2026-11-08 19:18:59",
+    "config": {
+      "n_chains": 16,
+      "n_samples": 8,
+      "reduced_dim": 24,
+      "original_dim": 24,
+      "constraints": 36,
+      "thinning": 1,
+      "seed": 101,
+      "sample_dtype": "float64",
+      "host_prefault_threads": 8,
+      "tpb_ss": 128,
+      "gpu_device": 0,
+      "back_transform": false
+    },
+    "timing": {
+      "load_polytope_s": 0.0015,
+      "cube_center_lp_s": 0.0,
+      "barrier_rotation_s": 0.0369,
+      "upload_to_gpu_s": 0.0002,
+      "gpu_sampling_s": 0.0242,
+      "download_from_gpu_s": 0.0008,
+      "backtransform_s": 0.0113,
+      "write_output_s": 0.0032,
+      "total_s": 0.4019
+    },
+    "performance": {
+      "total_samples": 128,
+      "throughput_samples_per_sec": 5287.1,
+      "sampling_fraction": 0.06
+    }
+  },
+  "stages": [
+    {
+      "name": "barrier.cpu_slack",
+      "seconds": 4.666e-06
+    },
+    {
+      "name": "barrier.upload_A",
+      "seconds": 0.000193161
+    },
+    {
+      "name": "barrier.cublas_create",
+      "seconds": 0.013435078
+    },
+    {
+      "name": "barrier.hessian_syrk",
+      "seconds": 0.000499556
+    },
+    {
+      "name": "barrier.download_H",
+      "seconds": 3.1579e-05
+    },
+    {
+      "name": "barrier.cpu_mirror_H",
+      "seconds": 8.37e-07
+    },
+    {
+      "name": "barrier.upload_H",
+      "seconds": 1.0797e-05
+    },
+    {
+      "name": "barrier.cusolver_create",
+      "seconds": 0.003194315
+    },
+    {
+      "name": "barrier.eigensolve_and_wait",
+      "seconds": 0.017754781
+    },
+    {
+      "name": "barrier.download_Q",
+      "seconds": 1.3532e-05
+    },
+    {
+      "name": "barrier.compute_eigenbasis",
+      "seconds": 0.036856375
+    },
+    {
+      "name": "barrier.cpu_rotate_A",
+      "seconds": 1.3063e-05
+    },
+    {
+      "name": "barrier.cpu_rotate_start",
+      "seconds": 9.8e-07
+    },
+    {
+      "name": "barrier.rotated_feasibility",
+      "seconds": 1.611e-06
+    },
+    {
+      "name": "barrier.total",
+      "seconds": 0.036909703
+    }
+  ],
+  "algebra_validation": [],
+  "run_dir": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/barrier_dimension_scaling/repeat3/e_coli_core/cpu/unprofiled",
+  "exploratory_no_mve": false,
+  "slurm_job_id": "880",
+  "timing_eligible": true,
+  "feasibility": {
+    "checked_samples": 128,
+    "all_samples": true,
+    "max_original_bound_violation": 1.0550681382011735e-13,
+    "max_reduced_Az_minus_b_violation": 0.0,
+    "bound_violation_fraction": {
+      "0.0": 1.0,
+      "1e-07": 0.0,
+      "1e-06": 0.0
+    },
+    "declared_tolerance": 1e-07,
+    "declared_bounds_passed": true,
+    "no_filtering_or_clipping": true,
+    "scope": "Short feasibility test, no convergence inference."
+  }
+}

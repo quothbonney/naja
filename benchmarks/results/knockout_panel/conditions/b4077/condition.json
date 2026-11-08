@@ -1,0 +1,136 @@
+{
+  "gene": "b4077",
+  "gene_name": "gltP",
+  "disabled_reaction_ids": [
+    "ASPt2pp_copy1",
+    "GLUt2rpp"
+  ],
+  "knockout_reaction_ids": [
+    "ASPt2pp_copy1",
+    "GLUt2rpp"
+  ],
+  "changed_bound_rows": 3,
+  "two_sided_encoding_rows": 4,
+  "stratum": "1-5",
+  "base_LP_varying_reactions": 2,
+  "base_LP_nearconstant_reactions": 0,
+  "all_affected_reactions_varying": true,
+  "base_point_max_KO_residual": 583.5073560800894,
+  "base_point_weak_feasible_at_1e7": false,
+  "minimum_KO_T_row_norm": 416.4926359228741,
+  "original_changed_bounds": {
+    "ASPt2pp_copy1": [
+      0.0,
+      1000.0
+    ],
+    "GLUt2rpp": [
+      -1000.0,
+      1000.0
+    ]
+  },
+  "genes_with_identical_bound_change_signature": [
+    "b4077"
+  ],
+  "bound_change_signature": "1d0df32bbe26de7ec11a8c640cbca4b26888f194d2e4f66fe27a1dfa3519e074",
+  "status": "ready",
+  "base_geometry_sha256": "07374999682cb82ef566c2a7ba4cd1ca44b0718ab81f421846e24d3b85f5e103",
+  "base_dimension": 581,
+  "base_point_weak_feasible": false,
+  "constraint_epsilon": 0.0,
+  "rank_relative_tolerance": 1e-12,
+  "validation_tolerance": 1e-07,
+  "geometry_directory": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/knockout_panel/conditions/b4077/models/shared",
+  "LPs": [
+    {
+      "round": 0,
+      "model_construction_seconds": 0.007733633741736412,
+      "solve_seconds": 1.961667962372303,
+      "pass_status": "HighsStatus.kWarning",
+      "run_status": "HighsStatus.kOk",
+      "model_status": "HighsModelStatus.kOptimal",
+      "iterations": 1294,
+      "radius": 0.14324494503563187,
+      "max_scaled_primal_violation": 2.5331869935030227e-10
+    }
+  ],
+  "facial_reductions": [],
+  "initial_projection_strict_interior": false,
+  "projected_point_strict_interior": false,
+  "interior_method": "normalized_Chebyshev_LP_after_exact_affine_reduction",
+  "conditional_dimension": 579,
+  "rows": 747,
+  "affine_rank": 2,
+  "affine_rank_history": [
+    {
+      "rank": 2,
+      "singular_values": [
+        1.0000000026777283,
+        0.9999999973222716
+      ],
+      "relative_rank_threshold": 1e-12,
+      "ranks_at_1e11_1e12_1e13": [
+        2,
+        2,
+        2
+      ],
+      "scaled_equality_residual": 8.881784197001252e-16,
+      "nullspace_residual": 5.967448757360216e-16,
+      "seconds": 0.0026619192212820053,
+      "projected_origin_min_normalized_slack": -0.7379651676130187
+    }
+  ],
+  "strict_interior_radius": 0.14324494503563187,
+  "min_raw_start_slack": 3.5756970140780625e-09,
+  "certified_affine_constant_base_rows": [
+    {
+      "base_row": 3,
+      "projected_norm": 4.4141335843758167e-13,
+      "original_norm": 498.60616968682797,
+      "constant_bound": 1000.0000000000002,
+      "normalized_constant_bound": 2.0055909068034503
+    },
+    {
+      "base_row": 176,
+      "projected_norm": 4.4141335843758167e-13,
+      "original_norm": 498.60616968682797,
+      "constant_bound": -1.7053025658242404e-13,
+      "normalized_constant_bound": -3.4201393193656876e-16
+    },
+    {
+      "base_row": 358,
+      "projected_norm": 5.641030089696468e-14,
+      "original_norm": 416.4926359228741,
+      "constant_bound": 1000.0000000000001,
+      "normalized_constant_bound": 2.4010028359425295
+    }
+  ],
+  "no_bound_epsilon_relaxation": true,
+  "source": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/knockout_panel/conditions/b4077/conditional_model.json",
+  "source_sha256": "30069537ae8257f5b13b11797be754eb2921abc2cae5ffcbd5a1d485edda612b",
+  "geometry_sha256": "dd758f8e770e68cb26b8d1749cfbbb1ce880731d74bdce52930f941294743cd3",
+  "embedding": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/knockout_panel/conditions/b4077/embedding.npz",
+  "effective_affine_face_signature_rounded_1e10": "8535d25d5cd79ddbfd176ea7087fb8b5a5ae073f06de95b6df452e4caa0f4005",
+  "fixed_reaction_ids": [
+    "ASPt2pp_copy1",
+    "GLUt2rpp"
+  ],
+  "fixed_reaction_values": {
+    "ASPt2pp_copy1": -1.7053025658242404e-13,
+    "GLUt2rpp": 1.1368683772161603e-13
+  },
+  "containment_proof": {
+    "retained_A_max_error": 2.117582368135751e-22,
+    "retained_b_max_error": 2.7755575615628914e-17,
+    "dropped_rows": "Equality-span residual and constant-bound certificates recorded; numerical rank contract explicit."
+  },
+  "validation": {
+    "points": 33,
+    "max_original_bound_violation": 2.7870138658678227e-12,
+    "max_base_Az_minus_b_violation": 1.4779288903810084e-12,
+    "max_KO_flux_residual": 3.2874326173274963e-13
+  },
+  "preparation_seconds": 2.5476438719779253,
+  "LP_solve_seconds": 1.961667962372303,
+  "LP_calls": 1,
+  "LP_skipped": false
+}

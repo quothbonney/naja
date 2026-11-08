@@ -1,0 +1,89 @@
+diff --git a/naja-test-jack/naja/src/gpu/chr.cu b/benchmarks/experimental/naja-coordinate/src/gpu/chr.cu
+index 29e5395..56e47e2 100644
+--- a/naja-test-jack/naja/src/gpu/chr.cu
++++ b/benchmarks/experimental/naja-coordinate/src/gpu/chr.cu
+@@ -243,7 +243,7 @@ namespace naja {
+             }
+         }
+ 
+-        template <typename Real, typename PRNGenerator, int ThreadsPerBlock>
++        template <typename Real, typename PRNGenerator, int ThreadsPerBlock, bool CoordinateOnly = false>
+         __global__ void chrKernel(Real* A,
+                                   const Real* b,
+                                   Real* slack,
+@@ -306,9 +306,9 @@ namespace naja {
+                     PRNGenerator localState = global_states[bid];
+                     Real ucoord = curand_uniform_double(&localState);
+                     // Direction selection: dikin > ksparse > pair > coordinate
+-                    const int want_dikin = (dikin_prob > Real(0.0) && n_dikin_dirs > 0 && ucoord < dikin_prob) ? 1 : 0;
+-                    const int want_ksparse = (!want_dikin && ksparse_prob > Real(0.0) && ucoord < (dikin_prob + ksparse_prob)) ? 1 : 0;
+-                    const int want_pair = (!want_dikin && !want_ksparse && pair_prob > Real(0.0) && ucoord < (dikin_prob + ksparse_prob + pair_prob)) ? 1 : 0;
++                    const int want_dikin = !CoordinateOnly && (dikin_prob > Real(0.0) && n_dikin_dirs > 0 && ucoord < dikin_prob) ? 1 : 0;
++                    const int want_ksparse = !CoordinateOnly && (!want_dikin && ksparse_prob > Real(0.0) && ucoord < (dikin_prob + ksparse_prob)) ? 1 : 0;
++                    const int want_pair = !CoordinateOnly && (!want_dikin && !want_ksparse && pair_prob > Real(0.0) && ucoord < (dikin_prob + ksparse_prob + pair_prob)) ? 1 : 0;
+                     int use_pair = want_pair;
+                     int use_ksparse = want_ksparse;
+ 
+@@ -411,10 +411,10 @@ namespace naja {
+                 __syncthreads();
+                 int ei = e_i_shared;
+                 int ej = e_j_shared;
+-                int use_pair = use_pair_shared;
+-                Real ci = ci_shared;
+-                Real cj = cj_shared;
+-                int use_ksparse = use_ksparse_shared;
++                int use_pair = CoordinateOnly ? 0 : use_pair_shared;
++                Real ci = CoordinateOnly ? Real(1.0) : ci_shared;
++                Real cj = CoordinateOnly ? Real(0.0) : cj_shared;
++                int use_ksparse = CoordinateOnly ? 0 : use_ksparse_shared;
+                 int k = k_shared;
+ 
+                 // Optional numerical hygiene: resync slack = b - A*x every resync_interval iterations.
+@@ -432,7 +432,7 @@ namespace naja {
+ 
+                 Real partial_max = cuda::std::numeric_limits<Real>::lowest();
+                 Real partial_min = cuda::std::numeric_limits<Real>::max();
+-                const int use_dikin = use_dikin_shared;
++                const int use_dikin = CoordinateOnly ? 0 : use_dikin_shared;
+                 const int dikin_dir_idx = dikin_dir_shared;
+ 
+                 for (int i = tid; i < rows; i += threadstride){
+@@ -585,13 +585,21 @@ namespace naja {
+             const Real* dk_Av = (dikin_Av ? dikin_Av->dmat : nullptr);
+             const Real* dk_V = (dikin_V ? dikin_V->dmat : nullptr);
+ 
+-            #define LAUNCH_CHR(TPB) \
+-                chrKernel<Real, PRNGenerator, TPB><<<blocks_per_grid, threads_per_block, shared_memory_size, stream>>>( \
++            #define LAUNCH_CHR_MODE(TPB, COORDINATE_ONLY) \
++                chrKernel<Real, PRNGenerator, TPB, COORDINATE_ONLY><<<blocks_per_grid, threads_per_block, shared_memory_size, stream>>>( \
+                     A.dmat, b.dvec, slack.dmat, x0.dmat, samples.dmat, rows, cols, global_states, \
+                     samples_per_chain, thinning, blocks_per_grid, persist_flag, pair_prob, resync_interval, \
+                     ksparse_prob, ksparse_k, pair_mode, pair_i_ptr, pair_j_ptr, pair_c_ptr, pair_s_ptr, n_pairs, \
+                     dikin_prob, dk_Av, dk_V, n_dikin_dirs)
+ 
++            // Preserve the generic mixture implementation whenever a noncoordinate
++            // move can be selected. The specialized path consumes the same RNG draws.
++            const bool coordinate_only = pair_prob == Real(0.0) &&
++                ksparse_prob == Real(0.0) && dikin_prob == Real(0.0);
++            #define LAUNCH_CHR(TPB) \
++                if (coordinate_only) { LAUNCH_CHR_MODE(TPB, true); } \
++                else { LAUNCH_CHR_MODE(TPB, false); }
++
+             switch(threads_per_block){
+                 case 32:   LAUNCH_CHR(32);   break;
+                 case 64:   LAUNCH_CHR(64);   break;
+@@ -602,6 +610,7 @@ namespace naja {
+                 default: throw std::runtime_error("Invalid threads per block");
+             }
+             #undef LAUNCH_CHR
++            #undef LAUNCH_CHR_MODE
+             CUDA_CHECK(cudaGetLastError());
+         }
+ 
+@@ -613,4 +622,4 @@ namespace naja {
+         }
+ 
+     }
+-}
+\ No newline at end of file
++}

@@ -1,0 +1,32 @@
+{
+  "timestamp": "2026-11-08 04:10:58",
+  "config": {
+    "n_chains": 16,
+    "n_samples": 3000,
+    "reduced_dim": 635,
+    "original_dim": 635,
+    "constraints": 801,
+    "thinning": 1000,
+    "seed": 101,
+    "sample_dtype": "float64",
+    "tpb_ss": 512,
+    "gpu_device": 0,
+    "back_transform": false
+  },
+  "timing": {
+    "load_polytope_s": 0.0187,
+    "cube_center_lp_s": 0.0000,
+    "barrier_rotation_s": 0.1664,
+    "upload_to_gpu_s": 0.0008,
+    "gpu_sampling_s": 8.1171,
+    "download_from_gpu_s": 0.1192,
+    "backtransform_s": 0.1213,
+    "write_output_s": 0.2687,
+    "total_s": 9.0269
+  },
+  "performance": {
+    "total_samples": 48000,
+    "throughput_samples_per_sec": 5913.5,
+    "sampling_fraction": 0.899
+  }
+}

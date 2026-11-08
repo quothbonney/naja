@@ -1,0 +1,10 @@
+{
+  "utc": "2026-11-08T19:18:38.342591+00:00",
+  "Recon3D_full_rounding_status": "not available",
+  "original_150_6": "TIMEOUT at09:00:17",
+  "private_401": "TIMEOUT at03:00:07",
+  "no_new_validated_full_round_geometry": true,
+  "cached_equality_only_barrier_evidence_retained": true,
+  "historical_setup_attempt_manifest_still_contains_running_snapshot": "results/setup/Recon3D_preprocessing_attempts.json",
+  "accounting_file": "recon3d_slurm_accounting.psv"
+}

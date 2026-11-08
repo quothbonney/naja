@@ -1,0 +1,21 @@
+{
+  "status": "passed",
+  "errors": [],
+  "raw_sha256": "7bedec10576cfe935b19218dc881f3fb14f890a1871448fc19a9b4ee15b448d8",
+  "model": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/e_coli_core",
+  "hostname": "slurm-h100-206-077",
+  "tolerance": 1e-07,
+  "n": 95,
+  "d": 24,
+  "m": 36,
+  "min_start_slack": 0.039252951538464864,
+  "max_start_bound_violation": 6.176535845380382e-14,
+  "max_S_shift": 1.8811618929248652e-12,
+  "max_S_T": 2.124259101954351e-12,
+  "pilot_chains": 2,
+  "pilot_draws": 64,
+  "pilot_thinning": 100,
+  "max_pilot_bound_violation": 1.1873187684658854e-13,
+  "max_pilot_equality_residual": 4.249045559845399e-12,
+  "preprocessing_backend": "glpk"
+}

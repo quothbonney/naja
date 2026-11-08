@@ -1,0 +1,30 @@
+{
+  "argv": ["naja", "sample", "run", "--model-dir", "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/iJR904", "--out-root", "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/precision_quality/iJR904/seed202/native", "--gpu", "0", "--n-chains", "16", "--n-samples", "21000", "--seed", "202", "--tpb", "128", "--thinning", "0", "--constraint-eps", "0", "--extra-constraint-eps", "0", "--pair-prob", "0.0", "--bounds-policy", "ignore", "--write-npy", "--barrier-rotate", "--sample-dtype", "float64"],
+  "model_dir": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/iJR904",
+  "engine": {
+    "path": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/build-h100-f64/naja",
+    "sha256": "5e6968eb7d3cebf5f27c16d2662a2e640cc3f6b7a633b7e7ae3bc9136a99f3d5",
+    "size": 6765320
+  },
+  "config": {
+    "gpu_device": 0,
+    "n_chains": 16,
+    "n_samples": 21000,
+    "tpb_ss": 128,
+    "back_transform": false,
+    "write_data": true,
+    "bounds_policy": "ignore",
+    "bounds_eps": 1e-06,
+    "write_samples_valid": false
+  },
+  "resolved_paths": {
+    "model_dir": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/iJR904",
+    "A": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/iJR904/rounding/polytope.npz",
+    "b": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/iJR904/rounding/polytope.npz",
+    "start": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/iJR904/rounding/polytope.npz",
+    "T": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/iJR904/rounding/polytope.npz",
+    "shift": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/iJR904/rounding/polytope.npz",
+    "extra_A": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/iJR904/rounding/extra.npz",
+    "extra_b": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/iJR904/rounding/extra.npz"
+  }
+}

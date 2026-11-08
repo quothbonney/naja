@@ -1,0 +1,48 @@
+{
+  "generated_utc": "2026-11-08T19:19:15.386411+00:00",
+  "status": "passed",
+  "checks": [
+    {
+      "method": "cpu",
+      "seed": 101001,
+      "check": "fresh_retained_file_sha256",
+      "status": "passed",
+      "samples_sha256": "08d8c3a47733cb77121a462e25ab09074a6b710928d8fc59e17c766969b76ead"
+    },
+    {
+      "method": "cpu",
+      "seed": 202001,
+      "check": "fresh_retained_file_sha256",
+      "status": "passed",
+      "samples_sha256": "d07ce4db2b9ea2b7f744e34410b3ea4e82de49d91a14338a9600f7b92d60c65e"
+    },
+    {
+      "method": "cpu",
+      "seed": 303001,
+      "check": "fresh_retained_file_sha256",
+      "status": "passed",
+      "samples_sha256": "45a77b8b826c6a3bed7d732686bc372803932122276932777cb7f3e44e323f61"
+    },
+    {
+      "method": "gpu_coordinate",
+      "seed": 101001,
+      "check": "fresh_retained_file_sha256",
+      "status": "passed",
+      "samples_sha256": "c68a22e73964704a20ce27557f59135246465dcde7f9f571f1ab26acb406380a"
+    },
+    {
+      "method": "gpu_coordinate",
+      "seed": 202001,
+      "check": "fresh_retained_file_sha256",
+      "status": "passed",
+      "samples_sha256": "5c55f5de6398c40cba615a0ec1d198e838254a46cc53d61dfff28cdc66c916c0"
+    },
+    {
+      "method": "gpu_coordinate",
+      "seed": 303001,
+      "check": "fresh_retained_file_sha256",
+      "status": "passed",
+      "samples_sha256": "44f1f9937c5abe82537724519df2bd3d87187c752d8482478cca665bf7b22aa3"
+    }
+  ]
+}

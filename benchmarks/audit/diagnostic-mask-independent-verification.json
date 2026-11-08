@@ -1,0 +1,51 @@
+[
+  {
+    "model": "e_coli_core",
+    "source_geometry_hashes": "pass",
+    "array_matches_per_reaction_LP_evidence": "pass",
+    "excluded": 8,
+    "negative_LP_ranges": 0
+  },
+  {
+    "model": "iAB_RBC_283",
+    "source_geometry_hashes": "pass",
+    "array_matches_per_reaction_LP_evidence": "pass",
+    "excluded": 16,
+    "negative_LP_ranges": 0
+  },
+  {
+    "model": "iAF1260",
+    "source_geometry_hashes": "pass",
+    "array_matches_per_reaction_LP_evidence": "pass",
+    "excluded": 851,
+    "negative_LP_ranges": 3
+  },
+  {
+    "model": "iJO1366",
+    "source_geometry_hashes": "pass",
+    "array_matches_per_reaction_LP_evidence": "pass",
+    "excluded": 878,
+    "negative_LP_ranges": 13
+  },
+  {
+    "model": "iJR904",
+    "source_geometry_hashes": "pass",
+    "array_matches_per_reaction_LP_evidence": "pass",
+    "excluded": 409,
+    "negative_LP_ranges": 2
+  },
+  {
+    "model": "iML1515",
+    "source_geometry_hashes": "pass",
+    "array_matches_per_reaction_LP_evidence": "pass",
+    "excluded": 968,
+    "negative_LP_ranges": 12
+  },
+  {
+    "model": "iMM904",
+    "source_geometry_hashes": "pass",
+    "array_matches_per_reaction_LP_evidence": "pass",
+    "excluded": 693,
+    "negative_LP_ranges": 17
+  }
+]

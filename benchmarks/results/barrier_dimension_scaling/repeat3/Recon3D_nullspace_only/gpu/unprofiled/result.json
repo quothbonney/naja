@@ -1,0 +1,253 @@
+{
+  "model": "Recon3D_nullspace_only",
+  "barrier": "whiten",
+  "mode": "gpu",
+  "role": "unprofiled",
+  "binary_sha256": "8a9387cb0339b83132191a43b9e04d86a28d9381287cdc22c8dac1bb2214b54f",
+  "command": [
+    "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/build-h100-barrier-profile/naja",
+    "sample",
+    "run",
+    "--model-dir",
+    "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/Recon3D_nullspace_only",
+    "--out-root",
+    "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/barrier_dimension_scaling/repeat3/Recon3D_nullspace_only/gpu/unprofiled/native",
+    "--gpu",
+    "0",
+    "--n-chains",
+    "16",
+    "--n-samples",
+    "8",
+    "--seed",
+    "101",
+    "--tpb",
+    "128",
+    "--thinning",
+    "1",
+    "--constraint-eps",
+    "0",
+    "--extra-constraint-eps",
+    "0",
+    "--pair-prob",
+    "0",
+    "--bounds-policy",
+    "ignore",
+    "--write-npy",
+    "--sample-dtype",
+    "float64",
+    "--host-prefault-threads",
+    "8",
+    "--barrier-whiten"
+  ],
+  "launched_command": [
+    "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/env-cpu/bin/python",
+    "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/scripts/nsight_timed_exec.py",
+    "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/barrier_dimension_scaling/repeat3/Recon3D_nullspace_only/gpu/unprofiled/target-wall.json",
+    "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/build-h100-barrier-profile/naja",
+    "sample",
+    "run",
+    "--model-dir",
+    "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/Recon3D_nullspace_only",
+    "--out-root",
+    "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/barrier_dimension_scaling/repeat3/Recon3D_nullspace_only/gpu/unprofiled/native",
+    "--gpu",
+    "0",
+    "--n-chains",
+    "16",
+    "--n-samples",
+    "8",
+    "--seed",
+    "101",
+    "--tpb",
+    "128",
+    "--thinning",
+    "1",
+    "--constraint-eps",
+    "0",
+    "--extra-constraint-eps",
+    "0",
+    "--pair-prob",
+    "0",
+    "--bounds-policy",
+    "ignore",
+    "--write-npy",
+    "--sample-dtype",
+    "float64",
+    "--host-prefault-threads",
+    "8",
+    "--barrier-whiten"
+  ],
+  "target_wall": {
+    "command": [
+      "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/build-h100-barrier-profile/naja",
+      "sample",
+      "run",
+      "--model-dir",
+      "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/Recon3D_nullspace_only",
+      "--out-root",
+      "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/barrier_dimension_scaling/repeat3/Recon3D_nullspace_only/gpu/unprofiled/native",
+      "--gpu",
+      "0",
+      "--n-chains",
+      "16",
+      "--n-samples",
+      "8",
+      "--seed",
+      "101",
+      "--tpb",
+      "128",
+      "--thinning",
+      "1",
+      "--constraint-eps",
+      "0",
+      "--extra-constraint-eps",
+      "0",
+      "--pair-prob",
+      "0",
+      "--bounds-policy",
+      "ignore",
+      "--write-npy",
+      "--sample-dtype",
+      "float64",
+      "--host-prefault-threads",
+      "8",
+      "--barrier-whiten"
+    ],
+    "returncode": 0,
+    "target_wall_seconds": 4.323457907885313,
+    "start_epoch_ns": 1794165897450997539,
+    "end_epoch_ns": 1794165901774458001
+  },
+  "outer_command_wall_seconds": 4.531999804079533,
+  "profile": {
+    "timestamp": "2026-11-08 19:25:01",
+    "config": {
+      "n_chains": 16,
+      "n_samples": 8,
+      "reduced_dim": 4861,
+      "original_dim": 4861,
+      "constraints": 18477,
+      "thinning": 1,
+      "seed": 101,
+      "sample_dtype": "float64",
+      "host_prefault_threads": 8,
+      "tpb_ss": 128,
+      "gpu_device": 0,
+      "back_transform": false
+    },
+    "timing": {
+      "load_polytope_s": 1.6202,
+      "cube_center_lp_s": 0.0,
+      "barrier_rotation_s": 1.4549,
+      "upload_to_gpu_s": 0.0663,
+      "gpu_sampling_s": 0.0039,
+      "download_from_gpu_s": 0.0025,
+      "backtransform_s": 0.0036,
+      "write_output_s": 0.0169,
+      "total_s": 3.7902
+    },
+    "performance": {
+      "total_samples": 128,
+      "throughput_samples_per_sec": 32445.6,
+      "sampling_fraction": 0.001
+    }
+  },
+  "stages": [
+    {
+      "name": "barrier.cpu_slack",
+      "seconds": 0.042954993
+    },
+    {
+      "name": "barrier.upload_A",
+      "seconds": 0.076184247
+    },
+    {
+      "name": "barrier.cublas_create",
+      "seconds": 0.017697663
+    },
+    {
+      "name": "barrier.hessian_syrk",
+      "seconds": 0.041209386
+    },
+    {
+      "name": "barrier.download_H",
+      "seconds": 0.098867505
+    },
+    {
+      "name": "barrier.cpu_mirror_H",
+      "seconds": 0.048769757
+    },
+    {
+      "name": "barrier.upload_H",
+      "seconds": 0.017592627
+    },
+    {
+      "name": "barrier.cusolver_create",
+      "seconds": 0.004160837
+    },
+    {
+      "name": "barrier.eigensolve_and_wait",
+      "seconds": 0.232538895
+    },
+    {
+      "name": "barrier.download_Q",
+      "seconds": 0.097420722
+    },
+    {
+      "name": "barrier.compute_eigenbasis",
+      "seconds": 0.708791004
+    },
+    {
+      "name": "rotation.upload_A",
+      "seconds": 0.065676611
+    },
+    {
+      "name": "rotation.dgemm_and_wait",
+      "seconds": 0.020590751
+    },
+    {
+      "name": "rotation.download_A",
+      "seconds": 0.361911748
+    },
+    {
+      "name": "barrier.gpu_rotate_A",
+      "seconds": 0.518133295
+    },
+    {
+      "name": "barrier.cpu_rotate_start",
+      "seconds": 0.009966281
+    },
+    {
+      "name": "barrier.rotated_feasibility",
+      "seconds": 0.042067584
+    },
+    {
+      "name": "barrier.whiten",
+      "seconds": 0.103649367
+    },
+    {
+      "name": "barrier.total",
+      "seconds": 1.461287699
+    }
+  ],
+  "algebra_validation": [],
+  "run_dir": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/barrier_dimension_scaling/repeat3/Recon3D_nullspace_only/gpu/unprofiled",
+  "exploratory_no_mve": true,
+  "slurm_job_id": "880",
+  "timing_eligible": true,
+  "feasibility": {
+    "checked_samples": 128,
+    "all_samples": true,
+    "max_original_bound_violation": 0.0,
+    "max_reduced_Az_minus_b_violation": 0.0,
+    "bound_violation_fraction": {
+      "0.0": 0.0,
+      "1e-07": 0.0,
+      "1e-06": 0.0
+    },
+    "declared_tolerance": 1e-07,
+    "declared_bounds_passed": true,
+    "no_filtering_or_clipping": true,
+    "scope": "Short feasibility test, no convergence inference."
+  }
+}

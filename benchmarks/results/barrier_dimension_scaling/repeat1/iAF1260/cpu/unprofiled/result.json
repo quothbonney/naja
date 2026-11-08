@@ -1,0 +1,237 @@
+{
+  "model": "iAF1260",
+  "barrier": "rotate",
+  "mode": "cpu",
+  "role": "unprofiled",
+  "binary_sha256": "8a9387cb0339b83132191a43b9e04d86a28d9381287cdc22c8dac1bb2214b54f",
+  "command": [
+    "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/build-h100-barrier-profile/naja",
+    "sample",
+    "run",
+    "--model-dir",
+    "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/iAF1260",
+    "--out-root",
+    "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/barrier_dimension_scaling/repeat1/iAF1260/cpu/unprofiled/native",
+    "--gpu",
+    "0",
+    "--n-chains",
+    "16",
+    "--n-samples",
+    "8",
+    "--seed",
+    "101",
+    "--tpb",
+    "128",
+    "--thinning",
+    "1",
+    "--constraint-eps",
+    "0",
+    "--extra-constraint-eps",
+    "0",
+    "--pair-prob",
+    "0",
+    "--bounds-policy",
+    "ignore",
+    "--write-npy",
+    "--sample-dtype",
+    "float64",
+    "--host-prefault-threads",
+    "8",
+    "--barrier-rotate"
+  ],
+  "launched_command": [
+    "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/env-cpu/bin/python",
+    "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/scripts/nsight_timed_exec.py",
+    "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/barrier_dimension_scaling/repeat1/iAF1260/cpu/unprofiled/target-wall.json",
+    "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/build-h100-barrier-profile/naja",
+    "sample",
+    "run",
+    "--model-dir",
+    "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/iAF1260",
+    "--out-root",
+    "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/barrier_dimension_scaling/repeat1/iAF1260/cpu/unprofiled/native",
+    "--gpu",
+    "0",
+    "--n-chains",
+    "16",
+    "--n-samples",
+    "8",
+    "--seed",
+    "101",
+    "--tpb",
+    "128",
+    "--thinning",
+    "1",
+    "--constraint-eps",
+    "0",
+    "--extra-constraint-eps",
+    "0",
+    "--pair-prob",
+    "0",
+    "--bounds-policy",
+    "ignore",
+    "--write-npy",
+    "--sample-dtype",
+    "float64",
+    "--host-prefault-threads",
+    "8",
+    "--barrier-rotate"
+  ],
+  "target_wall": {
+    "command": [
+      "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/build-h100-barrier-profile/naja",
+      "sample",
+      "run",
+      "--model-dir",
+      "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/iAF1260",
+      "--out-root",
+      "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/barrier_dimension_scaling/repeat1/iAF1260/cpu/unprofiled/native",
+      "--gpu",
+      "0",
+      "--n-chains",
+      "16",
+      "--n-samples",
+      "8",
+      "--seed",
+      "101",
+      "--tpb",
+      "128",
+      "--thinning",
+      "1",
+      "--constraint-eps",
+      "0",
+      "--extra-constraint-eps",
+      "0",
+      "--pair-prob",
+      "0",
+      "--bounds-policy",
+      "ignore",
+      "--write-npy",
+      "--sample-dtype",
+      "float64",
+      "--host-prefault-threads",
+      "8",
+      "--barrier-rotate"
+    ],
+    "returncode": 0,
+    "target_wall_seconds": 0.8843337129801512,
+    "start_epoch_ns": 1794165553550444147,
+    "end_epoch_ns": 1794165554434780627
+  },
+  "outer_command_wall_seconds": 1.026360111311078,
+  "profile": {
+    "timestamp": "2026-11-08 19:19:14",
+    "config": {
+      "n_chains": 16,
+      "n_samples": 8,
+      "reduced_dim": 524,
+      "original_dim": 524,
+      "constraints": 671,
+      "thinning": 1,
+      "seed": 101,
+      "sample_dtype": "float64",
+      "host_prefault_threads": 8,
+      "tpb_ss": 128,
+      "gpu_device": 0,
+      "back_transform": false
+    },
+    "timing": {
+      "load_polytope_s": 0.0122,
+      "cube_center_lp_s": 0.0,
+      "barrier_rotation_s": 0.1331,
+      "upload_to_gpu_s": 0.0007,
+      "gpu_sampling_s": 0.0017,
+      "download_from_gpu_s": 0.0012,
+      "backtransform_s": 0.0016,
+      "write_output_s": 0.0054,
+      "total_s": 0.4676
+    },
+    "performance": {
+      "total_samples": 128,
+      "throughput_samples_per_sec": 74949.7,
+      "sampling_fraction": 0.004
+    }
+  },
+  "stages": [
+    {
+      "name": "barrier.cpu_slack",
+      "seconds": 0.000102877
+    },
+    {
+      "name": "barrier.upload_A",
+      "seconds": 0.000542713
+    },
+    {
+      "name": "barrier.cublas_create",
+      "seconds": 0.013553252
+    },
+    {
+      "name": "barrier.hessian_syrk",
+      "seconds": 0.026807903
+    },
+    {
+      "name": "barrier.download_H",
+      "seconds": 0.001125484
+    },
+    {
+      "name": "barrier.cpu_mirror_H",
+      "seconds": 0.00080014
+    },
+    {
+      "name": "barrier.upload_H",
+      "seconds": 0.000407882
+    },
+    {
+      "name": "barrier.cusolver_create",
+      "seconds": 0.003436614
+    },
+    {
+      "name": "barrier.eigensolve_and_wait",
+      "seconds": 0.039868947
+    },
+    {
+      "name": "barrier.download_Q",
+      "seconds": 0.001049749
+    },
+    {
+      "name": "barrier.compute_eigenbasis",
+      "seconds": 0.090463839
+    },
+    {
+      "name": "barrier.cpu_rotate_A",
+      "seconds": 0.042058366
+    },
+    {
+      "name": "barrier.cpu_rotate_start",
+      "seconds": 0.00012073
+    },
+    {
+      "name": "barrier.rotated_feasibility",
+      "seconds": 0.000153203
+    },
+    {
+      "name": "barrier.total",
+      "seconds": 0.133106591
+    }
+  ],
+  "algebra_validation": [],
+  "run_dir": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/barrier_dimension_scaling/repeat1/iAF1260/cpu/unprofiled",
+  "exploratory_no_mve": false,
+  "slurm_job_id": "880",
+  "timing_eligible": true,
+  "feasibility": {
+    "checked_samples": 128,
+    "all_samples": true,
+    "max_original_bound_violation": 2.092305999515041e-09,
+    "max_reduced_Az_minus_b_violation": 0.0,
+    "bound_violation_fraction": {
+      "0.0": 1.0,
+      "1e-07": 0.0,
+      "1e-06": 0.0
+    },
+    "declared_tolerance": 1e-07,
+    "declared_bounds_passed": true,
+    "no_filtering_or_clipping": true,
+    "scope": "Short feasibility test, no convergence inference."
+  }
+}

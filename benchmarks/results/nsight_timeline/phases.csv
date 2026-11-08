@@ -1,0 +1,13 @@
+run,phase,start_s,end_s,duration_s,source
+chains16,Prepare,0,1.0581842479999999,1.0581842479999999,CUDA kernel/memcpy trace; process lifetime from target timer and Nsight session epoch
+chains16,Sample,1.0581842479999999,5.139509726,4.081325478,CUDA kernel/memcpy trace; process lifetime from target timer and Nsight session epoch
+chains16,Map + D2H,5.139509726,5.571364061000001,0.4318543350000006,CUDA kernel/memcpy trace; process lifetime from target timer and Nsight session epoch
+chains16,Write / exit,5.571364061000001,6.2730529475957155,0.7016888865957149,CUDA kernel/memcpy trace; process lifetime from target timer and Nsight session epoch
+chains512,Prepare,0,1.062384728,1.062384728,CUDA kernel/memcpy trace; process lifetime from target timer and Nsight session epoch
+chains512,Sample,1.062384728,5.6236131050000004,4.561228377000001,CUDA kernel/memcpy trace; process lifetime from target timer and Nsight session epoch
+chains512,Map + D2H,5.6236131050000004,18.621428296999998,12.997815191999997,CUDA kernel/memcpy trace; process lifetime from target timer and Nsight session epoch
+chains512,Write / exit,18.621428296999998,29.152813456952572,10.531385159952574,CUDA kernel/memcpy trace; process lifetime from target timer and Nsight session epoch
+chains512_prefault8,Prepare,0,1.0659766769999999,1.0659766769999999,CUDA kernel/memcpy trace; process lifetime from target timer and Nsight session epoch
+chains512_prefault8,Sample,1.0659766769999999,5.708406643,4.642429966,CUDA kernel/memcpy trace; process lifetime from target timer and Nsight session epoch
+chains512_prefault8,Map + D2H,5.708406643,8.786829869,3.078423226,CUDA kernel/memcpy trace; process lifetime from target timer and Nsight session epoch
+chains512_prefault8,Write / exit,8.786829869,19.461776230484247,10.674946361484247,CUDA kernel/memcpy trace; process lifetime from target timer and Nsight session epoch

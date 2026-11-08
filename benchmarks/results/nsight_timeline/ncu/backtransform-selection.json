@@ -1,0 +1,6 @@
+{
+  "kernel": "sm90_xmma_gemm_f64f64_f64f64_f64_nn_n_tilesize64x128x32_stage3_warpsize2x4x1_tensor16x8x16_aligna8_alignc8_execute_kernel__5x_cublas",
+  "invocation": 1,
+  "source": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/nsight_timeline/chains16/timeline.sqlite",
+  "scope": "Reduced-space rotation undo; not full-reaction affine backmap"
+}

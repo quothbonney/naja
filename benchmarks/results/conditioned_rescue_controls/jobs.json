@@ -1,0 +1,41 @@
+{
+  "capture_job": "910",
+  "capture_command": [
+    "sbatch",
+    "--parsable",
+    "--chdir=/mnt/home/jordan+123/history-native-20261015-r5",
+    "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/scripts/conditioned_rescue_capture.sbatch"
+  ],
+  "metrics_job": "911",
+  "metrics_command": [
+    "sbatch",
+    "--parsable",
+    "--chdir=/mnt/home/jordan+123/history-native-20261015-r5",
+    "--dependency=aftercorr:910",
+    "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/scripts/conditioned_rescue_metrics.sbatch"
+  ],
+  "repair_and_release": {
+    "utc": "2026-11-08T19:49:43.273740+00:00",
+    "pilot_capture": "934",
+    "pilot_metrics": "935",
+    "pilot_capture_status": "complete",
+    "remaining_capture": "937",
+    "remaining_metrics": "938",
+    "capture_command": [
+      "sbatch",
+      "--parsable",
+      "--chdir=/mnt/home/jordan+123/history-native-20261015-r5",
+      "--array=1-12%1",
+      "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/scripts/conditioned_rescue_capture.sbatch"
+    ],
+    "metrics_command": [
+      "sbatch",
+      "--parsable",
+      "--chdir=/mnt/home/jordan+123/history-native-20261015-r5",
+      "--array=1-12%4",
+      "--dependency=aftercorr:937",
+      "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/scripts/conditioned_rescue_metrics.sbatch"
+    ],
+    "release_policy": "Plumbing gate only: full remaining12 released after paired capture succeeds, independent of quality outcomes."
+  }
+}

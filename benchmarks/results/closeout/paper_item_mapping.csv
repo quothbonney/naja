@@ -1,0 +1,13 @@
+paper_item,status,verified_artifact,bytes,mapping_note
+Table2,USER_VERIFIED_BARRIER_COLUMN_COMPONENT,/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/closeout/task2_3/final-release/task2_barrier_summary.csv,1016,"User explicitly assigns Task2 barrier-only column to Table2. Associated per-seed CSV, JSON and dimension SVG/PDF are in the same final-release directory. Other manuscript columns/caption are not verified without manuscript source."
+Table3,UNVERIFIABLE_without_manuscript_source,,,No exact assignment is asserted without manuscript source or explicit user mapping.
+Table4,UNVERIFIABLE_without_manuscript_source,,,No exact assignment is asserted without manuscript source or explicit user mapping.
+Table5,UNVERIFIABLE_without_manuscript_source,,,No exact assignment is asserted without manuscript source or explicit user mapping.
+TableS1,UNVERIFIABLE_without_manuscript_source,,,No exact assignment is asserted without manuscript source or explicit user mapping.
+TableS2,UNVERIFIABLE_without_manuscript_source,,,No exact assignment is asserted without manuscript source or explicit user mapping.
+TableS3,UNVERIFIABLE_without_manuscript_source,,,No exact assignment is asserted without manuscript source or explicit user mapping.
+TableS4,UNVERIFIABLE_without_manuscript_source,,,No exact assignment is asserted without manuscript source or explicit user mapping.
+TableS5,UNVERIFIABLE_without_manuscript_source,,,No exact assignment is asserted without manuscript source or explicit user mapping.
+Figure1,UNVERIFIABLE_without_manuscript_source,,,No exact assignment is asserted without manuscript source or explicit user mapping.
+Figure2,USER_VERIFIED_BYTE_DATA_COMPONENT,/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/closeout/task4/final_release/summary.json,5249,User explicitly assigns Task4 measured-byte data to Figure2. Associated base/exact_PGI_KO metrics.csv and report.ncu-rep are listed by size. Both measured cases have m750; no m1500 conditional case is available. Final figure render numbering/caption not verified.
+Figure3,UNVERIFIABLE_without_manuscript_source,,,No exact assignment is asserted without manuscript source or explicit user mapping.

@@ -1,0 +1,62 @@
+{
+  "status": "complete",
+  "gene": "b0003",
+  "rows": [
+    {
+      "gene": "b0003",
+      "mode": "off",
+      "seed": 101,
+      "retained_draws_per_chain": 1000,
+      "quality_met": false,
+      "status": "FAIL",
+      "median_split_rhat": 1.237263636104132,
+      "p95_split_rhat": 2.295768440156728,
+      "median_bulk_ess": 66.49785673632367,
+      "sample_bound_violation_fraction": 0.0,
+      "maximum_absolute_bound_violation": 1.85173432587809e-12,
+      "maximum_stoichiometric_residual": 4.593545682718414e-11,
+      "sampler_seconds": 5.3927,
+      "correction_seconds": 0.0,
+      "median_ess_per_sampler_second": 12.331087717900806,
+      "gpu_uuid": "GPU-cf3f7f93-1940-2c2a-2cec-d30c96879dd0",
+      "pair_order": [
+        "off",
+        "rotate"
+      ],
+      "run": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/conditioned_rescue_controls/b0003/off",
+      "original_selected_run": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/knockout_panel/conditions/b0003/quality/naja_rotate/seed101/selected-budget1000",
+      "geometry_sha256": "c1a507423884379cb34bf06e6c6d63b3d33df07a7d6e953cf8bd38e53ab73190",
+      "diagnostic_mask_sha256": "1338632a6875b384da5a0dc05af61cd457727ec18c915fc12ba926ccf7874250",
+      "process_seconds_secondary": 6.7493134662508965
+    },
+    {
+      "gene": "b0003",
+      "mode": "rotate",
+      "seed": 101,
+      "retained_draws_per_chain": 1000,
+      "quality_met": true,
+      "status": "PASS",
+      "median_split_rhat": 1.0330630898865354,
+      "p95_split_rhat": 1.2132830577772915,
+      "median_bulk_ess": 588.1392371471634,
+      "sample_bound_violation_fraction": 0.0,
+      "maximum_absolute_bound_violation": 3.638194155498351e-12,
+      "maximum_stoichiometric_residual": 3.18080006778132e-11,
+      "sampler_seconds": 5.3371,
+      "correction_seconds": 0.1557,
+      "median_ess_per_sampler_second": 110.19827943024552,
+      "gpu_uuid": "GPU-cf3f7f93-1940-2c2a-2cec-d30c96879dd0",
+      "pair_order": [
+        "off",
+        "rotate"
+      ],
+      "run": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/conditioned_rescue_controls/b0003/rotate",
+      "original_selected_run": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/knockout_panel/conditions/b0003/quality/naja_rotate/seed101/selected-budget1000",
+      "geometry_sha256": "c1a507423884379cb34bf06e6c6d63b3d33df07a7d6e953cf8bd38e53ab73190",
+      "diagnostic_mask_sha256": "1338632a6875b384da5a0dc05af61cd457727ec18c915fc12ba926ccf7874250",
+      "process_seconds_secondary": 6.76833688095212
+    }
+  ],
+  "original_category": "original_CPU_inherited_cap_Naja_rotate_pass",
+  "scope": "Targeted posthoc category controls under original seed; not independent validation seeds, a representative panel, or globally minimized time-to-quality."
+}

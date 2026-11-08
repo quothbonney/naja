@@ -1,0 +1,128 @@
+[
+  {
+    "gpu": [
+      [
+        0,
+        "NVIDIA H100 80GB HBM3",
+        "0000:9b:00.0",
+        "884d19b4-3b1e-5246-0d07-a1a68b778800",
+        132,
+        3352320000000
+      ]
+    ],
+    "metric_cadence_median_s": 9.999999999998899e-05,
+    "gpu_metric_set": "gh100",
+    "sm_active_sample_mean_pct": 11.71026388650675,
+    "sample_kernel_s": 4.081325478,
+    "naja_sampling_s": 4.0838,
+    "d2h_device_copy_s": 0.426463579,
+    "naja_download_including_host_allocation_s": 0.4271,
+    "backtransform_download_trace_s": 0.4318543350000006,
+    "naja_overlapping_backtransform_s": 0.4322,
+    "write_exit_idle_s": 0.7016888865957149,
+    "naja_write_s": 0.4963,
+    "process_epoch_offset_from_trace_s": 0.181619347,
+    "profile": {
+      "load_polytope_s": 0.0137,
+      "cube_center_lp_s": 0.0,
+      "barrier_rotation_s": 0.1702,
+      "upload_to_gpu_s": 0.0008,
+      "gpu_sampling_s": 4.0838,
+      "download_from_gpu_s": 0.4271,
+      "backtransform_s": 0.4322,
+      "write_output_s": 0.4963,
+      "total_s": 5.6268
+    },
+    "run": "chains16",
+    "unprofiled_before_s": 5.959551339969039,
+    "unprofiled_after_s": 5.921777876093984,
+    "unprofiled_midpoint_s": 5.940664608031511,
+    "profiled_target_wall_s": 6.2730529475957155,
+    "profiled_target_overhead_pct": 5.59513726990799,
+    "profiler_command_wall_including_postprocessing_s": 12.193777339532971
+  },
+  {
+    "gpu": [
+      [
+        0,
+        "NVIDIA H100 80GB HBM3",
+        "0000:9b:00.0",
+        "884d19b4-3b1e-5246-0d07-a1a68b778800",
+        132,
+        3352320000000
+      ]
+    ],
+    "metric_cadence_median_s": 9.999999999976694e-05,
+    "gpu_metric_set": "gh100",
+    "sm_active_sample_mean_pct": 97.2246947142262,
+    "sample_kernel_s": 4.561228377000001,
+    "naja_sampling_s": 4.5657,
+    "d2h_device_copy_s": 12.885973670999999,
+    "naja_download_including_host_allocation_s": 12.887,
+    "backtransform_download_trace_s": 12.997815191999997,
+    "naja_overlapping_backtransform_s": 13.0063,
+    "write_exit_idle_s": 10.531385159952574,
+    "naja_write_s": 9.504,
+    "process_epoch_offset_from_trace_s": 0.178378507,
+    "profile": {
+      "load_polytope_s": 0.0144,
+      "cube_center_lp_s": 0.0,
+      "barrier_rotation_s": 0.1753,
+      "upload_to_gpu_s": 0.0013,
+      "gpu_sampling_s": 4.5657,
+      "download_from_gpu_s": 12.887,
+      "backtransform_s": 13.0063,
+      "write_output_s": 9.504,
+      "total_s": 27.7104
+    },
+    "run": "chains512",
+    "unprofiled_before_s": 28.376924514770508,
+    "unprofiled_after_s": 28.398515675216913,
+    "unprofiled_midpoint_s": 28.38772009499371,
+    "profiled_target_wall_s": 29.152813456952572,
+    "profiled_target_overhead_pct": 2.695156072409599,
+    "profiler_command_wall_including_postprocessing_s": 39.790915383026004
+  },
+  {
+    "gpu": [
+      [
+        0,
+        "NVIDIA H100 80GB HBM3",
+        "0000:9b:00.0",
+        "884d19b4-3b1e-5246-0d07-a1a68b778800",
+        132,
+        3352320000000
+      ]
+    ],
+    "metric_cadence_median_s": 9.999999999976694e-05,
+    "gpu_metric_set": "gh100",
+    "sm_active_sample_mean_pct": 96.240732364028,
+    "sample_kernel_s": 4.642429966,
+    "naja_sampling_s": 4.6466,
+    "d2h_device_copy_s": 1.2793926110000005,
+    "naja_download_including_host_allocation_s": 2.9668,
+    "backtransform_download_trace_s": 3.078423226,
+    "naja_overlapping_backtransform_s": 3.0859,
+    "write_exit_idle_s": 10.674946361484247,
+    "naja_write_s": 9.5607,
+    "process_epoch_offset_from_trace_s": 0.20810009,
+    "profile": {
+      "load_polytope_s": 0.0151,
+      "cube_center_lp_s": 0.0,
+      "barrier_rotation_s": 0.1771,
+      "upload_to_gpu_s": 0.0015,
+      "gpu_sampling_s": 4.6466,
+      "download_from_gpu_s": 2.9668,
+      "backtransform_s": 3.0859,
+      "write_output_s": 9.5607,
+      "total_s": 17.9358
+    },
+    "run": "chains512_prefault8",
+    "unprofiled_before_s": 19.877408888190985,
+    "unprofiled_after_s": 18.697806429117918,
+    "unprofiled_midpoint_s": 19.28760765865445,
+    "profiled_target_wall_s": 19.461776230484247,
+    "profiled_target_overhead_pct": 0.9030076456975511,
+    "profiler_command_wall_including_postprocessing_s": 29.577070264145732
+  }
+]

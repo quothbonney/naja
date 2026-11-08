@@ -1,0 +1,1118 @@
+{
+  "ID": {
+    "unit": "",
+    "value": "0"
+  },
+  "Process ID": {
+    "unit": "",
+    "value": "209979"
+  },
+  "Process Name": {
+    "unit": "",
+    "value": "naja"
+  },
+  "Host Name": {
+    "unit": "",
+    "value": "127.0.0.1"
+  },
+  "Kernel Name": {
+    "unit": "",
+    "value": "void chrKernel<double, curandStateMRG32k3a, 128>(T1 *, const T1 *, T1 *, T1 *, T1 *, int, int, T2 *, int, int, int, int, T1, int, T1, int, int, const int *, const int *, const T1 *, const T1 *, int, T1, const T1 *, const T1 *, int)"
+  },
+  "Context": {
+    "unit": "",
+    "value": "1"
+  },
+  "Stream": {
+    "unit": "",
+    "value": "7"
+  },
+  "Block Size": {
+    "unit": "",
+    "value": "(128, 1, 1)"
+  },
+  "Grid Size": {
+    "unit": "",
+    "value": "(512, 1, 1)"
+  },
+  "Device": {
+    "unit": "",
+    "value": "0"
+  },
+  "CC": {
+    "unit": "",
+    "value": "9.0"
+  },
+  "c2clink__enabled_mask": {
+    "unit": "",
+    "value": "0"
+  },
+  "c2clink__present": {
+    "unit": "",
+    "value": "0"
+  },
+  "device__attribute_architecture": {
+    "unit": "",
+    "value": "384"
+  },
+  "device__attribute_async_engine_count": {
+    "unit": "",
+    "value": "3"
+  },
+  "device__attribute_can_flush_remote_writes": {
+    "unit": "",
+    "value": "0"
+  },
+  "device__attribute_can_map_host_memory": {
+    "unit": "",
+    "value": "1"
+  },
+  "device__attribute_can_tex2d_gather": {
+    "unit": "",
+    "value": "1"
+  },
+  "device__attribute_can_use_64_bit_stream_mem_ops": {
+    "unit": "",
+    "value": "1"
+  },
+  "device__attribute_can_use_64_bit_stream_mem_ops_v1": {
+    "unit": "",
+    "value": "1"
+  },
+  "device__attribute_can_use_host_pointer_for_registered_mem": {
+    "unit": "",
+    "value": "1"
+  },
+  "device__attribute_can_use_stream_mem_ops_v1": {
+    "unit": "",
+    "value": "1"
+  },
+  "device__attribute_can_use_stream_wait_value_nor": {
+    "unit": "",
+    "value": "1"
+  },
+  "device__attribute_can_use_stream_wait_value_nor_v1": {
+    "unit": "",
+    "value": "1"
+  },
+  "device__attribute_chip": {
+    "unit": "",
+    "value": "384"
+  },
+  "device__attribute_clock_rate": {
+    "unit": "",
+    "value": "1980000"
+  },
+  "device__attribute_cluster_launch": {
+    "unit": "",
+    "value": "1"
+  },
+  "device__attribute_compute_capability_major": {
+    "unit": "",
+    "value": "9"
+  },
+  "device__attribute_compute_capability_minor": {
+    "unit": "",
+    "value": "0"
+  },
+  "device__attribute_compute_mode": {
+    "unit": "",
+    "value": "0"
+  },
+  "device__attribute_compute_preemption_supported": {
+    "unit": "",
+    "value": "1"
+  },
+  "device__attribute_concurrent_kernels": {
+    "unit": "",
+    "value": "1"
+  },
+  "device__attribute_concurrent_managed_access": {
+    "unit": "",
+    "value": "1"
+  },
+  "device__attribute_confidential_computing_mode": {
+    "unit": "",
+    "value": "No-CC"
+  },
+  "device__attribute_cooperative_launch": {
+    "unit": "",
+    "value": "1"
+  },
+  "device__attribute_cooperative_multi_device_launch": {
+    "unit": "",
+    "value": "1"
+  },
+  "device__attribute_deferred_mapping_cuda_array_supported": {
+    "unit": "",
+    "value": "1"
+  },
+  "device__attribute_device_index": {
+    "unit": "",
+    "value": "0"
+  },
+  "device__attribute_direct_managed_mem_access_from_host": {
+    "unit": "",
+    "value": "0"
+  },
+  "device__attribute_display_name": {
+    "unit": "",
+    "value": "NVIDIA H100 80GB HBM3"
+  },
+  "device__attribute_dma_buf_supported": {
+    "unit": "",
+    "value": "1"
+  },
+  "device__attribute_ecc_enabled": {
+    "unit": "",
+    "value": "1"
+  },
+  "device__attribute_fb_bus_width": {
+    "unit": "",
+    "value": "5120"
+  },
+  "device__attribute_fbp_count": {
+    "unit": "",
+    "value": "10"
+  },
+  "device__attribute_generic_compression_supported": {
+    "unit": "",
+    "value": "1"
+  },
+  "device__attribute_global_l1_cache_supported": {
+    "unit": "",
+    "value": "1"
+  },
+  "device__attribute_global_memory_bus_width": {
+    "unit": "",
+    "value": "5120"
+  },
+  "device__attribute_gpu_direct_rdma_flush_writes_options": {
+    "unit": "",
+    "value": "1"
+  },
+  "device__attribute_gpu_direct_rdma_supported": {
+    "unit": "",
+    "value": "1"
+  },
+  "device__attribute_gpu_direct_rdma_with_cuda_vmm_supported": {
+    "unit": "",
+    "value": "1"
+  },
+  "device__attribute_gpu_direct_rdma_writes_ordering": {
+    "unit": "",
+    "value": "100"
+  },
+  "device__attribute_gpu_overlap": {
+    "unit": "",
+    "value": "1"
+  },
+  "device__attribute_gpu_pci_device_id": {
+    "unit": "",
+    "value": "590352606"
+  },
+  "device__attribute_gpu_pci_ext_device_id": {
+    "unit": "",
+    "value": "9008"
+  },
+  "device__attribute_gpu_pci_ext_downstream_link_rate": {
+    "unit": "",
+    "value": "32000"
+  },
+  "device__attribute_gpu_pci_ext_downstream_link_width": {
+    "unit": "",
+    "value": "16"
+  },
+  "device__attribute_gpu_pci_ext_gen": {
+    "unit": "",
+    "value": "4"
+  },
+  "device__attribute_gpu_pci_ext_gpu_gen": {
+    "unit": "",
+    "value": "4"
+  },
+  "device__attribute_gpu_pci_ext_gpu_link_rate": {
+    "unit": "",
+    "value": "32000"
+  },
+  "device__attribute_gpu_pci_ext_gpu_link_width": {
+    "unit": "",
+    "value": "16"
+  },
+  "device__attribute_gpu_pci_revision_id": {
+    "unit": "",
+    "value": "161"
+  },
+  "device__attribute_gpu_pci_sub_system_id": {
+    "unit": "",
+    "value": "381751518"
+  },
+  "device__attribute_handle_type_fabric_supported": {
+    "unit": "",
+    "value": "1"
+  },
+  "device__attribute_handle_type_posix_file_descriptor_supported": {
+    "unit": "",
+    "value": "1"
+  },
+  "device__attribute_handle_type_win32_handle_supported": {
+    "unit": "",
+    "value": "0"
+  },
+  "device__attribute_handle_type_win32_kmt_handle_supported": {
+    "unit": "",
+    "value": "0"
+  },
+  "device__attribute_host_native_atomic_supported": {
+    "unit": "",
+    "value": "0"
+  },
+  "device__attribute_host_numa_id": {
+    "unit": "",
+    "value": "0"
+  },
+  "device__attribute_host_register_supported": {
+    "unit": "",
+    "value": "1"
+  },
+  "device__attribute_implementation": {
+    "unit": "",
+    "value": "384"
+  },
+  "device__attribute_integrated": {
+    "unit": "",
+    "value": "0"
+  },
+  "device__attribute_ipc_event_supported": {
+    "unit": "",
+    "value": "1"
+  },
+  "device__attribute_kernel_exec_timeout": {
+    "unit": "",
+    "value": "0"
+  },
+  "device__attribute_l2_cache_size": {
+    "unit": "",
+    "value": "52428800"
+  },
+  "device__attribute_l2s_count": {
+    "unit": "",
+    "value": "80"
+  },
+  "device__attribute_limits_max_cta_per_sm": {
+    "unit": "",
+    "value": "32"
+  },
+  "device__attribute_limits_num_tpcs": {
+    "unit": "",
+    "value": "66"
+  },
+  "device__attribute_local_l1_cache_supported": {
+    "unit": "",
+    "value": "1"
+  },
+  "device__attribute_managed_memory": {
+    "unit": "",
+    "value": "1"
+  },
+  "device__attribute_max_access_policy_window_size": {
+    "unit": "",
+    "value": "134217728"
+  },
+  "device__attribute_max_block_dim_x": {
+    "unit": "",
+    "value": "1024"
+  },
+  "device__attribute_max_block_dim_y": {
+    "unit": "",
+    "value": "1024"
+  },
+  "device__attribute_max_block_dim_z": {
+    "unit": "",
+    "value": "64"
+  },
+  "device__attribute_max_blocks_per_multiprocessor": {
+    "unit": "",
+    "value": "32"
+  },
+  "device__attribute_max_gpu_frequency_khz": {
+    "unit": "",
+    "value": "1980000"
+  },
+  "device__attribute_max_grid_dim_x": {
+    "unit": "",
+    "value": "2147483647"
+  },
+  "device__attribute_max_grid_dim_y": {
+    "unit": "",
+    "value": "65535"
+  },
+  "device__attribute_max_grid_dim_z": {
+    "unit": "",
+    "value": "65535"
+  },
+  "device__attribute_max_ipc_per_multiprocessor": {
+    "unit": "",
+    "value": "4"
+  },
+  "device__attribute_max_ipc_per_scheduler": {
+    "unit": "",
+    "value": "1"
+  },
+  "device__attribute_max_mem_frequency_khz": {
+    "unit": "",
+    "value": "2619000"
+  },
+  "device__attribute_max_persisting_l2_cache_size": {
+    "unit": "",
+    "value": "32768000"
+  },
+  "device__attribute_max_pitch": {
+    "unit": "",
+    "value": "2147483647"
+  },
+  "device__attribute_max_registers_per_block": {
+    "unit": "",
+    "value": "65536"
+  },
+  "device__attribute_max_registers_per_multiprocessor": {
+    "unit": "",
+    "value": "65536"
+  },
+  "device__attribute_max_registers_per_thread": {
+    "unit": "",
+    "value": "255"
+  },
+  "device__attribute_max_shared_memory_per_block": {
+    "unit": "",
+    "value": "49152"
+  },
+  "device__attribute_max_shared_memory_per_block_optin": {
+    "unit": "",
+    "value": "232448"
+  },
+  "device__attribute_max_shared_memory_per_multiprocessor": {
+    "unit": "",
+    "value": "233472"
+  },
+  "device__attribute_max_threads_per_block": {
+    "unit": "",
+    "value": "1024"
+  },
+  "device__attribute_max_threads_per_multiprocessor": {
+    "unit": "",
+    "value": "2048"
+  },
+  "device__attribute_max_warps_per_multiprocessor": {
+    "unit": "",
+    "value": "64"
+  },
+  "device__attribute_max_warps_per_scheduler": {
+    "unit": "",
+    "value": "16"
+  },
+  "device__attribute_maximum_surface1d_layered_layers": {
+    "unit": "",
+    "value": "2048"
+  },
+  "device__attribute_maximum_surface1d_layered_width": {
+    "unit": "",
+    "value": "32768"
+  },
+  "device__attribute_maximum_surface1d_width": {
+    "unit": "",
+    "value": "32768"
+  },
+  "device__attribute_maximum_surface2d_height": {
+    "unit": "",
+    "value": "65536"
+  },
+  "device__attribute_maximum_surface2d_layered_height": {
+    "unit": "",
+    "value": "32768"
+  },
+  "device__attribute_maximum_surface2d_layered_layers": {
+    "unit": "",
+    "value": "2048"
+  },
+  "device__attribute_maximum_surface2d_layered_width": {
+    "unit": "",
+    "value": "32768"
+  },
+  "device__attribute_maximum_surface2d_width": {
+    "unit": "",
+    "value": "131072"
+  },
+  "device__attribute_maximum_surface3d_depth": {
+    "unit": "",
+    "value": "16384"
+  },
+  "device__attribute_maximum_surface3d_height": {
+    "unit": "",
+    "value": "16384"
+  },
+  "device__attribute_maximum_surface3d_width": {
+    "unit": "",
+    "value": "16384"
+  },
+  "device__attribute_maximum_surfacecubemap_layered_layers": {
+    "unit": "",
+    "value": "2046"
+  },
+  "device__attribute_maximum_surfacecubemap_layered_width": {
+    "unit": "",
+    "value": "32768"
+  },
+  "device__attribute_maximum_surfacecubemap_width": {
+    "unit": "",
+    "value": "32768"
+  },
+  "device__attribute_maximum_texture1d_layered_layers": {
+    "unit": "",
+    "value": "2048"
+  },
+  "device__attribute_maximum_texture1d_layered_width": {
+    "unit": "",
+    "value": "32768"
+  },
+  "device__attribute_maximum_texture1d_linear_width": {
+    "unit": "",
+    "value": "268435456"
+  },
+  "device__attribute_maximum_texture1d_mipmapped_width": {
+    "unit": "",
+    "value": "32768"
+  },
+  "device__attribute_maximum_texture1d_width": {
+    "unit": "",
+    "value": "131072"
+  },
+  "device__attribute_maximum_texture2d_gather_height": {
+    "unit": "",
+    "value": "32768"
+  },
+  "device__attribute_maximum_texture2d_gather_width": {
+    "unit": "",
+    "value": "32768"
+  },
+  "device__attribute_maximum_texture2d_height": {
+    "unit": "",
+    "value": "65536"
+  },
+  "device__attribute_maximum_texture2d_layered_height": {
+    "unit": "",
+    "value": "32768"
+  },
+  "device__attribute_maximum_texture2d_layered_layers": {
+    "unit": "",
+    "value": "2048"
+  },
+  "device__attribute_maximum_texture2d_layered_width": {
+    "unit": "",
+    "value": "32768"
+  },
+  "device__attribute_maximum_texture2d_linear_height": {
+    "unit": "",
+    "value": "65000"
+  },
+  "device__attribute_maximum_texture2d_linear_pitch": {
+    "unit": "",
+    "value": "2097120"
+  },
+  "device__attribute_maximum_texture2d_linear_width": {
+    "unit": "",
+    "value": "131072"
+  },
+  "device__attribute_maximum_texture2d_mipmapped_height": {
+    "unit": "",
+    "value": "32768"
+  },
+  "device__attribute_maximum_texture2d_mipmapped_width": {
+    "unit": "",
+    "value": "32768"
+  },
+  "device__attribute_maximum_texture2d_width": {
+    "unit": "",
+    "value": "131072"
+  },
+  "device__attribute_maximum_texture3d_depth": {
+    "unit": "",
+    "value": "16384"
+  },
+  "device__attribute_maximum_texture3d_depth_alternate": {
+    "unit": "",
+    "value": "32768"
+  },
+  "device__attribute_maximum_texture3d_height": {
+    "unit": "",
+    "value": "16384"
+  },
+  "device__attribute_maximum_texture3d_height_alternate": {
+    "unit": "",
+    "value": "8192"
+  },
+  "device__attribute_maximum_texture3d_width": {
+    "unit": "",
+    "value": "16384"
+  },
+  "device__attribute_maximum_texture3d_width_alternate": {
+    "unit": "",
+    "value": "8192"
+  },
+  "device__attribute_maximum_texturecubemap_layered_layers": {
+    "unit": "",
+    "value": "2046"
+  },
+  "device__attribute_maximum_texturecubemap_layered_width": {
+    "unit": "",
+    "value": "32768"
+  },
+  "device__attribute_maximum_texturecubemap_width": {
+    "unit": "",
+    "value": "32768"
+  },
+  "device__attribute_mem_sync_domain_count": {
+    "unit": "",
+    "value": "4"
+  },
+  "device__attribute_memory_clock_rate": {
+    "unit": "",
+    "value": "2619000"
+  },
+  "device__attribute_memory_pools_supported": {
+    "unit": "",
+    "value": "1"
+  },
+  "device__attribute_mempool_supported_handle_types": {
+    "unit": "",
+    "value": "9"
+  },
+  "device__attribute_mps_enabled": {
+    "unit": "",
+    "value": "0"
+  },
+  "device__attribute_multi_gpu_board": {
+    "unit": "",
+    "value": "0"
+  },
+  "device__attribute_multi_gpu_board_group_id": {
+    "unit": "",
+    "value": "0"
+  },
+  "device__attribute_multicast_supported": {
+    "unit": "",
+    "value": "1"
+  },
+  "device__attribute_multiprocessor_count": {
+    "unit": "",
+    "value": "132"
+  },
+  "device__attribute_num_l2s_per_fbp": {
+    "unit": "",
+    "value": "8"
+  },
+  "device__attribute_num_schedulers_per_multiprocessor": {
+    "unit": "",
+    "value": "4"
+  },
+  "device__attribute_num_tex_per_multiprocessor": {
+    "unit": "",
+    "value": "1"
+  },
+  "device__attribute_numa_config": {
+    "unit": "",
+    "value": "0"
+  },
+  "device__attribute_pageable_memory_access": {
+    "unit": "",
+    "value": "1"
+  },
+  "device__attribute_pageable_memory_access_uses_host_page_tables": {
+    "unit": "",
+    "value": "0"
+  },
+  "device__attribute_pci_bus_id": {
+    "unit": "",
+    "value": "59"
+  },
+  "device__attribute_pci_device_id": {
+    "unit": "",
+    "value": "0"
+  },
+  "device__attribute_pci_domain_id": {
+    "unit": "",
+    "value": "0"
+  },
+  "device__attribute_ram_location": {
+    "unit": "",
+    "value": "1"
+  },
+  "device__attribute_ram_type": {
+    "unit": "",
+    "value": "0"
+  },
+  "device__attribute_reserved_shared_memory_per_block": {
+    "unit": "",
+    "value": "1024"
+  },
+  "device__attribute_sass_level": {
+    "unit": "",
+    "value": "9"
+  },
+  "device__attribute_single_to_double_precision_perf_ratio": {
+    "unit": "",
+    "value": "2"
+  },
+  "device__attribute_sparse_cuda_array_supported": {
+    "unit": "",
+    "value": "1"
+  },
+  "device__attribute_stream_priorities_supported": {
+    "unit": "",
+    "value": "1"
+  },
+  "device__attribute_surface_alignment": {
+    "unit": "",
+    "value": "512"
+  },
+  "device__attribute_tcc_driver": {
+    "unit": "",
+    "value": "0"
+  },
+  "device__attribute_tensor_map_access_supported": {
+    "unit": "",
+    "value": "1"
+  },
+  "device__attribute_texture_alignment": {
+    "unit": "",
+    "value": "512"
+  },
+  "device__attribute_texture_pitch_alignment": {
+    "unit": "",
+    "value": "32"
+  },
+  "device__attribute_total_constant_memory": {
+    "unit": "",
+    "value": "65536"
+  },
+  "device__attribute_total_memory": {
+    "unit": "",
+    "value": "85017493504"
+  },
+  "device__attribute_unified_addressing": {
+    "unit": "",
+    "value": "1"
+  },
+  "device__attribute_unified_function_pointers": {
+    "unit": "",
+    "value": "1"
+  },
+  "device__attribute_virtual_address_management_supported": {
+    "unit": "",
+    "value": "1"
+  },
+  "device__attribute_warp_size": {
+    "unit": "",
+    "value": "32"
+  },
+  "dram__bytes.avg": {
+    "unit": "Mbyte",
+    "value": "72.039494"
+  },
+  "dram__bytes.max": {
+    "unit": "Mbyte",
+    "value": "72.199168"
+  },
+  "dram__bytes.min": {
+    "unit": "Mbyte",
+    "value": "71.824128"
+  },
+  "dram__bytes.sum": {
+    "unit": "Gbyte",
+    "value": "2.881580"
+  },
+  "dram__bytes_read.avg": {
+    "unit": "Kbyte",
+    "value": "616.352000"
+  },
+  "dram__bytes_read.max": {
+    "unit": "Kbyte",
+    "value": "672.000000"
+  },
+  "dram__bytes_read.min": {
+    "unit": "Kbyte",
+    "value": "552.448000"
+  },
+  "dram__bytes_read.sum": {
+    "unit": "Mbyte",
+    "value": "24.654080"
+  },
+  "dram__bytes_write.avg": {
+    "unit": "Mbyte",
+    "value": "71.423142"
+  },
+  "dram__bytes_write.max": {
+    "unit": "Mbyte",
+    "value": "71.527168"
+  },
+  "dram__bytes_write.min": {
+    "unit": "Mbyte",
+    "value": "71.271680"
+  },
+  "dram__bytes_write.sum": {
+    "unit": "Gbyte",
+    "value": "2.856926"
+  },
+  "gpu__time_duration.avg": {
+    "unit": "ms",
+    "value": "505.480576"
+  },
+  "gpu__time_duration.max": {
+    "unit": "ms",
+    "value": "505.480576"
+  },
+  "gpu__time_duration.min": {
+    "unit": "ms",
+    "value": "505.480576"
+  },
+  "gpu__time_duration.sum": {
+    "unit": "ms",
+    "value": "505.480576"
+  },
+  "launch__barrier_count": {
+    "unit": "",
+    "value": "1"
+  },
+  "launch__block_dim_x": {
+    "unit": "block",
+    "value": "128"
+  },
+  "launch__block_dim_y": {
+    "unit": "block",
+    "value": "1"
+  },
+  "launch__block_dim_z": {
+    "unit": "block",
+    "value": "1"
+  },
+  "launch__block_size": {
+    "unit": "",
+    "value": "128"
+  },
+  "launch__cluster_dim_x": {
+    "unit": "",
+    "value": "0"
+  },
+  "launch__cluster_dim_y": {
+    "unit": "",
+    "value": "0"
+  },
+  "launch__cluster_dim_z": {
+    "unit": "",
+    "value": "0"
+  },
+  "launch__cluster_max_active": {
+    "unit": "cluster",
+    "value": "0"
+  },
+  "launch__cluster_max_potential_size": {
+    "unit": "block",
+    "value": "8"
+  },
+  "launch__cluster_scheduling_policy": {
+    "unit": "",
+    "value": "PolicySpread"
+  },
+  "launch__cluster_size": {
+    "unit": "",
+    "value": "0"
+  },
+  "launch__context_id": {
+    "unit": "",
+    "value": "1"
+  },
+  "launch__device_id": {
+    "unit": "",
+    "value": "0"
+  },
+  "launch__func_cache_config": {
+    "unit": "",
+    "value": "CachePreferNone"
+  },
+  "launch__function_pcs": {
+    "unit": "",
+    "value": "1"
+  },
+  "launch__grid_dim_x": {
+    "unit": "",
+    "value": "512"
+  },
+  "launch__grid_dim_y": {
+    "unit": "",
+    "value": "1"
+  },
+  "launch__grid_dim_z": {
+    "unit": "",
+    "value": "1"
+  },
+  "launch__grid_size": {
+    "unit": "",
+    "value": "512"
+  },
+  "launch__kernel_name": {
+    "unit": "",
+    "value": ""
+  },
+  "launch__occupancy_cluster_gpu_pct": {
+    "unit": "%",
+    "value": "0"
+  },
+  "launch__occupancy_cluster_pct": {
+    "unit": "%",
+    "value": "0"
+  },
+  "launch__occupancy_limit_barriers": {
+    "unit": "block",
+    "value": "32.000000"
+  },
+  "launch__occupancy_limit_blocks": {
+    "unit": "block",
+    "value": "32.000000"
+  },
+  "launch__occupancy_limit_registers": {
+    "unit": "block",
+    "value": "7.000000"
+  },
+  "launch__occupancy_limit_shared_mem": {
+    "unit": "block",
+    "value": "16.000000"
+  },
+  "launch__occupancy_limit_warps": {
+    "unit": "block",
+    "value": "16.000000"
+  },
+  "launch__occupancy_per_barrier_count": {
+    "unit": "",
+    "value": "684"
+  },
+  "launch__occupancy_per_block_size": {
+    "unit": "",
+    "value": "1312"
+  },
+  "launch__occupancy_per_cluster_size": {
+    "unit": "",
+    "value": "0"
+  },
+  "launch__occupancy_per_register_count": {
+    "unit": "",
+    "value": "5792"
+  },
+  "launch__occupancy_per_shared_mem_size": {
+    "unit": "",
+    "value": "3112"
+  },
+  "launch__registers_per_thread": {
+    "unit": "register/thread",
+    "value": "72"
+  },
+  "launch__registers_per_thread_allocated": {
+    "unit": "register/thread",
+    "value": "72.000000"
+  },
+  "launch__shared_mem_config_size": {
+    "unit": "Kbyte",
+    "value": "102.400000"
+  },
+  "launch__shared_mem_per_block": {
+    "unit": "Kbyte/block",
+    "value": "6.216000"
+  },
+  "launch__shared_mem_per_block_allocated": {
+    "unit": "Kbyte/block",
+    "value": "6.272000"
+  },
+  "launch__shared_mem_per_block_driver": {
+    "unit": "Kbyte/block",
+    "value": "1.024000"
+  },
+  "launch__shared_mem_per_block_dynamic": {
+    "unit": "Kbyte/block",
+    "value": "4.648000"
+  },
+  "launch__shared_mem_per_block_static": {
+    "unit": "byte/block",
+    "value": "544"
+  },
+  "launch__sm_count": {
+    "unit": "SM",
+    "value": "132"
+  },
+  "launch__stack_size": {
+    "unit": "",
+    "value": "1024"
+  },
+  "launch__stream_id": {
+    "unit": "",
+    "value": "7"
+  },
+  "launch__thread_count": {
+    "unit": "thread",
+    "value": "65536"
+  },
+  "launch__tpc_count": {
+    "unit": "",
+    "value": "66"
+  },
+  "launch__tpc_enabled": {
+    "unit": "",
+    "value": "all"
+  },
+  "launch__uses_cdp": {
+    "unit": "",
+    "value": "0"
+  },
+  "launch__uses_green_context": {
+    "unit": "",
+    "value": "0"
+  },
+  "launch__uses_mps": {
+    "unit": "",
+    "value": "0"
+  },
+  "launch__uses_vgpu": {
+    "unit": "",
+    "value": "0"
+  },
+  "launch__waves_per_multiprocessor": {
+    "unit": "",
+    "value": "0.55"
+  },
+  "lts__t_bytes.avg": {
+    "unit": "Gbyte",
+    "value": "12.059515"
+  },
+  "lts__t_bytes.max": {
+    "unit": "Gbyte",
+    "value": "12.620567"
+  },
+  "lts__t_bytes.min": {
+    "unit": "Gbyte",
+    "value": "11.588135"
+  },
+  "lts__t_bytes.sum": {
+    "unit": "Gbyte",
+    "value": "964.761199"
+  },
+  "numa__cpu_affinity": {
+    "unit": "",
+    "value": "1"
+  },
+  "numa__dev_display_name_all": {
+    "unit": "",
+    "value": "1"
+  },
+  "numa__id_cpu": {
+    "unit": "",
+    "value": "1"
+  },
+  "numa__id_memory": {
+    "unit": "",
+    "value": "1"
+  },
+  "nvlink__bandwidth": {
+    "unit": "",
+    "value": "0"
+  },
+  "nvlink__count_logical": {
+    "unit": "",
+    "value": "0"
+  },
+  "nvlink__count_physical": {
+    "unit": "",
+    "value": "0"
+  },
+  "nvlink__destination_ports": {
+    "unit": "",
+    "value": "0"
+  },
+  "nvlink__dev0Id": {
+    "unit": "",
+    "value": "0"
+  },
+  "nvlink__dev0type": {
+    "unit": "",
+    "value": "0"
+  },
+  "nvlink__dev1Id": {
+    "unit": "",
+    "value": "0"
+  },
+  "nvlink__dev1type": {
+    "unit": "",
+    "value": "0"
+  },
+  "nvlink__dev_display_name_all": {
+    "unit": "",
+    "value": "1"
+  },
+  "nvlink__enabled_mask": {
+    "unit": "",
+    "value": "262143"
+  },
+  "nvlink__is_direct_link": {
+    "unit": "",
+    "value": "0"
+  },
+  "nvlink__is_nvswitch_connected": {
+    "unit": "",
+    "value": "0"
+  },
+  "nvlink__max_count": {
+    "unit": "",
+    "value": "18"
+  },
+  "nvlink__peer_access": {
+    "unit": "",
+    "value": "0"
+  },
+  "nvlink__peer_atomic": {
+    "unit": "",
+    "value": "0"
+  },
+  "nvlink__source_ports": {
+    "unit": "",
+    "value": "0"
+  },
+  "nvlink__system_access": {
+    "unit": "",
+    "value": "0"
+  },
+  "nvlink__system_atomic": {
+    "unit": "",
+    "value": "0"
+  },
+  "profiler__perfworks_session_reuse": {
+    "unit": "",
+    "value": "0"
+  },
+  "profiler__replayer_passes": {
+    "unit": "pass",
+    "value": "1.000000"
+  },
+  "profiler__replayer_passes_type_warmup": {
+    "unit": "pass",
+    "value": "0"
+  },
+  "sm__maximum_warps_avg_per_active_cycle": {
+    "unit": "warp",
+    "value": "28.000000"
+  },
+  "sm__maximum_warps_per_active_cycle_pct": {
+    "unit": "%",
+    "value": "43.750000"
+  },
+  "smsp__maximum_warps_avg_per_active_cycle": {
+    "unit": "warp",
+    "value": "7.000000"
+  }
+}

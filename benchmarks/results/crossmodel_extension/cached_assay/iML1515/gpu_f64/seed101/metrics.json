@@ -1,0 +1,93 @@
+{
+  "schema_version": 2,
+  "model": "iML1515",
+  "metrics_code_sha256": "854e524cade5cecc6a9c5541cb15957e0336c3461434c2363d9ef2a2b701947c",
+  "metrics_workers": 4,
+  "metrics_allocated_cpus": 8,
+  "metrics_parallel_code_verified": true,
+  "metrics_auto_parallel_min_work": 20000000,
+  "metrics_parallel_worker_blas_threads": 1,
+  "samples": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/precision_quality/iML1515/seed101/samples.npy",
+  "model_dir": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/crossmodel_extension/cached_models/iML1515",
+  "shape": [
+    16,
+    2000,
+    635
+  ],
+  "sample_space": "reduced_affine_backmapped_to_reactions",
+  "n_reactions": 2712,
+  "constant_reactions_excluded": 628,
+  "constant_definition": "model-derived solver-detected nearconstant mask plus exactly constant sampled reactions",
+  "diagnostic_mask_status": "model_lp_verified",
+  "diagnostic_mask_geometry_sha256": "edfd39e411b95db6e9326465c9fedb90de59642281b3755bd870d7967e6fb20b",
+  "diagnostic_mask_source_sha256": "b0f9199f048779bb08a14dfa6c09ec56d35b8750d2f99681980d0f098355fbf5",
+  "diagnostic_mask_range_tolerance": 1e-07,
+  "solver_detected_nearconstant_reactions_excluded": 628,
+  "exactly_constant_sampled_reactions": 0,
+  "solver_excluded_empirical_range_max": 6.834818107734441e-12,
+  "solver_excluded_empirical_range_over_1e_minus_7_count": 0,
+  "solver_excluded_empirical_range_note": "Measured ranges are checked and retained even for LP-nearconstant reactions; values above 1e-7 expose affine-backmap numerical residue. Exclusion changes diagnostics only, never bound checks.",
+  "legacy_empirical_numerically_variable_summary": {
+    "split_rhat_median": 1.0052734119482185,
+    "split_rhat_p95": 1.0338635265582818,
+    "bulk_ess_median": 3794.744053319968,
+    "diagnosed_reactions": 2452
+  },
+  "legacy_empirical_constant_count": 260,
+  "legacy_empirical_constant_definition": "full-run max-min <= 1e-12 * max(1, max(abs(flux)))",
+  "empirical_absolute_range_gt_1e_minus_7_summary": {
+    "split_rhat_median": 1.0086426510271729,
+    "split_rhat_p95": 1.0367598846244837,
+    "bulk_ess_median": 2112.5456839090575,
+    "diagnosed_reactions": 1724
+  },
+  "diagnostic_definition": "classical split-Rhat; ArviZ pooled rank-normalized bulk ESS",
+  "arviz_version": "1.3.0",
+  "numpy_version": "2.5.4",
+  "split_rhat_median": 1.0071749860809356,
+  "split_rhat_p95": 1.0367598832583682,
+  "bulk_ess_median": 2732.878052645257,
+  "diagnosed_reactions": 2084,
+  "bounds_tolerance": 1e-07,
+  "sample_bound_violation_fraction": 0.0,
+  "coordinate_bound_violation_fraction": 0.0,
+  "zero_tolerance_sample_bound_violation_fraction": 1.0,
+  "zero_tolerance_coordinate_bound_violation_fraction": 0.13040185978982302,
+  "max_absolute_bound_violation": 7.91554380518723e-08,
+  "wall_seconds": 9.81760385259986,
+  "samples_per_second": 3259.4511329285187,
+  "time_to_quality_note": "Only full-budget diagnostics reaggregated. No inferred time or lower-budget prefix claim.",
+  "metrics_wall_seconds": 0.04016604274511337,
+  "diagnostic_mask_target_geometry_kind": "exact_cached_polytope",
+  "prefix_quality": [
+    {
+      "draws_per_chain": 2000,
+      "split_rhat_median": 1.0071749860809356,
+      "split_rhat_p95": 1.0367598832583682,
+      "bulk_ess_median": 2732.878052645257,
+      "diagnosed_reactions": 2084,
+      "quality_met": true
+    }
+  ],
+  "first_quality_prefix_draws": 2000,
+  "estimated_time_to_quality_seconds": null,
+  "source_metrics_wall_seconds": 7.972291698679328,
+  "reaggregation": {
+    "utc": "2026-11-08T19:29:18.761328+00:00",
+    "source_metrics": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/precision_quality/iML1515/seed101/metrics.json",
+    "source_metrics_sha256": "54979b116ad601c9e6416f4718385852bf5738bd05171073c32e88afa548efe0",
+    "source_reaction_csv": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/precision_quality/iML1515/seed101/reaction_metrics.csv",
+    "source_reaction_csv_sha256": "b04883fba7d0db0600606ad5d587c817a979fd52e8dc7e2707413bdf91b36696",
+    "diagnostic_mask_sha256": "e0296627249e54b0f73e059e7d826e94d6a1c0e9c71ebcae103a1fb513f2992c",
+    "active_reactions_sha256": "3be142680a51746281cb8853eafea0be8f6933a6da2d69bce400625d04c675da",
+    "unchanged_gem_sha256": {
+      "l_bounds.csv": "819e23f4bd536f7291c65c2012cf058b487de0f29ceb67b6cdf618f454460663",
+      "u_bounds.csv": "09762b93d33dad7f2561e97983e2e88ed841fd84045238f840d277aad7ef564b",
+      "reaction_ids.txt": "be2aaf9c830568e3bd4627b51aef4f6a54e1c6fbe9a1ac69a6a9528e08244758"
+    },
+    "code_sha256": "3531390f692e98335b7c113c61b19aba647dab18a3420755acbe6f3425b29ffa",
+    "samples_reused_unchanged": true,
+    "original_bound_checks_reused_unmasked": true,
+    "policy": "Full-budget per-reaction classical split-Rhat/ArviZ bulk ESS reused exactly; only common model-derived aggregation mask changes. Original sample/coordinate bound statistics unchanged."
+  }
+}

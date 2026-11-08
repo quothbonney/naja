@@ -1,0 +1,7 @@
+{
+  "format_version": 2,
+  "model_name": "model",
+  "rounding_dim": 580,
+  "n_reactions": 2583,
+  "n_constraints": 750
+}

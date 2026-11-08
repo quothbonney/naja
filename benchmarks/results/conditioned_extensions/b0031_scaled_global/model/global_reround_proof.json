@@ -1,0 +1,29 @@
+{
+  "status": "passed",
+  "target": "Exact inherited conditional A/b, not an independently reduced raw-model hull",
+  "dimension": 580,
+  "rows": 750,
+  "source_geometry_sha256": "c7730f7c13e4baad487dbff96ed70c67cfcf88665691998133ee220a143d2a40",
+  "destination_geometry_sha256": "fb0ed7e90520df49dd1a061da4594d06a3b489df7746e070951d8fcd618839c3",
+  "invertible_P_min_singular": 8.370046324961415e-10,
+  "invertible_P_max_singular": 2.770110969485723,
+  "positive_row_scale_min": 0.9999999989975213,
+  "positive_row_scale_max": 1.0000000007822212,
+  "transformed_A_relative_identity_error": 2.2540054085577392e-14,
+  "transformed_b_relative_identity_error": 4.9143806123147835e-14,
+  "common_conditional_mask_identical": true,
+  "global_round_algorithm_seconds": 64.40538801439106,
+  "preparation_inclusive_seconds_before_external_validation": 69.02231808193028,
+  "full_wrapper_inclusive_seconds_with_validation_and_mask": 75.71422211639583,
+  "timing_scope": "Global MVE round phase primary; complete preparation before external validation secondary; validation/LP-mask are external diagnostic costs.",
+  "source_script_sha256": "e1115a88c23340739d2a29811831becee8d198b3ffd08f5ef9511d89237c1165",
+  "no_target_relaxation": true,
+  "no_second_affine_hull_reduction": true,
+  "initial_coordinate_scale": 1e-06,
+  "dimension_gate_note": "Default PolyRound dimension gate applied in uniformly rescaled coordinates. Original failed default attempt is retained; no halfspace or target changed.",
+  "resources": {
+    "OPENBLAS_NUM_THREADS": "1",
+    "SLURM_CPUS_PER_TASK": "4",
+    "OMP_NUM_THREADS": "1"
+  }
+}

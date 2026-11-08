@@ -1,0 +1,93 @@
+[
+  {
+    "model": "e_coli_core",
+    "n": 95,
+    "d": 24,
+    "m": 36,
+    "source_sha_matches": true,
+    "finite_arrays": true,
+    "minimum_start_slack": 0.039252951538464864,
+    "max_start_bound_violation": 6.176535845380382e-14,
+    "max_stoichiometric_direction_residual": 2.124259101954351e-12,
+    "max_stoichiometric_shift_residual": 1.8811618929248652e-12,
+    "max_stoichiometric_start_residual": 1.8811618929248652e-12
+  },
+  {
+    "model": "iAB_RBC_283",
+    "n": 469,
+    "d": 130,
+    "m": 188,
+    "source_sha_matches": true,
+    "finite_arrays": true,
+    "minimum_start_slack": 1.199999037214593e-06,
+    "max_start_bound_violation": 1.1597655305816084e-14,
+    "max_stoichiometric_direction_residual": 1.679187313768441e-12,
+    "max_stoichiometric_shift_residual": 7.938513128108449e-13,
+    "max_stoichiometric_start_residual": 7.938513128108449e-13
+  },
+  {
+    "model": "iAF1260",
+    "n": 2382,
+    "d": 524,
+    "m": 671,
+    "source_sha_matches": true,
+    "finite_arrays": true,
+    "minimum_start_slack": 1.360322944623748e-06,
+    "max_start_bound_violation": 1.8643604461574252e-09,
+    "max_stoichiometric_direction_residual": 4.019344866089079e-09,
+    "max_stoichiometric_shift_residual": 1.118165503764812e-08,
+    "max_stoichiometric_start_residual": 1.118165503764812e-08
+  },
+  {
+    "model": "iJO1366",
+    "n": 2583,
+    "d": 581,
+    "m": 750,
+    "source_sha_matches": true,
+    "finite_arrays": true,
+    "minimum_start_slack": 2.496182279425173e-08,
+    "max_start_bound_violation": 1.4645475640402308e-12,
+    "max_stoichiometric_direction_residual": 5.562966374442896e-12,
+    "max_stoichiometric_shift_residual": 9.608924766979499e-12,
+    "max_stoichiometric_start_residual": 9.608924766979499e-12
+  },
+  {
+    "model": "iJR904",
+    "n": 1075,
+    "d": 232,
+    "m": 291,
+    "source_sha_matches": true,
+    "finite_arrays": true,
+    "minimum_start_slack": 1.640256568228042e-05,
+    "max_start_bound_violation": 1.5318305794939425e-09,
+    "max_stoichiometric_direction_residual": 3.763637409451904e-09,
+    "max_stoichiometric_shift_residual": 5.49184122016114e-09,
+    "max_stoichiometric_start_residual": 5.49184122016114e-09
+  },
+  {
+    "model": "iML1515",
+    "n": 2712,
+    "d": 635,
+    "m": 801,
+    "source_sha_matches": true,
+    "finite_arrays": true,
+    "minimum_start_slack": 1.973008681144155e-08,
+    "max_start_bound_violation": 1.9730235803371348e-08,
+    "max_stoichiometric_direction_residual": 6.032715559652953e-12,
+    "max_stoichiometric_shift_residual": 5.3358914292855826e-12,
+    "max_stoichiometric_start_residual": 5.3358914292855826e-12
+  },
+  {
+    "model": "iMM904",
+    "n": 1577,
+    "d": 288,
+    "m": 413,
+    "source_sha_matches": true,
+    "finite_arrays": true,
+    "minimum_start_slack": 3.002336689441492e-05,
+    "max_start_bound_violation": 1.503378455750976e-08,
+    "max_stoichiometric_direction_residual": 7.921647664185665e-09,
+    "max_stoichiometric_shift_residual": 1.3264625328690549e-08,
+    "max_stoichiometric_start_residual": 1.3264625328690549e-08
+  }
+]

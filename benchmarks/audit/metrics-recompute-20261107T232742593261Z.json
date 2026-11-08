@@ -1,0 +1,162 @@
+[
+  {
+    "run": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/hopsy/e_coli_core/default/seed101/run.json",
+    "model": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/e_coli_core"
+  },
+  {
+    "run": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/hopsy/e_coli_core/default/seed202/run.json",
+    "model": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/e_coli_core"
+  },
+  {
+    "run": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/hopsy/e_coli_core/default/seed303/run.json",
+    "model": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/e_coli_core"
+  },
+  {
+    "run": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/hopsy/e_coli_core/default_workers1/seed101/run.json",
+    "model": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/e_coli_core"
+  },
+  {
+    "run": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/hopsy/e_coli_core/default_workers1/seed202/run.json",
+    "model": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/e_coli_core"
+  },
+  {
+    "run": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/hopsy/e_coli_core/default_workers1/seed303/run.json",
+    "model": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/e_coli_core"
+  },
+  {
+    "run": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/hopsy/e_coli_core/jadebeck/seed101/run.json",
+    "model": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/e_coli_core"
+  },
+  {
+    "run": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/hopsy/e_coli_core/jadebeck/seed202/run.json",
+    "model": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/e_coli_core"
+  },
+  {
+    "run": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/hopsy/e_coli_core/jadebeck/seed303/run.json",
+    "model": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/e_coli_core"
+  },
+  {
+    "run": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/hopsy/e_coli_core/jadebeck_workers1/seed101/run.json",
+    "model": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/e_coli_core"
+  },
+  {
+    "run": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/hopsy/e_coli_core/jadebeck_workers1/seed202/run.json",
+    "model": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/e_coli_core"
+  },
+  {
+    "run": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/hopsy/e_coli_core/jadebeck_workers1/seed303/run.json",
+    "model": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/e_coli_core"
+  },
+  {
+    "run": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/hopsy/iAB_RBC_283/default/seed101/run.json",
+    "model": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/iAB_RBC_283"
+  },
+  {
+    "run": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/hopsy/iAB_RBC_283/default/seed202/run.json",
+    "model": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/iAB_RBC_283"
+  },
+  {
+    "run": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/hopsy/iAB_RBC_283/default/seed303/run.json",
+    "model": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/iAB_RBC_283"
+  },
+  {
+    "run": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/hopsy/iAB_RBC_283/jadebeck/seed101/run.json",
+    "model": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/iAB_RBC_283"
+  },
+  {
+    "run": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/hopsy/iAB_RBC_283/jadebeck/seed202/run.json",
+    "model": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/iAB_RBC_283"
+  },
+  {
+    "run": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/hopsy/iAB_RBC_283/jadebeck/seed303/run.json",
+    "model": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/iAB_RBC_283"
+  },
+  {
+    "run": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/hopsy/iJO1366/default/seed101/run.json",
+    "model": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/iJO1366"
+  },
+  {
+    "run": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/hopsy/iJO1366/default/seed202/run.json",
+    "model": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/iJO1366"
+  },
+  {
+    "run": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/hopsy/iJR904/default/seed101/run.json",
+    "model": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/iJR904"
+  },
+  {
+    "run": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/hopsy/iJR904/default/seed202/run.json",
+    "model": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/iJR904"
+  },
+  {
+    "run": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/hopsy/iJR904/default/seed303/run.json",
+    "model": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/iJR904"
+  },
+  {
+    "run": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/hopsy/iJR904/jadebeck/seed101/run.json",
+    "model": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/iJR904"
+  },
+  {
+    "run": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/hopsy/iJR904/jadebeck/seed202/run.json",
+    "model": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/iJR904"
+  },
+  {
+    "run": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/hopsy/iJR904/jadebeck/seed303/run.json",
+    "model": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/iJR904"
+  },
+  {
+    "run": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/naja/e_coli_core/seed101/run.json",
+    "model": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/e_coli_core"
+  },
+  {
+    "run": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/naja/e_coli_core/seed202/run.json",
+    "model": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/e_coli_core"
+  },
+  {
+    "run": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/naja/e_coli_core/seed303/run.json",
+    "model": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/e_coli_core"
+  },
+  {
+    "run": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/naja/iAB_RBC_283/seed101/run.json",
+    "model": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/iAB_RBC_283"
+  },
+  {
+    "run": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/naja/iAB_RBC_283/seed202/run.json",
+    "model": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/iAB_RBC_283"
+  },
+  {
+    "run": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/naja/iAB_RBC_283/seed303/run.json",
+    "model": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/iAB_RBC_283"
+  },
+  {
+    "run": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/naja/iAF1260/seed101/run.json",
+    "model": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/iAF1260"
+  },
+  {
+    "run": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/naja/iJO1366/seed101/run.json",
+    "model": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/iJO1366"
+  },
+  {
+    "run": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/naja/iJR904/seed101/run.json",
+    "model": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/iJR904"
+  },
+  {
+    "run": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/naja/iJR904/seed202/run.json",
+    "model": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/iJR904"
+  },
+  {
+    "run": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/naja/iJR904/seed303/run.json",
+    "model": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/iJR904"
+  },
+  {
+    "run": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/naja/iMM904/seed101/run.json",
+    "model": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/iMM904"
+  },
+  {
+    "run": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/naja/iMM904/seed202/run.json",
+    "model": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/iMM904"
+  },
+  {
+    "run": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/naja/iMM904/seed303/run.json",
+    "model": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/iMM904"
+  }
+]

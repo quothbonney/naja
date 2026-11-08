@@ -1,0 +1,251 @@
+{
+  "reserved_logical_cpus": 32,
+  "allowed_logical_cpus": [
+    24,
+    26,
+    28,
+    30,
+    32,
+    34,
+    36,
+    38,
+    40,
+    42,
+    44,
+    46,
+    48,
+    50,
+    52,
+    54,
+    88,
+    90,
+    92,
+    94,
+    96,
+    98,
+    100,
+    102,
+    104,
+    106,
+    108,
+    110,
+    112,
+    114,
+    116,
+    118
+  ],
+  "topology": [
+    {
+      "cpu": 24,
+      "socket": 0,
+      "core": 1,
+      "siblings": "24,88"
+    },
+    {
+      "cpu": 26,
+      "socket": 0,
+      "core": 20,
+      "siblings": "26,90"
+    },
+    {
+      "cpu": 28,
+      "socket": 0,
+      "core": 13,
+      "siblings": "28,92"
+    },
+    {
+      "cpu": 30,
+      "socket": 0,
+      "core": 26,
+      "siblings": "30,94"
+    },
+    {
+      "cpu": 32,
+      "socket": 0,
+      "core": 4,
+      "siblings": "32,96"
+    },
+    {
+      "cpu": 34,
+      "socket": 0,
+      "core": 23,
+      "siblings": "34,98"
+    },
+    {
+      "cpu": 36,
+      "socket": 0,
+      "core": 10,
+      "siblings": "36,100"
+    },
+    {
+      "cpu": 38,
+      "socket": 0,
+      "core": 28,
+      "siblings": "38,102"
+    },
+    {
+      "cpu": 40,
+      "socket": 0,
+      "core": 6,
+      "siblings": "40,104"
+    },
+    {
+      "cpu": 42,
+      "socket": 0,
+      "core": 17,
+      "siblings": "42,106"
+    },
+    {
+      "cpu": 44,
+      "socket": 0,
+      "core": 14,
+      "siblings": "44,108"
+    },
+    {
+      "cpu": 46,
+      "socket": 0,
+      "core": 30,
+      "siblings": "46,110"
+    },
+    {
+      "cpu": 48,
+      "socket": 0,
+      "core": 2,
+      "siblings": "48,112"
+    },
+    {
+      "cpu": 50,
+      "socket": 0,
+      "core": 19,
+      "siblings": "50,114"
+    },
+    {
+      "cpu": 52,
+      "socket": 0,
+      "core": 11,
+      "siblings": "52,116"
+    },
+    {
+      "cpu": 54,
+      "socket": 0,
+      "core": 25,
+      "siblings": "54,118"
+    },
+    {
+      "cpu": 88,
+      "socket": 0,
+      "core": 1,
+      "siblings": "24,88"
+    },
+    {
+      "cpu": 90,
+      "socket": 0,
+      "core": 20,
+      "siblings": "26,90"
+    },
+    {
+      "cpu": 92,
+      "socket": 0,
+      "core": 13,
+      "siblings": "28,92"
+    },
+    {
+      "cpu": 94,
+      "socket": 0,
+      "core": 26,
+      "siblings": "30,94"
+    },
+    {
+      "cpu": 96,
+      "socket": 0,
+      "core": 4,
+      "siblings": "32,96"
+    },
+    {
+      "cpu": 98,
+      "socket": 0,
+      "core": 23,
+      "siblings": "34,98"
+    },
+    {
+      "cpu": 100,
+      "socket": 0,
+      "core": 10,
+      "siblings": "36,100"
+    },
+    {
+      "cpu": 102,
+      "socket": 0,
+      "core": 28,
+      "siblings": "38,102"
+    },
+    {
+      "cpu": 104,
+      "socket": 0,
+      "core": 6,
+      "siblings": "40,104"
+    },
+    {
+      "cpu": 106,
+      "socket": 0,
+      "core": 17,
+      "siblings": "42,106"
+    },
+    {
+      "cpu": 108,
+      "socket": 0,
+      "core": 14,
+      "siblings": "44,108"
+    },
+    {
+      "cpu": 110,
+      "socket": 0,
+      "core": 30,
+      "siblings": "46,110"
+    },
+    {
+      "cpu": 112,
+      "socket": 0,
+      "core": 2,
+      "siblings": "48,112"
+    },
+    {
+      "cpu": 114,
+      "socket": 0,
+      "core": 19,
+      "siblings": "50,114"
+    },
+    {
+      "cpu": 116,
+      "socket": 0,
+      "core": 11,
+      "siblings": "52,116"
+    },
+    {
+      "cpu": 118,
+      "socket": 0,
+      "core": 25,
+      "siblings": "54,118"
+    }
+  ],
+  "selected_logical_cpus": [
+    24,
+    48,
+    32,
+    40,
+    36,
+    52,
+    28,
+    44,
+    42,
+    50,
+    26,
+    34,
+    54,
+    30,
+    38,
+    46
+  ],
+  "selected_physical_core_count": 16,
+  "selection": "one thread per unique physical core, round robin sockets"
+}

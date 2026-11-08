@@ -1,0 +1,150 @@
+{
+  "generated_utc": "2026-11-08T19:59:21.852692+00:00",
+  "conclusion": "One hopsy thinning unit is one coordinate proposal/update, not a full d-coordinate sweep. UniformCoordinateHitAndRun uses deterministic cyclic coordinate scan; Naja uses random coordinate scan. Comparing actual coordinate-update counts is valid, but the scan kernels differ.",
+  "hopsy_version": "1.7.0",
+  "hopsy_build": "9b787d9",
+  "native_module": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/env-cpu-native/lib/python3.12/site-packages/hopsy/core.cpython-312-x86_64-linux-gnu.so",
+  "native_module_sha256": "617c602456c6f54f70b4a4759404c088ed43ea7677acf3fcf181a19b86602ab8",
+  "source_archive_manifest": {
+    "version": "1.7.0",
+    "source": "official PyPI sdist",
+    "url": "https://files.pythonhosted.org/packages/3e/49/b4c800828736a3c8b57555f694f06a59f0acee84996f8b35948703636f5b/hopsy-1.7.0.tar.gz",
+    "sha256": "24659f594c6859823d887adc576f11667abcd2548f8e22341c313841e809fc1e",
+    "archive": "source/hopsy-1.7.0.tar.gz"
+  },
+  "source_files": [
+    {
+      "role": "python_sample",
+      "path": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/source/hopsy-1.7.0/src/hopsy/misc.py",
+      "sha256": "23cc4f47b0fab9a33cb8ae76da3bf224a6fc2943e74b10b996944871d94c7dfe",
+      "snapshot": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/closeout/task2_3/sourceproof/misc.py"
+    },
+    {
+      "role": "uniform_proposal_alias",
+      "path": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/source/hopsy-1.7.0/src/hopsy/proposal.hpp",
+      "sha256": "c2e45322f67ef269e60f9924de7b8c9820d2babc01063495edc1773e543cb4c8",
+      "snapshot": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/closeout/task2_3/sourceproof/proposal.hpp"
+    },
+    {
+      "role": "chain_adapter",
+      "path": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/source/hopsy-1.7.0/extern/hops/src/hops/MarkovChain/MarkovChainAdapter.hpp",
+      "sha256": "b82bea95dcc04767584cda7df8dff436e9b5cbe97792991defaa40000d1fcca1",
+      "snapshot": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/closeout/task2_3/sourceproof/MarkovChainAdapter.hpp"
+    },
+    {
+      "role": "draw_adapter",
+      "path": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/source/hopsy-1.7.0/extern/hops/src/hops/MarkovChain/Draw/NoOpDrawAdapter.hpp",
+      "sha256": "18f9ec0749b7940f00b017941e0024ae7746304e0b6fc8f770dd912f5664d8b5",
+      "snapshot": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/closeout/task2_3/sourceproof/NoOpDrawAdapter.hpp"
+    },
+    {
+      "role": "coordinate_proposal",
+      "path": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/source/hopsy-1.7.0/extern/hops/src/hops/MarkovChain/Proposal/CoordinateHitAndRunProposal.hpp",
+      "sha256": "a4ff927948cc64e516a5e0b8431e8dbd57e107333a9b40a3897fe16c777b12cc",
+      "snapshot": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/closeout/task2_3/sourceproof/CoordinateHitAndRunProposal.hpp"
+    }
+  ],
+  "native_three_dimensional_box_smoke_check": [
+    {
+      "call": 0,
+      "thinning": 1,
+      "changed_coordinates": [
+        1
+      ],
+      "acceptance": 1.0
+    },
+    {
+      "call": 1,
+      "thinning": 1,
+      "changed_coordinates": [
+        2
+      ],
+      "acceptance": 1.0
+    },
+    {
+      "call": 2,
+      "thinning": 1,
+      "changed_coordinates": [
+        0
+      ],
+      "acceptance": 1.0
+    },
+    {
+      "call": 3,
+      "thinning": 1,
+      "changed_coordinates": [
+        1
+      ],
+      "acceptance": 1.0
+    },
+    {
+      "call": 4,
+      "thinning": 1,
+      "changed_coordinates": [
+        2
+      ],
+      "acceptance": 1.0
+    },
+    {
+      "call": 5,
+      "thinning": 1,
+      "changed_coordinates": [
+        0
+      ],
+      "acceptance": 1.0
+    },
+    {
+      "call": 6,
+      "thinning": 1,
+      "changed_coordinates": [
+        1
+      ],
+      "acceptance": 1.0
+    },
+    {
+      "call": 7,
+      "thinning": 1,
+      "changed_coordinates": [
+        2
+      ],
+      "acceptance": 1.0
+    },
+    {
+      "call": 8,
+      "thinning": 1,
+      "changed_coordinates": [
+        0
+      ],
+      "acceptance": 1.0
+    },
+    {
+      "call": 9,
+      "thinning": 1,
+      "changed_coordinates": [
+        1
+      ],
+      "acceptance": 1.0
+    },
+    {
+      "call": 10,
+      "thinning": 1,
+      "changed_coordinates": [
+        2
+      ],
+      "acceptance": 1.0
+    },
+    {
+      "call": 11,
+      "thinning": 1,
+      "changed_coordinates": [
+        0
+      ],
+      "acceptance": 1.0
+    }
+  ],
+  "count_formula": "sum_over_chains((retained_draws+discarded_warmup_draws)*thinning)",
+  "naja_task3_actual_updates": 16896000,
+  "naja_task3_retained_only_updates": 15360000,
+  "native_module_matches_benchmark_build_manifest": true,
+  "proof_script_sha256": "d4bee1a62da315c86eabc6806c9bfcd14afc596eef21eeda6c6d1e2e4e9a3561"
+}

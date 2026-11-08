@@ -1,0 +1,15 @@
+> validate model contract
+> write generated config
+model :: shared
+output :: /mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/knockout_panel/conditions/b0474/quality/naja_rotate/seed101/pilot-budget10000/native/shared_20261108_001
+bounds :: ignore
+> sampling
+> loading polytope
+> barrier rotation (eigenbasis of H)
+> uploading to gpu
+> sampling 16 chains x 11000 samples (thin=1000, 176000000 MCMC steps, 745 constraints x 576 dims)
+> gpu sampling
+> gpu back-transform
+> downloading
+> done: 29.8s, 5905 samples/s
+> writing npy

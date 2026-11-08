@@ -1,0 +1,9 @@
+> validate model contracts
+> write generated bulk config
+bulk_name :: closeout_syntax_check
+jobs :: 1
+gpus :: 0
+output :: /mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/closeout/cli_fixture/runs/closeout_syntax_check_20261108_001
+bounds :: filter
+bounds_eps :: 0.000000
+> dry-run: not executing bulk sampling

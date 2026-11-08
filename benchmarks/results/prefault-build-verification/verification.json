@@ -1,0 +1,18 @@
+{
+  "binary_sha256": "a656a1f93489af051acd540d08369092567dd0673af2b0e1ac922dc58a910603",
+  "frozen_binary_sha256": "c7baf4f0ed282b936ac0dbac4b896bfbfc040eb06da6f84aff6605fddf4b0fc6",
+  "wide_index_build_verified": true,
+  "host_prefault_verified": true,
+  "large_matrix_runtime_validated": false,
+  "gpu_correctness_tests_passed": 5,
+  "same_seed_original_samples_bitwise_equal": true,
+  "host_prefault_0_8_raw_file_hashes_equal": true,
+  "f64_cast_to_f32_matches_original": true,
+  "default_prefault_threads": 0,
+  "explicit_flag": "--host-prefault-threads 8",
+  "internal_host_matrix_bytes": 13824,
+  "system_page_bytes": 4096,
+  "partial_last_page_bytes": 1536,
+  "complete_patch_sha256": "d891970c48c1c733243ec85812b420cf17f9ddb7349f201f770edcbef09bc568",
+  "timing_policy": "Download timer includes allocation, all first-touch threads, joins, tail-byte touch, and cudaMemcpy."
+}

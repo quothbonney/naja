@@ -1,0 +1,111 @@
+{
+  "method": "naja",
+  "status": "complete",
+  "command": [
+    "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/build-h100-safe/naja",
+    "sample",
+    "run",
+    "--model-dir",
+    "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/synthetic/BOX",
+    "--out-root",
+    "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/safe-build-verification/safe/native",
+    "--gpu",
+    "0",
+    "--n-chains",
+    "4",
+    "--n-samples",
+    "144",
+    "--seed",
+    "101",
+    "--tpb",
+    "128",
+    "--thinning",
+    "2",
+    "--constraint-eps",
+    "0",
+    "--extra-constraint-eps",
+    "0",
+    "--pair-prob",
+    "0.0",
+    "--bounds-policy",
+    "ignore",
+    "--write-npy",
+    "--barrier-rotate"
+  ],
+  "started_utc": "2026-11-07T23:57:13.367158+00:00",
+  "seed": 101,
+  "model": "BOX",
+  "model_dir": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/synthetic/BOX",
+  "chains": 4,
+  "draws": 128,
+  "warmup": 16,
+  "barrier": "rotate",
+  "pair_probability": 0.0,
+  "pair_schedule_method": null,
+  "requested_thinning": 2,
+  "exe_sha256": "da263d6060416d96da366392210b9468422890bda8200718da452941436a8f18",
+  "samples": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/safe-build-verification/safe/samples.npy",
+  "notes": [
+    "All wall sampling time includes discarded warmup.",
+    "Reduced-space native path; no GPU backmap; external reaction-space diagnostics.",
+    "Dikin may auto-enable when extra constraints exist; unconditioned models have none.",
+    "Auto thinning is a pre-sampling geometry heuristic, not online adaptation."
+  ],
+  "preflight": {
+    "dimension": 3,
+    "native_matrix_elements": 1728,
+    "signed_int_element_limit": 2147483647
+  },
+  "preflight_seconds": 0.17903272807598114,
+  "returncode": 0,
+  "wall_seconds": 0.7192557193338871,
+  "profile": {
+    "timestamp": "2026-11-07 23:57:14",
+    "config": {
+      "n_chains": 4,
+      "n_samples": 144,
+      "reduced_dim": 3,
+      "original_dim": 3,
+      "constraints": 6,
+      "thinning": 2,
+      "seed": 101,
+      "tpb_ss": 128,
+      "gpu_device": 0,
+      "back_transform": false
+    },
+    "timing": {
+      "load_polytope_s": 0.0017,
+      "cube_center_lp_s": 0.0,
+      "barrier_rotation_s": 0.0359,
+      "upload_to_gpu_s": 0.0002,
+      "gpu_sampling_s": 0.0243,
+      "download_from_gpu_s": 0.0,
+      "backtransform_s": 0.0103,
+      "write_output_s": 0.0077,
+      "total_s": 0.3108
+    },
+    "performance": {
+      "total_samples": 576,
+      "throughput_samples_per_sec": 23682.6,
+      "sampling_fraction": 0.078
+    }
+  },
+  "profile_path": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/safe-build-verification/safe/native/BOX_20261107_001/profile.json",
+  "raw_samples": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/safe-build-verification/safe/native/BOX_20261107_001/samples.npy",
+  "native_shape": [
+    576,
+    3
+  ],
+  "native_dtype": "float32",
+  "native_layout": "draw-major interleaved chains; columns are reduced coordinates",
+  "analysis_shape": [
+    4,
+    128,
+    3
+  ],
+  "analysis_layout": "chain, draw, reduced_coordinate",
+  "warmup_retained_draws_discarded_per_chain": 16,
+  "normalization_seconds": 0.008436603471636772,
+  "wall_including_normalization_seconds": 0.7276923228055239,
+  "finished_utc": "2026-11-07T23:57:14.307685+00:00"
+}

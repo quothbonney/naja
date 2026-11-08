@@ -1,0 +1,39 @@
+{
+  "issue": "Signed32-bit matrix element products overflow before size_t conversion; originalCUDAerror macros onlylog andreturnzero status.",
+  "trigger": {
+    "chains": 512,
+    "raw_draws_per_chain": 11000,
+    "reduced_dimension": 581,
+    "elements": 3272192000,
+    "signed_int_limit": 2147483647
+  },
+  "minimal_patch_files": [
+    "src/gpu/helper.h",
+    "src/gpu/dmatrix.cu"
+  ],
+  "patch": "Cast operands to std::size_t before allocation/copy andIDX2C offset multiplication; no floating-point/random-number algorithm changes.",
+  "requested_path_audit": {
+    "per_axis_columns": 5632000,
+    "per_chain_kernel_steps": 1056000,
+    "float32_npy_writer": "Already uses size_t for per-column memory offset; sample-column loop remainsint but5.63M fits.",
+    "cublas_gemm": "Each axisfitsint; supportedwidepointeraddressing verifiedbyactual512-chain run."
+  },
+  "remaining_limits_outside_requested_path": [
+    "UnusedCUBLASNrmF/Scal flattenlengthusesintproduct; notcalledbythissamplingpath.",
+    "float64NPYload_transposed bytecountstillintrows*cols; notusedtoreadoutputhere.",
+    "nativevalidate_cli2Dflatbufferindexstillintproduct; externalNumPy/commonmetricsusedinstead.",
+    "largebackmapadd_shiftgrid.y exceedslimitabove524280outputcolumns; no--backmap used.",
+    "samplecolumns and per-chain stepcounterstillint; per-axisguardretained."
+  ],
+  "frozen_binary_sha256": "c7baf4f0ed282b936ac0dbac4b896bfbfc040eb06da6f84aff6605fddf4b0fc6",
+  "wide_binary_sha256": "da263d6060416d96da366392210b9468422890bda8200718da452941436a8f18",
+  "verification": [
+    "5GPUtestsfastmathpass",
+    "same-seedold/newBOXsamplesbitwiseidentical",
+    "staticIDX2Coffset3272191999passes",
+    "actual3.272Belement512casefullfinitechecks+zeroGPUerrors+sampled50,479MiBGPUpeak;1024samplefeasibilitysubset"
+  ],
+  "canonical_results_policy": "Frozenbinaryandcanonicalresultsunchanged. Invalidoriginal512results excluded; patched512resultsareseparateexploratoryvariant.",
+  "original_snapshot": "results/source-snapshots/pre-wide-indices/",
+  "separate_results": "results/scaling-extension-safe/iJO1366/"
+}

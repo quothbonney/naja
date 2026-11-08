@@ -1,0 +1,7 @@
+{
+  "model": "Recon3D_nullspace_only",
+  "mode": "gpu",
+  "role": "unprofiled",
+  "stage": "target",
+  "job_id": "880"
+}

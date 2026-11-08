@@ -1,0 +1,21 @@
+{
+  "pilot_only": true,
+  "control": "2000_w16/seed101",
+  "physical": "physical16_thin2000/seed101",
+  "samples_sha256": "585e289da74b3820c23ff2982f51feb7737219b492581357334a2ec57861fe1b",
+  "control_samples_sha256": "585e289da74b3820c23ff2982f51feb7737219b492581357334a2ec57861fe1b",
+  "samples_bitwise_identical": true,
+  "selected_physical_cores": 16,
+  "reserved_logical_cpus": 32,
+  "all_selected_siblings_reserved": true,
+  "selected_sockets": [
+    0
+  ],
+  "control_process_seconds": 36.9577610027045,
+  "physical_process_seconds": 25.801467960700393,
+  "process_speedup": 1.4323898570033635,
+  "control_sample_seconds": 31.389761785045266,
+  "physical_sample_seconds": 20.58317170292139,
+  "sample_speedup": 1.5250206449276271,
+  "limitation": "One seed. Earlier control did not record actual core affinity; comparison combines placement and temporal variation."
+}

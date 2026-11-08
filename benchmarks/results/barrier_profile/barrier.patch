@@ -1,0 +1,299 @@
+diff -ruN benchmarks/experimental/naja-coordinate/CMakeLists.txt benchmarks/experimental/naja-barrier/CMakeLists.txt
+--- benchmarks/experimental/naja-coordinate/CMakeLists.txt	2026-11-07 23:29:27.963430949 +0000
++++ benchmarks/experimental/naja-barrier/CMakeLists.txt	2026-11-08 04:09:51.034479993 +0000
+@@ -1,6 +1,9 @@
+ cmake_minimum_required(VERSION 3.24)
+ project(naja LANGUAGES C CXX CUDA)
+ 
++set(NAJA_NVTX_INCLUDE "" CACHE PATH "NVTX3 headers for isolated barrier profiling")
++include_directories(${NAJA_NVTX_INCLUDE})
++
+ enable_testing()
+ option(NAJA_ENABLE_ENV_DEP_TESTS "Enable tests that require external model data and/or valid Gurobi license" OFF)
+ option(NAJA_ENABLE_GPU_TESTS "Enable GPU-based sampling correctness tests (require CUDA device)" OFF)
+diff -ruN benchmarks/experimental/naja-coordinate/src/engine/job_sampling.cu benchmarks/experimental/naja-barrier/src/engine/job_sampling.cu
+--- benchmarks/experimental/naja-coordinate/src/engine/job_sampling.cu	2026-11-08 00:37:23.763130601 +0000
++++ benchmarks/experimental/naja-barrier/src/engine/job_sampling.cu	2026-11-08 04:12:52.300543197 +0000
+@@ -26,6 +26,8 @@
+ //   new: total_s=5.38,  sampling_fraction=0.418
+ 
+ #include "engine/job.h"
++#include "util/barrier_trace.h"
++#include <cstdlib>
+ 
+ #include <Eigen/Dense>
+ #include <cublas_v2.h>
+@@ -290,23 +292,40 @@
+     if (cfg.BARRIER_ROTATE && n >= 2) {
+         naja::status::phase(cfg.STATUS, "barrier rotation (eigenbasis of H)");
+         Timer barrier_timer;
+-        auto br = naja::rounding::compute_barrier_rotation(A_host, b_host, x0_host, verbose);
++        naja::profiling::BarrierSpan total_barrier_span("barrier.total");
++        naja::rounding::BarrierRotation br;
++        {
++            naja::profiling::BarrierSpan span("barrier.compute_eigenbasis");
++            br = naja::rounding::compute_barrier_rotation(A_host, b_host, x0_host, verbose);
++        }
+         rotation_Q = br.Q;
+         barrier_condition = br.eigenvalues[n - 1] / std::max(br.eigenvalues[0], 1e-30);
+ 
+         // 1) Pure orthogonal rotation into the eigenbasis.
+-        A_host = A_host * rotation_Q;
+-        x0_host = rotation_Q.transpose() * x0_host;
++        {
++            const bool gpu_rotate = std::getenv("NAJA_BARRIER_GPU_ROTATE") != nullptr;
++            naja::profiling::BarrierSpan span(gpu_rotate ? "barrier.gpu_rotate_A" : "barrier.cpu_rotate_A");
++            if (gpu_rotate) A_host = naja::rounding::rotate_matrix_gpu(A_host, rotation_Q);
++            else A_host = A_host * rotation_Q;
++        }
++        {
++            naja::profiling::BarrierSpan span("barrier.cpu_rotate_start");
++            x0_host = rotation_Q.transpose() * x0_host;
++        }
+         if (hull_enabled) {
+             hull_basis = hull_basis * rotation_Q;
+         }
+         barrier_rotated = true;
+-        naja::util::require_feasible_start(A_host, b_host, x0_host, 1e-9, "barrier-rotated");
++        {
++            naja::profiling::BarrierSpan span("barrier.rotated_feasibility");
++            naja::util::require_feasible_start(A_host, b_host, x0_host, 1e-9, "barrier-rotated");
++        }
+ 
+         // 2) Optional diagonal whitening: scale dim i by 1/sqrt(lambda_i).
+         //    After this, the local barrier metric at x_c is ~ I.
+         //    Clamp eigenvalues so tiny values don't create extreme scales.
+         if (cfg.BARRIER_WHITEN) {
++            naja::profiling::BarrierSpan span("barrier.whiten");
+             naja::status::phase(cfg.STATUS, "barrier whitening (diagonal rescale)");
+             double ev_median = br.eigenvalues[n / 2];
+             double ev_floor = std::max(ev_median * 1e-6, 1e-30);
+diff -ruN benchmarks/experimental/naja-coordinate/src/rounding/barrier_rotation.cu benchmarks/experimental/naja-barrier/src/rounding/barrier_rotation.cu
+--- benchmarks/experimental/naja-coordinate/src/rounding/barrier_rotation.cu	2026-11-07 23:00:30.867432454 +0000
++++ benchmarks/experimental/naja-barrier/src/rounding/barrier_rotation.cu	2026-11-08 04:11:02.055828398 +0000
+@@ -14,6 +14,7 @@
+ #include "dmatrix.h"
+ #include "dvector.h"
+ #include "helper.h"
++#include "util/barrier_trace.h"
+ 
+ // cuSOLVER error-checking macro (throws on failure, unlike CUDA_CHECK/CUBLAS_CHECK which only print)
+ #define CUSOLVER_CHECK(expr)                                                         \
+@@ -57,7 +58,11 @@
+     const int d = static_cast<int>(A.cols());
+ 
+     // ── 1. CPU: slack, tau, clamping  (O(m*d) but cheap vs GPU setup) ─────────
+-    Eigen::VectorXd slack = b - A * x_c;
++    Eigen::VectorXd slack;
++    {
++        naja::profiling::BarrierSpan span("barrier.cpu_slack");
++        slack = b - A * x_c;
++    }
+ 
+     // tau = 1e-6 * median(positive slacks)
+     std::vector<double> pos_slacks;
+@@ -81,7 +86,10 @@
+     Eigen::VectorXd inv_slack = slack.cwiseInverse();
+ 
+     // ── 2. GPU: B = diag(inv_slack) * A  (row-scale A in place on device) ─────
+-    naja::gpu::DMatrix<double> B_d(A);                  // m × d, column-major
++    naja::gpu::DMatrix<double> B_d = [&]() {
++        naja::profiling::BarrierSpan span("barrier.upload_A");
++        return naja::gpu::DMatrix<double>(A);
++    }();
+     naja::gpu::DVector<double> inv_slack_d(inv_slack);  // m
+ 
+     {
+@@ -96,39 +104,56 @@
+     // cublasDsyrk with CUBLAS_OP_T:  C = alpha * B^T * B + beta * C
+     //   n=d (output dim), k=m (inner dim), lda=m (leading dim of B)
+     cublasHandle_t blas_h;
+-    CUBLAS_CHECK(cublasCreate(&blas_h));
++    {
++        naja::profiling::BarrierSpan span("barrier.cublas_create");
++        CUBLAS_CHECK(cublasCreate(&blas_h));
++    }
+ 
+     naja::gpu::DMatrix<double> H_d(d, d);
+     {
++        naja::profiling::BarrierSpan span("barrier.hessian_syrk");
+         const double alpha = 1.0, beta = 0.0;
+         CUBLAS_CHECK(cublasDsyrk(
+             blas_h, CUBLAS_FILL_MODE_LOWER, CUBLAS_OP_T,
+             d, m, &alpha, B_d.dmat, m, &beta, H_d.dmat, d));
++        CUDA_CHECK(cudaDeviceSynchronize());
+     }
+     cublasDestroy(blas_h);
+ 
+     // ── 4. Download H (lower triangle), fill upper, add ridge, re-upload ───────
+     // H_d is d×d; toHost() copies all d*d elements (lower triangle filled, rest zero).
+-    Eigen::MatrixXd H_host = H_d.toHost();
++    Eigen::MatrixXd H_host = [&]() {
++        naja::profiling::BarrierSpan span("barrier.download_H");
++        return H_d.toHost();
++    }();
+ 
+     // Mirror lower → upper
+-    for (int i = 0; i < d; ++i)
+-        for (int j = i + 1; j < d; ++j)
+-            H_host(i, j) = H_host(j, i);
++    {
++        naja::profiling::BarrierSpan span("barrier.cpu_mirror_H");
++        for (int i = 0; i < d; ++i)
++            for (int j = i + 1; j < d; ++j)
++                H_host(i, j) = H_host(j, i);
++    }
+ 
+     const double trace_H = H_host.trace();
+     const double ridge    = 1e-10 * trace_H / d;
+     H_host.diagonal().array() += ridge;
+ 
+     // Re-upload the full symmetric H with ridge
+-    naja::gpu::DMatrix<double> H_sym_d(H_host);  // d × d
++    naja::gpu::DMatrix<double> H_sym_d = [&]() {
++        naja::profiling::BarrierSpan span("barrier.upload_H");
++        return naja::gpu::DMatrix<double>(H_host);
++    }();
+ 
+     // ── 5. GPU: eigendecomposition via cuSOLVER DSYEVD ───────────────────────
+     //   jobz = CUSOLVER_EIG_MODE_VECTOR → compute eigenvalues + eigenvectors
+     //   uplo = CUBLAS_FILL_MODE_LOWER   → reads lower triangle of H_sym_d
+     //   On exit: H_sym_d.dmat contains eigenvectors (columns), ascending by eigenvalue
+     cusolverDnHandle_t solver_h;
+-    CUSOLVER_CHECK(cusolverDnCreate(&solver_h));
++    {
++        naja::profiling::BarrierSpan span("barrier.cusolver_create");
++        CUSOLVER_CHECK(cusolverDnCreate(&solver_h));
++    }
+ 
+     // Allocate eigenvalue buffer on device
+     double* d_W = nullptr;
+@@ -147,13 +172,15 @@
+     CUDA_CHECK(cudaMalloc(&d_info, sizeof(int)));
+ 
+     // Run eigendecomposition (overwrites H_sym_d with eigenvectors)
+-    CUSOLVER_CHECK(cusolverDnDsyevd(
+-        solver_h, CUSOLVER_EIG_MODE_VECTOR, CUBLAS_FILL_MODE_LOWER,
+-        d, H_sym_d.dmat, d, d_W, d_work, lwork, d_info));
+-
+     // Check convergence
+     int h_info = 0;
+-    CUDA_CHECK(cudaMemcpy(&h_info, d_info, sizeof(int), cudaMemcpyDeviceToHost));
++    {
++        naja::profiling::BarrierSpan span("barrier.eigensolve_and_wait");
++        CUSOLVER_CHECK(cusolverDnDsyevd(
++            solver_h, CUSOLVER_EIG_MODE_VECTOR, CUBLAS_FILL_MODE_LOWER,
++            d, H_sym_d.dmat, d, d_W, d_work, lwork, d_info));
++        CUDA_CHECK(cudaMemcpy(&h_info, d_info, sizeof(int), cudaMemcpyDeviceToHost));
++    }
+     cudaFree(d_work);
+     cudaFree(d_info);
+     cusolverDnDestroy(solver_h);
+@@ -173,7 +200,10 @@
+     cudaFree(d_W);
+ 
+     // Download eigenvectors (columns of H_sym_d after dsyevd)
+-    Eigen::MatrixXd Q = H_sym_d.toHost();  // d × d, columns = eigenvectors
++    Eigen::MatrixXd Q = [&]() {
++        naja::profiling::BarrierSpan span("barrier.download_Q");
++        return H_sym_d.toHost();
++    }();
+ 
+     // ── 6. Optional verbose diagnostics ──────────────────────────────────────
+     if (verbose) {
+@@ -208,4 +238,49 @@
+     return result;
+ }
+ 
++Eigen::MatrixXd rotate_matrix_gpu(const Eigen::MatrixXd& A, const Eigen::MatrixXd& Q) {
++    const int m = static_cast<int>(A.rows());
++    const int d = static_cast<int>(A.cols());
++    if (Q.rows() != d || Q.cols() != d) throw std::invalid_argument("rotation shape mismatch");
++    naja::gpu::DMatrix<double> A_d = [&]() {
++        naja::profiling::BarrierSpan span("rotation.upload_A");
++        return naja::gpu::DMatrix<double>(A);
++    }();
++    naja::gpu::DMatrix<double> Q_d(Q);
++    naja::gpu::DMatrix<double> C_d(m, d);
++    cublasHandle_t handle;
++    const auto status = cublasCreate(&handle);
++    if (status != CUBLAS_STATUS_SUCCESS) throw std::runtime_error("rotation cublasCreate failed");
++    {
++        naja::profiling::BarrierSpan span("rotation.dgemm_and_wait");
++        const double alpha = 1.0, beta = 0.0;
++        const auto result = cublasDgemm(handle, CUBLAS_OP_N, CUBLAS_OP_N,
++            m, d, d, &alpha, A_d.dmat, m, Q_d.dmat, d, &beta, C_d.dmat, m);
++        if (result != CUBLAS_STATUS_SUCCESS) {
++            cublasDestroy(handle);
++            throw std::runtime_error("rotation cublasDgemm failed");
++        }
++        const auto sync = cudaDeviceSynchronize();
++        if (sync != cudaSuccess) {
++            cublasDestroy(handle);
++            throw std::runtime_error(cudaGetErrorString(sync));
++        }
++    }
++    cublasDestroy(handle);
++    Eigen::MatrixXd out = [&]() {
++        naja::profiling::BarrierSpan span("rotation.download_A");
++        return C_d.toHost();
++    }();
++    if (std::getenv("NAJA_BARRIER_VALIDATE_ROTATION")) {
++        naja::profiling::BarrierSpan span("rotation.validation_not_for_timing");
++        Eigen::MatrixXd reference = A * Q;
++        const double relative = (reference-out).norm() / std::max(reference.norm(), 1e-300);
++        const double maximum = (reference-out).cwiseAbs().maxCoeff();
++        std::cerr << "NAJA_ROTATION_VALIDATION {\"relative_frobenius\":" << std::setprecision(17)
++                  << relative << ",\"maximum_absolute\":" << maximum << "}\n";
++        if (!out.allFinite() || relative > 1e-10) throw std::runtime_error("GPU rotation algebra check failed");
++    }
++    return out;
++}
++
+ } // namespace naja::rounding
+diff -ruN benchmarks/experimental/naja-coordinate/src/rounding/barrier_rotation.h benchmarks/experimental/naja-barrier/src/rounding/barrier_rotation.h
+--- benchmarks/experimental/naja-coordinate/src/rounding/barrier_rotation.h	2026-11-07 23:00:30.871633766 +0000
++++ benchmarks/experimental/naja-barrier/src/rounding/barrier_rotation.h	2026-11-08 04:09:51.032903231 +0000
+@@ -28,5 +28,8 @@
+     const Eigen::VectorXd& x_c,
+     bool verbose = false);
+ 
++// Isolated experimental offload; returns the host matrix for the existing pipeline.
++Eigen::MatrixXd rotate_matrix_gpu(const Eigen::MatrixXd& A, const Eigen::MatrixXd& Q);
++
+ } // namespace naja::rounding
+ 
+diff -ruN benchmarks/experimental/naja-coordinate/src/util/barrier_trace.h benchmarks/experimental/naja-barrier/src/util/barrier_trace.h
+--- benchmarks/experimental/naja-coordinate/src/util/barrier_trace.h	1970-01-01 00:00:00.000000000 +0000
++++ benchmarks/experimental/naja-barrier/src/util/barrier_trace.h	2026-11-08 04:09:51.032148517 +0000
+@@ -0,0 +1,30 @@
++#pragma once
++#include <chrono>
++#include <cstdlib>
++#include <iomanip>
++#include <iostream>
++#include <nvtx3/nvToolsExt.h>
++
++namespace naja::profiling {
++class BarrierSpan {
++    const char* name_;
++    bool enabled_;
++    std::chrono::steady_clock::time_point start_;
++public:
++    explicit BarrierSpan(const char* name) : name_(name),
++        enabled_(std::getenv("NAJA_BARRIER_TRACE") != nullptr),
++        start_(std::chrono::steady_clock::now()) {
++        if (enabled_) nvtxRangePushA(name_);
++    }
++    ~BarrierSpan() {
++        if (!enabled_) return;
++        const double seconds = std::chrono::duration<double>(
++            std::chrono::steady_clock::now() - start_).count();
++        nvtxRangePop();
++        std::cerr << "NAJA_BARRIER_STAGE {\"name\":\"" << name_
++                  << "\",\"seconds\":" << std::setprecision(17) << seconds << "}\n";
++    }
++    BarrierSpan(const BarrierSpan&) = delete;
++    BarrierSpan& operator=(const BarrierSpan&) = delete;
++};
++}

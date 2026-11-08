@@ -1,0 +1,72 @@
+{
+  "status": "passed",
+  "cases": [
+    {
+      "model": "iML1515",
+      "label": "gpu_seed101",
+      "status": "passed",
+      "compared_summary_keys": [
+        "split_rhat_median",
+        "split_rhat_p95",
+        "bulk_ess_median",
+        "diagnosed_reactions",
+        "constant_reactions_excluded",
+        "solver_detected_nearconstant_reactions_excluded",
+        "sample_bound_violation_fraction",
+        "coordinate_bound_violation_fraction",
+        "max_absolute_bound_violation",
+        "exactly_constant_sampled_reactions"
+      ],
+      "per_reaction_statistics_exactly_equal": true,
+      "max_absolute_statistic_difference": 0.0,
+      "command": [
+        "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/env-cpu/bin/python",
+        "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/metrics.py",
+        "--samples",
+        "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/precision_quality/iML1515/seed101/samples.npy",
+        "--model-dir",
+        "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/crossmodel_extension/cached_models/iML1515",
+        "--output",
+        "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/crossmodel_extension/reaggregate_validation/iML1515_gpu_seed101/fresh",
+        "--prefixes",
+        "2000"
+      ],
+      "source": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/precision_quality/iML1515/seed101",
+      "fresh_metrics": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/crossmodel_extension/reaggregate_validation/iML1515_gpu_seed101/fresh/metrics.json"
+    },
+    {
+      "model": "iML1515",
+      "label": "cpu12k_seed101",
+      "status": "passed",
+      "compared_summary_keys": [
+        "split_rhat_median",
+        "split_rhat_p95",
+        "bulk_ess_median",
+        "diagnosed_reactions",
+        "constant_reactions_excluded",
+        "solver_detected_nearconstant_reactions_excluded",
+        "sample_bound_violation_fraction",
+        "coordinate_bound_violation_fraction",
+        "max_absolute_bound_violation",
+        "exactly_constant_sampled_reactions"
+      ],
+      "per_reaction_statistics_exactly_equal": true,
+      "max_absolute_statistic_difference": 0.0,
+      "command": [
+        "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/env-cpu/bin/python",
+        "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/metrics.py",
+        "--samples",
+        "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/native_cpu/iML1515/extension_20261108_worker_thin2000_n12000/seed101/samples.npy",
+        "--model-dir",
+        "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/crossmodel_extension/cached_models/iML1515",
+        "--output",
+        "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/crossmodel_extension/reaggregate_validation/iML1515_cpu12k_seed101/fresh",
+        "--prefixes",
+        "12000"
+      ],
+      "source": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/native_cpu/iML1515/extension_20261108_worker_thin2000_n12000/seed101",
+      "fresh_metrics": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/crossmodel_extension/reaggregate_validation/iML1515_cpu12k_seed101/fresh/metrics.json"
+    }
+  ],
+  "reaggregation_code_sha256": "3531390f692e98335b7c113c61b19aba647dab18a3420755acbe6f3425b29ffa"
+}

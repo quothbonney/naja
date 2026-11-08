@@ -1,0 +1,47 @@
+{
+  "status": "passed",
+  "scope": "No Slurm actions executed. Verifies three128CPU sample chain, every diagnostic after finalsample,45minboundeddiagnostics, andreplacement of oldheld30min diagnostic.",
+  "actions": [
+    [
+      "sbatch",
+      "--dependency=afterok:451",
+      "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/scripts/high_throughput_cpu.sbatch",
+      "202001",
+      "12000",
+      "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/high_throughput/iJO1366/cpu_native512_physical64_thin2000/seed202001/budget12000"
+    ],
+    [
+      "sbatch",
+      "--dependency=afterok:900",
+      "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/scripts/high_throughput_cpu.sbatch",
+      "303001",
+      "12000",
+      "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/high_throughput/iJO1366/cpu_native512_physical64_thin2000/seed303001/budget12000"
+    ],
+    [
+      "scancel",
+      "453"
+    ],
+    [
+      "sbatch",
+      "--time=00:45:00",
+      "--dependency=afterok:901",
+      "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/scripts/high_throughput_metrics.sbatch",
+      "first"
+    ],
+    [
+      "sbatch",
+      "--time=00:45:00",
+      "--dependency=afterok:901",
+      "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/scripts/high_throughput_metrics.sbatch",
+      "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/high_throughput/iJO1366/cpu_native512_physical64_thin2000/seed202001/budget12000"
+    ],
+    [
+      "sbatch",
+      "--time=00:45:00",
+      "--dependency=afterok:901",
+      "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/scripts/high_throughput_metrics.sbatch",
+      "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/high_throughput/iJO1366/cpu_native512_physical64_thin2000/seed303001/budget12000"
+    ]
+  ]
+}

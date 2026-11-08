@@ -1,0 +1,42 @@
+{
+  "cached_metrics_sha256": "cb6a38265050b175bf1090c5e85f16f164c2e23cafd80ac96824c909c5406dfa",
+  "pilot_analysis_file": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/quality/iJO1366/naja128/seed202/pilot-budget50000/samples.npy",
+  "final_analysis_file": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/quality/iJO1366/naja128/seed202/final-budget50000/samples.npy",
+  "exact_file_bytes_shape_dtype_geometry_mask_verified": true,
+  "pilot_identity": {
+    "estimator_code_sha256": "854e524cade5cecc6a9c5541cb15957e0336c3461434c2363d9ef2a2b701947c",
+    "numpy_version": "2.5.4",
+    "arviz_version": "1.3.0",
+    "samples_sha256": "ef9beb36afd99f40217d3e0844d68d2fe08bf801410357ea3dfde1a0f81885a9",
+    "shape": [
+      16,
+      50000,
+      581
+    ],
+    "dtype": "<f4",
+    "geometry_sha256": "07374999682cb82ef566c2a7ba4cd1ca44b0718ab81f421846e24d3b85f5e103",
+    "mask_sha256": "23087281b6c9852bb02bbe5bb28d873cc0ccc677a5bf4bb45486b68760867ca8",
+    "mask_policy_sha256": "38572a6da692c96c7fc3008cb3313b8b61a12878e7908452260d473ef795f2aa",
+    "lower_bounds_sha256": "5e7a7a0d2698146dd2a1bd35242052ff0791f3ca93291d375c3407c6d94da1f4",
+    "upper_bounds_sha256": "20a85ee6394424ddbe1505df4e35b36955c6278fa05251bf0029ee9013eb5ac7",
+    "reaction_ids_sha256": "e0de6cf944c436fe98f6edf368d76146ce2444736b3ca0472cc47887de4e6df7"
+  },
+  "final_identity": {
+    "estimator_code_sha256": "854e524cade5cecc6a9c5541cb15957e0336c3461434c2363d9ef2a2b701947c",
+    "numpy_version": "2.5.4",
+    "arviz_version": "1.3.0",
+    "samples_sha256": "ef9beb36afd99f40217d3e0844d68d2fe08bf801410357ea3dfde1a0f81885a9",
+    "shape": [
+      16,
+      50000,
+      581
+    ],
+    "dtype": "<f4",
+    "geometry_sha256": "07374999682cb82ef566c2a7ba4cd1ca44b0718ab81f421846e24d3b85f5e103",
+    "mask_sha256": "23087281b6c9852bb02bbe5bb28d873cc0ccc677a5bf4bb45486b68760867ca8",
+    "mask_policy_sha256": "38572a6da692c96c7fc3008cb3313b8b61a12878e7908452260d473ef795f2aa",
+    "lower_bounds_sha256": "5e7a7a0d2698146dd2a1bd35242052ff0791f3ca93291d375c3407c6d94da1f4",
+    "upper_bounds_sha256": "20a85ee6394424ddbe1505df4e35b36955c6278fa05251bf0029ee9013eb5ac7",
+    "reaction_ids_sha256": "e0de6cf944c436fe98f6edf368d76146ce2444736b3ca0472cc47887de4e6df7"
+  }
+}

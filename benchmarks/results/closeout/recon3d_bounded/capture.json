@@ -1,0 +1,33 @@
+{
+  "status": "native_capture_complete",
+  "started_utc": "2026-11-08T20:10:15.055696+00:00",
+  "job": "955",
+  "protocol_sha256": "2006a41ca9cbee36810ecfb7393e492e6f13f5c8fa6fea59b2e638513ebdadaf",
+  "source_sha256": "d958b14a5eaddb22a93415f34faeb8219b6a5d52e552c5b1631dbca45c6b75d0",
+  "device": {
+    "uuid": "GPU-884d19b4-3b1e-5246-0d07-a1a68b778800",
+    "free_bytes": 84465090560,
+    "total_bytes": 85017493504
+  },
+  "decision": {
+    "lag1": {
+      "median": 0.9696972948321285,
+      "p95": 0.9897998770054603,
+      "coordinates": 4861,
+      "definition": "Pooled lag1 over512chains after64 discarded warmup draws; each coordinate uses one pooled mean. Pilot estimate only, not a convergence claim."
+    },
+    "desired_thinning": 60612,
+    "budget_capped_thinning": 5409,
+    "selected_thinning": 5409,
+    "pilot_sampler_seconds": 28.7482,
+    "predicted_main_sampler_seconds": 2699.6356562500005,
+    "elapsed_allocation_proxy_seconds": 42.08519163355231,
+    "main_sampler_budget_seconds": 2700,
+    "rule": "Median pooled reduced-coordinate lag1 after pilot warmup; desired=max(810,ceil(810*log(0.1)/log(clip(medianrho,0.001,0.9999)))). Budget cap uses pilot GPU-sampler seconds per transition, at most2700 main sampler seconds and reserves180s of the remaining3600s allocation. Choose min(desired,budgetcap), no parameter retuning after main."
+  },
+  "main_run": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/closeout/recon3d_bounded/main",
+  "main_sampler_seconds": 2702.8533,
+  "allocated_gpu_wall_proxy_seconds": 2779.1621152684093,
+  "note": "Main normalization and all-reaction diagnostics run after this GPU allocation ends.",
+  "finished_utc": "2026-11-08T20:56:34.217814+00:00"
+}

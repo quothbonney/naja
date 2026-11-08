@@ -1,0 +1,73 @@
+{
+  "status": "passed",
+  "thin": 1000,
+  "draws": 3000,
+  "seed": 101001,
+  "experimental_binary_sha256": "a656a1f93489af051acd540d08369092567dd0673af2b0e1ac922dc58a910603",
+  "reference_run": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/high_throughput/iJO1366/naja512_tpb128_thin1000/seed101001/budget3000",
+  "reference_samples_sha256": "2ca915f3a3344d722f85e70f77b96b1d42e7c4f3b7381881550fa5ece014d208",
+  "reference_process_seconds": 32.84656345099211,
+  "rows": [
+    {
+      "host_prefault_threads": 0,
+      "process_seconds": 33.37894472852349,
+      "samples_sha256": "2ca915f3a3344d722f85e70f77b96b1d42e7c4f3b7381881550fa5ece014d208",
+      "equals_frozen_reference": true,
+      "run_dir": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/high_throughput/iJO1366/naja512_tpb128_thin1000_prefault0/seed101001",
+      "download_including_prefault_seconds": 4.6381,
+      "normalization_seconds": 6.524349229410291,
+      "quality": {
+        "status": "passed",
+        "seed": 101001,
+        "chains": 512,
+        "draws_per_chain": 3000,
+        "warmup_per_chain": 1000,
+        "process_seconds": 33.37894472852349,
+        "split_rhat_median": 1.0070239108209564,
+        "pooled_bulk_ess_median": 92376.94048165651,
+        "pooled_bulk_ess_median_per_chain": 180.42371187823537,
+        "pooled_bulk_ess_median_per_process_second": 2767.521299219419,
+        "bounds_tolerance": 1e-07,
+        "sample_bound_violation_fraction": 0.0,
+        "schema_version": 2,
+        "diagnostic_mask_status": "model_lp_verified",
+        "experimental_binary_sha256": "a656a1f93489af051acd540d08369092567dd0673af2b0e1ac922dc58a910603",
+        "host_prefault_threads": 0,
+        "diagnostics_reused_from": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/high_throughput/iJO1366/naja512_tpb128_thin1000/seed101001/budget3000/metrics.json",
+        "count_note": "PooledESS/512 is an equivalent average, not independent single-chain ESS estimates."
+      }
+    },
+    {
+      "host_prefault_threads": 8,
+      "process_seconds": 29.73998985439539,
+      "samples_sha256": "2ca915f3a3344d722f85e70f77b96b1d42e7c4f3b7381881550fa5ece014d208",
+      "equals_frozen_reference": true,
+      "run_dir": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/high_throughput/iJO1366/naja512_tpb128_thin1000_prefault8/seed101001",
+      "download_including_prefault_seconds": 0.9715,
+      "normalization_seconds": 6.634578110650182,
+      "quality": {
+        "status": "passed",
+        "seed": 101001,
+        "chains": 512,
+        "draws_per_chain": 3000,
+        "warmup_per_chain": 1000,
+        "process_seconds": 29.73998985439539,
+        "split_rhat_median": 1.0070239108209564,
+        "pooled_bulk_ess_median": 92376.94048165651,
+        "pooled_bulk_ess_median_per_chain": 180.42371187823537,
+        "pooled_bulk_ess_median_per_process_second": 3106.1523872041184,
+        "bounds_tolerance": 1e-07,
+        "sample_bound_violation_fraction": 0.0,
+        "schema_version": 2,
+        "diagnostic_mask_status": "model_lp_verified",
+        "experimental_binary_sha256": "a656a1f93489af051acd540d08369092567dd0673af2b0e1ac922dc58a910603",
+        "host_prefault_threads": 8,
+        "diagnostics_reused_from": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/high_throughput/iJO1366/naja512_tpb128_thin1000/seed101001/budget3000/metrics.json",
+        "count_note": "PooledESS/512 is an equivalent average, not independent single-chain ESS estimates."
+      }
+    }
+  ],
+  "prefault_wins": true,
+  "paired_process_speedup": 1.1223589816924664,
+  "note": "One fresh off/on pair, same experimental build and seed, off then on. All retained-array bytes must equal frozen reference before guarded diagnostics reuse. Prefault/allocation costs included in measured process wall. This pair is a selection pilot, not independent RNG replicates."
+}

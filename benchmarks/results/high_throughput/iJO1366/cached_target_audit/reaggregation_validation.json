@@ -1,0 +1,37 @@
+{
+  "status": "passed",
+  "utc": "2026-11-08T19:30:53.057255+00:00",
+  "fresh_job": "856",
+  "source": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/coordinate_kernel/paired/chains512/coordinate/samples.npy",
+  "shape": [
+    512,
+    5000,
+    581
+  ],
+  "fresh": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/high_throughput/iJO1366/cached_target_audit/gpu_coordinate/seed101001",
+  "aggregate": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/high_throughput/iJO1366/cached_target_aggregate/gpu_coordinate/seed101001",
+  "checks": {
+    "split_rhat_median": true,
+    "split_rhat_p95": true,
+    "bulk_ess_median": true,
+    "diagnosed_reactions": true,
+    "sample_bound_violation_fraction": true,
+    "coordinate_bound_violation_fraction": true,
+    "zero_tolerance_sample_bound_violation_fraction": true,
+    "zero_tolerance_coordinate_bound_violation_fraction": true,
+    "max_absolute_bound_violation": true,
+    "constant_reactions_excluded": true,
+    "solver_detected_nearconstant_reactions_excluded": true,
+    "exactly_constant_sampled_reactions": true,
+    "all_per_reaction_rows_exact": true
+  },
+  "source_sha256": {
+    "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/high_throughput/iJO1366/cached_target_audit/gpu_coordinate/seed101001/metrics.json": "eb38ba195ee2b65f8724dfd6ef0e89ca8217f8ddddf3edd5a4ba3da40b77e98c",
+    "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/high_throughput/iJO1366/cached_target_audit/gpu_coordinate/seed101001/reaction_metrics.csv": "9127265b9608ce69a187dce96b83b85ada51c06111edd797ea81afe360c642f2",
+    "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/high_throughput/iJO1366/cached_target_aggregate/gpu_coordinate/seed101001/metrics.json": "e35756b94b782bc1cd409fe1ab02669002724148709f799fbe05b5a29dbc09e0",
+    "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/high_throughput/iJO1366/cached_target_aggregate/gpu_coordinate/seed101001/reaction_metrics.csv": "9127265b9608ce69a187dce96b83b85ada51c06111edd797ea81afe360c642f2",
+    "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/metrics.py": "854e524cade5cecc6a9c5541cb15957e0336c3461434c2363d9ef2a2b701947c",
+    "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/scripts/reaggregate_cached_metrics.py": "3531390f692e98335b7c113c61b19aba647dab18a3420755acbe6f3425b29ffa"
+  },
+  "scope": "Fresh full512x5000x581 reassay with conservative478 mask matches all2583 per-reaction rows and primary/feasibility summaries exactly. Frozen producer supplies all non-exact full-budget statistics independent of mask; prefixes are not reused."
+}

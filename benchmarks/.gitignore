@@ -1,0 +1,25 @@
+# Local execution environments, dependencies and caches
+/env*/
+/cache/
+/tmp/
+/home/
+/build*/
+/source*/
+/mamba/
+/gurobi*/
+/data/
+/wheels*/
+/closeout-*/
+/experimental/
+__pycache__/
+*.pyc
+
+# Raw benchmark payloads belong in a data deposit, not the source repository.
+*.npy
+*.npz
+*.sqlite
+*.nsys-rep
+*.ncu-rep
+*.o
+*.pid
+*.lock

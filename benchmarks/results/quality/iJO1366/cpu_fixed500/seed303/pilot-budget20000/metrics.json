@@ -1,0 +1,37 @@
+{
+  "schema_version": 2,
+  "diagnostic_mask_status": "model_lp_verified",
+  "shape": [
+    16,
+    20000,
+    581
+  ],
+  "stage": "masked_classical_split_rhat_precheck",
+  "split_rhat_median": 1.0198171521674981,
+  "split_rhat_p95": 1.0358491255249618,
+  "bulk_ess_median": null,
+  "bulk_ess_computed": false,
+  "diagnosed_reactions": 1705,
+  "sample_bound_violation_fraction": 0.0,
+  "bounds_tolerance": 1e-07,
+  "coordinate_bound_violation_fraction": 0.0,
+  "zero_tolerance_sample_bound_violation_fraction": 1.0,
+  "max_absolute_bound_violation": 6.215842034299415e-12,
+  "checked_samples": 320000,
+  "precheck_wall_seconds": 17.92194456793368,
+  "model": "iJO1366",
+  "samples": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/quality/iJO1366/cpu_fixed500/seed303/pilot-budget20000/samples.npy",
+  "wall_seconds": 28.203377034515142,
+  "first_quality_prefix_draws": null,
+  "quality_met": false,
+  "bulk_ess_not_computed_reason": "All evaluated masked Rhat medians exceed 1.01; AND target already fails.",
+  "prefix_quality": [
+    {
+      "draws_per_chain": 20000,
+      "split_rhat_median": 1.0198171521674981,
+      "bulk_ess_median": null,
+      "bulk_ess_computed": false,
+      "quality_met": false
+    }
+  ]
+}

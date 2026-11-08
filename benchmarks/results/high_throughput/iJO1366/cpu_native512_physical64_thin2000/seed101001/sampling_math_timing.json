@@ -1,0 +1,355 @@
+{
+  "status": "complete",
+  "chain_tasks": 512,
+  "worker_count": 64,
+  "worker_draw_critical_path_seconds": 153.751935295,
+  "worker_draw_cpu_critical_path_seconds": 153.623599643,
+  "total_worker_draw_thread_cpu_seconds": 9706.929456914,
+  "workers": {
+    "119699": {
+      "draw_call_wall_seconds": 153.571538831,
+      "draw_call_thread_cpu_seconds": 153.34638937,
+      "chain_tasks": 8
+    },
+    "119700": {
+      "draw_call_wall_seconds": 151.235785219,
+      "draw_call_thread_cpu_seconds": 151.068042762,
+      "chain_tasks": 8
+    },
+    "119701": {
+      "draw_call_wall_seconds": 149.69167162,
+      "draw_call_thread_cpu_seconds": 149.58382753,
+      "chain_tasks": 8
+    },
+    "119702": {
+      "draw_call_wall_seconds": 153.628337127,
+      "draw_call_thread_cpu_seconds": 153.422187024,
+      "chain_tasks": 8
+    },
+    "119703": {
+      "draw_call_wall_seconds": 150.699205517,
+      "draw_call_thread_cpu_seconds": 150.52899549,
+      "chain_tasks": 8
+    },
+    "119704": {
+      "draw_call_wall_seconds": 150.455118106,
+      "draw_call_thread_cpu_seconds": 150.312003039,
+      "chain_tasks": 8
+    },
+    "119705": {
+      "draw_call_wall_seconds": 150.03758669500002,
+      "draw_call_thread_cpu_seconds": 149.92588170000002,
+      "chain_tasks": 8
+    },
+    "119706": {
+      "draw_call_wall_seconds": 152.569819944,
+      "draw_call_thread_cpu_seconds": 152.4579071,
+      "chain_tasks": 8
+    },
+    "119707": {
+      "draw_call_wall_seconds": 152.84055671899998,
+      "draw_call_thread_cpu_seconds": 152.685752716,
+      "chain_tasks": 8
+    },
+    "119708": {
+      "draw_call_wall_seconds": 152.15679909000002,
+      "draw_call_thread_cpu_seconds": 152.033972608,
+      "chain_tasks": 8
+    },
+    "119709": {
+      "draw_call_wall_seconds": 153.751935295,
+      "draw_call_thread_cpu_seconds": 153.623599643,
+      "chain_tasks": 8
+    },
+    "119710": {
+      "draw_call_wall_seconds": 150.056529286,
+      "draw_call_thread_cpu_seconds": 149.911886927,
+      "chain_tasks": 8
+    },
+    "119711": {
+      "draw_call_wall_seconds": 152.790640716,
+      "draw_call_thread_cpu_seconds": 152.535551288,
+      "chain_tasks": 8
+    },
+    "119712": {
+      "draw_call_wall_seconds": 150.99605218300002,
+      "draw_call_thread_cpu_seconds": 150.882354645,
+      "chain_tasks": 8
+    },
+    "119713": {
+      "draw_call_wall_seconds": 152.717591798,
+      "draw_call_thread_cpu_seconds": 152.53547747300001,
+      "chain_tasks": 8
+    },
+    "119714": {
+      "draw_call_wall_seconds": 151.26338091,
+      "draw_call_thread_cpu_seconds": 151.10352384299998,
+      "chain_tasks": 8
+    },
+    "119715": {
+      "draw_call_wall_seconds": 150.87891414299997,
+      "draw_call_thread_cpu_seconds": 150.653586824,
+      "chain_tasks": 8
+    },
+    "119716": {
+      "draw_call_wall_seconds": 152.07820526799998,
+      "draw_call_thread_cpu_seconds": 151.94560061700003,
+      "chain_tasks": 8
+    },
+    "119717": {
+      "draw_call_wall_seconds": 153.511550553,
+      "draw_call_thread_cpu_seconds": 153.260555348,
+      "chain_tasks": 8
+    },
+    "119718": {
+      "draw_call_wall_seconds": 150.69472426400003,
+      "draw_call_thread_cpu_seconds": 150.57050347799998,
+      "chain_tasks": 8
+    },
+    "119719": {
+      "draw_call_wall_seconds": 150.460555368,
+      "draw_call_thread_cpu_seconds": 150.300011308,
+      "chain_tasks": 8
+    },
+    "119720": {
+      "draw_call_wall_seconds": 153.299623626,
+      "draw_call_thread_cpu_seconds": 153.107168854,
+      "chain_tasks": 8
+    },
+    "119721": {
+      "draw_call_wall_seconds": 151.568485876,
+      "draw_call_thread_cpu_seconds": 151.38641299,
+      "chain_tasks": 8
+    },
+    "119722": {
+      "draw_call_wall_seconds": 150.022071326,
+      "draw_call_thread_cpu_seconds": 149.878322729,
+      "chain_tasks": 8
+    },
+    "119723": {
+      "draw_call_wall_seconds": 150.098233102,
+      "draw_call_thread_cpu_seconds": 149.97899521800002,
+      "chain_tasks": 8
+    },
+    "119724": {
+      "draw_call_wall_seconds": 152.556085272,
+      "draw_call_thread_cpu_seconds": 152.319137933,
+      "chain_tasks": 8
+    },
+    "119725": {
+      "draw_call_wall_seconds": 150.01409998600002,
+      "draw_call_thread_cpu_seconds": 149.84982046400003,
+      "chain_tasks": 8
+    },
+    "119726": {
+      "draw_call_wall_seconds": 152.204209502,
+      "draw_call_thread_cpu_seconds": 152.05766420400002,
+      "chain_tasks": 8
+    },
+    "119727": {
+      "draw_call_wall_seconds": 153.179230072,
+      "draw_call_thread_cpu_seconds": 153.034570126,
+      "chain_tasks": 8
+    },
+    "119728": {
+      "draw_call_wall_seconds": 150.544689515,
+      "draw_call_thread_cpu_seconds": 150.42579155099997,
+      "chain_tasks": 8
+    },
+    "119729": {
+      "draw_call_wall_seconds": 153.706854625,
+      "draw_call_thread_cpu_seconds": 153.471426913,
+      "chain_tasks": 8
+    },
+    "119730": {
+      "draw_call_wall_seconds": 153.30473518899998,
+      "draw_call_thread_cpu_seconds": 153.141058716,
+      "chain_tasks": 8
+    },
+    "119731": {
+      "draw_call_wall_seconds": 151.07584725499999,
+      "draw_call_thread_cpu_seconds": 150.95364149600005,
+      "chain_tasks": 8
+    },
+    "119732": {
+      "draw_call_wall_seconds": 151.861695637,
+      "draw_call_thread_cpu_seconds": 151.68488289700002,
+      "chain_tasks": 8
+    },
+    "119733": {
+      "draw_call_wall_seconds": 153.203906187,
+      "draw_call_thread_cpu_seconds": 153.006956193,
+      "chain_tasks": 8
+    },
+    "119734": {
+      "draw_call_wall_seconds": 151.138779078,
+      "draw_call_thread_cpu_seconds": 151.00750488100002,
+      "chain_tasks": 8
+    },
+    "119735": {
+      "draw_call_wall_seconds": 151.343408645,
+      "draw_call_thread_cpu_seconds": 151.183242561,
+      "chain_tasks": 8
+    },
+    "119736": {
+      "draw_call_wall_seconds": 152.329889892,
+      "draw_call_thread_cpu_seconds": 152.05591334800002,
+      "chain_tasks": 8
+    },
+    "119737": {
+      "draw_call_wall_seconds": 150.115025587,
+      "draw_call_thread_cpu_seconds": 149.95654213999998,
+      "chain_tasks": 8
+    },
+    "119738": {
+      "draw_call_wall_seconds": 152.222901087,
+      "draw_call_thread_cpu_seconds": 152.0420899,
+      "chain_tasks": 8
+    },
+    "119739": {
+      "draw_call_wall_seconds": 153.13603088,
+      "draw_call_thread_cpu_seconds": 152.963399449,
+      "chain_tasks": 8
+    },
+    "119740": {
+      "draw_call_wall_seconds": 151.459201679,
+      "draw_call_thread_cpu_seconds": 151.27212913,
+      "chain_tasks": 8
+    },
+    "119741": {
+      "draw_call_wall_seconds": 152.82058068199999,
+      "draw_call_thread_cpu_seconds": 152.69141078999996,
+      "chain_tasks": 8
+    },
+    "119742": {
+      "draw_call_wall_seconds": 152.338461898,
+      "draw_call_thread_cpu_seconds": 152.172840071,
+      "chain_tasks": 8
+    },
+    "119743": {
+      "draw_call_wall_seconds": 152.777636255,
+      "draw_call_thread_cpu_seconds": 152.61785852900002,
+      "chain_tasks": 8
+    },
+    "119744": {
+      "draw_call_wall_seconds": 150.644578531,
+      "draw_call_thread_cpu_seconds": 150.52554319599997,
+      "chain_tasks": 8
+    },
+    "119745": {
+      "draw_call_wall_seconds": 151.760302016,
+      "draw_call_thread_cpu_seconds": 151.64575756099998,
+      "chain_tasks": 8
+    },
+    "119746": {
+      "draw_call_wall_seconds": 151.662487785,
+      "draw_call_thread_cpu_seconds": 151.500523138,
+      "chain_tasks": 8
+    },
+    "119747": {
+      "draw_call_wall_seconds": 150.265728945,
+      "draw_call_thread_cpu_seconds": 150.114895891,
+      "chain_tasks": 8
+    },
+    "119748": {
+      "draw_call_wall_seconds": 150.535235678,
+      "draw_call_thread_cpu_seconds": 150.384173702,
+      "chain_tasks": 8
+    },
+    "119749": {
+      "draw_call_wall_seconds": 153.272781016,
+      "draw_call_thread_cpu_seconds": 153.134979519,
+      "chain_tasks": 8
+    },
+    "119750": {
+      "draw_call_wall_seconds": 151.077260719,
+      "draw_call_thread_cpu_seconds": 150.793201786,
+      "chain_tasks": 8
+    },
+    "119751": {
+      "draw_call_wall_seconds": 153.029858373,
+      "draw_call_thread_cpu_seconds": 152.774689387,
+      "chain_tasks": 8
+    },
+    "119752": {
+      "draw_call_wall_seconds": 152.84927989,
+      "draw_call_thread_cpu_seconds": 152.68378371400001,
+      "chain_tasks": 8
+    },
+    "119753": {
+      "draw_call_wall_seconds": 151.15200772400001,
+      "draw_call_thread_cpu_seconds": 151.03309071700002,
+      "chain_tasks": 8
+    },
+    "119754": {
+      "draw_call_wall_seconds": 153.144721076,
+      "draw_call_thread_cpu_seconds": 152.94919826600002,
+      "chain_tasks": 8
+    },
+    "119755": {
+      "draw_call_wall_seconds": 151.340511823,
+      "draw_call_thread_cpu_seconds": 151.214190163,
+      "chain_tasks": 8
+    },
+    "119756": {
+      "draw_call_wall_seconds": 150.975327886,
+      "draw_call_thread_cpu_seconds": 150.82956755799998,
+      "chain_tasks": 8
+    },
+    "119757": {
+      "draw_call_wall_seconds": 152.41363837,
+      "draw_call_thread_cpu_seconds": 152.230439383,
+      "chain_tasks": 8
+    },
+    "119758": {
+      "draw_call_wall_seconds": 153.23656614499998,
+      "draw_call_thread_cpu_seconds": 153.107850004,
+      "chain_tasks": 8
+    },
+    "119759": {
+      "draw_call_wall_seconds": 151.777776308,
+      "draw_call_thread_cpu_seconds": 151.642468004,
+      "chain_tasks": 8
+    },
+    "119760": {
+      "draw_call_wall_seconds": 151.849974848,
+      "draw_call_thread_cpu_seconds": 151.72207754599998,
+      "chain_tasks": 8
+    },
+    "119761": {
+      "draw_call_wall_seconds": 152.249416375,
+      "draw_call_thread_cpu_seconds": 152.05689066,
+      "chain_tasks": 8
+    },
+    "119762": {
+      "draw_call_wall_seconds": 151.748545595,
+      "draw_call_thread_cpu_seconds": 151.639744903,
+      "chain_tasks": 8
+    }
+  },
+  "critical_path_definition": "Maximum over worker PIDs of accumulated MarkovChain.draw call durations. Gaps between tasks/calls, serialization and IPC are excluded; elapsed intervals include OS descheduling and Python binding/state-copy overhead. This is a compute critical-path proxy, not pure arithmetic-only time.",
+  "proof": {
+    "hopsy_misc_sha256": "23cc4f47b0fab9a33cb8ae76da3bf224a6fc2943e74b10b996944871d94c7dfe",
+    "instrumentation_module_sha256": "a01b0bfd384c37ad483abdc0840fc28611ce34132d654e91e1e794a09e0732ba",
+    "functions": {
+      "_sample_parallel_chain": {
+        "original_source_sha256": "19e00a31f68f821878e8a81367e164f32147a6f201b2942256512f4c20855b3c",
+        "original_ast_sha256": "7943adcf7e0a606d6558a3d78fd055d561288bb3de6c6fb56ee80ab2c5c0a29a",
+        "instrumented_ast_sha256": "1127cc60566e3aedd663b51598cb36a8b691a2e5bfc10aa5728f8740c3e1fe6f",
+        "instrumented_draw_call_sites": 1,
+        "transformation": "Original worker body preserved; timer statements around its one draw call site and one log emission before return."
+      },
+      "_sequential_sampling": {
+        "original_source_sha256": "773f61dc358432f3d262e71d70a78d9e2e75e98355c05672e7867b3c1828546a",
+        "original_ast_sha256": "c65b68471177c8cb84c6055ad406480bd1438689c56e288cf73605f4de618ce8",
+        "instrumented_ast_sha256": "6177a5348671c18b4267cc5513078a5b573de30f80cc150ba37622dc29b58f3b",
+        "instrumented_draw_call_sites": 1,
+        "transformation": "Original worker body preserved; timer statements around its one draw call site and one log emission before return."
+      }
+    }
+  },
+  "instrumented_wrapper_process_seconds": 242.15164924412966,
+  "unmodified_baseline_process_seconds": 236.95327040925622,
+  "hopsy_sample_phase_inclusive_seconds": 203.16888288594782,
+  "timing_note": "Wrapper process includes instrumentation/hopsy import setup. Unmodified baseline PROCESS_STARTED begins after those imports in this opt-in variant; use wrapper process for its full-process secondary timing."
+}

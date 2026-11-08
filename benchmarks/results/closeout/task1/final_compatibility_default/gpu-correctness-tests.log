@@ -1,0 +1,19 @@
+Test project /mnt/home/jordan+123/history-native-20261015-r5/benchmarks/build-closeout-release
+    Start  1: test_large_sizes_and_npy
+1/7 Test  #1: test_large_sizes_and_npy ............   Passed    0.08 sec
+    Start 14: test_gpu_index_width
+2/7 Test #14: test_gpu_index_width ................   Passed    0.61 sec
+    Start 15: test_gpu_sampling_feasibility
+3/7 Test #15: test_gpu_sampling_feasibility .......   Passed    1.08 sec
+    Start 16: test_gpu_sampling_cube_moments
+4/7 Test #16: test_gpu_sampling_cube_moments ......   Passed    1.28 sec
+    Start 17: test_gpu_sampling_simplex_moments
+5/7 Test #17: test_gpu_sampling_simplex_moments ...   Passed    1.85 sec
+    Start 18: test_gpu_backmap_correctness
+6/7 Test #18: test_gpu_backmap_correctness ........   Passed    0.67 sec
+    Start 19: test_gpu_thin_polytope
+7/7 Test #19: test_gpu_thin_polytope ..............   Passed    0.99 sec
+
+100% tests passed out of 7
+
+Total Test time (real) =   6.60 sec

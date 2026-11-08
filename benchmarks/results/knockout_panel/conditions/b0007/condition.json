@@ -1,0 +1,6 @@
+{
+  "gene": "b0007",
+  "status": "problematic",
+  "reason": "Geometry job ended or reached its cap before producing a validated target; no sampling eligibility.",
+  "job_id": "608"
+}

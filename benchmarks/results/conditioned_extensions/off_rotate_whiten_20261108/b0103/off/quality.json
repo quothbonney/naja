@@ -1,0 +1,21 @@
+{
+  "condition_id": "b0103",
+  "condition_root": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/knockout_panel/conditions/b0103",
+  "mode": "off",
+  "seed": 101,
+  "protocol": "16chains,1000warmup,thinning1000,TPB512,float64; all modes same allocated GPU",
+  "source_sha256": "89b4ea99313703cba2f75113581bb3d518c0d43b586e86943d40d58c8be1031b",
+  "geometry_sha256": "00a5f2d4a90cc727a5daffd41ea3a9f0a6af62642aaab7983e8615c1273e7bf0",
+  "selection_note": "Exploratory hard-case subset: all9 previous rotate50k failures plus highest-SVD-kappa nonfailure and capacity. Separate from frozen panel. No replicate reliability claim.",
+  "criterion": "median classical splitRhat<=1.05,bulkESS>=100,unmasked original/conditional bounds and mass balance1e-7",
+  "pilot_run": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/conditioned_extensions/off_rotate_whiten_20261108/b0103/off/pilot-budget50000",
+  "prefix_curve_json": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/conditioned_extensions/off_rotate_whiten_20261108/b0103/off/curve.json",
+  "pilot_sampler_seconds": 138.1089,
+  "pilot_correction_seconds": 0.0,
+  "pilot_final_rhat": 1.1618501164315633,
+  "pilot_final_ess": 44.211967394215435,
+  "pilot_sample_bound_violation_fraction": 0.0,
+  "pilot_mass_balance_max": 4.169808942577902e-11,
+  "status": "no_quality_within_cap",
+  "observed_budget": 50000
+}

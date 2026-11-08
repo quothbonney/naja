@@ -1,0 +1,14 @@
+{
+  "status": "passed",
+  "model": "synthetic/BOX",
+  "seed": 101001,
+  "chains": 4,
+  "workers": 2,
+  "draws": 128,
+  "warmup": 16,
+  "thinning": 2,
+  "plain_sha256": "4ca067d0829576910b2b0f3e23a830940bfeaaec89f16a83ccfc1474cda4b641",
+  "instrumented_sha256": "4ca067d0829576910b2b0f3e23a830940bfeaaec89f16a83ccfc1474cda4b641",
+  "bitwise_equal": true,
+  "scope": "ASTtimer injection preserves original hopsy worker body and C++draw calls. Installed files untouched. Real-modelparity job follows."
+}

@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/scripts/conditioned_prototype.py", line 289, in <module>
+    elif a.action=='shared':prepare_shared(a.model)
+                            ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/scripts/conditioned_prototype.py", line 82, in prepare_shared
+    assert np.min(augmented_b - augmented_A @ start) > 0
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

@@ -1,0 +1,13 @@
+{
+  "status": "passed",
+  "only_raw_semantic_change": "PGI bounds [-0.1,0.1]",
+  "all_other_raw_fields_identical": true,
+  "base_A_b_unchanged_in_prefix": true,
+  "base_T_shift_bitwise_unchanged": true,
+  "delta_A_b_exact_formula_and_saved_rows": true,
+  "saved_target_has_no_LP_row_scaling": true,
+  "gem_bound_vectors_and_reaction_order_match_conditional_raw": true,
+  "common_active_mask_bitwise_equal": true,
+  "shared_minimum_actual_raw_start_slack": 4.874075509782963e-10,
+  "source_script": "Independent read-only audit; no sampling code modified"
+}

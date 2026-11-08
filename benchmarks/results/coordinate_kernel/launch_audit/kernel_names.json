@@ -1,0 +1,5 @@
+[
+  "_ZN4naja3gpu9chrKernelId19curandStateMRG32k3aLi128ELb1EEEvPT_PKS3_S4_S4_S4_iiPT0_iiiiS3_iS3_iiPKiSA_S6_S6_iS3_S6_S6_i",
+  "void naja::gpu::chrKernel<double, curandStateMRG32k3a, (int)128, (bool)1>(T1 *, const T1 *, T1 *, T1 *, T1 *, int, int, T2 *, int, int, int, int, T1, int, T1, int, int, const int *, const int *, const T1 *, const T1 *, int, T1, const T1 *, const T1 *, int)",
+  "chrKernel"
+]

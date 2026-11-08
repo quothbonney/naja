@@ -1,0 +1,70 @@
+{
+  "prefixes": [
+    {
+      "schema_version": 2,
+      "diagnostic_mask_status": "model_lp_verified",
+      "shape": [
+        16,
+        100,
+        288
+      ],
+      "stage": "masked_classical_split_rhat_precheck",
+      "split_rhat_median": 1.028373801120524,
+      "split_rhat_p95": 1.059253282186383,
+      "bulk_ess_median": null,
+      "bulk_ess_computed": false,
+      "diagnosed_reactions": 884,
+      "sample_bound_violation_fraction": 0.031875,
+      "bounds_tolerance": 1e-07,
+      "coordinate_bound_violation_fraction": 2.0212428662016486e-05,
+      "zero_tolerance_sample_bound_violation_fraction": 1.0,
+      "max_absolute_bound_violation": 1.5905658934555253e-07,
+      "checked_samples": 1600,
+      "precheck_wall_seconds": 0.10034112818539143
+    },
+    {
+      "schema_version": 2,
+      "diagnostic_mask_status": "model_lp_verified",
+      "shape": [
+        16,
+        250,
+        288
+      ],
+      "stage": "masked_classical_split_rhat_precheck",
+      "split_rhat_median": 1.0113454646225981,
+      "split_rhat_p95": 1.024989459643694,
+      "bulk_ess_median": null,
+      "bulk_ess_computed": false,
+      "diagnosed_reactions": 884,
+      "sample_bound_violation_fraction": 0.027,
+      "bounds_tolerance": 1e-07,
+      "coordinate_bound_violation_fraction": 1.7121116043119847e-05,
+      "zero_tolerance_sample_bound_violation_fraction": 1.0,
+      "max_absolute_bound_violation": 1.686816543637691e-07,
+      "checked_samples": 4000,
+      "precheck_wall_seconds": 0.1670240703970194
+    },
+    {
+      "schema_version": 2,
+      "diagnostic_mask_status": "model_lp_verified",
+      "shape": [
+        16,
+        500,
+        288
+      ],
+      "stage": "masked_classical_split_rhat_precheck",
+      "split_rhat_median": 1.0056525140979777,
+      "split_rhat_p95": 1.0117599130382673,
+      "bulk_ess_median": null,
+      "bulk_ess_computed": false,
+      "diagnosed_reactions": 884,
+      "sample_bound_violation_fraction": 0.030125,
+      "bounds_tolerance": 1e-07,
+      "coordinate_bound_violation_fraction": 1.9102726696258718e-05,
+      "zero_tolerance_sample_bound_violation_fraction": 1.0,
+      "max_absolute_bound_violation": 1.8169061561563338e-07,
+      "checked_samples": 8000,
+      "precheck_wall_seconds": 0.35857867635786533
+    }
+  ]
+}

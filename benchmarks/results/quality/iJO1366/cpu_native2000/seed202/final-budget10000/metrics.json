@@ -1,0 +1,69 @@
+{
+  "schema_version": 2,
+  "model": "iJO1366",
+  "samples": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/quality/iJO1366/cpu_native2000/seed202/final-budget10000/samples.npy",
+  "model_dir": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/iJO1366",
+  "shape": [
+    16,
+    10000,
+    581
+  ],
+  "sample_space": "reduced_affine_backmapped_to_reactions",
+  "n_reactions": 2583,
+  "constant_reactions_excluded": 878,
+  "constant_definition": "model-derived solver-detected nearconstant mask plus exactly constant sampled reactions",
+  "diagnostic_mask_status": "model_lp_verified",
+  "diagnostic_mask_geometry_sha256": "07374999682cb82ef566c2a7ba4cd1ca44b0718ab81f421846e24d3b85f5e103",
+  "diagnostic_mask_source_sha256": "9376a93f62ad430719f23e612154dd94c67e0d7c9545ed9d17a4d0c347672313",
+  "diagnostic_mask_range_tolerance": 1e-07,
+  "solver_detected_nearconstant_reactions_excluded": 878,
+  "exactly_constant_sampled_reactions": 0,
+  "solver_excluded_empirical_range_max": 9.43840902217243e-12,
+  "solver_excluded_empirical_range_over_1e_minus_7_count": 0,
+  "solver_excluded_empirical_range_note": "Measured ranges are checked and retained even for LP-nearconstant reactions; values above 1e-7 expose affine-backmap numerical residue. Exclusion changes diagnostics only, never bound checks.",
+  "legacy_empirical_numerically_variable_summary": {
+    "split_rhat_median": 1.0075578379481096,
+    "split_rhat_p95": 1.0177130564876922,
+    "bulk_ess_median": 2549.020838145937,
+    "diagnosed_reactions": 2274
+  },
+  "legacy_empirical_constant_count": 309,
+  "legacy_empirical_constant_definition": "full-run max-min <= 1e-12 * max(1, max(abs(flux)))",
+  "empirical_absolute_range_gt_1e_minus_7_summary": {
+    "split_rhat_median": 1.009846044074715,
+    "split_rhat_p95": 1.0190479420040066,
+    "bulk_ess_median": 2198.205839322427,
+    "diagnosed_reactions": 1704
+  },
+  "diagnostic_definition": "classical split-Rhat; ArviZ pooled rank-normalized bulk ESS",
+  "arviz_version": "1.3.0",
+  "numpy_version": "2.5.4",
+  "split_rhat_median": 1.009846044074714,
+  "split_rhat_p95": 1.0190479420040066,
+  "bulk_ess_median": 2198.6839193546275,
+  "diagnosed_reactions": 1705,
+  "bounds_tolerance": 1e-07,
+  "sample_bound_violation_fraction": 0.0,
+  "coordinate_bound_violation_fraction": 0.0,
+  "zero_tolerance_sample_bound_violation_fraction": 1.0,
+  "zero_tolerance_coordinate_bound_violation_fraction": 0.134499191831204,
+  "max_absolute_bound_violation": 5.897026095154201e-12,
+  "wall_seconds": 34.270500818267465,
+  "samples_per_second": 4668.738307866046,
+  "prefix_quality": [
+    {
+      "draws_per_chain": 10000,
+      "split_rhat_median": 1.009846044074714,
+      "split_rhat_p95": 1.0190479420040066,
+      "bulk_ess_median": 2198.6839193546275,
+      "diagnosed_reactions": 1705,
+      "quality_met": true
+    }
+  ],
+  "first_quality_prefix_draws": 10000,
+  "estimated_time_to_quality_seconds": null,
+  "time_to_quality_note": "No interpolated estimate; actual exact-budget time is recorded in quality.json.",
+  "metrics_wall_seconds": 85.59480775520205,
+  "diagnostics_reused_from": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/quality/iJO1366/cpu_native2000/seed202/pilot-budget10000/metrics.json",
+  "diagnostics_reuse_note": "Fresh same-seed process timing; identical analysis-file bytes verified. Diagnostics are reused, not independent random samples."
+}

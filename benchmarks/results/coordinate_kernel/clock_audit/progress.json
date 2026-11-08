@@ -1,0 +1,62 @@
+[
+  {
+    "seed": 101001,
+    "build": "reference",
+    "begin_utc": "2026-11-08T04:47:32.860043+00:00",
+    "end_utc": "2026-11-08T04:48:12.383170+00:00",
+    "sampler_phase_seconds": 13.0257,
+    "sample_sha256": "c68a22e73964704a20ce27557f59135246465dcde7f9f571f1ab26acb406380a",
+    "binary_sha256": "a656a1f93489af051acd540d08369092567dd0673af2b0e1ac922dc58a910603",
+    "run_dir": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/coordinate_kernel/clock_audit/seed101001/reference"
+  },
+  {
+    "seed": 101001,
+    "build": "coordinate",
+    "begin_utc": "2026-11-08T04:48:12.389961+00:00",
+    "end_utc": "2026-11-08T04:48:50.497858+00:00",
+    "sampler_phase_seconds": 13.2603,
+    "sample_sha256": "c68a22e73964704a20ce27557f59135246465dcde7f9f571f1ab26acb406380a",
+    "binary_sha256": "51854688114677b14de3c110c262d210281de1f351f1ae6df6be994c2cc67e82",
+    "run_dir": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/coordinate_kernel/clock_audit/seed101001/coordinate"
+  },
+  {
+    "seed": 202001,
+    "build": "coordinate",
+    "begin_utc": "2026-11-08T04:48:50.502025+00:00",
+    "end_utc": "2026-11-08T04:49:28.717945+00:00",
+    "sampler_phase_seconds": 13.0481,
+    "sample_sha256": "5c55f5de6398c40cba615a0ec1d198e838254a46cc53d61dfff28cdc66c916c0",
+    "binary_sha256": "51854688114677b14de3c110c262d210281de1f351f1ae6df6be994c2cc67e82",
+    "run_dir": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/coordinate_kernel/clock_audit/seed202001/coordinate"
+  },
+  {
+    "seed": 202001,
+    "build": "reference",
+    "begin_utc": "2026-11-08T04:49:28.724534+00:00",
+    "end_utc": "2026-11-08T04:50:05.991479+00:00",
+    "sampler_phase_seconds": 12.9905,
+    "sample_sha256": "5c55f5de6398c40cba615a0ec1d198e838254a46cc53d61dfff28cdc66c916c0",
+    "binary_sha256": "a656a1f93489af051acd540d08369092567dd0673af2b0e1ac922dc58a910603",
+    "run_dir": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/coordinate_kernel/clock_audit/seed202001/reference"
+  },
+  {
+    "seed": 303001,
+    "build": "reference",
+    "begin_utc": "2026-11-08T04:50:05.999041+00:00",
+    "end_utc": "2026-11-08T04:50:44.097190+00:00",
+    "sampler_phase_seconds": 13.0861,
+    "sample_sha256": "44f1f9937c5abe82537724519df2bd3d87187c752d8482478cca665bf7b22aa3",
+    "binary_sha256": "a656a1f93489af051acd540d08369092567dd0673af2b0e1ac922dc58a910603",
+    "run_dir": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/coordinate_kernel/clock_audit/seed303001/reference"
+  },
+  {
+    "seed": 303001,
+    "build": "coordinate",
+    "begin_utc": "2026-11-08T04:50:44.101092+00:00",
+    "end_utc": "2026-11-08T04:51:22.460428+00:00",
+    "sampler_phase_seconds": 13.0227,
+    "sample_sha256": "44f1f9937c5abe82537724519df2bd3d87187c752d8482478cca665bf7b22aa3",
+    "binary_sha256": "51854688114677b14de3c110c262d210281de1f351f1ae6df6be994c2cc67e82",
+    "run_dir": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/coordinate_kernel/clock_audit/seed303001/coordinate"
+  }
+]

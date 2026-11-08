@@ -1,0 +1,390 @@
+{
+  "utc": "2026-11-08T20:43:44.213176+00:00",
+  "workspace": "/mnt/home/jordan+123/history-native-20261015-r5",
+  "controllers": [
+    {
+      "pid_file": "audit/continuation-20261108/refresh.pid",
+      "pid": 350073,
+      "alive": false,
+      "command": null
+    },
+    {
+      "pid_file": "audit/high-throughput/controller.pid",
+      "pid": 354705,
+      "alive": false,
+      "command": null
+    },
+    {
+      "pid_file": "audit/high-throughput/coordinate-controller.pid",
+      "pid": 351473,
+      "alive": false,
+      "command": null
+    },
+    {
+      "pid_file": "audit/high-throughput/deadline-guard.pid",
+      "pid": 357889,
+      "alive": false,
+      "command": null
+    },
+    {
+      "pid_file": "audit/high-throughput/full64-controller.pid",
+      "pid": 357882,
+      "alive": false,
+      "command": null
+    },
+    {
+      "pid_file": "audit/high-throughput/prefault-controller.pid",
+      "pid": 351472,
+      "alive": false,
+      "command": null
+    },
+    {
+      "pid_file": "audit/recon3d-completion/watcher.pid",
+      "pid": 342818,
+      "alive": false,
+      "command": null
+    },
+    {
+      "pid_file": "results/campaign.pid",
+      "pid": 322052,
+      "alive": false,
+      "command": null
+    },
+    {
+      "pid_file": "results/refresh.pid",
+      "pid": 377586,
+      "alive": true,
+      "command": "/usr/bin/python3 -u benchmarks/scripts/refresh_results.py --until 2026-11-08T22:07:00+00:00 "
+    },
+    {
+      "pid_file": "results/conditioned_extensions/reports.pid",
+      "pid": 382068,
+      "alive": false,
+      "command": null
+    },
+    {
+      "pid_file": "results/conditioned_extensions/rotate_200k_20261108/pipeline.pid",
+      "pid": 381746,
+      "alive": false,
+      "command": null
+    },
+    {
+      "pid_file": "results/conditioned_prototype/quality_consumer.pid",
+      "pid": 359158,
+      "alive": false,
+      "command": null
+    },
+    {
+      "pid_file": "results/knockout_panel/controller.pid",
+      "pid": 357987,
+      "alive": false,
+      "command": null
+    },
+    {
+      "pid_file": "results/larger_quality/controller.pid",
+      "pid": 344426,
+      "alive": false,
+      "command": null
+    },
+    {
+      "pid_file": "results/quality/controller.pid",
+      "pid": 326476,
+      "alive": false,
+      "command": null
+    }
+  ],
+  "sources": {
+    "refresh": {
+      "path": "results/refresh-status.json",
+      "exists": true,
+      "status": "see source",
+      "keys": [
+        "last_refresh_utc",
+        "until_utc",
+        "deadline_enforced"
+      ]
+    },
+    "full64_sequence": {
+      "path": "audit/high-throughput/full64-state.json",
+      "exists": true,
+      "status": "complete",
+      "keys": [
+        "status",
+        "stage",
+        "attempts",
+        "selected_protocol",
+        "last_sample_job",
+        "full64_gate_released_utc",
+        "last_report_signature",
+        "all_samples_captured_utc"
+      ]
+    },
+    "held_jobs": {
+      "path": "audit/high-throughput/full64-held-jobs.json",
+      "exists": true,
+      "status": "see source",
+      "keys": [
+        "202_8",
+        "453"
+      ]
+    },
+    "selected_cpu_budget": {
+      "path": "audit/high-throughput/cpu-selected-budget.json",
+      "exists": true,
+      "status": "validated",
+      "keys": [
+        "status",
+        "draws",
+        "seed",
+        "chains",
+        "warmup",
+        "thinning",
+        "source_run",
+        "source_quality",
+        "note"
+      ]
+    },
+    "fresh16": {
+      "path": "results/fresh16_validation/iJO1366/summary.json",
+      "exists": true,
+      "status": "see source",
+      "keys": [
+        "schema_version",
+        "model",
+        "chains",
+        "fixed_groups",
+        "note",
+        "paired_seed_comparisons"
+      ]
+    },
+    "high_throughput": {
+      "path": "results/high_throughput/iJO1366/summary.json",
+      "exists": true,
+      "status": "see source",
+      "keys": [
+        "model",
+        "chains",
+        "groups",
+        "note",
+        "gpu_selection",
+        "prefault_selection_status",
+        "prefault_pair",
+        "primary_timing_scope",
+        "complete_gpu_variant",
+        "gpu_vs_cpu_ess_per_second_ratio",
+        "cpu_vs_gpu_process_seconds_ratio",
+        "cpu_vs_gpu_sampler_phase_ratio",
+        "gpu_vs_cpu_ess_per_sampler_phase_second_ratio",
+        "cpu_worker_draw_vs_gpu_sampler_phase_ratio",
+        "one_seed_physical48_preliminary"
+      ]
+    },
+    "conditioned_quality": {
+      "path": "results/conditioned_prototype/quality_summary.json",
+      "exists": true,
+      "status": "see source",
+      "keys": [
+        "schema_version",
+        "generated_utc",
+        "condition_id",
+        "criterion",
+        "rows",
+        "groups",
+        "mask_compilation",
+        "curve_png",
+        "transition_curve_svg",
+        "transition_curve_png",
+        "curve_csv",
+        "curve_svg",
+        "curve_pdf",
+        "time_to_target_csv",
+        "measured_time_plot_svg",
+        "setup_proof",
+        "invalid_reference",
+        "note"
+      ]
+    },
+    "dimension_audit": {
+      "path": "results/conditioned_prototype/dimensionality_warning.json",
+      "exists": true,
+      "status": "repaired_reference_available",
+      "keys": [
+        "status",
+        "shared_reduced_dimension",
+        "fresh_reduced_dimension",
+        "physical_reactions",
+        "raw_target_definition_identical",
+        "warning",
+        "repeat_jobs_held",
+        "history",
+        "resolution"
+      ]
+    },
+    "knockout_catalog": {
+      "path": "results/knockout_panel/catalog_summary.json",
+      "exists": false
+    },
+    "slurm_cleanup": {
+      "path": "results/slurm-deadline-cleanup.json",
+      "exists": true,
+      "status": "see source",
+      "keys": [
+        "utc",
+        "cleanup_job",
+        "reason",
+        "actions"
+      ]
+    },
+    "continuation_window": {
+      "path": "audit/continuation-20261108/window.json",
+      "exists": true,
+      "status": "see source",
+      "keys": [
+        "authorized_utc",
+        "deadline_utc",
+        "jobs_deadline_utc",
+        "cleanup_utc",
+        "reason",
+        "slurm_cleanup_job",
+        "refresh_pid",
+        "independent_cached_mask_audit_job"
+      ]
+    },
+    "full64_audited": {
+      "path": "results/high_throughput/iJO1366/comparison.json",
+      "exists": true,
+      "status": "complete",
+      "keys": [
+        "schema_version",
+        "generated_utc",
+        "status",
+        "criterion",
+        "scopes",
+        "rows",
+        "groups",
+        "paired",
+        "pending",
+        "audit_checks",
+        "fresh16_validation",
+        "source_sha256",
+        "completed_conservative16_scaling_context",
+        "historical_mask_scope",
+        "reaggregation_validation",
+        "actual_array_hashes_rechecked"
+      ]
+    },
+    "fresh16_heldout": {
+      "path": "results/fresh16_conservative/iJO1366/summary.json",
+      "exists": true,
+      "status": "see source",
+      "keys": [
+        "generated_utc",
+        "protocol",
+        "rows",
+        "groups",
+        "paired",
+        "complete",
+        "all_six_pass",
+        "scope",
+        "paired_compute_time_ratio_median",
+        "paired_effective_sampling_rate_ratio_median"
+      ]
+    },
+    "conditioned_panel_audited": {
+      "path": "results/knockout_panel/overnight_audit/summary.json",
+      "exists": true,
+      "status": "see source",
+      "keys": [
+        "generated_utc",
+        "protocol",
+        "denominator_note",
+        "conditions",
+        "groups",
+        "rows",
+        "paired_comparisons",
+        "proof_audit",
+        "samples_rehashed",
+        "sample_integrity_note",
+        "scheduler_audit",
+        "rotate_vs_inherited_pass_contingency",
+        "fastest_tested_valid_cpu_comparisons",
+        "separate_scaled_coordinate_fallbacks",
+        "available_valid_full_cpu_references_including_scaled_fallback"
+      ]
+    },
+    "conditioned_off_rotate_whiten": {
+      "path": "results/conditioned_extensions/off_rotate_whiten_20261108/summary.json",
+      "exists": true,
+      "status": "see source",
+      "keys": [
+        "generated_utc",
+        "manifest",
+        "selection",
+        "protocol",
+        "rows",
+        "curves",
+        "note",
+        "closeout_freeze"
+      ]
+    },
+    "conditioned_200k": {
+      "path": "results/conditioned_extensions/rotate_200k_20261108/summary.json",
+      "exists": true,
+      "status": "see source",
+      "keys": [
+        "generated_utc",
+        "manifest",
+        "selection",
+        "protocol",
+        "rows",
+        "curves",
+        "note",
+        "closeout_freeze"
+      ]
+    },
+    "conditioned_mixture": {
+      "path": "results/conditioned_extensions/whiten_pair_mixture_20261108/summary.json",
+      "exists": true,
+      "status": "see source",
+      "keys": [
+        "generated_utc",
+        "manifest",
+        "selection",
+        "protocol",
+        "rows",
+        "curves",
+        "note",
+        "closeout_freeze"
+      ]
+    },
+    "conditioned_reports": {
+      "path": "results/conditioned_extensions/reports_status.json",
+      "exists": true,
+      "status": "see source",
+      "keys": [
+        "updated_utc",
+        "pid",
+        "ppid",
+        "until_utc",
+        "studies"
+      ]
+    },
+    "crossmodel_cached": {
+      "path": "results/crossmodel_extension/cached_assay_summary.json",
+      "exists": true,
+      "status": "see source",
+      "keys": [
+        "generated_utc",
+        "groups",
+        "comparisons",
+        "assay",
+        "timer_scope"
+      ]
+    }
+  },
+  "slurm": [
+    "956|metrics-closeout-Recon3D|PENDING|0:00|16|(Dependency)",
+    "851|bench-deadline-cleanup|PENDING|0:00|1|(BeginTime)",
+    "955|bench-closeout-Recon3D|RUNNING|33:33|8|slurm-h100-206-077"
+  ]
+}

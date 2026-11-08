@@ -1,0 +1,21 @@
+{
+  "status": "passed",
+  "model": "iJO1366",
+  "seed": 101,
+  "chains": 16,
+  "workers": 16,
+  "retained_draws": 10000,
+  "warmup": 1000,
+  "thinning": 2000,
+  "baseline_run": "benchmarks/results/native_cpu/iJO1366/physical16_thin2000/seed101",
+  "instrumented_run": "benchmarks/results/native_cpu/iJO1366/physical16_mathinstrumented_thin2000/seed101",
+  "baseline_sha256": "585e289da74b3820c23ff2982f51feb7737219b492581357334a2ec57861fe1b",
+  "instrumented_sha256": "585e289da74b3820c23ff2982f51feb7737219b492581357334a2ec57861fe1b",
+  "bitwise_equal": true,
+  "worker_draw_critical_path_seconds": 15.999468759,
+  "worker_draw_cpu_critical_path_seconds": 15.989528349,
+  "total_worker_draw_thread_cpu_seconds": 253.243183757,
+  "hopsy_sample_phase_inclusive_seconds": 21.370743460953236,
+  "instrumented_wrapper_process_seconds": 26.676972825080156,
+  "scope": "Maximum over worker PIDs of accumulated MarkovChain.draw call durations. Gaps between tasks/calls, serialization and IPC are excluded; elapsed intervals include OS descheduling and Python binding/state-copy overhead. This is a compute critical-path proxy, not pure arithmetic-only time."
+}

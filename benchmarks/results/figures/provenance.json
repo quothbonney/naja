@@ -1,0 +1,160 @@
+{
+  "generated_utc": "2026-11-08T03:53:11.982577+00:00",
+  "matplotlib_version": "3.11.2",
+  "figures": [
+    {
+      "figure": "h100_chain_scaling",
+      "source": {
+        "path": "results/scaling/iJO1366/summary.json",
+        "sha256": "8c41d1d56f8f5f43dfa7e5060f9fc1311d8cbe7956aaeb44be361dd77e0320da"
+      },
+      "complete_cases": 6,
+      "scope": "Single-seed throughput sweep; no convergence or saturation claim."
+    },
+    {
+      "figure": "measured_quality_time",
+      "source": {
+        "path": "results/quality/summary.json",
+        "sha256": "2a17092286e418f13c5e011d4b02a94b84aba4a3d7446b323024bcecfac3d7b2"
+      },
+      "physical_cpu_source": [
+        {
+          "path": "results/native_cpu/iAB_RBC_283/physical16_native_jade/summary.json",
+          "sha256": "03d6028fbe8f0fc55764bddda5f3dc2747b03a6972a13a450b6eb48fc4a5a386"
+        },
+        {
+          "path": "results/native_cpu/iAB_RBC_283/physical16_wheel_jade/summary.json",
+          "sha256": "e203a5802dac25efb986d4fd6f9942f55c8ce5742b0c1328ff5668dfd760bde9"
+        },
+        {
+          "path": "results/native_cpu/iJO1366/physical16_thin2000/summary.json",
+          "sha256": "04c36e908d47875b5ac528cd63381b8b7ab32a095769657b2898971637a68df7"
+        },
+        {
+          "path": "results/native_cpu/iJR904/physical16_native_jade/summary.json",
+          "sha256": "2f03f67d337e3add745f7f210ad70e7fb28e812337b2398e291627217a1d6c9d"
+        },
+        {
+          "path": "results/native_cpu/iJR904/physical16_wheel_jade/summary.json",
+          "sha256": "11ed2e9cd2df0df8ac887ac21c477d66daefccb2d095ccdc742f0fbbd9ce9c4d"
+        }
+      ],
+      "gpu_thinning_source": {
+        "path": "results/gpu_thinning/iJO1366/summary.json",
+        "sha256": "7c75b28b586d6c06ddb8d7c90a03dab288e4cb995243ec786a4aed37260f2e11"
+      },
+      "groups": [
+        {
+          "model": "e_coli_core",
+          "method": "CPU quality-search variants",
+          "passing_seed_count": 3,
+          "median_seconds": 3.3245650809258223,
+          "minimum_seconds": 3.1109269596636295,
+          "maximum_seconds": 3.350204596295953
+        },
+        {
+          "model": "iAB_RBC_283",
+          "method": "CPU quality-search variants",
+          "passing_seed_count": 3,
+          "median_seconds": 8.543835695832968,
+          "minimum_seconds": 8.307460874319077,
+          "maximum_seconds": 9.229355182498693
+        },
+        {
+          "model": "iJR904",
+          "method": "CPU quality-search variants",
+          "passing_seed_count": 3,
+          "median_seconds": 14.984863581135869,
+          "minimum_seconds": 14.907212661579251,
+          "maximum_seconds": 15.964191414415836
+        },
+        {
+          "model": "iJO1366",
+          "method": "CPU quality-search variants",
+          "passing_seed_count": 3,
+          "median_seconds": 35.59185820259154,
+          "minimum_seconds": 34.270500818267465,
+          "maximum_seconds": 38.83878727070987
+        },
+        {
+          "model": "e_coli_core",
+          "method": "Naja TPB 128",
+          "passing_seed_count": 3,
+          "median_seconds": 1.3066058196127415,
+          "minimum_seconds": 1.1723720096051693,
+          "maximum_seconds": 1.3197575863450766
+        },
+        {
+          "model": "iAB_RBC_283",
+          "method": "Naja TPB 128",
+          "passing_seed_count": 3,
+          "median_seconds": 1.861650437116623,
+          "minimum_seconds": 1.8515221383422613,
+          "maximum_seconds": 1.874510545283556
+        },
+        {
+          "model": "iJR904",
+          "method": "Naja TPB 128",
+          "passing_seed_count": 3,
+          "median_seconds": 5.117171324789524,
+          "minimum_seconds": 5.08650372736156,
+          "maximum_seconds": 5.1219874657690525
+        },
+        {
+          "model": "iJO1366",
+          "method": "Naja TPB 128",
+          "passing_seed_count": 3,
+          "median_seconds": 27.981880543753505,
+          "minimum_seconds": 26.742186041548848,
+          "maximum_seconds": 28.220588110387325
+        },
+        {
+          "model": "iJO1366",
+          "method": "Naja TPB 512",
+          "passing_seed_count": 3,
+          "median_seconds": 21.571192607283592,
+          "minimum_seconds": 21.180570473894477,
+          "maximum_seconds": 22.143301732838154
+        },
+        {
+          "model": "iAB_RBC_283",
+          "method": "CPU 16 physical cores",
+          "passing_seed_count": 3,
+          "median_seconds": 6.725568640977144,
+          "minimum_seconds": 6.456386042758822,
+          "maximum_seconds": 7.36992702446878
+        },
+        {
+          "model": "iJR904",
+          "method": "CPU 16 physical cores",
+          "passing_seed_count": 3,
+          "median_seconds": 10.067658809944987,
+          "minimum_seconds": 9.863529654219747,
+          "maximum_seconds": 10.375867169350386
+        },
+        {
+          "model": "iJO1366",
+          "method": "CPU 16 physical cores",
+          "passing_seed_count": 3,
+          "median_seconds": 25.801467960700393,
+          "minimum_seconds": 24.306286884471774,
+          "maximum_seconds": 26.002897491678596
+        },
+        {
+          "model": "iJO1366",
+          "method": "Naja TPB512 thin1000",
+          "passing_seed_count": 3,
+          "median_seconds": 9.467148780822754,
+          "minimum_seconds": 9.327967597171664,
+          "maximum_seconds": 9.723631436005235
+        }
+      ],
+      "scope": "Finite predeclared budget grid and tested CPU variants only; not globally optimal time-to-quality.",
+      "selection_caveat": "Fastest CPU selected per seed from measured passing variants; report included variants and incomplete candidates.",
+      "criterion": "masked median classical split-Rhat<=1.01 and median pooled rank-normalized bulkESS>=100",
+      "timing": "Measured sampling process wall including startup/load/warmup/write and Naja normalization; excludes diagnostic and exploratory search cost.",
+      "partial_groups_are_explicit": true,
+      "interpolated_times_used": false
+    }
+  ]
+}

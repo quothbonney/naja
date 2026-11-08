@@ -1,0 +1,310 @@
+{
+  "methods": {
+    "cpu": {
+      "status": "delegated_full64_sequence",
+      "attempts": [
+        {
+          "seed": 101001,
+          "draws": 10000,
+          "sample_job": "451",
+          "metrics_job": "453",
+          "path": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/high_throughput/iJO1366/cpu_native512_physical64_thin2000/seed101001",
+          "status": "pending",
+          "sampling_state": "PENDING",
+          "metrics_state": "PENDING"
+        }
+      ],
+      "delegate": "scripts/full64_sequence_controller.py"
+    },
+    "gpu": {
+      "status": "pilot_not_selected",
+      "attempts": [
+        {
+          "seed": 101001,
+          "draws": 2000,
+          "sample_job": "450",
+          "metrics_job": "452",
+          "path": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/high_throughput/iJO1366/naja512_tpb128_thin1000/seed101001",
+          "status": "budget_failed",
+          "sampling_state": "COMPLETED",
+          "metrics_state": "COMPLETED",
+          "quality": {
+            "status": "pilot_budget_failed_rhat_or_bounds",
+            "precheck": {
+              "schema_version": 2,
+              "diagnostic_mask_status": "model_lp_verified",
+              "shape": [
+                512,
+                2000,
+                581
+              ],
+              "stage": "masked_classical_split_rhat_precheck",
+              "split_rhat_median": 1.010611171804735,
+              "split_rhat_p95": 1.0286618721594498,
+              "bulk_ess_median": null,
+              "bulk_ess_computed": false,
+              "diagnosed_reactions": 1705,
+              "sample_bound_violation_fraction": 0.0,
+              "bounds_tolerance": 1e-07,
+              "coordinate_bound_violation_fraction": 0.0,
+              "zero_tolerance_sample_bound_violation_fraction": 1.0,
+              "max_absolute_bound_violation": 1.693920004264271e-08,
+              "checked_samples": 1024000,
+              "precheck_wall_seconds": 58.270278157666326
+            },
+            "note": "No pooledESS claim. Larger budget requires a new sampling process; frozen GPU signed32 index cap limits512chains to <=6219 retained draws with1000warmup."
+          }
+        },
+        {
+          "seed": 101001,
+          "draws": 5000,
+          "path": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/high_throughput/iJO1366/naja512_tpb128_thin1000/seed101001/budget5000",
+          "status": "selection_pilot",
+          "sample_job": "457",
+          "metrics_job": "458",
+          "sampling_state": "COMPLETED",
+          "metrics_state": "COMPLETED",
+          "quality": {
+            "status": "pilot_prefix_selected",
+            "selected_draws": 3000,
+            "pilot_process_seconds": 49.8074552770704,
+            "precheck": {
+              "schema_version": 2,
+              "diagnostic_mask_status": "model_lp_verified",
+              "shape": [
+                512,
+                3000,
+                581
+              ],
+              "stage": "masked_classical_split_rhat_precheck",
+              "split_rhat_median": 1.0070239108209564,
+              "split_rhat_p95": 1.0195720782528406,
+              "bulk_ess_median": null,
+              "bulk_ess_computed": false,
+              "diagnosed_reactions": 1705,
+              "sample_bound_violation_fraction": 0.0,
+              "bounds_tolerance": 1e-07,
+              "coordinate_bound_violation_fraction": 0.0,
+              "zero_tolerance_sample_bound_violation_fraction": 1.0,
+              "max_absolute_bound_violation": 1.7867617940758862e-08,
+              "checked_samples": 1536000,
+              "precheck_wall_seconds": 84.44248766079545
+            },
+            "note": "This5k run is a selection pilot. Fresh3k sampling and full common metrics required; no selected-budget performance or ESS claim yet."
+          }
+        },
+        {
+          "seed": 101001,
+          "draws": 3000,
+          "path": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/high_throughput/iJO1366/naja512_tpb128_thin1000/seed101001/budget3000",
+          "status": "passed",
+          "sample_job": "474",
+          "metrics_job": "475",
+          "sampling_state": "COMPLETED",
+          "metrics_state": "COMPLETED",
+          "quality": {
+            "status": "passed",
+            "seed": 101001,
+            "chains": 512,
+            "draws_per_chain": 3000,
+            "warmup_per_chain": 1000,
+            "process_seconds": 32.84656345099211,
+            "split_rhat_median": 1.0070239108209564,
+            "pooled_bulk_ess_median": 92376.94048165651,
+            "pooled_bulk_ess_median_per_chain": 180.42371187823537,
+            "pooled_bulk_ess_median_per_process_second": 2812.3776363845554,
+            "bounds_tolerance": 1e-07,
+            "sample_bound_violation_fraction": 0.0,
+            "schema_version": 2,
+            "diagnostic_mask_status": "model_lp_verified",
+            "count_note": "GPU and CPU retained counts differ; both use the same pooled quality criterion. ESS/512 is an equivalent average from pooledESS, not independent single-chain ESS estimates.",
+            "timing_note": "Sampling process wall includes warmup and output; diagnostics are separate and excluded. One-seed pilot until distinct seeds202001/303001 complete."
+          }
+        }
+      ]
+    },
+    "gpu500": {
+      "status": "prefault_superseded",
+      "attempts": [
+        {
+          "seed": 101001,
+          "draws": 5000,
+          "sample_job": "472",
+          "metrics_job": "473",
+          "path": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/high_throughput/iJO1366/naja512_tpb128_thin500/seed101001",
+          "status": "passed",
+          "sampling_state": "COMPLETED",
+          "metrics_state": "COMPLETED",
+          "quality": {
+            "status": "passed",
+            "seed": 101001,
+            "chains": 512,
+            "draws_per_chain": 5000,
+            "warmup_per_chain": 1000,
+            "process_seconds": 35.62552779354155,
+            "split_rhat_median": 1.0085405319215586,
+            "pooled_bulk_ess_median": 76563.25134403842,
+            "pooled_bulk_ess_median_per_chain": 149.53760028132504,
+            "pooled_bulk_ess_median_per_process_second": 2149.112057728401,
+            "bounds_tolerance": 1e-07,
+            "sample_bound_violation_fraction": 0.0,
+            "schema_version": 2,
+            "diagnostic_mask_status": "model_lp_verified",
+            "count_note": "GPU and CPU retained counts differ; both use the same pooled quality criterion. ESS/512 is an equivalent average from pooledESS, not independent single-chain ESS estimates.",
+            "timing_note": "Sampling process wall includes warmup and output; diagnostics are separate and excluded. One-seed pilot until distinct seeds202001/303001 complete."
+          }
+        }
+      ]
+    },
+    "cpu48": {
+      "status": "pilot_complete",
+      "first_seed_only": true,
+      "attempts": [
+        {
+          "seed": 101001,
+          "draws": 10000,
+          "sample_job": "468",
+          "metrics_job": "471",
+          "path": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/high_throughput/iJO1366/cpu_native512_physical48_thin2000/seed101001",
+          "status": "budget_failed",
+          "sampling_state": "COMPLETED",
+          "metrics_state": "COMPLETED",
+          "quality": {
+            "status": "pilot_budget_failed_rhat_or_bounds",
+            "precheck": {
+              "schema_version": 2,
+              "diagnostic_mask_status": "model_lp_verified",
+              "shape": [
+                512,
+                10000,
+                581
+              ],
+              "stage": "masked_classical_split_rhat_precheck",
+              "split_rhat_median": 1.011216631278485,
+              "split_rhat_p95": 1.0146670462873248,
+              "bulk_ess_median": null,
+              "bulk_ess_computed": false,
+              "diagnosed_reactions": 1705,
+              "sample_bound_violation_fraction": 0.0,
+              "bounds_tolerance": 1e-07,
+              "coordinate_bound_violation_fraction": 0.0,
+              "zero_tolerance_sample_bound_violation_fraction": 1.0,
+              "max_absolute_bound_violation": 6.663974005823445e-12,
+              "checked_samples": 5120000,
+              "precheck_wall_seconds": 286.42664204351604
+            },
+            "note": "No pooledESS claim. Larger budget requires a new sampling process; frozen GPU signed32 index cap limits512chains to <=6219 retained draws with1000warmup."
+          }
+        },
+        {
+          "seed": 101001,
+          "draws": 20000,
+          "path": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/high_throughput/iJO1366/cpu_native512_physical48_thin2000/seed101001/budget20000",
+          "status": "selection_pilot",
+          "sample_job": "500",
+          "metrics_job": "501",
+          "sampling_state": "COMPLETED",
+          "metrics_state": "COMPLETED",
+          "quality": {
+            "status": "pilot_prefix_selected",
+            "selected_draws": 12000,
+            "precheck": {
+              "schema_version": 2,
+              "diagnostic_mask_status": "model_lp_verified",
+              "shape": [
+                512,
+                12000,
+                581
+              ],
+              "stage": "masked_classical_split_rhat_precheck",
+              "split_rhat_median": 1.0093681233640062,
+              "split_rhat_p95": 1.0122575249100205,
+              "bulk_ess_median": null,
+              "bulk_ess_computed": false,
+              "diagnosed_reactions": 1705,
+              "sample_bound_violation_fraction": 0.0,
+              "bounds_tolerance": 1e-07,
+              "coordinate_bound_violation_fraction": 0.0,
+              "zero_tolerance_sample_bound_violation_fraction": 1.0,
+              "max_absolute_bound_violation": 6.701529221153353e-12,
+              "checked_samples": 6144000,
+              "precheck_wall_seconds": 360.37132393568754
+            },
+            "note": "20k selection pilot; requires fresh exact selected-budget sampling and full common diagnostics. No20k performance headline."
+          }
+        },
+        {
+          "seed": 101001,
+          "draws": 12000,
+          "path": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/high_throughput/iJO1366/cpu_native512_physical48_thin2000/seed101001/budget12000",
+          "status": "passed",
+          "sample_job": "513",
+          "metrics_job": "514",
+          "sampling_state": "COMPLETED",
+          "metrics_state": "COMPLETED",
+          "quality": {
+            "status": "passed",
+            "seed": 101001,
+            "chains": 512,
+            "draws_per_chain": 12000,
+            "warmup_per_chain": 1000,
+            "process_seconds": 290.80218324251473,
+            "split_rhat_median": 1.0093681233640062,
+            "pooled_bulk_ess_median": 80204.35226320809,
+            "pooled_bulk_ess_median_per_chain": 156.6491255140783,
+            "pooled_bulk_ess_median_per_process_second": 275.8038174573181,
+            "bounds_tolerance": 1e-07,
+            "sample_bound_violation_fraction": 0.0,
+            "schema_version": 2,
+            "diagnostic_mask_status": "model_lp_verified",
+            "diagnostics_reused_from": null,
+            "count_note": "GPU and CPU retained counts differ; both use the same pooled quality criterion. ESS/512 is an equivalent average from pooledESS, not independent single-chain ESS estimates.",
+            "timing_note": "Sampling process wall includes warmup and output; diagnostics are separate and excluded. One-seed pilot until distinct seeds202001/303001 complete.",
+            "sampler_phase_seconds": 253.97021138854325,
+            "pooled_bulk_ess_per_sampler_phase_second": 315.8022030406758,
+            "transitions_including_warmup": 13312000000,
+            "pooled_bulk_ess_per_total_transition": 6.024966365926088e-06,
+            "sampler_phase_scope": "Inclusive hopsy.sample: pool startup, pickle, IPC and array assembly included.",
+            "worker_draw_critical_path_seconds": 222.35492655800002,
+            "total_worker_draw_thread_cpu_seconds": 9457.05676821,
+            "pooled_bulk_ess_per_worker_draw_second": 360.7041836434743,
+            "worker_draw_scope": "Maximum over worker PIDs of accumulated MarkovChain.draw call durations. Gaps between tasks/calls, serialization and IPC are excluded; elapsed intervals include OS descheduling and Python binding/state-copy overhead. This is a compute critical-path proxy, not pure arithmetic-only time."
+          }
+        }
+      ]
+    }
+  },
+  "selection_history": [
+    {
+      "reason": "User steering changes primary objective from wholeprocess to samplingcompute phase",
+      "prior_selection": {
+        "winner": "gpu",
+        "selection": "Fastest passing first-seed actual process time; empirical selection, not a global optimum.",
+        "pilot_process_seconds": {
+          "gpu": 32.84656345099211,
+          "gpu500": 35.62552779354155
+        }
+      }
+    }
+  ],
+  "gpu_selection": {
+    "winner": "gpu500",
+    "selection": "Fastest passing first-seed GPU sampler phase; empirical selection, not a global optimum. Includes GPUsampler allocation/init; excludes outputhandling.",
+    "pilot_sampler_phase_seconds": {
+      "gpu": 17.2991,
+      "gpu500": 12.8434
+    },
+    "pilot_process_seconds": {
+      "gpu": 32.84656345099211,
+      "gpu500": 35.62552779354155
+    },
+    "prefault_decision": {
+      "choice": "prefault8",
+      "pair_job": "492",
+      "pair_summary": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/high_throughput/iJO1366/prefault512_pair_thin500/seed101001/summary.json",
+      "thin": 500,
+      "draws": 5000,
+      "note": "Distinct experimental build; guarded byte-identical diagnostics reuse for paired seed only. No frozen/experimental timing pooling."
+    }
+  }
+}

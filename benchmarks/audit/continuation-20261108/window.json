@@ -1,0 +1,10 @@
+{
+  "authorized_utc": "2026-11-08T19:12:00+00:00",
+  "deadline_utc": "2026-11-08T22:12:00+00:00",
+  "jobs_deadline_utc": "2026-11-08T22:00:00+00:00",
+  "cleanup_utc": "2026-11-08T22:02:00+00:00",
+  "reason": "User authorized three more hours after returning; prior campaign completed its deadline.",
+  "slurm_cleanup_job": "851",
+  "refresh_pid": 377586,
+  "independent_cached_mask_audit_job": "861"
+}

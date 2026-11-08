@@ -1,0 +1,15 @@
+> validate model contract
+> write generated config
+model :: model
+output :: /mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/fresh16_conservative/iJO1366/seed555001/gpu/native/model_20261108_001
+bounds :: ignore
+> sampling
+> loading polytope
+> barrier rotation (eigenbasis of H)
+> uploading to gpu
+> sampling 16 chains x 4000 samples (thin=1000, 64000000 MCMC steps, 750 constraints x 581 dims)
+> gpu sampling
+> gpu back-transform
+> downloading
+> done: 10.4s, 6161 samples/s
+> writing npy

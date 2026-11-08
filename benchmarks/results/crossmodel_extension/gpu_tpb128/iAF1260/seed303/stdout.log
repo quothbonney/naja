@@ -1,0 +1,15 @@
+> validate model contract
+> write generated config
+model :: iAF1260
+output :: /mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/crossmodel_extension/gpu_tpb128/iAF1260/seed303/native/iAF1260_20261108_001
+bounds :: ignore
+> sampling
+> loading polytope
+> barrier rotation (eigenbasis of H)
+> uploading to gpu
+> sampling 16 chains x 6000 samples (thin=1000, 96000000 MCMC steps, 671 constraints x 524 dims)
+> gpu sampling
+> gpu back-transform
+> downloading
+> done: 23.1s, 4150 samples/s
+> writing npy

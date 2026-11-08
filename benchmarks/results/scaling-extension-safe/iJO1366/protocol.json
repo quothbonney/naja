@@ -1,0 +1,10 @@
+{
+  "job_id": "346",
+  "binary_variant": "cast-onlywideindexexperimental;canonicalunchanged",
+  "sha256": {
+    "benchmarks/scripts/scaling_extension_safe.sbatch": "c2ed874b63cad14be211a87ab73e6ef4a755c898a7549b1a2d996a559a67aee0",
+    "benchmarks/scripts/scaling_extension.py": "b8484f4687700cb4b89d1c566bda65bea53717d7c61464dcd314fd3cbb17d121",
+    "benchmarks/naja_runner.py": "ebc744b8bf6404c20ee8c6256896f9ddfa0308e7e3dcb715992edeaa9991fa0f",
+    "benchmarks/results/source-snapshots/wide-indices-only.patch": "81bc604f276602c95895f6d6f9953a9e2c605a3ea4c312f4b745a3d19acd36ee"
+  }
+}

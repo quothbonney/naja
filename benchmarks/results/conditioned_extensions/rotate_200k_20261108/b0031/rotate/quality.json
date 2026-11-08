@@ -1,0 +1,21 @@
+{
+  "condition_id": "b0031",
+  "condition_root": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/knockout_panel/conditions/b0031",
+  "mode": "rotate",
+  "seed": 101,
+  "geometry_sha256": "c7730f7c13e4baad487dbff96ed70c67cfcf88665691998133ee220a143d2a40",
+  "pipeline_worker_sha256": "157b8b7ca3ef8e507b68e6c34324403f9bdd2b3603ecc76703c72c821dcfa256",
+  "selection_note": "All9 nontrivial exactKO cases that failed original rotate50k cap; everyone extended to200k, with original50k failures retained. Outcome-selected extension, not an unbiased panel.",
+  "criterion": "masked medianclassical splitRhat<=1.05,bulkESS>=100,unmaskedbounds/massbalance1e-7; unchangedfrozenmetrics",
+  "protocol": "16chains,1000warmup,thin1000,TPB512,float64",
+  "measured_sampler_seconds": 543.733,
+  "correction_seconds": 0.1548,
+  "split_rhat_median": 1.064621052696595,
+  "bulk_ess_median": 156.07090797961115,
+  "sample_bound_violation_fraction": 0.0,
+  "maximum_stoichiometric_residual": 4.248734697398504e-11,
+  "timer_scope": "GPU sampler includesallocation/slack/RNG+CHRR;excludesbackmap/download/write andseparatecorrection",
+  "status": "no_quality_within_cap",
+  "observed_budget": 200000,
+  "prefix_curve_json": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/conditioned_extensions/rotate_200k_20261108/b0031/rotate/curve.json"
+}

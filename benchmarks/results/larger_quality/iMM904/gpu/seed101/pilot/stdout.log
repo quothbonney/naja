@@ -1,0 +1,15 @@
+> validate model contract
+> write generated config
+model :: iMM904
+output :: /mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/larger_quality/iMM904/gpu/seed101/pilot/native/iMM904_20261108_001
+bounds :: ignore
+> sampling
+> loading polytope
+> barrier rotation (eigenbasis of H)
+> uploading to gpu
+> sampling 16 chains x 11000 samples (thin=1000, 176000000 MCMC steps, 413 constraints x 288 dims)
+> gpu sampling
+> gpu back-transform
+> downloading
+> done: 23.0s, 7653 samples/s
+> writing npy

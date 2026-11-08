@@ -1,0 +1,43 @@
+# Source config: /mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/fresh16_conservative/iJO1366/seed666001/gpu/native/model_20261108_001/config_generated.txt
+# Captured at: 2026-11-08 19:36:12
+# Output directory: /mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/fresh16_conservative/iJO1366/seed666001/gpu/native/model_20261108_001
+
+DATA_DIR=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/high_throughput/iJO1366/cached_target_audit
+MODEL_NAME=model
+OUT_DIR=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/fresh16_conservative/iJO1366/seed666001/gpu/native/model_20261108_001
+N_CHAINS=16
+N_SAMPLES=4000
+SEED=666001
+TPB_SS=512
+GPU_DEVICE=0
+BACK_TRANSFORM=false
+WRITE_DATA=true
+VERBOSE=false
+STATUS=true
+THINNING=1000
+EXTRA_CONSTRAINTS=auto
+START_POLICY=file
+BARRIER_ROTATE=true
+BARRIER_WHITEN=false
+BOUNDS_POLICY=ignore
+
+# Derived metadata
+MODEL_NAME=model
+DATA_DIR_ABS=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/high_throughput/iJO1366/cached_target_audit
+MODEL_DIR_ABS=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/high_throughput/iJO1366/cached_target_audit/model
+ROUND_PREFIX_ABS=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/high_throughput/iJO1366/cached_target_audit/model/rounding/model_rounding
+A_FILE=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/iJO1366/rounding/polytope.npz
+B_FILE=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/iJO1366/rounding/polytope.npz
+START_FILE=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/iJO1366/rounding/polytope.npz
+T_FILE=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/iJO1366/rounding/polytope.npz
+SHIFT_FILE=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/iJO1366/rounding/polytope.npz
+NPY_FILE=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/fresh16_conservative/iJO1366/seed666001/gpu/native/model_20261108_001/samples.npy
+PROFILE_FILE=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/fresh16_conservative/iJO1366/seed666001/gpu/native/model_20261108_001/profile.json
+N_CHAINS=16
+N_SAMPLES=4000
+THINNING=1000
+SEED=666001
+GPU_DEVICE=0
+BACK_TRANSFORM=false
+WRITE_DATA=true
+BOUNDS_POLICY=ignore

@@ -1,0 +1,13 @@
+diff --git a/src/engine/job_sampling.cu b/src/engine/job_sampling.cu
+index 7f1106d..d83ad3e 100644
+--- a/src/engine/job_sampling.cu
++++ b/src/engine/job_sampling.cu
+@@ -386,7 +386,7 @@ int run_sampling_job(RuntimeConfig cfg, bool verbose, bool show_device_banner) {
+     profile.thinning = thinning;
+ 
+     std::hash<std::string> h;
+-    int seed = (int)(h(cfg.MODEL_NAME) ^ (h(cfg.MODEL_DIR) << 1) ^ (uint64_t)(cfg.GPU_DEVICE * 0x9e3779b9));
++    int seed = 101; // Reference-only deterministic seed shim; no sampling changes.
+     if (seed == 0) seed = 1;
+ 
+     naja::status::phase(cfg.STATUS, "uploading to gpu");

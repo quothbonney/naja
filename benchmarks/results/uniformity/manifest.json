@@ -1,0 +1,33 @@
+{
+  "jobs": {
+    "hopsy_sampling": "185",
+    "naja_sampling": "186",
+    "empirical_comparison": "194",
+    "common_modelmask_analysis_refresh": "285",
+    "dikin_sampling": "319",
+    "dikin_comparison_refresh": "324"
+  },
+  "job_requests": {
+    "185": "partition=h100 cpus=16 memory=32G time=15min workers=16",
+    "186": "partition=h100 gpus=1 cpus=4 memory=16G time=15min",
+    "194": "partition=h100 cpus=8 memory=16G time=15min"
+  },
+  "script_sha256": {
+    "scripts/uniformity.sbatch": "bd990e71077f1b94523560b335d63ab14ac283b986f6b98d5730c2c309488516",
+    "scripts/uniformity_analysis.sbatch": "7dc62466d694c0776e58dc728f04be2e6fc811baf1bff2c9788d3674d59f7285",
+    "scripts/compare_uniformity.py": "ece35704a06c3eb9daf26e1dd4aa6e4a72ba85fcf22c499876b5e6c5435c2fef",
+    "naja_runner.py": "991ec443dfb88cecdc44f40c74e7d8c61a1ff091ef899e6dff77cdbfc51eeaa8",
+    "cpu_baseline.py": "3159be5272bb9902d87d23fec673e7faf4af96822343c371e0932e7f41486fdd",
+    "data/models/e_coli_core/rounding/polytope.npz": "28f24d9351c4a5686a52d732c4bd7561b12a0c77cdb83396ba778ce014fd90b2",
+    "scripts/uniformity_dikin.sbatch": "2677a5bbf08acf5cb55eb7eab0f7d5ebf1b1a96d21b0c1d9032c59bc15726a21"
+  },
+  "notes": [
+    "All jobs completed; GPU allocation released before CPU comparison.",
+    "Source scripts remain persistent; source hashes recorded after these jobs finished.",
+    "One Naja seed per algorithm configuration and two independent hopsy references; no statistical bias test or proof of uniformity.",
+    "Common LP-verified active_reactions.npy mask refresh completed in job285; unchanged87active/8excluded and unchanged numerical metrics; raw samples untouched.",
+    "Additional 1M-sample whiten+Jacobi-pair.5+Dikin.15 configuration added with11runtime-confirmed directions; comparison refreshjob324."
+  ],
+  "prior_analysis_manifest_sha256": "6111747a2a10e0639d7aa6d395d726f9466860925522ff19d00cc56df229e77f",
+  "prior_analysis_script_sha256": "eab7d05ebdff38fd8186dadc3843a1a6c55d72ee9244c0387236b7c995439a11"
+}

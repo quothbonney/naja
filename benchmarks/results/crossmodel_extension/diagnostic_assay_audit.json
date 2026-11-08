@@ -1,0 +1,89 @@
+{
+  "scope": "Original model LP diagnostic masks do not by themselves prove ranges on exact cached A/b. Historical results preserved. Separate conservative crossmodel certificates are being built.",
+  "models": [
+    {
+      "model": "e_coli_core",
+      "geometry_sha256": "28f24d9351c4a5686a52d732c4bd7561b12a0c77cdb83396ba778ce014fd90b2",
+      "original_source": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/raw/e_coli_core.json",
+      "historical_excluded": 8,
+      "historical_active": 87,
+      "policy": "Candidates T_row_max<=candidate_tolerance; exclude only successful original-model min/max LP range<=range_tolerance. No objective/biomass constraint added. Diagnostic aggregation only; sampling target unchanged.",
+      "cached_target_certificate": false,
+      "d": 24,
+      "n": 95,
+      "m": 36
+    },
+    {
+      "model": "iAB_RBC_283",
+      "geometry_sha256": "4fabe86c46d5ee8154fa578e3fb04e812c40406f95ec8640e90a27fa98a825ac",
+      "original_source": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/raw/iAB_RBC_283.json",
+      "historical_excluded": 16,
+      "historical_active": 453,
+      "policy": "Candidates T_row_max<=candidate_tolerance; exclude only successful original-model min/max LP range<=range_tolerance. No objective/biomass constraint added. Diagnostic aggregation only; sampling target unchanged.",
+      "cached_target_certificate": false,
+      "d": 130,
+      "n": 469,
+      "m": 188
+    },
+    {
+      "model": "iJR904",
+      "geometry_sha256": "e7223d54a6b78e4880328648b410d90571030d4558abaa1b44c5567fcf7fb216",
+      "original_source": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/raw/iJR904.json",
+      "historical_excluded": 409,
+      "historical_active": 666,
+      "policy": "Candidates T_row_max<=candidate_tolerance; exclude only successful original-model min/max LP range<=range_tolerance. No objective/biomass constraint added. Diagnostic aggregation only; sampling target unchanged.",
+      "cached_target_certificate": false,
+      "d": 232,
+      "n": 1075,
+      "m": 291
+    },
+    {
+      "model": "iAF1260",
+      "geometry_sha256": "dbb75f2d4fbf10d0e2f0cbcedb1fcbaa1913d330b5c1e2e3af1dc2eb91139304",
+      "original_source": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/raw/iAF1260.json",
+      "historical_excluded": 851,
+      "historical_active": 1531,
+      "policy": "Candidates T_row_max<=candidate_tolerance; exclude only successful original-model min/max LP range<=range_tolerance. No objective/biomass constraint added. Diagnostic aggregation only; sampling target unchanged.",
+      "cached_target_certificate": false,
+      "d": 524,
+      "n": 2382,
+      "m": 671
+    },
+    {
+      "model": "iJO1366",
+      "geometry_sha256": "07374999682cb82ef566c2a7ba4cd1ca44b0718ab81f421846e24d3b85f5e103",
+      "original_source": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/raw/iJO1366.json",
+      "historical_excluded": 878,
+      "historical_active": 1705,
+      "policy": "Candidates T_row_max<=candidate_tolerance; exclude only successful original-model min/max LP range<=range_tolerance. No objective/biomass constraint added. Diagnostic aggregation only; sampling target unchanged.",
+      "cached_target_certificate": false,
+      "d": 581,
+      "n": 2583,
+      "m": 750
+    },
+    {
+      "model": "iML1515",
+      "geometry_sha256": "edfd39e411b95db6e9326465c9fedb90de59642281b3755bd870d7967e6fb20b",
+      "original_source": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/raw/iML1515.json",
+      "historical_excluded": 968,
+      "historical_active": 1744,
+      "policy": "Candidates T_row_max<=candidate_tolerance; exclude only successful original-model min/max LP range<=range_tolerance. No objective/biomass constraint added. Diagnostic aggregation only; sampling target unchanged.",
+      "cached_target_certificate": false,
+      "d": 635,
+      "n": 2712,
+      "m": 801
+    },
+    {
+      "model": "iMM904",
+      "geometry_sha256": "31912621f1f70430d30f0bda9e9b3fe020055caa4f2fb48daae2678529589bd6",
+      "original_source": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/raw/iMM904.json",
+      "historical_excluded": 693,
+      "historical_active": 884,
+      "policy": "Candidates T_row_max<=candidate_tolerance; exclude only successful original-model min/max LP range<=range_tolerance. No objective/biomass constraint added. Diagnostic aggregation only; sampling target unchanged.",
+      "cached_target_certificate": false,
+      "d": 288,
+      "n": 1577,
+      "m": 413
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "same_seed_bitwise_equal": true,
+  "different_seed_differs": true,
+  "shape": [
+    4,
+    128,
+    3
+  ],
+  "finite": true,
+  "within_cube": true
+}

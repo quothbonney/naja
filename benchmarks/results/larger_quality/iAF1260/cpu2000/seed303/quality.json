@@ -1,0 +1,27 @@
+{
+  "model": "iAF1260",
+  "method": "cpu2000",
+  "seed": 303,
+  "chains": 16,
+  "warmup": 1000,
+  "thinning": 2000,
+  "tpb": null,
+  "status": "complete",
+  "started_utc": "2026-11-08T03:39:33.193269+00:00",
+  "note": "Actual fresh selected-budget process time excludes pilot/search/diagnostics. Median split Rhat<=1.01 and bulk ESS>=100; bound metrics are independent. Fixed retained warmup1000 implies differing warmup moves.",
+  "pilot_process_seconds": 23.305543122813106,
+  "selected_draws": 10000,
+  "pilot_and_selection_seconds": 75.4936009682715,
+  "measured": {
+    "draws_per_chain": 10000,
+    "wall_seconds": 24.772905929014087,
+    "split_rhat_median": 1.0088480881663369,
+    "bulk_ess_median": 2392.774724258676,
+    "quality_met": true,
+    "sample_bound_violation_fraction": 0.0,
+    "max_absolute_bound_violation": 6.2421334229127475e-09,
+    "bounds_tolerance": 1e-07,
+    "run_dir": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/larger_quality/iAF1260/cpu2000/seed303/final"
+  },
+  "finished_utc": "2026-11-08T03:41:16.142168+00:00"
+}

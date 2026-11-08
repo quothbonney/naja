@@ -1,0 +1,45 @@
+# Source config: /mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/knockout_panel/conditions/b0003/quality/naja_rotate/seed101/pilot-budget10000/native/shared_20261108_001/config_generated.txt
+# Captured at: 2026-11-08 05:17:35
+# Output directory: /mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/knockout_panel/conditions/b0003/quality/naja_rotate/seed101/pilot-budget10000/native/shared_20261108_001
+
+DATA_DIR=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/knockout_panel/conditions/b0003/models
+MODEL_NAME=shared
+OUT_DIR=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/knockout_panel/conditions/b0003/quality/naja_rotate/seed101/pilot-budget10000/native/shared_20261108_001
+N_CHAINS=16
+N_SAMPLES=11000
+SEED=101
+TPB_SS=512
+GPU_DEVICE=0
+BACK_TRANSFORM=false
+WRITE_DATA=true
+SAMPLE_DTYPE=float64
+VERBOSE=false
+STATUS=true
+THINNING=1000
+EXTRA_CONSTRAINTS=auto
+START_POLICY=file
+BARRIER_ROTATE=true
+BARRIER_WHITEN=false
+BOUNDS_POLICY=ignore
+
+# Derived metadata
+MODEL_NAME=shared
+DATA_DIR_ABS=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/knockout_panel/conditions/b0003/models
+MODEL_DIR_ABS=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/knockout_panel/conditions/b0003/models/shared
+ROUND_PREFIX_ABS=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/knockout_panel/conditions/b0003/models/shared/rounding/shared_rounding
+A_FILE=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/knockout_panel/conditions/b0003/models/shared/rounding/polytope.npz
+B_FILE=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/knockout_panel/conditions/b0003/models/shared/rounding/polytope.npz
+START_FILE=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/knockout_panel/conditions/b0003/models/shared/rounding/polytope.npz
+T_FILE=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/knockout_panel/conditions/b0003/models/shared/rounding/polytope.npz
+SHIFT_FILE=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/knockout_panel/conditions/b0003/models/shared/rounding/polytope.npz
+NPY_FILE=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/knockout_panel/conditions/b0003/quality/naja_rotate/seed101/pilot-budget10000/native/shared_20261108_001/samples.npy
+PROFILE_FILE=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/knockout_panel/conditions/b0003/quality/naja_rotate/seed101/pilot-budget10000/native/shared_20261108_001/profile.json
+N_CHAINS=16
+N_SAMPLES=11000
+THINNING=1000
+SEED=101
+GPU_DEVICE=0
+BACK_TRANSFORM=false
+WRITE_DATA=true
+SAMPLE_DTYPE=float64
+BOUNDS_POLICY=ignore

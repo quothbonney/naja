@@ -1,0 +1,33 @@
+{
+  "argv": [
+    "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/scripts/enter.sh",
+    "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/env-gpu/bin/python",
+    "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/naja_runner.py",
+    "--exe",
+    "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/build-h100-f64/naja",
+    "--model",
+    "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/knockout_panel/conditions/b0025/models/shared",
+    "--out",
+    "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/conditioned_extensions/rotate_200k_20261108/b0025/rotate/pilot-budget200000",
+    "--seed",
+    "101",
+    "--chains",
+    "16",
+    "--draws",
+    "200000",
+    "--warmup",
+    "1000",
+    "--thinning",
+    "1000",
+    "--tpb",
+    "512",
+    "--barrier",
+    "rotate",
+    "--sample-dtype",
+    "float64",
+    "--timeout",
+    "1500"
+  ],
+  "external_process_seconds": 585.3679639790207,
+  "source_sha256": "3b85312d1170267784f474bdf0a55212d8b858c7fe53b6ff07d2f4473c3fe463"
+}

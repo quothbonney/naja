@@ -1,0 +1,148 @@
+{
+  "method": "naja",
+  "status": "complete",
+  "command": [
+    "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/build-h100-coordinate/naja",
+    "sample",
+    "run",
+    "--model-dir",
+    "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/iJO1366",
+    "--out-root",
+    "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/coordinate_kernel/clock_audit/seed202001/coordinate/native",
+    "--gpu",
+    "0",
+    "--n-chains",
+    "512",
+    "--n-samples",
+    "6000",
+    "--seed",
+    "202001",
+    "--tpb",
+    "128",
+    "--thinning",
+    "500",
+    "--constraint-eps",
+    "0",
+    "--extra-constraint-eps",
+    "0",
+    "--pair-prob",
+    "0.0",
+    "--bounds-policy",
+    "ignore",
+    "--write-npy",
+    "--barrier-rotate",
+    "--host-prefault-threads",
+    "8"
+  ],
+  "started_utc": "2026-11-08T04:48:50.679736+00:00",
+  "seed": 202001,
+  "model": "iJO1366",
+  "model_dir": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/iJO1366",
+  "chains": 512,
+  "draws": 5000,
+  "warmup": 1000,
+  "barrier": "rotate",
+  "sample_dtype": "float32",
+  "host_prefault_threads": 8,
+  "pair_probability": 0.0,
+  "pair_schedule_method": null,
+  "requested_thinning": 500,
+  "exe_sha256": "51854688114677b14de3c110c262d210281de1f351f1ae6df6be994c2cc67e82",
+  "adapter_script_sha256": "230b84b3c78344b4953a2d03eef7ef5488fdfb2844605cbaef7b74c83f0426a9",
+  "samples": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/coordinate_kernel/clock_audit/seed202001/coordinate/samples.npy",
+  "notes": [
+    "All wall sampling time includes discarded warmup.",
+    "Reduced-space native path; no GPU backmap; external reaction-space diagnostics.",
+    "Dikin may auto-enable when extra constraints exist; unconditioned models have none.",
+    "Auto thinning is a pre-sampling geometry heuristic, not online adaptation."
+  ],
+  "wide_index_proof": {
+    "status": "passed",
+    "gpu_correctness_tests_passed": 5,
+    "cases": [
+      {
+        "case": "box_plain",
+        "arrays_bitwise_equal": true,
+        "max_absolute_difference": 0.0
+      },
+      {
+        "case": "box_pair",
+        "arrays_bitwise_equal": true,
+        "max_absolute_difference": 0.0
+      },
+      {
+        "case": "iJO_plain",
+        "arrays_bitwise_equal": true,
+        "max_absolute_difference": 0.0
+      }
+    ],
+    "same_seed_original_samples_bitwise_equal": true,
+    "wide_index_build_verified": true,
+    "binary_sha256": "51854688114677b14de3c110c262d210281de1f351f1ae6df6be994c2cc67e82",
+    "reference_binary_sha256": "a656a1f93489af051acd540d08369092567dd0673af2b0e1ac922dc58a910603",
+    "patch_sha256": "6cae3a04a23874e90cccf9b4a29aabc4f1d76c8fdab266c7c4daedf3030d2029",
+    "job_id": "488",
+    "scope": "Separate coordinate-only specialization. Mixture fallback retained. No frozen binary/results changed."
+  },
+  "wide_index_proof_path": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/coordinate_kernel/verification.json",
+  "preflight": {
+    "dimension": 581,
+    "native_matrix_elements": 1784832000,
+    "matrix_element_limit": 1152921504606846975,
+    "per_axis_signed_int_limit": 2147483647
+  },
+  "preflight_seconds": 0.19480030424892902,
+  "returncode": 0,
+  "wall_seconds": 21.799061136320233,
+  "profile": {
+    "timestamp": "2026-11-08 04:49:12",
+    "config": {
+      "n_chains": 512,
+      "n_samples": 6000,
+      "reduced_dim": 581,
+      "original_dim": 581,
+      "constraints": 750,
+      "thinning": 500,
+      "seed": 202001,
+      "sample_dtype": "float32",
+      "host_prefault_threads": 8,
+      "tpb_ss": 128,
+      "gpu_device": 0,
+      "back_transform": false
+    },
+    "timing": {
+      "load_polytope_s": 0.0133,
+      "cube_center_lp_s": 0.0,
+      "barrier_rotation_s": 0.1407,
+      "upload_to_gpu_s": 0.001,
+      "gpu_sampling_s": 13.0481,
+      "download_from_gpu_s": 2.2444,
+      "backtransform_s": 2.3103,
+      "write_output_s": 5.1051,
+      "total_s": 20.9562
+    },
+    "performance": {
+      "total_samples": 3072000,
+      "throughput_samples_per_sec": 235436.7,
+      "sampling_fraction": 0.623
+    }
+  },
+  "profile_path": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/coordinate_kernel/clock_audit/seed202001/coordinate/native/iJO1366_20261108_001/profile.json",
+  "raw_samples": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/coordinate_kernel/clock_audit/seed202001/coordinate/native/iJO1366_20261108_001/samples.npy",
+  "native_shape": [
+    3072000,
+    581
+  ],
+  "native_dtype": "float32",
+  "native_layout": "draw-major interleaved chains; columns are reduced coordinates",
+  "analysis_shape": [
+    512,
+    5000,
+    581
+  ],
+  "analysis_layout": "chain, draw, reduced_coordinate",
+  "warmup_retained_draws_discarded_per_chain": 1000,
+  "normalization_seconds": 10.594448989257216,
+  "wall_including_normalization_seconds": 32.39351012557745,
+  "finished_utc": "2026-11-08T04:49:23.284282+00:00"
+}

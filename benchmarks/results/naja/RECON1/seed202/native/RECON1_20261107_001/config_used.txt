@@ -1,0 +1,42 @@
+# Source config: /mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/naja/RECON1/seed202/native/RECON1_20261107_001/config_generated.txt
+# Captured at: 2026-11-07 23:58:12
+# Output directory: /mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/naja/RECON1/seed202/native/RECON1_20261107_001
+
+DATA_DIR=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models
+MODEL_NAME=RECON1
+OUT_DIR=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/naja/RECON1/seed202/native/RECON1_20261107_001
+N_CHAINS=16
+N_SAMPLES=11000
+SEED=202
+TPB_SS=128
+GPU_DEVICE=0
+BACK_TRANSFORM=false
+WRITE_DATA=true
+VERBOSE=false
+STATUS=true
+EXTRA_CONSTRAINTS=auto
+START_POLICY=file
+BARRIER_ROTATE=true
+BARRIER_WHITEN=false
+BOUNDS_POLICY=ignore
+
+# Derived metadata
+MODEL_NAME=RECON1
+DATA_DIR_ABS=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models
+MODEL_DIR_ABS=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/RECON1
+ROUND_PREFIX_ABS=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/RECON1/rounding/RECON1_rounding
+A_FILE=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/RECON1/rounding/polytope.npz
+B_FILE=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/RECON1/rounding/polytope.npz
+START_FILE=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/RECON1/rounding/polytope.npz
+T_FILE=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/RECON1/rounding/polytope.npz
+SHIFT_FILE=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/RECON1/rounding/polytope.npz
+NPY_FILE=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/naja/RECON1/seed202/native/RECON1_20261107_001/samples.npy
+PROFILE_FILE=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/naja/RECON1/seed202/native/RECON1_20261107_001/profile.json
+N_CHAINS=16
+N_SAMPLES=11000
+THINNING=155
+SEED=202
+GPU_DEVICE=0
+BACK_TRANSFORM=false
+WRITE_DATA=true
+BOUNDS_POLICY=ignore

@@ -1,0 +1,27 @@
+{
+  "model": "iMM904",
+  "method": "gpu",
+  "seed": 101,
+  "chains": 16,
+  "warmup": 1000,
+  "thinning": 1000,
+  "tpb": 512,
+  "status": "complete",
+  "started_utc": "2026-11-08T03:32:27.027120+00:00",
+  "note": "Actual fresh selected-budget process time excludes pilot/search/diagnostics. Median split Rhat<=1.01 and bulk ESS>=100; bound metrics are independent. Fixed retained warmup1000 implies differing warmup moves.",
+  "pilot_process_seconds": 24.69279496371746,
+  "selected_draws": 1000,
+  "pilot_and_selection_seconds": 56.85206911340356,
+  "measured": {
+    "draws_per_chain": 1000,
+    "wall_seconds": 5.348614459857345,
+    "split_rhat_median": 1.0089933849854664,
+    "bulk_ess_median": 2255.516586715624,
+    "quality_met": true,
+    "sample_bound_violation_fraction": 0.0281875,
+    "max_absolute_bound_violation": 1.9680662670438904e-07,
+    "bounds_tolerance": 1e-07,
+    "run_dir": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/larger_quality/iMM904/gpu/seed101/final"
+  },
+  "finished_utc": "2026-11-08T03:33:33.754418+00:00"
+}

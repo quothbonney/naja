@@ -1,0 +1,95 @@
+{
+  "scope": "Read-only reaggregation of existing all-reaction full-budget statistics; no new sampling or estimator changes.",
+  "mask_sha256": "23087281b6c9852bb02bbe5bb28d873cc0ccc677a5bf4bb45486b68760867ca8",
+  "code_sha256": "db5640c3dd6c8796abc5ac28a821d555b5fc8097f52dc9db2c08842f64898e13",
+  "rows": [
+    {
+      "method": "cpu",
+      "seed": 444001,
+      "original_model_mask_excluded": 878,
+      "rhat": 1.0065033114486936,
+      "ess": 3240.50667743147,
+      "pass_quality": true,
+      "compute_seconds": 21.253242199,
+      "ess_per_compute_second": 152.4711687322672,
+      "source_csv": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/fresh16_conservative/iJO1366/seed444001/cpu/reaction_metrics.csv"
+    },
+    {
+      "method": "gpu",
+      "seed": 444001,
+      "original_model_mask_excluded": 878,
+      "rhat": 1.006702658038369,
+      "ess": 2957.989653865599,
+      "pass_quality": true,
+      "compute_seconds": 10.3878,
+      "ess_per_compute_second": 284.756122938986,
+      "source_csv": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/fresh16_conservative/iJO1366/seed444001/gpu/reaction_metrics.csv"
+    },
+    {
+      "method": "cpu",
+      "seed": 555001,
+      "original_model_mask_excluded": 878,
+      "rhat": 1.006739663303255,
+      "ess": 3219.750742099363,
+      "pass_quality": true,
+      "compute_seconds": 21.099782767,
+      "ess_per_compute_second": 152.59639294178155,
+      "source_csv": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/fresh16_conservative/iJO1366/seed555001/cpu/reaction_metrics.csv"
+    },
+    {
+      "method": "gpu",
+      "seed": 555001,
+      "original_model_mask_excluded": 878,
+      "rhat": 1.0065949897793292,
+      "ess": 3025.1193092374456,
+      "pass_quality": true,
+      "compute_seconds": 10.3876,
+      "ess_per_compute_second": 291.2240853746241,
+      "source_csv": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/fresh16_conservative/iJO1366/seed555001/gpu/reaction_metrics.csv"
+    },
+    {
+      "method": "cpu",
+      "seed": 666001,
+      "original_model_mask_excluded": 878,
+      "rhat": 1.0063542346000505,
+      "ess": 3237.902297440898,
+      "pass_quality": true,
+      "compute_seconds": 21.077789877,
+      "ess_per_compute_second": 153.61678412849557,
+      "source_csv": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/fresh16_conservative/iJO1366/seed666001/cpu/reaction_metrics.csv"
+    },
+    {
+      "method": "gpu",
+      "seed": 666001,
+      "original_model_mask_excluded": 878,
+      "rhat": 1.0068000211928634,
+      "ess": 2989.065260629338,
+      "pass_quality": true,
+      "compute_seconds": 10.4658,
+      "ess_per_compute_second": 285.60313216661297,
+      "source_csv": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/fresh16_conservative/iJO1366/seed666001/gpu/reaction_metrics.csv"
+    }
+  ],
+  "paired": [
+    {
+      "seed": 444001,
+      "both_pass": true,
+      "compute_time_ratio": 2.0459810738558692,
+      "ess_rate_ratio": 1.8676063501487647
+    },
+    {
+      "seed": 555001,
+      "both_pass": true,
+      "compute_time_ratio": 2.0312471376448844,
+      "ess_rate_ratio": 1.9084598250348663
+    },
+    {
+      "seed": 666001,
+      "both_pass": true,
+      "compute_time_ratio": 2.013968342314969,
+      "ess_rate_ratio": 1.8591922346695853
+    }
+  ],
+  "median_paired_compute_time_ratio": 2.0312471376448844,
+  "median_paired_ess_rate_ratio": 1.8676063501487647
+}

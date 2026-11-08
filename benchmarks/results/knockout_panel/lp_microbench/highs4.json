@@ -1,0 +1,182 @@
+{
+  "case": "highs4",
+  "source": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/conditioned_prototype/iJO1366/models/shared/rounding/polytope.npz",
+  "imports_seconds": 0.6195620372891426,
+  "geometry_load_and_normalization_seconds": 0.01352192647755146,
+  "affinity": [
+    24,
+    26,
+    88,
+    90
+  ],
+  "host_logical_cpus": 128,
+  "repetitions": [
+    {
+      "role": "cold_first_solver_call",
+      "repetition": 0,
+      "seconds": 1.569722829386592,
+      "model_construction_seconds": 0.010589199140667915,
+      "iterations": 1254,
+      "radius": 0.019525890345084146,
+      "threads_after": 4,
+      "valid_basis": true,
+      "max_scaled_primal_violation": 8.825786101951394e-09
+    },
+    {
+      "role": "same_model_explicit_basis_same_target",
+      "repetition": 1,
+      "seconds": 0.2522789444774389,
+      "model_construction_seconds": 0.0,
+      "iterations": 0,
+      "radius": 0.019525890345090356,
+      "threads_after": 4,
+      "valid_basis": true,
+      "max_scaled_primal_violation": 9.872647144248958e-10
+    },
+    {
+      "role": "same_model_explicit_basis_same_target",
+      "repetition": 2,
+      "seconds": 0.23947985284030437,
+      "model_construction_seconds": 0.0,
+      "iterations": 0,
+      "radius": 0.019525890345090356,
+      "threads_after": 4,
+      "valid_basis": true,
+      "max_scaled_primal_violation": 9.872647144248958e-10
+    },
+    {
+      "role": "same_model_explicit_basis_same_target",
+      "repetition": 3,
+      "seconds": 0.23375406302511692,
+      "model_construction_seconds": 0.0,
+      "iterations": 0,
+      "radius": 0.019525890345090356,
+      "threads_after": 4,
+      "valid_basis": true,
+      "max_scaled_primal_violation": 9.872647144248958e-10
+    },
+    {
+      "role": "same_model_explicit_basis_same_target",
+      "repetition": 4,
+      "seconds": 0.23545304499566555,
+      "model_construction_seconds": 0.0,
+      "iterations": 0,
+      "radius": 0.019525890345090356,
+      "threads_after": 4,
+      "valid_basis": true,
+      "max_scaled_primal_violation": 9.872647144248958e-10
+    },
+    {
+      "role": "new_model_cold_basis_pool_already_initialized",
+      "repetition": 0,
+      "seconds": 1.487796237692237,
+      "model_construction_seconds": 0.009928550571203232,
+      "iterations": 1254,
+      "radius": 0.019525890345084146,
+      "threads_after": 4,
+      "valid_basis": true,
+      "max_scaled_primal_violation": 8.825786101951394e-09
+    },
+    {
+      "role": "new_model_cold_basis_pool_already_initialized",
+      "repetition": 1,
+      "seconds": 1.4581112898886204,
+      "model_construction_seconds": 0.009389203041791916,
+      "iterations": 1254,
+      "radius": 0.019525890345084146,
+      "threads_after": 4,
+      "valid_basis": true,
+      "max_scaled_primal_violation": 8.825786101951394e-09
+    },
+    {
+      "role": "new_model_cold_basis_pool_already_initialized",
+      "repetition": 2,
+      "seconds": 1.4429647289216518,
+      "model_construction_seconds": 0.008519938215613365,
+      "iterations": 1254,
+      "radius": 0.019525890345084146,
+      "threads_after": 4,
+      "valid_basis": true,
+      "max_scaled_primal_violation": 8.825786101951394e-09
+    },
+    {
+      "role": "new_model_cold_basis_pool_already_initialized",
+      "repetition": 3,
+      "seconds": 1.4871294647455215,
+      "model_construction_seconds": 0.008010366931557655,
+      "iterations": 1254,
+      "radius": 0.019525890345084146,
+      "threads_after": 4,
+      "valid_basis": true,
+      "max_scaled_primal_violation": 8.825786101951394e-09
+    },
+    {
+      "role": "cached_basis_changed_capacity_target",
+      "repetition": 0,
+      "seconds": 0.24258803762495518,
+      "model_construction_seconds": 0.0,
+      "iterations": 0,
+      "radius": 0.017573301310581636,
+      "threads_after": 4,
+      "valid_basis": true,
+      "max_scaled_primal_violation": 9.369971465389426e-10
+    },
+    {
+      "role": "cached_basis_changed_capacity_target",
+      "repetition": 1,
+      "seconds": 0.2516962829977274,
+      "model_construction_seconds": 0.0,
+      "iterations": 1,
+      "radius": 0.02147847937960705,
+      "threads_after": 4,
+      "valid_basis": true,
+      "max_scaled_primal_violation": 9.818552637597122e-10
+    },
+    {
+      "role": "cached_basis_changed_capacity_target",
+      "repetition": 2,
+      "seconds": 0.23796969838440418,
+      "model_construction_seconds": 0.0,
+      "iterations": 0,
+      "radius": 0.01562071227607252,
+      "threads_after": 4,
+      "valid_basis": true,
+      "max_scaled_primal_violation": 8.307690091413633e-10
+    },
+    {
+      "role": "cached_basis_changed_capacity_target",
+      "repetition": 3,
+      "seconds": 0.23567453771829605,
+      "model_construction_seconds": 0.0,
+      "iterations": 0,
+      "radius": 0.01952589034509259,
+      "threads_after": 4,
+      "valid_basis": true,
+      "max_scaled_primal_violation": 9.301743819634112e-10
+    }
+  ],
+  "solver_versions": {
+    "highspy": "1.15.1"
+  },
+  "scope": "Existing PGI capacity slab microbenchmark; not exact gene-KO geometry.",
+  "one_time_CSC_model_assembly_seconds": 0.05180475860834122,
+  "solver_small_matrix_value": 1e-12,
+  "normalized_nonzero_coefficients_below_solver_cutoff": 2,
+  "first_model_construction_seconds": 0.010589199140667915,
+  "requested_threads": 4,
+  "accepted_threads_option": 4,
+  "model_pass_statuses": [
+    "HighsStatus.kWarning",
+    "HighsStatus.kWarning",
+    "HighsStatus.kWarning",
+    "HighsStatus.kWarning",
+    "HighsStatus.kWarning"
+  ],
+  "solver_warnings": [
+    "WARNING: LP matrix packed vector contains 2 |value| in [4.56107e-13, 6.80026e-13] less than or equal to 1e-12: ignored",
+    "WARNING: LP matrix packed vector contains 2 |value| in [4.56107e-13, 6.80026e-13] less than or equal to 1e-12: ignored",
+    "WARNING: LP matrix packed vector contains 2 |value| in [4.56107e-13, 6.80026e-13] less than or equal to 1e-12: ignored",
+    "WARNING: LP matrix packed vector contains 2 |value| in [4.56107e-13, 6.80026e-13] less than or equal to 1e-12: ignored",
+    "WARNING: LP matrix packed vector contains 2 |value| in [4.56107e-13, 6.80026e-13] less than or equal to 1e-12: ignored"
+  ]
+}

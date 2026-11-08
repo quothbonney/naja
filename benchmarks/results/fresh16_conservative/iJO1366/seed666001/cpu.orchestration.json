@@ -1,0 +1,30 @@
+{
+  "command": [
+    "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/env-cpu-native/bin/python",
+    "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/scripts/timed_cpu_baseline.py",
+    "sample",
+    "--model",
+    "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/high_throughput/iJO1366/cached_target_audit/model",
+    "--out",
+    "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/fresh16_conservative/iJO1366/seed666001/cpu",
+    "--seed",
+    "666001",
+    "--chains",
+    "16",
+    "--draws",
+    "15000",
+    "--warmup",
+    "1000",
+    "--thinning",
+    "2000",
+    "--workers",
+    "16",
+    "--chunk",
+    "16000",
+    "--build-variant",
+    "native"
+  ],
+  "started_utc": "2026-11-08T19:34:47.605241+00:00",
+  "protocol": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/fresh16_conservative/iJO1366/protocol.json",
+  "code_sha256": "b15e0ca9baafda5d075c0dd14a3d2e5c2cf50ac63c4bf7d8e3f05b5c90818060"
+}

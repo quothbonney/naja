@@ -1,0 +1,52 @@
+Running HiGHS 1.15.1 (git hash: 04024d7): Copyright (c) 2026 under MIT licence terms
+Includes third-party software components, see THIRD_PARTY_NOTICES.md for full details
+LP has 1239 rows; 1418 cols; 377188 nonzeros
+Coefficient ranges:
+  Matrix  [4e-10, 1e+00]
+  Cost    [1e-06, 1e-06]
+  Bound   [1e+00, 1e+00]
+  RHS     [1e+00, 1e+00]
+WARNING: Problem has some excessively small costs
+WARNING:    Consider scaling the objective by 1e+2, or setting the user_objective_scale option to 7
+Presolving model
+1239 rows, 1418 cols, 377188 nonzeros 0s
+Dependent equations search running on 529 equations with time limit of 1.00s
+Dependent equations search removed 0 rows and 0 nonzeros in 0.61s (limit = 1.00s)
+1238 rows, 1417 cols, 376657 nonzeros 0s
+Presolve reductions: rows 1238(-1); columns 1417(-1); nonzeros 376657(-531) 
+Solving the presolved LP
+Using dual simplex solver
+  Iteration        Objective     Infeasibilities num(sum)
+          0     0.0000000000e+00 Ph1: 0(0) 1.0s
+       1047    -1.3928472275e-04 Pr: 0(0) 1.4s
+       1047    -1.3928472275e-04 Pr: 0(0) 1.4s
+Using dual simplex solver
+  Iteration        Objective     Infeasibilities num(sum)
+       1047    -1.3928421884e-04 Pr: 99(3.85075e-05) 1.5s
+WARNING:    Increasing Markowitz threshold to 0.5
+       1181    -1.1019292161e-04 Pr: 457(60.6427) 6.5s
+       1782    -1.5496690796e-04 Pr: 392(0.857589) 11.7s
+       2528    -6.6263883078e-03 Pr: 553(0.696808) 16.8s
+       2792    -4.0052601717e-05 Pr: 142(94.9564); Du: 0(1.20953e-10) 21.8s
+       2819     2.8695721786e-01 24.5s
+WARNING: Running postsolve on non-optimal solution of reduced LP
+
+
+Performed postsolve
+Solving the original LP from the solution after postsolve
+Using dual simplex solver
+  Iteration        Objective     Infeasibilities num(sum)
+       2819    -2.4183136845e+05 Ph1: 920(306159); Du: 43(241831) 24.7s
+       3303    -1.4009186214e-04 Pr: 0(0) 25.9s
+       3303    -1.4009186214e-04 Pr: 0(0) 25.9s
+Using dual simplex solver
+  Iteration        Objective     Infeasibilities num(sum)
+       3303    -1.4009186222e-04 Pr: 135(0.000753389) 25.9s
+       3431    -1.3962447708e-04 30.5s
+Required 612 simplex iterations after postsolve
+
+Model status        : Time limit reached
+Simplex   iterations: 3431
+Objective value     :  3.8765921106e-04
+P-D objective error :  1.6480409784e-11
+HiGHS run time      :         30.45

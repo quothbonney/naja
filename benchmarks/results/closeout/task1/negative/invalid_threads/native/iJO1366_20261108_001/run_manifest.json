@@ -1,0 +1,30 @@
+{
+  "argv": ["naja", "sample", "run", "--model-dir", "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/iJO1366", "--n-chains", "1", "--n-samples", "4", "--thinning", "1", "--tpb", "128", "--seed", "101", "--write-npy", "--quiet", "--out-root", "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/closeout/task1/negative/invalid_threads/native", "--tpb", "17"],
+  "model_dir": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/iJO1366",
+  "engine": {
+    "path": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/build-closeout/naja",
+    "sha256": "5c01c66c90f46565eaafe0927265d135bcfa89af50a017df6c51de70044afe42",
+    "size": 6719088
+  },
+  "config": {
+    "gpu_device": 0,
+    "n_chains": 1,
+    "n_samples": 4,
+    "tpb_ss": 17,
+    "back_transform": false,
+    "write_data": true,
+    "bounds_policy": "ignore",
+    "bounds_eps": 1e-06,
+    "write_samples_valid": false
+  },
+  "resolved_paths": {
+    "model_dir": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/iJO1366",
+    "A": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/iJO1366/rounding/polytope.npz",
+    "b": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/iJO1366/rounding/polytope.npz",
+    "start": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/iJO1366/rounding/polytope.npz",
+    "T": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/iJO1366/rounding/polytope.npz",
+    "shift": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/iJO1366/rounding/polytope.npz",
+    "extra_A": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/iJO1366/rounding/extra.npz",
+    "extra_b": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/iJO1366/rounding/extra.npz"
+  }
+}

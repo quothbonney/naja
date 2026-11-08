@@ -1,0 +1,23 @@
+> validate model contract
+> write generated config
+model :: iJO1366
+output :: /mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/nsight_timeline/ncu/rotation_backtransform_gemm/native/iJO1366_20261108_001
+bounds :: ignore
+> sampling
+==WARNING== Note: Running with unmodified GPU clocks. If not controlled otherwise, profiling results may be inconsistent.
+==PROF== Connected to process 4062440 (/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/build-h100-safe/naja)
+> loading polytope
+> barrier rotation (eigenbasis of H)
+> uploading to gpu
+> sampling 16 chains x 11000 samples (thin=96, 16896000 MCMC steps, 750 constraints x 581 dims)
+> gpu sampling
+> gpu back-transform
+==WARNING== Unable to access the following 6 metrics: ctc__rx_bytes_data_user.sum, ctc__rx_bytes_data_user.sum.pct_of_peak_sustained_elapsed, ctc__rx_bytes_data_user.sum.per_second, ctc__tx_bytes_data_user.sum, ctc__tx_bytes_data_user.sum.pct_of_peak_sustained_elapsed, ctc__tx_bytes_data_user.sum.per_second.
+
+
+==PROF== Profiling "1:7:sm90_xmma_gemm_f64f64_f64f64_f64_nn_n_tilesize64x128x32_stage3_warpsize2x4x1_tensor16x8x16_aligna8_alignc8_execute_kernel__5x_cublas:1": 0%....50%....100% - 38 passes
+> downloading
+> done: 4.1s, 42696 samples/s
+> writing npy
+==PROF== Disconnected from process 4062440
+==PROF== Report: /mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/nsight_timeline/ncu/rotation_backtransform_gemm/report.ncu-rep

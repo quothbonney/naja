@@ -1,0 +1,7 @@
+
+*** WARNING: polytope appears degenerate for model shared ***
+  tight constraints: 638 / 734
+  reduced dimension: 564
+  The feasible set may be a single point. Samples will likely be identical.
+  Check rounding quality (tight constraint rank vs dimension).
+

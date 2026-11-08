@@ -1,0 +1,18 @@
+{
+  "model": "iJO1366",
+  "condition": "PGI capacity restriction [-0.1,0.1]; knockdown, not exact knockout",
+  "original_PGI_bounds": [
+    -1000.0,
+    1000.0
+  ],
+  "conditioned_source": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/conditioned_prototype/iJO1366/iJO1366_PGI_capacity_0p1.json",
+  "conditioned_source_sha256": "987b5d4c8f61b16249818c16320c265fb948a468e80660cd9198bd75ec481230",
+  "base_geometry_sha256": "07374999682cb82ef566c2a7ba4cd1ca44b0718ab81f421846e24d3b85f5e103",
+  "shared_geometry_sha256": "677e9ddb4ff8834f04a914468e5d28f4146d7ddfc1da9bdad75a48718d789582",
+  "exact_delta": "[T_PGI; -T_PGI] z <= [0.1-shift_PGI; 0.1+shift_PGI]",
+  "strict_interior_radius": 0.019525890345042936,
+  "shared_min_start_slack": 4.874075509782963e-10,
+  "shared_assembly_seconds": 0.01881887950003147,
+  "shared_interior_lp_seconds": 1.5558376982808113,
+  "base_preprocessing_seconds": 156.83061426877975
+}

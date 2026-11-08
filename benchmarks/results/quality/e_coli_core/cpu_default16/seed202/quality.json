@@ -1,0 +1,11 @@
+{
+  "model": "e_coli_core",
+  "variant": "cpu_default16",
+  "seed": 202,
+  "status": "no_quality_within_source_budget",
+  "source_run": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/hopsy/e_coli_core/default/seed202",
+  "source_draws_per_chain": 10000,
+  "source_split_rhat_median": 1.0363914224453308,
+  "source_bulk_ess_median": 600.9719314097321,
+  "note": "No passing evaluated prefix; no extrapolation or measured qualifying time claimed."
+}

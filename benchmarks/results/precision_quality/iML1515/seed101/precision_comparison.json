@@ -1,0 +1,281 @@
+{
+  "model": "iML1515",
+  "seed": 101,
+  "shape": [
+    16,
+    2000,
+    635
+  ],
+  "historical_run": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/larger_quality/iML1515/gpu/seed101/final",
+  "historical_binary_sha256": "c7baf4f0ed282b936ac0dbac4b896bfbfc040eb06da6f84aff6605fddf4b0fc6",
+  "new_binary_sha256": "5e6968eb7d3cebf5f27c16d2662a2e640cc3f6b7a633b7e7ae3bc9136a99f3d5",
+  "normalized_cast_to_float32_bit_mismatches": 0,
+  "normalized_cast_max_difference": 0.0,
+  "historical_float32_reproduced_bitwise": true,
+  "geometry_sha256": "edfd39e411b95db6e9326465c9fedb90de59642281b3755bd870d7967e6fb20b",
+  "no_filtering_or_clipping": true,
+  "representations": {
+    "float64_export": {
+      "sample_count": 32000,
+      "sample_bound_violation_fraction": {
+        "0.0": 1.0,
+        "1e-07": 0.0,
+        "1e-06": 0.0,
+        "1e-05": 0.0,
+        "0.001": 0.0
+      },
+      "nonexcluded_reaction_sample_violation_fraction": {
+        "0.0": 0.99334375,
+        "1e-07": 0.0,
+        "1e-06": 0.0,
+        "1e-05": 0.0,
+        "0.001": 0.0
+      },
+      "coordinate_bound_violation_fraction": {
+        "0.0": 0.13040185978982302,
+        "1e-07": 0.0,
+        "1e-06": 0.0,
+        "1e-05": 0.0,
+        "0.001": 0.0
+      },
+      "max_absolute_reaction_bound_violation": 7.91554380518723e-08,
+      "max_nonexcluded_reaction_bound_violation": 1.1511486954625791e-08,
+      "max_reduced_Az_minus_b_violation": 0.0,
+      "reduced_sample_violation_fraction_eps_1e9": 0.0,
+      "top_violations": [
+        {
+          "reaction": "EX_btn_e",
+          "max_violation": 7.91554380518723e-08,
+          "lp_mask_excluded": true
+        },
+        {
+          "reaction": "I2FE2SS",
+          "max_violation": 1.1511486954625791e-08,
+          "lp_mask_excluded": false
+        },
+        {
+          "reaction": "BIOMASS_Ec_iML1515_WT_75p37M",
+          "max_violation": 6.449948936693313e-09,
+          "lp_mask_excluded": true
+        },
+        {
+          "reaction": "COLIPAabctex",
+          "max_violation": 5.351873252356529e-11,
+          "lp_mask_excluded": true
+        },
+        {
+          "reaction": "EX_fe3dhbzs_e",
+          "max_violation": 3.732099975470674e-12,
+          "lp_mask_excluded": true
+        },
+        {
+          "reaction": "EX_crn_e",
+          "max_violation": 3.663886820227757e-12,
+          "lp_mask_excluded": true
+        },
+        {
+          "reaction": "SUCBZS",
+          "max_violation": 3.53158797589137e-12,
+          "lp_mask_excluded": true
+        },
+        {
+          "reaction": "EX_dms_e",
+          "max_violation": 3.487376478102228e-12,
+          "lp_mask_excluded": true
+        },
+        {
+          "reaction": "EX_met__D_e",
+          "max_violation": 3.4219060657641408e-12,
+          "lp_mask_excluded": true
+        },
+        {
+          "reaction": "EX_ump_e",
+          "max_violation": 3.263618590618606e-12,
+          "lp_mask_excluded": true
+        },
+        {
+          "reaction": "SUCBZL",
+          "max_violation": 3.235471821305695e-12,
+          "lp_mask_excluded": true
+        },
+        {
+          "reaction": "EX_glyb_e",
+          "max_violation": 3.162561541760478e-12,
+          "lp_mask_excluded": true
+        },
+        {
+          "reaction": "DHNAOT4",
+          "max_violation": 3.1362883154612634e-12,
+          "lp_mask_excluded": true
+        },
+        {
+          "reaction": "AAMYL",
+          "max_violation": 3.1333700690406415e-12,
+          "lp_mask_excluded": true
+        },
+        {
+          "reaction": "SHCHCS3",
+          "max_violation": 3.0622734142398633e-12,
+          "lp_mask_excluded": true
+        },
+        {
+          "reaction": "EX_feoxam_un_e",
+          "max_violation": 2.968316786323061e-12,
+          "lp_mask_excluded": true
+        },
+        {
+          "reaction": "DHNCOAS",
+          "max_violation": 2.890332270286759e-12,
+          "lp_mask_excluded": true
+        },
+        {
+          "reaction": "EX_fecrm_un_e",
+          "max_violation": 2.877856022407653e-12,
+          "lp_mask_excluded": true
+        },
+        {
+          "reaction": "EX_3hpppn_e",
+          "max_violation": 2.8768264808187503e-12,
+          "lp_mask_excluded": true
+        },
+        {
+          "reaction": "EX_crn__D_e",
+          "max_violation": 2.837612823056688e-12,
+          "lp_mask_excluded": true
+        }
+      ]
+    },
+    "paired_float32_quantization": {
+      "sample_count": 32000,
+      "sample_bound_violation_fraction": {
+        "0.0": 1.0,
+        "1e-07": 0.0,
+        "1e-06": 0.0,
+        "1e-05": 0.0,
+        "0.001": 0.0
+      },
+      "nonexcluded_reaction_sample_violation_fraction": {
+        "0.0": 0.99334375,
+        "1e-07": 0.0,
+        "1e-06": 0.0,
+        "1e-05": 0.0,
+        "0.001": 0.0
+      },
+      "coordinate_bound_violation_fraction": {
+        "0.0": 0.13040185978982302,
+        "1e-07": 0.0,
+        "1e-06": 0.0,
+        "1e-05": 0.0,
+        "0.001": 0.0
+      },
+      "max_absolute_reaction_bound_violation": 7.915543788160202e-08,
+      "max_nonexcluded_reaction_bound_violation": 1.1511536548130414e-08,
+      "max_reduced_Az_minus_b_violation": 0.0,
+      "reduced_sample_violation_fraction_eps_1e9": 0.0,
+      "top_violations": [
+        {
+          "reaction": "EX_btn_e",
+          "max_violation": 7.915543788160202e-08,
+          "lp_mask_excluded": true
+        },
+        {
+          "reaction": "I2FE2SS",
+          "max_violation": 1.1511536548130414e-08,
+          "lp_mask_excluded": false
+        },
+        {
+          "reaction": "BIOMASS_Ec_iML1515_WT_75p37M",
+          "max_violation": 6.449948898932313e-09,
+          "lp_mask_excluded": true
+        },
+        {
+          "reaction": "COLIPAabctex",
+          "max_violation": 5.351873244470583e-11,
+          "lp_mask_excluded": true
+        },
+        {
+          "reaction": "EX_fe3dhbzs_e",
+          "max_violation": 3.732099935323278e-12,
+          "lp_mask_excluded": true
+        },
+        {
+          "reaction": "EX_crn_e",
+          "max_violation": 3.663886785281262e-12,
+          "lp_mask_excluded": true
+        },
+        {
+          "reaction": "SUCBZS",
+          "max_violation": 3.531587985177169e-12,
+          "lp_mask_excluded": true
+        },
+        {
+          "reaction": "EX_dms_e",
+          "max_violation": 3.4873764522895786e-12,
+          "lp_mask_excluded": true
+        },
+        {
+          "reaction": "EX_met__D_e",
+          "max_violation": 3.4219060692664498e-12,
+          "lp_mask_excluded": true
+        },
+        {
+          "reaction": "EX_ump_e",
+          "max_violation": 3.2636186029685975e-12,
+          "lp_mask_excluded": true
+        },
+        {
+          "reaction": "SUCBZL",
+          "max_violation": 3.2354718206295407e-12,
+          "lp_mask_excluded": true
+        },
+        {
+          "reaction": "EX_glyb_e",
+          "max_violation": 3.1625615543529837e-12,
+          "lp_mask_excluded": true
+        },
+        {
+          "reaction": "DHNAOT4",
+          "max_violation": 3.1362882936000862e-12,
+          "lp_mask_excluded": true
+        },
+        {
+          "reaction": "AAMYL",
+          "max_violation": 3.133370084476845e-12,
+          "lp_mask_excluded": true
+        },
+        {
+          "reaction": "SHCHCS3",
+          "max_violation": 3.062273425249085e-12,
+          "lp_mask_excluded": true
+        },
+        {
+          "reaction": "EX_feoxam_un_e",
+          "max_violation": 2.9683168160640787e-12,
+          "lp_mask_excluded": true
+        },
+        {
+          "reaction": "DHNCOAS",
+          "max_violation": 2.89033226328902e-12,
+          "lp_mask_excluded": true
+        },
+        {
+          "reaction": "EX_fecrm_un_e",
+          "max_violation": 2.877856019837798e-12,
+          "lp_mask_excluded": true
+        },
+        {
+          "reaction": "EX_3hpppn_e",
+          "max_violation": 2.876826489705802e-12,
+          "lp_mask_excluded": true
+        },
+        {
+          "reaction": "EX_crn__D_e",
+          "max_violation": 2.837612832686549e-12,
+          "lp_mask_excluded": true
+        }
+      ]
+    }
+  },
+  "analysis_wall_seconds": 6.363522041589022,
+  "causal_protocol": "Same GPU F64 points, T@Z64+shift versus T@float64(float32(Z64))+shift; compare cast coordinates to historical frozen F32 output."
+}

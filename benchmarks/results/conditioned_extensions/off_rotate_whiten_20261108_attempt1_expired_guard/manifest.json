@@ -1,0 +1,91 @@
+{
+  "created_utc": "2026-11-08T19:17:06.158636+00:00",
+  "deadline_utc": "2026-11-08T22:00:00+00:00",
+  "selection": "All9 previous rotate50k failures, highest SVD-kappa remaining noncontrol target, plus finite-width capacity reference; this is exploratory outcome/geometry-selected, not an unbiased panel.",
+  "mode_order": [
+    "off",
+    "rotate",
+    "whiten"
+  ],
+  "output_directory": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/conditioned_extensions/off_rotate_whiten_20261108",
+  "binary_sha256": "5e6968eb7d3cebf5f27c16d2662a2e640cc3f6b7a633b7e7ae3bc9136a99f3d5",
+  "source_sha256": "11cedb15a975c44e8ead81be54fb50e97ad7d1fd5cc88426d98c3405617071c8",
+  "cases": [
+    {
+      "condition_id": "b0025",
+      "condition_root": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/knockout_panel/conditions/b0025",
+      "geometry_sha256": "bdea7bc1437ff1b2d1d4611e47b38792d15d28f2a6d9f25955e947ba89752ad8",
+      "selection_reason": "previous rotate50k cap",
+      "barrier_kappa_at_saved_start": 13129124779.147327
+    },
+    {
+      "condition_id": "b0031",
+      "condition_root": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/knockout_panel/conditions/b0031",
+      "geometry_sha256": "c7730f7c13e4baad487dbff96ed70c67cfcf88665691998133ee220a143d2a40",
+      "selection_reason": "previous rotate50k cap",
+      "barrier_kappa_at_saved_start": 1974800533195542.8
+    },
+    {
+      "condition_id": "b0052",
+      "condition_root": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/knockout_panel/conditions/b0052",
+      "geometry_sha256": "7320f21edfeb7761008d71b0ff139809515827b7bd0f1292ea6a96918fc65e88",
+      "selection_reason": "previous rotate50k cap",
+      "barrier_kappa_at_saved_start": 77748564859773.47
+    },
+    {
+      "condition_id": "b0103",
+      "condition_root": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/knockout_panel/conditions/b0103",
+      "geometry_sha256": "00a5f2d4a90cc727a5daffd41ea3a9f0a6af62642aaab7983e8615c1273e7bf0",
+      "selection_reason": "previous rotate50k cap",
+      "barrier_kappa_at_saved_start": 1.84395865354764e+16
+    },
+    {
+      "condition_id": "b0109",
+      "condition_root": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/knockout_panel/conditions/b0109",
+      "geometry_sha256": "a19007b07f60d5567430fbc48a1b4c2dcc2b91ba7c781de39612f32ec25b289c",
+      "selection_reason": "previous rotate50k cap",
+      "barrier_kappa_at_saved_start": 1392346202897732.8
+    },
+    {
+      "condition_id": "b0120",
+      "condition_root": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/knockout_panel/conditions/b0120",
+      "geometry_sha256": "33a46a2088f4798e0a11d73d5e63b167ca094191588e31c25d2636d4552f0d3b",
+      "selection_reason": "previous rotate50k cap",
+      "barrier_kappa_at_saved_start": 155347.37456782834
+    },
+    {
+      "condition_id": "b0131",
+      "condition_root": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/knockout_panel/conditions/b0131",
+      "geometry_sha256": "74f4b9d8a104b6c4afa39e89ae516b34df2a07fba2e8080bc39db23b7ef2447c",
+      "selection_reason": "previous rotate50k cap",
+      "barrier_kappa_at_saved_start": 11378049737562.709
+    },
+    {
+      "condition_id": "b0133",
+      "condition_root": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/knockout_panel/conditions/b0133",
+      "geometry_sha256": "1bed1821529561e069b99b34fa0d635809ead415382895b8442bdbfdf9d38d4f",
+      "selection_reason": "previous rotate50k cap",
+      "barrier_kappa_at_saved_start": 9.05054652616772e+16
+    },
+    {
+      "condition_id": "b0134",
+      "condition_root": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/knockout_panel/conditions/b0134",
+      "geometry_sha256": "112387164c6d77ad43753b6858b3e1babc39d238419cf452af857d519906758d",
+      "selection_reason": "previous rotate50k cap",
+      "barrier_kappa_at_saved_start": 12657975536496.615
+    },
+    {
+      "condition_id": "b0003",
+      "condition_root": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/knockout_panel/conditions/b0003",
+      "geometry_sha256": "c1a507423884379cb34bf06e6c6d63b3d33df07a7d6e953cf8bd38e53ab73190",
+      "selection_reason": "highest SVD barrier kappa among previous rotate pass cases",
+      "barrier_kappa_at_saved_start": 5.5278118826405376e+17
+    },
+    {
+      "condition_id": "PGI_capacity",
+      "condition_root": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/conditioned_prototype/iJO1366",
+      "geometry_sha256": "677e9ddb4ff8834f04a914468e5d28f4146d7ddfc1da9bdad75a48718d789582",
+      "selection_reason": "separately labeled finite-width capacity central example; freshfloat64allmodes"
+    }
+  ]
+}

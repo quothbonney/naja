@@ -1,0 +1,84 @@
+{
+  "complete_groups": 29,
+  "selected_groups": 12,
+  "models": [
+    {
+      "model": "e_coli_core",
+      "selected_configs": {
+        "CPU": "quality:cpu_nativejade1",
+        "GPU": "quality:naja128"
+      },
+      "cpu_sampler_phase_seconds_median": 0.14921412989497185,
+      "gpu_sampler_phase_seconds_median": 0.1508,
+      "ratio_of_phase_medians_cpu_over_gpu": 0.9894836199931821,
+      "median_paired_gpu_over_cpu_ess_per_phase_second": 1.2019441071177563,
+      "median_paired_cpu_over_gpu_total_transitions": 1.6,
+      "median_paired_gpu_over_cpu_ess_per_total_transition": 1.8646509893168812
+    },
+    {
+      "model": "iAB_RBC_283",
+      "selected_configs": {
+        "CPU": "native_cpu:physical16_native_jade",
+        "GPU": "quality:naja128"
+      },
+      "cpu_sampler_phase_seconds_median": 3.9850599095225334,
+      "gpu_sampler_phase_seconds_median": 0.606,
+      "ratio_of_phase_medians_cpu_over_gpu": 6.576006451357316,
+      "median_paired_gpu_over_cpu_ess_per_phase_second": 14.92978497991524,
+      "median_paired_cpu_over_gpu_total_transitions": 11.7375,
+      "median_paired_gpu_over_cpu_ess_per_total_transition": 26.648141618776112
+    },
+    {
+      "model": "iAF1260",
+      "selected_configs": {
+        "CPU": "larger_quality:cpu2000",
+        "GPU": "larger_quality:gpu"
+      },
+      "cpu_sampler_phase_seconds_median": 18.661911139264703,
+      "gpu_sampler_phase_seconds_median": 15.4979,
+      "ratio_of_phase_medians_cpu_over_gpu": 1.2041574109566267,
+      "median_paired_gpu_over_cpu_ess_per_phase_second": 2.263589162045005,
+      "median_paired_cpu_over_gpu_total_transitions": 3.6666666666666665,
+      "median_paired_gpu_over_cpu_ess_per_total_transition": 6.862306819947349
+    },
+    {
+      "model": "iJO1366",
+      "selected_configs": {
+        "CPU": "native_cpu:physical16_thin2000",
+        "GPU": "gpu_thinning:thin1000"
+      },
+      "cpu_sampler_phase_seconds_median": 20.58317170292139,
+      "gpu_sampler_phase_seconds_median": 7.8132,
+      "ratio_of_phase_medians_cpu_over_gpu": 2.634409934843776,
+      "median_paired_gpu_over_cpu_ess_per_phase_second": 2.402895157422043,
+      "median_paired_cpu_over_gpu_total_transitions": 7.333333333333333,
+      "median_paired_gpu_over_cpu_ess_per_total_transition": 6.828888371072033
+    },
+    {
+      "model": "iJR904",
+      "selected_configs": {
+        "CPU": "native_cpu:physical16_native_jade",
+        "GPU": "precision_quality:verified_f64_export"
+      },
+      "cpu_sampler_phase_seconds_median": 6.9966881312429905,
+      "gpu_sampler_phase_seconds_median": 2.7324,
+      "ratio_of_phase_medians_cpu_over_gpu": 2.5606383147573526,
+      "median_paired_gpu_over_cpu_ess_per_phase_second": 2.696026542227793,
+      "median_paired_cpu_over_gpu_total_transitions": 12.815714285714286,
+      "median_paired_gpu_over_cpu_ess_per_total_transition": 13.561031140860388
+    },
+    {
+      "model": "iML1515",
+      "selected_configs": {
+        "CPU": "larger_quality:cpujade",
+        "GPU": "precision_quality:verified_f64_export"
+      },
+      "cpu_sampler_phase_seconds_median": 78.87018570117652,
+      "gpu_sampler_phase_seconds_median": 8.1171,
+      "ratio_of_phase_medians_cpu_over_gpu": 9.716547252242368,
+      "median_paired_gpu_over_cpu_ess_per_phase_second": 7.5555975714833155,
+      "median_paired_cpu_over_gpu_total_transitions": 33.6025,
+      "median_paired_gpu_over_cpu_ess_per_total_transition": 26.305200197440353
+    }
+  ]
+}

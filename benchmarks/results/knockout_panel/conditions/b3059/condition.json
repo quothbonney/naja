@@ -1,0 +1,198 @@
+{
+  "gene": "b3059",
+  "gene_name": "plsY",
+  "disabled_reaction_ids": [
+    "APG3PAT120",
+    "APG3PAT140",
+    "APG3PAT141",
+    "APG3PAT160",
+    "APG3PAT161",
+    "APG3PAT180",
+    "APG3PAT181"
+  ],
+  "knockout_reaction_ids": [
+    "APG3PAT120",
+    "APG3PAT140",
+    "APG3PAT141",
+    "APG3PAT160",
+    "APG3PAT161",
+    "APG3PAT180",
+    "APG3PAT181"
+  ],
+  "changed_bound_rows": 7,
+  "two_sided_encoding_rows": 14,
+  "stratum": "6-20",
+  "base_LP_varying_reactions": 7,
+  "base_LP_nearconstant_reactions": 0,
+  "all_affected_reactions_varying": true,
+  "base_point_max_KO_residual": 0.30517402062583754,
+  "base_point_weak_feasible_at_1e7": false,
+  "minimum_KO_T_row_norm": 0.3045513198675698,
+  "original_changed_bounds": {
+    "APG3PAT120": [
+      0.0,
+      1000.0
+    ],
+    "APG3PAT140": [
+      0.0,
+      1000.0
+    ],
+    "APG3PAT141": [
+      0.0,
+      1000.0
+    ],
+    "APG3PAT160": [
+      0.0,
+      1000.0
+    ],
+    "APG3PAT161": [
+      0.0,
+      1000.0
+    ],
+    "APG3PAT180": [
+      0.0,
+      1000.0
+    ],
+    "APG3PAT181": [
+      0.0,
+      1000.0
+    ]
+  },
+  "genes_with_identical_bound_change_signature": [
+    "b3059"
+  ],
+  "bound_change_signature": "8f19b2e8a400e6dd33b8b62ec496d5fecdf33df9a6fafb725e413e75ecc4ea0e",
+  "status": "ready",
+  "base_geometry_sha256": "07374999682cb82ef566c2a7ba4cd1ca44b0718ab81f421846e24d3b85f5e103",
+  "base_dimension": 581,
+  "base_point_weak_feasible": false,
+  "constraint_epsilon": 0.0,
+  "rank_relative_tolerance": 1e-12,
+  "validation_tolerance": 1e-07,
+  "geometry_directory": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/knockout_panel/conditions/b3059/models/shared",
+  "LPs": [],
+  "facial_reductions": [],
+  "initial_projection_strict_interior": true,
+  "projected_point_strict_interior": true,
+  "final_origin_strict_after_facial_reduction": true,
+  "interior_method": "analytic_projection_checked_all_normalized_constraints",
+  "conditional_dimension": 574,
+  "rows": 743,
+  "affine_rank": 7,
+  "affine_rank_history": [
+    {
+      "rank": 7,
+      "singular_values": [
+        1.0011538369013404,
+        1.0011538369010675,
+        1.0011538369009003,
+        1.0011536455856636,
+        1.0011532926021103,
+        1.0011528583009381,
+        0.9930505533621891
+      ],
+      "relative_rank_threshold": 1e-12,
+      "ranks_at_1e11_1e12_1e13": [
+        7,
+        7,
+        7
+      ],
+      "scaled_equality_residual": 8.881784197001252e-16,
+      "nullspace_residual": 2.0816681711721685e-16,
+      "seconds": 0.0038261357694864273,
+      "projected_origin_min_normalized_slack": 0.7764310846198225
+    }
+  ],
+  "strict_interior_radius": 0.7764310846198225,
+  "min_raw_start_slack": 2.5280721090848297e-08,
+  "certified_affine_constant_base_rows": [
+    {
+      "base_row": 182,
+      "projected_norm": 2.6374630030142067e-16,
+      "original_norm": 0.3045513203472605,
+      "constant_bound": -2.7755575615628914e-16,
+      "normalized_constant_bound": -9.11359556214729e-16
+    },
+    {
+      "base_row": 190,
+      "projected_norm": 1.8178976740499337e-16,
+      "original_norm": 0.30455132046039185,
+      "constant_bound": -5.551115123125783e-17,
+      "normalized_constant_bound": -1.8227191117523749e-16
+    },
+    {
+      "base_row": 191,
+      "projected_norm": 1.8677840284470282e-16,
+      "original_norm": 0.3045513198675698,
+      "constant_bound": -1.6653345369377348e-16,
+      "normalized_constant_bound": -5.468157345901125e-16
+    },
+    {
+      "base_row": 195,
+      "projected_norm": 2.011569379972194e-16,
+      "original_norm": 0.3051740153694078,
+      "constant_bound": 5.551115123125783e-17,
+      "normalized_constant_bound": 1.818999929075303e-16
+    },
+    {
+      "base_row": 198,
+      "projected_norm": 2.036191367469434e-16,
+      "original_norm": 0.3050975505924375,
+      "constant_bound": -5.551115123125783e-17,
+      "normalized_constant_bound": -1.8194558141639106e-16
+    },
+    {
+      "base_row": 209,
+      "projected_norm": 1.7815147749907122e-16,
+      "original_norm": 0.30455132091091447,
+      "constant_bound": 0.0,
+      "normalized_constant_bound": 0.0
+    },
+    {
+      "base_row": 210,
+      "projected_norm": 1.6260228753114963e-16,
+      "original_norm": 0.30473892424737403,
+      "constant_bound": -5.551115123125783e-17,
+      "normalized_constant_bound": -1.8215970069578722e-16
+    }
+  ],
+  "no_bound_epsilon_relaxation": true,
+  "source": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/knockout_panel/conditions/b3059/conditional_model.json",
+  "source_sha256": "e206e03373ed10fed3957888722f26ea1bcf9cceb89355196491da14b87f593a",
+  "geometry_sha256": "3414487d7392440ba8f80bf36080e63d192a1c214eddc4ddf7f8a2e7455caecf",
+  "embedding": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/knockout_panel/conditions/b3059/embedding.npz",
+  "effective_affine_face_signature_rounded_1e10": "a6b205a26ffbc5bf0481e601f821c8fd028c8f0036221d985e057b6501e1c06e",
+  "fixed_reaction_ids": [
+    "APG3PAT120",
+    "APG3PAT140",
+    "APG3PAT141",
+    "APG3PAT160",
+    "APG3PAT161",
+    "APG3PAT180",
+    "APG3PAT181"
+  ],
+  "fixed_reaction_values": {
+    "APG3PAT120": -2.7755575615628914e-16,
+    "APG3PAT140": -5.551115123125783e-17,
+    "APG3PAT141": -1.6653345369377348e-16,
+    "APG3PAT160": 5.551115123125783e-17,
+    "APG3PAT161": -5.551115123125783e-17,
+    "APG3PAT180": 0.0,
+    "APG3PAT181": -5.551115123125783e-17
+  },
+  "containment_proof": {
+    "retained_A_max_error": 6.776263578034403e-21,
+    "retained_b_max_error": 5.551115123125783e-17,
+    "dropped_rows": "Equality-span residual and constant-bound certificates recorded; numerical rank contract explicit."
+  },
+  "validation": {
+    "points": 33,
+    "max_original_bound_violation": 1.4690431818622346e-12,
+    "max_base_Az_minus_b_violation": 4.440892098500626e-16,
+    "max_KO_flux_residual": 2.7911017737853143e-16
+  },
+  "preparation_seconds": 0.5614743214100599,
+  "LP_solve_seconds": 0,
+  "LP_calls": 0,
+  "LP_skipped": true
+}

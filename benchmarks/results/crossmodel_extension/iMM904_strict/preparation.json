@@ -1,0 +1,4 @@
+{
+  "status": "failed",
+  "error": "ValueError('Polytope distortions delta_b and delta_s non-zero after reaching max iterations.')"
+}

@@ -1,0 +1,30 @@
+Running HiGHS 1.15.1 (git hash: 04024d7): Copyright (c) 2026 under MIT licence terms
+Includes third-party software components, see THIRD_PARTY_NOTICES.md for full details
+WARNING: LP matrix packed vector contains 1 |value| in [4.28931e-13, 4.28931e-13] less than or equal to 1e-12: ignored
+LP has 750 rows; 581 cols; 435749 nonzeros
+Coefficient ranges:
+  Matrix  [3e-12, 1e+00]
+  Cost    [1e+00, 1e+00]
+  Bound   [0e+00, 0e+00]
+  RHS     [2e-02, 4e+01]
+Presolving model
+750 rows, 581 cols, 435749 nonzeros 0s
+750 rows, 581 cols, 435749 nonzeros 0s
+Presolve reductions: rows 750(-0); columns 581(-0); nonzeros 435749(-0) - Not reduced
+Problem not reduced by presolve: solving the LP
+Using dual simplex solver
+  Iteration        Objective     Infeasibilities num(sum)
+          0    -4.0000006763e+03 Ph1: 750(5.1952e+09); Du: 79(4) 0.1s
+       1211     3.7142169623e-11 Pr: 0(0); Du: 0(2.0379e-09) 3.1s
+       1211     3.7142169623e-11 Pr: 0(0); Du: 0(2.0379e-09) 3.1s
+       1211     3.7142169623e-11 Pr: 0(0); Du: 0(2.0379e-09) 3.1s
+Using dual simplex solver
+  Iteration        Objective     Infeasibilities num(sum)
+       1211     3.7142169623e-11 Pr: 1(6.84971e-08); Du: 0(1.23059e-09) 3.1s
+       1212     1.9967054433e-10 Pr: 0(0); Du: 0(4.09724e-10) 3.3s
+
+Model status        : Optimal
+Simplex   iterations: 1212
+Objective value     :  2.0171051106e-10
+P-D objective error :  2.0399667329e-12
+HiGHS run time      :          3.34

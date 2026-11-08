@@ -1,0 +1,45 @@
+# Source config: /mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/crossmodel_extension/gpu_tpb128/iML1515/seed303/native/iML1515_20261108_001/config_generated.txt
+# Captured at: 2026-11-08 19:33:49
+# Output directory: /mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/crossmodel_extension/gpu_tpb128/iML1515/seed303/native/iML1515_20261108_001
+
+DATA_DIR=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/crossmodel_extension/cached_models
+MODEL_NAME=iML1515
+OUT_DIR=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/crossmodel_extension/gpu_tpb128/iML1515/seed303/native/iML1515_20261108_001
+N_CHAINS=16
+N_SAMPLES=3000
+SEED=303
+TPB_SS=128
+GPU_DEVICE=0
+BACK_TRANSFORM=false
+WRITE_DATA=true
+SAMPLE_DTYPE=float64
+VERBOSE=false
+STATUS=true
+THINNING=1000
+EXTRA_CONSTRAINTS=auto
+START_POLICY=file
+BARRIER_ROTATE=true
+BARRIER_WHITEN=false
+BOUNDS_POLICY=ignore
+
+# Derived metadata
+MODEL_NAME=iML1515
+DATA_DIR_ABS=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/crossmodel_extension/cached_models
+MODEL_DIR_ABS=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/crossmodel_extension/cached_models/iML1515
+ROUND_PREFIX_ABS=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/crossmodel_extension/cached_models/iML1515/rounding/iML1515_rounding
+A_FILE=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/iML1515/rounding/polytope.npz
+B_FILE=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/iML1515/rounding/polytope.npz
+START_FILE=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/iML1515/rounding/polytope.npz
+T_FILE=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/iML1515/rounding/polytope.npz
+SHIFT_FILE=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/iML1515/rounding/polytope.npz
+NPY_FILE=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/crossmodel_extension/gpu_tpb128/iML1515/seed303/native/iML1515_20261108_001/samples.npy
+PROFILE_FILE=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/crossmodel_extension/gpu_tpb128/iML1515/seed303/native/iML1515_20261108_001/profile.json
+N_CHAINS=16
+N_SAMPLES=3000
+THINNING=1000
+SEED=303
+GPU_DEVICE=0
+BACK_TRANSFORM=false
+WRITE_DATA=true
+SAMPLE_DTYPE=float64
+BOUNDS_POLICY=ignore

@@ -1,0 +1,44 @@
+{
+  "commands": [
+    {
+      "slurm_job": "881",
+      "resources": {
+        "logical_cpus": 4,
+        "memory_GiB": 64,
+        "time_limit_minutes": 15
+      },
+      "argv": [
+        "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/env-cpu/bin/python",
+        "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/scripts/conditioned_global_reround_scaled.py",
+        "--source",
+        "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/knockout_panel/conditions/b0031/models/shared",
+        "--output",
+        "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/conditioned_extensions/b0031_scaled_global/model",
+        "--initial-coordinate-scale",
+        "1e-6"
+      ]
+    },
+    {
+      "slurm_job": "887",
+      "resources": {
+        "logical_cpus": 32,
+        "physical_cores": 16,
+        "memory_GiB": 128,
+        "time_limit_minutes": 45
+      },
+      "argv": [
+        "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/env-cpu/bin/python",
+        "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/scripts/conditioned_scaled_cpu_quality.py"
+      ]
+    }
+  ],
+  "environment": {
+    "HOME": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/home",
+    "TMPDIR": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/tmp",
+    "XDG_CACHE_HOME": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/cache",
+    "OPENBLAS_NUM_THREADS": "1",
+    "OMP_NUM_THREADS": "1",
+    "MKL_NUM_THREADS": "1"
+  },
+  "launch": "srun --cpu-bind=cores; partitionhpc-mid,deadline2026-11-08T22:00UTC"
+}

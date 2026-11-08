@@ -1,0 +1,160 @@
+{
+  "jobs": {
+    "gpu_initial": "442",
+    "cpu2000_initial": "443",
+    "cpujade_initial": "444"
+  },
+  "expansions": {
+    "iAF1260/cpu2000": {
+      "status": "submitted",
+      "job_id": "455",
+      "command": [
+        "/usr/bin/sbatch",
+        "--parsable",
+        "--chdir=/mnt/home/jordan+123/history-native-20261015-r5",
+        "--job-name=quality-larger-cpu2000-iAF1260",
+        "--array=1,2%1",
+        "--deadline=2026-11-08T11:00:00",
+        "--output=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/logs/larger-cpu2000-%A_%a.log",
+        "--partition=all",
+        "--cpus-per-task=32",
+        "--dependency=afterany:444",
+        "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/scripts/larger_model_quality.sbatch",
+        "cpu2000"
+      ]
+    },
+    "iAF1260/cpujade": {
+      "status": "submitted",
+      "job_id": "456",
+      "command": [
+        "/usr/bin/sbatch",
+        "--parsable",
+        "--chdir=/mnt/home/jordan+123/history-native-20261015-r5",
+        "--job-name=quality-larger-cpujade-iAF1260",
+        "--array=1,2%1",
+        "--deadline=2026-11-08T11:00:00",
+        "--output=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/logs/larger-cpujade-%A_%a.log",
+        "--partition=all",
+        "--cpus-per-task=32",
+        "--dependency=afterany:455",
+        "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/scripts/larger_model_quality.sbatch",
+        "cpujade"
+      ]
+    },
+    "iAF1260/gpu": {
+      "status": "submitted",
+      "job_id": "459",
+      "command": [
+        "/usr/bin/sbatch",
+        "--parsable",
+        "--chdir=/mnt/home/jordan+123/history-native-20261015-r5",
+        "--job-name=quality-larger-gpu-iAF1260",
+        "--array=1,2%2",
+        "--deadline=2026-11-08T11:00:00",
+        "--output=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/logs/larger-gpu-%A_%a.log",
+        "--partition=h100",
+        "--cpus-per-task=8",
+        "--gres=gpu:1",
+        "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/scripts/larger_model_quality.sbatch",
+        "gpu"
+      ]
+    },
+    "iML1515/gpu": {
+      "status": "submitted",
+      "job_id": "460",
+      "command": [
+        "/usr/bin/sbatch",
+        "--parsable",
+        "--chdir=/mnt/home/jordan+123/history-native-20261015-r5",
+        "--job-name=quality-larger-gpu-iML1515",
+        "--array=4,5%2",
+        "--deadline=2026-11-08T11:00:00",
+        "--output=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/logs/larger-gpu-%A_%a.log",
+        "--partition=h100",
+        "--cpus-per-task=8",
+        "--gres=gpu:1",
+        "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/scripts/larger_model_quality.sbatch",
+        "gpu"
+      ]
+    },
+    "iML1515/cpu2000": {
+      "status": "seed101_screen_not_passing",
+      "seed101_status": "pilot_cap_no_passing_rhat"
+    },
+    "iMM904/gpu": {
+      "status": "submitted",
+      "job_id": "463",
+      "command": [
+        "/usr/bin/sbatch",
+        "--parsable",
+        "--chdir=/mnt/home/jordan+123/history-native-20261015-r5",
+        "--job-name=quality-larger-gpu-iMM904",
+        "--array=7,8%2",
+        "--deadline=2026-11-08T11:00:00",
+        "--output=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/logs/larger-gpu-%A_%a.log",
+        "--partition=h100",
+        "--cpus-per-task=8",
+        "--gres=gpu:1",
+        "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/scripts/larger_model_quality.sbatch",
+        "gpu"
+      ]
+    },
+    "iMM904/cpu2000": {
+      "status": "submitted",
+      "job_id": "465",
+      "command": [
+        "/usr/bin/sbatch",
+        "--parsable",
+        "--chdir=/mnt/home/jordan+123/history-native-20261015-r5",
+        "--job-name=quality-larger-cpu2000-iMM904",
+        "--array=7,8%1",
+        "--deadline=2026-11-08T11:00:00",
+        "--output=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/logs/larger-cpu2000-%A_%a.log",
+        "--partition=all",
+        "--cpus-per-task=32",
+        "--dependency=afterany:456",
+        "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/scripts/larger_model_quality.sbatch",
+        "cpu2000"
+      ]
+    },
+    "iML1515/cpujade": {
+      "status": "submitted",
+      "job_id": "467",
+      "command": [
+        "/usr/bin/sbatch",
+        "--parsable",
+        "--chdir=/mnt/home/jordan+123/history-native-20261015-r5",
+        "--job-name=quality-larger-cpujade-iML1515",
+        "--array=4,5%1",
+        "--deadline=2026-11-08T11:00:00",
+        "--output=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/logs/larger-cpujade-%A_%a.log",
+        "--partition=all",
+        "--cpus-per-task=32",
+        "--dependency=afterany:465",
+        "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/scripts/larger_model_quality.sbatch",
+        "cpujade"
+      ]
+    },
+    "iMM904/cpujade": {
+      "status": "submitted",
+      "job_id": "470",
+      "command": [
+        "/usr/bin/sbatch",
+        "--parsable",
+        "--chdir=/mnt/home/jordan+123/history-native-20261015-r5",
+        "--job-name=quality-larger-cpujade-iMM904",
+        "--array=7,8%1",
+        "--deadline=2026-11-08T11:00:00",
+        "--output=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/logs/larger-cpujade-%A_%a.log",
+        "--partition=all",
+        "--cpus-per-task=32",
+        "--dependency=afterany:467",
+        "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/scripts/larger_model_quality.sbatch",
+        "cpujade"
+      ]
+    }
+  },
+  "last_cpu_job": "470",
+  "updated_utc": "2026-11-08T04:09:07.461214+00:00",
+  "finished_utc": "2026-11-08T04:09:07.493420+00:00"
+}

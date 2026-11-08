@@ -1,0 +1,301 @@
+{
+  "utc": "2026-11-08T20:20:11.698049+00:00",
+  "status": "passed",
+  "checker_source_sha256": "8c8ef12d7e15c7bfe301a1c11e63b14d88bab747b95be63dc65585fa90627915",
+  "checks": [
+    {
+      "task": 2,
+      "model": "e_coli_core",
+      "seed": 101,
+      "binary_matches": true,
+      "dimensions_match": true,
+      "actual_seed_matches": true,
+      "starting_point_LP_s": 0.0,
+      "actual_runtime_GPU_rotation": true
+    },
+    {
+      "task": 2,
+      "model": "e_coli_core",
+      "seed": 202,
+      "binary_matches": true,
+      "dimensions_match": true,
+      "actual_seed_matches": true,
+      "starting_point_LP_s": 0.0,
+      "actual_runtime_GPU_rotation": true
+    },
+    {
+      "task": 2,
+      "model": "e_coli_core",
+      "seed": 303,
+      "binary_matches": true,
+      "dimensions_match": true,
+      "actual_seed_matches": true,
+      "starting_point_LP_s": 0.0,
+      "actual_runtime_GPU_rotation": true
+    },
+    {
+      "task": 2,
+      "model": "iAB_RBC_283",
+      "seed": 101,
+      "binary_matches": true,
+      "dimensions_match": true,
+      "actual_seed_matches": true,
+      "starting_point_LP_s": 0.0,
+      "actual_runtime_GPU_rotation": true
+    },
+    {
+      "task": 2,
+      "model": "iAB_RBC_283",
+      "seed": 202,
+      "binary_matches": true,
+      "dimensions_match": true,
+      "actual_seed_matches": true,
+      "starting_point_LP_s": 0.0,
+      "actual_runtime_GPU_rotation": true
+    },
+    {
+      "task": 2,
+      "model": "iAB_RBC_283",
+      "seed": 303,
+      "binary_matches": true,
+      "dimensions_match": true,
+      "actual_seed_matches": true,
+      "starting_point_LP_s": 0.0,
+      "actual_runtime_GPU_rotation": true
+    },
+    {
+      "task": 2,
+      "model": "iJR904",
+      "seed": 101,
+      "binary_matches": true,
+      "dimensions_match": true,
+      "actual_seed_matches": true,
+      "starting_point_LP_s": 0.0,
+      "actual_runtime_GPU_rotation": true
+    },
+    {
+      "task": 2,
+      "model": "iJR904",
+      "seed": 202,
+      "binary_matches": true,
+      "dimensions_match": true,
+      "actual_seed_matches": true,
+      "starting_point_LP_s": 0.0,
+      "actual_runtime_GPU_rotation": true
+    },
+    {
+      "task": 2,
+      "model": "iJR904",
+      "seed": 303,
+      "binary_matches": true,
+      "dimensions_match": true,
+      "actual_seed_matches": true,
+      "starting_point_LP_s": 0.0,
+      "actual_runtime_GPU_rotation": true
+    },
+    {
+      "task": 2,
+      "model": "iMM904",
+      "seed": 101,
+      "binary_matches": true,
+      "dimensions_match": true,
+      "actual_seed_matches": true,
+      "starting_point_LP_s": 0.0,
+      "actual_runtime_GPU_rotation": true
+    },
+    {
+      "task": 2,
+      "model": "iMM904",
+      "seed": 202,
+      "binary_matches": true,
+      "dimensions_match": true,
+      "actual_seed_matches": true,
+      "starting_point_LP_s": 0.0,
+      "actual_runtime_GPU_rotation": true
+    },
+    {
+      "task": 2,
+      "model": "iMM904",
+      "seed": 303,
+      "binary_matches": true,
+      "dimensions_match": true,
+      "actual_seed_matches": true,
+      "starting_point_LP_s": 0.0,
+      "actual_runtime_GPU_rotation": true
+    },
+    {
+      "task": 2,
+      "model": "iAF1260",
+      "seed": 101,
+      "binary_matches": true,
+      "dimensions_match": true,
+      "actual_seed_matches": true,
+      "starting_point_LP_s": 0.0,
+      "actual_runtime_GPU_rotation": true
+    },
+    {
+      "task": 2,
+      "model": "iAF1260",
+      "seed": 202,
+      "binary_matches": true,
+      "dimensions_match": true,
+      "actual_seed_matches": true,
+      "starting_point_LP_s": 0.0,
+      "actual_runtime_GPU_rotation": true
+    },
+    {
+      "task": 2,
+      "model": "iAF1260",
+      "seed": 303,
+      "binary_matches": true,
+      "dimensions_match": true,
+      "actual_seed_matches": true,
+      "starting_point_LP_s": 0.0,
+      "actual_runtime_GPU_rotation": true
+    },
+    {
+      "task": 2,
+      "model": "iJO1366",
+      "seed": 101,
+      "binary_matches": true,
+      "dimensions_match": true,
+      "actual_seed_matches": true,
+      "starting_point_LP_s": 0.0,
+      "actual_runtime_GPU_rotation": true
+    },
+    {
+      "task": 2,
+      "model": "iJO1366",
+      "seed": 202,
+      "binary_matches": true,
+      "dimensions_match": true,
+      "actual_seed_matches": true,
+      "starting_point_LP_s": 0.0,
+      "actual_runtime_GPU_rotation": true
+    },
+    {
+      "task": 2,
+      "model": "iJO1366",
+      "seed": 303,
+      "binary_matches": true,
+      "dimensions_match": true,
+      "actual_seed_matches": true,
+      "starting_point_LP_s": 0.0,
+      "actual_runtime_GPU_rotation": true
+    },
+    {
+      "task": 2,
+      "model": "iML1515",
+      "seed": 101,
+      "binary_matches": true,
+      "dimensions_match": true,
+      "actual_seed_matches": true,
+      "starting_point_LP_s": 0.0,
+      "actual_runtime_GPU_rotation": true
+    },
+    {
+      "task": 2,
+      "model": "iML1515",
+      "seed": 202,
+      "binary_matches": true,
+      "dimensions_match": true,
+      "actual_seed_matches": true,
+      "starting_point_LP_s": 0.0,
+      "actual_runtime_GPU_rotation": true
+    },
+    {
+      "task": 2,
+      "model": "iML1515",
+      "seed": 303,
+      "binary_matches": true,
+      "dimensions_match": true,
+      "actual_seed_matches": true,
+      "starting_point_LP_s": 0.0,
+      "actual_runtime_GPU_rotation": true
+    },
+    {
+      "task": 2,
+      "model": "RECON1",
+      "seed": 101,
+      "binary_matches": true,
+      "dimensions_match": true,
+      "actual_seed_matches": true,
+      "starting_point_LP_s": 0.0,
+      "actual_runtime_GPU_rotation": true
+    },
+    {
+      "task": 2,
+      "model": "RECON1",
+      "seed": 202,
+      "binary_matches": true,
+      "dimensions_match": true,
+      "actual_seed_matches": true,
+      "starting_point_LP_s": 0.0,
+      "actual_runtime_GPU_rotation": true
+    },
+    {
+      "task": 2,
+      "model": "RECON1",
+      "seed": 303,
+      "binary_matches": true,
+      "dimensions_match": true,
+      "actual_seed_matches": true,
+      "starting_point_LP_s": 0.0,
+      "actual_runtime_GPU_rotation": true
+    },
+    {
+      "task": 3,
+      "seed": 101,
+      "binary_matches": true,
+      "actual_seed_matches": true,
+      "actual_thinning": 96,
+      "rotation_phase_is_zero": true,
+      "dtype": "float32",
+      "host_prefault": 0,
+      "sample_shape": [
+        16,
+        10000,
+        581
+      ],
+      "samples_sha256": "9247eebd79ddd8058f625e768caff93ec0d9393e75418b7aa06ec6583bb2ca58",
+      "legacy_LP_mask_sha256": "23087281b6c9852bb02bbe5bb28d873cc0ccc677a5bf4bb45486b68760867ca8",
+      "sample_bound_violation_fraction": 0.0
+    },
+    {
+      "task": 3,
+      "seed": 202,
+      "binary_matches": true,
+      "actual_seed_matches": true,
+      "actual_thinning": 96,
+      "rotation_phase_is_zero": true,
+      "dtype": "float32",
+      "host_prefault": 0,
+      "sample_shape": [
+        16,
+        10000,
+        581
+      ],
+      "samples_sha256": "a4adcb722845eefb7fe0ba1c71094e1649b0ac4c324e30babc6db8ae5d9f19b7",
+      "legacy_LP_mask_sha256": "23087281b6c9852bb02bbe5bb28d873cc0ccc677a5bf4bb45486b68760867ca8",
+      "sample_bound_violation_fraction": 0.0
+    },
+    {
+      "task": 3,
+      "seed": 303,
+      "binary_matches": true,
+      "actual_seed_matches": true,
+      "actual_thinning": 96,
+      "rotation_phase_is_zero": true,
+      "dtype": "float32",
+      "host_prefault": 0,
+      "sample_shape": [
+        16,
+        10000,
+        581
+      ],
+      "samples_sha256": "c08b5d53753edba06e2c80cdd25dc13376551738f1e3dab371bebc60dda47c7b",
+      "legacy_LP_mask_sha256": "23087281b6c9852bb02bbe5bb28d873cc0ccc677a5bf4bb45486b68760867ca8",
+      "sample_bound_violation_fraction": 0.0
+    }
+  ]
+}

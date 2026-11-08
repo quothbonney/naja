@@ -1,0 +1,510 @@
+{
+  "status": "complete",
+  "model": "iJO1366",
+  "pipeline": "full_cpu",
+  "seed": 101,
+  "draws": 10000,
+  "chains": 16,
+  "warmup": 1000,
+  "thinning": 2000,
+  "quality_met": true,
+  "bounds_met": true,
+  "comparison_eligible": true,
+  "split_rhat_median": 1.0097866200257835,
+  "split_rhat_p95": 1.0193562245106187,
+  "bulk_ess_median": 2094.3689525255377,
+  "sample_bound_violation_fraction": 0.0,
+  "maximum_PGI_capacity_violation": 0.0,
+  "maximum_stoichiometric_residual": 4.5060455367007535e-11,
+  "sampling_process_inclusive_seconds": 25.600615240633488,
+  "per_condition_preprocessing_seconds": 142.12267717160285,
+  "sampling_phase_seconds": 20.691384015604854,
+  "sampling_phase_scope": "hopsy.sample call including multiprocessing/IPC, warmup and retained sampling; excludes imports/load/chain initialization and output writes",
+  "mathematical_compute_timer_status": "validated_worker_draw_call_critical_path_proxy; includes pybind/state copy and OS descheduling",
+  "worker_draw_critical_path_seconds": 15.398702799,
+  "total_worker_draw_thread_cpu_seconds": 245.239531328,
+  "median_bulk_ess_per_worker_compute_second": 136.0094405264804,
+  "sampling_math_timing": {
+    "status": "complete",
+    "chain_tasks": 16,
+    "worker_count": 16,
+    "worker_draw_critical_path_seconds": 15.398702799,
+    "worker_draw_cpu_critical_path_seconds": 15.388118826,
+    "total_worker_draw_thread_cpu_seconds": 245.239531328,
+    "workers": {
+      "4077033": {
+        "draw_call_wall_seconds": 15.316237498,
+        "draw_call_thread_cpu_seconds": 15.305748713,
+        "chain_tasks": 1
+      },
+      "4077034": {
+        "draw_call_wall_seconds": 15.345316106,
+        "draw_call_thread_cpu_seconds": 15.334680158,
+        "chain_tasks": 1
+      },
+      "4077035": {
+        "draw_call_wall_seconds": 15.350799307,
+        "draw_call_thread_cpu_seconds": 15.331307974,
+        "chain_tasks": 1
+      },
+      "4077036": {
+        "draw_call_wall_seconds": 15.366659615,
+        "draw_call_thread_cpu_seconds": 15.356719292,
+        "chain_tasks": 1
+      },
+      "4077037": {
+        "draw_call_wall_seconds": 15.342000464,
+        "draw_call_thread_cpu_seconds": 15.331301328,
+        "chain_tasks": 1
+      },
+      "4077038": {
+        "draw_call_wall_seconds": 15.323450357,
+        "draw_call_thread_cpu_seconds": 15.312956978,
+        "chain_tasks": 1
+      },
+      "4077039": {
+        "draw_call_wall_seconds": 15.30819954,
+        "draw_call_thread_cpu_seconds": 15.298093576,
+        "chain_tasks": 1
+      },
+      "4077040": {
+        "draw_call_wall_seconds": 15.398702799,
+        "draw_call_thread_cpu_seconds": 15.388118826,
+        "chain_tasks": 1
+      },
+      "4077041": {
+        "draw_call_wall_seconds": 15.361156345,
+        "draw_call_thread_cpu_seconds": 15.351178899,
+        "chain_tasks": 1
+      },
+      "4077042": {
+        "draw_call_wall_seconds": 15.311747372,
+        "draw_call_thread_cpu_seconds": 15.301661624,
+        "chain_tasks": 1
+      },
+      "4077043": {
+        "draw_call_wall_seconds": 15.348579857,
+        "draw_call_thread_cpu_seconds": 15.338560619,
+        "chain_tasks": 1
+      },
+      "4077044": {
+        "draw_call_wall_seconds": 15.343726726,
+        "draw_call_thread_cpu_seconds": 15.333109568,
+        "chain_tasks": 1
+      },
+      "4077045": {
+        "draw_call_wall_seconds": 15.317602605,
+        "draw_call_thread_cpu_seconds": 15.307711302,
+        "chain_tasks": 1
+      },
+      "4077046": {
+        "draw_call_wall_seconds": 15.334347389,
+        "draw_call_thread_cpu_seconds": 15.324744938,
+        "chain_tasks": 1
+      },
+      "4077047": {
+        "draw_call_wall_seconds": 15.342204977,
+        "draw_call_thread_cpu_seconds": 15.332106597,
+        "chain_tasks": 1
+      },
+      "4077048": {
+        "draw_call_wall_seconds": 15.301001663,
+        "draw_call_thread_cpu_seconds": 15.291530936,
+        "chain_tasks": 1
+      }
+    },
+    "critical_path_definition": "Maximum over worker PIDs of accumulated MarkovChain.draw call durations. Gaps between tasks/calls, serialization and IPC are excluded; elapsed intervals include OS descheduling and Python binding/state-copy overhead. This is a compute critical-path proxy, not pure arithmetic-only time.",
+    "proof": {
+      "hopsy_misc_sha256": "23cc4f47b0fab9a33cb8ae76da3bf224a6fc2943e74b10b996944871d94c7dfe",
+      "instrumentation_module_sha256": "a01b0bfd384c37ad483abdc0840fc28611ce34132d654e91e1e794a09e0732ba",
+      "functions": {
+        "_sample_parallel_chain": {
+          "original_source_sha256": "19e00a31f68f821878e8a81367e164f32147a6f201b2942256512f4c20855b3c",
+          "original_ast_sha256": "7943adcf7e0a606d6558a3d78fd055d561288bb3de6c6fb56ee80ab2c5c0a29a",
+          "instrumented_ast_sha256": "1127cc60566e3aedd663b51598cb36a8b691a2e5bfc10aa5728f8740c3e1fe6f",
+          "instrumented_draw_call_sites": 1,
+          "transformation": "Original worker body preserved; timer statements around its one draw call site and one log emission before return."
+        },
+        "_sequential_sampling": {
+          "original_source_sha256": "773f61dc358432f3d262e71d70a78d9e2e75e98355c05672e7867b3c1828546a",
+          "original_ast_sha256": "c65b68471177c8cb84c6055ad406480bd1438689c56e288cf73605f4de618ce8",
+          "instrumented_ast_sha256": "6177a5348671c18b4267cc5513078a5b573de30f80cc150ba37622dc29b58f3b",
+          "instrumented_draw_call_sites": 1,
+          "transformation": "Original worker body preserved; timer statements around its one draw call site and one log emission before return."
+        }
+      }
+    },
+    "instrumented_wrapper_process_seconds": 25.600615240633488,
+    "unmodified_baseline_process_seconds": 21.72587693668902,
+    "hopsy_sample_phase_inclusive_seconds": 20.691384015604854,
+    "timing_note": "Wrapper process includes instrumentation/hopsy import setup. Unmodified baseline PROCESS_STARTED begins after those imports in this opt-in variant; use wrapper process for its full-process secondary timing."
+  },
+  "sampling_subprocess_external_seconds": 26.12807360291481,
+  "primary_sampler_seconds": 15.398702799,
+  "primary_sampler_scope": "CPU MarkovChain.draw critical-path proxy; Python binding/state-copy included, IPC/startup/list assembly excluded",
+  "primary_median_ess_per_sampler_second": 136.0094405264804,
+  "median_bulk_ess_per_sampling_phase_second": 101.21937473810472,
+  "measured_sampling_phase_time_to_quality_seconds": 20.691384015604854,
+  "primary_interpretation": "Compare setup/correction and output-excluded selected-budget sampler phase separately; neither is an unqualified pure-kernel speedup.",
+  "end_to_end_role": "secondary operational timing",
+  "diagnostic_process_seconds": 42.82727053202689,
+  "independent_check_seconds": 9.939794026315212,
+  "script_sha256": "24a57761bbefb7108006bf8d96be2c65f888edec27083a5cbeb3a905d1265bfd",
+  "per_condition_total_seconds": 167.72329241223633,
+  "conditioning_geometry_algorithm_seconds": 134.89961659535766,
+  "conditioning_geometry_algorithm_scope": "PolyRound simplify/equality-eliminate/round phase",
+  "gpu_barrier_correction_seconds": null,
+  "correction_timing_policy": "Naja correction included in sampling process; do not add it twice.",
+  "geometry_sha256": "b84280c80561f9537c64ceb56e547becdde8a9de6e23b87de8eb08351c1019b6",
+  "samples_sha256": "c25ccf86353050c8372e6156f681d31b44e762cf8ecce845cf77d889b5ad43c8",
+  "run_dir": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/conditioned_prototype/iJO1366/runs/full_cpu/seed101/budget10000",
+  "physical_affinity": {
+    "reserved_logical_cpus": 32,
+    "allowed": [
+      24,
+      26,
+      28,
+      30,
+      32,
+      34,
+      36,
+      38,
+      40,
+      42,
+      44,
+      46,
+      48,
+      50,
+      52,
+      54,
+      88,
+      90,
+      92,
+      94,
+      96,
+      98,
+      100,
+      102,
+      104,
+      106,
+      108,
+      110,
+      112,
+      114,
+      116,
+      118
+    ],
+    "selected": [
+      24,
+      26,
+      28,
+      30,
+      32,
+      34,
+      36,
+      38,
+      40,
+      42,
+      44,
+      46,
+      48,
+      50,
+      52,
+      54
+    ],
+    "physical_cores": 16,
+    "topology": [
+      {
+        "cpu": 24,
+        "socket": 0,
+        "core": 1,
+        "siblings": [
+          24,
+          88
+        ]
+      },
+      {
+        "cpu": 26,
+        "socket": 0,
+        "core": 20,
+        "siblings": [
+          26,
+          90
+        ]
+      },
+      {
+        "cpu": 28,
+        "socket": 0,
+        "core": 13,
+        "siblings": [
+          28,
+          92
+        ]
+      },
+      {
+        "cpu": 30,
+        "socket": 0,
+        "core": 26,
+        "siblings": [
+          30,
+          94
+        ]
+      },
+      {
+        "cpu": 32,
+        "socket": 0,
+        "core": 4,
+        "siblings": [
+          32,
+          96
+        ]
+      },
+      {
+        "cpu": 34,
+        "socket": 0,
+        "core": 23,
+        "siblings": [
+          34,
+          98
+        ]
+      },
+      {
+        "cpu": 36,
+        "socket": 0,
+        "core": 10,
+        "siblings": [
+          36,
+          100
+        ]
+      },
+      {
+        "cpu": 38,
+        "socket": 0,
+        "core": 28,
+        "siblings": [
+          38,
+          102
+        ]
+      },
+      {
+        "cpu": 40,
+        "socket": 0,
+        "core": 6,
+        "siblings": [
+          40,
+          104
+        ]
+      },
+      {
+        "cpu": 42,
+        "socket": 0,
+        "core": 17,
+        "siblings": [
+          42,
+          106
+        ]
+      },
+      {
+        "cpu": 44,
+        "socket": 0,
+        "core": 14,
+        "siblings": [
+          44,
+          108
+        ]
+      },
+      {
+        "cpu": 46,
+        "socket": 0,
+        "core": 30,
+        "siblings": [
+          46,
+          110
+        ]
+      },
+      {
+        "cpu": 48,
+        "socket": 0,
+        "core": 2,
+        "siblings": [
+          48,
+          112
+        ]
+      },
+      {
+        "cpu": 50,
+        "socket": 0,
+        "core": 19,
+        "siblings": [
+          50,
+          114
+        ]
+      },
+      {
+        "cpu": 52,
+        "socket": 0,
+        "core": 11,
+        "siblings": [
+          52,
+          116
+        ]
+      },
+      {
+        "cpu": 54,
+        "socket": 0,
+        "core": 25,
+        "siblings": [
+          54,
+          118
+        ]
+      },
+      {
+        "cpu": 88,
+        "socket": 0,
+        "core": 1,
+        "siblings": [
+          24,
+          88
+        ]
+      },
+      {
+        "cpu": 90,
+        "socket": 0,
+        "core": 20,
+        "siblings": [
+          26,
+          90
+        ]
+      },
+      {
+        "cpu": 92,
+        "socket": 0,
+        "core": 13,
+        "siblings": [
+          28,
+          92
+        ]
+      },
+      {
+        "cpu": 94,
+        "socket": 0,
+        "core": 26,
+        "siblings": [
+          30,
+          94
+        ]
+      },
+      {
+        "cpu": 96,
+        "socket": 0,
+        "core": 4,
+        "siblings": [
+          32,
+          96
+        ]
+      },
+      {
+        "cpu": 98,
+        "socket": 0,
+        "core": 23,
+        "siblings": [
+          34,
+          98
+        ]
+      },
+      {
+        "cpu": 100,
+        "socket": 0,
+        "core": 10,
+        "siblings": [
+          36,
+          100
+        ]
+      },
+      {
+        "cpu": 102,
+        "socket": 0,
+        "core": 28,
+        "siblings": [
+          38,
+          102
+        ]
+      },
+      {
+        "cpu": 104,
+        "socket": 0,
+        "core": 6,
+        "siblings": [
+          40,
+          104
+        ]
+      },
+      {
+        "cpu": 106,
+        "socket": 0,
+        "core": 17,
+        "siblings": [
+          42,
+          106
+        ]
+      },
+      {
+        "cpu": 108,
+        "socket": 0,
+        "core": 14,
+        "siblings": [
+          44,
+          108
+        ]
+      },
+      {
+        "cpu": 110,
+        "socket": 0,
+        "core": 30,
+        "siblings": [
+          46,
+          110
+        ]
+      },
+      {
+        "cpu": 112,
+        "socket": 0,
+        "core": 2,
+        "siblings": [
+          48,
+          112
+        ]
+      },
+      {
+        "cpu": 114,
+        "socket": 0,
+        "core": 19,
+        "siblings": [
+          50,
+          114
+        ]
+      },
+      {
+        "cpu": 116,
+        "socket": 0,
+        "core": 11,
+        "siblings": [
+          52,
+          116
+        ]
+      },
+      {
+        "cpu": 118,
+        "socket": 0,
+        "core": 25,
+        "siblings": [
+          54,
+          118
+        ]
+      }
+    ]
+  },
+  "criterion": "median split-Rhat<=1.05 and median pooled bulk ESS>=100, independently require original+PGI bounds<=1e-7 and mass balance<=1e-7",
+  "no_filtering": true,
+  "deadline_utc": "2026-11-08T11:00:00+00:00"
+}

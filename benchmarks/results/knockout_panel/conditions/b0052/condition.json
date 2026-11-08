@@ -1,0 +1,106 @@
+{
+  "gene": "b0052",
+  "gene_name": "pdxA",
+  "disabled_reaction_ids": [
+    "PDX5PS"
+  ],
+  "knockout_reaction_ids": [
+    "PDX5PS"
+  ],
+  "changed_bound_rows": 1,
+  "two_sided_encoding_rows": 2,
+  "stratum": "1-5",
+  "base_LP_varying_reactions": 1,
+  "base_LP_nearconstant_reactions": 0,
+  "all_affected_reactions_varying": true,
+  "base_point_max_KO_residual": 5.566626220557052e-06,
+  "base_point_weak_feasible_at_1e7": false,
+  "minimum_KO_T_row_norm": 1.5263039972082724e-06,
+  "original_changed_bounds": {
+    "PDX5PS": [
+      0.0,
+      1000.0
+    ]
+  },
+  "genes_with_identical_bound_change_signature": [
+    "b0052",
+    "b2564"
+  ],
+  "bound_change_signature": "bc93bf8e42334615f591553df2756b69bf61de219cd6d44bbf869839c684fb99",
+  "status": "ready",
+  "base_geometry_sha256": "07374999682cb82ef566c2a7ba4cd1ca44b0718ab81f421846e24d3b85f5e103",
+  "base_dimension": 581,
+  "base_point_weak_feasible": false,
+  "constraint_epsilon": 0.0,
+  "rank_relative_tolerance": 1e-12,
+  "validation_tolerance": 1e-07,
+  "geometry_directory": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/knockout_panel/conditions/b0052/models/shared",
+  "LPs": [
+    {
+      "round": 0,
+      "model_construction_seconds": 0.00852213241159916,
+      "solve_seconds": 2.6808952055871487,
+      "pass_status": "HighsStatus.kOk",
+      "run_status": "HighsStatus.kOk",
+      "model_status": "HighsModelStatus.kOptimal",
+      "iterations": 1250,
+      "radius": 2.854468686635851e-07,
+      "max_scaled_primal_violation": 1.5014101073518304e-10
+    }
+  ],
+  "facial_reductions": [],
+  "initial_projection_strict_interior": false,
+  "projected_point_strict_interior": false,
+  "interior_method": "normalized_Chebyshev_LP_after_exact_affine_reduction",
+  "conditional_dimension": 580,
+  "rows": 750,
+  "affine_rank": 1,
+  "affine_rank_history": [
+    {
+      "rank": 1,
+      "singular_values": [
+        0.9999999999999999
+      ],
+      "relative_rank_threshold": 1e-12,
+      "ranks_at_1e11_1e12_1e13": [
+        1,
+        1,
+        1
+      ],
+      "scaled_equality_residual": 1.3322676295501878e-15,
+      "nullspace_residual": 1.4672680342507093e-16,
+      "seconds": 0.002597963437438011,
+      "projected_origin_min_normalized_slack": -0.0016301630727557906
+    }
+  ],
+  "strict_interior_radius": 2.854468686635851e-07,
+  "min_raw_start_slack": 6.852278460856855e-15,
+  "certified_affine_constant_base_rows": [],
+  "no_bound_epsilon_relaxation": true,
+  "source": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/knockout_panel/conditions/b0052/conditional_model.json",
+  "source_sha256": "8701654cea7cde4cd217316fa82d74f292056fdd75293f0dba7ee31d41e5218a",
+  "geometry_sha256": "7320f21edfeb7761008d71b0ff139809515827b7bd0f1292ea6a96918fc65e88",
+  "embedding": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/knockout_panel/conditions/b0052/embedding.npz",
+  "effective_affine_face_signature_rounded_1e10": "3758d3e0026e8f89385e59e9653f774fcb754014ac4cc39f37391971bbb6bd92",
+  "fixed_reaction_ids": [
+    "PDX5PS"
+  ],
+  "fixed_reaction_values": {
+    "PDX5PS": -1.6940658945086007e-21
+  },
+  "containment_proof": {
+    "retained_A_max_error": 0.0,
+    "retained_b_max_error": 0.0,
+    "dropped_rows": "Equality-span residual and constant-bound certificates recorded; numerical rank contract explicit."
+  },
+  "validation": {
+    "points": 33,
+    "max_original_bound_violation": 1.889623623453188e-12,
+    "max_base_Az_minus_b_violation": 0.0,
+    "max_KO_flux_residual": 3.204673273564045e-20
+  },
+  "preparation_seconds": 3.2560485880821943,
+  "LP_solve_seconds": 2.6808952055871487,
+  "LP_calls": 1,
+  "LP_skipped": false
+}

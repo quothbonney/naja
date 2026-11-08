@@ -1,0 +1,27 @@
+{
+  "prefixes": [
+    {
+      "schema_version": 2,
+      "diagnostic_mask_status": "model_lp_verified",
+      "shape": [
+        16,
+        50000,
+        581
+      ],
+      "stage": "masked_classical_split_rhat_precheck",
+      "split_rhat_median": 1.0043037844503786,
+      "split_rhat_p95": 1.0116901789576056,
+      "bulk_ess_median": null,
+      "bulk_ess_computed": false,
+      "diagnosed_reactions": 1705,
+      "sample_bound_violation_fraction": 0.0,
+      "bounds_tolerance": 1e-07,
+      "coordinate_bound_violation_fraction": 0.0,
+      "zero_tolerance_sample_bound_violation_fraction": 1.0,
+      "max_absolute_bound_violation": 2.3256058190312956e-08,
+      "checked_samples": 800000,
+      "precheck_wall_seconds": 54.74196505360305
+    }
+  ],
+  "note": "ESS omitted only when masked split Rhat already fails the AND target."
+}

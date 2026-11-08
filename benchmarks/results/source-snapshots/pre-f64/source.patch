@@ -1,0 +1,214 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 7d3e9a0..2bfda0f 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -383,7 +383,7 @@ if(NAJA_ENABLE_GPU_TESTS)
+     )
+     set(GPU_TEST_LIBS CUDA::cudart CUDA::curand CUDA::cublas)
+     set(GPU_TEST_OPTS
+-        $<$<COMPILE_LANGUAGE:CUDA>:--expt-relaxed-constexpr -Xcudafe --diag_suppress=20012>
++        $<$<COMPILE_LANGUAGE:CUDA>:--expt-relaxed-constexpr -Xcudafe --diag_suppress=20012 --use_fast_math>
+     )
+ 
+     # Detect CUDA runtime library path for RPATH
+diff --git a/src/cli/sample/cmd_run.cpp b/src/cli/sample/cmd_run.cpp
+index 036c372..6547588 100644
+--- a/src/cli/sample/cmd_run.cpp
++++ b/src/cli/sample/cmd_run.cpp
+@@ -49,6 +49,7 @@ void cmd_run(int argc, char** argv) {
+     int n_samples = -1;
+     int tpb = 128;
+     int thinning = 0;
++    int seed = 0;
+     double pair_prob = 0.0;
+     int resync_interval = 0;
+     int iter_rounding_passes = 0;
+@@ -83,6 +84,7 @@ void cmd_run(int argc, char** argv) {
+         else if (a == "--n-samples") n_samples = std::stoi(next_arg(i, argc, argv, a));
+         else if (a == "--tpb") tpb = std::stoi(next_arg(i, argc, argv, a));
+         else if (a == "--thinning") thinning = std::stoi(next_arg(i, argc, argv, a));
++        else if (a == "--seed") seed = std::stoi(next_arg(i, argc, argv, a));
+         else if (a == "--pair-prob") pair_prob = std::stod(next_arg(i, argc, argv, a));
+         else if (a == "--resync-interval") resync_interval = std::stoi(next_arg(i, argc, argv, a));
+         else if (a == "--iter-rounding-passes") iter_rounding_passes = std::stoi(next_arg(i, argc, argv, a));
+@@ -155,6 +157,7 @@ void cmd_run(int argc, char** argv) {
+     cfg.BOUNDS_EPS = bounds_eps;
+     cfg.WRITE_SAMPLES_VALID = write_samples_valid;
+     cfg.THINNING = thinning;
++    cfg.SEED = seed;
+     cfg.PAIR_PROB = pair_prob;
+     cfg.RESYNC_INTERVAL = resync_interval;
+     cfg.ITER_ROUNDING_PASSES = iter_rounding_passes;
+diff --git a/src/cli/sample/common.cpp b/src/cli/sample/common.cpp
+index c6a8f62..bec1177 100644
+--- a/src/cli/sample/common.cpp
++++ b/src/cli/sample/common.cpp
+@@ -91,6 +91,7 @@ namespace naja::cli::sample {
+     out << "    --model-dir <dir> --out-root <dir> --gpu <id>\n";
+     out << "    --n-chains <n> --n-samples <n>\n";
+     out << "    [--tpb <n>] [--thinning <n>]\n";
++    out << "    [--seed <nonzero-int>]       explicit sampling seed; 0 keeps legacy path-derived seed\n";
+     out << "    [--start-policy file|cube_center]\n";
+     out << "    [--extra-constraints auto|ignore|require] [--extra-constraint-eps <eps>]\n";
+     out << "    [--constraint-eps <eps>]\n";
+diff --git a/src/engine/job_sampling.cu b/src/engine/job_sampling.cu
+index 7f1106d..bc3052d 100644
+--- a/src/engine/job_sampling.cu
++++ b/src/engine/job_sampling.cu
+@@ -99,6 +99,7 @@ void write_config_snapshot(const RuntimeConfig& cfg, const ProfileData& profile,
+     dst << "N_CHAINS=" << profile.n_chains << "\n";
+     dst << "N_SAMPLES=" << profile.n_samples << "\n";
+     dst << "THINNING=" << profile.thinning << "\n";
++    dst << "SEED=" << profile.seed << "\n";
+     dst << "GPU_DEVICE=" << cfg.GPU_DEVICE << "\n";
+     dst << "BACK_TRANSFORM=" << (cfg.BACK_TRANSFORM ? "true" : "false") << "\n";
+     dst << "WRITE_DATA=" << (cfg.WRITE_DATA ? "true" : "false") << "\n";
+@@ -386,8 +387,9 @@ int run_sampling_job(RuntimeConfig cfg, bool verbose, bool show_device_banner) {
+     profile.thinning = thinning;
+ 
+     std::hash<std::string> h;
+-    int seed = (int)(h(cfg.MODEL_NAME) ^ (h(cfg.MODEL_DIR) << 1) ^ (uint64_t)(cfg.GPU_DEVICE * 0x9e3779b9));
++    int seed = cfg.SEED != 0 ? cfg.SEED : (int)(h(cfg.MODEL_NAME) ^ (h(cfg.MODEL_DIR) << 1) ^ (uint64_t)(cfg.GPU_DEVICE * 0x9e3779b9));
+     if (seed == 0) seed = 1;
++    profile.seed = seed;
+ 
+     naja::status::phase(cfg.STATUS, "uploading to gpu");
+     Timer upload_timer;
+diff --git a/src/engine/profile.h b/src/engine/profile.h
+index 4216dea..a1c38fb 100644
+--- a/src/engine/profile.h
++++ b/src/engine/profile.h
+@@ -24,6 +24,7 @@ struct ProfileData {
+     int original_dim = 0;
+     int constraints = 0;
+     int thinning = 0;
++    int seed = 0;
+ 
+     double throughput = 0.0;
+ 
+@@ -46,6 +47,7 @@ struct ProfileData {
+         f << "    \"original_dim\": " << original_dim << ",\n";
+         f << "    \"constraints\": " << constraints << ",\n";
+         f << "    \"thinning\": " << thinning << ",\n";
++        f << "    \"seed\": " << seed << ",\n";
+         f << "    \"tpb_ss\": " << cfg.TPB_SS << ",\n";
+         f << "    \"gpu_device\": " << cfg.GPU_DEVICE << ",\n";
+         f << "    \"back_transform\": " << (cfg.BACK_TRANSFORM ? "true" : "false") << "\n";
+diff --git a/src/gpu/dmatrix.cu b/src/gpu/dmatrix.cu
+index 9fbfaae..24d1dd1 100644
+--- a/src/gpu/dmatrix.cu
++++ b/src/gpu/dmatrix.cu
+@@ -34,22 +34,22 @@ namespace naja {
+         // Construct from Eigen
+         template<typename Real>
+         DMatrix<Real>::DMatrix(const HMatrix<Real>& m) : rows(m.rows()), cols(m.cols()), ownsData(true) {
+-            size_t size = rows * cols * sizeof(Real);
++            size_t size = static_cast<std::size_t>(rows) * static_cast<std::size_t>(cols) * sizeof(Real);
+             CUDA_CHECK(cudaMalloc(&dmat, size));
+-            CUDA_CHECK(cudaMemcpy(dmat, m.data(), rows * cols * sizeof(Real), cudaMemcpyHostToDevice));
++            CUDA_CHECK(cudaMemcpy(dmat, m.data(), static_cast<std::size_t>(rows) * static_cast<std::size_t>(cols) * sizeof(Real), cudaMemcpyHostToDevice));
+         }
+ 
+         // Construct from input dimensions
+         template<typename Real>
+         DMatrix<Real>::DMatrix(int rows_, int cols_) : rows(rows_), cols(cols_), ownsData(true) {
+-            size_t size = rows * cols * sizeof(Real);
++            size_t size = static_cast<std::size_t>(rows) * static_cast<std::size_t>(cols) * sizeof(Real);
+             CUDA_CHECK(cudaMalloc(&dmat, size));
+         }
+ 
+         // Construct from vector and broadcast
+         template<typename Real>
+         DMatrix<Real>::DMatrix(const HVector<Real>& v, int cols) : rows(v.size()), cols(cols), ownsData(true) {
+-            size_t size = rows * cols * sizeof(Real);
++            size_t size = static_cast<std::size_t>(rows) * static_cast<std::size_t>(cols) * sizeof(Real);
+             CUDA_CHECK(cudaMalloc(&dmat, size));
+             if (cols > 0) {
+                 CUDA_CHECK(cudaMemcpy(dmat, v.data(), rows * sizeof(Real), cudaMemcpyHostToDevice));
+@@ -60,7 +60,7 @@ namespace naja {
+         // Construct from device vector and broadcast
+         template<typename Real>
+         DMatrix<Real>::DMatrix(const DVector<Real>& v, int cols) : rows(v.len), cols(cols), ownsData(true) {
+-            size_t size = rows * cols * sizeof(Real);
++            size_t size = static_cast<std::size_t>(rows) * static_cast<std::size_t>(cols) * sizeof(Real);
+             CUDA_CHECK(cudaMalloc(&dmat, size));
+             if (cols > 0) {
+                 broadcastColumns(v.dvec, dmat, rows, cols);
+@@ -70,7 +70,7 @@ namespace naja {
+         // Construct from vector with a given number of cols, and broadcast to 'z' cols
+         template<typename Real>
+         DMatrix<Real>::DMatrix(const HVector<Real>& v, int cols, int z)  : rows(v.size()), cols(cols), ownsData(true) {
+-            size_t size = rows * cols * sizeof(Real);
++            size_t size = static_cast<std::size_t>(rows) * static_cast<std::size_t>(cols) * sizeof(Real);
+             CUDA_CHECK(cudaMalloc(&dmat, size));
+             int cols_to_fill = std::min(z, cols);
+             if (cols_to_fill > 0) {
+@@ -86,9 +86,9 @@ namespace naja {
+         // Copy constructor
+         template<typename Real>
+         DMatrix<Real>::DMatrix(const DMatrix &other) : rows(other.rows), cols(other.cols), ownsData(true) {
+-            size_t size = rows * cols * sizeof(Real);
++            size_t size = static_cast<std::size_t>(rows) * static_cast<std::size_t>(cols) * sizeof(Real);
+             CUDA_CHECK(cudaMalloc(&dmat, size));
+-            CUDA_CHECK(cudaMemcpy(dmat, other.dmat, rows * cols * sizeof(Real), cudaMemcpyDeviceToDevice));
++            CUDA_CHECK(cudaMemcpy(dmat, other.dmat, static_cast<std::size_t>(rows) * static_cast<std::size_t>(cols) * sizeof(Real), cudaMemcpyDeviceToDevice));
+         }
+ 
+         // Move constructor
+@@ -111,7 +111,7 @@ namespace naja {
+         template<typename Real>
+         HMatrix<Real> DMatrix<Real>::toHost() const {
+             HMatrix<Real> m(rows, cols);
+-            CUDA_CHECK(cudaMemcpy(m.data(), dmat, rows * cols * sizeof(Real), cudaMemcpyDeviceToHost));
++            CUDA_CHECK(cudaMemcpy(m.data(), dmat, static_cast<std::size_t>(rows) * static_cast<std::size_t>(cols) * sizeof(Real), cudaMemcpyDeviceToHost));
+             return m;
+         }
+ 
+diff --git a/src/gpu/helper.h b/src/gpu/helper.h
+index 42dca02..8b9996d 100644
+--- a/src/gpu/helper.h
++++ b/src/gpu/helper.h
+@@ -4,9 +4,10 @@
+ #include <curand.h>
+ #include <curand_kernel.h>
+ #include <iostream>
++#include <cstddef>
+ 
+ // Column major matrix indexing
+-#define IDX2C(i,j,ld) (((j)*(ld))+(i))
++#define IDX2C(i,j,ld) ((static_cast<std::size_t>(j) * static_cast<std::size_t>(ld)) + static_cast<std::size_t>(i))
+ 
+ // CUDA API error checking
+ #define CUDA_CHECK(cuda_error) \
+diff --git a/src/pipeline/model_contract.cpp b/src/pipeline/model_contract.cpp
+index 07236aa..f2ef5e8 100644
+--- a/src/pipeline/model_contract.cpp
++++ b/src/pipeline/model_contract.cpp
+@@ -148,6 +148,7 @@ void write_generated_config(const std::string& path, const RuntimeConfig& cfg) {
+     f << "OUT_DIR=" << cfg.OUT_DIR << "\n";
+     f << "N_CHAINS=" << cfg.N_CHAINS << "\n";
+     f << "N_SAMPLES=" << cfg.N_SAMPLES << "\n";
++    f << "SEED=" << cfg.SEED << "\n";
+     f << "TPB_SS=" << cfg.TPB_SS << "\n";
+     f << "GPU_DEVICE=" << cfg.GPU_DEVICE << "\n";
+     f << "BACK_TRANSFORM=" << (cfg.BACK_TRANSFORM ? "true" : "false") << "\n";
+diff --git a/src/runtime_config.h b/src/runtime_config.h
+index 592bb1b..7bf7c89 100644
+--- a/src/runtime_config.h
++++ b/src/runtime_config.h
+@@ -23,6 +23,7 @@ struct RuntimeConfig {
+     double BOUNDS_EPS = 1e-6;            // tolerance for bounds filtering
+     bool WRITE_SAMPLES_VALID = false;    // if true, also write samples_valid.npy
+     bool SKIP_EXISTING = false;          // bulk: skip jobs that already have completed outputs
++    int SEED = 0;                      // 0 => legacy path-derived seed; nonzero => explicit sampling seed
+     int THINNING = 0;                   // 0 => auto (n/6), otherwise explicit steps between saved samples
+     double PAIR_PROB = 0.0;
+     int RESYNC_INTERVAL = 0;
+@@ -166,6 +167,7 @@ struct RuntimeConfig {
+                     else if (key == "BOUNDS_EPS") cfg.BOUNDS_EPS = std::stod(value);
+                     else if (key == "WRITE_SAMPLES_VALID") cfg.WRITE_SAMPLES_VALID = (value == "true" || value == "1");
+                     else if (key == "SKIP_EXISTING") cfg.SKIP_EXISTING = (value == "true" || value == "1");
++                    else if (key == "SEED") cfg.SEED = std::stoi(value);
+                     else if (key == "THINNING") cfg.THINNING = std::stoi(value);
+                     else if (key == "PAIR_PROB") cfg.PAIR_PROB = std::stod(value);
+                     else if (key == "RESYNC_INTERVAL") cfg.RESYNC_INTERVAL = std::stoi(value);

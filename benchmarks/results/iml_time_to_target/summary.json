@@ -1,0 +1,114 @@
+{
+  "schema_version": 1,
+  "model": "iML1515",
+  "cpu_thin2000_fixed_cap": {
+    "draws": 10000,
+    "warmup": 1000,
+    "thinning": 2000,
+    "tested_count": 3,
+    "passing_count": 0,
+    "passing_seeds": [],
+    "failed_seeds": [
+      101,
+      202,
+      303
+    ],
+    "missing_seeds": [],
+    "rows": [
+      {
+        "seed": 101,
+        "tested": true,
+        "quality_met": false,
+        "status": "Rhat_fail_at_fixed_cap",
+        "draws": 10000,
+        "warmup": 1000,
+        "thinning": 2000,
+        "split_rhat_median": 1.0122504272843398,
+        "bulk_ess_median": null,
+        "bulk_ess_computed": false,
+        "sample_bound_violation_fraction": 0.0,
+        "bounds_tolerance": 1e-07,
+        "sampler_phase_seconds": 21.673147715628147,
+        "run_dir": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/larger_quality/iML1515/cpu2000/seed101/pilot",
+        "source": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/larger_quality/iML1515/cpu2000/seed101/quality.json"
+      },
+      {
+        "seed": 202,
+        "tested": true,
+        "quality_met": false,
+        "status": "fixed_budget_Rhat_fail",
+        "draws": 10000,
+        "warmup": 1000,
+        "thinning": 2000,
+        "split_rhat_median": 1.0121946024292918,
+        "bulk_ess_median": null,
+        "bulk_ess_computed": false,
+        "sample_bound_violation_fraction": 0.0,
+        "bounds_tolerance": 1e-07,
+        "sampler_phase_seconds": 20.17205305583775,
+        "run_dir": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/iml_time_to_target/cpu_native_thin2000/seed202/fixed10000",
+        "source": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/iml_time_to_target/cpu_native_thin2000/seed202/quality.json"
+      },
+      {
+        "seed": 303,
+        "tested": true,
+        "quality_met": false,
+        "status": "fixed_budget_Rhat_fail",
+        "draws": 10000,
+        "warmup": 1000,
+        "thinning": 2000,
+        "split_rhat_median": 1.012412942736143,
+        "bulk_ess_median": null,
+        "bulk_ess_computed": false,
+        "sample_bound_violation_fraction": 0.0,
+        "bounds_tolerance": 1e-07,
+        "sampler_phase_seconds": 20.074460461735725,
+        "run_dir": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/iml_time_to_target/cpu_native_thin2000/seed303/fixed10000",
+        "source": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/iml_time_to_target/cpu_native_thin2000/seed303/quality.json"
+      }
+    ],
+    "note": "Only actually completed fixed10k pilots count. A cap failure does not imply failure to converge at larger budgets. ESS is omitted when Rhat already fails the AND target."
+  },
+  "cpu_guideline_passing_rows": [
+    {
+      "seed": 101,
+      "source": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/larger_quality/iML1515/cpujade/seed101/quality.json",
+      "draws_per_chain": 500,
+      "wall_seconds": 82.67129201069474,
+      "split_rhat_median": 1.005584347731828,
+      "bulk_ess_median": 2799.4241894511783,
+      "quality_met": true,
+      "sample_bound_violation_fraction": 0.0,
+      "max_absolute_bound_violation": 7.523110101462052e-08,
+      "bounds_tolerance": 1e-07,
+      "run_dir": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/larger_quality/iML1515/cpujade/seed101/final"
+    },
+    {
+      "seed": 202,
+      "source": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/larger_quality/iML1515/cpujade/seed202/quality.json",
+      "draws_per_chain": 500,
+      "wall_seconds": 78.89570819586515,
+      "split_rhat_median": 1.0054409845020367,
+      "bulk_ess_median": 2794.2042175265096,
+      "quality_met": true,
+      "sample_bound_violation_fraction": 0.0,
+      "max_absolute_bound_violation": 8.16865050683091e-08,
+      "bounds_tolerance": 1e-07,
+      "run_dir": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/larger_quality/iML1515/cpujade/seed202/final"
+    },
+    {
+      "seed": 303,
+      "source": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/larger_quality/iML1515/cpujade/seed303/quality.json",
+      "draws_per_chain": 500,
+      "wall_seconds": 94.64517688192427,
+      "split_rhat_median": 1.0056464664111506,
+      "bulk_ess_median": 2821.3395730361344,
+      "quality_met": true,
+      "sample_bound_violation_fraction": 0.0,
+      "max_absolute_bound_violation": 7.748531481453193e-08,
+      "bounds_tolerance": 1e-07,
+      "run_dir": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/larger_quality/iML1515/cpujade/seed303/final"
+    }
+  ],
+  "verified_f64_gpu_summary": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/precision_quality/iML1515/summary.json"
+}

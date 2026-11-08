@@ -1,0 +1,4 @@
+Possible --gpu-metrics-set values are:
+	gh100        : General Metrics for NVIDIA GH100 (any frequency)
+	gh100-ct     : Compute Triage Metrics for NVIDIA GH100 (frequency >= 10kHz)
+	file:<file name> : use metric set from a given file

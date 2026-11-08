@@ -1,0 +1,16 @@
+{
+  "utc": "2026-11-08T19:32:38.434443+00:00",
+  "reason": "GPU runner requires empty output; moved command/log files into parent before sampling. Previous failure happened before any GPU sampling. CPU quality records reused unchanged; original failure preserved.",
+  "new_job": "895",
+  "command": [
+    "sbatch",
+    "--parsable",
+    "--chdir=/mnt/home/jordan+123/history-native-20261015-r5",
+    "--dependency=afterany:883",
+    "--array=0-1%1",
+    "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/scripts/fresh16_conservative.sbatch"
+  ],
+  "code_sha256": "b15e0ca9baafda5d075c0dd14a3d2e5c2cf50ac63c4bf7d8e3f05b5c90818060",
+  "old_source_snapshot": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/fresh16_conservative/iJO1366/source_snapshots/before_empty_output_fix.py",
+  "budgets_seeds_target_and_sampler_unchanged": true
+}

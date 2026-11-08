@@ -1,0 +1,25 @@
+{
+  "utc": "2026-11-08T19:48:23.286175+00:00",
+  "reason": "Metadata query requested an unavailable libcudart symbol and failed before any sampler launched. Corrected to installed CUDA12.9 cudaGetDeviceProperties_v2; UUID field offset verified from local driver_types.h. No sampling parameters changed.",
+  "original_capture": "910",
+  "original_metrics": "911",
+  "original_metrics_cancelled_dependency_never_satisfied": true,
+  "pilot_capture": "934",
+  "pilot_metrics": "935",
+  "capture_command": [
+    "sbatch",
+    "--parsable",
+    "--chdir=/mnt/home/jordan+123/history-native-20261015-r5",
+    "--array=0",
+    "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/scripts/conditioned_rescue_capture.sbatch"
+  ],
+  "metrics_command": [
+    "sbatch",
+    "--parsable",
+    "--chdir=/mnt/home/jordan+123/history-native-20261015-r5",
+    "--array=0",
+    "--dependency=aftercorr:934",
+    "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/scripts/conditioned_rescue_metrics.sbatch"
+  ],
+  "remaining_policy": "Launch remaining12 only after this pair capture succeeds."
+}

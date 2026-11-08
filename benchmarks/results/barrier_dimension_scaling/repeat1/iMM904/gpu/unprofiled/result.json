@@ -1,0 +1,249 @@
+{
+  "model": "iMM904",
+  "barrier": "rotate",
+  "mode": "gpu",
+  "role": "unprofiled",
+  "binary_sha256": "8a9387cb0339b83132191a43b9e04d86a28d9381287cdc22c8dac1bb2214b54f",
+  "command": [
+    "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/build-h100-barrier-profile/naja",
+    "sample",
+    "run",
+    "--model-dir",
+    "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/iMM904",
+    "--out-root",
+    "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/barrier_dimension_scaling/repeat1/iMM904/gpu/unprofiled/native",
+    "--gpu",
+    "0",
+    "--n-chains",
+    "16",
+    "--n-samples",
+    "8",
+    "--seed",
+    "101",
+    "--tpb",
+    "128",
+    "--thinning",
+    "1",
+    "--constraint-eps",
+    "0",
+    "--extra-constraint-eps",
+    "0",
+    "--pair-prob",
+    "0",
+    "--bounds-policy",
+    "ignore",
+    "--write-npy",
+    "--sample-dtype",
+    "float64",
+    "--host-prefault-threads",
+    "8",
+    "--barrier-rotate"
+  ],
+  "launched_command": [
+    "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/env-cpu/bin/python",
+    "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/scripts/nsight_timed_exec.py",
+    "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/barrier_dimension_scaling/repeat1/iMM904/gpu/unprofiled/target-wall.json",
+    "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/build-h100-barrier-profile/naja",
+    "sample",
+    "run",
+    "--model-dir",
+    "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/iMM904",
+    "--out-root",
+    "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/barrier_dimension_scaling/repeat1/iMM904/gpu/unprofiled/native",
+    "--gpu",
+    "0",
+    "--n-chains",
+    "16",
+    "--n-samples",
+    "8",
+    "--seed",
+    "101",
+    "--tpb",
+    "128",
+    "--thinning",
+    "1",
+    "--constraint-eps",
+    "0",
+    "--extra-constraint-eps",
+    "0",
+    "--pair-prob",
+    "0",
+    "--bounds-policy",
+    "ignore",
+    "--write-npy",
+    "--sample-dtype",
+    "float64",
+    "--host-prefault-threads",
+    "8",
+    "--barrier-rotate"
+  ],
+  "target_wall": {
+    "command": [
+      "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/build-h100-barrier-profile/naja",
+      "sample",
+      "run",
+      "--model-dir",
+      "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/iMM904",
+      "--out-root",
+      "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/barrier_dimension_scaling/repeat1/iMM904/gpu/unprofiled/native",
+      "--gpu",
+      "0",
+      "--n-chains",
+      "16",
+      "--n-samples",
+      "8",
+      "--seed",
+      "101",
+      "--tpb",
+      "128",
+      "--thinning",
+      "1",
+      "--constraint-eps",
+      "0",
+      "--extra-constraint-eps",
+      "0",
+      "--pair-prob",
+      "0",
+      "--bounds-policy",
+      "ignore",
+      "--write-npy",
+      "--sample-dtype",
+      "float64",
+      "--host-prefault-threads",
+      "8",
+      "--barrier-rotate"
+    ],
+    "returncode": 0,
+    "target_wall_seconds": 0.8074085600674152,
+    "start_epoch_ns": 1794165574789149808,
+    "end_epoch_ns": 1794165575596561599
+  },
+  "outer_command_wall_seconds": 0.9769920837134123,
+  "profile": {
+    "timestamp": "2026-11-08 19:19:35",
+    "config": {
+      "n_chains": 16,
+      "n_samples": 8,
+      "reduced_dim": 288,
+      "original_dim": 288,
+      "constraints": 413,
+      "thinning": 1,
+      "seed": 101,
+      "sample_dtype": "float64",
+      "host_prefault_threads": 8,
+      "tpb_ss": 128,
+      "gpu_device": 0,
+      "back_transform": false
+    },
+    "timing": {
+      "load_polytope_s": 0.0055,
+      "cube_center_lp_s": 0.0,
+      "barrier_rotation_s": 0.0808,
+      "upload_to_gpu_s": 0.0002,
+      "gpu_sampling_s": 0.0021,
+      "download_from_gpu_s": 0.0012,
+      "backtransform_s": 0.0018,
+      "write_output_s": 0.0042,
+      "total_s": 0.4037
+    },
+    "performance": {
+      "total_samples": 128,
+      "throughput_samples_per_sec": 61415.4,
+      "sampling_fraction": 0.005
+    }
+  },
+  "stages": [
+    {
+      "name": "barrier.cpu_slack",
+      "seconds": 3.3803e-05
+    },
+    {
+      "name": "barrier.upload_A",
+      "seconds": 0.000440467
+    },
+    {
+      "name": "barrier.cublas_create",
+      "seconds": 0.014747223
+    },
+    {
+      "name": "barrier.hessian_syrk",
+      "seconds": 0.000572172
+    },
+    {
+      "name": "barrier.download_H",
+      "seconds": 0.00040153
+    },
+    {
+      "name": "barrier.cpu_mirror_H",
+      "seconds": 0.000112476
+    },
+    {
+      "name": "barrier.upload_H",
+      "seconds": 0.000214708
+    },
+    {
+      "name": "barrier.cusolver_create",
+      "seconds": 0.003938341
+    },
+    {
+      "name": "barrier.eigensolve_and_wait",
+      "seconds": 0.055733559
+    },
+    {
+      "name": "barrier.download_Q",
+      "seconds": 0.000376689
+    },
+    {
+      "name": "barrier.compute_eigenbasis",
+      "seconds": 0.078863145
+    },
+    {
+      "name": "rotation.upload_A",
+      "seconds": 0.000278438
+    },
+    {
+      "name": "rotation.dgemm_and_wait",
+      "seconds": 0.00020408
+    },
+    {
+      "name": "rotation.download_A",
+      "seconds": 0.000501963
+    },
+    {
+      "name": "barrier.gpu_rotate_A",
+      "seconds": 0.001652803
+    },
+    {
+      "name": "barrier.cpu_rotate_start",
+      "seconds": 4.4197e-05
+    },
+    {
+      "name": "barrier.rotated_feasibility",
+      "seconds": 9.6193e-05
+    },
+    {
+      "name": "barrier.total",
+      "seconds": 0.080782015
+    }
+  ],
+  "algebra_validation": [],
+  "run_dir": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/barrier_dimension_scaling/repeat1/iMM904/gpu/unprofiled",
+  "exploratory_no_mve": false,
+  "slurm_job_id": "880",
+  "timing_eligible": true,
+  "feasibility": {
+    "checked_samples": 128,
+    "all_samples": true,
+    "max_original_bound_violation": 2.5570853388163946e-08,
+    "max_reduced_Az_minus_b_violation": 0.0,
+    "bound_violation_fraction": {
+      "0.0": 1.0,
+      "1e-07": 0.0,
+      "1e-06": 0.0
+    },
+    "declared_tolerance": 1e-07,
+    "declared_bounds_passed": true,
+    "no_filtering_or_clipping": true,
+    "scope": "Short feasibility test, no convergence inference."
+  }
+}

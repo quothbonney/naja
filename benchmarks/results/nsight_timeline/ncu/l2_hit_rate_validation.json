@@ -1,0 +1,32 @@
+[
+  {
+    "chains": 16,
+    "full_set_nvidia_hit_rate_pct": 97.877453,
+    "narrow_nvidia_hit_rate_pct": 100.758255,
+    "narrow_hit_sectors": 925238994.0,
+    "narrow_miss_sectors": 1509799.0,
+    "hit_over_hit_plus_miss_pct": 99.83708648865756,
+    "narrow_collection_passes": 3,
+    "interpretation": "Count-normalized estimate from replayed collection; raw NVIDIA ratio is unstable across passes. No clipping or same-pass claim."
+  },
+  {
+    "chains": 128,
+    "full_set_nvidia_hit_rate_pct": 100.591489,
+    "narrow_nvidia_hit_rate_pct": 99.76572,
+    "narrow_hit_sectors": 7344039103.0,
+    "narrow_miss_sectors": 703208.0,
+    "hit_over_hit_plus_miss_pct": 99.9904256954128,
+    "narrow_collection_passes": 3,
+    "interpretation": "Count-normalized estimate from replayed collection; raw NVIDIA ratio is unstable across passes. No clipping or same-pass claim."
+  },
+  {
+    "chains": 512,
+    "full_set_nvidia_hit_rate_pct": 99.713821,
+    "narrow_nvidia_hit_rate_pct": 100.12267,
+    "narrow_hit_sectors": 29745769353.0,
+    "narrow_miss_sectors": 7455993.0,
+    "hit_over_hit_plus_miss_pct": 99.97494055547493,
+    "narrow_collection_passes": 3,
+    "interpretation": "Count-normalized estimate from replayed collection; raw NVIDIA ratio is unstable across passes. No clipping or same-pass claim."
+  }
+]

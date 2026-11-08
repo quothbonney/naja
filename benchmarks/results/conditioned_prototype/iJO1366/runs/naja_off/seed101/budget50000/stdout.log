@@ -1,0 +1,13 @@
+> validate model contract
+> write generated config
+model :: shared
+output :: /mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/conditioned_prototype/iJO1366/runs/naja_off/seed101/budget50000/native/shared_20261108_001
+bounds :: ignore
+> sampling
+> loading polytope
+> uploading to gpu
+> sampling 16 chains x 51000 samples (thin=1000, 816000000 MCMC steps, 752 constraints x 581 dims)
+> gpu sampling
+> downloading
+> done: 132.4s, 6165 samples/s
+> writing npy

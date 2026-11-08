@@ -1,0 +1,15 @@
+> validate model contract
+> write generated config
+model :: iML1515
+output :: /mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/closeout/task2_3/final-release/task2_barrier/iML1515/seed202/native/iML1515_20261108_001
+bounds :: ignore
+> sampling
+> loading polytope
+> barrier rotation (eigenbasis of H)
+> uploading to gpu
+> sampling 16 chains x 8 samples (thin=1, 128 MCMC steps, 801 constraints x 635 dims)
+> gpu sampling
+> gpu back-transform
+> downloading
+> done: 0.0s, 103021 samples/s
+> writing npy

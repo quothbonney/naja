@@ -1,0 +1,19 @@
+{
+  "binary_sha256": "da263d6060416d96da366392210b9468422890bda8200718da452941436a8f18",
+  "frozen_binary_sha256": "c7baf4f0ed282b936ac0dbac4b896bfbfc040eb06da6f84aff6605fddf4b0fc6",
+  "wide_index_build_verified": true,
+  "large_matrix_runtime_validated": true,
+  "gpu_correctness_tests_passed": 5,
+  "same_seed_original_samples_bitwise_equal": true,
+  "shape": [
+    4,
+    128,
+    3
+  ],
+  "source_change": "Cast-only DMatrix allocation/copy sizes and IDX2C offset products to size_t before multiplication.",
+  "patch_sha256": "81bc604f276602c95895f6d6f9953a9e2c605a3ea4c312f4b745a3d19acd36ee",
+  "scope": "Reduced-output path; per-axis int dimensions and sample-step counters still limited; large backmap, native validate, and float64 NPY readers not widened.",
+  "large_matrix_validation_job": "346",
+  "large_matrix_elements": 3272192000,
+  "large_matrix_subset_validation": "1024retainedsamples/case,all581reducedcoordinatesvary,finite,feasible;fullsavedarrayfinitechecks;zeroGPUbackenderrors"
+}

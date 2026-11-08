@@ -1,0 +1,416 @@
+{
+  "status": "passed",
+  "targets": 51,
+  "rows": [
+    {
+      "gene": "b0002",
+      "status": "passed",
+      "max_recomputed_dual_A_error": 0.0,
+      "max_recomputed_dual_b_error": 0.0,
+      "dimension": 581,
+      "GPR_verified_by_actual_cobra_knock_out": true
+    },
+    {
+      "gene": "b0003",
+      "status": "passed",
+      "max_recomputed_dual_A_error": 3.075944396742458e-10,
+      "max_recomputed_dual_b_error": 9.056399503782267e-10,
+      "dimension": 566,
+      "GPR_verified_by_actual_cobra_knock_out": true
+    },
+    {
+      "gene": "b0009",
+      "status": "passed",
+      "max_recomputed_dual_A_error": 0.0,
+      "max_recomputed_dual_b_error": 0.0,
+      "dimension": 580,
+      "GPR_verified_by_actual_cobra_knock_out": true
+    },
+    {
+      "gene": "b0019",
+      "status": "passed",
+      "max_recomputed_dual_A_error": 0.0,
+      "max_recomputed_dual_b_error": 0.0,
+      "dimension": 580,
+      "GPR_verified_by_actual_cobra_knock_out": true
+    },
+    {
+      "gene": "b0025",
+      "status": "passed",
+      "max_recomputed_dual_A_error": 0.0,
+      "max_recomputed_dual_b_error": 0.0,
+      "dimension": 579,
+      "GPR_verified_by_actual_cobra_knock_out": true
+    },
+    {
+      "gene": "b0029",
+      "status": "passed",
+      "max_recomputed_dual_A_error": 0.0,
+      "max_recomputed_dual_b_error": 0.0,
+      "dimension": 579,
+      "GPR_verified_by_actual_cobra_knock_out": true
+    },
+    {
+      "gene": "b0030",
+      "status": "passed",
+      "max_recomputed_dual_A_error": 0.0,
+      "max_recomputed_dual_b_error": 0.0,
+      "dimension": 578,
+      "GPR_verified_by_actual_cobra_knock_out": true
+    },
+    {
+      "gene": "b0031",
+      "status": "passed",
+      "max_recomputed_dual_A_error": 0.0,
+      "max_recomputed_dual_b_error": 0.0,
+      "dimension": 580,
+      "GPR_verified_by_actual_cobra_knock_out": true
+    },
+    {
+      "gene": "b0032",
+      "status": "passed",
+      "max_recomputed_dual_A_error": 0.0,
+      "max_recomputed_dual_b_error": 0.0,
+      "dimension": 580,
+      "GPR_verified_by_actual_cobra_knock_out": true
+    },
+    {
+      "gene": "b0052",
+      "status": "passed",
+      "max_recomputed_dual_A_error": 0.0,
+      "max_recomputed_dual_b_error": 0.0,
+      "dimension": 580,
+      "GPR_verified_by_actual_cobra_knock_out": true
+    },
+    {
+      "gene": "b0073",
+      "status": "passed",
+      "max_recomputed_dual_A_error": 0.0,
+      "max_recomputed_dual_b_error": 0.0,
+      "dimension": 580,
+      "GPR_verified_by_actual_cobra_knock_out": true
+    },
+    {
+      "gene": "b0085",
+      "status": "passed",
+      "max_recomputed_dual_A_error": 1.375052800737916e-10,
+      "max_recomputed_dual_b_error": 1.0468700573383549e-09,
+      "dimension": 570,
+      "GPR_verified_by_actual_cobra_knock_out": true
+    },
+    {
+      "gene": "b0088",
+      "status": "passed",
+      "max_recomputed_dual_A_error": 1.373679669172976e-10,
+      "max_recomputed_dual_b_error": 1.0415175943911947e-09,
+      "dimension": 570,
+      "GPR_verified_by_actual_cobra_knock_out": true
+    },
+    {
+      "gene": "b0091",
+      "status": "passed",
+      "max_recomputed_dual_A_error": 1.373142033174186e-10,
+      "max_recomputed_dual_b_error": 1.0286555496286098e-09,
+      "dimension": 570,
+      "GPR_verified_by_actual_cobra_knock_out": true
+    },
+    {
+      "gene": "b0096",
+      "status": "passed",
+      "max_recomputed_dual_A_error": 1.2340252203169563e-10,
+      "max_recomputed_dual_b_error": 8.381619659874279e-10,
+      "dimension": 562,
+      "GPR_verified_by_actual_cobra_knock_out": true
+    },
+    {
+      "gene": "b0103",
+      "status": "passed",
+      "max_recomputed_dual_A_error": 0.0,
+      "max_recomputed_dual_b_error": 0.0,
+      "dimension": 580,
+      "GPR_verified_by_actual_cobra_knock_out": true
+    },
+    {
+      "gene": "b0104",
+      "status": "passed",
+      "max_recomputed_dual_A_error": 0.0,
+      "max_recomputed_dual_b_error": 0.0,
+      "dimension": 580,
+      "GPR_verified_by_actual_cobra_knock_out": true
+    },
+    {
+      "gene": "b0109",
+      "status": "passed",
+      "max_recomputed_dual_A_error": 0.0,
+      "max_recomputed_dual_b_error": 0.0,
+      "dimension": 580,
+      "GPR_verified_by_actual_cobra_knock_out": true
+    },
+    {
+      "gene": "b0114",
+      "status": "passed",
+      "max_recomputed_dual_A_error": 0.0,
+      "max_recomputed_dual_b_error": 0.0,
+      "dimension": 580,
+      "GPR_verified_by_actual_cobra_knock_out": true
+    },
+    {
+      "gene": "b0116",
+      "status": "passed",
+      "max_recomputed_dual_A_error": 0.0,
+      "max_recomputed_dual_b_error": 0.0,
+      "dimension": 578,
+      "GPR_verified_by_actual_cobra_knock_out": true
+    },
+    {
+      "gene": "b0120",
+      "status": "passed",
+      "max_recomputed_dual_A_error": 0.0,
+      "max_recomputed_dual_b_error": 0.0,
+      "dimension": 580,
+      "GPR_verified_by_actual_cobra_knock_out": true
+    },
+    {
+      "gene": "b0131",
+      "status": "passed",
+      "max_recomputed_dual_A_error": 0.0,
+      "max_recomputed_dual_b_error": 0.0,
+      "dimension": 580,
+      "GPR_verified_by_actual_cobra_knock_out": true
+    },
+    {
+      "gene": "b0133",
+      "status": "passed",
+      "max_recomputed_dual_A_error": 0.0,
+      "max_recomputed_dual_b_error": 0.0,
+      "dimension": 580,
+      "GPR_verified_by_actual_cobra_knock_out": true
+    },
+    {
+      "gene": "b0134",
+      "status": "passed",
+      "max_recomputed_dual_A_error": 0.0,
+      "max_recomputed_dual_b_error": 0.0,
+      "dimension": 580,
+      "GPR_verified_by_actual_cobra_knock_out": true
+    },
+    {
+      "gene": "b0154",
+      "status": "passed",
+      "max_recomputed_dual_A_error": 4.25277609907865e-11,
+      "max_recomputed_dual_b_error": 4.174469688869791e-10,
+      "dimension": 564,
+      "GPR_verified_by_actual_cobra_knock_out": true
+    },
+    {
+      "gene": "b0181",
+      "status": "passed",
+      "max_recomputed_dual_A_error": 1.6530224526401797e-10,
+      "max_recomputed_dual_b_error": 4.912339951829441e-10,
+      "dimension": 562,
+      "GPR_verified_by_actual_cobra_knock_out": true
+    },
+    {
+      "gene": "b0343",
+      "status": "passed",
+      "max_recomputed_dual_A_error": 0.0,
+      "max_recomputed_dual_b_error": 0.0,
+      "dimension": 580,
+      "GPR_verified_by_actual_cobra_knock_out": true
+    },
+    {
+      "gene": "b0404",
+      "status": "passed",
+      "max_recomputed_dual_A_error": 0.0,
+      "max_recomputed_dual_b_error": 0.0,
+      "dimension": 574,
+      "GPR_verified_by_actual_cobra_knock_out": true
+    },
+    {
+      "gene": "b0474",
+      "status": "passed",
+      "max_recomputed_dual_A_error": 0.0,
+      "max_recomputed_dual_b_error": 0.0,
+      "dimension": 576,
+      "GPR_verified_by_actual_cobra_knock_out": true
+    },
+    {
+      "gene": "b0508",
+      "status": "passed",
+      "max_recomputed_dual_A_error": 2.1799808398105294e-12,
+      "max_recomputed_dual_b_error": 1.3188694495605484e-11,
+      "dimension": 579,
+      "GPR_verified_by_actual_cobra_knock_out": true
+    },
+    {
+      "gene": "b0721",
+      "status": "passed",
+      "max_recomputed_dual_A_error": 0.0,
+      "max_recomputed_dual_b_error": 0.0,
+      "dimension": 580,
+      "GPR_verified_by_actual_cobra_knock_out": true
+    },
+    {
+      "gene": "b0918",
+      "status": "passed",
+      "max_recomputed_dual_A_error": 8.333303890671759e-11,
+      "max_recomputed_dual_b_error": 2.2811245668717923e-09,
+      "dimension": 560,
+      "GPR_verified_by_actual_cobra_knock_out": true
+    },
+    {
+      "gene": "b1326",
+      "status": "passed",
+      "max_recomputed_dual_A_error": 0.0,
+      "max_recomputed_dual_b_error": 0.0,
+      "dimension": 580,
+      "GPR_verified_by_actual_cobra_knock_out": true
+    },
+    {
+      "gene": "b1681",
+      "status": "passed",
+      "max_recomputed_dual_A_error": 0.0,
+      "max_recomputed_dual_b_error": 0.0,
+      "dimension": 575,
+      "GPR_verified_by_actual_cobra_knock_out": true
+    },
+    {
+      "gene": "b1744",
+      "status": "passed",
+      "max_recomputed_dual_A_error": 0.0,
+      "max_recomputed_dual_b_error": 0.0,
+      "dimension": 580,
+      "GPR_verified_by_actual_cobra_knock_out": true
+    },
+    {
+      "gene": "b2028",
+      "status": "passed",
+      "max_recomputed_dual_A_error": 0.0,
+      "max_recomputed_dual_b_error": 0.0,
+      "dimension": 580,
+      "GPR_verified_by_actual_cobra_knock_out": true
+    },
+    {
+      "gene": "b2257",
+      "status": "passed",
+      "max_recomputed_dual_A_error": 0.0,
+      "max_recomputed_dual_b_error": 0.0,
+      "dimension": 580,
+      "GPR_verified_by_actual_cobra_knock_out": true
+    },
+    {
+      "gene": "b2436",
+      "status": "passed",
+      "max_recomputed_dual_A_error": 0.0,
+      "max_recomputed_dual_b_error": 0.0,
+      "dimension": 580,
+      "GPR_verified_by_actual_cobra_knock_out": true
+    },
+    {
+      "gene": "b2529",
+      "status": "passed",
+      "max_recomputed_dual_A_error": 0.0,
+      "max_recomputed_dual_b_error": 0.0,
+      "dimension": 575,
+      "GPR_verified_by_actual_cobra_knock_out": true
+    },
+    {
+      "gene": "b2530",
+      "status": "passed",
+      "max_recomputed_dual_A_error": 0.0,
+      "max_recomputed_dual_b_error": 0.0,
+      "dimension": 575,
+      "GPR_verified_by_actual_cobra_knock_out": true
+    },
+    {
+      "gene": "b2920",
+      "status": "passed",
+      "max_recomputed_dual_A_error": 0.0,
+      "max_recomputed_dual_b_error": 0.0,
+      "dimension": 580,
+      "GPR_verified_by_actual_cobra_knock_out": true
+    },
+    {
+      "gene": "b3059",
+      "status": "passed",
+      "max_recomputed_dual_A_error": 0.0,
+      "max_recomputed_dual_b_error": 0.0,
+      "dimension": 574,
+      "GPR_verified_by_actual_cobra_knock_out": true
+    },
+    {
+      "gene": "b3198",
+      "status": "passed",
+      "max_recomputed_dual_A_error": 1.4009489692692274e-10,
+      "max_recomputed_dual_b_error": 1.457958289734509e-09,
+      "dimension": 562,
+      "GPR_verified_by_actual_cobra_knock_out": true
+    },
+    {
+      "gene": "b3417",
+      "status": "passed",
+      "max_recomputed_dual_A_error": 0.0,
+      "max_recomputed_dual_b_error": 0.0,
+      "dimension": 578,
+      "GPR_verified_by_actual_cobra_knock_out": true
+    },
+    {
+      "gene": "b3744",
+      "status": "passed",
+      "max_recomputed_dual_A_error": 0.0,
+      "max_recomputed_dual_b_error": 0.0,
+      "dimension": 580,
+      "GPR_verified_by_actual_cobra_knock_out": true
+    },
+    {
+      "gene": "b3918",
+      "status": "passed",
+      "max_recomputed_dual_A_error": 0.0,
+      "max_recomputed_dual_b_error": 0.0,
+      "dimension": 574,
+      "GPR_verified_by_actual_cobra_knock_out": true
+    },
+    {
+      "gene": "b3924",
+      "status": "passed",
+      "max_recomputed_dual_A_error": 0.0,
+      "max_recomputed_dual_b_error": 0.0,
+      "dimension": 580,
+      "GPR_verified_by_actual_cobra_knock_out": true
+    },
+    {
+      "gene": "b4025",
+      "status": "passed",
+      "max_recomputed_dual_A_error": 0.0,
+      "max_recomputed_dual_b_error": 0.0,
+      "dimension": 580,
+      "GPR_verified_by_actual_cobra_knock_out": true
+    },
+    {
+      "gene": "b4041",
+      "status": "passed",
+      "max_recomputed_dual_A_error": 0.0,
+      "max_recomputed_dual_b_error": 0.0,
+      "dimension": 574,
+      "GPR_verified_by_actual_cobra_knock_out": true
+    },
+    {
+      "gene": "b4077",
+      "status": "passed",
+      "max_recomputed_dual_A_error": 0.0,
+      "max_recomputed_dual_b_error": 0.0,
+      "dimension": 579,
+      "GPR_verified_by_actual_cobra_knock_out": true
+    },
+    {
+      "gene": "b4481",
+      "status": "passed",
+      "max_recomputed_dual_A_error": 1.7435690327897274e-10,
+      "max_recomputed_dual_b_error": 2.3490189732300675e-09,
+      "dimension": 578,
+      "GPR_verified_by_actual_cobra_knock_out": true
+    }
+  ],
+  "wall_seconds": 5.927023570984602,
+  "slurm_job_id": "653"
+}

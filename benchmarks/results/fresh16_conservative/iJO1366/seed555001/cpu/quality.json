@@ -1,0 +1,20 @@
+{
+  "method": "cpu",
+  "seed": 555001,
+  "status": "PASS",
+  "quality_met": true,
+  "chains": 16,
+  "retained_draws_per_chain": 15000,
+  "warmup_per_chain": 1000,
+  "thinning": 2000,
+  "sampler_compute_seconds": 21.099782767,
+  "median_split_rhat": 1.005907328775049,
+  "p95_split_rhat": 1.0116489222452425,
+  "median_bulk_ess": 3398.801427377012,
+  "median_ess_per_compute_second": 161.08229477569444,
+  "sample_bound_violation_fraction": 0.0,
+  "maximum_absolute_bound_violation": 6.346235933817332e-12,
+  "process_seconds_secondary": 31.44139401242137,
+  "diagnostic_mask": "conservative478_exact_cached_target",
+  "source_run": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/fresh16_conservative/iJO1366/seed555001/cpu"
+}

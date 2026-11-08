@@ -1,0 +1,138 @@
+{
+  "model": "iJO1366",
+  "chains": 512,
+  "draws_per_chain": 10000,
+  "warmup": 1000,
+  "tpb": 128,
+  "seed": 101,
+  "binary_sha256": "a656a1f93489af051acd540d08369092567dd0673af2b0e1ac922dc58a910603",
+  "dtype": "float32",
+  "scope": "Opt-in host first-touch only, same binary, same seed, fresh processes; all retained arrays SHA256-identical.",
+  "order": "off/on, on/off, off/on",
+  "download_timing": "Includes Eigen allocation, first-touch threads, all joins, final-byte touch, and cudaMemcpy.",
+  "fixed_resources": "One H100, eight CPUs,128GiB requested memory; no allocation/prefault cost omitted.",
+  "medians": {
+    "0": {
+      "download_including_prefault_seconds": 12.6,
+      "native_process_seconds": 31.572773948311806,
+      "normalization_seconds": 20.4602269269526,
+      "end_to_end_seconds": 52.15319458581507
+    },
+    "8": {
+      "download_including_prefault_seconds": 2.9581,
+      "native_process_seconds": 21.45785567164421,
+      "normalization_seconds": 20.991549419239163,
+      "end_to_end_seconds": 42.449405090883374
+    }
+  },
+  "pairs": [
+    {
+      "pair": 1,
+      "download_speedup_including_first_touch": 4.393597241472567,
+      "native_process_speedup": 1.4713853253302518,
+      "end_to_end_speedup": 1.2323189103191508
+    },
+    {
+      "pair": 2,
+      "download_speedup_including_first_touch": 4.704989316639803,
+      "native_process_speedup": 1.516073935411796,
+      "end_to_end_speedup": 1.2432321452658674
+    },
+    {
+      "pair": 3,
+      "download_speedup_including_first_touch": 3.3891010812846307,
+      "native_process_speedup": 1.2931129973962499,
+      "end_to_end_speedup": 1.1022710025244686
+    }
+  ],
+  "rows": [
+    {
+      "pair": 1,
+      "order": 1,
+      "host_prefault_threads": 0,
+      "native_process_seconds": 31.572773948311806,
+      "download_including_prefault_seconds": 12.9967,
+      "gpu_sampling_seconds": 4.6304,
+      "write_seconds": 12.0241,
+      "normalization_seconds": 20.738430676981807,
+      "end_to_end_seconds": 52.31120462529361,
+      "samples_sha256": "f971f63fd2d4f68629baa2a78227cf3bd64fcbc780816d35dcf399831268ef1d",
+      "samples_bitwise_equal_to_first": true,
+      "run_dir": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/host_prefault/iJO1366/pair1_threads0"
+    },
+    {
+      "pair": 1,
+      "order": 2,
+      "host_prefault_threads": 8,
+      "native_process_seconds": 21.45785567164421,
+      "download_including_prefault_seconds": 2.9581,
+      "gpu_sampling_seconds": 4.5587,
+      "write_seconds": 11.8277,
+      "normalization_seconds": 20.991549419239163,
+      "end_to_end_seconds": 42.449405090883374,
+      "samples_sha256": "f971f63fd2d4f68629baa2a78227cf3bd64fcbc780816d35dcf399831268ef1d",
+      "samples_bitwise_equal_to_first": true,
+      "run_dir": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/host_prefault/iJO1366/pair1_threads8"
+    },
+    {
+      "pair": 2,
+      "order": 3,
+      "host_prefault_threads": 8,
+      "native_process_seconds": 19.798776412382722,
+      "download_including_prefault_seconds": 2.6677,
+      "gpu_sampling_seconds": 4.6414,
+      "write_seconds": 10.5586,
+      "normalization_seconds": 20.80235829204321,
+      "end_to_end_seconds": 40.60113470442593,
+      "samples_sha256": "f971f63fd2d4f68629baa2a78227cf3bd64fcbc780816d35dcf399831268ef1d",
+      "samples_bitwise_equal_to_first": true,
+      "run_dir": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/host_prefault/iJO1366/pair2_threads8"
+    },
+    {
+      "pair": 2,
+      "order": 4,
+      "host_prefault_threads": 0,
+      "native_process_seconds": 30.016408871859312,
+      "download_including_prefault_seconds": 12.5515,
+      "gpu_sampling_seconds": 4.6264,
+      "write_seconds": 10.9581,
+      "normalization_seconds": 20.4602269269526,
+      "end_to_end_seconds": 50.47663579881191,
+      "samples_sha256": "f971f63fd2d4f68629baa2a78227cf3bd64fcbc780816d35dcf399831268ef1d",
+      "samples_bitwise_equal_to_first": true,
+      "run_dir": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/host_prefault/iJO1366/pair2_threads0"
+    },
+    {
+      "pair": 3,
+      "order": 5,
+      "host_prefault_threads": 0,
+      "native_process_seconds": 31.761794049292803,
+      "download_including_prefault_seconds": 12.6,
+      "gpu_sampling_seconds": 4.6456,
+      "write_seconds": 12.6904,
+      "normalization_seconds": 20.39140053652227,
+      "end_to_end_seconds": 52.15319458581507,
+      "samples_sha256": "f971f63fd2d4f68629baa2a78227cf3bd64fcbc780816d35dcf399831268ef1d",
+      "samples_bitwise_equal_to_first": true,
+      "run_dir": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/host_prefault/iJO1366/pair3_threads0"
+    },
+    {
+      "pair": 3,
+      "order": 6,
+      "host_prefault_threads": 8,
+      "native_process_seconds": 24.562272680923343,
+      "download_including_prefault_seconds": 3.7178,
+      "gpu_sampling_seconds": 4.666,
+      "write_seconds": 14.098,
+      "normalization_seconds": 22.752039739862084,
+      "end_to_end_seconds": 47.31431242078543,
+      "samples_sha256": "f971f63fd2d4f68629baa2a78227cf3bd64fcbc780816d35dcf399831268ef1d",
+      "samples_bitwise_equal_to_first": true,
+      "run_dir": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/host_prefault/iJO1366/pair3_threads8"
+    }
+  ],
+  "median_paired_end_to_end_speedup": 1.2323189103191508,
+  "median_paired_native_process_speedup": 1.4713853253302518,
+  "median_paired_download_speedup": 4.393597241472567,
+  "finished_utc": "2026-11-08T00:48:08.878100+00:00"
+}

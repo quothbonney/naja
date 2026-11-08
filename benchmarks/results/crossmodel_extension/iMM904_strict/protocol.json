@@ -1,0 +1,21 @@
+{
+  "utc": "2026-11-08T19:39:26.464814+00:00",
+  "original_model": "iMM904",
+  "thresh": 1e-09,
+  "accepted_tol_violation": 1.0,
+  "feasibility_tolerance": 1e-10,
+  "command": [
+    "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/cpu_baseline.py",
+    "prep",
+    "--model",
+    "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/raw/iMM904.json",
+    "--out",
+    "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/crossmodel_extension/iMM904_strict/model",
+    "--backend",
+    "glpk",
+    "--feasibility-tol",
+    "1e-10"
+  ],
+  "source_sha256": "e3dfb705e2df481dd35935f43f682043ca4b4feac9c5086298eff8c328ba8def",
+  "interpretation": "Same biological input/bounds; new finite-precision preparation. No claim of exact equivalence to the previous cached A/b."
+}

@@ -1,0 +1,20 @@
+{
+  "utc": "2026-11-08T20:10:13.280119+00:00",
+  "capture_job": "955",
+  "capture_command": [
+    "sbatch",
+    "--parsable",
+    "--chdir=/mnt/home/jordan+123/history-native-20261015-r5",
+    "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/scripts/recon3d_bounded_capture.sbatch"
+  ],
+  "metrics_job": "956",
+  "metrics_command": [
+    "sbatch",
+    "--parsable",
+    "--chdir=/mnt/home/jordan+123/history-native-20261015-r5",
+    "--dependency=afterany:955",
+    "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/scripts/recon3d_bounded_metrics.sbatch"
+  ],
+  "GPU_allocation_cap_seconds": 3540,
+  "GPU_count": 1
+}

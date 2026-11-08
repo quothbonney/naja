@@ -1,0 +1,47 @@
+{
+  "model": "iJO1366",
+  "chains": 16,
+  "rows": [
+    {
+      "seed": 101,
+      "cpu_hopsy_sample_phase_seconds": 20.58317170292139,
+      "cpu_pooled_bulk_ess_median": 2151.0273637006,
+      "gpu_pooled_bulk_ess_median": 2016.3714335464674,
+      "cpu_pooled_bulk_ess_per_sample_phase_second": 104.50417432000056,
+      "cpu_vs_gpu_sampling_phase_ratio": 2.6388343358317705,
+      "gpu_vs_cpu_ess_rate_ratio": 2.4736413224789437,
+      "gpu_sampler_phase_seconds": 7.8001,
+      "gpu_pooled_bulk_ess_per_sampler_phase_second": 258.50584396949625
+    },
+    {
+      "seed": 202,
+      "cpu_hopsy_sample_phase_seconds": 20.801001677289605,
+      "cpu_pooled_bulk_ess_median": 2198.6839193546275,
+      "gpu_pooled_bulk_ess_median": 1987.914079294251,
+      "cpu_pooled_bulk_ess_per_sample_phase_second": 105.70086736520655,
+      "cpu_vs_gpu_sampling_phase_ratio": 2.657663627189861,
+      "gpu_vs_cpu_ess_rate_ratio": 2.402895157422043,
+      "gpu_sampler_phase_seconds": 7.8268,
+      "gpu_pooled_bulk_ess_per_sampler_phase_second": 253.98810232716448
+    },
+    {
+      "seed": 303,
+      "cpu_hopsy_sample_phase_seconds": 19.323637012392282,
+      "cpu_pooled_bulk_ess_median": 2163.859149490388,
+      "gpu_pooled_bulk_ess_median": 2015.0117158080998,
+      "cpu_pooled_bulk_ess_per_sample_phase_second": 111.9799108264506,
+      "cpu_vs_gpu_sampling_phase_ratio": 2.473203938513321,
+      "gpu_vs_cpu_ess_rate_ratio": 2.303077311136796,
+      "gpu_sampler_phase_seconds": 7.8132,
+      "gpu_pooled_bulk_ess_per_sampler_phase_second": 257.89839192752004
+    }
+  ],
+  "cpu_phase_note": "Inclusive hopsy.sample phase includes process-pool startup, input/output pickling/IPC and returned-array assembly; not isolated math.",
+  "gpu_phase_note": "Profile gpu_sampling_s sampler phase includes CoordinateHitAndRun setup/allocation, initial slack GEMM and RNG initialization plus sampling. Excludes download, host output and normalization; not pure CHRR-kernel-only time.",
+  "cpu_sampling_phase_median": 20.58317170292139,
+  "ratio_of_sampling_phase_medians": 2.634409934843776,
+  "cpu_ess_rate_median": 105.70086736520655,
+  "gpu_ess_rate_median": 257.89839192752004,
+  "median_paired_ess_rate_ratio": 2.402895157422043,
+  "gpu_sampler_phase_median": 7.8132
+}

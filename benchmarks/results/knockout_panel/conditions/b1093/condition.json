@@ -1,0 +1,149 @@
+{
+  "gene": "b1093",
+  "gene_name": "fabG",
+  "disabled_reaction_ids": [
+    "3OAR100",
+    "3OAR120",
+    "3OAR121",
+    "3OAR140",
+    "3OAR141",
+    "3OAR160",
+    "3OAR161",
+    "3OAR180",
+    "3OAR181",
+    "3OAR40",
+    "3OAR60",
+    "3OAR80",
+    "OGMEACPR",
+    "OPMEACPR"
+  ],
+  "knockout_reaction_ids": [
+    "3OAR100",
+    "3OAR120",
+    "3OAR121",
+    "3OAR140",
+    "3OAR141",
+    "3OAR160",
+    "3OAR161",
+    "3OAR180",
+    "3OAR181",
+    "3OAR40",
+    "3OAR60",
+    "3OAR80",
+    "OGMEACPR",
+    "OPMEACPR"
+  ],
+  "changed_bound_rows": 22,
+  "two_sided_encoding_rows": 28,
+  "stratum": "21-50",
+  "base_LP_varying_reactions": 14,
+  "base_LP_nearconstant_reactions": 0,
+  "all_affected_reactions_varying": true,
+  "base_point_max_KO_residual": 0.25359241951930456,
+  "base_point_weak_feasible_at_1e7": false,
+  "minimum_KO_T_row_norm": 1.3688825207367532e-08,
+  "original_changed_bounds": {
+    "3OAR100": [
+      -1000.0,
+      1000.0
+    ],
+    "3OAR120": [
+      -1000.0,
+      1000.0
+    ],
+    "3OAR121": [
+      0.0,
+      1000.0
+    ],
+    "3OAR140": [
+      -1000.0,
+      1000.0
+    ],
+    "3OAR141": [
+      0.0,
+      1000.0
+    ],
+    "3OAR160": [
+      -1000.0,
+      1000.0
+    ],
+    "3OAR161": [
+      0.0,
+      1000.0
+    ],
+    "3OAR180": [
+      -1000.0,
+      1000.0
+    ],
+    "3OAR181": [
+      0.0,
+      1000.0
+    ],
+    "3OAR40": [
+      -1000.0,
+      1000.0
+    ],
+    "3OAR60": [
+      -1000.0,
+      1000.0
+    ],
+    "3OAR80": [
+      -1000.0,
+      1000.0
+    ],
+    "OGMEACPR": [
+      0.0,
+      1000.0
+    ],
+    "OPMEACPR": [
+      0.0,
+      1000.0
+    ]
+  },
+  "genes_with_identical_bound_change_signature": [
+    "b1093"
+  ],
+  "bound_change_signature": "c5e392d6eda9e07c8122179b8d9563fa54f363f4c773df89f3ac11f695a4d076",
+  "status": "precision_ambiguous",
+  "base_geometry_sha256": "07374999682cb82ef566c2a7ba4cd1ca44b0718ab81f421846e24d3b85f5e103",
+  "base_dimension": 581,
+  "base_point_weak_feasible": false,
+  "constraint_epsilon": 0.0,
+  "rank_relative_tolerance": 1e-12,
+  "validation_tolerance": 1e-07,
+  "geometry_directory": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/knockout_panel/conditions/b1093/models/shared",
+  "LPs": [],
+  "facial_reductions": [],
+  "reason": "Affine rank changes across1e-11/1e-12/1e-13; not released as exact same-target geometry",
+  "preparation_seconds": 0.045137157663702965,
+  "affine_rank_history": [
+    {
+      "rank": 14,
+      "singular_values": [
+        1.7777978209765206,
+        1.5260992106407616,
+        1.4137208201857439,
+        1.064917647422354,
+        1.0023202777598292,
+        1.0018325497344416,
+        1.00183254949712,
+        1.001832549496893,
+        0.9910303955139529,
+        0.6164474002585081,
+        1.7240966259107104e-05,
+        6.205065032508909e-12,
+        4.325349594868839e-12,
+        2.7340091618437775e-12
+      ],
+      "relative_rank_threshold": 1e-12,
+      "ranks_at_1e11_1e12_1e13": [
+        11,
+        14,
+        14
+      ],
+      "scaled_equality_residual": 3.1086244689504383e-15,
+      "nullspace_residual": 2.498001805406602e-16,
+      "seconds": 0.004833545535802841
+    }
+  ]
+}

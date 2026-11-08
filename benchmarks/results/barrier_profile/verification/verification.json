@@ -1,0 +1,16 @@
+{
+  "status": "passed",
+  "binary_sha256": "8a9387cb0339b83132191a43b9e04d86a28d9381287cdc22c8dac1bb2214b54f",
+  "gpu_analytic_tests_passed": 5,
+  "cases": [
+    {
+      "model": "BOX",
+      "arrays_bitwise_equal": true
+    },
+    {
+      "model": "iJO1366",
+      "arrays_bitwise_equal": true
+    }
+  ],
+  "scope": "Instrumented CPU rotation mode preserves prior trajectories; GPU rotation algebra/feasibility are separate checks."
+}

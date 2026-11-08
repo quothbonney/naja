@@ -1,0 +1,28 @@
+{
+  "model": "iAF1260",
+  "method": "cpujade",
+  "seed": 303,
+  "chains": 16,
+  "warmup": 1000,
+  "thinning": "jadebeck",
+  "tpb": null,
+  "status": "complete",
+  "started_utc": "2026-11-08T03:43:18.522056+00:00",
+  "note": "Actual fresh selected-budget process time excludes pilot/search/diagnostics. Median split Rhat<=1.01 and bulk ESS>=100; bound metrics are independent. Fixed retained warmup1000 implies differing warmup moves.",
+  "screening_budget_source": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/hopsy/iAF1260/jadebeck/seed303/metrics.json",
+  "pilot_process_seconds": 53.289806090295315,
+  "selected_draws": 500,
+  "pilot_and_selection_seconds": 59.83632071502507,
+  "measured": {
+    "draws_per_chain": 500,
+    "wall_seconds": 52.613495057448745,
+    "split_rhat_median": 1.005925151751821,
+    "bulk_ess_median": 2546.8650463416,
+    "quality_met": true,
+    "sample_bound_violation_fraction": 0.0,
+    "max_absolute_bound_violation": 5.854429440935782e-09,
+    "bounds_tolerance": 1e-07,
+    "run_dir": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/larger_quality/iAF1260/cpujade/seed303/final"
+  },
+  "finished_utc": "2026-11-08T03:45:11.696587+00:00"
+}

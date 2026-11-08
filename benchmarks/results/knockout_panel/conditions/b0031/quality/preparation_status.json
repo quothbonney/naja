@@ -1,0 +1,5 @@
+{
+  "status": "failed",
+  "shared_mask_ready": true,
+  "error": "CalledProcessError(1, ['/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/env-cpu/bin/python', '/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/scripts/conditioned_global_reround.py', '--source', '/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/knockout_panel/conditions/b0031/models/shared', '--output', '/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/knockout_panel/conditions/b0031/models/global_reround'])"
+}

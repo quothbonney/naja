@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "model": "Recon3D_nullspace_only",
+  "source": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/raw/Recon3D.json",
+  "source_sha256": "aba925f17547a42f9fdb4c1f685d89364cbf4979bbe7862e9f793af7169b26d5",
+  "geometry_sha256": "8fed70ea2238e91ea05d95c46bdd3616474be087fa9d88e90891b146e88e2325",
+  "target_geometry_kind": "exact_cached_polytope",
+  "solver": "none; no LP exclusions",
+  "range_tolerance": 1e-07,
+  "candidates": 0,
+  "n_reactions": 10600,
+  "active_reactions": 10600,
+  "excluded_nearconstant_reactions": 0,
+  "policy": "All10600 reactions active. No numerical-range or LP exclusions; frozen estimator only omits exactly constant sampled reactions. No new LP campaign."
+}

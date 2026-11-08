@@ -1,0 +1,43 @@
+> validate model contract
+> write generated config
+model :: e_coli_core
+output :: /mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/uniformity/naja_whiten_dikin_pair/native/e_coli_core_20261107_001
+bounds :: ignore
+> sampling
+devices
+  [0] NVIDIA H100 80GB HBM3
+
+config
+  model           e_coli_core
+  gpu_device      0
+  n_chains        16
+  n_samples       63500
+  tpb_ss          128
+  pair_prob       0.5
+  back_transform  no
+
+> loading polytope
+> barrier rotation (eigenbasis of H)
+  barrier_rotation  dim=24 clamped=0 ridge=1.31e-10
+    eigenvalues: min=1.0437 med=1.0578 max=3.9417 condition=3.8
+    ||off-diag|| / ||D|| = 9.417e-16
+> barrier whitening (diagonal rescale)
+  barrier_whiten: eigenvalue_clamp=0 scale_range=[5.037e-01, 9.788e-01] post_cond=3.8
+  barrier_total    0.035s
+> barrier dikin directions (full Hessian)
+  dikin_directions 11 escape directions (full Hessian)
+  constraints     36
+  reduced_dim     24
+  thinning        50
+  time            0.002s
+
+> uploading to gpu
+> barrier-Hessian Jacobi schedule
+  barrier_schedule 12 pairs (max_rho=0.0000, p10_rho=0.0000)
+> sampling 16 chains x 63500 samples (thin=50, 50800000 MCMC steps, 36 constraints x 24 dims)
+> gpu sampling
+> gpu back-transform
+> downloading
+> done: 6.0s, 170103 samples/s
+> writing npy
+output      :: /mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/uniformity/naja_whiten_dikin_pair/native/e_coli_core_20261107_001

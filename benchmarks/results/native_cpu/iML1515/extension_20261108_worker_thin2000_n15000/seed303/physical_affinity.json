@@ -1,0 +1,275 @@
+{
+  "created_utc": "2026-11-08T19:25:07Z",
+  "job_id": "852",
+  "reserved_logical_cpus": 32,
+  "allowed_logical_cpus": [
+    0,
+    2,
+    4,
+    6,
+    8,
+    10,
+    12,
+    14,
+    16,
+    18,
+    20,
+    22,
+    24,
+    26,
+    28,
+    30,
+    64,
+    66,
+    68,
+    70,
+    72,
+    74,
+    76,
+    78,
+    80,
+    82,
+    84,
+    86,
+    88,
+    90,
+    92,
+    94
+  ],
+  "allowed_physical_core_count": 16,
+  "topology": [
+    {
+      "cpu": 0,
+      "socket": 0,
+      "core": 0,
+      "siblings": "0,64"
+    },
+    {
+      "cpu": 2,
+      "socket": 0,
+      "core": 18,
+      "siblings": "2,66"
+    },
+    {
+      "cpu": 4,
+      "socket": 0,
+      "core": 8,
+      "siblings": "4,68"
+    },
+    {
+      "cpu": 6,
+      "socket": 0,
+      "core": 27,
+      "siblings": "6,70"
+    },
+    {
+      "cpu": 8,
+      "socket": 0,
+      "core": 3,
+      "siblings": "8,72"
+    },
+    {
+      "cpu": 10,
+      "socket": 0,
+      "core": 21,
+      "siblings": "10,74"
+    },
+    {
+      "cpu": 12,
+      "socket": 0,
+      "core": 12,
+      "siblings": "12,76"
+    },
+    {
+      "cpu": 14,
+      "socket": 0,
+      "core": 29,
+      "siblings": "14,78"
+    },
+    {
+      "cpu": 16,
+      "socket": 0,
+      "core": 5,
+      "siblings": "16,80"
+    },
+    {
+      "cpu": 18,
+      "socket": 0,
+      "core": 24,
+      "siblings": "18,82"
+    },
+    {
+      "cpu": 20,
+      "socket": 0,
+      "core": 9,
+      "siblings": "20,84"
+    },
+    {
+      "cpu": 22,
+      "socket": 0,
+      "core": 31,
+      "siblings": "22,86"
+    },
+    {
+      "cpu": 24,
+      "socket": 0,
+      "core": 1,
+      "siblings": "24,88"
+    },
+    {
+      "cpu": 26,
+      "socket": 0,
+      "core": 20,
+      "siblings": "26,90"
+    },
+    {
+      "cpu": 28,
+      "socket": 0,
+      "core": 13,
+      "siblings": "28,92"
+    },
+    {
+      "cpu": 30,
+      "socket": 0,
+      "core": 26,
+      "siblings": "30,94"
+    },
+    {
+      "cpu": 64,
+      "socket": 0,
+      "core": 0,
+      "siblings": "0,64"
+    },
+    {
+      "cpu": 66,
+      "socket": 0,
+      "core": 18,
+      "siblings": "2,66"
+    },
+    {
+      "cpu": 68,
+      "socket": 0,
+      "core": 8,
+      "siblings": "4,68"
+    },
+    {
+      "cpu": 70,
+      "socket": 0,
+      "core": 27,
+      "siblings": "6,70"
+    },
+    {
+      "cpu": 72,
+      "socket": 0,
+      "core": 3,
+      "siblings": "8,72"
+    },
+    {
+      "cpu": 74,
+      "socket": 0,
+      "core": 21,
+      "siblings": "10,74"
+    },
+    {
+      "cpu": 76,
+      "socket": 0,
+      "core": 12,
+      "siblings": "12,76"
+    },
+    {
+      "cpu": 78,
+      "socket": 0,
+      "core": 29,
+      "siblings": "14,78"
+    },
+    {
+      "cpu": 80,
+      "socket": 0,
+      "core": 5,
+      "siblings": "16,80"
+    },
+    {
+      "cpu": 82,
+      "socket": 0,
+      "core": 24,
+      "siblings": "18,82"
+    },
+    {
+      "cpu": 84,
+      "socket": 0,
+      "core": 9,
+      "siblings": "20,84"
+    },
+    {
+      "cpu": 86,
+      "socket": 0,
+      "core": 31,
+      "siblings": "22,86"
+    },
+    {
+      "cpu": 88,
+      "socket": 0,
+      "core": 1,
+      "siblings": "24,88"
+    },
+    {
+      "cpu": 90,
+      "socket": 0,
+      "core": 20,
+      "siblings": "26,90"
+    },
+    {
+      "cpu": 92,
+      "socket": 0,
+      "core": 13,
+      "siblings": "28,92"
+    },
+    {
+      "cpu": 94,
+      "socket": 0,
+      "core": 26,
+      "siblings": "30,94"
+    }
+  ],
+  "selected_logical_cpus": [
+    0,
+    2,
+    4,
+    6,
+    8,
+    10,
+    12,
+    14,
+    16,
+    18,
+    20,
+    22,
+    24,
+    26,
+    28,
+    30
+  ],
+  "selected_physical_core_count": 16,
+  "selection": "one hardware thread per unique socket/core, round robin sockets",
+  "pilot_only": true,
+  "status": "completed",
+  "opt_in_worker_draw_timing": true,
+  "actual_python_affinity": [
+    0,
+    2,
+    4,
+    6,
+    8,
+    10,
+    12,
+    14,
+    16,
+    18,
+    20,
+    22,
+    24,
+    26,
+    28,
+    30
+  ]
+}

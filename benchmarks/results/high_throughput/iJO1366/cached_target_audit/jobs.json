@@ -1,0 +1,116 @@
+[
+  {
+    "method": "cpu",
+    "seed": 101001,
+    "job": "853",
+    "command": [
+      "sbatch",
+      "--parsable",
+      "--chdir=/mnt/home/jordan+123/history-native-20261015-r5",
+      "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/scripts/full64_cached_target_metrics.sbatch",
+      "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/high_throughput/iJO1366/cpu_native512_physical64_thin2000/seed101001/samples.npy",
+      "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/high_throughput/iJO1366/cached_target_audit/model",
+      "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/high_throughput/iJO1366/cached_target_audit/cpu/seed101001",
+      "12000"
+    ],
+    "source_run": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/high_throughput/iJO1366/cpu_native512_physical64_thin2000/seed101001",
+    "output": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/high_throughput/iJO1366/cached_target_audit/cpu/seed101001",
+    "submitted_utc": "2026-11-08T19:14:52.824264+00:00",
+    "note": "Original frozen estimator; full-budget only; conservative478 cached-target mask. No resampling."
+  },
+  {
+    "method": "cpu",
+    "seed": 202001,
+    "job": "854",
+    "command": [
+      "sbatch",
+      "--parsable",
+      "--chdir=/mnt/home/jordan+123/history-native-20261015-r5",
+      "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/scripts/full64_cached_target_metrics.sbatch",
+      "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/high_throughput/iJO1366/cpu_native512_physical64_thin2000/seed202001/budget12000/samples.npy",
+      "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/high_throughput/iJO1366/cached_target_audit/model",
+      "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/high_throughput/iJO1366/cached_target_audit/cpu/seed202001",
+      "12000"
+    ],
+    "source_run": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/high_throughput/iJO1366/cpu_native512_physical64_thin2000/seed202001/budget12000",
+    "output": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/high_throughput/iJO1366/cached_target_audit/cpu/seed202001",
+    "submitted_utc": "2026-11-08T19:14:52.845530+00:00",
+    "note": "Original frozen estimator; full-budget only; conservative478 cached-target mask. No resampling."
+  },
+  {
+    "method": "cpu",
+    "seed": 303001,
+    "job": "855",
+    "command": [
+      "sbatch",
+      "--parsable",
+      "--chdir=/mnt/home/jordan+123/history-native-20261015-r5",
+      "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/scripts/full64_cached_target_metrics.sbatch",
+      "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/high_throughput/iJO1366/cpu_native512_physical64_thin2000/seed303001/budget12000/samples.npy",
+      "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/high_throughput/iJO1366/cached_target_audit/model",
+      "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/high_throughput/iJO1366/cached_target_audit/cpu/seed303001",
+      "12000"
+    ],
+    "source_run": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/high_throughput/iJO1366/cpu_native512_physical64_thin2000/seed303001/budget12000",
+    "output": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/high_throughput/iJO1366/cached_target_audit/cpu/seed303001",
+    "submitted_utc": "2026-11-08T19:14:52.867638+00:00",
+    "note": "Original frozen estimator; full-budget only; conservative478 cached-target mask. No resampling."
+  },
+  {
+    "method": "gpu_coordinate",
+    "seed": 101001,
+    "job": "856",
+    "command": [
+      "sbatch",
+      "--parsable",
+      "--chdir=/mnt/home/jordan+123/history-native-20261015-r5",
+      "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/scripts/full64_cached_target_metrics.sbatch",
+      "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/coordinate_kernel/paired/chains512/coordinate/samples.npy",
+      "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/high_throughput/iJO1366/cached_target_audit/model",
+      "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/high_throughput/iJO1366/cached_target_audit/gpu_coordinate/seed101001",
+      "5000"
+    ],
+    "source_run": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/coordinate_kernel/paired/chains512/coordinate",
+    "output": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/high_throughput/iJO1366/cached_target_audit/gpu_coordinate/seed101001",
+    "submitted_utc": "2026-11-08T19:14:52.893752+00:00",
+    "note": "Original frozen estimator; full-budget only; conservative478 cached-target mask. No resampling."
+  },
+  {
+    "method": "gpu_coordinate",
+    "seed": 202001,
+    "job": "857",
+    "command": [
+      "sbatch",
+      "--parsable",
+      "--chdir=/mnt/home/jordan+123/history-native-20261015-r5",
+      "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/scripts/full64_cached_target_metrics.sbatch",
+      "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/high_throughput/iJO1366/naja512_coordinate_tpb128_thin500_prefault8/seed202001/samples.npy",
+      "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/high_throughput/iJO1366/cached_target_audit/model",
+      "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/high_throughput/iJO1366/cached_target_audit/gpu_coordinate/seed202001",
+      "5000"
+    ],
+    "source_run": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/high_throughput/iJO1366/naja512_coordinate_tpb128_thin500_prefault8/seed202001",
+    "output": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/high_throughput/iJO1366/cached_target_audit/gpu_coordinate/seed202001",
+    "submitted_utc": "2026-11-08T19:14:52.915494+00:00",
+    "note": "Original frozen estimator; full-budget only; conservative478 cached-target mask. No resampling."
+  },
+  {
+    "method": "gpu_coordinate",
+    "seed": 303001,
+    "job": "858",
+    "command": [
+      "sbatch",
+      "--parsable",
+      "--chdir=/mnt/home/jordan+123/history-native-20261015-r5",
+      "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/scripts/full64_cached_target_metrics.sbatch",
+      "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/high_throughput/iJO1366/naja512_coordinate_tpb128_thin500_prefault8/seed303001/samples.npy",
+      "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/high_throughput/iJO1366/cached_target_audit/model",
+      "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/high_throughput/iJO1366/cached_target_audit/gpu_coordinate/seed303001",
+      "5000"
+    ],
+    "source_run": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/high_throughput/iJO1366/naja512_coordinate_tpb128_thin500_prefault8/seed303001",
+    "output": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/high_throughput/iJO1366/cached_target_audit/gpu_coordinate/seed303001",
+    "submitted_utc": "2026-11-08T19:14:52.935079+00:00",
+    "note": "Original frozen estimator; full-budget only; conservative478 cached-target mask. No resampling."
+  }
+]

@@ -1,0 +1,8 @@
+{
+  "git_commit": "fcc66fe63d5a6700786aebcf0b925374340e4c8b",
+  "binary_sha256": "5c01c66c90f46565eaafe0927265d135bcfa89af50a017df6c51de70044afe42",
+  "source_file": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/closeout/task2_3/sourceproof/naja_chr.cu",
+  "source_sha256": "e6e57ce2223d27627323428d85d2fb5b29217b05f2970399e1d86b05e9754308",
+  "coordinate_selection": "ei = curand_uniform_double * cols; random coordinate scan",
+  "update_loop": "samples_per_chain * thinning updates per chain, including warmup"
+}

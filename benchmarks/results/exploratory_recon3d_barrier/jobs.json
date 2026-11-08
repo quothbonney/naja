@@ -1,0 +1,21 @@
+{
+  "created_utc": "2026-11-08T03:42:06.032477+00:00",
+  "scope": "Exploratory equality-only/no MVE with unchanged original target; excluded from canonical comparisons and convergence claims. Does not replace canonical Recon3D preparation.",
+  "prep_job": "484",
+  "prep_command": "sbatch --nice=2000 benchmarks/scripts/recon3d_nullspace_probe.sbatch",
+  "sample_job": "485",
+  "sample_command": "sbatch --nice=2000 --dependency=afterok:484 benchmarks/scripts/recon3d_barrier_probe.sbatch",
+  "validation_tolerance": 1e-07,
+  "probe_chains": 16,
+  "probe_draws": 200,
+  "probe_warmup": 100,
+  "probe_barrier": "whiten",
+  "probe_dtype": "float64",
+  "failed_attempts": [
+    {
+      "prep_job": "482",
+      "dependent_cancelled_job": "483",
+      "error": "COBRA initialization before PolyRound optional dependency import required; fixed wrapper import order, installed env unchanged."
+    }
+  ]
+}

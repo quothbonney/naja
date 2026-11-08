@@ -1,0 +1,13 @@
+{
+  "created_utc": "2026-11-08T03:56:21.269248+00:00",
+  "reason": "User requested a new Markdown file for results since utilization plot request.",
+  "new_report": "RESULTS_SINCE_UTILIZATION_REQUEST.md",
+  "generator": "../scripts/new_results_report.py",
+  "refresh_interval_seconds": 60,
+  "historical_reports": {
+    "BENCHMARK_TABLE.md": "d27733e042090f95e238d0cebe93e3a74516871db26bcc0e55f724d5bd2973bf",
+    "PROTOTYPE_SUMMARY.md": "2e571464a7734433d6c562ef48995df6e3c58889ee85d16c1b5dfa25705a5a97"
+  },
+  "historical_figures_auto_refresh": false,
+  "canonical_run_records_unchanged": true
+}

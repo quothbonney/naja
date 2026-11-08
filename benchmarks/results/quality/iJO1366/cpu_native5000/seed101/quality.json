@@ -1,0 +1,8 @@
+{
+  "model": "iJO1366",
+  "variant": "cpu_native5000",
+  "seed": 101,
+  "status": "deferred_by_declared_priority",
+  "note": "Native2000 meets target within10k; native5000 conditional expansion not needed.",
+  "source_run": null
+}

@@ -1,0 +1,7 @@
+Equal-sample ratios pair seed, model, chain count, retained draws, warmup and reduced dimension.
+CPU choice is fastest completed baseline per pair, with actual thinning recorded.
+Wall includes load, initialization, warmup, sampling, and native writes; Naja standardized-output conversion is added.
+Preprocessing and external diagnostics excluded for both methods. Different output precision is disclosed in run metadata.
+These are equal-sample comparisons, not equal-quality speedups. Inspect Rhat/ESS and bounds for both methods.
+Prefix time-to-quality is an interpolation estimate, not a measured stopping time.
+Missing/failed/time-capped runs remain in runs.csv; only completed runs with diagnostics enter ratios.

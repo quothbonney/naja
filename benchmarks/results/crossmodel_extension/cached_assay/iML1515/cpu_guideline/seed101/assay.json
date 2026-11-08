@@ -1,0 +1,30 @@
+{
+  "model": "iML1515",
+  "method": "cpu_guideline",
+  "seed": 101,
+  "run": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/native_cpu/iML1515/physical16_mathinstrumented_native_jade/seed101",
+  "compute_seconds": 69.406064501,
+  "draws": 500,
+  "status": "complete",
+  "quality_and_bounds_met": true,
+  "split_rhat_median": 1.004743912657604,
+  "bulk_ess_median": 2917.379087531139,
+  "sample_bound_violation_fraction": 0.0,
+  "maximum_bound_violation": 7.523110101462052e-08,
+  "ess_per_compute_second": 42.033489558957854,
+  "geometry_sha256": "edfd39e411b95db6e9326465c9fedb90de59642281b3755bd870d7967e6fb20b",
+  "certificate_sha256": "e0296627249e54b0f73e059e7d826e94d6a1c0e9c71ebcae103a1fb513f2992c",
+  "active_reactions": 2084,
+  "excluded_reactions": 628,
+  "metrics": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/crossmodel_extension/cached_assay/iML1515/cpu_guideline/seed101/metrics.json",
+  "command": [
+    "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/env-cpu/bin/python",
+    "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/scripts/reaggregate_cached_metrics.py",
+    "--source",
+    "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/native_cpu/iML1515/physical16_mathinstrumented_native_jade/seed101",
+    "--model",
+    "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/crossmodel_extension/cached_models/iML1515",
+    "--output",
+    "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/crossmodel_extension/cached_assay/iML1515/cpu_guideline/seed101"
+  ]
+}

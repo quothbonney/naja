@@ -1,0 +1,70 @@
+[
+  {
+    "condition": "iJO1366",
+    "variant": "global_cpu",
+    "seed": 101,
+    "job": "559",
+    "command": [
+      "/usr/bin/sbatch",
+      "--parsable",
+      "--cpus-per-task=32",
+      "--mem=128G",
+      "--time=00:45:00",
+      "--job-name=quality-conditional-global_cpu",
+      "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/scripts/conditioned_quality.sbatch",
+      "--condition-root",
+      "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/conditioned_prototype/iJO1366",
+      "--variant",
+      "global_cpu",
+      "--seed",
+      "101"
+    ]
+  },
+  {
+    "condition": "iJO1366",
+    "variant": "stale_cpu",
+    "seed": 101,
+    "job": "560",
+    "command": [
+      "/usr/bin/sbatch",
+      "--parsable",
+      "--cpus-per-task=4",
+      "--mem=64G",
+      "--time=00:45:00",
+      "--job-name=quality-conditional-stale_cpu",
+      "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/scripts/conditioned_quality.sbatch",
+      "--condition-root",
+      "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/conditioned_prototype/iJO1366",
+      "--variant",
+      "stale_cpu",
+      "--seed",
+      "101",
+      "--pilot-source",
+      "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/conditioned_prototype/iJO1366/runs/stale_cpu/seed101/budget50000"
+    ]
+  },
+  {
+    "condition": "iJO1366",
+    "variant": "naja_rotate",
+    "seed": 101,
+    "job": "561",
+    "command": [
+      "/usr/bin/sbatch",
+      "--parsable",
+      "--cpus-per-task=4",
+      "--mem=64G",
+      "--time=00:45:00",
+      "--job-name=quality-conditional-naja_rotate",
+      "--gpus=1",
+      "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/scripts/conditioned_quality.sbatch",
+      "--condition-root",
+      "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/conditioned_prototype/iJO1366",
+      "--variant",
+      "naja_rotate",
+      "--seed",
+      "101",
+      "--pilot-source",
+      "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/conditioned_prototype/iJO1366/runs/naja_rotate/seed101/budget10000"
+    ]
+  }
+]

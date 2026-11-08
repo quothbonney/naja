@@ -1,0 +1,114 @@
+{
+  "utc": "2026-11-08T20:16:35.635597+00:00",
+  "source_target": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/knockout_panel/conditions/b4025/models/shared",
+  "isolated_fixture": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/closeout/cli_fixture",
+  "tests": [
+    {
+      "name": "sample_help",
+      "argv": [
+        "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/scripts/enter.sh",
+        "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/build-closeout-release/naja",
+        "sample",
+        "--help"
+      ],
+      "returncode": 0,
+      "stdout_file": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/closeout/sample_help.txt"
+    },
+    {
+      "name": "prepare_help",
+      "argv": [
+        "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/scripts/enter.sh",
+        "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/build-closeout-release/naja",
+        "sample",
+        "prepare",
+        "--help"
+      ],
+      "returncode": 2,
+      "stdout_file": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/closeout/prepare_help.txt"
+    },
+    {
+      "name": "bulk_help",
+      "argv": [
+        "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/scripts/enter.sh",
+        "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/build-closeout-release/naja",
+        "sample",
+        "bulk",
+        "--help"
+      ],
+      "returncode": 0,
+      "stdout_file": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/closeout/bulk_help.txt"
+    },
+    {
+      "name": "prepare_existing_projected_target",
+      "argv": [
+        "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/scripts/enter.sh",
+        "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/build-closeout-release/naja",
+        "sample",
+        "prepare",
+        "--models-root",
+        "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/closeout/cli_fixture/models",
+        "--model-list",
+        "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/closeout/cli_fixture/all.txt",
+        "--out-model-list",
+        "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/closeout/cli_fixture/prepared.txt"
+      ],
+      "returncode": 0,
+      "output": "OK\nmodels_root     :: /mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/closeout/cli_fixture/models\nmodel_list      :: /mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/closeout/cli_fixture/all.txt\nprepared        :: 1 / 1\nout_model_list  :: /mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/closeout/cli_fixture/prepared.txt\n"
+    },
+    {
+      "name": "bulk_syntax_only_no_sampling",
+      "argv": [
+        "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/scripts/enter.sh",
+        "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/build-closeout-release/naja",
+        "sample",
+        "bulk",
+        "--models-root",
+        "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/closeout/cli_fixture/models",
+        "--model-list",
+        "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/closeout/cli_fixture/prepared.txt",
+        "--out-root",
+        "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/closeout/cli_fixture/runs",
+        "--name",
+        "closeout_syntax_check",
+        "--gpus",
+        "0",
+        "--seed",
+        "101",
+        "--sample-dtype",
+        "float64",
+        "--n-chains",
+        "16",
+        "--n-samples",
+        "11000",
+        "--tpb",
+        "512",
+        "--thinning",
+        "1000",
+        "--start-policy",
+        "file",
+        "--extra-constraints",
+        "auto",
+        "--constraint-eps",
+        "0",
+        "--barrier-rotate",
+        "--barrier-rotate-backend",
+        "gpu",
+        "--backmap",
+        "--bounds-policy",
+        "filter",
+        "--bounds-eps",
+        "1e-7",
+        "--write-npy",
+        "--dry-run"
+      ],
+      "returncode": 0,
+      "output": "> validate model contracts\n> write generated bulk config\nbulk_name :: closeout_syntax_check\njobs :: 1\ngpus :: 0\noutput :: /mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/closeout/cli_fixture/runs/closeout_syntax_check_20261108_003\nbounds :: filter\nbounds_eps :: 0.000000\n> dry-run: not executing bulk sampling\n"
+    }
+  ],
+  "source_repo": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/closeout-release",
+  "source_commit": "c9e5db8b8ed02c692b36e74e14b71eedcd871476",
+  "binary_sha256": "2fc4654b47d9a2f8a3fb46df6fd5a70dc1fe1bbbb48f758d816a2b9a565b10b1",
+  "legacy_validation": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/closeout/cli_validation.legacy_c7.json",
+  "fcc_validation": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/closeout/cli_validation.fcc66fe.json",
+  "note": "FinalreleaseC9: prepare copied already-projected exactKO target; bulk explicitseed101,float64,GPUbarrierbackend passes dry-run. No GPU sampling performed."
+}

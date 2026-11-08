@@ -1,0 +1,42 @@
+{
+  "captured_utc": "2026-11-08T04:24:37.102953+00:00",
+  "current_sources": {
+    "scripts/conditioned_prototype.py": "7c06efa69612ed4c66a3736c13b4228ebfe9f32a55c8385897f122e828739929",
+    "scripts/conditioned_prototype.sbatch": "b47f0ceadba5330b69caaed553d713cbcf28078700ecd490fa6b5b269b8ebcca",
+    "scripts/timed_cpu_baseline.py": "78b88c6b2b63660235b22aa6406090239c62b8e5afa15eb02e3fe0118328546e",
+    "scripts/hopsy_worker_timing.py": "a01b0bfd384c37ad483abdc0840fc28611ce34132d654e91e1e794a09e0732ba",
+    "cpu_baseline.py": "29323c98a34d82567ee063b578a08ecaf800e29ea7aa1c09f1e639ce0fae8746",
+    "naja_runner.py": "230b84b3c78344b4953a2d03eef7ef5488fdfb2844605cbaef7b74c83f0426a9",
+    "metrics.py": "854e524cade5cecc6a9c5541cb15957e0336c3461434c2363d9ef2a2b701947c",
+    "diagnostic_mask.py": "a47fc879e440a77207bcf44697aa45ad37a02d367e7c91e6d175fd0c14b1de60",
+    "scripts/validate_preprocessed.py": "f1e326e0f89b8b3702ab62329ac21817d6c3313313d07c9e95275b8757762549"
+  },
+  "saved_orchestration_versions": {
+    "conditioned_prototype.atomic_summary.py": "7c06efa69612ed4c66a3736c13b4228ebfe9f32a55c8385897f122e828739929",
+    "conditioned_prototype.pre_worker_timer.py": "f72964d529d493b07d46f6b23587edb3785f47511a013f8cc7e366b04b75603f",
+    "conditioned_prototype.worker_timer.py": "24a57761bbefb7108006bf8d96be2c65f888edec27083a5cbeb3a905d1265bfd"
+  },
+  "frozen_naja_binary_sha256": "c7baf4f0ed282b936ac0dbac4b896bfbfc040eb06da6f84aff6605fddf4b0fc6",
+  "native_hopsy_build": {
+    "build_variant": "native",
+    "hopsy_version": "1.7.0",
+    "hopsy_build": "9b787d9",
+    "hostname": "slurm-h100-206-077",
+    "source": {
+      "version": "1.7.0",
+      "source": "official PyPI sdist",
+      "url": "https://files.pythonhosted.org/packages/3e/49/b4c800828736a3c8b57555f694f06a59f0acee84996f8b35948703636f5b/hopsy-1.7.0.tar.gz",
+      "sha256": "24659f594c6859823d887adc576f11667abcd2548f8e22341c313841e809fc1e",
+      "archive": "source/hopsy-1.7.0.tar.gz"
+    },
+    "requested_flags": "-O3 -march=native -mtune=native",
+    "compiler": "GNU 11.4.0",
+    "compiler_target_file": "audit/hopsy_native_compiler_target.txt",
+    "observed_compile_commands": 22,
+    "wheel": "wheels-native/hopsy-1.7.0-cp312-cp312-linux_x86_64.whl",
+    "wheel_sha256": "9bd5d48712703dc7b95041498350d5e7f6795bbeefe6b6a1c4a60bd4aec617a2",
+    "module_sha256": "617c602456c6f54f70b4a4759404c088ed43ea7677acf3fcf181a19b86602ab8",
+    "analytic_cube_status": "passed"
+  },
+  "source_policy": "Each scientific record preserves its actual loaded orchestration SHA; worker module matches the real-model parity proof. Proposal, baseline and metrics source files were not edited for this study."
+}

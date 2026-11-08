@@ -1,0 +1,22 @@
+{
+  "202_8": {
+    "status": "cancelled_deadline_or_failed_dependency",
+    "reason": "Deferred until all three full64CPU sampling processes finish",
+    "job_name": "diagnostic-mask",
+    "original_dependency": "afterok:150_6(unfulfilled)",
+    "original_reason": "Dependency",
+    "workdir": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks",
+    "held_utc": "2026-11-08T04:28:15.901494+00:00",
+    "restore_utc": "2026-11-08T08:37:27.505127+00:00",
+    "restore_stderr": ""
+  },
+  "453": {
+    "status": "cancelled_replaced_with45minute_after_all_samples_diagnostic",
+    "reason": "Full64 diagnostics deferred until all samples captured",
+    "job_name": "metrics-512chain-cpu",
+    "original_dependency": "afterok:451(unfulfilled)",
+    "original_reason": "Dependency",
+    "workdir": "/mnt/home/jordan+123/history-native-20261015-r5",
+    "held_utc": "2026-11-08T04:28:15.925933+00:00"
+  }
+}

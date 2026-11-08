@@ -1,0 +1,8 @@
+{
+  "choice": "prefault8",
+  "pair_job": "492",
+  "pair_summary": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/high_throughput/iJO1366/prefault512_pair_thin500/seed101001/summary.json",
+  "thin": 500,
+  "draws": 5000,
+  "note": "Distinct experimental build; guarded byte-identical diagnostics reuse for paired seed only. No frozen/experimental timing pooling."
+}

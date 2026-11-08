@@ -1,0 +1,134 @@
+{
+  "gene": "b0030",
+  "gene_name": "rihC",
+  "disabled_reaction_ids": [
+    "ADNUC",
+    "INSH",
+    "XTSNH"
+  ],
+  "knockout_reaction_ids": [
+    "ADNUC",
+    "INSH",
+    "XTSNH"
+  ],
+  "changed_bound_rows": 3,
+  "two_sided_encoding_rows": 6,
+  "stratum": "1-5",
+  "base_LP_varying_reactions": 3,
+  "base_LP_nearconstant_reactions": 0,
+  "all_affected_reactions_varying": true,
+  "base_point_max_KO_residual": 0.44250191440314046,
+  "base_point_weak_feasible_at_1e7": false,
+  "minimum_KO_T_row_norm": 0.44250190844387066,
+  "original_changed_bounds": {
+    "ADNUC": [
+      0.0,
+      1000.0
+    ],
+    "INSH": [
+      0.0,
+      1000.0
+    ],
+    "XTSNH": [
+      0.0,
+      1000.0
+    ]
+  },
+  "genes_with_identical_bound_change_signature": [
+    "b0030"
+  ],
+  "bound_change_signature": "7ee140ad4f5c5b87e3d52fec29d2b11c5b0fc5c8badaebdd77558bcce2010093",
+  "status": "ready",
+  "base_geometry_sha256": "07374999682cb82ef566c2a7ba4cd1ca44b0718ab81f421846e24d3b85f5e103",
+  "base_dimension": 581,
+  "base_point_weak_feasible": false,
+  "constraint_epsilon": 0.0,
+  "rank_relative_tolerance": 1e-12,
+  "validation_tolerance": 1e-07,
+  "geometry_directory": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/knockout_panel/conditions/b0030/models/shared",
+  "LPs": [],
+  "facial_reductions": [],
+  "initial_projection_strict_interior": true,
+  "projected_point_strict_interior": true,
+  "final_origin_strict_after_facial_reduction": true,
+  "interior_method": "analytic_projection_checked_all_normalized_constraints",
+  "conditional_dimension": 578,
+  "rows": 747,
+  "affine_rank": 3,
+  "affine_rank_history": [
+    {
+      "rank": 3,
+      "singular_values": [
+        1.0009393151831516,
+        1.000939315183095,
+        0.9981187177092113
+      ],
+      "relative_rank_threshold": 1e-12,
+      "ranks_at_1e11_1e12_1e13": [
+        3,
+        3,
+        3
+      ],
+      "scaled_equality_residual": 2.220446049250313e-16,
+      "nullspace_residual": 2.220446049250313e-16,
+      "seconds": 0.0032045990228652954,
+      "projected_origin_min_normalized_slack": 0.9939452054518112
+    }
+  ],
+  "strict_interior_radius": 0.9939452054518112,
+  "min_raw_start_slack": 2.510090751172124e-08,
+  "certified_affine_constant_base_rows": [
+    {
+      "base_row": 137,
+      "projected_norm": 3.0789383969961657e-16,
+      "original_norm": 0.442501909970235,
+      "constant_bound": -5.551115123125783e-17,
+      "normalized_constant_bound": -1.2544838786117737e-16
+    },
+    {
+      "base_row": 443,
+      "projected_norm": 2.5743790085620353e-16,
+      "original_norm": 0.44250190844387066,
+      "constant_bound": 1.1102230246251565e-16,
+      "normalized_constant_bound": 2.508967765877971e-16
+    },
+    {
+      "base_row": 725,
+      "projected_norm": 2.9288048608983865e-16,
+      "original_norm": 0.4425019091957617,
+      "constant_bound": 1.6653345369377348e-16,
+      "normalized_constant_bound": 3.763451642422169e-16
+    }
+  ],
+  "no_bound_epsilon_relaxation": true,
+  "source": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/knockout_panel/conditions/b0030/conditional_model.json",
+  "source_sha256": "a2d072e6c941969fd545a5f2b89e1771597f35d71d1d15b434fea80e092155b4",
+  "geometry_sha256": "ee3bc70e3fdac315bea9881edc9f1d8b59cc579d080fb1272480f2d170dce862",
+  "embedding": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/knockout_panel/conditions/b0030/embedding.npz",
+  "effective_affine_face_signature_rounded_1e10": "9455375a79170e46e9b8e5c95a2462064adc88768a8788499ce9aef4b9e64a45",
+  "fixed_reaction_ids": [
+    "ADNUC",
+    "INSH",
+    "XTSNH"
+  ],
+  "fixed_reaction_values": {
+    "ADNUC": -5.551115123125783e-17,
+    "INSH": 1.1102230246251565e-16,
+    "XTSNH": 1.6653345369377348e-16
+  },
+  "containment_proof": {
+    "retained_A_max_error": 0.0,
+    "retained_b_max_error": 0.0,
+    "dropped_rows": "Equality-span residual and constant-bound certificates recorded; numerical rank contract explicit."
+  },
+  "validation": {
+    "points": 33,
+    "max_original_bound_violation": 1.4680356578345672e-12,
+    "max_base_Az_minus_b_violation": 2.7755575615628914e-16,
+    "max_KO_flux_residual": 1.692184913990424e-16
+  },
+  "preparation_seconds": 0.5304270479828119,
+  "LP_solve_seconds": 0,
+  "LP_calls": 0,
+  "LP_skipped": true
+}

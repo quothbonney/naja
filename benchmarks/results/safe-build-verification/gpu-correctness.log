@@ -1,0 +1,70 @@
+UpdateCTestConfiguration  from :/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/build-h100-safe/DartConfiguration.tcl
+Test project /mnt/home/jordan+123/history-native-20261015-r5/benchmarks/build-h100-safe
+Constructing a list of tests
+Done constructing a list of tests
+Updating test list for fixtures
+Added 0 tests to meet fixture requirements
+Checking test dependency graph...
+Checking test dependency graph end
+test 13
+    Start 13: test_gpu_sampling_feasibility
+
+13: Test command: /mnt/home/jordan+123/history-native-20261015-r5/benchmarks/build-h100-safe/test_gpu_sampling_feasibility
+13: Working Directory: /mnt/home/jordan+123/history-native-20261015-r5/benchmarks/build-h100-safe
+13: Test timeout computed to be: 10000000
+13: [PASS] 10D hypercube: 20000 samples, all feasible (tol=1e-07)
+13: [PASS] 8D simplex: 20000 samples, all feasible (tol=1e-07)
+13: [PASS] 6D thin slab eps=1e-4: 20000 samples, all feasible (tol=1e-07)
+13: [PASS] 15D random dense 60 rows: 20000 samples, all feasible (tol=1e-07)
+13: [PASS] 30D random dense 120 rows: 20000 samples, all feasible (tol=1e-07)
+13: 
+13: All feasibility tests passed.
+1/5 Test #13: test_gpu_sampling_feasibility .......   Passed    1.20 sec
+test 14
+    Start 14: test_gpu_sampling_cube_moments
+
+14: Test command: /mnt/home/jordan+123/history-native-20261015-r5/benchmarks/build-h100-safe/test_gpu_sampling_cube_moments
+14: Working Directory: /mnt/home/jordan+123/history-native-20261015-r5/benchmarks/build-h100-safe
+14: Test timeout computed to be: 10000000
+14: [PASS] 8D cube moments: mean, variance, correlation all within tolerance
+14:   total_samples=160000 thinning=20
+14:   max_abs_corr=0.00567888
+2/5 Test #14: test_gpu_sampling_cube_moments ......   Passed    1.28 sec
+test 15
+    Start 15: test_gpu_sampling_simplex_moments
+
+15: Test command: /mnt/home/jordan+123/history-native-20261015-r5/benchmarks/build-h100-safe/test_gpu_sampling_simplex_moments
+15: Working Directory: /mnt/home/jordan+123/history-native-20261015-r5/benchmarks/build-h100-safe
+15: Test timeout computed to be: 10000000
+15: [PASS] 6D simplex moments: mean, variance, covariance, feasibility all correct
+15:   E[x_i]=0.142857 Var[x_i]=0.0153061 Cov[x_i,x_j]=-0.00255102
+15:   total_samples=240000 thinning=20
+3/5 Test #15: test_gpu_sampling_simplex_moments ...   Passed    1.66 sec
+test 16
+    Start 16: test_gpu_backmap_correctness
+
+16: Test command: /mnt/home/jordan+123/history-native-20261015-r5/benchmarks/build-h100-safe/test_gpu_backmap_correctness
+16: Working Directory: /mnt/home/jordan+123/history-native-20261015-r5/benchmarks/build-h100-safe
+16: Test timeout computed to be: 10000000
+16: [PASS] backmap correctness: 20000 samples, feas OK, range OK, mean_err=0.0348306
+4/5 Test #16: test_gpu_backmap_correctness ........   Passed    0.65 sec
+test 17
+    Start 17: test_gpu_thin_polytope
+
+17: Test command: /mnt/home/jordan+123/history-native-20261015-r5/benchmarks/build-h100-safe/test_gpu_thin_polytope
+17: Working Directory: /mnt/home/jordan+123/history-native-20261015-r5/benchmarks/build-h100-safe
+17: Test timeout computed to be: 10000000
+17: [PASS] thin polytope (eps=0.0001): feasibility OK, exploration OK
+17:   max_slab_coord=9.99994e-05
+5/5 Test #17: test_gpu_thin_polytope ..............   Passed    0.81 sec
+
+The following tests passed:
+	test_gpu_sampling_feasibility
+	test_gpu_sampling_cube_moments
+	test_gpu_sampling_simplex_moments
+	test_gpu_backmap_correctness
+	test_gpu_thin_polytope
+
+100% tests passed out of 5
+
+Total Test time (real) =   5.64 sec

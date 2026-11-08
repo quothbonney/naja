@@ -1,0 +1,106 @@
+{
+  "status": "catalogued",
+  "source": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/raw/iJO1366.json",
+  "source_sha256": "9376a93f62ad430719f23e612154dd94c67e0d7c9545ed9d17a4d0c347672313",
+  "base_model": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/iJO1366",
+  "base_geometry_sha256": "07374999682cb82ef566c2a7ba4cd1ca44b0718ab81f421846e24d3b85f5e103",
+  "availability": {
+    "0": {
+      "real_genes": 367,
+      "unique_bound_change_signatures": 1,
+      "clean_nontrivial_signatures": 0
+    },
+    "1-5": {
+      "real_genes": 936,
+      "unique_bound_change_signatures": 753,
+      "clean_nontrivial_signatures": 510
+    },
+    "6-20": {
+      "real_genes": 54,
+      "unique_bound_change_signatures": 40,
+      "clean_nontrivial_signatures": 26
+    },
+    "21-50": {
+      "real_genes": 9,
+      "unique_bound_change_signatures": 9,
+      "clean_nontrivial_signatures": 8
+    },
+    "51-200": {
+      "real_genes": 0,
+      "unique_bound_change_signatures": 0,
+      "clean_nontrivial_signatures": 0
+    }
+  },
+  "pilot_genes": [
+    "b0175"
+  ],
+  "conditions": [
+    {
+      "gene": "b0175",
+      "gene_name": "cdsA",
+      "disabled_reaction_ids": [
+        "DASYN120",
+        "DASYN140",
+        "DASYN141",
+        "DASYN160",
+        "DASYN161",
+        "DASYN180",
+        "DASYN181"
+      ],
+      "knockout_reaction_ids": [
+        "DASYN120",
+        "DASYN140",
+        "DASYN141",
+        "DASYN160",
+        "DASYN161",
+        "DASYN180",
+        "DASYN181"
+      ],
+      "changed_bound_rows": 7,
+      "two_sided_encoding_rows": 14,
+      "stratum": "6-20",
+      "base_LP_varying_reactions": 7,
+      "base_LP_nearconstant_reactions": 0,
+      "all_affected_reactions_varying": true,
+      "base_point_max_KO_residual": 1.0043887904669424,
+      "base_point_weak_feasible_at_1e7": false,
+      "minimum_KO_T_row_norm": 0.5034416388022849,
+      "original_changed_bounds": {
+        "DASYN120": [
+          0.0,
+          1000.0
+        ],
+        "DASYN140": [
+          0.0,
+          1000.0
+        ],
+        "DASYN141": [
+          0.0,
+          1000.0
+        ],
+        "DASYN160": [
+          0.0,
+          1000.0
+        ],
+        "DASYN161": [
+          0.0,
+          1000.0
+        ],
+        "DASYN180": [
+          0.0,
+          1000.0
+        ],
+        "DASYN181": [
+          0.0,
+          1000.0
+        ]
+      },
+      "genes_with_identical_bound_change_signature": [
+        "b0175"
+      ],
+      "bound_change_signature": "eef8143e9e3970ea86a6fb8a773d3c7a190c6c61867cca06b6897ab51be4c137"
+    }
+  ],
+  "selection": "50 distinct bound-change signatures, one zero-effect control; nonzero cases first require every affected reaction to be LP-varying and nondegenerate in cached geometry. Final affine-face duplicates are reported separately.",
+  "geometry_directory_template": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/knockout_panel/conditions/<gene>/models/shared"
+}

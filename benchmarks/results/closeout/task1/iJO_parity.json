@@ -1,0 +1,33 @@
+{
+  "comparisons": [
+    {
+      "reference": "iJO_reference_seed101",
+      "candidate": "iJO_default_gpu_rotation",
+      "counterfactual_cast": false,
+      "bitwise_equal": false,
+      "all_saved_scalar_mismatches": 101983508,
+      "retained_scalar_mismatches": 92959918,
+      "maximum_absolute_coordinate_difference": 9.16336965560913,
+      "compared_saved_shape": [
+        176000,
+        581
+      ],
+      "retained_draws_per_chain": 10000
+    },
+    {
+      "reference": "iJO_reference_seed101",
+      "candidate": "iJO_compat_cpu_rotation",
+      "counterfactual_cast": false,
+      "bitwise_equal": true,
+      "all_saved_scalar_mismatches": 0,
+      "retained_scalar_mismatches": 0,
+      "maximum_absolute_coordinate_difference": 0.0,
+      "compared_saved_shape": [
+        176000,
+        581
+      ],
+      "retained_draws_per_chain": 10000
+    }
+  ],
+  "interpretation": "Reference is public23873f0 plus the saved one-line constant-seed101 shim. Default GPU A\u00d7Q can differ numerically from CPU A\u00d7Q; mismatches are measured, never hidden."
+}

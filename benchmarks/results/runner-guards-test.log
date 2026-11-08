@@ -1,0 +1,1 @@
+PASS: zero-exit CUDA error rejected; INT_MAX overflow blocked; nonfinite warmup/retained and wrong dimension rejected.

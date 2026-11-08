@@ -1,0 +1,25 @@
+{
+  "chains16": {
+    "sqlite_present": true,
+    "raw_report_present": true,
+    "completed_target_phases": 3
+  },
+  "chains512": {
+    "sqlite_present": true,
+    "raw_report_present": true,
+    "completed_target_phases": 3
+  },
+  "chains512_prefault8": {
+    "sqlite_present": true,
+    "raw_report_present": true,
+    "completed_target_phases": 3
+  },
+  "ncu_profile_count": 8,
+  "figure_formats": {
+    "svg": true,
+    "pdf": true,
+    "png": true
+  },
+  "raw_csv_present": true,
+  "bounds": "Throughput/profiling runs; no convergence inference."
+}

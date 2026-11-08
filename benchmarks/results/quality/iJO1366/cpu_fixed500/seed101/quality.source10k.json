@@ -1,0 +1,11 @@
+{
+  "model": "iJO1366",
+  "variant": "cpu_fixed500",
+  "seed": 101,
+  "status": "no_quality_within_source_budget",
+  "source_run": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/hopsy/iJO1366/500/seed101",
+  "source_draws_per_chain": 10000,
+  "source_split_rhat_median": 1.0355660030646883,
+  "source_bulk_ess_median": 569.3546115073565,
+  "note": "No passing evaluated prefix; no extrapolation or measured qualifying time claimed."
+}

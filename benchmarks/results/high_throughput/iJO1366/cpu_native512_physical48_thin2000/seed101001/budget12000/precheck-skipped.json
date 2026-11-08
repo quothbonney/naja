@@ -1,0 +1,3 @@
+{
+  "reason": "Previously selected CPU retime or validated coordinate configuration goes directly to full common metrics, or strict exact-byte cache proof succeeded. Avoids a redundant whole-data scan within the30-minute cap; full diagnostics still check Rhat/ESS/bounds."
+}

@@ -1,0 +1,35 @@
+Running HiGHS 1.15.1 (git hash: 04024d7): Copyright (c) 2026 under MIT licence terms
+Includes third-party software components, see THIRD_PARTY_NOTICES.md for full details
+LP has 1280 rows; 1452 cols; 403656 nonzeros
+Coefficient ranges:
+  Matrix  [3e-10, 1e+00]
+  Cost    [1e-06, 1e-06]
+  Bound   [1e+00, 1e+00]
+  RHS     [1e+00, 1e+00]
+WARNING: Problem has some excessively small costs
+WARNING:    Consider scaling the objective by 1e+2, or setting the user_objective_scale option to 7
+Presolving model
+1280 rows, 1452 cols, 403656 nonzeros 0s
+Dependent equations search running on 553 equations with time limit of 1.00s
+Dependent equations search removed 0 rows and 0 nonzeros in 0.68s (limit = 1.00s)
+1279 rows, 1451 cols, 403101 nonzeros 1s
+Presolve reductions: rows 1279(-1); columns 1451(-1); nonzeros 403101(-555) 
+Solving the presolved LP
+Using dual simplex solver
+  Iteration        Objective     Infeasibilities num(sum)
+          0     0.0000000000e+00 Ph1: 0(0) 1.0s
+WARNING:    Increasing Markowitz threshold to 0.5
+       1375    -6.3999889629e-05 Pr: 0(0); Du: 2(3.54044e-07) 3.3s
+       1375    -6.3999889629e-05 Pr: 0(0); Du: 2(3.54044e-07) 3.3s
+       1375    -6.3999889629e-05 Pr: 0(0); Du: 2(3.54044e-07) 3.3s
+Using dual simplex solver
+  Iteration        Objective     Infeasibilities num(sum)
+       1375    -6.3999889634e-05 Pr: 219(0.00096897); Du: 0(1.09749e-10) 3.3s
+       1625    -6.9342517879e-05 Pr: 370(0.812721) 8.5s
+       1716    -8.2218102500e-04 Pr: 25(2.37055); Du: 0(1.96398e-12) 13.5s
+       1770    -8.7146558920e-05 Pr: 404(0.745118); Du: 0(1.88419e-12) 18.6s
+       1806     5.9507653855e-03 Pr: 301(6023.08) 23.6s
+       1829     1.9371190205e-03 Pr: 315(4429.83) 28.8s
+ERROR:   Dual simplex ratio test failed due to excessive dual values: consider scaling down the LP objective coefficients
+Model status        : Solve error
+HiGHS run time      :         29.19

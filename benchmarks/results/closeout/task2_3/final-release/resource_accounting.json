@@ -1,0 +1,10 @@
+{
+  "job": "959",
+  "state": "COMPLETED",
+  "exit_code": "0:0",
+  "elapsed_seconds": 149,
+  "allocated_GPUs": 1,
+  "reserved_GPU_hours": 0.04138888888888889,
+  "maximum_allowed_GPU_hours": 1.0,
+  "within_user_budget": true
+}

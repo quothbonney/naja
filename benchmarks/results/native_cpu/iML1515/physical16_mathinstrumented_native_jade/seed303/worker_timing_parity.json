@@ -1,0 +1,10 @@
+{
+  "status": "passed",
+  "bitwise_equal": true,
+  "samples_sha256": "ae339c392ae9ecdd182a6f60be9d58ed392870112a9bd20e1b03baf5ecf2f00e",
+  "reference_samples_sha256": "ae339c392ae9ecdd182a6f60be9d58ed392870112a9bd20e1b03baf5ecf2f00e",
+  "reference_run": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/larger_quality/iML1515/cpujade/seed303/final",
+  "instrumented_run": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/native_cpu/iML1515/physical16_mathinstrumented_native_jade/seed303",
+  "seed": 303,
+  "model": "iML1515"
+}

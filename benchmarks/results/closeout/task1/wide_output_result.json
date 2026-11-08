@@ -1,0 +1,1 @@
+{"status":"passed","rows":512,"cols":4194305,"elements":2147484160,"bytes":17179873280,"largest_checked_element_offset":2147484159,"full_device_to_host_copy":true,"wide_input_cublas_backmap_all_outputs_checked":true,"mirror_large_output_all_elements_checked":true,"float64_stream_sink":"/dev/null","persistent_payload_written":false}

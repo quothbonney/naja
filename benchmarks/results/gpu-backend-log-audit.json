@@ -1,0 +1,37 @@
+{
+  "scopes": [
+    "naja",
+    "quality",
+    "uniformity",
+    "scaling",
+    "scaling-extension"
+  ],
+  "logs_scanned": 141,
+  "error_logs": [
+    {
+      "log": "benchmarks/results/scaling-extension/iJO1366/chains512_tpb128/stderr.log",
+      "errors": [
+        "CUDA Error: out of memory at /mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/naja/src/gpu/dmatrix.cu:46",
+        "CUDA Error: out of memory at /mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/naja/src/gpu/dmatrix.cu:27",
+        "CUDA Error: an illegal memory access was encountered at /mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/naja/src/gpu/curandwrapper.h:16",
+        "cuBLAS Error: the library was not initialized at /mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/naja/src/engine/job_sampling.cu:597",
+        "CUDA Error: an illegal memory access was encountered at /mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/naja/src/gpu/dmatrix.cu:46",
+        "cuBLAS Error: the library was not initialized at /mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/naja/src/engine/job_sampling.cu:612",
+        "CUDA Error: an illegal memory access was encountered at /mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/naja/src/gpu/dmatrix.cu:114"
+      ]
+    },
+    {
+      "log": "benchmarks/results/scaling-extension/iJO1366/chains512_tpb512/stderr.log",
+      "errors": [
+        "CUDA Error: out of memory at /mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/naja/src/gpu/dmatrix.cu:46",
+        "CUDA Error: out of memory at /mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/naja/src/gpu/dmatrix.cu:27",
+        "CUDA Error: an illegal memory access was encountered at /mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/naja/src/gpu/curandwrapper.h:16",
+        "cuBLAS Error: the library was not initialized at /mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/naja/src/engine/job_sampling.cu:597",
+        "CUDA Error: an illegal memory access was encountered at /mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/naja/src/gpu/dmatrix.cu:46",
+        "cuBLAS Error: the library was not initialized at /mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/naja/src/engine/job_sampling.cu:612",
+        "CUDA Error: an illegal memory access was encountered at /mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/naja/src/gpu/dmatrix.cu:114"
+      ]
+    }
+  ],
+  "note": "GPU backend errors invalidate a run even when process exit status is zero; audit performed after512-chain failure."
+}

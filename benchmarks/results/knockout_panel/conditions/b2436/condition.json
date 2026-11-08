@@ -1,0 +1,102 @@
+{
+  "gene": "b2436",
+  "gene_name": "hemF",
+  "disabled_reaction_ids": [
+    "CPPPGO"
+  ],
+  "knockout_reaction_ids": [
+    "CPPPGO"
+  ],
+  "changed_bound_rows": 1,
+  "two_sided_encoding_rows": 2,
+  "stratum": "1-5",
+  "base_LP_varying_reactions": 1,
+  "base_LP_nearconstant_reactions": 0,
+  "all_affected_reactions_varying": true,
+  "base_point_max_KO_residual": 0.003902023057409704,
+  "base_point_weak_feasible_at_1e7": false,
+  "minimum_KO_T_row_norm": 0.00390202299823186,
+  "original_changed_bounds": {
+    "CPPPGO": [
+      0.0,
+      1000.0
+    ]
+  },
+  "genes_with_identical_bound_change_signature": [
+    "b2436"
+  ],
+  "bound_change_signature": "e79637b07a788392bf9b6a51de8ea66cc0c94586c7c1ee668cdf7b97af362e14",
+  "status": "ready",
+  "base_geometry_sha256": "07374999682cb82ef566c2a7ba4cd1ca44b0718ab81f421846e24d3b85f5e103",
+  "base_dimension": 581,
+  "base_point_weak_feasible": false,
+  "constraint_epsilon": 0.0,
+  "rank_relative_tolerance": 1e-12,
+  "validation_tolerance": 1e-07,
+  "geometry_directory": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/knockout_panel/conditions/b2436/models/shared",
+  "LPs": [],
+  "facial_reductions": [],
+  "initial_projection_strict_interior": true,
+  "projected_point_strict_interior": true,
+  "final_origin_strict_after_facial_reduction": true,
+  "interior_method": "analytic_projection_checked_all_normalized_constraints",
+  "conditional_dimension": 580,
+  "rows": 749,
+  "affine_rank": 1,
+  "affine_rank_history": [
+    {
+      "rank": 1,
+      "singular_values": [
+        1.0
+      ],
+      "relative_rank_threshold": 1e-12,
+      "ranks_at_1e11_1e12_1e13": [
+        1,
+        1,
+        1
+      ],
+      "scaled_equality_residual": 2.220446049250313e-16,
+      "nullspace_residual": 7.324308377127243e-17,
+      "seconds": 0.002693779766559601,
+      "projected_origin_min_normalized_slack": 0.6405419396121709
+    }
+  ],
+  "strict_interior_radius": 0.6405419396121709,
+  "min_raw_start_slack": 2.5007964498579054e-08,
+  "certified_affine_constant_base_rows": [
+    {
+      "base_row": 223,
+      "projected_norm": 1.1829029511523778e-18,
+      "original_norm": 0.00390202299823186,
+      "constant_bound": -4.336808689942018e-19,
+      "normalized_constant_bound": -1.1114257122285478e-16
+    }
+  ],
+  "no_bound_epsilon_relaxation": true,
+  "source": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/knockout_panel/conditions/b2436/conditional_model.json",
+  "source_sha256": "f62f8e52da8c3ea6677e357baa5b49ac9f715b963e7faeb1de6ecc26b469c84a",
+  "geometry_sha256": "ee6fbf3063fc4020b6afc58a432cbc4d64c205c0f2178f29f1a6073748521bfb",
+  "embedding": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/knockout_panel/conditions/b2436/embedding.npz",
+  "effective_affine_face_signature_rounded_1e10": "a2dfbf912e9fbe511a5cc89834f4c731a697975af5065d0d66efc9c02a11af8e",
+  "fixed_reaction_ids": [
+    "CPPPGO"
+  ],
+  "fixed_reaction_values": {
+    "CPPPGO": -4.336808689942018e-19
+  },
+  "containment_proof": {
+    "retained_A_max_error": 1.164670302474663e-21,
+    "retained_b_max_error": 0.0,
+    "dropped_rows": "Equality-span residual and constant-bound certificates recorded; numerical rank contract explicit."
+  },
+  "validation": {
+    "points": 33,
+    "max_original_bound_violation": 1.4667899877208912e-12,
+    "max_base_Az_minus_b_violation": 3.469446951953614e-18,
+    "max_KO_flux_residual": 4.397445670670249e-19
+  },
+  "preparation_seconds": 0.5763476900756359,
+  "LP_solve_seconds": 0,
+  "LP_calls": 0,
+  "LP_skipped": true
+}

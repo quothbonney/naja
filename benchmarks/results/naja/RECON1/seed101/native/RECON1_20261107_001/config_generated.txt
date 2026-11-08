@@ -1,0 +1,17 @@
+DATA_DIR=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models
+MODEL_NAME=RECON1
+OUT_DIR=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/naja/RECON1/seed101/native/RECON1_20261107_001
+N_CHAINS=16
+N_SAMPLES=11000
+SEED=101
+TPB_SS=128
+GPU_DEVICE=0
+BACK_TRANSFORM=false
+WRITE_DATA=true
+VERBOSE=false
+STATUS=true
+EXTRA_CONSTRAINTS=auto
+START_POLICY=file
+BARRIER_ROTATE=true
+BARRIER_WHITEN=false
+BOUNDS_POLICY=ignore

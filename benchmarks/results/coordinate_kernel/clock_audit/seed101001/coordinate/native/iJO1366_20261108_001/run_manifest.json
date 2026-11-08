@@ -1,0 +1,30 @@
+{
+  "argv": ["naja", "sample", "run", "--model-dir", "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/iJO1366", "--out-root", "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/coordinate_kernel/clock_audit/seed101001/coordinate/native", "--gpu", "0", "--n-chains", "512", "--n-samples", "6000", "--seed", "101001", "--tpb", "128", "--thinning", "500", "--constraint-eps", "0", "--extra-constraint-eps", "0", "--pair-prob", "0.0", "--bounds-policy", "ignore", "--write-npy", "--barrier-rotate", "--host-prefault-threads", "8"],
+  "model_dir": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/iJO1366",
+  "engine": {
+    "path": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/build-h100-coordinate/naja",
+    "sha256": "51854688114677b14de3c110c262d210281de1f351f1ae6df6be994c2cc67e82",
+    "size": 7030808
+  },
+  "config": {
+    "gpu_device": 0,
+    "n_chains": 512,
+    "n_samples": 6000,
+    "tpb_ss": 128,
+    "back_transform": false,
+    "write_data": true,
+    "bounds_policy": "ignore",
+    "bounds_eps": 1e-06,
+    "write_samples_valid": false
+  },
+  "resolved_paths": {
+    "model_dir": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/iJO1366",
+    "A": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/iJO1366/rounding/polytope.npz",
+    "b": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/iJO1366/rounding/polytope.npz",
+    "start": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/iJO1366/rounding/polytope.npz",
+    "T": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/iJO1366/rounding/polytope.npz",
+    "shift": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/iJO1366/rounding/polytope.npz",
+    "extra_A": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/iJO1366/rounding/extra.npz",
+    "extra_b": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/iJO1366/rounding/extra.npz"
+  }
+}

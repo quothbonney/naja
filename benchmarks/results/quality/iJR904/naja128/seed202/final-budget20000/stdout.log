@@ -1,0 +1,15 @@
+> validate model contract
+> write generated config
+model :: iJR904
+output :: /mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/quality/iJR904/naja128/seed202/final-budget20000/native/iJR904_20261107_001
+bounds :: ignore
+> sampling
+> loading polytope
+> barrier rotation (eigenbasis of H)
+> uploading to gpu
+> sampling 16 chains x 21000 samples (thin=50, 16800000 MCMC steps, 291 constraints x 232 dims)
+> gpu sampling
+> gpu back-transform
+> downloading
+> done: 2.7s, 125206 samples/s
+> writing npy

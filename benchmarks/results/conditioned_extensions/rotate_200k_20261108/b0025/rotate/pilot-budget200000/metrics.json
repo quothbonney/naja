@@ -1,0 +1,137 @@
+{
+  "schema_version": 2,
+  "model": "shared",
+  "metrics_code_sha256": "854e524cade5cecc6a9c5541cb15957e0336c3461434c2363d9ef2a2b701947c",
+  "metrics_workers": 4,
+  "metrics_allocated_cpus": 16,
+  "metrics_parallel_code_verified": true,
+  "metrics_auto_parallel_min_work": 20000000,
+  "metrics_parallel_worker_blas_threads": 1,
+  "samples": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/conditioned_extensions/rotate_200k_20261108/b0025/rotate/pilot-budget200000/samples.npy",
+  "model_dir": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/knockout_panel/conditions/b0025/models/shared",
+  "shape": [
+    16,
+    200000,
+    579
+  ],
+  "sample_space": "reduced_affine_backmapped_to_reactions",
+  "n_reactions": 2583,
+  "constant_reactions_excluded": 480,
+  "constant_definition": "model-derived solver-detected nearconstant mask plus exactly constant sampled reactions",
+  "diagnostic_mask_status": "model_lp_verified",
+  "diagnostic_mask_geometry_sha256": "bdea7bc1437ff1b2d1d4611e47b38792d15d28f2a6d9f25955e947ba89752ad8",
+  "diagnostic_mask_source_sha256": "b006f3b51cae95c9e27a28be4c72cfa42fa421e596ef0c39f71ba50d62e391ca",
+  "diagnostic_mask_range_tolerance": 1e-07,
+  "solver_detected_nearconstant_reactions_excluded": 480,
+  "exactly_constant_sampled_reactions": 0,
+  "solver_excluded_empirical_range_max": 5.2083184853229775e-12,
+  "solver_excluded_empirical_range_over_1e_minus_7_count": 0,
+  "solver_excluded_empirical_range_note": "Measured ranges are checked and retained even for LP-nearconstant reactions; values above 1e-7 expose affine-backmap numerical residue. Exclusion changes diagnostics only, never bound checks.",
+  "legacy_empirical_numerically_variable_summary": {
+    "split_rhat_median": 1.0421268129235504,
+    "split_rhat_p95": 1.6251128640833412,
+    "bulk_ess_median": 247.2189757947104,
+    "diagnosed_reactions": 2174
+  },
+  "legacy_empirical_constant_count": 409,
+  "legacy_empirical_constant_definition": "full-run max-min <= 1e-12 * max(1, max(abs(flux)))",
+  "empirical_absolute_range_gt_1e_minus_7_summary": {
+    "split_rhat_median": 1.101727986025554,
+    "split_rhat_p95": 1.6865136371331837,
+    "bulk_ess_median": 106.61602828952819,
+    "diagnosed_reactions": 1549
+  },
+  "diagnostic_definition": "classical split-Rhat; ArviZ pooled rank-normalized bulk ESS",
+  "arviz_version": "1.3.0",
+  "numpy_version": "2.5.4",
+  "split_rhat_median": 1.0437076541600916,
+  "split_rhat_p95": 1.625445507179823,
+  "bulk_ess_median": 224.95477737184044,
+  "diagnosed_reactions": 2103,
+  "bounds_tolerance": 1e-07,
+  "sample_bound_violation_fraction": 0.0,
+  "coordinate_bound_violation_fraction": 0.0,
+  "zero_tolerance_sample_bound_violation_fraction": 1.0,
+  "zero_tolerance_coordinate_bound_violation_fraction": 0.1405210899390244,
+  "max_absolute_bound_violation": 4.979958346412218e-09,
+  "wall_seconds": 584.8576538842171,
+  "samples_per_second": 5471.416811847856,
+  "prefix_quality": [
+    {
+      "draws_per_chain": 250,
+      "split_rhat_median": 1.2889796544321837,
+      "split_rhat_p95": 3.078307127398903,
+      "bulk_ess_median": 46.3282958491527,
+      "diagnosed_reactions": 2103,
+      "quality_met": false
+    },
+    {
+      "draws_per_chain": 500,
+      "split_rhat_median": 1.2192872582566878,
+      "split_rhat_p95": 2.388959831061677,
+      "bulk_ess_median": 57.37254835533811,
+      "diagnosed_reactions": 2103,
+      "quality_met": false
+    },
+    {
+      "draws_per_chain": 1000,
+      "split_rhat_median": 1.1778420127083833,
+      "split_rhat_p95": 2.150803495109053,
+      "bulk_ess_median": 69.04342424737634,
+      "diagnosed_reactions": 2103,
+      "quality_met": false
+    },
+    {
+      "draws_per_chain": 2000,
+      "split_rhat_median": 1.1318690197541506,
+      "split_rhat_p95": 2.047781195487659,
+      "bulk_ess_median": 86.75764303576933,
+      "diagnosed_reactions": 2103,
+      "quality_met": false
+    },
+    {
+      "draws_per_chain": 5000,
+      "split_rhat_median": 1.1052513221365963,
+      "split_rhat_p95": 1.9120546462528747,
+      "bulk_ess_median": 108.32994660497556,
+      "diagnosed_reactions": 2103,
+      "quality_met": false
+    },
+    {
+      "draws_per_chain": 10000,
+      "split_rhat_median": 1.095193823976308,
+      "split_rhat_p95": 1.8660944339769105,
+      "bulk_ess_median": 117.4852094796315,
+      "diagnosed_reactions": 2103,
+      "quality_met": false
+    },
+    {
+      "draws_per_chain": 20000,
+      "split_rhat_median": 1.093973312883595,
+      "split_rhat_p95": 1.8758118575914042,
+      "bulk_ess_median": 116.7900084328666,
+      "diagnosed_reactions": 2103,
+      "quality_met": false
+    },
+    {
+      "draws_per_chain": 50000,
+      "split_rhat_median": 1.0703298210575005,
+      "split_rhat_p95": 1.653734251107117,
+      "bulk_ess_median": 143.88060493060607,
+      "diagnosed_reactions": 2103,
+      "quality_met": false
+    },
+    {
+      "draws_per_chain": 200000,
+      "split_rhat_median": 1.0437076541600916,
+      "split_rhat_p95": 1.625445507179823,
+      "bulk_ess_median": 224.95477737184044,
+      "diagnosed_reactions": 2103,
+      "quality_met": false
+    }
+  ],
+  "first_quality_prefix_draws": null,
+  "estimated_time_to_quality_seconds": null,
+  "time_to_quality_note": "Linear interpolation from total wall time; NOT measured time-to-quality. Includes fixed overhead proportionally. Independent budget runs required for measured comparison.",
+  "metrics_wall_seconds": 1032.9509512856603
+}

@@ -1,0 +1,134 @@
+[
+  {
+    "directory": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/source-generic/hopsy-1.7.0/build/temp.linux-x86_64-cpython-312",
+    "command": "/usr/bin/c++ -DHOPS_HDF5_SUPPORT -DNDEBUG -I/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/source-generic/hopsy-1.7.0/extern/hops/src -I/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/home/intel/compilers_and_libraries/linux/mkl/include -isystem /mnt/home/jordan+123/history-native-20261015-r5/benchmarks/source-generic/hopsy-1.7.0/extern/eigen3 -O3  -Wno-unknown-warning -Wno-pragmas -Wall -Wextra --pedantic-errors -Wno-deprecated-copy -Wno-expansion-to-defined -O3 -std=c++17 -fPIC -o extern/hops/CMakeFiles/hops.dir/src/hops/FileReader/CsvReader.cpp.o -c /mnt/home/jordan+123/history-native-20261015-r5/benchmarks/source-generic/hopsy-1.7.0/extern/hops/src/hops/FileReader/CsvReader.cpp",
+    "file": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/source-generic/hopsy-1.7.0/extern/hops/src/hops/FileReader/CsvReader.cpp",
+    "output": "extern/hops/CMakeFiles/hops.dir/src/hops/FileReader/CsvReader.cpp.o"
+  },
+  {
+    "directory": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/source-generic/hopsy-1.7.0/build/temp.linux-x86_64-cpython-312",
+    "command": "/usr/bin/c++ -DHOPS_HDF5_SUPPORT -DNDEBUG -I/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/source-generic/hopsy-1.7.0/extern/hops/src -I/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/home/intel/compilers_and_libraries/linux/mkl/include -isystem /mnt/home/jordan+123/history-native-20261015-r5/benchmarks/source-generic/hopsy-1.7.0/extern/eigen3 -O3  -Wno-unknown-warning -Wno-pragmas -Wall -Wextra --pedantic-errors -Wno-deprecated-copy -Wno-expansion-to-defined -O3 -std=c++17 -fPIC -o extern/hops/CMakeFiles/hops.dir/src/hops/FileWriter/CsvWriter.cpp.o -c /mnt/home/jordan+123/history-native-20261015-r5/benchmarks/source-generic/hopsy-1.7.0/extern/hops/src/hops/FileWriter/CsvWriter.cpp",
+    "file": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/source-generic/hopsy-1.7.0/extern/hops/src/hops/FileWriter/CsvWriter.cpp",
+    "output": "extern/hops/CMakeFiles/hops.dir/src/hops/FileWriter/CsvWriter.cpp.o"
+  },
+  {
+    "directory": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/source-generic/hopsy-1.7.0/build/temp.linux-x86_64-cpython-312",
+    "command": "/usr/bin/c++ -DHOPS_HDF5_SUPPORT -DNDEBUG -I/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/source-generic/hopsy-1.7.0/extern/hops/src -I/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/home/intel/compilers_and_libraries/linux/mkl/include -isystem /mnt/home/jordan+123/history-native-20261015-r5/benchmarks/source-generic/hopsy-1.7.0/extern/eigen3 -O3  -Wno-unknown-warning -Wno-pragmas -Wall -Wextra --pedantic-errors -Wno-deprecated-copy -Wno-expansion-to-defined -O3 -std=c++17 -fPIC -o extern/hops/CMakeFiles/hops.dir/src/hops/FileWriter/CsvWriterImpl.cpp.o -c /mnt/home/jordan+123/history-native-20261015-r5/benchmarks/source-generic/hopsy-1.7.0/extern/hops/src/hops/FileWriter/CsvWriterImpl.cpp",
+    "file": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/source-generic/hopsy-1.7.0/extern/hops/src/hops/FileWriter/CsvWriterImpl.cpp",
+    "output": "extern/hops/CMakeFiles/hops.dir/src/hops/FileWriter/CsvWriterImpl.cpp.o"
+  },
+  {
+    "directory": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/source-generic/hopsy-1.7.0/build/temp.linux-x86_64-cpython-312",
+    "command": "/usr/bin/c++ -DHOPS_HDF5_SUPPORT -DNDEBUG -I/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/source-generic/hopsy-1.7.0/extern/hops/src -I/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/home/intel/compilers_and_libraries/linux/mkl/include -isystem /mnt/home/jordan+123/history-native-20261015-r5/benchmarks/source-generic/hopsy-1.7.0/extern/eigen3 -O3  -Wno-unknown-warning -Wno-pragmas -Wall -Wextra --pedantic-errors -Wno-deprecated-copy -Wno-expansion-to-defined -O3 -std=c++17 -fPIC -o extern/hops/CMakeFiles/hops.dir/src/hops/FileWriter/FileWriterFactory.cpp.o -c /mnt/home/jordan+123/history-native-20261015-r5/benchmarks/source-generic/hopsy-1.7.0/extern/hops/src/hops/FileWriter/FileWriterFactory.cpp",
+    "file": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/source-generic/hopsy-1.7.0/extern/hops/src/hops/FileWriter/FileWriterFactory.cpp",
+    "output": "extern/hops/CMakeFiles/hops.dir/src/hops/FileWriter/FileWriterFactory.cpp.o"
+  },
+  {
+    "directory": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/source-generic/hopsy-1.7.0/build/temp.linux-x86_64-cpython-312",
+    "command": "/usr/bin/c++ -DHOPS_HDF5_SUPPORT -DNDEBUG -I/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/source-generic/hopsy-1.7.0/extern/hops/src -I/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/home/intel/compilers_and_libraries/linux/mkl/include -isystem /mnt/home/jordan+123/history-native-20261015-r5/benchmarks/source-generic/hopsy-1.7.0/extern/eigen3 -O3  -Wno-unknown-warning -Wno-pragmas -Wall -Wextra --pedantic-errors -Wno-deprecated-copy -Wno-expansion-to-defined -O3 -std=c++17 -fPIC -o extern/hops/CMakeFiles/hops.dir/src/hops/MarkovChain/MarkovChainType.cpp.o -c /mnt/home/jordan+123/history-native-20261015-r5/benchmarks/source-generic/hopsy-1.7.0/extern/hops/src/hops/MarkovChain/MarkovChainType.cpp",
+    "file": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/source-generic/hopsy-1.7.0/extern/hops/src/hops/MarkovChain/MarkovChainType.cpp",
+    "output": "extern/hops/CMakeFiles/hops.dir/src/hops/MarkovChain/MarkovChainType.cpp.o"
+  },
+  {
+    "directory": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/source-generic/hopsy-1.7.0/build/temp.linux-x86_64-cpython-312",
+    "command": "/usr/bin/c++ -DHOPS_HDF5_SUPPORT -DNDEBUG -I/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/source-generic/hopsy-1.7.0/extern/hops/src -I/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/home/intel/compilers_and_libraries/linux/mkl/include -isystem /mnt/home/jordan+123/history-native-20261015-r5/benchmarks/source-generic/hopsy-1.7.0/extern/eigen3 -O3  -Wno-unknown-warning -Wno-pragmas -Wall -Wextra --pedantic-errors -Wno-deprecated-copy -Wno-expansion-to-defined -O3 -std=c++17 -fPIC -o extern/hops/CMakeFiles/hops.dir/src/hops/MarkovChain/Proposal/ReversibleJumpProposal.cpp.o -c /mnt/home/jordan+123/history-native-20261015-r5/benchmarks/source-generic/hopsy-1.7.0/extern/hops/src/hops/MarkovChain/Proposal/ReversibleJumpProposal.cpp",
+    "file": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/source-generic/hopsy-1.7.0/extern/hops/src/hops/MarkovChain/Proposal/ReversibleJumpProposal.cpp",
+    "output": "extern/hops/CMakeFiles/hops.dir/src/hops/MarkovChain/Proposal/ReversibleJumpProposal.cpp.o"
+  },
+  {
+    "directory": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/source-generic/hopsy-1.7.0/build/temp.linux-x86_64-cpython-312",
+    "command": "/usr/bin/c++ -DHOPS_HDF5_SUPPORT -DNDEBUG -I/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/source-generic/hopsy-1.7.0/extern/hops/src -I/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/home/intel/compilers_and_libraries/linux/mkl/include -isystem /mnt/home/jordan+123/history-native-20261015-r5/benchmarks/source-generic/hopsy-1.7.0/extern/eigen3 -O3  -Wno-unknown-warning -Wno-pragmas -Wall -Wextra --pedantic-errors -Wno-deprecated-copy -Wno-expansion-to-defined -O3 -std=c++17 -fPIC -o extern/hops/CMakeFiles/hops.dir/src/hops/MarkovChain/Tuning/AcceptanceRateTarget.cpp.o -c /mnt/home/jordan+123/history-native-20261015-r5/benchmarks/source-generic/hopsy-1.7.0/extern/hops/src/hops/MarkovChain/Tuning/AcceptanceRateTarget.cpp",
+    "file": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/source-generic/hopsy-1.7.0/extern/hops/src/hops/MarkovChain/Tuning/AcceptanceRateTarget.cpp",
+    "output": "extern/hops/CMakeFiles/hops.dir/src/hops/MarkovChain/Tuning/AcceptanceRateTarget.cpp.o"
+  },
+  {
+    "directory": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/source-generic/hopsy-1.7.0/build/temp.linux-x86_64-cpython-312",
+    "command": "/usr/bin/c++ -DHOPS_HDF5_SUPPORT -DNDEBUG -I/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/source-generic/hopsy-1.7.0/extern/hops/src -I/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/home/intel/compilers_and_libraries/linux/mkl/include -isystem /mnt/home/jordan+123/history-native-20261015-r5/benchmarks/source-generic/hopsy-1.7.0/extern/eigen3 -O3  -Wno-unknown-warning -Wno-pragmas -Wall -Wextra --pedantic-errors -Wno-deprecated-copy -Wno-expansion-to-defined -O3 -std=c++17 -fPIC -o extern/hops/CMakeFiles/hops.dir/src/hops/MarkovChain/Tuning/AcceptanceRateTuner.cpp.o -c /mnt/home/jordan+123/history-native-20261015-r5/benchmarks/source-generic/hopsy-1.7.0/extern/hops/src/hops/MarkovChain/Tuning/AcceptanceRateTuner.cpp",
+    "file": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/source-generic/hopsy-1.7.0/extern/hops/src/hops/MarkovChain/Tuning/AcceptanceRateTuner.cpp",
+    "output": "extern/hops/CMakeFiles/hops.dir/src/hops/MarkovChain/Tuning/AcceptanceRateTuner.cpp.o"
+  },
+  {
+    "directory": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/source-generic/hopsy-1.7.0/build/temp.linux-x86_64-cpython-312",
+    "command": "/usr/bin/c++ -DHOPS_HDF5_SUPPORT -DNDEBUG -I/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/source-generic/hopsy-1.7.0/extern/hops/src -I/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/home/intel/compilers_and_libraries/linux/mkl/include -isystem /mnt/home/jordan+123/history-native-20261015-r5/benchmarks/source-generic/hopsy-1.7.0/extern/eigen3 -O3  -Wno-unknown-warning -Wno-pragmas -Wall -Wextra --pedantic-errors -Wno-deprecated-copy -Wno-expansion-to-defined -O3 -std=c++17 -fPIC -o extern/hops/CMakeFiles/hops.dir/src/hops/MarkovChain/Tuning/BinarySearchAcceptanceRateTuner.cpp.o -c /mnt/home/jordan+123/history-native-20261015-r5/benchmarks/source-generic/hopsy-1.7.0/extern/hops/src/hops/MarkovChain/Tuning/BinarySearchAcceptanceRateTuner.cpp",
+    "file": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/source-generic/hopsy-1.7.0/extern/hops/src/hops/MarkovChain/Tuning/BinarySearchAcceptanceRateTuner.cpp",
+    "output": "extern/hops/CMakeFiles/hops.dir/src/hops/MarkovChain/Tuning/BinarySearchAcceptanceRateTuner.cpp.o"
+  },
+  {
+    "directory": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/source-generic/hopsy-1.7.0/build/temp.linux-x86_64-cpython-312",
+    "command": "/usr/bin/c++ -DHOPS_HDF5_SUPPORT -DNDEBUG -I/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/source-generic/hopsy-1.7.0/extern/hops/src -I/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/home/intel/compilers_and_libraries/linux/mkl/include -isystem /mnt/home/jordan+123/history-native-20261015-r5/benchmarks/source-generic/hopsy-1.7.0/extern/eigen3 -O3  -Wno-unknown-warning -Wno-pragmas -Wall -Wextra --pedantic-errors -Wno-deprecated-copy -Wno-expansion-to-defined -O3 -std=c++17 -fPIC -o extern/hops/CMakeFiles/hops.dir/src/hops/MarkovChain/Tuning/ExpectedSquaredJumpDistanceTuner.cpp.o -c /mnt/home/jordan+123/history-native-20261015-r5/benchmarks/source-generic/hopsy-1.7.0/extern/hops/src/hops/MarkovChain/Tuning/ExpectedSquaredJumpDistanceTuner.cpp",
+    "file": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/source-generic/hopsy-1.7.0/extern/hops/src/hops/MarkovChain/Tuning/ExpectedSquaredJumpDistanceTuner.cpp",
+    "output": "extern/hops/CMakeFiles/hops.dir/src/hops/MarkovChain/Tuning/ExpectedSquaredJumpDistanceTuner.cpp.o"
+  },
+  {
+    "directory": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/source-generic/hopsy-1.7.0/build/temp.linux-x86_64-cpython-312",
+    "command": "/usr/bin/c++ -DHOPS_HDF5_SUPPORT -DNDEBUG -I/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/source-generic/hopsy-1.7.0/extern/hops/src -I/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/home/intel/compilers_and_libraries/linux/mkl/include -isystem /mnt/home/jordan+123/history-native-20261015-r5/benchmarks/source-generic/hopsy-1.7.0/extern/eigen3 -O3  -Wno-unknown-warning -Wno-pragmas -Wall -Wextra --pedantic-errors -Wno-deprecated-copy -Wno-expansion-to-defined -O3 -std=c++17 -fPIC -o extern/hops/CMakeFiles/hops.dir/src/hops/MarkovChain/Tuning/ThompsonSamplingTuner.cpp.o -c /mnt/home/jordan+123/history-native-20261015-r5/benchmarks/source-generic/hopsy-1.7.0/extern/hops/src/hops/MarkovChain/Tuning/ThompsonSamplingTuner.cpp",
+    "file": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/source-generic/hopsy-1.7.0/extern/hops/src/hops/MarkovChain/Tuning/ThompsonSamplingTuner.cpp",
+    "output": "extern/hops/CMakeFiles/hops.dir/src/hops/MarkovChain/Tuning/ThompsonSamplingTuner.cpp.o"
+  },
+  {
+    "directory": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/source-generic/hopsy-1.7.0/build/temp.linux-x86_64-cpython-312",
+    "command": "/usr/bin/c++ -DHOPS_HDF5_SUPPORT -DNDEBUG -I/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/source-generic/hopsy-1.7.0/extern/hops/src -I/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/home/intel/compilers_and_libraries/linux/mkl/include -isystem /mnt/home/jordan+123/history-native-20261015-r5/benchmarks/source-generic/hopsy-1.7.0/extern/eigen3 -O3  -Wno-unknown-warning -Wno-pragmas -Wall -Wextra --pedantic-errors -Wno-deprecated-copy -Wno-expansion-to-defined -O3 -std=c++17 -fPIC -o extern/hops/CMakeFiles/hops.dir/src/hops/Model/DegenerateGaussian.cpp.o -c /mnt/home/jordan+123/history-native-20261015-r5/benchmarks/source-generic/hopsy-1.7.0/extern/hops/src/hops/Model/DegenerateGaussian.cpp",
+    "file": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/source-generic/hopsy-1.7.0/extern/hops/src/hops/Model/DegenerateGaussian.cpp",
+    "output": "extern/hops/CMakeFiles/hops.dir/src/hops/Model/DegenerateGaussian.cpp.o"
+  },
+  {
+    "directory": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/source-generic/hopsy-1.7.0/build/temp.linux-x86_64-cpython-312",
+    "command": "/usr/bin/c++ -DHOPS_HDF5_SUPPORT -DNDEBUG -I/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/source-generic/hopsy-1.7.0/extern/hops/src -I/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/home/intel/compilers_and_libraries/linux/mkl/include -isystem /mnt/home/jordan+123/history-native-20261015-r5/benchmarks/source-generic/hopsy-1.7.0/extern/eigen3 -O3  -Wno-unknown-warning -Wno-pragmas -Wall -Wextra --pedantic-errors -Wno-deprecated-copy -Wno-expansion-to-defined -O3 -std=c++17 -fPIC -o extern/hops/CMakeFiles/hops.dir/src/hops/Model/Gaussian.cpp.o -c /mnt/home/jordan+123/history-native-20261015-r5/benchmarks/source-generic/hopsy-1.7.0/extern/hops/src/hops/Model/Gaussian.cpp",
+    "file": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/source-generic/hopsy-1.7.0/extern/hops/src/hops/Model/Gaussian.cpp",
+    "output": "extern/hops/CMakeFiles/hops.dir/src/hops/Model/Gaussian.cpp.o"
+  },
+  {
+    "directory": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/source-generic/hopsy-1.7.0/build/temp.linux-x86_64-cpython-312",
+    "command": "/usr/bin/c++ -DHOPS_HDF5_SUPPORT -DNDEBUG -I/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/source-generic/hopsy-1.7.0/extern/hops/src -I/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/home/intel/compilers_and_libraries/linux/mkl/include -isystem /mnt/home/jordan+123/history-native-20261015-r5/benchmarks/source-generic/hopsy-1.7.0/extern/eigen3 -O3  -Wno-unknown-warning -Wno-pragmas -Wall -Wextra --pedantic-errors -Wno-deprecated-copy -Wno-expansion-to-defined -O3 -std=c++17 -fPIC -o extern/hops/CMakeFiles/hops.dir/src/hops/Model/JumpableModel.cpp.o -c /mnt/home/jordan+123/history-native-20261015-r5/benchmarks/source-generic/hopsy-1.7.0/extern/hops/src/hops/Model/JumpableModel.cpp",
+    "file": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/source-generic/hopsy-1.7.0/extern/hops/src/hops/Model/JumpableModel.cpp",
+    "output": "extern/hops/CMakeFiles/hops.dir/src/hops/Model/JumpableModel.cpp.o"
+  },
+  {
+    "directory": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/source-generic/hopsy-1.7.0/build/temp.linux-x86_64-cpython-312",
+    "command": "/usr/bin/c++ -DHOPS_HDF5_SUPPORT -DNDEBUG -I/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/source-generic/hopsy-1.7.0/extern/hops/src -I/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/home/intel/compilers_and_libraries/linux/mkl/include -isystem /mnt/home/jordan+123/history-native-20261015-r5/benchmarks/source-generic/hopsy-1.7.0/extern/eigen3 -O3  -Wno-unknown-warning -Wno-pragmas -Wall -Wextra --pedantic-errors -Wno-deprecated-copy -Wno-expansion-to-defined -O3 -std=c++17 -fPIC -o extern/hops/CMakeFiles/hops.dir/src/hops/Model/Rosenbrock.cpp.o -c /mnt/home/jordan+123/history-native-20261015-r5/benchmarks/source-generic/hopsy-1.7.0/extern/hops/src/hops/Model/Rosenbrock.cpp",
+    "file": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/source-generic/hopsy-1.7.0/extern/hops/src/hops/Model/Rosenbrock.cpp",
+    "output": "extern/hops/CMakeFiles/hops.dir/src/hops/Model/Rosenbrock.cpp.o"
+  },
+  {
+    "directory": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/source-generic/hopsy-1.7.0/build/temp.linux-x86_64-cpython-312",
+    "command": "/usr/bin/c++ -DHOPS_HDF5_SUPPORT -DNDEBUG -I/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/source-generic/hopsy-1.7.0/extern/hops/src -I/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/home/intel/compilers_and_libraries/linux/mkl/include -isystem /mnt/home/jordan+123/history-native-20261015-r5/benchmarks/source-generic/hopsy-1.7.0/extern/eigen3 -O3  -Wno-unknown-warning -Wno-pragmas -Wall -Wextra --pedantic-errors -Wno-deprecated-copy -Wno-expansion-to-defined -O3 -std=c++17 -fPIC -o extern/hops/CMakeFiles/hops.dir/src/hops/Polytope/MaximumVolumeEllipsoid.cpp.o -c /mnt/home/jordan+123/history-native-20261015-r5/benchmarks/source-generic/hopsy-1.7.0/extern/hops/src/hops/Polytope/MaximumVolumeEllipsoid.cpp",
+    "file": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/source-generic/hopsy-1.7.0/extern/hops/src/hops/Polytope/MaximumVolumeEllipsoid.cpp",
+    "output": "extern/hops/CMakeFiles/hops.dir/src/hops/Polytope/MaximumVolumeEllipsoid.cpp.o"
+  },
+  {
+    "directory": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/source-generic/hopsy-1.7.0/build/temp.linux-x86_64-cpython-312",
+    "command": "/usr/bin/c++ -DHOPS_HDF5_SUPPORT -DNDEBUG -I/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/source-generic/hopsy-1.7.0/extern/hops/src -I/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/home/intel/compilers_and_libraries/linux/mkl/include -isystem /mnt/home/jordan+123/history-native-20261015-r5/benchmarks/source-generic/hopsy-1.7.0/extern/eigen3 -O3  -Wno-unknown-warning -Wno-pragmas -Wall -Wextra --pedantic-errors -Wno-deprecated-copy -Wno-expansion-to-defined -O3 -std=c++17 -fPIC -o extern/hops/CMakeFiles/hops.dir/src/hops/Utility/DefaultDimensionNames.cpp.o -c /mnt/home/jordan+123/history-native-20261015-r5/benchmarks/source-generic/hopsy-1.7.0/extern/hops/src/hops/Utility/DefaultDimensionNames.cpp",
+    "file": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/source-generic/hopsy-1.7.0/extern/hops/src/hops/Utility/DefaultDimensionNames.cpp",
+    "output": "extern/hops/CMakeFiles/hops.dir/src/hops/Utility/DefaultDimensionNames.cpp.o"
+  },
+  {
+    "directory": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/source-generic/hopsy-1.7.0/build/temp.linux-x86_64-cpython-312",
+    "command": "/usr/bin/c++ -DHOPS_HDF5_SUPPORT -DNDEBUG -I/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/source-generic/hopsy-1.7.0/extern/hops/src -I/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/home/intel/compilers_and_libraries/linux/mkl/include -isystem /mnt/home/jordan+123/history-native-20261015-r5/benchmarks/source-generic/hopsy-1.7.0/extern/eigen3 -O3  -Wno-unknown-warning -Wno-pragmas -Wall -Wextra --pedantic-errors -Wno-deprecated-copy -Wno-expansion-to-defined -O3 -std=c++17 -fPIC -o extern/hops/CMakeFiles/hops.dir/src/hops/Utility/KahanSum.cpp.o -c /mnt/home/jordan+123/history-native-20261015-r5/benchmarks/source-generic/hopsy-1.7.0/extern/hops/src/hops/Utility/KahanSum.cpp",
+    "file": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/source-generic/hopsy-1.7.0/extern/hops/src/hops/Utility/KahanSum.cpp",
+    "output": "extern/hops/CMakeFiles/hops.dir/src/hops/Utility/KahanSum.cpp.o"
+  },
+  {
+    "directory": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/source-generic/hopsy-1.7.0/build/temp.linux-x86_64-cpython-312",
+    "command": "/usr/bin/c++ -DHOPS_HDF5_SUPPORT -DNDEBUG -I/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/source-generic/hopsy-1.7.0/extern/hops/src -I/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/home/intel/compilers_and_libraries/linux/mkl/include -isystem /mnt/home/jordan+123/history-native-20261015-r5/benchmarks/source-generic/hopsy-1.7.0/extern/eigen3 -O3  -Wno-unknown-warning -Wno-pragmas -Wall -Wextra --pedantic-errors -Wno-deprecated-copy -Wno-expansion-to-defined -O3 -std=c++17 -fPIC -o extern/hops/CMakeFiles/hops.dir/src/hops/Utility/StringUtility.cpp.o -c /mnt/home/jordan+123/history-native-20261015-r5/benchmarks/source-generic/hopsy-1.7.0/extern/hops/src/hops/Utility/StringUtility.cpp",
+    "file": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/source-generic/hopsy-1.7.0/extern/hops/src/hops/Utility/StringUtility.cpp",
+    "output": "extern/hops/CMakeFiles/hops.dir/src/hops/Utility/StringUtility.cpp.o"
+  },
+  {
+    "directory": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/source-generic/hopsy-1.7.0/build/temp.linux-x86_64-cpython-312",
+    "command": "/usr/bin/c++ -DHOPS_HDF5_SUPPORT -DNDEBUG -I/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/source-generic/hopsy-1.7.0/extern/hops/src -I/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/home/intel/compilers_and_libraries/linux/mkl/include -isystem /mnt/home/jordan+123/history-native-20261015-r5/benchmarks/source-generic/hopsy-1.7.0/extern/eigen3 -O3  -Wno-unknown-warning -Wno-pragmas -Wall -Wextra --pedantic-errors -Wno-deprecated-copy -Wno-expansion-to-defined -O3 -std=c++17 -fPIC -o extern/hops/CMakeFiles/hops.dir/src/hops/Utility/Sampling.cpp.o -c /mnt/home/jordan+123/history-native-20261015-r5/benchmarks/source-generic/hopsy-1.7.0/extern/hops/src/hops/Utility/Sampling.cpp",
+    "file": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/source-generic/hopsy-1.7.0/extern/hops/src/hops/Utility/Sampling.cpp",
+    "output": "extern/hops/CMakeFiles/hops.dir/src/hops/Utility/Sampling.cpp.o"
+  },
+  {
+    "directory": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/source-generic/hopsy-1.7.0/build/temp.linux-x86_64-cpython-312",
+    "command": "/usr/bin/c++ -DBUILD_INFO=\\\"9b787d9\\\" -DHOPS_WITHIN_HOPSY -DVERSION_INFO=\\\"1.7.0\\\" -Dcore_EXPORTS -I/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/source-generic/hopsy-1.7.0/extern/hops/src -isystem /mnt/home/jordan+123/history-native-20261015-r5/benchmarks/source-generic/hopsy-1.7.0/extern/eigen3 -isystem /mnt/home/jordan+123/history-native-20261015-r5/benchmarks/source-generic/hopsy-1.7.0/extern/hops/include/hops -isystem /mnt/home/jordan+123/history-native-20261015-r5/benchmarks/python/cpython-3.12.15-linux-x86_64-gnu/include/python3.12 -isystem /mnt/home/jordan+123/history-native-20261015-r5/benchmarks/source-generic/hopsy-1.7.0/extern/pybind11/include -O3 -O3 -DNDEBUG -std=c++17 -fPIC -fvisibility=hidden -Wall -Wextra -flto=auto -fno-fat-lto-objects -o src/hopsy/CMakeFiles/core.dir/hopsy.cpp.o -c /mnt/home/jordan+123/history-native-20261015-r5/benchmarks/source-generic/hopsy-1.7.0/src/hopsy/hopsy.cpp",
+    "file": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/source-generic/hopsy-1.7.0/src/hopsy/hopsy.cpp",
+    "output": "src/hopsy/CMakeFiles/core.dir/hopsy.cpp.o"
+  },
+  {
+    "directory": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/source-generic/hopsy-1.7.0/build/temp.linux-x86_64-cpython-312",
+    "command": "/usr/bin/c++ -DBUILD_INFO=\\\"9b787d9\\\" -DHOPS_WITHIN_HOPSY -DVERSION_INFO=\\\"1.7.0\\\" -Dcore_EXPORTS -I/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/source-generic/hopsy-1.7.0/extern/hops/src -isystem /mnt/home/jordan+123/history-native-20261015-r5/benchmarks/source-generic/hopsy-1.7.0/extern/eigen3 -isystem /mnt/home/jordan+123/history-native-20261015-r5/benchmarks/source-generic/hopsy-1.7.0/extern/hops/include/hops -isystem /mnt/home/jordan+123/history-native-20261015-r5/benchmarks/python/cpython-3.12.15-linux-x86_64-gnu/include/python3.12 -isystem /mnt/home/jordan+123/history-native-20261015-r5/benchmarks/source-generic/hopsy-1.7.0/extern/pybind11/include -O3 -O3 -DNDEBUG -std=c++17 -fPIC -fvisibility=hidden -Wall -Wextra -flto=auto -fno-fat-lto-objects -o src/hopsy/CMakeFiles/core.dir/doc.cpp.o -c /mnt/home/jordan+123/history-native-20261015-r5/benchmarks/source-generic/hopsy-1.7.0/src/hopsy/doc.cpp",
+    "file": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/source-generic/hopsy-1.7.0/src/hopsy/doc.cpp",
+    "output": "src/hopsy/CMakeFiles/core.dir/doc.cpp.o"
+  }
+]

@@ -1,0 +1,199 @@
+{
+  "generated_utc": "2026-11-08T19:39:39.514062+00:00",
+  "protocol": {
+    "created_utc": "2026-11-08T19:21:44.119223+00:00",
+    "status": "frozen_before_new_seed_runs",
+    "seeds": [
+      444001,
+      555001,
+      666001
+    ],
+    "chains": 16,
+    "cpu": {
+      "retained": 15000,
+      "warmup": 1000,
+      "thinning": 2000,
+      "physical_workers": 16,
+      "reserved_logical_cpus": 32,
+      "build": "native"
+    },
+    "gpu": {
+      "retained": 3000,
+      "warmup": 1000,
+      "thinning": 1000,
+      "tpb": 512,
+      "barrier": "rotate",
+      "exe_sha256": "c7baf4f0ed282b936ac0dbac4b896bfbfc040eb06da6f84aff6605fddf4b0fc6"
+    },
+    "quality": {
+      "median_classical_split_rhat_max": 1.01,
+      "median_pooled_bulk_ess_min": 100,
+      "unmasked_bounds_tolerance": 1e-07,
+      "allowed_bound_violation_fraction": 0
+    },
+    "mask": "Frozen478 certified exclusions on exact cached target; unresolved remain active",
+    "extension_policy": "none",
+    "selection_note": "Larger common budgets chosen from earlier101001/202001/303001 bounded-extension evidence before these new seeds. Not a rescue of legacy fixed-budget2.73x claim."
+  },
+  "rows": [
+    {
+      "method": "cpu",
+      "seed": 444001,
+      "status": "PASS",
+      "quality_met": true,
+      "chains": 16,
+      "retained_draws_per_chain": 15000,
+      "warmup_per_chain": 1000,
+      "thinning": 2000,
+      "sampler_compute_seconds": 21.253242199,
+      "median_split_rhat": 1.0055417979035906,
+      "p95_split_rhat": 1.0117417553875618,
+      "median_bulk_ess": 3614.3545188097037,
+      "median_ess_per_compute_second": 170.06132452486546,
+      "sample_bound_violation_fraction": 0.0,
+      "maximum_absolute_bound_violation": 6.027668596958396e-12,
+      "process_seconds_secondary": 31.813964704051614,
+      "diagnostic_mask": "conservative478_exact_cached_target",
+      "source_run": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/fresh16_conservative/iJO1366/seed444001/cpu"
+    },
+    {
+      "method": "gpu",
+      "seed": 444001,
+      "status": "PASS",
+      "quality_met": true,
+      "chains": 16,
+      "retained_draws_per_chain": 3000,
+      "warmup_per_chain": 1000,
+      "thinning": 1000,
+      "sampler_compute_seconds": 10.3878,
+      "median_split_rhat": 1.004367396518,
+      "p95_split_rhat": 1.0199768174203154,
+      "median_bulk_ess": 4286.930882946308,
+      "median_ess_per_compute_second": 412.6890085433208,
+      "sample_bound_violation_fraction": 0.0,
+      "maximum_absolute_bound_violation": 5.656840871588522e-12,
+      "process_seconds_secondary": 11.996310537680984,
+      "diagnostic_mask": "conservative478_exact_cached_target",
+      "source_run": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/fresh16_conservative/iJO1366/seed444001/gpu"
+    },
+    {
+      "method": "cpu",
+      "seed": 555001,
+      "status": "PASS",
+      "quality_met": true,
+      "chains": 16,
+      "retained_draws_per_chain": 15000,
+      "warmup_per_chain": 1000,
+      "thinning": 2000,
+      "sampler_compute_seconds": 21.099782767,
+      "median_split_rhat": 1.005907328775049,
+      "p95_split_rhat": 1.0116489222452425,
+      "median_bulk_ess": 3398.801427377012,
+      "median_ess_per_compute_second": 161.08229477569444,
+      "sample_bound_violation_fraction": 0.0,
+      "maximum_absolute_bound_violation": 6.346235933817332e-12,
+      "process_seconds_secondary": 31.44139401242137,
+      "diagnostic_mask": "conservative478_exact_cached_target",
+      "source_run": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/fresh16_conservative/iJO1366/seed555001/cpu"
+    },
+    {
+      "method": "gpu",
+      "seed": 555001,
+      "status": "PASS",
+      "quality_met": true,
+      "chains": 16,
+      "retained_draws_per_chain": 3000,
+      "warmup_per_chain": 1000,
+      "thinning": 1000,
+      "sampler_compute_seconds": 10.3876,
+      "median_split_rhat": 1.004974768043853,
+      "p95_split_rhat": 1.0178313373158665,
+      "median_bulk_ess": 4191.054471076592,
+      "median_ess_per_compute_second": 403.46706371795136,
+      "sample_bound_violation_fraction": 0.0,
+      "maximum_absolute_bound_violation": 5.782774903144791e-12,
+      "process_seconds_secondary": 12.099253699183464,
+      "diagnostic_mask": "conservative478_exact_cached_target",
+      "source_run": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/fresh16_conservative/iJO1366/seed555001/gpu"
+    },
+    {
+      "method": "cpu",
+      "seed": 666001,
+      "status": "PASS",
+      "quality_met": true,
+      "chains": 16,
+      "retained_draws_per_chain": 15000,
+      "warmup_per_chain": 1000,
+      "thinning": 2000,
+      "sampler_compute_seconds": 21.077789877,
+      "median_split_rhat": 1.0056894852291105,
+      "p95_split_rhat": 1.0117193900394998,
+      "median_bulk_ess": 3620.529447156262,
+      "median_ess_per_compute_second": 171.76988044211262,
+      "sample_bound_violation_fraction": 0.0,
+      "maximum_absolute_bound_violation": 5.946997578719599e-12,
+      "process_seconds_secondary": 31.631642904132605,
+      "diagnostic_mask": "conservative478_exact_cached_target",
+      "source_run": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/fresh16_conservative/iJO1366/seed666001/cpu"
+    },
+    {
+      "method": "gpu",
+      "seed": 666001,
+      "status": "PASS",
+      "quality_met": true,
+      "chains": 16,
+      "retained_draws_per_chain": 3000,
+      "warmup_per_chain": 1000,
+      "thinning": 1000,
+      "sampler_compute_seconds": 10.4658,
+      "median_split_rhat": 1.004782417005241,
+      "p95_split_rhat": 1.0179097092948288,
+      "median_bulk_ess": 4165.358329003952,
+      "median_ess_per_compute_second": 397.99712673698644,
+      "sample_bound_violation_fraction": 0.0,
+      "maximum_absolute_bound_violation": 5.698058141002339e-12,
+      "process_seconds_secondary": 12.111897394061089,
+      "diagnostic_mask": "conservative478_exact_cached_target",
+      "source_run": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/fresh16_conservative/iJO1366/seed666001/gpu"
+    }
+  ],
+  "groups": {
+    "cpu": {
+      "tested_seeds": 3,
+      "passing_seeds": 3,
+      "compute_seconds_median": 21.099782767,
+      "ess_per_compute_second_median": 170.06132452486546
+    },
+    "gpu": {
+      "tested_seeds": 3,
+      "passing_seeds": 3,
+      "compute_seconds_median": 10.3878,
+      "ess_per_compute_second_median": 403.46706371795136
+    }
+  },
+  "paired": [
+    {
+      "seed": 444001,
+      "both_pass": true,
+      "cpu_gpu_compute_time_ratio": 2.0459810738558692,
+      "gpu_cpu_effective_sampling_rate_ratio": 2.42670701111104
+    },
+    {
+      "seed": 555001,
+      "both_pass": true,
+      "cpu_gpu_compute_time_ratio": 2.0312471376448844,
+      "gpu_cpu_effective_sampling_rate_ratio": 2.5047263219075404
+    },
+    {
+      "seed": 666001,
+      "both_pass": true,
+      "cpu_gpu_compute_time_ratio": 2.013968342314969,
+      "gpu_cpu_effective_sampling_rate_ratio": 2.317036757041428
+    }
+  ],
+  "complete": true,
+  "all_six_pass": true,
+  "scope": "Newfixed15kCPU/3kGPUbudgets, noextensions. Conservative478cachedtargetassay. Doesnotretroactivelyrescueold10k/2kfixedfailuresorlegacy2.73x.",
+  "paired_compute_time_ratio_median": 2.0312471376448844,
+  "paired_effective_sampling_rate_ratio_median": 2.42670701111104
+}

@@ -1,0 +1,15 @@
+> validate model contract
+> write generated config
+model :: BOX
+output :: /mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/seed-check/different/native/BOX_20261107_001
+bounds :: ignore
+> sampling
+> loading polytope
+> barrier rotation (eigenbasis of H)
+> uploading to gpu
+> sampling 4 chains x 144 samples (thin=2, 1152 MCMC steps, 6 constraints x 3 dims)
+> gpu sampling
+> gpu back-transform
+> downloading
+> done: 0.0s, 24641 samples/s
+> writing npy

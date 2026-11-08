@@ -1,0 +1,41 @@
+{
+  "hostname": "slurm-h100-206-077",
+  "n": 3741,
+  "metabolites": 2766,
+  "checks": [
+    {
+      "method": "highs-ds",
+      "success": true,
+      "status": 0,
+      "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "wall_seconds": 0.21876287460327148,
+      "max_equality_residual": 9.778887033462524e-09,
+      "max_bound_violation": 3.4924596548080444e-10
+    },
+    {
+      "method": "highs-ipm",
+      "success": true,
+      "status": 0,
+      "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "wall_seconds": 0.06257546506822109,
+      "max_equality_residual": 2.444721758365631e-09,
+      "max_bound_violation": 1.1641532182693481e-10
+    },
+    {
+      "method": "glpk",
+      "presolve": false,
+      "status": "optimal",
+      "wall_seconds": 0.0224238820374012,
+      "max_equality_residual": 0.0,
+      "max_bound_violation": 0.0
+    },
+    {
+      "method": "glpk",
+      "presolve": true,
+      "status": "optimal",
+      "wall_seconds": 0.026850983500480652,
+      "max_equality_residual": 0.0,
+      "max_bound_violation": 0.0
+    }
+  ]
+}

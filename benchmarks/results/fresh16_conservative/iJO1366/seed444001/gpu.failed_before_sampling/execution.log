@@ -1,0 +1,11 @@
+usage: naja_runner.py [-h] --exe EXE --model MODEL --out OUT --seed SEED
+                      [--sample-dtype {float32,float64}]
+                      [--host-prefault-threads HOST_PREFAULT_THREADS]
+                      [--wide-indices-proof WIDE_INDICES_PROOF]
+                      [--chains CHAINS] [--draws DRAWS] [--warmup WARMUP]
+                      [--gpu GPU] [--tpb TPB] [--thinning THINNING]
+                      [--pair-prob PAIR_PROB]
+                      [--pair-schedule-method {barrier}]
+                      [--barrier {off,rotate,whiten}] [--timeout TIMEOUT]
+                      [--verbose] [--resume]
+naja_runner.py: error: Output directory is not empty: /mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/fresh16_conservative/iJO1366/seed444001/gpu; use a fresh directory

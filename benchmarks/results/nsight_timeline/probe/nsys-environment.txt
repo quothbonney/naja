@@ -1,0 +1,15 @@
+Timestamp counter supported: Yes
+
+CPU Profiling Environment Check
+Root privilege: disabled
+Linux Kernel Paranoid Level = -1
+Linux Distribution = Ubuntu
+Linux Kernel Version = 6.8.12-680-6063-coreweave-amd64-f81899c8: OK
+Linux perf_event_open syscall available: OK
+Sampling trigger event available: OK
+Intel(c) Last Branch Record support: Available
+CPU Profiling Environment (process-tree): OK
+CPU Profiling Environment (system-wide): OK
+
+See the product documentation at https://docs.nvidia.com/nsight-systems for more information,
+including information on how to set the Linux Kernel Paranoid Level.

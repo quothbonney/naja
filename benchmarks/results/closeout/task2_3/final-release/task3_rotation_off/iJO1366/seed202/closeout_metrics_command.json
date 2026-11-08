@@ -1,0 +1,18 @@
+{
+  "argv": [
+    "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/env-cpu/bin/python",
+    "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/metrics.py",
+    "--samples",
+    "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/closeout/task2_3/final-release/task3_rotation_off/iJO1366/seed202/samples.npy",
+    "--model-dir",
+    "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/iJO1366",
+    "--output",
+    "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/closeout/task2_3/final-release/task3_rotation_off/iJO1366/seed202",
+    "--prefixes",
+    "10000",
+    "--workers",
+    "4"
+  ],
+  "diagnostics_wall_seconds": 32.58526589348912,
+  "metrics_sha256": "854e524cade5cecc6a9c5541cb15957e0336c3461434c2363d9ef2a2b701947c"
+}

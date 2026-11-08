@@ -1,0 +1,131 @@
+2026-11-08T04:06:49Z 101001 COMPLETED PENDING
+{'cpu': ('partial', []), 'gpu': ('partial', [101001]), 'gpu500': ('partial', [101001]), 'cpu48': ('partial', []), 'gpu_prefault': ('partial', [101001])}
+2026-11-08T04:07:19Z 101001 COMPLETED PENDING
+{'cpu': ('partial', []), 'gpu': ('partial', [101001]), 'gpu500': ('partial', [101001]), 'cpu48': ('partial', []), 'gpu_prefault': ('partial', [101001])}
+2026-11-08T04:07:49Z 101001 COMPLETED RUNNING
+{'cpu': ('partial', []), 'gpu': ('partial', [101001]), 'gpu500': ('partial', [101001]), 'cpu48': ('partial', []), 'gpu_prefault': ('partial', [101001]), 'gpu_coordinate': ('partial', [])}
+2026-11-08T04:08:19Z 101001 COMPLETED COMPLETED
+{'cpu': ('partial', []), 'gpu': ('partial', [101001]), 'gpu500': ('partial', [101001]), 'cpu48': ('partial', []), 'gpu_prefault': ('partial', [101001]), 'gpu_coordinate': ('partial', [101001])}
+2026-11-08T04:08:49Z Submitted batch job 506
+2026-11-08T04:08:49Z Submitted batch job 507
+2026-11-08T04:08:49Z 202001 PENDING PENDING
+{'cpu': ('partial', []), 'gpu': ('partial', [101001]), 'gpu500': ('partial', [101001]), 'cpu48': ('partial', []), 'gpu_prefault': ('partial', [101001]), 'gpu_coordinate': ('partial', [101001])}
+2026-11-08T04:09:19Z 202001 RUNNING PENDING
+{'cpu': ('partial', []), 'gpu': ('partial', [101001]), 'gpu500': ('partial', [101001]), 'cpu48': ('partial', []), 'gpu_prefault': ('partial', [101001]), 'gpu_coordinate': ('partial', [101001])}
+2026-11-08T04:09:49Z 202001 COMPLETED RUNNING
+{'cpu': ('partial', []), 'gpu': ('partial', [101001]), 'gpu500': ('partial', [101001]), 'cpu48': ('partial', []), 'gpu_prefault': ('partial', [101001, 202001]), 'gpu_coordinate': ('partial', [101001])}
+2026-11-08T04:10:19Z 202001 COMPLETED RUNNING
+{'cpu': ('partial', []), 'gpu': ('partial', [101001]), 'gpu500': ('partial', [101001]), 'cpu48': ('partial', []), 'gpu_prefault': ('partial', [101001, 202001]), 'gpu_coordinate': ('partial', [101001])}
+2026-11-08T04:10:49Z 202001 COMPLETED RUNNING
+{'cpu': ('partial', []), 'gpu': ('partial', [101001]), 'gpu500': ('partial', [101001]), 'cpu48': ('partial', []), 'gpu_prefault': ('partial', [101001, 202001]), 'gpu_coordinate': ('partial', [101001])}
+2026-11-08T04:11:20Z 202001 COMPLETED RUNNING
+{'cpu': ('partial', []), 'gpu': ('partial', [101001]), 'gpu500': ('partial', [101001]), 'cpu48': ('partial', []), 'gpu_prefault': ('partial', [101001, 202001]), 'gpu_coordinate': ('partial', [101001])}
+2026-11-08T04:11:50Z 202001 COMPLETED RUNNING
+{'cpu': ('partial', []), 'gpu': ('partial', [101001]), 'gpu500': ('partial', [101001]), 'cpu48': ('partial', []), 'gpu_prefault': ('partial', [101001, 202001]), 'gpu_coordinate': ('partial', [101001])}
+2026-11-08T04:12:20Z 202001 COMPLETED RUNNING
+{'cpu': ('partial', []), 'gpu': ('partial', [101001]), 'gpu500': ('partial', [101001]), 'cpu48': ('partial', []), 'gpu_prefault': ('partial', [101001, 202001]), 'gpu_coordinate': ('partial', [101001])}
+2026-11-08T04:12:50Z 202001 COMPLETED RUNNING
+{'cpu': ('partial', []), 'gpu': ('partial', [101001]), 'gpu500': ('partial', [101001]), 'cpu48': ('partial', []), 'gpu_prefault': ('partial', [101001, 202001]), 'gpu_coordinate': ('partial', [101001])}
+2026-11-08T04:13:20Z 202001 COMPLETED RUNNING
+{'cpu': ('partial', []), 'gpu': ('partial', [101001]), 'gpu500': ('partial', [101001]), 'cpu48': ('partial', []), 'gpu_prefault': ('partial', [101001, 202001]), 'gpu_coordinate': ('partial', [101001])}
+2026-11-08T04:13:50Z 202001 COMPLETED RUNNING
+{'cpu': ('partial', []), 'gpu': ('partial', [101001]), 'gpu500': ('partial', [101001]), 'cpu48': ('partial', []), 'gpu_prefault': ('partial', [101001, 202001]), 'gpu_coordinate': ('partial', [101001])}
+2026-11-08T04:14:20Z 202001 COMPLETED RUNNING
+{'cpu': ('partial', []), 'gpu': ('partial', [101001]), 'gpu500': ('partial', [101001]), 'cpu48': ('partial', []), 'gpu_prefault': ('partial', [101001, 202001]), 'gpu_coordinate': ('partial', [101001])}
+2026-11-08T04:14:50Z 202001 COMPLETED RUNNING
+{'cpu': ('partial', []), 'gpu': ('partial', [101001]), 'gpu500': ('partial', [101001]), 'cpu48': ('partial', []), 'gpu_prefault': ('partial', [101001, 202001]), 'gpu_coordinate': ('partial', [101001])}
+2026-11-08T04:15:20Z 202001 COMPLETED RUNNING
+{'cpu': ('partial', []), 'gpu': ('partial', [101001]), 'gpu500': ('partial', [101001]), 'cpu48': ('partial', []), 'gpu_prefault': ('partial', [101001, 202001]), 'gpu_coordinate': ('partial', [101001])}
+2026-11-08T04:15:50Z 202001 COMPLETED RUNNING
+{'cpu': ('partial', []), 'gpu': ('partial', [101001]), 'gpu500': ('partial', [101001]), 'cpu48': ('partial', []), 'gpu_prefault': ('partial', [101001, 202001]), 'gpu_coordinate': ('partial', [101001])}
+2026-11-08T04:16:21Z 202001 COMPLETED RUNNING
+{'cpu': ('partial', []), 'gpu': ('partial', [101001]), 'gpu500': ('partial', [101001]), 'cpu48': ('partial', []), 'gpu_prefault': ('partial', [101001, 202001]), 'gpu_coordinate': ('partial', [101001])}
+2026-11-08T04:16:51Z 202001 COMPLETED RUNNING
+{'cpu': ('partial', []), 'gpu': ('partial', [101001]), 'gpu500': ('partial', [101001]), 'cpu48': ('partial', []), 'gpu_prefault': ('partial', [101001, 202001]), 'gpu_coordinate': ('partial', [101001])}
+2026-11-08T04:17:21Z 202001 COMPLETED RUNNING
+{'cpu': ('partial', []), 'gpu': ('partial', [101001]), 'gpu500': ('partial', [101001]), 'cpu48': ('partial', []), 'gpu_prefault': ('partial', [101001, 202001]), 'gpu_coordinate': ('partial', [101001])}
+2026-11-08T04:17:51Z 202001 COMPLETED RUNNING
+{'cpu': ('partial', []), 'gpu': ('partial', [101001]), 'gpu500': ('partial', [101001]), 'cpu48': ('partial', []), 'gpu_prefault': ('partial', [101001, 202001]), 'gpu_coordinate': ('partial', [101001])}
+2026-11-08T04:18:21Z 202001 COMPLETED RUNNING
+{'cpu': ('partial', []), 'gpu': ('partial', [101001]), 'gpu500': ('partial', [101001]), 'cpu48': ('partial', []), 'gpu_prefault': ('partial', [101001, 202001]), 'gpu_coordinate': ('partial', [101001])}
+2026-11-08T04:18:51Z 202001 COMPLETED RUNNING
+{'cpu': ('partial', []), 'gpu': ('partial', [101001]), 'gpu500': ('partial', [101001]), 'cpu48': ('partial', []), 'gpu_prefault': ('partial', [101001, 202001]), 'gpu_coordinate': ('partial', [101001])}
+2026-11-08T04:19:21Z 202001 COMPLETED RUNNING
+{'cpu': ('partial', []), 'gpu': ('partial', [101001]), 'gpu500': ('partial', [101001]), 'cpu48': ('partial', []), 'gpu_prefault': ('partial', [101001, 202001]), 'gpu_coordinate': ('partial', [101001])}
+2026-11-08T04:19:51Z 202001 COMPLETED RUNNING
+{'cpu': ('partial', []), 'gpu': ('partial', [101001]), 'gpu500': ('partial', [101001]), 'cpu48': ('partial', []), 'gpu_prefault': ('partial', [101001, 202001]), 'gpu_coordinate': ('partial', [101001])}
+2026-11-08T04:20:21Z 202001 COMPLETED RUNNING
+{'cpu': ('partial', []), 'gpu': ('partial', [101001]), 'gpu500': ('partial', [101001]), 'cpu48': ('partial', []), 'gpu_prefault': ('partial', [101001, 202001]), 'gpu_coordinate': ('partial', [101001])}
+2026-11-08T04:20:51Z 202001 COMPLETED RUNNING
+{'cpu': ('partial', []), 'gpu': ('partial', [101001]), 'gpu500': ('partial', [101001]), 'cpu48': ('partial', []), 'gpu_prefault': ('partial', [101001, 202001]), 'gpu_coordinate': ('partial', [101001])}
+2026-11-08T04:21:21Z 202001 COMPLETED RUNNING
+{'cpu': ('partial', []), 'gpu': ('partial', [101001]), 'gpu500': ('partial', [101001]), 'cpu48': ('partial', []), 'gpu_prefault': ('partial', [101001, 202001]), 'gpu_coordinate': ('partial', [101001])}
+2026-11-08T04:21:52Z 202001 COMPLETED RUNNING
+{'cpu': ('partial', []), 'gpu': ('partial', [101001]), 'gpu500': ('partial', [101001]), 'cpu48': ('partial', []), 'gpu_prefault': ('partial', [101001, 202001]), 'gpu_coordinate': ('partial', [101001])}
+2026-11-08T04:22:22Z 202001 COMPLETED COMPLETED
+{'cpu': ('partial', []), 'gpu': ('partial', [101001]), 'gpu500': ('partial', [101001]), 'cpu48': ('partial', []), 'gpu_prefault': ('partial', [101001, 202001]), 'gpu_coordinate': ('partial', [101001, 202001])}
+2026-11-08T04:22:52Z Submitted batch job 521
+2026-11-08T04:22:52Z Submitted batch job 522
+2026-11-08T04:22:52Z 303001 PENDING PENDING
+{'cpu': ('partial', []), 'gpu': ('partial', [101001]), 'gpu500': ('partial', [101001]), 'cpu48': ('partial', []), 'gpu_prefault': ('partial', [101001, 202001]), 'gpu_coordinate': ('partial', [101001, 202001])}
+2026-11-08T04:23:22Z 303001 PENDING PENDING
+{'cpu': ('partial', []), 'gpu': ('partial', [101001]), 'gpu500': ('partial', [101001]), 'cpu48': ('partial', []), 'gpu_prefault': ('partial', [101001, 202001]), 'gpu_coordinate': ('partial', [101001, 202001])}
+2026-11-08T04:23:52Z 303001 PENDING PENDING
+{'cpu': ('partial', []), 'gpu': ('partial', [101001]), 'gpu500': ('partial', [101001]), 'cpu48': ('partial', []), 'gpu_prefault': ('partial', [101001, 202001]), 'gpu_coordinate': ('partial', [101001, 202001])}
+2026-11-08T04:24:22Z 303001 PENDING PENDING
+{'cpu': ('partial', []), 'gpu': ('partial', [101001]), 'gpu500': ('partial', [101001]), 'cpu48': ('partial', []), 'gpu_prefault': ('partial', [101001, 202001]), 'gpu_coordinate': ('partial', [101001, 202001])}
+2026-11-08T04:24:52Z 303001 PENDING PENDING
+{'cpu': ('partial', []), 'gpu': ('partial', [101001]), 'gpu500': ('partial', [101001]), 'cpu48': ('partial', []), 'gpu_prefault': ('partial', [101001, 202001]), 'gpu_coordinate': ('partial', [101001, 202001])}
+2026-11-08T04:25:22Z 303001 PENDING PENDING
+{'cpu': ('partial', []), 'gpu': ('partial', [101001]), 'gpu500': ('partial', [101001]), 'cpu48': ('partial', []), 'gpu_prefault': ('partial', [101001, 202001]), 'gpu_coordinate': ('partial', [101001, 202001])}
+2026-11-08T04:25:52Z 303001 PENDING PENDING
+{'cpu': ('partial', []), 'gpu': ('partial', [101001]), 'gpu500': ('partial', [101001]), 'cpu48': ('partial', []), 'gpu_prefault': ('partial', [101001, 202001]), 'gpu_coordinate': ('partial', [101001, 202001])}
+2026-11-08T04:26:22Z 303001 PENDING PENDING
+{'cpu': ('partial', []), 'gpu': ('partial', [101001]), 'gpu500': ('partial', [101001]), 'cpu48': ('partial', []), 'gpu_prefault': ('partial', [101001, 202001]), 'gpu_coordinate': ('partial', [101001, 202001])}
+2026-11-08T04:26:53Z 303001 RUNNING PENDING
+{'cpu': ('partial', []), 'gpu': ('partial', [101001]), 'gpu500': ('partial', [101001]), 'cpu48': ('partial', []), 'gpu_prefault': ('partial', [101001, 202001]), 'gpu_coordinate': ('partial', [101001, 202001])}
+2026-11-08T04:27:23Z 303001 RUNNING PENDING
+{'cpu': ('partial', []), 'gpu': ('partial', [101001]), 'gpu500': ('partial', [101001]), 'cpu48': ('partial', []), 'gpu_prefault': ('partial', [101001, 202001]), 'gpu_coordinate': ('partial', [101001, 202001])}
+2026-11-08T04:27:53Z 303001 COMPLETED RUNNING
+{'cpu': ('partial', []), 'gpu': ('partial', [101001]), 'gpu500': ('partial', [101001]), 'cpu48': ('partial', []), 'gpu_prefault': ('partial', [101001, 202001]), 'gpu_coordinate': ('partial', [101001, 202001])}
+2026-11-08T04:28:23Z 303001 COMPLETED RUNNING
+{'cpu': ('partial', []), 'gpu': ('partial', [101001]), 'gpu500': ('partial', [101001]), 'cpu48': ('partial', []), 'gpu_prefault': ('partial', [101001, 202001]), 'gpu_coordinate': ('partial', [101001, 202001])}
+2026-11-08T04:28:53Z 303001 COMPLETED RUNNING
+{'cpu': ('partial', []), 'gpu': ('partial', [101001]), 'gpu500': ('partial', [101001]), 'cpu48': ('partial', []), 'gpu_prefault': ('partial', [101001, 202001]), 'gpu_coordinate': ('partial', [101001, 202001])}
+2026-11-08T04:29:23Z 303001 COMPLETED RUNNING
+{'cpu': ('partial', []), 'gpu': ('partial', [101001]), 'gpu500': ('partial', [101001]), 'cpu48': ('partial', []), 'gpu_prefault': ('partial', [101001, 202001]), 'gpu_coordinate': ('partial', [101001, 202001])}
+2026-11-08T04:29:53Z 303001 COMPLETED RUNNING
+{'cpu': ('partial', []), 'gpu': ('partial', [101001]), 'gpu500': ('partial', [101001]), 'cpu48': ('partial', []), 'gpu_prefault': ('partial', [101001, 202001]), 'gpu_coordinate': ('partial', [101001, 202001])}
+2026-11-08T04:30:23Z 303001 COMPLETED RUNNING
+{'cpu': ('partial', []), 'gpu': ('partial', [101001]), 'gpu500': ('partial', [101001]), 'cpu48': ('partial', []), 'gpu_prefault': ('partial', [101001, 202001]), 'gpu_coordinate': ('partial', [101001, 202001])}
+2026-11-08T04:30:53Z 303001 COMPLETED RUNNING
+{'cpu': ('partial', []), 'gpu': ('partial', [101001]), 'gpu500': ('partial', [101001]), 'cpu48': ('partial', []), 'gpu_prefault': ('partial', [101001, 202001]), 'gpu_coordinate': ('partial', [101001, 202001])}
+2026-11-08T04:31:23Z 303001 COMPLETED RUNNING
+{'cpu': ('partial', []), 'gpu': ('partial', [101001]), 'gpu500': ('partial', [101001]), 'cpu48': ('partial', []), 'gpu_prefault': ('partial', [101001, 202001]), 'gpu_coordinate': ('partial', [101001, 202001])}
+2026-11-08T04:31:54Z 303001 COMPLETED RUNNING
+{'cpu': ('partial', []), 'gpu': ('partial', [101001]), 'gpu500': ('partial', [101001]), 'cpu48': ('partial', []), 'gpu_prefault': ('partial', [101001, 202001]), 'gpu_coordinate': ('partial', [101001, 202001])}
+2026-11-08T04:32:24Z 303001 COMPLETED RUNNING
+{'cpu': ('partial', []), 'gpu': ('partial', [101001]), 'gpu500': ('partial', [101001]), 'cpu48': ('partial', []), 'gpu_prefault': ('partial', [101001, 202001]), 'gpu_coordinate': ('partial', [101001, 202001])}
+2026-11-08T04:32:54Z 303001 COMPLETED RUNNING
+{'cpu': ('partial', []), 'gpu': ('partial', [101001]), 'gpu500': ('partial', [101001]), 'cpu48': ('partial', []), 'gpu_prefault': ('partial', [101001, 202001]), 'gpu_coordinate': ('partial', [101001, 202001])}
+2026-11-08T04:33:24Z 303001 COMPLETED RUNNING
+{'cpu': ('partial', []), 'gpu': ('partial', [101001]), 'gpu500': ('partial', [101001]), 'cpu48': ('partial', []), 'gpu_prefault': ('partial', [101001, 202001]), 'gpu_coordinate': ('partial', [101001, 202001])}
+2026-11-08T04:33:54Z 303001 COMPLETED RUNNING
+{'cpu': ('partial', []), 'gpu': ('partial', [101001]), 'gpu500': ('partial', [101001]), 'cpu48': ('partial', []), 'gpu_prefault': ('partial', [101001, 202001]), 'gpu_coordinate': ('partial', [101001, 202001])}
+2026-11-08T04:34:24Z 303001 COMPLETED RUNNING
+{'cpu': ('partial', []), 'gpu': ('partial', [101001]), 'gpu500': ('partial', [101001]), 'cpu48': ('partial', []), 'gpu_prefault': ('partial', [101001, 202001]), 'gpu_coordinate': ('partial', [101001, 202001])}
+2026-11-08T04:34:54Z 303001 COMPLETED RUNNING
+{'cpu': ('partial', []), 'gpu': ('partial', [101001]), 'gpu500': ('partial', [101001]), 'cpu48': ('partial', []), 'gpu_prefault': ('partial', [101001, 202001]), 'gpu_coordinate': ('partial', [101001, 202001])}
+2026-11-08T04:35:24Z 303001 COMPLETED RUNNING
+{'cpu': ('partial', []), 'gpu': ('partial', [101001]), 'gpu500': ('partial', [101001]), 'cpu48': ('partial', []), 'gpu_prefault': ('partial', [101001, 202001]), 'gpu_coordinate': ('partial', [101001, 202001])}
+2026-11-08T04:35:54Z 303001 COMPLETED RUNNING
+{'cpu': ('partial', []), 'gpu': ('partial', [101001]), 'gpu500': ('partial', [101001]), 'cpu48': ('partial', []), 'gpu_prefault': ('partial', [101001, 202001]), 'gpu_coordinate': ('partial', [101001, 202001])}
+2026-11-08T04:36:24Z 303001 COMPLETED RUNNING
+{'cpu': ('partial', []), 'gpu': ('partial', [101001]), 'gpu500': ('partial', [101001]), 'cpu48': ('partial', []), 'gpu_prefault': ('partial', [101001, 202001]), 'gpu_coordinate': ('partial', [101001, 202001])}
+2026-11-08T04:36:55Z 303001 COMPLETED RUNNING
+{'cpu': ('partial', []), 'gpu': ('partial', [101001]), 'gpu500': ('partial', [101001]), 'cpu48': ('partial', []), 'gpu_prefault': ('partial', [101001, 202001]), 'gpu_coordinate': ('partial', [101001, 202001])}
+2026-11-08T04:37:25Z 303001 COMPLETED RUNNING
+{'cpu': ('partial', []), 'gpu': ('partial', [101001]), 'gpu500': ('partial', [101001]), 'cpu48': ('partial', []), 'gpu_prefault': ('partial', [101001, 202001]), 'gpu_coordinate': ('partial', [101001, 202001])}
+2026-11-08T04:37:55Z 303001 COMPLETED COMPLETED
+{'cpu': ('partial', []), 'gpu': ('partial', [101001]), 'gpu500': ('partial', [101001]), 'cpu48': ('partial', []), 'gpu_prefault': ('partial', [101001, 202001]), 'gpu_coordinate': ('complete', [101001, 202001, 303001])}
+2026-11-08T04:37:55Z Coordinate controller stopped complete

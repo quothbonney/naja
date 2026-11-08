@@ -1,0 +1,22 @@
+{
+  "status": "FAIL",
+  "quality_met": false,
+  "method": "gpu",
+  "seed": 303001,
+  "chains": 16,
+  "draws_per_chain": 2000,
+  "warmup": 1000,
+  "thinning": 1000,
+  "sampler_phase_seconds": 7.8321,
+  "process_seconds_secondary": 9.285411287099123,
+  "split_rhat_median": 1.010035103062751,
+  "pooled_bulk_ess_median": 2022.2635034071134,
+  "pooled_bulk_ess_per_sampler_phase_second": 258.2019513804872,
+  "transitions_including_warmup": 48000000,
+  "pooled_bulk_ess_per_total_transition": 4.213048965431486e-05,
+  "bounds_tolerance": 1e-07,
+  "sample_bound_violation_fraction": 0.0,
+  "schema_version": 2,
+  "diagnostic_mask_status": "model_lp_verified",
+  "run_dir": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/fresh16_validation/iJO1366/naja_frozen_tpb512_thin1000/seed303001/fixed"
+}

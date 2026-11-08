@@ -1,0 +1,2397 @@
+{
+  "description": "Empirical agreement on e_coli_core; does not prove uniformity.",
+  "model": "e_coli_core",
+  "model_bundle_sha256": "28f24d9351c4a5686a52d732c4bd7561b12a0c77cdb83396ba778ce014fd90b2",
+  "protocol": {
+    "chains": 16,
+    "draws_per_chain": 62500,
+    "total_retained_per_method": 1000000,
+    "warmup_retained_draws_per_chain": 1000,
+    "reference_thinning": 96,
+    "naja_rotate": "rotate + adaptive thinning, coordinate-only",
+    "naja_whiten": "rotate+whiten + fixed pair probability .5, adaptive thinning",
+    "naja_whiten_dikin_pair": "rotate+whiten + barrier Jacobi pair probability .5 + verified Dikin probability .15, adaptive thinning; no GPU backmap",
+    "backmap": "float64 T*z+shift; Naja native stored samples are float32",
+    "wasserstein1": "mean absolute difference of sorted empirical samples; equal sample counts",
+    "normalization": "pooled reference population standard deviation, including between-reference mean difference",
+    "active_reactions": "cached model-derived LP-verified active_reactions.npy mask and pooled reference std>0",
+    "diagnostic_mask_geometry_sha256": "28f24d9351c4a5686a52d732c4bd7561b12a0c77cdb83396ba778ce014fd90b2",
+    "diagnostic_mask_source_sha256": "7bedec10576cfe935b19218dc881f3fb14f890a1871448fc19a9b4ee15b448d8",
+    "diagnostic_mask_policy": "Candidates T_row_max<=candidate_tolerance; exclude only successful original-model min/max LP range<=range_tolerance. No objective/biomass constraint added. Diagnostic aggregation only; sampling target unchanged.",
+    "correlation_normalization": "Frobenius norm divided by number of active reactions (entrywise RMS)",
+    "reference_floor": "hopsy2401 vs hopsy1201, separate random seeds"
+  },
+  "active_reaction_count": 87,
+  "excluded_fixed_reaction_count": 8,
+  "excluded_reactions": [
+    "EX_fru_e",
+    "EX_fum_e",
+    "EX_gln__L_e",
+    "EX_mal__L_e",
+    "FRUpts2",
+    "FUMt2_2",
+    "GLNabc",
+    "MALt2_2"
+  ],
+  "runs": {
+    "hopsy1201": {
+      "sample_count": 1000000,
+      "dtype": "float64",
+      "shape": [
+        16,
+        62500,
+        24
+      ],
+      "sample_bounds_violation_fraction_eps_1e6": 0.0,
+      "max_reaction_bound_violation": 1.333008834933315e-13,
+      "command": [
+        "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/cpu_baseline.py",
+        "sample",
+        "--model",
+        "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/e_coli_core",
+        "--out",
+        "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/uniformity/hopsy1201",
+        "--seed",
+        "1201",
+        "--chains",
+        "16",
+        "--draws",
+        "62500",
+        "--warmup",
+        "1000",
+        "--thinning",
+        "jadebeck",
+        "--workers",
+        "16",
+        "--chunk",
+        "63500"
+      ],
+      "seed": 1201
+    },
+    "hopsy2401": {
+      "sample_count": 1000000,
+      "dtype": "float64",
+      "shape": [
+        16,
+        62500,
+        24
+      ],
+      "sample_bounds_violation_fraction_eps_1e6": 0.0,
+      "max_reaction_bound_violation": 1.316776899907429e-13,
+      "command": [
+        "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/cpu_baseline.py",
+        "sample",
+        "--model",
+        "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/e_coli_core",
+        "--out",
+        "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/uniformity/hopsy2401",
+        "--seed",
+        "2401",
+        "--chains",
+        "16",
+        "--draws",
+        "62500",
+        "--warmup",
+        "1000",
+        "--thinning",
+        "jadebeck",
+        "--workers",
+        "16",
+        "--chunk",
+        "63500"
+      ],
+      "seed": 2401
+    },
+    "naja_rotate": {
+      "sample_count": 1000000,
+      "dtype": "float64",
+      "shape": [
+        16,
+        62500,
+        24
+      ],
+      "sample_bounds_violation_fraction_eps_1e6": 0.0,
+      "max_reaction_bound_violation": 1.3300126299927374e-13,
+      "command": [
+        "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/build-h100/naja",
+        "sample",
+        "run",
+        "--model-dir",
+        "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/e_coli_core",
+        "--out-root",
+        "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/uniformity/naja_rotate/native",
+        "--gpu",
+        "0",
+        "--n-chains",
+        "16",
+        "--n-samples",
+        "63500",
+        "--seed",
+        "3601",
+        "--tpb",
+        "128",
+        "--thinning",
+        "0",
+        "--constraint-eps",
+        "0",
+        "--extra-constraint-eps",
+        "0",
+        "--pair-prob",
+        "0.0",
+        "--bounds-policy",
+        "ignore",
+        "--write-npy",
+        "--barrier-rotate"
+      ],
+      "seed": 3601
+    },
+    "naja_whiten": {
+      "sample_count": 1000000,
+      "dtype": "float64",
+      "shape": [
+        16,
+        62500,
+        24
+      ],
+      "sample_bounds_violation_fraction_eps_1e6": 0.0,
+      "max_reaction_bound_violation": 1.3437567191454594e-13,
+      "command": [
+        "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/build-h100/naja",
+        "sample",
+        "run",
+        "--model-dir",
+        "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/e_coli_core",
+        "--out-root",
+        "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/uniformity/naja_whiten/native",
+        "--gpu",
+        "0",
+        "--n-chains",
+        "16",
+        "--n-samples",
+        "63500",
+        "--seed",
+        "3601",
+        "--tpb",
+        "128",
+        "--thinning",
+        "0",
+        "--constraint-eps",
+        "0",
+        "--extra-constraint-eps",
+        "0",
+        "--pair-prob",
+        "0.5",
+        "--bounds-policy",
+        "ignore",
+        "--write-npy",
+        "--barrier-whiten"
+      ],
+      "seed": 3601
+    },
+    "naja_whiten_dikin_pair": {
+      "sample_count": 1000000,
+      "dtype": "float64",
+      "shape": [
+        16,
+        62500,
+        24
+      ],
+      "sample_bounds_violation_fraction_eps_1e6": 0.0,
+      "max_reaction_bound_violation": 1.3513907144265645e-13,
+      "command": [
+        "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/build-h100/naja",
+        "sample",
+        "run",
+        "--model-dir",
+        "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/e_coli_core",
+        "--out-root",
+        "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/uniformity/naja_whiten_dikin_pair/native",
+        "--gpu",
+        "0",
+        "--n-chains",
+        "16",
+        "--n-samples",
+        "63500",
+        "--seed",
+        "3601",
+        "--tpb",
+        "128",
+        "--thinning",
+        "0",
+        "--constraint-eps",
+        "0",
+        "--extra-constraint-eps",
+        "0",
+        "--pair-prob",
+        "0.5",
+        "--bounds-policy",
+        "ignore",
+        "--write-npy",
+        "--barrier-whiten",
+        "--pair-schedule-method",
+        "barrier",
+        "--verbose"
+      ],
+      "seed": 3601
+    }
+  },
+  "comparisons": {
+    "hopsy2401": {
+      "interpretation": "independent-reference floor",
+      "raw_wasserstein1": {
+        "median": 0.0063569971561630925,
+        "p95": 0.05824335885719694,
+        "max": 0.5435827470282246
+      },
+      "wasserstein1_divided_by_pooled_reference_std": {
+        "median": 0.002410000046704445,
+        "p95": 0.0061889707723441,
+        "max": 0.008040434338262627
+      },
+      "correlation_frobenius_distance": 0.15607799757967794,
+      "correlation_frobenius_per_active_reaction": 0.0017939999721802062,
+      "per_reaction": [
+        {
+          "reaction": "PFK",
+          "wasserstein1": 0.01797028073012569,
+          "pooled_reference_std": 8.090960523112747,
+          "normalized_wasserstein1": 0.0022210318143057978
+        },
+        {
+          "reaction": "PFL",
+          "wasserstein1": 0.004671145123567862,
+          "pooled_reference_std": 4.130016468619727,
+          "normalized_wasserstein1": 0.0011310233649332114
+        },
+        {
+          "reaction": "PGI",
+          "wasserstein1": 0.013460907174445461,
+          "pooled_reference_std": 5.730767518656022,
+          "normalized_wasserstein1": 0.002348883832859147
+        },
+        {
+          "reaction": "PGK",
+          "wasserstein1": 0.004885154405112313,
+          "pooled_reference_std": 2.027034983585367,
+          "normalized_wasserstein1": 0.002410000046704462
+        },
+        {
+          "reaction": "PGL",
+          "wasserstein1": 0.01323910458517309,
+          "pooled_reference_std": 5.7354008192826775,
+          "normalized_wasserstein1": 0.002308313752137884
+        },
+        {
+          "reaction": "ACALD",
+          "wasserstein1": 0.007722447599155643,
+          "pooled_reference_std": 1.3248465378009957,
+          "normalized_wasserstein1": 0.005828937449595862
+        },
+        {
+          "reaction": "AKGt2r",
+          "wasserstein1": 0.0017605557499394812,
+          "pooled_reference_std": 0.5265588882587224,
+          "normalized_wasserstein1": 0.0033435115980312534
+        },
+        {
+          "reaction": "PGM",
+          "wasserstein1": 0.004819481081409726,
+          "pooled_reference_std": 2.028096005313869,
+          "normalized_wasserstein1": 0.002376357464726558
+        },
+        {
+          "reaction": "PIt2r",
+          "wasserstein1": 0.00040902798574083527,
+          "pooled_reference_std": 0.13827068542600926,
+          "normalized_wasserstein1": 0.002958168497397898
+        },
+        {
+          "reaction": "ALCD2x",
+          "wasserstein1": 0.00558374674339679,
+          "pooled_reference_std": 0.9022092604392633,
+          "normalized_wasserstein1": 0.006188970772344104
+        },
+        {
+          "reaction": "ACALDt",
+          "wasserstein1": 0.002419452867187981,
+          "pooled_reference_std": 1.0131511031985974,
+          "normalized_wasserstein1": 0.002388047409265586
+        },
+        {
+          "reaction": "ACKr",
+          "wasserstein1": 0.0012395314770197842,
+          "pooled_reference_std": 1.377794538731249,
+          "normalized_wasserstein1": 0.0008996489985808878
+        },
+        {
+          "reaction": "PPC",
+          "wasserstein1": 0.023491545848266324,
+          "pooled_reference_std": 9.176359321158525,
+          "normalized_wasserstein1": 0.0025600071908801945
+        },
+        {
+          "reaction": "ACONTa",
+          "wasserstein1": 0.0063569971561630925,
+          "pooled_reference_std": 2.5813329227427952,
+          "normalized_wasserstein1": 0.002462680075148333
+        },
+        {
+          "reaction": "ACONTb",
+          "wasserstein1": 0.006356997156163088,
+          "pooled_reference_std": 2.5813329227427912,
+          "normalized_wasserstein1": 0.002462680075148335
+        },
+        {
+          "reaction": "ATPM",
+          "wasserstein1": 0.021357951958689166,
+          "pooled_reference_std": 7.870344979943289,
+          "normalized_wasserstein1": 0.0027137250035567137
+        },
+        {
+          "reaction": "PPCK",
+          "wasserstein1": 0.023653073122840335,
+          "pooled_reference_std": 7.92348037927598,
+          "normalized_wasserstein1": 0.002985187315501584
+        },
+        {
+          "reaction": "ACt2r",
+          "wasserstein1": 0.0012395314770197792,
+          "pooled_reference_std": 1.3777945387312496,
+          "normalized_wasserstein1": 0.0008996489985808836
+        },
+        {
+          "reaction": "PPS",
+          "wasserstein1": 0.014998732142021713,
+          "pooled_reference_std": 8.540014445206289,
+          "normalized_wasserstein1": 0.0017562888491881713
+        },
+        {
+          "reaction": "ADK1",
+          "wasserstein1": 0.014998732142021647,
+          "pooled_reference_std": 8.540014445206285,
+          "normalized_wasserstein1": 0.0017562888491881644
+        },
+        {
+          "reaction": "AKGDH",
+          "wasserstein1": 0.004394912434431172,
+          "pooled_reference_std": 2.726620350837854,
+          "normalized_wasserstein1": 0.001611853455535412
+        },
+        {
+          "reaction": "ATPS4r",
+          "wasserstein1": 0.09985438865984639,
+          "pooled_reference_std": 15.356200046516886,
+          "normalized_wasserstein1": 0.006502545444665231
+        },
+        {
+          "reaction": "PTAr",
+          "wasserstein1": 0.0012395314770197664,
+          "pooled_reference_std": 1.3777945387312502,
+          "normalized_wasserstein1": 0.000899648998580874
+        },
+        {
+          "reaction": "PYK",
+          "wasserstein1": 0.012627120218551289,
+          "pooled_reference_std": 8.655160364346404,
+          "normalized_wasserstein1": 0.0014589123351852334
+        },
+        {
+          "reaction": "BIOMASS_Ecoli_core_w_GAM",
+          "wasserstein1": 0.00011118818760487336,
+          "pooled_reference_std": 0.03758683377987245,
+          "normalized_wasserstein1": 0.002958168497406505
+        },
+        {
+          "reaction": "PYRt2",
+          "wasserstein1": 0.0018124256565237166,
+          "pooled_reference_std": 1.002917308652294,
+          "normalized_wasserstein1": 0.0018071536315982305
+        },
+        {
+          "reaction": "CO2t",
+          "wasserstein1": 0.021653113439327434,
+          "pooled_reference_std": 6.720804857454045,
+          "normalized_wasserstein1": 0.003221803623015771
+        },
+        {
+          "reaction": "RPE",
+          "wasserstein1": 0.008869586695649134,
+          "pooled_reference_std": 3.8244784719570135,
+          "normalized_wasserstein1": 0.0023191624062431975
+        },
+        {
+          "reaction": "CS",
+          "wasserstein1": 0.006356997156163103,
+          "pooled_reference_std": 2.5813329227427944,
+          "normalized_wasserstein1": 0.0024626800751483377
+        },
+        {
+          "reaction": "RPI",
+          "wasserstein1": 0.004372833816382372,
+          "pooled_reference_std": 1.9112085110052481,
+          "normalized_wasserstein1": 0.002287994110115369
+        },
+        {
+          "reaction": "SUCCt2_2",
+          "wasserstein1": 0.030471196514958956,
+          "pooled_reference_std": 10.4516532988823,
+          "normalized_wasserstein1": 0.0029154427193081064
+        },
+        {
+          "reaction": "CYTBD",
+          "wasserstein1": 0.0571978811984764,
+          "pooled_reference_std": 11.848525131938299,
+          "normalized_wasserstein1": 0.004827426246014082
+        },
+        {
+          "reaction": "D_LACt2",
+          "wasserstein1": 0.001360097583276506,
+          "pooled_reference_std": 0.8712728821448009,
+          "normalized_wasserstein1": 0.0015610466148428398
+        },
+        {
+          "reaction": "ENO",
+          "wasserstein1": 0.004819481081409726,
+          "pooled_reference_std": 2.0280960053138664,
+          "normalized_wasserstein1": 0.002376357464726561
+        },
+        {
+          "reaction": "SUCCt3",
+          "wasserstein1": 0.030198354975897363,
+          "pooled_reference_std": 10.442347249096196,
+          "normalized_wasserstein1": 0.0028919125418388173
+        },
+        {
+          "reaction": "ETOHt2r",
+          "wasserstein1": 0.005583746743396808,
+          "pooled_reference_std": 0.9022092604392636,
+          "normalized_wasserstein1": 0.006188970772344121
+        },
+        {
+          "reaction": "SUCDi",
+          "wasserstein1": 0.5352484498548231,
+          "pooled_reference_std": 286.5342486354032,
+          "normalized_wasserstein1": 0.001868008632140492
+        },
+        {
+          "reaction": "SUCOAS",
+          "wasserstein1": 0.004394912434431337,
+          "pooled_reference_std": 2.726620350837851,
+          "normalized_wasserstein1": 0.0016118534555354743
+        },
+        {
+          "reaction": "TALA",
+          "wasserstein1": 0.004423382640928523,
+          "pooled_reference_std": 1.9120068600923408,
+          "normalized_wasserstein1": 0.002313476344281994
+        },
+        {
+          "reaction": "THD2",
+          "wasserstein1": 0.04888267052027903,
+          "pooled_reference_std": 15.641184038839121,
+          "normalized_wasserstein1": 0.003125253842605324
+        },
+        {
+          "reaction": "TKT1",
+          "wasserstein1": 0.0044233826409284995,
+          "pooled_reference_std": 1.9120068600923419,
+          "normalized_wasserstein1": 0.0023134763442819806
+        },
+        {
+          "reaction": "TKT2",
+          "wasserstein1": 0.0044470163849371,
+          "pooled_reference_std": 1.912495650974283,
+          "normalized_wasserstein1": 0.002325242613059881
+        },
+        {
+          "reaction": "TPI",
+          "wasserstein1": 0.004586071778551824,
+          "pooled_reference_std": 1.9321616437043407,
+          "normalized_wasserstein1": 0.002373544570401163
+        },
+        {
+          "reaction": "EX_ac_e",
+          "wasserstein1": 0.0012395314770197743,
+          "pooled_reference_std": 1.3777945387312516,
+          "normalized_wasserstein1": 0.0008996489985808788
+        },
+        {
+          "reaction": "EX_acald_e",
+          "wasserstein1": 0.0024194528671879654,
+          "pooled_reference_std": 1.0131511031985976,
+          "normalized_wasserstein1": 0.00238804740926557
+        },
+        {
+          "reaction": "EX_akg_e",
+          "wasserstein1": 0.0017605557499394207,
+          "pooled_reference_std": 0.5265588882587227,
+          "normalized_wasserstein1": 0.003343511598031137
+        },
+        {
+          "reaction": "EX_co2_e",
+          "wasserstein1": 0.021653113439327385,
+          "pooled_reference_std": 6.720804857454044,
+          "normalized_wasserstein1": 0.003221803623015764
+        },
+        {
+          "reaction": "EX_etoh_e",
+          "wasserstein1": 0.00558374674339678,
+          "pooled_reference_std": 0.9022092604392632,
+          "normalized_wasserstein1": 0.0061889707723440926
+        },
+        {
+          "reaction": "EX_for_e",
+          "wasserstein1": 0.0046711451235676394,
+          "pooled_reference_std": 4.130016468619729,
+          "normalized_wasserstein1": 0.0011310233649331567
+        },
+        {
+          "reaction": "EX_glc__D_e",
+          "wasserstein1": 0.000934414219305859,
+          "pooled_reference_std": 0.3855206066025277,
+          "normalized_wasserstein1": 0.0024237724347358726
+        },
+        {
+          "reaction": "EX_glu__L_e",
+          "wasserstein1": 0.0018724051756756725,
+          "pooled_reference_std": 0.48872657682660525,
+          "normalized_wasserstein1": 0.00383119164059699
+        },
+        {
+          "reaction": "EX_h_e",
+          "wasserstein1": 0.00734868548227415,
+          "pooled_reference_std": 4.545388063890287,
+          "normalized_wasserstein1": 0.0016167344523680975
+        },
+        {
+          "reaction": "EX_h2o_e",
+          "wasserstein1": 0.021675639402118474,
+          "pooled_reference_std": 6.2202903591039185,
+          "normalized_wasserstein1": 0.003484666816299717
+        },
+        {
+          "reaction": "EX_lac__D_e",
+          "wasserstein1": 0.001360097583276492,
+          "pooled_reference_std": 0.8712728821448009,
+          "normalized_wasserstein1": 0.0015610466148428238
+        },
+        {
+          "reaction": "EX_nh4_e",
+          "wasserstein1": 0.0023230466288868034,
+          "pooled_reference_std": 0.5219849692764863,
+          "normalized_wasserstein1": 0.0044504090455070675
+        },
+        {
+          "reaction": "EX_o2_e",
+          "wasserstein1": 0.02859894059923823,
+          "pooled_reference_std": 5.924262565969142,
+          "normalized_wasserstein1": 0.004827426246014093
+        },
+        {
+          "reaction": "EX_pi_e",
+          "wasserstein1": 0.00040902798574079103,
+          "pooled_reference_std": 0.13827068542600937,
+          "normalized_wasserstein1": 0.002958168497397576
+        },
+        {
+          "reaction": "EX_pyr_e",
+          "wasserstein1": 0.001812425656523726,
+          "pooled_reference_std": 1.002917308652296,
+          "normalized_wasserstein1": 0.0018071536315982363
+        },
+        {
+          "reaction": "EX_succ_e",
+          "wasserstein1": 0.0029161365300209795,
+          "pooled_reference_std": 0.6737080018272357,
+          "normalized_wasserstein1": 0.004328487300301931
+        },
+        {
+          "reaction": "FBA",
+          "wasserstein1": 0.004586071778551784,
+          "pooled_reference_std": 1.9321616437043452,
+          "normalized_wasserstein1": 0.002373544570401137
+        },
+        {
+          "reaction": "FBP",
+          "wasserstein1": 0.014441472396999867,
+          "pooled_reference_std": 7.866399718808917,
+          "normalized_wasserstein1": 0.0018358426870261442
+        },
+        {
+          "reaction": "FORt2",
+          "wasserstein1": 0.05481186985333359,
+          "pooled_reference_std": 31.39072851660883,
+          "normalized_wasserstein1": 0.0017461165268697933
+        },
+        {
+          "reaction": "FORt",
+          "wasserstein1": 0.04704123240634118,
+          "pooled_reference_std": 31.487288667646045,
+          "normalized_wasserstein1": 0.0014939753277225546
+        },
+        {
+          "reaction": "FRD7",
+          "wasserstein1": 0.5435827470282246,
+          "pooled_reference_std": 286.53758176083005,
+          "normalized_wasserstein1": 0.0018970731297716734
+        },
+        {
+          "reaction": "FUM",
+          "wasserstein1": 0.006952369898191912,
+          "pooled_reference_std": 2.8294622770081843,
+          "normalized_wasserstein1": 0.002457134684100898
+        },
+        {
+          "reaction": "G6PDH2r",
+          "wasserstein1": 0.01323910458517314,
+          "pooled_reference_std": 5.7354008192826775,
+          "normalized_wasserstein1": 0.0023083137521378925
+        },
+        {
+          "reaction": "GAPD",
+          "wasserstein1": 0.004885154405112282,
+          "pooled_reference_std": 2.0270349835853687,
+          "normalized_wasserstein1": 0.002410000046704445
+        },
+        {
+          "reaction": "GLCpts",
+          "wasserstein1": 0.00093441421930584,
+          "pooled_reference_std": 0.385520606602527,
+          "normalized_wasserstein1": 0.0024237724347358275
+        },
+        {
+          "reaction": "GLNS",
+          "wasserstein1": 0.08615259216063773,
+          "pooled_reference_std": 10.714917694266443,
+          "normalized_wasserstein1": 0.008040434338262627
+        },
+        {
+          "reaction": "GLUDy",
+          "wasserstein1": 0.029304888857684994,
+          "pooled_reference_std": 7.897189958137587,
+          "normalized_wasserstein1": 0.0037107995392067325
+        },
+        {
+          "reaction": "GLUN",
+          "wasserstein1": 0.05869142071093431,
+          "pooled_reference_std": 7.8362989495459,
+          "normalized_wasserstein1": 0.007489686277772159
+        },
+        {
+          "reaction": "GLUSy",
+          "wasserstein1": 0.027585437650457446,
+          "pooled_reference_std": 7.850403476700988,
+          "normalized_wasserstein1": 0.0035138878826199904
+        },
+        {
+          "reaction": "GLUt2r",
+          "wasserstein1": 0.0018724051756754633,
+          "pooled_reference_std": 0.4887265768266047,
+          "normalized_wasserstein1": 0.003831191640596566
+        },
+        {
+          "reaction": "GND",
+          "wasserstein1": 0.013239104585173089,
+          "pooled_reference_std": 5.735400819282675,
+          "normalized_wasserstein1": 0.0023083137521378847
+        },
+        {
+          "reaction": "H2Ot",
+          "wasserstein1": 0.021675639402118516,
+          "pooled_reference_std": 6.2202903591039185,
+          "normalized_wasserstein1": 0.0034846668162997235
+        },
+        {
+          "reaction": "ICDHyr",
+          "wasserstein1": 0.005393292003832003,
+          "pooled_reference_std": 2.724321598111951,
+          "normalized_wasserstein1": 0.0019796825776992487
+        },
+        {
+          "reaction": "ICL",
+          "wasserstein1": 0.01037456952597718,
+          "pooled_reference_std": 2.8361500057130584,
+          "normalized_wasserstein1": 0.003657976307698446
+        },
+        {
+          "reaction": "LDH_D",
+          "wasserstein1": 0.0013600975832765143,
+          "pooled_reference_std": 0.8712728821448019,
+          "normalized_wasserstein1": 0.0015610466148428476
+        },
+        {
+          "reaction": "MALS",
+          "wasserstein1": 0.010374569525977146,
+          "pooled_reference_std": 2.8361500057130606,
+          "normalized_wasserstein1": 0.0036579763076984313
+        },
+        {
+          "reaction": "MDH",
+          "wasserstein1": 0.01090389831138845,
+          "pooled_reference_std": 6.326677511496742,
+          "normalized_wasserstein1": 0.0017234793920780777
+        },
+        {
+          "reaction": "ME1",
+          "wasserstein1": 0.006287014516525697,
+          "pooled_reference_std": 4.488788451113296,
+          "normalized_wasserstein1": 0.0014006038789746063
+        },
+        {
+          "reaction": "ME2",
+          "wasserstein1": 0.011511521229718272,
+          "pooled_reference_std": 4.506749747141765,
+          "normalized_wasserstein1": 0.0025542845455350655
+        },
+        {
+          "reaction": "NADH16",
+          "wasserstein1": 0.05098254547201222,
+          "pooled_reference_std": 10.223946899280175,
+          "normalized_wasserstein1": 0.004986581598502011
+        },
+        {
+          "reaction": "NADTRHD",
+          "wasserstein1": 0.04005107939022548,
+          "pooled_reference_std": 19.674841989901633,
+          "normalized_wasserstein1": 0.002035649354174342
+        },
+        {
+          "reaction": "NH4t",
+          "wasserstein1": 0.002323046628886759,
+          "pooled_reference_std": 0.5219849692764865,
+          "normalized_wasserstein1": 0.004450409045506981
+        },
+        {
+          "reaction": "O2t",
+          "wasserstein1": 0.028598940599238128,
+          "pooled_reference_std": 5.924262565969145,
+          "normalized_wasserstein1": 0.004827426246014073
+        },
+        {
+          "reaction": "PDH",
+          "wasserstein1": 0.0065193526509604955,
+          "pooled_reference_std": 5.38834580665346,
+          "normalized_wasserstein1": 0.0012098987119405892
+        }
+      ]
+    },
+    "naja_rotate": {
+      "interpretation": "empirical agreement",
+      "raw_wasserstein1": {
+        "median": 0.008446603696076624,
+        "p95": 0.0678408014673625,
+        "max": 0.46090459123909855
+      },
+      "wasserstein1_divided_by_pooled_reference_std": {
+        "median": 0.0024103730390132,
+        "p95": 0.0059845790441649055,
+        "max": 0.006571905929298551
+      },
+      "correlation_frobenius_distance": 0.18291078698905455,
+      "correlation_frobenius_per_active_reaction": 0.00210242283895465,
+      "per_reaction": [
+        {
+          "reaction": "PFK",
+          "wasserstein1": 0.021828870602537923,
+          "pooled_reference_std": 8.090960523112747,
+          "normalized_wasserstein1": 0.0026979331489977334
+        },
+        {
+          "reaction": "PFL",
+          "wasserstein1": 0.00431122670274775,
+          "pooled_reference_std": 4.130016468619727,
+          "normalized_wasserstein1": 0.00104387639504706
+        },
+        {
+          "reaction": "PGI",
+          "wasserstein1": 0.010820563788006875,
+          "pooled_reference_std": 5.730767518656022,
+          "normalized_wasserstein1": 0.0018881526344911841
+        },
+        {
+          "reaction": "PGK",
+          "wasserstein1": 0.004628783997138247,
+          "pooled_reference_std": 2.027034983585367,
+          "normalized_wasserstein1": 0.002283524475216986
+        },
+        {
+          "reaction": "PGL",
+          "wasserstein1": 0.009834572346568286,
+          "pooled_reference_std": 5.7354008192826775,
+          "normalized_wasserstein1": 0.0017147140464017804
+        },
+        {
+          "reaction": "ACALD",
+          "wasserstein1": 0.0029535215756559645,
+          "pooled_reference_std": 1.3248465378009957,
+          "normalized_wasserstein1": 0.0022293310895904013
+        },
+        {
+          "reaction": "AKGt2r",
+          "wasserstein1": 0.001129868412488844,
+          "pooled_reference_std": 0.5265588882587224,
+          "normalized_wasserstein1": 0.0021457588841111504
+        },
+        {
+          "reaction": "PGM",
+          "wasserstein1": 0.004522014010546044,
+          "pooled_reference_std": 2.028096005313869,
+          "normalized_wasserstein1": 0.0022296843929960875
+        },
+        {
+          "reaction": "PIt2r",
+          "wasserstein1": 0.000722203879108951,
+          "pooled_reference_std": 0.13827068542600926,
+          "normalized_wasserstein1": 0.005223116359652482
+        },
+        {
+          "reaction": "ALCD2x",
+          "wasserstein1": 0.0017687970397306488,
+          "pooled_reference_std": 0.9022092604392633,
+          "normalized_wasserstein1": 0.0019605174955414062
+        },
+        {
+          "reaction": "ACALDt",
+          "wasserstein1": 0.0022691201014759604,
+          "pooled_reference_std": 1.0131511031985974,
+          "normalized_wasserstein1": 0.0022396660224838828
+        },
+        {
+          "reaction": "ACKr",
+          "wasserstein1": 0.008446603696076624,
+          "pooled_reference_std": 1.377794538731249,
+          "normalized_wasserstein1": 0.0061305248777185125
+        },
+        {
+          "reaction": "PPC",
+          "wasserstein1": 0.018685335283708686,
+          "pooled_reference_std": 9.176359321158525,
+          "normalized_wasserstein1": 0.002036247124785611
+        },
+        {
+          "reaction": "ACONTa",
+          "wasserstein1": 0.013408722804794267,
+          "pooled_reference_std": 2.5813329227427952,
+          "normalized_wasserstein1": 0.005194495714464769
+        },
+        {
+          "reaction": "ACONTb",
+          "wasserstein1": 0.013408722804794212,
+          "pooled_reference_std": 2.5813329227427912,
+          "normalized_wasserstein1": 0.005194495714464756
+        },
+        {
+          "reaction": "ATPM",
+          "wasserstein1": 0.016883329699920745,
+          "pooled_reference_std": 7.870344979943289,
+          "normalized_wasserstein1": 0.002145182929458119
+        },
+        {
+          "reaction": "PPCK",
+          "wasserstein1": 0.01709479216506088,
+          "pooled_reference_std": 7.92348037927598,
+          "normalized_wasserstein1": 0.002157485264906145
+        },
+        {
+          "reaction": "ACt2r",
+          "wasserstein1": 0.008446603696076629,
+          "pooled_reference_std": 1.3777945387312496,
+          "normalized_wasserstein1": 0.006130524877718513
+        },
+        {
+          "reaction": "PPS",
+          "wasserstein1": 0.025400027842099115,
+          "pooled_reference_std": 8.540014445206289,
+          "normalized_wasserstein1": 0.002974237105226063
+        },
+        {
+          "reaction": "ADK1",
+          "wasserstein1": 0.02540002784209902,
+          "pooled_reference_std": 8.540014445206285,
+          "normalized_wasserstein1": 0.0029742371052260534
+        },
+        {
+          "reaction": "AKGDH",
+          "wasserstein1": 0.005774028873520744,
+          "pooled_reference_std": 2.726620350837854,
+          "normalized_wasserstein1": 0.0021176504722215774
+        },
+        {
+          "reaction": "ATPS4r",
+          "wasserstein1": 0.01598078227528538,
+          "pooled_reference_std": 15.356200046516886,
+          "normalized_wasserstein1": 0.0010406729677183493
+        },
+        {
+          "reaction": "PTAr",
+          "wasserstein1": 0.008446603696076622,
+          "pooled_reference_std": 1.3777945387312502,
+          "normalized_wasserstein1": 0.0061305248777185056
+        },
+        {
+          "reaction": "PYK",
+          "wasserstein1": 0.025258081307536977,
+          "pooled_reference_std": 8.655160364346404,
+          "normalized_wasserstein1": 0.0029182684368950274
+        },
+        {
+          "reaction": "BIOMASS_Ecoli_core_w_GAM",
+          "wasserstein1": 0.00019632040642319053,
+          "pooled_reference_std": 0.03758683377987245,
+          "normalized_wasserstein1": 0.005223116359652487
+        },
+        {
+          "reaction": "PYRt2",
+          "wasserstein1": 0.0015012763921041755,
+          "pooled_reference_std": 1.002917308652294,
+          "normalized_wasserstein1": 0.0014969094452279114
+        },
+        {
+          "reaction": "CO2t",
+          "wasserstein1": 0.031463377350877744,
+          "pooled_reference_std": 6.720804857454045,
+          "normalized_wasserstein1": 0.004681489496898829
+        },
+        {
+          "reaction": "RPE",
+          "wasserstein1": 0.006607846648977407,
+          "pooled_reference_std": 3.8244784719570135,
+          "normalized_wasserstein1": 0.0017277771851585619
+        },
+        {
+          "reaction": "CS",
+          "wasserstein1": 0.013408722804794248,
+          "pooled_reference_std": 2.5813329227427944,
+          "normalized_wasserstein1": 0.005194495714464764
+        },
+        {
+          "reaction": "RPI",
+          "wasserstein1": 0.003229720376733808,
+          "pooled_reference_std": 1.9112085110052481,
+          "normalized_wasserstein1": 0.001689883839537244
+        },
+        {
+          "reaction": "SUCCt2_2",
+          "wasserstein1": 0.05898953638635819,
+          "pooled_reference_std": 10.4516532988823,
+          "normalized_wasserstein1": 0.005644038765873197
+        },
+        {
+          "reaction": "CYTBD",
+          "wasserstein1": 0.06611720165548533,
+          "pooled_reference_std": 11.848525131938299,
+          "normalized_wasserstein1": 0.005580205208601286
+        },
+        {
+          "reaction": "D_LACt2",
+          "wasserstein1": 0.002807201023098374,
+          "pooled_reference_std": 0.8712728821448009,
+          "normalized_wasserstein1": 0.0032219538569683522
+        },
+        {
+          "reaction": "ENO",
+          "wasserstein1": 0.004522014010546037,
+          "pooled_reference_std": 2.0280960053138664,
+          "normalized_wasserstein1": 0.002229684392996087
+        },
+        {
+          "reaction": "SUCCt3",
+          "wasserstein1": 0.05609352148865955,
+          "pooled_reference_std": 10.442347249096196,
+          "normalized_wasserstein1": 0.0053717349318674066
+        },
+        {
+          "reaction": "ETOHt2r",
+          "wasserstein1": 0.0017687970397306573,
+          "pooled_reference_std": 0.9022092604392636,
+          "normalized_wasserstein1": 0.001960517495541415
+        },
+        {
+          "reaction": "SUCDi",
+          "wasserstein1": 0.4589829329909153,
+          "pooled_reference_std": 286.5342486354032,
+          "normalized_wasserstein1": 0.0016018431834127524
+        },
+        {
+          "reaction": "SUCOAS",
+          "wasserstein1": 0.00577402887352072,
+          "pooled_reference_std": 2.726620350837851,
+          "normalized_wasserstein1": 0.002117650472221571
+        },
+        {
+          "reaction": "TALA",
+          "wasserstein1": 0.0032897406858982178,
+          "pooled_reference_std": 1.9120068600923408,
+          "normalized_wasserstein1": 0.001720569499284819
+        },
+        {
+          "reaction": "THD2",
+          "wasserstein1": 0.0486583634155606,
+          "pooled_reference_std": 15.641184038839121,
+          "normalized_wasserstein1": 0.0031109130417962907
+        },
+        {
+          "reaction": "TKT1",
+          "wasserstein1": 0.0032897406858982017,
+          "pooled_reference_std": 1.9120068600923419,
+          "normalized_wasserstein1": 0.0017205694992848096
+        },
+        {
+          "reaction": "TKT2",
+          "wasserstein1": 0.0033200618971239684,
+          "pooled_reference_std": 1.912495650974283,
+          "normalized_wasserstein1": 0.0017359840245558878
+        },
+        {
+          "reaction": "TPI",
+          "wasserstein1": 0.00435785164097626,
+          "pooled_reference_std": 1.9321616437043407,
+          "normalized_wasserstein1": 0.002255428087590739
+        },
+        {
+          "reaction": "EX_ac_e",
+          "wasserstein1": 0.008446603696076613,
+          "pooled_reference_std": 1.3777945387312516,
+          "normalized_wasserstein1": 0.0061305248777184925
+        },
+        {
+          "reaction": "EX_acald_e",
+          "wasserstein1": 0.0022691201014759595,
+          "pooled_reference_std": 1.0131511031985976,
+          "normalized_wasserstein1": 0.0022396660224838815
+        },
+        {
+          "reaction": "EX_akg_e",
+          "wasserstein1": 0.001129868412488871,
+          "pooled_reference_std": 0.5265588882587227,
+          "normalized_wasserstein1": 0.0021457588841112003
+        },
+        {
+          "reaction": "EX_co2_e",
+          "wasserstein1": 0.03146337735087776,
+          "pooled_reference_std": 6.720804857454044,
+          "normalized_wasserstein1": 0.004681489496898832
+        },
+        {
+          "reaction": "EX_etoh_e",
+          "wasserstein1": 0.0017687970397306872,
+          "pooled_reference_std": 0.9022092604392632,
+          "normalized_wasserstein1": 0.001960517495541449
+        },
+        {
+          "reaction": "EX_for_e",
+          "wasserstein1": 0.004311226702747795,
+          "pooled_reference_std": 4.130016468619729,
+          "normalized_wasserstein1": 0.0010438763950470704
+        },
+        {
+          "reaction": "EX_glc__D_e",
+          "wasserstein1": 0.0009178009020741892,
+          "pooled_reference_std": 0.3855206066025277,
+          "normalized_wasserstein1": 0.0023806792331089147
+        },
+        {
+          "reaction": "EX_glu__L_e",
+          "wasserstein1": 0.0010467501171551512,
+          "pooled_reference_std": 0.48872657682660525,
+          "normalized_wasserstein1": 0.002141790863823897
+        },
+        {
+          "reaction": "EX_h_e",
+          "wasserstein1": 0.014443877712310005,
+          "pooled_reference_std": 4.545388063890287,
+          "normalized_wasserstein1": 0.003177699573564648
+        },
+        {
+          "reaction": "EX_h2o_e",
+          "wasserstein1": 0.034238212492557235,
+          "pooled_reference_std": 6.2202903591039185,
+          "normalized_wasserstein1": 0.005504278822361842
+        },
+        {
+          "reaction": "EX_lac__D_e",
+          "wasserstein1": 0.0028072010230983623,
+          "pooled_reference_std": 0.8712728821448009,
+          "normalized_wasserstein1": 0.003221953856968339
+        },
+        {
+          "reaction": "EX_nh4_e",
+          "wasserstein1": 0.0018424713110498233,
+          "pooled_reference_std": 0.5219849692764863,
+          "normalized_wasserstein1": 0.003529740163981424
+        },
+        {
+          "reaction": "EX_o2_e",
+          "wasserstein1": 0.03305860082774262,
+          "pooled_reference_std": 5.924262565969142,
+          "normalized_wasserstein1": 0.005580205208601284
+        },
+        {
+          "reaction": "EX_pi_e",
+          "wasserstein1": 0.0007222038791089269,
+          "pooled_reference_std": 0.13827068542600937,
+          "normalized_wasserstein1": 0.0052231163596523035
+        },
+        {
+          "reaction": "EX_pyr_e",
+          "wasserstein1": 0.001501276392104191,
+          "pooled_reference_std": 1.002917308652296,
+          "normalized_wasserstein1": 0.001496909445227924
+        },
+        {
+          "reaction": "EX_succ_e",
+          "wasserstein1": 0.004427545611824289,
+          "pooled_reference_std": 0.6737080018272357,
+          "normalized_wasserstein1": 0.006571905929298551
+        },
+        {
+          "reaction": "FBA",
+          "wasserstein1": 0.004357851640976252,
+          "pooled_reference_std": 1.9321616437043452,
+          "normalized_wasserstein1": 0.0022554280875907297
+        },
+        {
+          "reaction": "FBP",
+          "wasserstein1": 0.020056738398499276,
+          "pooled_reference_std": 7.866399718808917,
+          "normalized_wasserstein1": 0.0025496719103330983
+        },
+        {
+          "reaction": "FORt2",
+          "wasserstein1": 0.09440519606918579,
+          "pooled_reference_std": 31.39072851660883,
+          "normalized_wasserstein1": 0.003007422908940645
+        },
+        {
+          "reaction": "FORt",
+          "wasserstein1": 0.09553535850851466,
+          "pooled_reference_std": 31.487288667646045,
+          "normalized_wasserstein1": 0.0030340928848116276
+        },
+        {
+          "reaction": "FRD7",
+          "wasserstein1": 0.46090459123909855,
+          "pooled_reference_std": 286.53758176083005,
+          "normalized_wasserstein1": 0.0016085310290076043
+        },
+        {
+          "reaction": "FUM",
+          "wasserstein1": 0.01577394799184155,
+          "pooled_reference_std": 2.8294622770081843,
+          "normalized_wasserstein1": 0.00557489248752968
+        },
+        {
+          "reaction": "G6PDH2r",
+          "wasserstein1": 0.009834572346568263,
+          "pooled_reference_std": 5.7354008192826775,
+          "normalized_wasserstein1": 0.0017147140464017763
+        },
+        {
+          "reaction": "GAPD",
+          "wasserstein1": 0.004628783997138262,
+          "pooled_reference_std": 2.0270349835853687,
+          "normalized_wasserstein1": 0.0022835244752169915
+        },
+        {
+          "reaction": "GLCpts",
+          "wasserstein1": 0.0009178009020741862,
+          "pooled_reference_std": 0.385520606602527,
+          "normalized_wasserstein1": 0.0023806792331089108
+        },
+        {
+          "reaction": "GLNS",
+          "wasserstein1": 0.024429801105409554,
+          "pooled_reference_std": 10.714917694266443,
+          "normalized_wasserstein1": 0.0022799802856611723
+        },
+        {
+          "reaction": "GLUDy",
+          "wasserstein1": 0.015802949952193026,
+          "pooled_reference_std": 7.897189958137587,
+          "normalized_wasserstein1": 0.0020010852006806575
+        },
+        {
+          "reaction": "GLUN",
+          "wasserstein1": 0.017335264189111285,
+          "pooled_reference_std": 7.8362989495459,
+          "normalized_wasserstein1": 0.002212174943902036
+        },
+        {
+          "reaction": "GLUSy",
+          "wasserstein1": 0.015501115094949214,
+          "pooled_reference_std": 7.850403476700988,
+          "normalized_wasserstein1": 0.0019745628541201197
+        },
+        {
+          "reaction": "GLUt2r",
+          "wasserstein1": 0.001046750117155082,
+          "pooled_reference_std": 0.4887265768266047,
+          "normalized_wasserstein1": 0.0021417908638237584
+        },
+        {
+          "reaction": "GND",
+          "wasserstein1": 0.009834572346568302,
+          "pooled_reference_std": 5.735400819282675,
+          "normalized_wasserstein1": 0.0017147140464017839
+        },
+        {
+          "reaction": "H2Ot",
+          "wasserstein1": 0.03423821249255725,
+          "pooled_reference_std": 6.2202903591039185,
+          "normalized_wasserstein1": 0.005504278822361844
+        },
+        {
+          "reaction": "ICDHyr",
+          "wasserstein1": 0.007800142938337638,
+          "pooled_reference_std": 2.724321598111951,
+          "normalized_wasserstein1": 0.0028631505706754323
+        },
+        {
+          "reaction": "ICL",
+          "wasserstein1": 0.006836179508367941,
+          "pooled_reference_std": 2.8361500057130584,
+          "normalized_wasserstein1": 0.0024103730390132184
+        },
+        {
+          "reaction": "LDH_D",
+          "wasserstein1": 0.002807201023098407,
+          "pooled_reference_std": 0.8712728821448019,
+          "normalized_wasserstein1": 0.0032219538569683865
+        },
+        {
+          "reaction": "MALS",
+          "wasserstein1": 0.006836179508367895,
+          "pooled_reference_std": 2.8361500057130606,
+          "normalized_wasserstein1": 0.0024103730390132
+        },
+        {
+          "reaction": "MDH",
+          "wasserstein1": 0.025683489875984445,
+          "pooled_reference_std": 6.326677511496742,
+          "normalized_wasserstein1": 0.004059554138694884
+        },
+        {
+          "reaction": "ME1",
+          "wasserstein1": 0.014279106210626311,
+          "pooled_reference_std": 4.488788451113296,
+          "normalized_wasserstein1": 0.0031810601827503924
+        },
+        {
+          "reaction": "ME2",
+          "wasserstein1": 0.014882771997077288,
+          "pooled_reference_std": 4.506749747141765,
+          "normalized_wasserstein1": 0.0033023293575411244
+        },
+        {
+          "reaction": "NADH16",
+          "wasserstein1": 0.05081712170118728,
+          "pooled_reference_std": 10.223946899280175,
+          "normalized_wasserstein1": 0.00497040156818157
+        },
+        {
+          "reaction": "NADTRHD",
+          "wasserstein1": 0.06857948710102413,
+          "pooled_reference_std": 19.674841989901633,
+          "normalized_wasserstein1": 0.00348564360192694
+        },
+        {
+          "reaction": "NH4t",
+          "wasserstein1": 0.0018424713110498114,
+          "pooled_reference_std": 0.5219849692764865,
+          "normalized_wasserstein1": 0.0035297401639813996
+        },
+        {
+          "reaction": "O2t",
+          "wasserstein1": 0.033058600827742646,
+          "pooled_reference_std": 5.924262565969145,
+          "normalized_wasserstein1": 0.005580205208601287
+        },
+        {
+          "reaction": "PDH",
+          "wasserstein1": 0.015065644036734644,
+          "pooled_reference_std": 5.38834580665346,
+          "normalized_wasserstein1": 0.0027959682947838616
+        }
+      ]
+    },
+    "naja_whiten": {
+      "interpretation": "empirical agreement",
+      "raw_wasserstein1": {
+        "median": 0.008391010737361421,
+        "p95": 0.09975242717612019,
+        "max": 0.4934196725431679
+      },
+      "wasserstein1_divided_by_pooled_reference_std": {
+        "median": 0.003200839467822378,
+        "p95": 0.006515599902777518,
+        "max": 0.007127971964168746
+      },
+      "correlation_frobenius_distance": 0.18042448432386593,
+      "correlation_frobenius_per_active_reaction": 0.0020738446474007576,
+      "per_reaction": [
+        {
+          "reaction": "PFK",
+          "wasserstein1": 0.024942701777223873,
+          "pooled_reference_std": 8.090960523112747,
+          "normalized_wasserstein1": 0.0030827862410120793
+        },
+        {
+          "reaction": "PFL",
+          "wasserstein1": 0.014056928923996412,
+          "pooled_reference_std": 4.130016468619727,
+          "normalized_wasserstein1": 0.003403601179511594
+        },
+        {
+          "reaction": "PGI",
+          "wasserstein1": 0.022233437229555668,
+          "pooled_reference_std": 5.730767518656022,
+          "normalized_wasserstein1": 0.003879661346787602
+        },
+        {
+          "reaction": "PGK",
+          "wasserstein1": 0.008470006629871964,
+          "pooled_reference_std": 2.027034983585367,
+          "normalized_wasserstein1": 0.0041785202023945514
+        },
+        {
+          "reaction": "PGL",
+          "wasserstein1": 0.021562620891806394,
+          "pooled_reference_std": 5.7354008192826775,
+          "normalized_wasserstein1": 0.003759566518753473
+        },
+        {
+          "reaction": "ACALD",
+          "wasserstein1": 0.006489430765826665,
+          "pooled_reference_std": 1.3248465378009957,
+          "normalized_wasserstein1": 0.004898250914855346
+        },
+        {
+          "reaction": "AKGt2r",
+          "wasserstein1": 0.0008654651779310523,
+          "pooled_reference_std": 0.5265588882587224,
+          "normalized_wasserstein1": 0.001643624668065255
+        },
+        {
+          "reaction": "PGM",
+          "wasserstein1": 0.008391010737361421,
+          "pooled_reference_std": 2.028096005313869,
+          "normalized_wasserstein1": 0.004137383395744535
+        },
+        {
+          "reaction": "PIt2r",
+          "wasserstein1": 0.0002453658389571214,
+          "pooled_reference_std": 0.13827068542600926,
+          "normalized_wasserstein1": 0.001774532600320553
+        },
+        {
+          "reaction": "ALCD2x",
+          "wasserstein1": 0.006430922314224474,
+          "pooled_reference_std": 0.9022092604392633,
+          "normalized_wasserstein1": 0.007127971964168731
+        },
+        {
+          "reaction": "ACALDt",
+          "wasserstein1": 0.002595916764793364,
+          "pooled_reference_std": 1.0131511031985974,
+          "normalized_wasserstein1": 0.002562220735483435
+        },
+        {
+          "reaction": "ACKr",
+          "wasserstein1": 0.0028211075725799633,
+          "pooled_reference_std": 1.377794538731249,
+          "normalized_wasserstein1": 0.0020475531679620376
+        },
+        {
+          "reaction": "PPC",
+          "wasserstein1": 0.03270457900790973,
+          "pooled_reference_std": 9.176359321158525,
+          "normalized_wasserstein1": 0.003564003747379494
+        },
+        {
+          "reaction": "ACONTa",
+          "wasserstein1": 0.005447883678599445,
+          "pooled_reference_std": 2.5813329227427952,
+          "normalized_wasserstein1": 0.002110492463254525
+        },
+        {
+          "reaction": "ACONTb",
+          "wasserstein1": 0.005447883678599437,
+          "pooled_reference_std": 2.5813329227427912,
+          "normalized_wasserstein1": 0.0021104924632545253
+        },
+        {
+          "reaction": "ATPM",
+          "wasserstein1": 0.025795284316675358,
+          "pooled_reference_std": 7.870344979943289,
+          "normalized_wasserstein1": 0.0032775290514471486
+        },
+        {
+          "reaction": "PPCK",
+          "wasserstein1": 0.04910057795341516,
+          "pooled_reference_std": 7.92348037927598,
+          "normalized_wasserstein1": 0.006196844770618565
+        },
+        {
+          "reaction": "ACt2r",
+          "wasserstein1": 0.0028211075725799654,
+          "pooled_reference_std": 1.3777945387312496,
+          "normalized_wasserstein1": 0.0020475531679620385
+        },
+        {
+          "reaction": "PPS",
+          "wasserstein1": 0.01840385459153661,
+          "pooled_reference_std": 8.540014445206289,
+          "normalized_wasserstein1": 0.0021550144568979186
+        },
+        {
+          "reaction": "ADK1",
+          "wasserstein1": 0.01840385459153646,
+          "pooled_reference_std": 8.540014445206285,
+          "normalized_wasserstein1": 0.0021550144568979017
+        },
+        {
+          "reaction": "AKGDH",
+          "wasserstein1": 0.0036826587151232463,
+          "pooled_reference_std": 2.726620350837854,
+          "normalized_wasserstein1": 0.0013506312728838888
+        },
+        {
+          "reaction": "ATPS4r",
+          "wasserstein1": 0.10215265591952613,
+          "pooled_reference_std": 15.356200046516886,
+          "normalized_wasserstein1": 0.006652209245131353
+        },
+        {
+          "reaction": "PTAr",
+          "wasserstein1": 0.002821107572579919,
+          "pooled_reference_std": 1.3777945387312502,
+          "normalized_wasserstein1": 0.002047553167962004
+        },
+        {
+          "reaction": "PYK",
+          "wasserstein1": 0.024746991139209355,
+          "pooled_reference_std": 8.655160364346404,
+          "normalized_wasserstein1": 0.002859218096195047
+        },
+        {
+          "reaction": "BIOMASS_Ecoli_core_w_GAM",
+          "wasserstein1": 6.669906188592728e-05,
+          "pooled_reference_std": 0.03758683377987245,
+          "normalized_wasserstein1": 0.0017745326003395442
+        },
+        {
+          "reaction": "PYRt2",
+          "wasserstein1": 0.00490856809219974,
+          "pooled_reference_std": 1.002917308652294,
+          "normalized_wasserstein1": 0.00489428993781731
+        },
+        {
+          "reaction": "CO2t",
+          "wasserstein1": 0.022450838832031084,
+          "pooled_reference_std": 6.720804857454045,
+          "normalized_wasserstein1": 0.0033404985426902936
+        },
+        {
+          "reaction": "RPE",
+          "wasserstein1": 0.014401730734031145,
+          "pooled_reference_std": 3.8244784719570135,
+          "normalized_wasserstein1": 0.003765671800647285
+        },
+        {
+          "reaction": "CS",
+          "wasserstein1": 0.0054478836785994455,
+          "pooled_reference_std": 2.5813329227427944,
+          "normalized_wasserstein1": 0.002110492463254526
+        },
+        {
+          "reaction": "RPI",
+          "wasserstein1": 0.007164986313111351,
+          "pooled_reference_std": 1.9112085110052481,
+          "normalized_wasserstein1": 0.0037489296808032456
+        },
+        {
+          "reaction": "SUCCt2_2",
+          "wasserstein1": 0.03466976905887365,
+          "pooled_reference_std": 10.4516532988823,
+          "normalized_wasserstein1": 0.0033171564409413806
+        },
+        {
+          "reaction": "CYTBD",
+          "wasserstein1": 0.020383390832067593,
+          "pooled_reference_std": 11.848525131938299,
+          "normalized_wasserstein1": 0.0017203314847282665
+        },
+        {
+          "reaction": "D_LACt2",
+          "wasserstein1": 0.0013697714695255004,
+          "pooled_reference_std": 0.8712728821448009,
+          "normalized_wasserstein1": 0.0015721497794738569
+        },
+        {
+          "reaction": "ENO",
+          "wasserstein1": 0.008391010737361423,
+          "pooled_reference_std": 2.0280960053138664,
+          "normalized_wasserstein1": 0.004137383395744541
+        },
+        {
+          "reaction": "SUCCt3",
+          "wasserstein1": 0.034775585297683514,
+          "pooled_reference_std": 10.442347249096196,
+          "normalized_wasserstein1": 0.0033302460134806765
+        },
+        {
+          "reaction": "ETOHt2r",
+          "wasserstein1": 0.00643092231422449,
+          "pooled_reference_std": 0.9022092604392636,
+          "normalized_wasserstein1": 0.007127971964168746
+        },
+        {
+          "reaction": "SUCDi",
+          "wasserstein1": 0.4934196725431679,
+          "pooled_reference_std": 286.5342486354032,
+          "normalized_wasserstein1": 0.0017220268602899662
+        },
+        {
+          "reaction": "SUCOAS",
+          "wasserstein1": 0.0036826587151233296,
+          "pooled_reference_std": 2.726620350837851,
+          "normalized_wasserstein1": 0.001350631272883921
+        },
+        {
+          "reaction": "TALA",
+          "wasserstein1": 0.007192487911888531,
+          "pooled_reference_std": 1.9120068600923408,
+          "normalized_wasserstein1": 0.0037617479633630436
+        },
+        {
+          "reaction": "THD2",
+          "wasserstein1": 0.10477847412375671,
+          "pooled_reference_std": 15.641184038839121,
+          "normalized_wasserstein1": 0.006698883784218506
+        },
+        {
+          "reaction": "TKT1",
+          "wasserstein1": 0.007192487911888502,
+          "pooled_reference_std": 1.9120068600923419,
+          "normalized_wasserstein1": 0.0037617479633630267
+        },
+        {
+          "reaction": "TKT2",
+          "wasserstein1": 0.007210294142424613,
+          "pooled_reference_std": 1.912495650974283,
+          "normalized_wasserstein1": 0.0037700970136854803
+        },
+        {
+          "reaction": "TPI",
+          "wasserstein1": 0.007847397375034723,
+          "pooled_reference_std": 1.9321616437043407,
+          "normalized_wasserstein1": 0.004061460075353577
+        },
+        {
+          "reaction": "EX_ac_e",
+          "wasserstein1": 0.0028211075725800426,
+          "pooled_reference_std": 1.3777945387312516,
+          "normalized_wasserstein1": 0.0020475531679620914
+        },
+        {
+          "reaction": "EX_acald_e",
+          "wasserstein1": 0.002595916764793377,
+          "pooled_reference_std": 1.0131511031985976,
+          "normalized_wasserstein1": 0.0025622207354834476
+        },
+        {
+          "reaction": "EX_akg_e",
+          "wasserstein1": 0.0008654651779309621,
+          "pooled_reference_std": 0.5265588882587227,
+          "normalized_wasserstein1": 0.0016436246680650829
+        },
+        {
+          "reaction": "EX_co2_e",
+          "wasserstein1": 0.022450838832031163,
+          "pooled_reference_std": 6.720804857454044,
+          "normalized_wasserstein1": 0.003340498542690306
+        },
+        {
+          "reaction": "EX_etoh_e",
+          "wasserstein1": 0.006430922314224435,
+          "pooled_reference_std": 0.9022092604392632,
+          "normalized_wasserstein1": 0.007127971964168689
+        },
+        {
+          "reaction": "EX_for_e",
+          "wasserstein1": 0.01405692892399635,
+          "pooled_reference_std": 4.130016468619729,
+          "normalized_wasserstein1": 0.0034036011795115775
+        },
+        {
+          "reaction": "EX_glc__D_e",
+          "wasserstein1": 0.0008007863597612214,
+          "pooled_reference_std": 0.3855206066025277,
+          "normalized_wasserstein1": 0.002077155788942907
+        },
+        {
+          "reaction": "EX_glu__L_e",
+          "wasserstein1": 0.0019767537048467087,
+          "pooled_reference_std": 0.48872657682660525,
+          "normalized_wasserstein1": 0.004044702699988503
+        },
+        {
+          "reaction": "EX_h_e",
+          "wasserstein1": 0.015626340793375073,
+          "pooled_reference_std": 4.545388063890287,
+          "normalized_wasserstein1": 0.0034378452562751857
+        },
+        {
+          "reaction": "EX_h2o_e",
+          "wasserstein1": 0.014819841553729828,
+          "pooled_reference_std": 6.2202903591039185,
+          "normalized_wasserstein1": 0.0023824999635330114
+        },
+        {
+          "reaction": "EX_lac__D_e",
+          "wasserstein1": 0.0013697714695255086,
+          "pooled_reference_std": 0.8712728821448009,
+          "normalized_wasserstein1": 0.0015721497794738662
+        },
+        {
+          "reaction": "EX_nh4_e",
+          "wasserstein1": 0.0020963376178109758,
+          "pooled_reference_std": 0.5219849692764863,
+          "normalized_wasserstein1": 0.004016088089120019
+        },
+        {
+          "reaction": "EX_o2_e",
+          "wasserstein1": 0.010191695416033783,
+          "pooled_reference_std": 5.924262565969142,
+          "normalized_wasserstein1": 0.0017203314847282663
+        },
+        {
+          "reaction": "EX_pi_e",
+          "wasserstein1": 0.0002453658389569938,
+          "pooled_reference_std": 0.13827068542600937,
+          "normalized_wasserstein1": 0.001774532600319629
+        },
+        {
+          "reaction": "EX_pyr_e",
+          "wasserstein1": 0.004908568092199813,
+          "pooled_reference_std": 1.002917308652296,
+          "normalized_wasserstein1": 0.004894289937817374
+        },
+        {
+          "reaction": "EX_succ_e",
+          "wasserstein1": 0.0010255418017158448,
+          "pooled_reference_std": 0.6737080018272357,
+          "normalized_wasserstein1": 0.0015222348538749175
+        },
+        {
+          "reaction": "FBA",
+          "wasserstein1": 0.007847397375034707,
+          "pooled_reference_std": 1.9321616437043452,
+          "normalized_wasserstein1": 0.00406146007535356
+        },
+        {
+          "reaction": "FBP",
+          "wasserstein1": 0.019191213226665255,
+          "pooled_reference_std": 7.866399718808917,
+          "normalized_wasserstein1": 0.0024396437903833183
+        },
+        {
+          "reaction": "FORt2",
+          "wasserstein1": 0.10770984013482117,
+          "pooled_reference_std": 31.39072851660883,
+          "normalized_wasserstein1": 0.00343126283538886
+        },
+        {
+          "reaction": "FORt",
+          "wasserstein1": 0.09415189344150626,
+          "pooled_reference_std": 31.487288667646045,
+          "normalized_wasserstein1": 0.0029901556286823015
+        },
+        {
+          "reaction": "FRD7",
+          "wasserstein1": 0.4929065385660676,
+          "pooled_reference_std": 286.53758176083005,
+          "normalized_wasserstein1": 0.0017202160203107024
+        },
+        {
+          "reaction": "FUM",
+          "wasserstein1": 0.004845055549280705,
+          "pooled_reference_std": 2.8294622770081843,
+          "normalized_wasserstein1": 0.0017123591251422402
+        },
+        {
+          "reaction": "G6PDH2r",
+          "wasserstein1": 0.021562620891806425,
+          "pooled_reference_std": 5.7354008192826775,
+          "normalized_wasserstein1": 0.0037595665187534788
+        },
+        {
+          "reaction": "GAPD",
+          "wasserstein1": 0.00847000662987194,
+          "pooled_reference_std": 2.0270349835853687,
+          "normalized_wasserstein1": 0.004178520202394536
+        },
+        {
+          "reaction": "GLCpts",
+          "wasserstein1": 0.0008007863597612109,
+          "pooled_reference_std": 0.385520606602527,
+          "normalized_wasserstein1": 0.002077155788942883
+        },
+        {
+          "reaction": "GLNS",
+          "wasserstein1": 0.0410573343421634,
+          "pooled_reference_std": 10.714917694266443,
+          "normalized_wasserstein1": 0.0038317918544659656
+        },
+        {
+          "reaction": "GLUDy",
+          "wasserstein1": 0.027215066437892795,
+          "pooled_reference_std": 7.897189958137587,
+          "normalized_wasserstein1": 0.0034461709268939745
+        },
+        {
+          "reaction": "GLUN",
+          "wasserstein1": 0.016490537425157745,
+          "pooled_reference_std": 7.8362989495459,
+          "normalized_wasserstein1": 0.0021043782953320514
+        },
+        {
+          "reaction": "GLUSy",
+          "wasserstein1": 0.025127881286554538,
+          "pooled_reference_std": 7.850403476700988,
+          "normalized_wasserstein1": 0.003200839467822378
+        },
+        {
+          "reaction": "GLUt2r",
+          "wasserstein1": 0.0019767537048466033,
+          "pooled_reference_std": 0.4887265768266047,
+          "normalized_wasserstein1": 0.004044702699988292
+        },
+        {
+          "reaction": "GND",
+          "wasserstein1": 0.021562620891806404,
+          "pooled_reference_std": 5.735400819282675,
+          "normalized_wasserstein1": 0.0037595665187534766
+        },
+        {
+          "reaction": "H2Ot",
+          "wasserstein1": 0.014819841553729824,
+          "pooled_reference_std": 6.2202903591039185,
+          "normalized_wasserstein1": 0.002382499963533011
+        },
+        {
+          "reaction": "ICDHyr",
+          "wasserstein1": 0.003008911439854365,
+          "pooled_reference_std": 2.724321598111951,
+          "normalized_wasserstein1": 0.001104462645650809
+        },
+        {
+          "reaction": "ICL",
+          "wasserstein1": 0.0055798133216439245,
+          "pooled_reference_std": 2.8361500057130584,
+          "normalized_wasserstein1": 0.001967390057085877
+        },
+        {
+          "reaction": "LDH_D",
+          "wasserstein1": 0.0013697714695254705,
+          "pooled_reference_std": 0.8712728821448019,
+          "normalized_wasserstein1": 0.0015721497794738207
+        },
+        {
+          "reaction": "MALS",
+          "wasserstein1": 0.00557981332164398,
+          "pooled_reference_std": 2.8361500057130606,
+          "normalized_wasserstein1": 0.001967390057085895
+        },
+        {
+          "reaction": "MDH",
+          "wasserstein1": 0.014429167397352819,
+          "pooled_reference_std": 6.326677511496742,
+          "normalized_wasserstein1": 0.0022806864062744395
+        },
+        {
+          "reaction": "ME1",
+          "wasserstein1": 0.018488314263368312,
+          "pooled_reference_std": 4.488788451113296,
+          "normalized_wasserstein1": 0.004118776027144451
+        },
+        {
+          "reaction": "ME2",
+          "wasserstein1": 0.006917405145159411,
+          "pooled_reference_std": 4.506749747141765,
+          "normalized_wasserstein1": 0.0015348988812938888
+        },
+        {
+          "reaction": "NADH16",
+          "wasserstein1": 0.02088194284354841,
+          "pooled_reference_std": 10.223946899280175,
+          "normalized_wasserstein1": 0.002042454156820652
+        },
+        {
+          "reaction": "NADTRHD",
+          "wasserstein1": 0.08539667465354879,
+          "pooled_reference_std": 19.674841989901633,
+          "normalized_wasserstein1": 0.00434039951616281
+        },
+        {
+          "reaction": "NH4t",
+          "wasserstein1": 0.002096337617810962,
+          "pooled_reference_std": 0.5219849692764865,
+          "normalized_wasserstein1": 0.004016088089119991
+        },
+        {
+          "reaction": "O2t",
+          "wasserstein1": 0.010191695416033774,
+          "pooled_reference_std": 5.924262565969145,
+          "normalized_wasserstein1": 0.001720331484728264
+        },
+        {
+          "reaction": "PDH",
+          "wasserstein1": 0.028884170387431893,
+          "pooled_reference_std": 5.38834580665346,
+          "normalized_wasserstein1": 0.0053604893642434925
+        }
+      ]
+    },
+    "naja_whiten_dikin_pair": {
+      "interpretation": "empirical agreement",
+      "raw_wasserstein1": {
+        "median": 0.01497791915304037,
+        "p95": 0.0595860688018348,
+        "max": 0.3760101357566455
+      },
+      "wasserstein1_divided_by_pooled_reference_std": {
+        "median": 0.0034276264713432917,
+        "p95": 0.007827784727169516,
+        "max": 0.00798995714213912
+      },
+      "correlation_frobenius_distance": 0.17356398762764466,
+      "correlation_frobenius_per_active_reaction": 0.0019949883635361457,
+      "per_reaction": [
+        {
+          "reaction": "PFK",
+          "wasserstein1": 0.0426788153298051,
+          "pooled_reference_std": 8.090960523112747,
+          "normalized_wasserstein1": 0.005274876228587227
+        },
+        {
+          "reaction": "PFL",
+          "wasserstein1": 0.023491460675316045,
+          "pooled_reference_std": 4.130016468619727,
+          "normalized_wasserstein1": 0.005687982324963225
+        },
+        {
+          "reaction": "PGI",
+          "wasserstein1": 0.04503775580732156,
+          "pooled_reference_std": 5.730767518656022,
+          "normalized_wasserstein1": 0.007858939602890016
+        },
+        {
+          "reaction": "PGK",
+          "wasserstein1": 0.016028938144828954,
+          "pooled_reference_std": 2.027034983585367,
+          "normalized_wasserstein1": 0.007907578445675063
+        },
+        {
+          "reaction": "PGL",
+          "wasserstein1": 0.044131014206857194,
+          "pooled_reference_std": 5.7354008192826775,
+          "normalized_wasserstein1": 0.007694495223156283
+        },
+        {
+          "reaction": "ACALD",
+          "wasserstein1": 0.0052052355000292315,
+          "pooled_reference_std": 1.3248465378009957,
+          "normalized_wasserstein1": 0.003928934673950219
+        },
+        {
+          "reaction": "AKGt2r",
+          "wasserstein1": 0.0013308328766996225,
+          "pooled_reference_std": 0.5265588882587224,
+          "normalized_wasserstein1": 0.0025274150838105755
+        },
+        {
+          "reaction": "PGM",
+          "wasserstein1": 0.015728067084641542,
+          "pooled_reference_std": 2.028096005313869,
+          "normalized_wasserstein1": 0.007755090017155011
+        },
+        {
+          "reaction": "PIt2r",
+          "wasserstein1": 0.0008546225558934049,
+          "pooled_reference_std": 0.13827068542600926,
+          "normalized_wasserstein1": 0.0061807935157067425
+        },
+        {
+          "reaction": "ALCD2x",
+          "wasserstein1": 0.0023307621204847204,
+          "pooled_reference_std": 0.9022092604392633,
+          "normalized_wasserstein1": 0.002583394144447077
+        },
+        {
+          "reaction": "ACALDt",
+          "wasserstein1": 0.0034727035407941674,
+          "pooled_reference_std": 1.0131511031985974,
+          "normalized_wasserstein1": 0.0034276264713432878
+        },
+        {
+          "reaction": "ACKr",
+          "wasserstein1": 0.002346904526737274,
+          "pooled_reference_std": 1.377794538731249,
+          "normalized_wasserstein1": 0.0017033777248808347
+        },
+        {
+          "reaction": "PPC",
+          "wasserstein1": 0.038223617039242236,
+          "pooled_reference_std": 9.176359321158525,
+          "normalized_wasserstein1": 0.0041654446716256595
+        },
+        {
+          "reaction": "ACONTa",
+          "wasserstein1": 0.015373515022282364,
+          "pooled_reference_std": 2.5813329227427952,
+          "normalized_wasserstein1": 0.005955649845409029
+        },
+        {
+          "reaction": "ACONTb",
+          "wasserstein1": 0.01537351502228237,
+          "pooled_reference_std": 2.5813329227427912,
+          "normalized_wasserstein1": 0.00595564984540904
+        },
+        {
+          "reaction": "ATPM",
+          "wasserstein1": 0.012581946852119106,
+          "pooled_reference_std": 7.870344979943289,
+          "normalized_wasserstein1": 0.001598652522117241
+        },
+        {
+          "reaction": "PPCK",
+          "wasserstein1": 0.024383015803918183,
+          "pooled_reference_std": 7.92348037927598,
+          "normalized_wasserstein1": 0.0030773113122981215
+        },
+        {
+          "reaction": "ACt2r",
+          "wasserstein1": 0.0023469045267372835,
+          "pooled_reference_std": 1.3777945387312496,
+          "normalized_wasserstein1": 0.001703377724880841
+        },
+        {
+          "reaction": "PPS",
+          "wasserstein1": 0.011672388022049538,
+          "pooled_reference_std": 8.540014445206289,
+          "normalized_wasserstein1": 0.0013667878546272862
+        },
+        {
+          "reaction": "ADK1",
+          "wasserstein1": 0.011672388022049542,
+          "pooled_reference_std": 8.540014445206285,
+          "normalized_wasserstein1": 0.0013667878546272873
+        },
+        {
+          "reaction": "AKGDH",
+          "wasserstein1": 0.010540085158115062,
+          "pooled_reference_std": 2.726620350837854,
+          "normalized_wasserstein1": 0.0038656225663672742
+        },
+        {
+          "reaction": "ATPS4r",
+          "wasserstein1": 0.08097747843525811,
+          "pooled_reference_std": 15.356200046516886,
+          "normalized_wasserstein1": 0.00527327582279221
+        },
+        {
+          "reaction": "PTAr",
+          "wasserstein1": 0.0023469045267371395,
+          "pooled_reference_std": 1.3777945387312502,
+          "normalized_wasserstein1": 0.0017033777248807356
+        },
+        {
+          "reaction": "PYK",
+          "wasserstein1": 0.031796976594772305,
+          "pooled_reference_std": 8.655160364346404,
+          "normalized_wasserstein1": 0.0036737593824090237
+        },
+        {
+          "reaction": "BIOMASS_Ecoli_core_w_GAM",
+          "wasserstein1": 0.00023231645850311256,
+          "pooled_reference_std": 0.03758683377987245,
+          "normalized_wasserstein1": 0.006180793515720837
+        },
+        {
+          "reaction": "PYRt2",
+          "wasserstein1": 0.002713961186070405,
+          "pooled_reference_std": 1.002917308652294,
+          "normalized_wasserstein1": 0.0027060667541149407
+        },
+        {
+          "reaction": "CO2t",
+          "wasserstein1": 0.019577548042403876,
+          "pooled_reference_std": 6.720804857454045,
+          "normalized_wasserstein1": 0.002912976713003416
+        },
+        {
+          "reaction": "RPE",
+          "wasserstein1": 0.029569334189716866,
+          "pooled_reference_std": 3.8244784719570135,
+          "normalized_wasserstein1": 0.007731599068090981
+        },
+        {
+          "reaction": "CS",
+          "wasserstein1": 0.015373515022282387,
+          "pooled_reference_std": 2.5813329227427944,
+          "normalized_wasserstein1": 0.005955649845409039
+        },
+        {
+          "reaction": "RPI",
+          "wasserstein1": 0.014560444992581948,
+          "pooled_reference_std": 1.9112085110052481,
+          "normalized_wasserstein1": 0.0076184492213900385
+        },
+        {
+          "reaction": "SUCCt2_2",
+          "wasserstein1": 0.02329922557838329,
+          "pooled_reference_std": 10.4516532988823,
+          "normalized_wasserstein1": 0.00222923827571614
+        },
+        {
+          "reaction": "CYTBD",
+          "wasserstein1": 0.02920465579741888,
+          "pooled_reference_std": 11.848525131938299,
+          "normalized_wasserstein1": 0.002464834692268682
+        },
+        {
+          "reaction": "D_LACt2",
+          "wasserstein1": 0.0011865676563653136,
+          "pooled_reference_std": 0.8712728821448009,
+          "normalized_wasserstein1": 0.0013618783284570452
+        },
+        {
+          "reaction": "ENO",
+          "wasserstein1": 0.01572806708464153,
+          "pooled_reference_std": 2.0280960053138664,
+          "normalized_wasserstein1": 0.007755090017155016
+        },
+        {
+          "reaction": "SUCCt3",
+          "wasserstein1": 0.023805932982031913,
+          "pooled_reference_std": 10.442347249096196,
+          "normalized_wasserstein1": 0.002279749218653149
+        },
+        {
+          "reaction": "ETOHt2r",
+          "wasserstein1": 0.002330762120484699,
+          "pooled_reference_std": 0.9022092604392636,
+          "normalized_wasserstein1": 0.002583394144447052
+        },
+        {
+          "reaction": "SUCDi",
+          "wasserstein1": 0.3760101357566455,
+          "pooled_reference_std": 286.5342486354032,
+          "normalized_wasserstein1": 0.0013122694321790996
+        },
+        {
+          "reaction": "SUCOAS",
+          "wasserstein1": 0.010540085158115133,
+          "pooled_reference_std": 2.726620350837851,
+          "normalized_wasserstein1": 0.0038656225663673046
+        },
+        {
+          "reaction": "TALA",
+          "wasserstein1": 0.014748755918414423,
+          "pooled_reference_std": 1.9120068600923408,
+          "normalized_wasserstein1": 0.007713756799859039
+        },
+        {
+          "reaction": "THD2",
+          "wasserstein1": 0.06383503895285127,
+          "pooled_reference_std": 15.641184038839121,
+          "normalized_wasserstein1": 0.004081215258022695
+        },
+        {
+          "reaction": "TKT1",
+          "wasserstein1": 0.014748755918414427,
+          "pooled_reference_std": 1.9120068600923419,
+          "normalized_wasserstein1": 0.007713756799859036
+        },
+        {
+          "reaction": "TKT2",
+          "wasserstein1": 0.014821200227978342,
+          "pooled_reference_std": 1.912495650974283,
+          "normalized_wasserstein1": 0.007749664800768554
+        },
+        {
+          "reaction": "TPI",
+          "wasserstein1": 0.015437888724882741,
+          "pooled_reference_std": 1.9321616437043407,
+          "normalized_wasserstein1": 0.00798995714213911
+        },
+        {
+          "reaction": "EX_ac_e",
+          "wasserstein1": 0.0023469045267375623,
+          "pooled_reference_std": 1.3777945387312516,
+          "normalized_wasserstein1": 0.0017033777248810409
+        },
+        {
+          "reaction": "EX_acald_e",
+          "wasserstein1": 0.003472703540794172,
+          "pooled_reference_std": 1.0131511031985976,
+          "normalized_wasserstein1": 0.0034276264713432917
+        },
+        {
+          "reaction": "EX_akg_e",
+          "wasserstein1": 0.0013308328766995674,
+          "pooled_reference_std": 0.5265588882587227,
+          "normalized_wasserstein1": 0.00252741508381047
+        },
+        {
+          "reaction": "EX_co2_e",
+          "wasserstein1": 0.01957754804240384,
+          "pooled_reference_std": 6.720804857454044,
+          "normalized_wasserstein1": 0.0029129767130034114
+        },
+        {
+          "reaction": "EX_etoh_e",
+          "wasserstein1": 0.002330762120484675,
+          "pooled_reference_std": 0.9022092604392632,
+          "normalized_wasserstein1": 0.0025833941444470265
+        },
+        {
+          "reaction": "EX_for_e",
+          "wasserstein1": 0.023491460675316076,
+          "pooled_reference_std": 4.130016468619729,
+          "normalized_wasserstein1": 0.00568798232496323
+        },
+        {
+          "reaction": "EX_glc__D_e",
+          "wasserstein1": 0.001072036375191006,
+          "pooled_reference_std": 0.3855206066025277,
+          "normalized_wasserstein1": 0.002780749866105801
+        },
+        {
+          "reaction": "EX_glu__L_e",
+          "wasserstein1": 0.0007470966463541703,
+          "pooled_reference_std": 0.48872657682660525,
+          "normalized_wasserstein1": 0.001528659749189846
+        },
+        {
+          "reaction": "EX_h_e",
+          "wasserstein1": 0.018317485891473625,
+          "pooled_reference_std": 4.545388063890287,
+          "normalized_wasserstein1": 0.0040299058373018505
+        },
+        {
+          "reaction": "EX_h2o_e",
+          "wasserstein1": 0.02211334868311642,
+          "pooled_reference_std": 6.2202903591039185,
+          "normalized_wasserstein1": 0.0035550347984562606
+        },
+        {
+          "reaction": "EX_lac__D_e",
+          "wasserstein1": 0.0011865676563653069,
+          "pooled_reference_std": 0.8712728821448009,
+          "normalized_wasserstein1": 0.0013618783284570374
+        },
+        {
+          "reaction": "EX_nh4_e",
+          "wasserstein1": 0.0013549929429687382,
+          "pooled_reference_std": 0.5219849692764863,
+          "normalized_wasserstein1": 0.002595846667475634
+        },
+        {
+          "reaction": "EX_o2_e",
+          "wasserstein1": 0.014602327898709412,
+          "pooled_reference_std": 5.924262565969142,
+          "normalized_wasserstein1": 0.0024648346922686803
+        },
+        {
+          "reaction": "EX_pi_e",
+          "wasserstein1": 0.0008546225558933324,
+          "pooled_reference_std": 0.13827068542600937,
+          "normalized_wasserstein1": 0.006180793515706214
+        },
+        {
+          "reaction": "EX_pyr_e",
+          "wasserstein1": 0.002713961186070322,
+          "pooled_reference_std": 1.002917308652296,
+          "normalized_wasserstein1": 0.002706066754114852
+        },
+        {
+          "reaction": "EX_succ_e",
+          "wasserstein1": 0.0038430347516369566,
+          "pooled_reference_std": 0.6737080018272357,
+          "normalized_wasserstein1": 0.005704303260780413
+        },
+        {
+          "reaction": "FBA",
+          "wasserstein1": 0.015437888724882796,
+          "pooled_reference_std": 1.9321616437043452,
+          "normalized_wasserstein1": 0.00798995714213912
+        },
+        {
+          "reaction": "FBP",
+          "wasserstein1": 0.049671805116129564,
+          "pooled_reference_std": 7.866399718808917,
+          "normalized_wasserstein1": 0.0063144267888348
+        },
+        {
+          "reaction": "FORt2",
+          "wasserstein1": 0.04128754321954626,
+          "pooled_reference_std": 31.39072851660883,
+          "normalized_wasserstein1": 0.0013152782738922743
+        },
+        {
+          "reaction": "FORt",
+          "wasserstein1": 0.034279033649030864,
+          "pooled_reference_std": 31.487288667646045,
+          "normalized_wasserstein1": 0.00108866260321275
+        },
+        {
+          "reaction": "FRD7",
+          "wasserstein1": 0.37204023440727463,
+          "pooled_reference_std": 286.53758176083005,
+          "normalized_wasserstein1": 0.0012983994354981774
+        },
+        {
+          "reaction": "FUM",
+          "wasserstein1": 0.017647357109080018,
+          "pooled_reference_std": 2.8294622770081843,
+          "normalized_wasserstein1": 0.006237000313621418
+        },
+        {
+          "reaction": "G6PDH2r",
+          "wasserstein1": 0.044131014206857236,
+          "pooled_reference_std": 5.7354008192826775,
+          "normalized_wasserstein1": 0.00769449522315629
+        },
+        {
+          "reaction": "GAPD",
+          "wasserstein1": 0.01602893814482898,
+          "pooled_reference_std": 2.0270349835853687,
+          "normalized_wasserstein1": 0.00790757844567507
+        },
+        {
+          "reaction": "GLCpts",
+          "wasserstein1": 0.0010720363751910052,
+          "pooled_reference_std": 0.385520606602527,
+          "normalized_wasserstein1": 0.0027807498661058037
+        },
+        {
+          "reaction": "GLNS",
+          "wasserstein1": 0.03716047961798441,
+          "pooled_reference_std": 10.714917694266443,
+          "normalized_wasserstein1": 0.00346810686542828
+        },
+        {
+          "reaction": "GLUDy",
+          "wasserstein1": 0.01497791915304037,
+          "pooled_reference_std": 7.897189958137587,
+          "normalized_wasserstein1": 0.0018966137616591723
+        },
+        {
+          "reaction": "GLUN",
+          "wasserstein1": 0.02013733495397118,
+          "pooled_reference_std": 7.8362989495459,
+          "normalized_wasserstein1": 0.002569750731005241
+        },
+        {
+          "reaction": "GLUSy",
+          "wasserstein1": 0.016871151611260786,
+          "pooled_reference_std": 7.850403476700988,
+          "normalized_wasserstein1": 0.0021490808289449386
+        },
+        {
+          "reaction": "GLUt2r",
+          "wasserstein1": 0.0007470966463540944,
+          "pooled_reference_std": 0.4887265768266047,
+          "normalized_wasserstein1": 0.0015286597491896924
+        },
+        {
+          "reaction": "GND",
+          "wasserstein1": 0.04413101420685719,
+          "pooled_reference_std": 5.735400819282675,
+          "normalized_wasserstein1": 0.007694495223156285
+        },
+        {
+          "reaction": "H2Ot",
+          "wasserstein1": 0.02211334868311643,
+          "pooled_reference_std": 6.2202903591039185,
+          "normalized_wasserstein1": 0.0035550347984562624
+        },
+        {
+          "reaction": "ICDHyr",
+          "wasserstein1": 0.012059329493367896,
+          "pooled_reference_std": 2.724321598111951,
+          "normalized_wasserstein1": 0.0044265440253916525
+        },
+        {
+          "reaction": "ICL",
+          "wasserstein1": 0.005337970484259952,
+          "pooled_reference_std": 2.8361500057130584,
+          "normalized_wasserstein1": 0.0018821185316387702
+        },
+        {
+          "reaction": "LDH_D",
+          "wasserstein1": 0.001186567656365309,
+          "pooled_reference_std": 0.8712728821448019,
+          "normalized_wasserstein1": 0.0013618783284570384
+        },
+        {
+          "reaction": "MALS",
+          "wasserstein1": 0.005337970484259885,
+          "pooled_reference_std": 2.8361500057130606,
+          "normalized_wasserstein1": 0.0018821185316387453
+        },
+        {
+          "reaction": "MDH",
+          "wasserstein1": 0.041739418386855645,
+          "pooled_reference_std": 6.326677511496742,
+          "normalized_wasserstein1": 0.006597367782854019
+        },
+        {
+          "reaction": "ME1",
+          "wasserstein1": 0.006795529249502722,
+          "pooled_reference_std": 4.488788451113296,
+          "normalized_wasserstein1": 0.0015138893987791551
+        },
+        {
+          "reaction": "ME2",
+          "wasserstein1": 0.01953454188566278,
+          "pooled_reference_std": 4.506749747141765,
+          "normalized_wasserstein1": 0.004334507789799473
+        },
+        {
+          "reaction": "NADH16",
+          "wasserstein1": 0.03929006779242052,
+          "pooled_reference_std": 10.223946899280175,
+          "normalized_wasserstein1": 0.0038429452127912334
+        },
+        {
+          "reaction": "NADTRHD",
+          "wasserstein1": 0.07885012675568198,
+          "pooled_reference_std": 19.674841989901633,
+          "normalized_wasserstein1": 0.004007662516230261
+        },
+        {
+          "reaction": "NH4t",
+          "wasserstein1": 0.0013549929429686918,
+          "pooled_reference_std": 0.5219849692764865,
+          "normalized_wasserstein1": 0.002595846667475544
+        },
+        {
+          "reaction": "O2t",
+          "wasserstein1": 0.014602327898709438,
+          "pooled_reference_std": 5.924262565969145,
+          "normalized_wasserstein1": 0.0024648346922686833
+        },
+        {
+          "reaction": "PDH",
+          "wasserstein1": 0.014289306810015378,
+          "pooled_reference_std": 5.38834580665346,
+          "normalized_wasserstein1": 0.002651891196806843
+        }
+      ]
+    }
+  },
+  "analysis_wall_seconds": 22.76602970249951
+}

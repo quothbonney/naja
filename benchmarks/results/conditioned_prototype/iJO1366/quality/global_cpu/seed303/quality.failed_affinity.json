@@ -1,0 +1,7 @@
+{
+  "status": "failed",
+  "condition_id": "iJO1366",
+  "variant": "global_cpu",
+  "seed": 303,
+  "error": "AssertionError('Sibling reservation incomplete')"
+}

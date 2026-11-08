@@ -1,0 +1,17 @@
+DATA_DIR=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models
+MODEL_NAME=iJO1366
+OUT_DIR=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/nsight_timeline/chains512/unprofiled_before/native/iJO1366_20261108_001
+N_CHAINS=512
+N_SAMPLES=11000
+SEED=101
+TPB_SS=128
+GPU_DEVICE=0
+BACK_TRANSFORM=false
+WRITE_DATA=true
+VERBOSE=false
+STATUS=true
+EXTRA_CONSTRAINTS=auto
+START_POLICY=file
+BARRIER_ROTATE=true
+BARRIER_WHITEN=false
+BOUNDS_POLICY=ignore

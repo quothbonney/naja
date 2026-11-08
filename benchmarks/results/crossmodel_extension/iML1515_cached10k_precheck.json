@@ -1,0 +1,83 @@
+{
+  "rows": [
+    {
+      "seed": 101,
+      "source": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/larger_quality/iML1515/cpu2000/seed101/pilot",
+      "precheck": {
+        "schema_version": 2,
+        "diagnostic_mask_status": "model_lp_verified",
+        "shape": [
+          16,
+          10000,
+          635
+        ],
+        "stage": "masked_classical_split_rhat_precheck",
+        "split_rhat_median": 1.0109073090943714,
+        "split_rhat_p95": 1.0219232283986823,
+        "bulk_ess_median": null,
+        "bulk_ess_computed": false,
+        "diagnosed_reactions": 2084,
+        "sample_bound_violation_fraction": 0.0,
+        "bounds_tolerance": 1e-07,
+        "coordinate_bound_violation_fraction": 0.0,
+        "zero_tolerance_sample_bound_violation_fraction": 1.0,
+        "max_absolute_bound_violation": 9.004665278860014e-08,
+        "checked_samples": 160000,
+        "precheck_wall_seconds": 42.75127049908042
+      }
+    },
+    {
+      "seed": 202,
+      "source": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/iml_time_to_target/cpu_native_thin2000/seed202/fixed10000",
+      "precheck": {
+        "schema_version": 2,
+        "diagnostic_mask_status": "model_lp_verified",
+        "shape": [
+          16,
+          10000,
+          635
+        ],
+        "stage": "masked_classical_split_rhat_precheck",
+        "split_rhat_median": 1.0110090356669426,
+        "split_rhat_p95": 1.0203654054919276,
+        "bulk_ess_median": null,
+        "bulk_ess_computed": false,
+        "diagnosed_reactions": 2084,
+        "sample_bound_violation_fraction": 0.0,
+        "bounds_tolerance": 1e-07,
+        "coordinate_bound_violation_fraction": 0.0,
+        "zero_tolerance_sample_bound_violation_fraction": 1.0,
+        "max_absolute_bound_violation": 8.755589237243479e-08,
+        "checked_samples": 160000,
+        "precheck_wall_seconds": 14.246284071356058
+      }
+    },
+    {
+      "seed": 303,
+      "source": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/iml_time_to_target/cpu_native_thin2000/seed303/fixed10000",
+      "precheck": {
+        "schema_version": 2,
+        "diagnostic_mask_status": "model_lp_verified",
+        "shape": [
+          16,
+          10000,
+          635
+        ],
+        "stage": "masked_classical_split_rhat_precheck",
+        "split_rhat_median": 1.011017997476544,
+        "split_rhat_p95": 1.0217970265325762,
+        "bulk_ess_median": null,
+        "bulk_ess_computed": false,
+        "diagnosed_reactions": 2084,
+        "sample_bound_violation_fraction": 0.0,
+        "bounds_tolerance": 1e-07,
+        "coordinate_bound_violation_fraction": 0.0,
+        "zero_tolerance_sample_bound_violation_fraction": 1.0,
+        "max_absolute_bound_violation": 8.74083747076454e-08,
+        "checked_samples": 160000,
+        "precheck_wall_seconds": 13.957598408684134
+      }
+    }
+  ],
+  "note": "Rhat/bounds screening only; no ESS or time-to-quality inference. Original10k raw-mask failures preserved."
+}

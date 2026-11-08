@@ -1,0 +1,21 @@
+{
+  "build_variant": "native",
+  "hopsy_version": "1.7.0",
+  "hopsy_build": "9b787d9",
+  "hostname": "slurm-h100-206-077",
+  "source": {
+    "version": "1.7.0",
+    "source": "official PyPI sdist",
+    "url": "https://files.pythonhosted.org/packages/3e/49/b4c800828736a3c8b57555f694f06a59f0acee84996f8b35948703636f5b/hopsy-1.7.0.tar.gz",
+    "sha256": "24659f594c6859823d887adc576f11667abcd2548f8e22341c313841e809fc1e",
+    "archive": "source/hopsy-1.7.0.tar.gz"
+  },
+  "requested_flags": "-O3 -march=native -mtune=native",
+  "compiler": "GNU 11.4.0",
+  "compiler_target_file": "audit/hopsy_native_compiler_target.txt",
+  "observed_compile_commands": 22,
+  "wheel": "wheels-native/hopsy-1.7.0-cp312-cp312-linux_x86_64.whl",
+  "wheel_sha256": "9bd5d48712703dc7b95041498350d5e7f6795bbeefe6b6a1c4a60bd4aec617a2",
+  "module_sha256": "617c602456c6f54f70b4a4759404c088ed43ea7677acf3fcf181a19b86602ab8",
+  "analytic_cube_status": "passed"
+}

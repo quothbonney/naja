@@ -1,0 +1,121 @@
+error: invalid --barrier-rotate-backend (gpu|cpu)
+
+naja sample -- GPU coordinate hit-and-run sampling for polytope-constrained distributions
+
+QUICK START (bulk sampling, flat output):
+
+  # 1. Prepare models (inherit rounding from base, build feasible model list)
+  naja sample prepare \
+    --models-root <models_root> --model-list all_models.txt \
+    --base-model-dir <base_model_dir> --mode symlink \
+    --out-model-list feasible.txt
+
+  # 2. Sample in bulk across multiple GPUs, writing flat .npy files
+  naja sample bulk \
+    --models-root <models_root> --model-list feasible.txt \
+    --out-root runs/ --name my_run --gpus 0,1,2,3 \
+    --n-chains 24 --n-samples 2084 --tpb 256 --thinning 200 \
+    --start-policy cube_center \
+    --extra-constraints auto --constraint-eps 0.01 \
+    --barrier-whiten --write-npy \
+    --flat-output /path/to/output/samples/ \
+    --skip-existing
+
+COMMANDS:
+  run                 sample a single model
+  bulk                sample many models across multiple GPUs
+  prepare             inherit rounding, validate, build feasible model list
+  inherit-rounding    copy/symlink rounding/ from one model to another
+  verify              validate that samples satisfy polytope constraints
+  eval-rounding       check rounding quality across a set of models
+  calibrate-rounding  fit iterative rounding pair schedule from warmup
+  list                list/filter models by properties
+
+KEY FLAGS (bulk):
+  --flat-output <dir>          write {model}.npy to a flat directory instead of
+                               nested run dirs (atomic via .tmp + rename)
+  --stage-dir <dir>            write .npy to node-local scratch first (requires
+                               --flat-output); an external syncer promotes to it
+  --skip-existing              skip models already present in --flat-output/--stage-dir
+                               (safe to kill and restart — resumes automatically)
+  --gpus <0,1,2,3>             comma-separated GPU IDs; workers steal jobs from
+                               a shared queue so any GPU can do any model
+  --start-policy cube_center   compute an LP-derived interior point per model
+                               (use this when no precomputed x0 exists)
+  --barrier-whiten             GPU eigendecomp whitening (barrier rounding) for
+                               better chain mixing — strongly recommended
+  --pair-schedule-method barrier  use barrier-Hessian Jacobi pair moves
+  --extra-constraints auto     load per-model extra_constraints.npy if present
+  --constraint-eps <eps>       slack for extra constraint feasibility (e.g. 0.01)
+  --thinning <n>               keep every nth step (reduces autocorrelation)
+  --n-chains <n>               parallel Markov chains (multiples of tpb are fastest)
+  --tpb <n>                    threads-per-block: 256 for V100/A100 (default 128)
+
+ROUNDING WORKFLOW:
+  Models need a precomputed rounding/ subdir for barrier whitening. The fast
+  path for large KO variant collections: calibrate once on a base/WT model,
+  then symlink that rounding into every KO variant with inherit-rounding.
+
+  naja sample calibrate-rounding \
+    --models-root <dir> --model-list base.txt --out rounding.csv
+
+  naja sample inherit-rounding \
+    --base-model-dir <base_model_dir> --target-model-dir <ko_model_dir> \
+    --mode symlink
+
+  Or in bulk via prepare (does inherit + validation + feasibility check):
+  naja sample prepare --models-root <dir> --model-list all.txt \
+    --base-model-dir <base> --mode symlink --out-model-list feasible.txt
+
+FULL SYNTAX:
+  naja sample run
+    --model-dir <dir> --out-root <dir> --gpu <id>
+    --n-chains <n> --n-samples <n>
+    [--tpb <n>] [--thinning <n>]
+    [--seed <nonzero-int>]       explicit sampling seed; 0 keeps legacy path-derived seed
+    [--sample-dtype float32|float64]  export dtype; default float32
+    [--host-prefault-threads <n>] -1=auto (default), 0=off; auto uses up to 8 available CPUs for >=64 chains
+    [--barrier-rotate-backend gpu|cpu] A*Q backend, default gpu; cpu preserves legacy arithmetic
+    [--start-policy file|cube_center]
+    [--extra-constraints auto|ignore|require] [--extra-constraint-eps <eps>]
+    [--constraint-eps <eps>]
+    [--barrier-whiten] [--barrier-rotate]
+    [--pair-prob <p>] [--pair-schedule <csv>]
+    [--iter-rounding-passes <n>] [--iter-rounding-warmup <n>]
+    [--write-npy] [--bounds-policy ignore|filter] [--bounds-eps <eps>]
+    [--write-samples-valid] [--verbose] [--quiet] [--dry-run] [--print-config]
+
+  naja sample bulk
+    --models-root <dir> --model-list <file>
+    --out-root <dir> --name <runname> --gpus <csv>
+    --n-chains <n> --n-samples <n>
+    [--tpb <n>] [--thinning <n>]
+    [--start-policy file|cube_center]
+    [--extra-constraints auto|ignore|require] [--constraint-eps <eps>]
+    [--barrier-whiten] [--barrier-rotate]
+    [--pair-prob <p>] [--pair-schedule-method barrier]
+    [--flat-output <dir>] [--skip-existing]
+    [--write-npy] [--bounds-policy ignore|filter] [--bounds-eps <eps>]
+    [--write-samples-valid] [--verbose] [--quiet] [--dry-run] [--print-config]
+    [--resume-from <run_dir>]
+
+  naja sample prepare
+    --models-root <dir> --model-list <file>
+    [--base-model-dir <dir> --mode symlink|copy]
+    [--out-model-list <file>] [--out-bulk-config <file>] [--dry-run]
+
+  naja sample inherit-rounding
+    --base-model-dir <dir> --target-model-dir <dir> [--mode symlink|copy]
+
+  naja sample verify   --model-dir <dir>
+  naja sample eval-rounding
+    --models-root <dir> --model-list <file>
+    [--extra-constraint-eps <eps>] [--tight-tol <tol>]
+  naja sample calibrate-rounding
+    --models-root <dir> --model-list <file> --out <csv>
+    [--warmup <n>] [--passes <n>] [--pair-prob <p>]
+    [--extra-constraint-eps <eps>] [--seed <s>] [--max-models <n>]
+  naja sample list
+    --models-root <dir> (--prefix <p> | --glob <g>)
+    [--has-gem] [--has-rounding] [--out <file>]
+

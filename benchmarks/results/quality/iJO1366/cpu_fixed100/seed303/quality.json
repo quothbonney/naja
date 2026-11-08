@@ -1,0 +1,8 @@
+{
+  "model": "iJO1366",
+  "variant": "cpu_fixed100",
+  "seed": 303,
+  "status": "deferred_by_declared_priority",
+  "note": "Further fixed100 extensions deferred in favor of native CPU quality tuning.",
+  "source_run": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/hopsy/iJO1366/100/seed303"
+}

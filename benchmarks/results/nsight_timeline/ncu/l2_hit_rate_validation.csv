@@ -1,0 +1,4 @@
+chains,full_set_nvidia_hit_rate_pct,narrow_nvidia_hit_rate_pct,narrow_hit_sectors,narrow_miss_sectors,hit_over_hit_plus_miss_pct,narrow_collection_passes,interpretation
+16,97.877453,100.758255,925238994.0,1509799.0,99.83708648865756,3,Count-normalized estimate from replayed collection; raw NVIDIA ratio is unstable across passes. No clipping or same-pass claim.
+128,100.591489,99.76572,7344039103.0,703208.0,99.9904256954128,3,Count-normalized estimate from replayed collection; raw NVIDIA ratio is unstable across passes. No clipping or same-pass claim.
+512,99.713821,100.12267,29745769353.0,7455993.0,99.97494055547493,3,Count-normalized estimate from replayed collection; raw NVIDIA ratio is unstable across passes. No clipping or same-pass claim.

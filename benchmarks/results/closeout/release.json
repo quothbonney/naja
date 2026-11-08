@@ -1,0 +1,14 @@
+{
+  "release_commit": "c9e5db8b8ed02c692b36e74e14b71eedcd871476",
+  "local_release_tag": "preprint-closeout-20261108",
+  "main_branch": "publication-prep",
+  "preserved_pre_closeout_stash": "b0b7ff67fe8e9d41199319f7825fe3cb81f9d877",
+  "preserved_patch": "benchmarks/audit/closeout/main-working-tree-before.patch",
+  "import_commit": "b52a606",
+  "binary": "benchmarks/build-closeout-release/naja",
+  "binary_sha256": "2fc4654b47d9a2f8a3fb46df6fd5a70dc1fe1bbbb48f758d816a2b9a565b10b1",
+  "remote_published": true,
+  "source_gate": "benchmarks/results/closeout/task1/final_compatibility_default/summary.json",
+  "remote_branch": "origin/publication-prep",
+  "release_pushed_utc": "2026-11-08T21:04:30+00:00"
+}

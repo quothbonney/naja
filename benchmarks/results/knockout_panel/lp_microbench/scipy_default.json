@@ -1,0 +1,64 @@
+{
+  "case": "scipy_default",
+  "source": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/conditioned_prototype/iJO1366/models/shared/rounding/polytope.npz",
+  "imports_seconds": 0.6027384605258703,
+  "geometry_load_and_normalization_seconds": 0.01324532926082611,
+  "affinity": [
+    33,
+    35,
+    97,
+    99
+  ],
+  "host_logical_cpus": 128,
+  "repetitions": [
+    {
+      "repetition": 0,
+      "role": "first_call",
+      "seconds": 1.404079457744956,
+      "iterations": 1095,
+      "radius": 0.019525890345042936,
+      "threads_after": 64,
+      "warnings": []
+    },
+    {
+      "repetition": 1,
+      "role": "repeat_same_LP_new_model",
+      "seconds": 1.3050226252526045,
+      "iterations": 1095,
+      "radius": 0.019525890345042936,
+      "threads_after": 64,
+      "warnings": []
+    },
+    {
+      "repetition": 2,
+      "role": "repeat_same_LP_new_model",
+      "seconds": 1.3620643597096205,
+      "iterations": 1095,
+      "radius": 0.019525890345042936,
+      "threads_after": 64,
+      "warnings": []
+    },
+    {
+      "repetition": 3,
+      "role": "repeat_same_LP_new_model",
+      "seconds": 1.3358190786093473,
+      "iterations": 1095,
+      "radius": 0.019525890345042936,
+      "threads_after": 64,
+      "warnings": []
+    },
+    {
+      "repetition": 4,
+      "role": "repeat_same_LP_new_model",
+      "seconds": 1.3062262795865536,
+      "iterations": 1095,
+      "radius": 0.019525890345042936,
+      "threads_after": 64,
+      "warnings": []
+    }
+  ],
+  "solver_versions": {
+    "highspy": "1.15.1"
+  },
+  "scope": "Existing PGI capacity slab microbenchmark; not exact gene-KO geometry."
+}

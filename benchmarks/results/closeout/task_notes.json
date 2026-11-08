@@ -1,0 +1,519 @@
+{
+  "generated_utc": "2026-11-08T20:56:50.976860+00:00",
+  "task5": {
+    "status": "source_and_parser_validated",
+    "validation": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/closeout/cli_validation.json",
+    "source_base_commit": "c9e5db8b8ed02c692b36e74e14b71eedcd871476",
+    "parser_sha256": {
+      "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/closeout-release/src/cli/prepare/cmd_prepare.cpp": "24a9a6ba176f56bfd50f6e2fa12f1f8b43b82ea26aa8a481bfa224d3b74d84c1",
+      "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/closeout-release/src/cli/sample/cmd_bulk.cpp": "fe4aca038dc2736158b14acdf7d191ddc76df9f49d29f4037b74156dd23b0723",
+      "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/closeout-release/src/cli/sample/common.cpp": "13dbce5e9ee6f4d4674d010b6096b11828abfcc9ead1776f62894f17c3554e2d"
+    },
+    "validated_binary_sha256": "2fc4654b47d9a2f8a3fb46df6fd5a70dc1fe1bbbb48f758d816a2b9a565b10b1",
+    "tests": [
+      {
+        "name": "sample_help",
+        "argv": [
+          "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/scripts/enter.sh",
+          "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/build-closeout-release/naja",
+          "sample",
+          "--help"
+        ],
+        "returncode": 0,
+        "stdout_file": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/closeout/sample_help.txt"
+      },
+      {
+        "name": "prepare_help",
+        "argv": [
+          "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/scripts/enter.sh",
+          "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/build-closeout-release/naja",
+          "sample",
+          "prepare",
+          "--help"
+        ],
+        "returncode": 2,
+        "stdout_file": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/closeout/prepare_help.txt"
+      },
+      {
+        "name": "bulk_help",
+        "argv": [
+          "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/scripts/enter.sh",
+          "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/build-closeout-release/naja",
+          "sample",
+          "bulk",
+          "--help"
+        ],
+        "returncode": 0,
+        "stdout_file": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/closeout/bulk_help.txt"
+      },
+      {
+        "name": "prepare_existing_projected_target",
+        "argv": [
+          "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/scripts/enter.sh",
+          "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/build-closeout-release/naja",
+          "sample",
+          "prepare",
+          "--models-root",
+          "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/closeout/cli_fixture/models",
+          "--model-list",
+          "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/closeout/cli_fixture/all.txt",
+          "--out-model-list",
+          "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/closeout/cli_fixture/prepared.txt"
+        ],
+        "returncode": 0,
+        "output": "OK\nmodels_root     :: /mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/closeout/cli_fixture/models\nmodel_list      :: /mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/closeout/cli_fixture/all.txt\nprepared        :: 1 / 1\nout_model_list  :: /mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/closeout/cli_fixture/prepared.txt\n"
+      },
+      {
+        "name": "bulk_syntax_only_no_sampling",
+        "argv": [
+          "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/scripts/enter.sh",
+          "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/build-closeout-release/naja",
+          "sample",
+          "bulk",
+          "--models-root",
+          "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/closeout/cli_fixture/models",
+          "--model-list",
+          "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/closeout/cli_fixture/prepared.txt",
+          "--out-root",
+          "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/closeout/cli_fixture/runs",
+          "--name",
+          "closeout_syntax_check",
+          "--gpus",
+          "0",
+          "--seed",
+          "101",
+          "--sample-dtype",
+          "float64",
+          "--n-chains",
+          "16",
+          "--n-samples",
+          "11000",
+          "--tpb",
+          "512",
+          "--thinning",
+          "1000",
+          "--start-policy",
+          "file",
+          "--extra-constraints",
+          "auto",
+          "--constraint-eps",
+          "0",
+          "--barrier-rotate",
+          "--barrier-rotate-backend",
+          "gpu",
+          "--backmap",
+          "--bounds-policy",
+          "filter",
+          "--bounds-eps",
+          "1e-7",
+          "--write-npy",
+          "--dry-run"
+        ],
+        "returncode": 0,
+        "output": "> validate model contracts\n> write generated bulk config\nbulk_name :: closeout_syntax_check\njobs :: 1\ngpus :: 0\noutput :: /mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/closeout/cli_fixture/runs/closeout_syntax_check_20261108_003\nbounds :: filter\nbounds_eps :: 0.000000\n> dry-run: not executing bulk sampling\n"
+      }
+    ],
+    "scope": "Existing projected exactKO b4025 fixture; prepare executed without sampling, bulk --dry-run only. Native prepare does inherited delta assembly, not new affine-hull elimination.",
+    "limitations": [
+      "Merged bulk parser supports explicit --seed and --sample-dtype; legacy C7-only validation is preserved separately.",
+      "n-samples is total native draws per chain; retained warmup is discarded externally in benchmark adapters.",
+      "Current prepare reports FEASIBLE_START_FAILED but writes all prepared names to out-model-list; that name list is not a guaranteed feasible subset.",
+      "The prepare subcommand does not accept --help in this binary; shared sample --help and bulk --help are saved."
+    ]
+  },
+  "task6": {
+    "status": "WAIVED_BY_USER",
+    "action": "No further corpus lookup or missing-input request."
+  },
+  "task7": {
+    "status": "measured_existing_records_no_reruns",
+    "source_base_commit": "23873f01d3268a79bbf84499a66adce5e88cc6cb",
+    "source_scope": "Historical campaign base plus recorded local benchmark patches; exact per-run binary/module hashes are authoritative. These were not rerun under finalC9.",
+    "rows": [
+      {
+        "method": "cpu",
+        "seed": 303001,
+        "retained_per_chain": 15000,
+        "chains": 16,
+        "warmup_per_chain": 1000,
+        "thinning": 2000,
+        "fixed_budget_status": "FAIL",
+        "extension_status": "PASS",
+        "sampler_phase_seconds": 26.812904596328735,
+        "worker_draw_critical_path_seconds": 21.034592932,
+        "process_wall_seconds_secondary": 31.528857247903943,
+        "native_profile_total_seconds": null,
+        "median_split_rhat": 1.0066242685994706,
+        "median_bulk_ess": 3156.8035532312942,
+        "sample_bound_violation_fraction": 0.0,
+        "assay": "historical878 original-model LP exclusions; not the new478 reassay",
+        "source_run": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/fresh16_validation/iJO1366/cpu_native_physical16_thin2000/seed303001/bounded_extension15000",
+        "samples_bytes": 1115520128,
+        "samples_sha256": "c488534e83343a6b0d912e4fed814323b161abf6ca3112a42c2f17a670cc6bc6",
+        "sample_hash_note": "Reuses previously checked frozen-file SHA; availability refresh does not rehash large arrays.",
+        "run_json_sha256": "1c950fb691b7892c808f247814aeb7a753263055da69b8c9e0ddc7e1e91000d3",
+        "metrics_json_sha256": "154cfdc2d22f1d389549c608f7b827ea7be7c34a4b5573a8e9002132165bf1a6",
+        "estimator_sha256": "854e524cade5cecc6a9c5541cb15957e0336c3461434c2363d9ef2a2b701947c",
+        "sampler_binary_sha256": "617c602456c6f54f70b4a4759404c088ed43ea7677acf3fcf181a19b86602ab8",
+        "hopsy_reported_build": "9b787d9"
+      },
+      {
+        "method": "gpu",
+        "seed": 101001,
+        "retained_per_chain": 3000,
+        "chains": 16,
+        "warmup_per_chain": 1000,
+        "thinning": 1000,
+        "fixed_budget_status": "FAIL",
+        "extension_status": "PASS",
+        "sampler_phase_seconds": 10.4001,
+        "worker_draw_critical_path_seconds": null,
+        "process_wall_seconds_secondary": 12.05256694369018,
+        "native_profile_total_seconds": 11.3219,
+        "median_split_rhat": 1.0069011105902252,
+        "median_bulk_ess": 3035.123963128246,
+        "sample_bound_violation_fraction": 0.0,
+        "assay": "historical878 original-model LP exclusions; not the new478 reassay",
+        "source_run": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/fresh16_validation/iJO1366/naja_frozen_tpb512_thin1000/seed101001/bounded_extension3000",
+        "samples_bytes": 111552128,
+        "samples_sha256": "2cc1f4637452c02dfcf67cdea22af566381c956cc5dbda02aa6dd24776f84815",
+        "sample_hash_note": "Reuses previously checked frozen-file SHA; availability refresh does not rehash large arrays.",
+        "run_json_sha256": "0c0f3bdb275a75ebbea988c6d8dc90efb8efd9956af107fc4496bba11d50d63a",
+        "metrics_json_sha256": "4b7433643b4728afc341a1e527eeff1a0a1bcdcc9b3e2f1db1386f358ff4acf5",
+        "estimator_sha256": "854e524cade5cecc6a9c5541cb15957e0336c3461434c2363d9ef2a2b701947c",
+        "sampler_binary_sha256": "c7baf4f0ed282b936ac0dbac4b896bfbfc040eb06da6f84aff6605fddf4b0fc6",
+        "hopsy_reported_build": null
+      },
+      {
+        "method": "gpu",
+        "seed": 303001,
+        "retained_per_chain": 3000,
+        "chains": 16,
+        "warmup_per_chain": 1000,
+        "thinning": 1000,
+        "fixed_budget_status": "FAIL",
+        "extension_status": "PASS",
+        "sampler_phase_seconds": 10.4581,
+        "worker_draw_critical_path_seconds": null,
+        "process_wall_seconds_secondary": 12.014802472665906,
+        "native_profile_total_seconds": 11.2946,
+        "median_split_rhat": 1.006467565833157,
+        "median_bulk_ess": 2999.772033184518,
+        "sample_bound_violation_fraction": 0.0,
+        "assay": "historical878 original-model LP exclusions; not the new478 reassay",
+        "source_run": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/fresh16_validation/iJO1366/naja_frozen_tpb512_thin1000/seed303001/bounded_extension3000",
+        "samples_bytes": 111552128,
+        "samples_sha256": "e03b4bdca39f180c55c3e289f03ae8d2d7bfdbf7d981bf96f42fc905aee8b3e4",
+        "sample_hash_note": "Reuses previously checked frozen-file SHA; availability refresh does not rehash large arrays.",
+        "run_json_sha256": "18d47dd59ee62c07ffde9425036569496e8914c9caaea26ceda2574baef22360",
+        "metrics_json_sha256": "9e9f0c56af3678ccf330c43234bd64b0b0b95a410ffbe2031df2e1e49d41fc70",
+        "estimator_sha256": "854e524cade5cecc6a9c5541cb15957e0336c3461434c2363d9ef2a2b701947c",
+        "sampler_binary_sha256": "c7baf4f0ed282b936ac0dbac4b896bfbfc040eb06da6f84aff6605fddf4b0fc6",
+        "hopsy_reported_build": null
+      }
+    ],
+    "csv": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/closeout/fresh_seed_extension_timings.csv",
+    "timing_scope": "CPU worker draw critical path excludes startup/IPC/output; inclusive CPU hopsy.sample is separate. GPU sampler includes allocation/slack/RNG; secondary process time includes output/normalization. All are actual executions, no prefix interpolation.",
+    "caveat": "These extensions passed after the fixed10kCPU/2kGPU configuration failed for those seeds. They do not rescue fixed-budget generalization or the legacy2.73x claim.",
+    "separate_new_protocol": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/fresh16_conservative/iJO1366/summary.json"
+  },
+  "task8": {
+    "status": "native_capture_complete",
+    "protocol": {
+      "frozen_utc": "2026-11-08T20:07:47.370789+00:00",
+      "source_commit": "fcc66fe63d5a6700786aebcf0b925374340e4c8b",
+      "exe": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/build-closeout/naja",
+      "binary_sha256": "5c01c66c90f46565eaafe0927265d135bcfa89af50a017df6c51de70044afe42",
+      "model": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/closeout/recon3d_bounded/model",
+      "source_model": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/Recon3D_nullspace_only",
+      "geometry_sha256": "8fed70ea2238e91ea05d95c46bdd3616474be087fa9d88e90891b146e88e2325",
+      "n": 10600,
+      "d": 4861,
+      "m": 18477,
+      "seed": 101,
+      "chains": 512,
+      "tpb": 128,
+      "barrier": "whiten",
+      "barrier_rotation_backend": "gpu",
+      "sample_dtype": "float64",
+      "pair_probability": 0,
+      "resync_interval": 0,
+      "host_prefault_threads": "auto; actual profile recorded",
+      "pilot": {
+        "warmup": 64,
+        "retained": 64,
+        "thinning": 810
+      },
+      "main": {
+        "warmup": 1000,
+        "retained": 800
+      },
+      "thinning_rule": "Median pooled reduced-coordinate lag1 after pilot warmup; desired=max(810,ceil(810*log(0.1)/log(clip(medianrho,0.001,0.9999)))). Budget cap uses pilot GPU-sampler seconds per transition, at most2700 main sampler seconds and reserves180s of the remaining3600s allocation. Choose min(desired,budgetcap), no parameter retuning after main.",
+      "budget": {
+        "gpu_count": 1,
+        "max_allocation_seconds": 3540,
+        "max_main_sampler_seconds": 2700,
+        "deadline_utc": "2026-11-08T22:00:00+00:00"
+      },
+      "criterion": {
+        "median_classical_split_rhat_max": 1.01,
+        "median_pooled_bulk_ess_min": 100,
+        "unmasked_bound_tolerance": 1e-07,
+        "mass_balance_tolerance": 1e-07
+      },
+      "memory": {
+        "native_main_elements": 4479897600,
+        "native_main_output_bytes": 35839180800,
+        "two_output_buffers_bytes": 71678361600,
+        "workspace_reserve_bytes": 8589934592
+      },
+      "preprocessing": {
+        "equality_elimination_seconds": 128.84173853695393,
+        "mve_round_seconds": 0,
+        "total_cached_preprocessing_seconds": 287.7203431595117,
+        "FVA_seconds": 134.29445984959602,
+        "strictly_inactive_inequality_rows_removed": 2723,
+        "zero_pruned_reactions": 0,
+        "minimum_original_reaction_FVA_width": 0.2
+      },
+      "scope": "One exploratory pilot-trained attempt on cached equality-only geometry. PolyRound library equality elimination was used; no iterative PolyRound rounding. No CPU sampling speedup or multi-seed convergence claim. All10600 reactions active, no new LP exclusions."
+    },
+    "capture": {
+      "status": "native_capture_complete",
+      "started_utc": "2026-11-08T20:10:15.055696+00:00",
+      "job": "955",
+      "protocol_sha256": "2006a41ca9cbee36810ecfb7393e492e6f13f5c8fa6fea59b2e638513ebdadaf",
+      "source_sha256": "d958b14a5eaddb22a93415f34faeb8219b6a5d52e552c5b1631dbca45c6b75d0",
+      "device": {
+        "uuid": "GPU-884d19b4-3b1e-5246-0d07-a1a68b778800",
+        "free_bytes": 84465090560,
+        "total_bytes": 85017493504
+      },
+      "decision": {
+        "lag1": {
+          "median": 0.9696972948321285,
+          "p95": 0.9897998770054603,
+          "coordinates": 4861,
+          "definition": "Pooled lag1 over512chains after64 discarded warmup draws; each coordinate uses one pooled mean. Pilot estimate only, not a convergence claim."
+        },
+        "desired_thinning": 60612,
+        "budget_capped_thinning": 5409,
+        "selected_thinning": 5409,
+        "pilot_sampler_seconds": 28.7482,
+        "predicted_main_sampler_seconds": 2699.6356562500005,
+        "elapsed_allocation_proxy_seconds": 42.08519163355231,
+        "main_sampler_budget_seconds": 2700,
+        "rule": "Median pooled reduced-coordinate lag1 after pilot warmup; desired=max(810,ceil(810*log(0.1)/log(clip(medianrho,0.001,0.9999)))). Budget cap uses pilot GPU-sampler seconds per transition, at most2700 main sampler seconds and reserves180s of the remaining3600s allocation. Choose min(desired,budgetcap), no parameter retuning after main."
+      },
+      "main_run": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/closeout/recon3d_bounded/main",
+      "main_sampler_seconds": 2702.8533,
+      "allocated_gpu_wall_proxy_seconds": 2779.1621152684093,
+      "note": "Main normalization and all-reaction diagnostics run after this GPU allocation ends.",
+      "finished_utc": "2026-11-08T20:56:34.217814+00:00"
+    },
+    "result": null,
+    "jobs": {
+      "utc": "2026-11-08T20:10:13.280119+00:00",
+      "capture_job": "955",
+      "capture_command": [
+        "sbatch",
+        "--parsable",
+        "--chdir=/mnt/home/jordan+123/history-native-20261015-r5",
+        "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/scripts/recon3d_bounded_capture.sbatch"
+      ],
+      "metrics_job": "956",
+      "metrics_command": [
+        "sbatch",
+        "--parsable",
+        "--chdir=/mnt/home/jordan+123/history-native-20261015-r5",
+        "--dependency=afterany:955",
+        "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/scripts/recon3d_bounded_metrics.sbatch"
+      ],
+      "GPU_allocation_cap_seconds": 3540,
+      "GPU_count": 1
+    },
+    "source_commit": "fcc66fe63d5a6700786aebcf0b925374340e4c8b",
+    "scope": "Immutable FCC binary, explicit GPUrotation/whitening, cached equality-only target, no iterative MVE, one bounded GPUattempt. Final C9 CLI changed compatibility default but does not invalidate the explicitly selected GPUbackend run."
+  },
+  "task9": {
+    "status": "sized_assets_inventory_complete_two_components_user_assigned_other_numbering_unverifiable",
+    "source_base_commit": "c9e5db8b8ed02c692b36e74e14b71eedcd871476",
+    "mapping": [
+      {
+        "paper_item": "Table2",
+        "status": "USER_VERIFIED_BARRIER_COLUMN_COMPONENT",
+        "verified_artifact": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/closeout/task2_3/final-release/task2_barrier_summary.csv",
+        "bytes": 1016,
+        "mapping_note": "User explicitly assigns Task2 barrier-only column to Table2. Associated per-seed CSV, JSON and dimension SVG/PDF are in the same final-release directory. Other manuscript columns/caption are not verified without manuscript source."
+      },
+      {
+        "paper_item": "Table3",
+        "status": "UNVERIFIABLE_without_manuscript_source",
+        "verified_artifact": null,
+        "bytes": null,
+        "mapping_note": "No exact assignment is asserted without manuscript source or explicit user mapping."
+      },
+      {
+        "paper_item": "Table4",
+        "status": "UNVERIFIABLE_without_manuscript_source",
+        "verified_artifact": null,
+        "bytes": null,
+        "mapping_note": "No exact assignment is asserted without manuscript source or explicit user mapping."
+      },
+      {
+        "paper_item": "Table5",
+        "status": "UNVERIFIABLE_without_manuscript_source",
+        "verified_artifact": null,
+        "bytes": null,
+        "mapping_note": "No exact assignment is asserted without manuscript source or explicit user mapping."
+      },
+      {
+        "paper_item": "TableS1",
+        "status": "UNVERIFIABLE_without_manuscript_source",
+        "verified_artifact": null,
+        "bytes": null,
+        "mapping_note": "No exact assignment is asserted without manuscript source or explicit user mapping."
+      },
+      {
+        "paper_item": "TableS2",
+        "status": "UNVERIFIABLE_without_manuscript_source",
+        "verified_artifact": null,
+        "bytes": null,
+        "mapping_note": "No exact assignment is asserted without manuscript source or explicit user mapping."
+      },
+      {
+        "paper_item": "TableS3",
+        "status": "UNVERIFIABLE_without_manuscript_source",
+        "verified_artifact": null,
+        "bytes": null,
+        "mapping_note": "No exact assignment is asserted without manuscript source or explicit user mapping."
+      },
+      {
+        "paper_item": "TableS4",
+        "status": "UNVERIFIABLE_without_manuscript_source",
+        "verified_artifact": null,
+        "bytes": null,
+        "mapping_note": "No exact assignment is asserted without manuscript source or explicit user mapping."
+      },
+      {
+        "paper_item": "TableS5",
+        "status": "UNVERIFIABLE_without_manuscript_source",
+        "verified_artifact": null,
+        "bytes": null,
+        "mapping_note": "No exact assignment is asserted without manuscript source or explicit user mapping."
+      },
+      {
+        "paper_item": "Figure1",
+        "status": "UNVERIFIABLE_without_manuscript_source",
+        "verified_artifact": null,
+        "bytes": null,
+        "mapping_note": "No exact assignment is asserted without manuscript source or explicit user mapping."
+      },
+      {
+        "paper_item": "Figure2",
+        "status": "USER_VERIFIED_BYTE_DATA_COMPONENT",
+        "verified_artifact": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/closeout/task4/final_release/summary.json",
+        "bytes": 5249,
+        "mapping_note": "User explicitly assigns Task4 measured-byte data to Figure2. Associated base/exact_PGI_KO metrics.csv and report.ncu-rep are listed by size. Both measured cases have m750; no m1500 conditional case is available. Final figure render numbering/caption not verified."
+      },
+      {
+        "paper_item": "Figure3",
+        "status": "UNVERIFIABLE_without_manuscript_source",
+        "verified_artifact": null,
+        "bytes": null,
+        "mapping_note": "No exact assignment is asserted without manuscript source or explicit user mapping."
+      }
+    ],
+    "assets_csv": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/closeout/data_availability_candidates.csv",
+    "inventory_json": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/closeout/data_availability_inventory.json",
+    "inspected_scope": "Workspace root and project files; excluded dependency, environment, tool and package trees. git-tracked project contains no manuscript source.",
+    "byte_count_note": "Exact on-disk bytes at snapshot time. Six512-chain retained arrays total103520256768bytes; these were not copied or resampled.",
+    "bulk512_reproduction_contract": {
+      "measured_gpu_binary_sha256": "51854688114677b14de3c110c262d210281de1f351f1ae6df6be994c2cc67e82",
+      "measured_code_archive": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/coordinate_kernel/source.tar.gz",
+      "measured_code_patch": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/coordinate_kernel/kernel.patch",
+      "prepared_model": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/iJO1366",
+      "rounding_bundle_members": {
+        "A.npy": {
+          "uncompressed_bytes": 3486128,
+          "compressed_bytes": 3486128
+        },
+        "b.npy": {
+          "uncompressed_bytes": 6128,
+          "compressed_bytes": 6128
+        },
+        "start.npy": {
+          "uncompressed_bytes": 4776,
+          "compressed_bytes": 4776
+        },
+        "T.npy": {
+          "uncompressed_bytes": 12005912,
+          "compressed_bytes": 12005912
+        },
+        "shift.npy": {
+          "uncompressed_bytes": 20792,
+          "compressed_bytes": 20792
+        }
+      },
+      "start_point": "Stored as start.npy inside polytope.npz; no separate standalone start file is required.",
+      "raw_model_metadata": {
+        "model_id": "iJO1366",
+        "n": 2583,
+        "d": 581,
+        "m": 750,
+        "original_metabolites": 1805,
+        "source": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/raw/iJO1366.json",
+        "source_sha256": "9376a93f62ad430719f23e612154dd94c67e0d7c9545ed9d17a4d0c347672313",
+        "solver": "glpk",
+        "versions": {
+          "hopsy": "1.7.0",
+          "PolyRound": "0.5.0",
+          "cobra": "0.32.1",
+          "numpy": "2.5.4",
+          "scipy": "1.18.1",
+          "swiglpk": "5.0.13"
+        },
+        "timings": {
+          "load_model_seconds": 0.9497978128492832,
+          "construct_polytope_seconds": 0.5159750673919916,
+          "simplify_seconds": 69.414564948529,
+          "equality_elimination_seconds": 3.1425873171538115,
+          "round_seconds": 81.81064180098474,
+          "polyround_seconds": 154.3678034041077,
+          "write_seconds": 0.9904265813529491,
+          "total_seconds": 156.83061426877975
+        },
+        "settings": {
+          "backend": "glpk",
+          "hp_flags": {
+            "FeasibilityTol": 1e-09
+          },
+          "thresh": 1e-07,
+          "verbose": false,
+          "sgp": false,
+          "reduce": true,
+          "regularize": false,
+          "check_lps": false,
+          "simplify_only": false,
+          "presolve": false,
+          "numerics_threshold": 1e-12,
+          "accepted_tol_violation": 100.0
+        },
+        "objective_constraint": "none; original model bounds",
+        "min_start_slack": 2.496182279425173e-08,
+        "command": [
+          "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/cpu_baseline.py",
+          "prep",
+          "--model",
+          "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/raw/iJO1366.json",
+          "--out",
+          "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/iJO1366"
+        ],
+        "hostname": "slurm-h100-206-077"
+      },
+      "measured_version_note": "The512-chain timing row uses the archived experimental coordinate-specialized build, not the final generic C9release. Finalrelease source archive is listed separately.",
+      "CPU_native_manifest": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/audit/hopsy_native_build.json",
+      "refresh_policy": "Stat sizes only for reproduction inputs/source archives and large retained arrays; no copying or rehashing."
+    }
+  }
+}

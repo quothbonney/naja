@@ -1,0 +1,14 @@
+{
+  "utc": "2026-11-08T19:29:57.807953+00:00",
+  "cancelled_jobs": [
+    "853",
+    "854",
+    "855",
+    "857",
+    "858"
+  ],
+  "retained_validation_job": "856",
+  "returncode": 0,
+  "stderr": "",
+  "reason": "Frozen-producer full-budget per-reaction CSV reaggregation independently validated on fresh GPU2k/CPU12k datasets; preserve one full512-chain exact-dataset cross-check and free40CPU for new fixed-protocol validation. Original files and partial logs retained."
+}

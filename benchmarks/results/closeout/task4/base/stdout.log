@@ -1,0 +1,20 @@
+> validate model contract
+> write generated config
+model :: iJO1366
+output :: /mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/closeout/task4/base/native/iJO1366_20261108_001
+bounds :: ignore
+> sampling
+==WARNING== Note: Running with unmodified GPU clocks. If not controlled otherwise, profiling results may be inconsistent.
+==PROF== Connected to process 207223 (/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/build-closeout/naja)
+> loading polytope
+> barrier rotation (eigenbasis of H)
+> uploading to gpu
+> sampling 512 chains x 1200 samples (thin=96, 58982400 MCMC steps, 750 constraints x 581 dims)
+> gpu sampling
+==PROF== Profiling "chrKernel": 0%....50%....100% - 1 pass
+> gpu back-transform
+> downloading
+> done: 1.3s, 488417 samples/s
+> writing npy
+==PROF== Disconnected from process 207223
+==PROF== Report: /mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/closeout/task4/base/report.ncu-rep

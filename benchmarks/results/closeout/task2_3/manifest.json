@@ -1,0 +1,28 @@
+{
+  "created_utc": "2026-11-08T20:06:39.003540+00:00",
+  "binary": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/build-closeout/naja",
+  "binary_sha256": "5c01c66c90f46565eaafe0927265d135bcfa89af50a017df6c51de70044afe42",
+  "production_git_commit": "fcc66fe63d5a6700786aebcf0b925374340e4c8b",
+  "source_script_sha256": "1d262e8745bc1838587b8060fcde6ec1b7f325a447fe5791b19d6b5b59bfe93e",
+  "slurm_job_id": "952",
+  "hostname": "slurm-h100-206-077",
+  "CPU_allocation": "8",
+  "models": [
+    "e_coli_core",
+    "iAB_RBC_283",
+    "iJR904",
+    "iMM904",
+    "iAF1260",
+    "iJO1366",
+    "iML1515",
+    "RECON1"
+  ],
+  "seeds": [
+    101,
+    202,
+    303
+  ],
+  "task2_protocol": "16 chains, 8 retained draws, warmup 0, thinning 1, TPB 128, barrier rotate, float64 export, host prefault 0; phase timing only, not convergence",
+  "task3_protocol": "iJO1366, 16 chains, 1,000 warmup + 10,000 retained draws, thinning 96, TPB 128, barrier off, float32 export, host prefault 0; same cached polytope/start/legacy LP mask as historical table",
+  "scope": "GPU sampler phase primary; profiletotal and adapter/output walls secondary. Original canonical outputs and frozen estimators untouched."
+}

@@ -1,0 +1,30 @@
+{
+  "method": "gpu",
+  "seed": 202001,
+  "status": "complete",
+  "fixed_draws": 2000,
+  "note": "Fresh fixed selected configuration, no tuning. Cross-replicate16-chain RNG ranges disjoint; overlap with512study intentional. Fixed failures remain failures even if the separately labeled bounded extension passes.",
+  "fixed": {
+    "status": "PASS",
+    "quality_met": true,
+    "method": "gpu",
+    "seed": 202001,
+    "chains": 16,
+    "draws_per_chain": 2000,
+    "warmup": 1000,
+    "thinning": 1000,
+    "sampler_phase_seconds": 7.821,
+    "process_seconds_secondary": 9.224946286529303,
+    "split_rhat_median": 1.009893911883351,
+    "pooled_bulk_ess_median": 2070.000643913081,
+    "pooled_bulk_ess_per_sampler_phase_second": 264.6721191552335,
+    "transitions_including_warmup": 48000000,
+    "pooled_bulk_ess_per_total_transition": 4.312501341485586e-05,
+    "bounds_tolerance": 1e-07,
+    "sample_bound_violation_fraction": 0.0,
+    "schema_version": 2,
+    "diagnostic_mask_status": "model_lp_verified",
+    "run_dir": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/fresh16_validation/iJO1366/naja_frozen_tpb512_thin1000/seed202001/fixed"
+  },
+  "fixed_status": "PASS"
+}

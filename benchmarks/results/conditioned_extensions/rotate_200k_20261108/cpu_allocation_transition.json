@@ -1,0 +1,8 @@
+{
+  "utc": "2026-11-08T19:37:05.536522+00:00",
+  "previous_controller_pid": 381510,
+  "new_CPU_job_logical_cpus": 8,
+  "physical_cores": 4,
+  "reason": "Frozenmetricsusesatmost4workers;reserveonephysicalcoreperworkerwithbothSMTsiblings, retainsallrunningjobs andoriginal16logicalfirsttwoanalysisallocations.",
+  "controller_sha256": "e0138e705a3827126f4bbe5bf7503a378d35accb3c1cd9cef86cda65d21e3280"
+}

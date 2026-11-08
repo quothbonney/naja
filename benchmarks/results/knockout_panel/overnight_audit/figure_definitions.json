@@ -1,0 +1,37 @@
+{
+  "source": "summary.json",
+  "protocol": "16 chains, seed101, CPU thinning2000 / Naja1000, warmup1000 retained draws, median classical splitRhat<=1.05, pooled bulkESS>=100, exact bounds/mass balance1e-7. Fresh selected-budget retimes only.",
+  "denominator": "50 nontrivial unique exact gene knockouts; b0002 control kept separate. Validity-selected rank-stable panel, not fully stratified or population representative.",
+  "success_counts": {
+    "global_cpu": {
+      "variant": "global_cpu",
+      "denominator": 50,
+      "passed": 49,
+      "capped": 0,
+      "unavailable": 1,
+      "median_sampler_seconds_among_passes": 3.942630789,
+      "median_ess_per_sampler_second_among_passes": 131.19978270975267
+    },
+    "stale_cpu": {
+      "variant": "stale_cpu",
+      "denominator": 50,
+      "passed": 32,
+      "capped": 18,
+      "unavailable": 0,
+      "median_sampler_seconds_among_passes": 3.9012576355000004,
+      "median_ess_per_sampler_second_among_passes": 126.3493917476232
+    },
+    "naja_rotate": {
+      "variant": "naja_rotate",
+      "denominator": 50,
+      "passed": 41,
+      "capped": 9,
+      "unavailable": 0,
+      "median_sampler_seconds_among_passes": 3.9873,
+      "median_ess_per_sampler_second_among_passes": 112.25619423922802
+    }
+  },
+  "paired_target_count": 41,
+  "paired_median_incremental_preparation_and_sampler_ratio": 14.063359626522715,
+  "right_panel_scope": "Common passing subset. Starts from shared ready conditional geometry; CPU MVE algorithm plus worker draw critical path versus barrier correction plus GPU sampler. Excludes transfers/output, imports, validation, masks and one-time base preparation. Common geometry cost separately reported in figure_source.csv. No population inference or sampling-kernel speedup."
+}

@@ -1,0 +1,25 @@
+2026-11-08T05:07:01.213986+00:00
+controller pid=354705 alive=False audit/high-throughput/controller.pid
+controller pid=351473 alive=False audit/high-throughput/coordinate-controller.pid
+controller pid=357889 alive=True audit/high-throughput/deadline-guard.pid
+controller pid=357882 alive=True audit/high-throughput/full64-controller.pid
+controller pid=351472 alive=False audit/high-throughput/prefault-controller.pid
+controller pid=342818 alive=True audit/recon3d-completion/watcher.pid
+controller pid=357987 alive=True results/knockout_panel/controller.pid
+controller pid=344426 alive=False results/larger_quality/controller.pid
+controller pid=326476 alive=False results/quality/controller.pid
+controller pid=350073 alive=True results/refresh.pid
+controller pid=322052 alive=True results/campaign.pid
+556|metrics-512chain|PENDING|0:00|8|(Dependency)
+555|metrics-512chain|PENDING|0:00|8|(Dependency)
+554|metrics-512chain|PENDING|0:00|8|(Dependency)
+614|bench-exact-KO-b0031|RUNNING|0:00|4|slurm-h100-206-077
+613|bench-exact-KO-b0030|RUNNING|0:01|4|slurm-h100-206-077
+557|bench-deadline-cleanup|PENDING|0:00|1|(BeginTime)
+553|bench-cpu512-physical64|PENDING|0:00|128|(Dependency)
+552|bench-cpu512-physical64|PENDING|0:00|128|(Dependency)
+451|bench-cpu512-physical64|PENDING|0:00|128|(Dependency)
+202_8|diagnostic-mask|PENDING|0:00|1|(JobHeldUser)
+533|bench-cached-mask|RUNNING|27:33|4|slurm-h100-206-077
+150_6|naja-polyround|RUNNING|5:43:37|8|slurm-h100-206-077
+Full snapshot: /mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/RESUME_STATUS.json

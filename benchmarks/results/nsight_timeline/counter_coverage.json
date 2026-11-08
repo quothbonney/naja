@@ -1,0 +1,488 @@
+[
+  {
+    "run": "chains16",
+    "samples": 66300,
+    "median_interval_ns": 100000.0,
+    "min_interval_ns": 99968,
+    "max_interval_ns": 100033,
+    "gaps_over150us": 0,
+    "diagnostics": [
+      [
+        1,
+        "Intel(c) Last Branch Record (LBR) backtraces collected."
+      ],
+      [
+        1,
+        "Event 'Reference Cycles', with sampling period 2050000, used to trigger process-tree CPU IP sample collection."
+      ],
+      [
+        1,
+        "GPU Metrics [0]: Skipping metric CTC.TriageCompute.ctc__rx_bytes.avg.pct_of_peak_sustained_elapsed (requires unsupported counter 0xc9db2188e412c9b6 @ auto)"
+      ],
+      [
+        1,
+        "GPU Metrics [0]: Skipping metric CTC.TriageCompute.ctc__tx_bytes.avg.pct_of_peak_sustained_elapsed (requires unsupported counter 0x6fbd76590d194bef @ auto)"
+      ],
+      [
+        1,
+        "1 CPU IP samples collected for every CPU IP backtrace collected."
+      ],
+      [
+        1,
+        "Profiling has started."
+      ],
+      [
+        1,
+        "Process was launched by the profiler, see /mnt/home/jordan+123/history-native-20261015-r5/benchmarks/tmp/nvidia/nsight_systems/quadd_session_104055657/streams/pid_4055667_stdout.log and stderr.log for program output"
+      ],
+      [
+        1,
+        "Common injection library initialized successfully."
+      ],
+      [
+        1,
+        "OS runtime libraries injection initialized successfully."
+      ],
+      [
+        1,
+        "Number of GPU Metrics events collected: \t66301."
+      ],
+      [
+        1,
+        "Common injection library initialized successfully."
+      ],
+      [
+        1,
+        "OS runtime libraries injection initialized successfully."
+      ],
+      [
+        2,
+        "No NVTX events collected. Does the process use NVTX?"
+      ],
+      [
+        2,
+        "No NVTX events collected. Does the process use NVTX?"
+      ],
+      [
+        2,
+        "No NVTX events collected. Does the process use NVTX?"
+      ],
+      [
+        2,
+        "No NVTX events collected. Does the process use NVTX?"
+      ],
+      [
+        1,
+        "Number of CUDA events collected: \t2116."
+      ],
+      [
+        2,
+        "CUDA profiling might have not been started correctly."
+      ],
+      [
+        2,
+        "No CUDA events collected. Does the process use CUDA?"
+      ],
+      [
+        2,
+        "CUDA profiling might have not been started correctly."
+      ],
+      [
+        2,
+        "No CUDA events collected. Does the process use CUDA?"
+      ],
+      [
+        2,
+        "CUDA profiling might have not been started correctly."
+      ],
+      [
+        2,
+        "No CUDA events collected. Does the process use CUDA?"
+      ],
+      [
+        1,
+        "Number of OS runtime libraries events collected: \t45739."
+      ],
+      [
+        1,
+        "Number of OS runtime libraries events collected: \t4."
+      ],
+      [
+        1,
+        "Number of OS runtime libraries events collected: \t211."
+      ],
+      [
+        1,
+        "Number of OS runtime libraries events collected: \t156."
+      ],
+      [
+        1,
+        "Common injection library initialized successfully."
+      ],
+      [
+        1,
+        "OS runtime libraries injection initialized successfully."
+      ],
+      [
+        1,
+        "Common injection library initialized successfully."
+      ],
+      [
+        1,
+        "OS runtime libraries injection initialized successfully."
+      ],
+      [
+        1,
+        "Buffers holding CUDA trace data will be flushed on CudaProfilerStop() call. See --flush-on-cudaprofilerstop to control this behavior."
+      ],
+      [
+        1,
+        "Loaded CUPTI library: /mnt/home/jordan+123/history-native-20261015-r5/benchmarks/tools/nsight/extracted/opt/nvidia/nsight-systems/2025.3.2/target-linux-x64/libcupti.so.13.1"
+      ],
+      [
+        1,
+        "Enabling trace for device graph launch"
+      ],
+      [
+        1,
+        "CUDA injection initialized successfully."
+      ],
+      [
+        1,
+        "Number of CUPTI events produced: \t2279, CUPTI buffers: 50."
+      ],
+      [
+        1,
+        "Profiling has stopped."
+      ],
+      [
+        1,
+        "Number of IP samples collected: \t7961."
+      ]
+    ]
+  },
+  {
+    "run": "chains512",
+    "samples": 294146,
+    "median_interval_ns": 100000.0,
+    "min_interval_ns": 100000,
+    "max_interval_ns": 100001,
+    "gaps_over150us": 0,
+    "diagnostics": [
+      [
+        1,
+        "Intel(c) Last Branch Record (LBR) backtraces collected."
+      ],
+      [
+        1,
+        "Event 'Reference Cycles', with sampling period 2050000, used to trigger process-tree CPU IP sample collection."
+      ],
+      [
+        1,
+        "GPU Metrics [0]: Skipping metric CTC.TriageCompute.ctc__rx_bytes.avg.pct_of_peak_sustained_elapsed (requires unsupported counter 0xc9db2188e412c9b6 @ auto)"
+      ],
+      [
+        1,
+        "GPU Metrics [0]: Skipping metric CTC.TriageCompute.ctc__tx_bytes.avg.pct_of_peak_sustained_elapsed (requires unsupported counter 0x6fbd76590d194bef @ auto)"
+      ],
+      [
+        1,
+        "1 CPU IP samples collected for every CPU IP backtrace collected."
+      ],
+      [
+        1,
+        "Profiling has started."
+      ],
+      [
+        1,
+        "Process was launched by the profiler, see /mnt/home/jordan+123/history-native-20261015-r5/benchmarks/tmp/nvidia/nsight_systems/quadd_session_104055993/streams/pid_4056002_stdout.log and stderr.log for program output"
+      ],
+      [
+        1,
+        "Common injection library initialized successfully."
+      ],
+      [
+        1,
+        "OS runtime libraries injection initialized successfully."
+      ],
+      [
+        1,
+        "Common injection library initialized successfully."
+      ],
+      [
+        1,
+        "OS runtime libraries injection initialized successfully."
+      ],
+      [
+        1,
+        "Number of GPU Metrics events collected: \t294147."
+      ],
+      [
+        1,
+        "Common injection library initialized successfully."
+      ],
+      [
+        1,
+        "OS runtime libraries injection initialized successfully."
+      ],
+      [
+        1,
+        "Common injection library initialized successfully."
+      ],
+      [
+        1,
+        "OS runtime libraries injection initialized successfully."
+      ],
+      [
+        1,
+        "Buffers holding CUDA trace data will be flushed on CudaProfilerStop() call. See --flush-on-cudaprofilerstop to control this behavior."
+      ],
+      [
+        1,
+        "Loaded CUPTI library: /mnt/home/jordan+123/history-native-20261015-r5/benchmarks/tools/nsight/extracted/opt/nvidia/nsight-systems/2025.3.2/target-linux-x64/libcupti.so.13.1"
+      ],
+      [
+        1,
+        "Enabling trace for device graph launch"
+      ],
+      [
+        1,
+        "CUDA injection initialized successfully."
+      ],
+      [
+        2,
+        "No NVTX events collected. Does the process use NVTX?"
+      ],
+      [
+        2,
+        "No NVTX events collected. Does the process use NVTX?"
+      ],
+      [
+        2,
+        "No NVTX events collected. Does the process use NVTX?"
+      ],
+      [
+        2,
+        "No NVTX events collected. Does the process use NVTX?"
+      ],
+      [
+        2,
+        "CUDA profiling might have not been started correctly."
+      ],
+      [
+        2,
+        "No CUDA events collected. Does the process use CUDA?"
+      ],
+      [
+        1,
+        "Number of CUDA events collected: \t2115."
+      ],
+      [
+        2,
+        "CUDA profiling might have not been started correctly."
+      ],
+      [
+        2,
+        "No CUDA events collected. Does the process use CUDA?"
+      ],
+      [
+        2,
+        "CUDA profiling might have not been started correctly."
+      ],
+      [
+        2,
+        "No CUDA events collected. Does the process use CUDA?"
+      ],
+      [
+        1,
+        "Number of OS runtime libraries events collected: \t211."
+      ],
+      [
+        1,
+        "Number of OS runtime libraries events collected: \t1411929."
+      ],
+      [
+        1,
+        "Number of OS runtime libraries events collected: \t4."
+      ],
+      [
+        1,
+        "Number of OS runtime libraries events collected: \t157."
+      ],
+      [
+        1,
+        "Number of CUPTI events produced: \t2277, CUPTI buffers: 50."
+      ],
+      [
+        1,
+        "Profiling has stopped."
+      ],
+      [
+        1,
+        "Number of IP samples collected: \t40372."
+      ]
+    ]
+  },
+  {
+    "run": "chains512_prefault8",
+    "samples": 198358,
+    "median_interval_ns": 100000.0,
+    "min_interval_ns": 99999,
+    "max_interval_ns": 100001,
+    "gaps_over150us": 0,
+    "diagnostics": [
+      [
+        1,
+        "Intel(c) Last Branch Record (LBR) backtraces collected."
+      ],
+      [
+        1,
+        "Event 'Reference Cycles', with sampling period 2050000, used to trigger process-tree CPU IP sample collection."
+      ],
+      [
+        1,
+        "GPU Metrics [0]: Skipping metric CTC.TriageCompute.ctc__rx_bytes.avg.pct_of_peak_sustained_elapsed (requires unsupported counter 0xc9db2188e412c9b6 @ auto)"
+      ],
+      [
+        1,
+        "GPU Metrics [0]: Skipping metric CTC.TriageCompute.ctc__tx_bytes.avg.pct_of_peak_sustained_elapsed (requires unsupported counter 0x6fbd76590d194bef @ auto)"
+      ],
+      [
+        1,
+        "1 CPU IP samples collected for every CPU IP backtrace collected."
+      ],
+      [
+        1,
+        "Profiling has started."
+      ],
+      [
+        1,
+        "Process was launched by the profiler, see /mnt/home/jordan+123/history-native-20261015-r5/benchmarks/tmp/nvidia/nsight_systems/quadd_session_104057365/streams/pid_4057374_stdout.log and stderr.log for program output"
+      ],
+      [
+        1,
+        "Common injection library initialized successfully."
+      ],
+      [
+        1,
+        "OS runtime libraries injection initialized successfully."
+      ],
+      [
+        1,
+        "Common injection library initialized successfully."
+      ],
+      [
+        1,
+        "OS runtime libraries injection initialized successfully."
+      ],
+      [
+        1,
+        "Number of GPU Metrics events collected: \t198359."
+      ],
+      [
+        1,
+        "Common injection library initialized successfully."
+      ],
+      [
+        1,
+        "Common injection library initialized successfully."
+      ],
+      [
+        1,
+        "OS runtime libraries injection initialized successfully."
+      ],
+      [
+        1,
+        "OS runtime libraries injection initialized successfully."
+      ],
+      [
+        1,
+        "Buffers holding CUDA trace data will be flushed on CudaProfilerStop() call. See --flush-on-cudaprofilerstop to control this behavior."
+      ],
+      [
+        1,
+        "Loaded CUPTI library: /mnt/home/jordan+123/history-native-20261015-r5/benchmarks/tools/nsight/extracted/opt/nvidia/nsight-systems/2025.3.2/target-linux-x64/libcupti.so.13.1"
+      ],
+      [
+        1,
+        "Enabling trace for device graph launch"
+      ],
+      [
+        1,
+        "CUDA injection initialized successfully."
+      ],
+      [
+        2,
+        "No NVTX events collected. Does the process use NVTX?"
+      ],
+      [
+        2,
+        "No NVTX events collected. Does the process use NVTX?"
+      ],
+      [
+        2,
+        "No NVTX events collected. Does the process use NVTX?"
+      ],
+      [
+        2,
+        "No NVTX events collected. Does the process use NVTX?"
+      ],
+      [
+        1,
+        "Number of CUDA events collected: \t2115."
+      ],
+      [
+        2,
+        "CUDA profiling might have not been started correctly."
+      ],
+      [
+        2,
+        "No CUDA events collected. Does the process use CUDA?"
+      ],
+      [
+        2,
+        "CUDA profiling might have not been started correctly."
+      ],
+      [
+        2,
+        "No CUDA events collected. Does the process use CUDA?"
+      ],
+      [
+        2,
+        "CUDA profiling might have not been started correctly."
+      ],
+      [
+        2,
+        "No CUDA events collected. Does the process use CUDA?"
+      ],
+      [
+        1,
+        "Number of OS runtime libraries events collected: \t1411063."
+      ],
+      [
+        1,
+        "Number of OS runtime libraries events collected: \t5."
+      ],
+      [
+        1,
+        "Number of OS runtime libraries events collected: \t211."
+      ],
+      [
+        1,
+        "Number of OS runtime libraries events collected: \t154."
+      ],
+      [
+        1,
+        "Number of CUPTI events produced: \t2277, CUPTI buffers: 50."
+      ],
+      [
+        1,
+        "Profiling has stopped."
+      ],
+      [
+        1,
+        "Number of IP samples collected: \t40790."
+      ]
+    ]
+  }
+]

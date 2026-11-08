@@ -1,0 +1,198 @@
+{
+  "gene": "b0404",
+  "gene_name": "acpH",
+  "disabled_reaction_ids": [
+    "FA100ACPHi",
+    "FA120ACPHi",
+    "FA140ACPHi",
+    "FA141ACPHi",
+    "FA160ACPHi",
+    "FA161ACPHi",
+    "FA80ACPHi"
+  ],
+  "knockout_reaction_ids": [
+    "FA100ACPHi",
+    "FA120ACPHi",
+    "FA140ACPHi",
+    "FA141ACPHi",
+    "FA160ACPHi",
+    "FA161ACPHi",
+    "FA80ACPHi"
+  ],
+  "changed_bound_rows": 7,
+  "two_sided_encoding_rows": 14,
+  "stratum": "6-20",
+  "base_LP_varying_reactions": 7,
+  "base_LP_nearconstant_reactions": 0,
+  "all_affected_reactions_varying": true,
+  "base_point_max_KO_residual": 0.4421567062170387,
+  "base_point_weak_feasible_at_1e7": false,
+  "minimum_KO_T_row_norm": 0.44215669808042524,
+  "original_changed_bounds": {
+    "FA100ACPHi": [
+      0.0,
+      1000.0
+    ],
+    "FA120ACPHi": [
+      0.0,
+      1000.0
+    ],
+    "FA140ACPHi": [
+      0.0,
+      1000.0
+    ],
+    "FA141ACPHi": [
+      0.0,
+      1000.0
+    ],
+    "FA160ACPHi": [
+      0.0,
+      1000.0
+    ],
+    "FA161ACPHi": [
+      0.0,
+      1000.0
+    ],
+    "FA80ACPHi": [
+      0.0,
+      1000.0
+    ]
+  },
+  "genes_with_identical_bound_change_signature": [
+    "b0404"
+  ],
+  "bound_change_signature": "02ae5cfe216dc4d38f7d054232371be77353914c39cf9cebd59e3647a56db1ab",
+  "status": "ready",
+  "base_geometry_sha256": "07374999682cb82ef566c2a7ba4cd1ca44b0718ab81f421846e24d3b85f5e103",
+  "base_dimension": 581,
+  "base_point_weak_feasible": false,
+  "constraint_epsilon": 0.0,
+  "rank_relative_tolerance": 1e-12,
+  "validation_tolerance": 1e-07,
+  "geometry_directory": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/knockout_panel/conditions/b0404/models/shared",
+  "LPs": [],
+  "facial_reductions": [],
+  "initial_projection_strict_interior": true,
+  "projected_point_strict_interior": true,
+  "final_origin_strict_after_facial_reduction": true,
+  "interior_method": "analytic_projection_checked_all_normalized_constraints",
+  "conditional_dimension": 574,
+  "rows": 743,
+  "affine_rank": 7,
+  "affine_rank_history": [
+    {
+      "rank": 7,
+      "singular_values": [
+        1.000937948335958,
+        1.0009379483327159,
+        1.0009379483326744,
+        1.0009379483326586,
+        1.0009379483326022,
+        1.0009379483234193,
+        0.9943537305896262
+      ],
+      "relative_rank_threshold": 1e-12,
+      "ranks_at_1e11_1e12_1e13": [
+        7,
+        7,
+        7
+      ],
+      "scaled_equality_residual": 8.881784197001252e-16,
+      "nullspace_residual": 2.706168622523819e-16,
+      "seconds": 0.003873618319630623,
+      "projected_origin_min_normalized_slack": 0.9857765498045167
+    }
+  ],
+  "strict_interior_radius": 0.9857765498045167,
+  "min_raw_start_slack": 2.528853752511939e-08,
+  "certified_affine_constant_base_rows": [
+    {
+      "base_row": 297,
+      "projected_norm": 3.042009426611572e-16,
+      "original_norm": 0.4421567003981095,
+      "constant_bound": -2.7755575615628914e-16,
+      "normalized_constant_bound": -6.277316523901666e-16
+    },
+    {
+      "base_row": 298,
+      "projected_norm": 3.051671291942359e-16,
+      "original_norm": 0.44215670081158015,
+      "constant_bound": -4.440892098500626e-16,
+      "normalized_constant_bound": -1.004370642885057e-15
+    },
+    {
+      "base_row": 299,
+      "projected_norm": 3.164237968565698e-16,
+      "original_norm": 0.4421567006728086,
+      "constant_bound": 0.0,
+      "normalized_constant_bound": 0.0
+    },
+    {
+      "base_row": 300,
+      "projected_norm": 3.2853189784669765e-16,
+      "original_norm": 0.4421566991574738,
+      "constant_bound": 0.0,
+      "normalized_constant_bound": 0.0
+    },
+    {
+      "base_row": 301,
+      "projected_norm": 2.9984120134606313e-16,
+      "original_norm": 0.44215670105742616,
+      "constant_bound": 5.551115123125783e-17,
+      "normalized_constant_bound": 1.2554633029082643e-16
+    },
+    {
+      "base_row": 302,
+      "projected_norm": 3.04731122283734e-16,
+      "original_norm": 0.4421567017886224,
+      "constant_bound": 5.551115123125783e-17,
+      "normalized_constant_bound": 1.2554633008321e-16
+    },
+    {
+      "base_row": 306,
+      "projected_norm": 2.265707371785936e-16,
+      "original_norm": 0.44215669808042524,
+      "constant_bound": 1.1102230246251565e-16,
+      "normalized_constant_bound": 2.5109266227223694e-16
+    }
+  ],
+  "no_bound_epsilon_relaxation": true,
+  "source": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/knockout_panel/conditions/b0404/conditional_model.json",
+  "source_sha256": "3da7f46bc42cb80e9a75a1e07482d88a23a067ebfb0f8be49eb9f14331d25b3d",
+  "geometry_sha256": "bdfb0a601e292863c857b7efefa9ae87bedb0b5a6a459ad108b7437f9d5cfa42",
+  "embedding": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/knockout_panel/conditions/b0404/embedding.npz",
+  "effective_affine_face_signature_rounded_1e10": "2f2d866dac1b6288ab147a31f29451a141b463c2ee55fbf79a060f05190e58c3",
+  "fixed_reaction_ids": [
+    "FA100ACPHi",
+    "FA120ACPHi",
+    "FA140ACPHi",
+    "FA141ACPHi",
+    "FA160ACPHi",
+    "FA161ACPHi",
+    "FA80ACPHi"
+  ],
+  "fixed_reaction_values": {
+    "FA100ACPHi": -2.7755575615628914e-16,
+    "FA120ACPHi": -4.440892098500626e-16,
+    "FA140ACPHi": 0.0,
+    "FA141ACPHi": 0.0,
+    "FA160ACPHi": 5.551115123125783e-17,
+    "FA161ACPHi": 5.551115123125783e-17,
+    "FA80ACPHi": 1.1102230246251565e-16
+  },
+  "containment_proof": {
+    "retained_A_max_error": 3.3881317890172014e-21,
+    "retained_b_max_error": 5.551115123125783e-17,
+    "dropped_rows": "Equality-span residual and constant-bound certificates recorded; numerical rank contract explicit."
+  },
+  "validation": {
+    "points": 33,
+    "max_original_bound_violation": 1.4681705627960506e-12,
+    "max_base_Az_minus_b_violation": 9.992007221626409e-16,
+    "max_KO_flux_residual": 4.463479517359214e-16
+  },
+  "preparation_seconds": 0.5312961284071207,
+  "LP_solve_seconds": 0,
+  "LP_calls": 0,
+  "LP_skipped": true
+}

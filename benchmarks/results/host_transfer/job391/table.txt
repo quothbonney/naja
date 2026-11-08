@@ -1,0 +1,9 @@
+ 1 GiB cold_pageable        alloc=0.000 prefault=0.000 firstcopy=0.575 totalfirst=0.575 warm=0.061s
+ 1 GiB prefault8_pageable   alloc=0.000 prefault=0.069 firstcopy=0.062 totalfirst=0.131 warm=0.076s
+ 1 GiB pinned               alloc=0.365 prefault=0.000 firstcopy=0.021 totalfirst=0.386 warm=0.019s
+ 8 GiB cold_pageable        alloc=0.000 prefault=0.000 firstcopy=4.658 totalfirst=4.658 warm=0.548s
+ 8 GiB prefault8_pageable   alloc=0.000 prefault=0.724 firstcopy=0.498 totalfirst=1.223 warm=0.487s
+ 8 GiB pinned               alloc=2.851 prefault=0.000 firstcopy=0.157 totalfirst=3.009 warm=0.156s
+26 GiB cold_pageable        alloc=0.000 prefault=0.000 firstcopy=15.469 totalfirst=15.469 warm=1.641s
+26 GiB prefault8_pageable   alloc=0.000 prefault=1.860 firstcopy=1.549 totalfirst=3.409 warm=1.554s
+26 GiB pinned               alloc=9.446 prefault=0.000 firstcopy=0.508 totalfirst=9.954 warm=0.508s

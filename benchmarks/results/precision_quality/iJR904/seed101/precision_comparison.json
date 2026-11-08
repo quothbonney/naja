@@ -1,0 +1,281 @@
+{
+  "model": "iJR904",
+  "seed": 101,
+  "shape": [
+    16,
+    20000,
+    232
+  ],
+  "historical_run": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/quality/iJR904/naja128/seed101/final-budget20000",
+  "historical_binary_sha256": "c7baf4f0ed282b936ac0dbac4b896bfbfc040eb06da6f84aff6605fddf4b0fc6",
+  "new_binary_sha256": "5e6968eb7d3cebf5f27c16d2662a2e640cc3f6b7a633b7e7ae3bc9136a99f3d5",
+  "normalized_cast_to_float32_bit_mismatches": 0,
+  "normalized_cast_max_difference": 0.0,
+  "historical_float32_reproduced_bitwise": true,
+  "geometry_sha256": "e7223d54a6b78e4880328648b410d90571030d4558abaa1b44c5567fcf7fb216",
+  "no_filtering_or_clipping": true,
+  "representations": {
+    "float64_export": {
+      "sample_count": 320000,
+      "sample_bound_violation_fraction": {
+        "0.0": 1.0,
+        "1e-07": 0.0,
+        "1e-06": 0.0,
+        "1e-05": 0.0,
+        "0.001": 0.0
+      },
+      "nonexcluded_reaction_sample_violation_fraction": {
+        "0.0": 0.0,
+        "1e-07": 0.0,
+        "1e-06": 0.0,
+        "1e-05": 0.0,
+        "0.001": 0.0
+      },
+      "coordinate_bound_violation_fraction": {
+        "0.0": 0.16043390406976743,
+        "1e-07": 0.0,
+        "1e-06": 0.0,
+        "1e-05": 0.0,
+        "0.001": 0.0
+      },
+      "max_absolute_reaction_bound_violation": 2.0384391651762254e-08,
+      "max_nonexcluded_reaction_bound_violation": 0.0,
+      "max_reduced_Az_minus_b_violation": 0.0,
+      "reduced_sample_violation_fraction_eps_1e9": 0.0,
+      "top_violations": [
+        {
+          "reaction": "DXPS",
+          "max_violation": 2.0384391651762254e-08,
+          "lp_mask_excluded": true
+        },
+        {
+          "reaction": "DXPRIi",
+          "max_violation": 2.0038710974963995e-08,
+          "lp_mask_excluded": true
+        },
+        {
+          "reaction": "MECDPS",
+          "max_violation": 1.9822998456506618e-08,
+          "lp_mask_excluded": true
+        },
+        {
+          "reaction": "CDPMEK",
+          "max_violation": 1.953144076537291e-08,
+          "lp_mask_excluded": true
+        },
+        {
+          "reaction": "MEPCT",
+          "max_violation": 1.9351307278273e-08,
+          "lp_mask_excluded": true
+        },
+        {
+          "reaction": "MECDPDH",
+          "max_violation": 1.9328972907325422e-08,
+          "lp_mask_excluded": true
+        },
+        {
+          "reaction": "IPDPS",
+          "max_violation": 1.9288241307786082e-08,
+          "lp_mask_excluded": true
+        },
+        {
+          "reaction": "G1SAT",
+          "max_violation": 8.190592504382948e-09,
+          "lp_mask_excluded": true
+        },
+        {
+          "reaction": "GLUTRS",
+          "max_violation": 8.039711976463825e-09,
+          "lp_mask_excluded": true
+        },
+        {
+          "reaction": "GLUTRR",
+          "max_violation": 8.026573721917612e-09,
+          "lp_mask_excluded": true
+        },
+        {
+          "reaction": "PPBNGS",
+          "max_violation": 4.334839239339751e-09,
+          "lp_mask_excluded": true
+        },
+        {
+          "reaction": "MLTG2",
+          "max_violation": 2.744821644439349e-09,
+          "lp_mask_excluded": true
+        },
+        {
+          "reaction": "IPDDI",
+          "max_violation": 2.7210609517597473e-09,
+          "lp_mask_excluded": true
+        },
+        {
+          "reaction": "OCTDPS",
+          "max_violation": 2.346759569622498e-09,
+          "lp_mask_excluded": true
+        },
+        {
+          "reaction": "GRTT",
+          "max_violation": 2.2984635447208475e-09,
+          "lp_mask_excluded": true
+        },
+        {
+          "reaction": "DMATT",
+          "max_violation": 2.1859446841712648e-09,
+          "lp_mask_excluded": true
+        },
+        {
+          "reaction": "SHCHCS2",
+          "max_violation": 2.062719319188402e-09,
+          "lp_mask_excluded": true
+        },
+        {
+          "reaction": "NPHS",
+          "max_violation": 2.0389860757856485e-09,
+          "lp_mask_excluded": true
+        },
+        {
+          "reaction": "EX_galur_e",
+          "max_violation": 2.000863433867904e-09,
+          "lp_mask_excluded": true
+        },
+        {
+          "reaction": "L_LACD3",
+          "max_violation": 2.000690414512812e-09,
+          "lp_mask_excluded": true
+        }
+      ]
+    },
+    "paired_float32_quantization": {
+      "sample_count": 320000,
+      "sample_bound_violation_fraction": {
+        "0.0": 1.0,
+        "1e-07": 3.125e-06,
+        "1e-06": 3.125e-06,
+        "1e-05": 3.125e-06,
+        "0.001": 3.125e-06
+      },
+      "nonexcluded_reaction_sample_violation_fraction": {
+        "0.0": 6.25e-06,
+        "1e-07": 3.125e-06,
+        "1e-06": 3.125e-06,
+        "1e-05": 3.125e-06,
+        "0.001": 3.125e-06
+      },
+      "coordinate_bound_violation_fraction": {
+        "0.0": 0.16043391569767443,
+        "1e-07": 2.9069767441860465e-09,
+        "1e-06": 2.9069767441860465e-09,
+        "1e-05": 2.9069767441860465e-09,
+        "0.001": 2.9069767441860465e-09
+      },
+      "max_absolute_reaction_bound_violation": 0.0035504193510860205,
+      "max_nonexcluded_reaction_bound_violation": 0.0035504193510860205,
+      "max_reduced_Az_minus_b_violation": 0.0035504192346706986,
+      "reduced_sample_violation_fraction_eps_1e9": 6.25e-06,
+      "top_violations": [
+        {
+          "reaction": "CYTDt2_copy2",
+          "max_violation": 0.0035504193510860205,
+          "lp_mask_excluded": false
+        },
+        {
+          "reaction": "DXPS",
+          "max_violation": 2.0384391549432568e-08,
+          "lp_mask_excluded": true
+        },
+        {
+          "reaction": "DXPRIi",
+          "max_violation": 2.0038710886284664e-08,
+          "lp_mask_excluded": true
+        },
+        {
+          "reaction": "MECDPS",
+          "max_violation": 1.9822998369824432e-08,
+          "lp_mask_excluded": true
+        },
+        {
+          "reaction": "CDPMEK",
+          "max_violation": 1.9531440684238475e-08,
+          "lp_mask_excluded": true
+        },
+        {
+          "reaction": "MEPCT",
+          "max_violation": 1.935130719619036e-08,
+          "lp_mask_excluded": true
+        },
+        {
+          "reaction": "MECDPDH",
+          "max_violation": 1.932897282791746e-08,
+          "lp_mask_excluded": true
+        },
+        {
+          "reaction": "IPDPS",
+          "max_violation": 1.9288241225649568e-08,
+          "lp_mask_excluded": true
+        },
+        {
+          "reaction": "PYDAMK",
+          "max_violation": 1.7670021168481043e-08,
+          "lp_mask_excluded": false
+        },
+        {
+          "reaction": "HYPOE",
+          "max_violation": 1.765741214354577e-08,
+          "lp_mask_excluded": false
+        },
+        {
+          "reaction": "G1SAT",
+          "max_violation": 8.19059250506035e-09,
+          "lp_mask_excluded": true
+        },
+        {
+          "reaction": "GLUTRS",
+          "max_violation": 8.039711970124563e-09,
+          "lp_mask_excluded": true
+        },
+        {
+          "reaction": "GLUTRR",
+          "max_violation": 8.026573719212237e-09,
+          "lp_mask_excluded": true
+        },
+        {
+          "reaction": "PPBNGS",
+          "max_violation": 4.334839234548057e-09,
+          "lp_mask_excluded": true
+        },
+        {
+          "reaction": "MLTG2",
+          "max_violation": 2.7448216088805798e-09,
+          "lp_mask_excluded": true
+        },
+        {
+          "reaction": "IPDDI",
+          "max_violation": 2.7210609592526537e-09,
+          "lp_mask_excluded": true
+        },
+        {
+          "reaction": "OCTDPS",
+          "max_violation": 2.346759554307948e-09,
+          "lp_mask_excluded": true
+        },
+        {
+          "reaction": "GRTT",
+          "max_violation": 2.298463523570313e-09,
+          "lp_mask_excluded": true
+        },
+        {
+          "reaction": "DMATT",
+          "max_violation": 2.1859446630025913e-09,
+          "lp_mask_excluded": true
+        },
+        {
+          "reaction": "SHCHCS2",
+          "max_violation": 2.0627192959636265e-09,
+          "lp_mask_excluded": true
+        }
+      ]
+    }
+  },
+  "analysis_wall_seconds": 17.949462797492743,
+  "causal_protocol": "Same GPU F64 points, T@Z64+shift versus T@float64(float32(Z64))+shift; compare cast coordinates to historical frozen F32 output."
+}

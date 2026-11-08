@@ -1,0 +1,48 @@
+{
+  "created_utc": "2026-11-08T19:17:06.158636+00:00",
+  "deadline_utc": "2026-11-08T22:00:00+00:00",
+  "selection": "Two highest saved-startSVD-Hessian-kappa targets among9 previous rotate50k failures (b0133,b0103), plus finite-width PGIcapacity, frozenbeforemixtureresults. Exploratory6 configurations; compare separately with currentwhitenpair0study.",
+  "mode_order": [
+    "whiten_fixed_pairs025",
+    "whiten_jacobi025_dikin015"
+  ],
+  "output_directory": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/conditioned_extensions/whiten_pair_mixture_20261108",
+  "binary_sha256": "5e6968eb7d3cebf5f27c16d2662a2e640cc3f6b7a633b7e7ae3bc9136a99f3d5",
+  "source_sha256": "8f4e4ecab0b99e2a009a9b3f8cc74af995e82dc408667981f55c75d66b3bd673",
+  "cases": [
+    {
+      "condition_id": "b0133",
+      "condition_root": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/knockout_panel/conditions/b0133",
+      "geometry_sha256": "1bed1821529561e069b99b34fa0d635809ead415382895b8442bdbfdf9d38d4f",
+      "selection_reason": "previous rotate50k cap",
+      "barrier_kappa_at_saved_start": 9.05054652616772e+16
+    },
+    {
+      "condition_id": "b0103",
+      "condition_root": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/knockout_panel/conditions/b0103",
+      "geometry_sha256": "00a5f2d4a90cc727a5daffd41ea3a9f0a6af62642aaab7983e8615c1273e7bf0",
+      "selection_reason": "previous rotate50k cap",
+      "barrier_kappa_at_saved_start": 1.84395865354764e+16
+    },
+    {
+      "condition_id": "PGI_capacity",
+      "condition_root": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/conditioned_prototype/iJO1366",
+      "geometry_sha256": "677e9ddb4ff8834f04a914468e5d28f4146d7ddfc1da9bdad75a48718d789582",
+      "selection_reason": "separately labeled finite-width capacity central example; freshfloat64allmodes"
+    }
+  ],
+  "previous_failed_attempt": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/conditioned_extensions/off_rotate_whiten_20261108_attempt1_expired_guard",
+  "pilot_draws": 50000,
+  "configurations": {
+    "whiten_fixed_pairs025": {
+      "barrier": "whiten",
+      "pair_probability": 0.25
+    },
+    "whiten_jacobi025_dikin015": {
+      "barrier": "whiten",
+      "pair_probability": 0.25,
+      "pair_schedule_method": "barrier",
+      "Dikin_note": "NativebundleautoenablesDikin.15whenverboseconfirmsk>0; noschedule-onlyclaim"
+    }
+  }
+}

@@ -1,0 +1,46 @@
+# Source config: /mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/nsight_timeline/chains512_prefault8/profiled/native/iJO1366_20261108_001/config_generated.txt
+# Captured at: 2026-11-08 03:42:18
+# Output directory: /mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/nsight_timeline/chains512_prefault8/profiled/native/iJO1366_20261108_001
+
+DATA_DIR=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models
+MODEL_NAME=iJO1366
+OUT_DIR=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/nsight_timeline/chains512_prefault8/profiled/native/iJO1366_20261108_001
+N_CHAINS=512
+N_SAMPLES=11000
+SEED=101
+TPB_SS=128
+GPU_DEVICE=0
+BACK_TRANSFORM=false
+WRITE_DATA=true
+SAMPLE_DTYPE=float32
+HOST_PREFAULT_THREADS=8
+VERBOSE=false
+STATUS=true
+EXTRA_CONSTRAINTS=auto
+START_POLICY=file
+BARRIER_ROTATE=true
+BARRIER_WHITEN=false
+BOUNDS_POLICY=ignore
+
+# Derived metadata
+MODEL_NAME=iJO1366
+DATA_DIR_ABS=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models
+MODEL_DIR_ABS=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/iJO1366
+ROUND_PREFIX_ABS=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/iJO1366/rounding/iJO1366_rounding
+A_FILE=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/iJO1366/rounding/polytope.npz
+B_FILE=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/iJO1366/rounding/polytope.npz
+START_FILE=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/iJO1366/rounding/polytope.npz
+T_FILE=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/iJO1366/rounding/polytope.npz
+SHIFT_FILE=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/iJO1366/rounding/polytope.npz
+NPY_FILE=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/nsight_timeline/chains512_prefault8/profiled/native/iJO1366_20261108_001/samples.npy
+PROFILE_FILE=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/nsight_timeline/chains512_prefault8/profiled/native/iJO1366_20261108_001/profile.json
+N_CHAINS=512
+N_SAMPLES=11000
+THINNING=96
+SEED=101
+GPU_DEVICE=0
+BACK_TRANSFORM=false
+WRITE_DATA=true
+SAMPLE_DTYPE=float32
+HOST_PREFAULT_THREADS=8
+BOUNDS_POLICY=ignore

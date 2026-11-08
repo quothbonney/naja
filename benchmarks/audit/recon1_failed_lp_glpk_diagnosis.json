@@ -1,0 +1,13 @@
+{
+  "optlang_status": "infeasible",
+  "backend": "glpk",
+  "native_status": "None",
+  "variables": 3741,
+  "constraints": 10234,
+  "independent_status": 0,
+  "independent_success": true,
+  "independent_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+  "independent_wall_seconds": 0.21733559668064117,
+  "max_independent_inequality_violation": 5.820766091346741e-10,
+  "max_independent_equality_residual": 2.9103830456733704e-10
+}

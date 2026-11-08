@@ -1,0 +1,8 @@
+{
+  "purpose": "Separate conservative diagnostic reassay; canonical geometry/masks unmodified",
+  "models": [
+    "iML1515",
+    "iAF1260"
+  ],
+  "sampling_target_unchanged": true
+}

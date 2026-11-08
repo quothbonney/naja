@@ -1,0 +1,10 @@
+{
+  "pid": 359158,
+  "prior_pids": [
+    358228,
+    358467
+  ],
+  "reason": "Restore original32-thread reservation before each CPU budget and retry only the exact prior sibling-reservation orchestration error once; no sampling changes.",
+  "controller_sha256": "a808742344dcb3106def6236f526e932934df46b7a6939aa7871ba221dfb0d7d",
+  "quality_helper_sha256": "b1aadf247284377e6a540368c5c2c1328ca49065546528d2d123271e522def84"
+}

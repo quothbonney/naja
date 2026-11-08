@@ -1,0 +1,7 @@
+{
+  "format_version": 2,
+  "model_name": "global_reround",
+  "rounding_dim": 581,
+  "n_reactions": 2583,
+  "n_constraints": 752
+}

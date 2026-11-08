@@ -1,0 +1,10 @@
+{
+  "utc": "2026-11-08T19:49:59.507827+00:00",
+  "reason": "New user closeout directive: stop after completed pilot, no further campaign runs. Remaining12 had just been released before the directive arrived; cancelled immediately, preserving all partial files and original predeclared selection.",
+  "cancelled_capture": "937",
+  "cancelled_metrics": "938",
+  "pilot_capture": "934",
+  "pilot_metrics": "935",
+  "returncode": 0,
+  "stderr": ""
+}

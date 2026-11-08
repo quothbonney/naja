@@ -1,0 +1,51 @@
+{
+  "model_id": "iJO1366_geneKO_b2529",
+  "n": 2583,
+  "d": 575,
+  "m": 746,
+  "original_metabolites": 1805,
+  "source": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/knockout_panel/conditions/b2529/conditional_model.json",
+  "source_sha256": "3d7441c47c194b0d1f6118c0831d1fa90407656cf1ddf0dc5e08d9ee9bacd1eb",
+  "solver": "highspy",
+  "versions": {
+    "hopsy": "1.7.0",
+    "PolyRound": "0.5.0",
+    "cobra": "0.32.1",
+    "numpy": "2.5.4",
+    "scipy": "1.18.1",
+    "swiglpk": "5.0.13"
+  },
+  "timings": {
+    "total_seconds": 0.5268390327692032,
+    "interior_LP_seconds": 0
+  },
+  "settings": {
+    "backend": "glpk",
+    "hp_flags": {
+      "FeasibilityTol": 1e-09
+    },
+    "thresh": 1e-07,
+    "verbose": false,
+    "sgp": false,
+    "reduce": true,
+    "regularize": false,
+    "check_lps": false,
+    "simplify_only": false,
+    "presolve": false,
+    "numerics_threshold": 1e-12,
+    "accepted_tol_violation": 100.0
+  },
+  "objective_constraint": "none; original model bounds",
+  "min_start_slack": 4.013759380826667e-08,
+  "command": [
+    "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/cpu_baseline.py",
+    "prep",
+    "--model",
+    "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/raw/iJO1366.json",
+    "--out",
+    "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/iJO1366"
+  ],
+  "hostname": "slurm-h100-206-077",
+  "preprocessing_variant": "Exact KO affine/facial restriction of cached581-D target; no MVE",
+  "precision_contract": 1e-07
+}

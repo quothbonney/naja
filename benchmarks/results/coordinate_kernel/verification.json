@@ -1,0 +1,28 @@
+{
+  "status": "passed",
+  "gpu_correctness_tests_passed": 5,
+  "cases": [
+    {
+      "case": "box_plain",
+      "arrays_bitwise_equal": true,
+      "max_absolute_difference": 0.0
+    },
+    {
+      "case": "box_pair",
+      "arrays_bitwise_equal": true,
+      "max_absolute_difference": 0.0
+    },
+    {
+      "case": "iJO_plain",
+      "arrays_bitwise_equal": true,
+      "max_absolute_difference": 0.0
+    }
+  ],
+  "same_seed_original_samples_bitwise_equal": true,
+  "wide_index_build_verified": true,
+  "binary_sha256": "51854688114677b14de3c110c262d210281de1f351f1ae6df6be994c2cc67e82",
+  "reference_binary_sha256": "a656a1f93489af051acd540d08369092567dd0673af2b0e1ac922dc58a910603",
+  "patch_sha256": "6cae3a04a23874e90cccf9b4a29aabc4f1d76c8fdab266c7c4daedf3030d2029",
+  "job_id": "488",
+  "scope": "Separate coordinate-only specialization. Mixture fallback retained. No frozen binary/results changed."
+}

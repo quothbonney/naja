@@ -1,0 +1,23 @@
+> validate model contract
+> write generated config
+model :: iJO1366
+output :: /mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/nsight_timeline/ncu/prepare_steqr/native/iJO1366_20261108_001
+bounds :: ignore
+> sampling
+==WARNING== Note: Running with unmodified GPU clocks. If not controlled otherwise, profiling results may be inconsistent.
+==PROF== Connected to process 4062287 (/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/build-h100-safe/naja)
+> loading polytope
+> barrier rotation (eigenbasis of H)
+==WARNING== Unable to access the following 6 metrics: ctc__rx_bytes_data_user.sum, ctc__rx_bytes_data_user.sum.pct_of_peak_sustained_elapsed, ctc__rx_bytes_data_user.sum.per_second, ctc__tx_bytes_data_user.sum, ctc__tx_bytes_data_user.sum.pct_of_peak_sustained_elapsed, ctc__tx_bytes_data_user.sum.per_second.
+
+
+==PROF== Profiling "steqr_ker": 0%....50%....100% - 38 passes
+> uploading to gpu
+> sampling 16 chains x 1200 samples (thin=96, 1843200 MCMC steps, 750 constraints x 581 dims)
+> gpu sampling
+> gpu back-transform
+> downloading
+> done: 0.5s, 42463 samples/s
+> writing npy
+==PROF== Disconnected from process 4062287
+==PROF== Report: /mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/nsight_timeline/ncu/prepare_steqr/report.ncu-rep

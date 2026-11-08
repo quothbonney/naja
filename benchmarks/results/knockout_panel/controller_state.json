@@ -1,0 +1,1382 @@
+{
+  "jobs": [
+    {
+      "gene": "b0154",
+      "job_id": "562",
+      "command": [
+        "/usr/bin/sbatch",
+        "--parsable",
+        "--chdir=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks",
+        "--job-name=bench-exact-KO-b0154",
+        "--output=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/logs/exact-KO-b0154-%j.log",
+        "--time=00:10:00",
+        "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/scripts/exact_knockout_panel.sbatch",
+        "panel",
+        "--genes",
+        "b0154",
+        "--retry-problematic"
+      ],
+      "submitted_utc": "2026-11-08T04:58:54.717950+00:00",
+      "finalized": true
+    },
+    {
+      "gene": "b0181",
+      "job_id": "563",
+      "command": [
+        "/usr/bin/sbatch",
+        "--parsable",
+        "--chdir=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks",
+        "--job-name=bench-exact-KO-b0181",
+        "--output=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/logs/exact-KO-b0181-%j.log",
+        "--time=00:10:00",
+        "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/scripts/exact_knockout_panel.sbatch",
+        "panel",
+        "--genes",
+        "b0181",
+        "--retry-problematic"
+      ],
+      "submitted_utc": "2026-11-08T04:58:54.733650+00:00",
+      "finalized": true
+    },
+    {
+      "gene": "b0003",
+      "job_id": "564",
+      "command": [
+        "/usr/bin/sbatch",
+        "--parsable",
+        "--chdir=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks",
+        "--job-name=bench-exact-KO-b0003",
+        "--output=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/logs/exact-KO-b0003-%j.log",
+        "--time=00:10:00",
+        "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/scripts/exact_knockout_panel.sbatch",
+        "panel",
+        "--genes",
+        "b0003",
+        "--retry-problematic"
+      ],
+      "submitted_utc": "2026-11-08T04:59:14.857796+00:00",
+      "finalized": true
+    },
+    {
+      "gene": "b0116",
+      "job_id": "565",
+      "command": [
+        "/usr/bin/sbatch",
+        "--parsable",
+        "--chdir=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks",
+        "--job-name=bench-exact-KO-b0116",
+        "--output=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/logs/exact-KO-b0116-%j.log",
+        "--time=00:10:00",
+        "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/scripts/exact_knockout_panel.sbatch",
+        "panel",
+        "--genes",
+        "b0116",
+        "--retry-problematic"
+      ],
+      "submitted_utc": "2026-11-08T04:59:14.881864+00:00",
+      "finalized": true
+    },
+    {
+      "gene": "b0516",
+      "job_id": "566",
+      "command": [
+        "/usr/bin/sbatch",
+        "--parsable",
+        "--chdir=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks",
+        "--job-name=bench-exact-KO-b0516",
+        "--output=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/logs/exact-KO-b0516-%j.log",
+        "--time=00:10:00",
+        "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/scripts/exact_knockout_panel.sbatch",
+        "panel",
+        "--genes",
+        "b0516",
+        "--retry-problematic"
+      ],
+      "submitted_utc": "2026-11-08T04:59:35.001661+00:00",
+      "finalized": true
+    },
+    {
+      "gene": "b0721",
+      "job_id": "567",
+      "command": [
+        "/usr/bin/sbatch",
+        "--parsable",
+        "--chdir=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks",
+        "--job-name=bench-exact-KO-b0721",
+        "--output=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/logs/exact-KO-b0721-%j.log",
+        "--time=00:10:00",
+        "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/scripts/exact_knockout_panel.sbatch",
+        "panel",
+        "--genes",
+        "b0721",
+        "--retry-problematic"
+      ],
+      "submitted_utc": "2026-11-08T04:59:35.020425+00:00",
+      "finalized": true
+    },
+    {
+      "gene": "b0918",
+      "job_id": "568",
+      "command": [
+        "/usr/bin/sbatch",
+        "--parsable",
+        "--chdir=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks",
+        "--job-name=bench-exact-KO-b0918",
+        "--output=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/logs/exact-KO-b0918-%j.log",
+        "--time=00:10:00",
+        "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/scripts/exact_knockout_panel.sbatch",
+        "panel",
+        "--genes",
+        "b0918",
+        "--retry-problematic"
+      ],
+      "submitted_utc": "2026-11-08T04:59:55.129930+00:00",
+      "finalized": true
+    },
+    {
+      "gene": "b1136",
+      "job_id": "569",
+      "command": [
+        "/usr/bin/sbatch",
+        "--parsable",
+        "--chdir=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks",
+        "--job-name=bench-exact-KO-b1136",
+        "--output=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/logs/exact-KO-b1136-%j.log",
+        "--time=00:10:00",
+        "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/scripts/exact_knockout_panel.sbatch",
+        "panel",
+        "--genes",
+        "b1136",
+        "--retry-problematic"
+      ],
+      "submitted_utc": "2026-11-08T04:59:55.146609+00:00",
+      "finalized": true
+    },
+    {
+      "gene": "b1326",
+      "job_id": "570",
+      "command": [
+        "/usr/bin/sbatch",
+        "--parsable",
+        "--chdir=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks",
+        "--job-name=bench-exact-KO-b1326",
+        "--output=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/logs/exact-KO-b1326-%j.log",
+        "--time=00:10:00",
+        "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/scripts/exact_knockout_panel.sbatch",
+        "panel",
+        "--genes",
+        "b1326",
+        "--retry-problematic"
+      ],
+      "submitted_utc": "2026-11-08T05:00:15.270707+00:00",
+      "finalized": true
+    },
+    {
+      "gene": "b1744",
+      "job_id": "571",
+      "command": [
+        "/usr/bin/sbatch",
+        "--parsable",
+        "--chdir=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks",
+        "--job-name=bench-exact-KO-b1744",
+        "--output=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/logs/exact-KO-b1744-%j.log",
+        "--time=00:10:00",
+        "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/scripts/exact_knockout_panel.sbatch",
+        "panel",
+        "--genes",
+        "b1744",
+        "--retry-problematic"
+      ],
+      "submitted_utc": "2026-11-08T05:00:15.288535+00:00",
+      "finalized": true
+    },
+    {
+      "gene": "b2028",
+      "job_id": "572",
+      "command": [
+        "/usr/bin/sbatch",
+        "--parsable",
+        "--chdir=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks",
+        "--job-name=bench-exact-KO-b2028",
+        "--output=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/logs/exact-KO-b2028-%j.log",
+        "--time=00:10:00",
+        "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/scripts/exact_knockout_panel.sbatch",
+        "panel",
+        "--genes",
+        "b2028",
+        "--retry-problematic"
+      ],
+      "submitted_utc": "2026-11-08T05:00:35.446168+00:00",
+      "finalized": true
+    },
+    {
+      "gene": "b2257",
+      "job_id": "573",
+      "command": [
+        "/usr/bin/sbatch",
+        "--parsable",
+        "--chdir=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks",
+        "--job-name=bench-exact-KO-b2257",
+        "--output=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/logs/exact-KO-b2257-%j.log",
+        "--time=00:10:00",
+        "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/scripts/exact_knockout_panel.sbatch",
+        "panel",
+        "--genes",
+        "b2257",
+        "--retry-problematic"
+      ],
+      "submitted_utc": "2026-11-08T05:00:35.464649+00:00",
+      "finalized": true
+    },
+    {
+      "gene": "b2436",
+      "job_id": "574",
+      "command": [
+        "/usr/bin/sbatch",
+        "--parsable",
+        "--chdir=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks",
+        "--job-name=bench-exact-KO-b2436",
+        "--output=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/logs/exact-KO-b2436-%j.log",
+        "--time=00:10:00",
+        "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/scripts/exact_knockout_panel.sbatch",
+        "panel",
+        "--genes",
+        "b2436",
+        "--retry-problematic"
+      ],
+      "submitted_utc": "2026-11-08T05:00:55.642417+00:00",
+      "finalized": true
+    },
+    {
+      "gene": "b2688",
+      "job_id": "575",
+      "command": [
+        "/usr/bin/sbatch",
+        "--parsable",
+        "--chdir=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks",
+        "--job-name=bench-exact-KO-b2688",
+        "--output=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/logs/exact-KO-b2688-%j.log",
+        "--time=00:10:00",
+        "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/scripts/exact_knockout_panel.sbatch",
+        "panel",
+        "--genes",
+        "b2688",
+        "--retry-problematic"
+      ],
+      "submitted_utc": "2026-11-08T05:00:55.660748+00:00",
+      "finalized": true
+    },
+    {
+      "gene": "b2920",
+      "job_id": "576",
+      "command": [
+        "/usr/bin/sbatch",
+        "--parsable",
+        "--chdir=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks",
+        "--job-name=bench-exact-KO-b2920",
+        "--output=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/logs/exact-KO-b2920-%j.log",
+        "--time=00:10:00",
+        "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/scripts/exact_knockout_panel.sbatch",
+        "panel",
+        "--genes",
+        "b2920",
+        "--retry-problematic"
+      ],
+      "submitted_utc": "2026-11-08T05:01:15.835377+00:00",
+      "finalized": true
+    },
+    {
+      "gene": "b3198",
+      "job_id": "577",
+      "command": [
+        "/usr/bin/sbatch",
+        "--parsable",
+        "--chdir=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks",
+        "--job-name=bench-exact-KO-b3198",
+        "--output=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/logs/exact-KO-b3198-%j.log",
+        "--time=00:10:00",
+        "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/scripts/exact_knockout_panel.sbatch",
+        "panel",
+        "--genes",
+        "b3198",
+        "--retry-problematic"
+      ],
+      "submitted_utc": "2026-11-08T05:01:15.856069+00:00",
+      "finalized": true
+    },
+    {
+      "gene": "b3619",
+      "job_id": "578",
+      "command": [
+        "/usr/bin/sbatch",
+        "--parsable",
+        "--chdir=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks",
+        "--job-name=bench-exact-KO-b3619",
+        "--output=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/logs/exact-KO-b3619-%j.log",
+        "--time=00:10:00",
+        "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/scripts/exact_knockout_panel.sbatch",
+        "panel",
+        "--genes",
+        "b3619",
+        "--retry-problematic"
+      ],
+      "submitted_utc": "2026-11-08T05:01:36.054530+00:00",
+      "finalized": true
+    },
+    {
+      "gene": "b3744",
+      "job_id": "579",
+      "command": [
+        "/usr/bin/sbatch",
+        "--parsable",
+        "--chdir=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks",
+        "--job-name=bench-exact-KO-b3744",
+        "--output=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/logs/exact-KO-b3744-%j.log",
+        "--time=00:10:00",
+        "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/scripts/exact_knockout_panel.sbatch",
+        "panel",
+        "--genes",
+        "b3744",
+        "--retry-problematic"
+      ],
+      "submitted_utc": "2026-11-08T05:01:36.071704+00:00",
+      "finalized": true
+    },
+    {
+      "gene": "b3924",
+      "job_id": "580",
+      "command": [
+        "/usr/bin/sbatch",
+        "--parsable",
+        "--chdir=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks",
+        "--job-name=bench-exact-KO-b3924",
+        "--output=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/logs/exact-KO-b3924-%j.log",
+        "--time=00:10:00",
+        "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/scripts/exact_knockout_panel.sbatch",
+        "panel",
+        "--genes",
+        "b3924",
+        "--retry-problematic"
+      ],
+      "submitted_utc": "2026-11-08T05:01:56.273635+00:00",
+      "finalized": true
+    },
+    {
+      "gene": "b4077",
+      "job_id": "581",
+      "command": [
+        "/usr/bin/sbatch",
+        "--parsable",
+        "--chdir=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks",
+        "--job-name=bench-exact-KO-b4077",
+        "--output=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/logs/exact-KO-b4077-%j.log",
+        "--time=00:10:00",
+        "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/scripts/exact_knockout_panel.sbatch",
+        "panel",
+        "--genes",
+        "b4077",
+        "--retry-problematic"
+      ],
+      "submitted_utc": "2026-11-08T05:01:56.294317+00:00",
+      "finalized": true
+    },
+    {
+      "gene": "b4481",
+      "job_id": "582",
+      "command": [
+        "/usr/bin/sbatch",
+        "--parsable",
+        "--chdir=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks",
+        "--job-name=bench-exact-KO-b4481",
+        "--output=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/logs/exact-KO-b4481-%j.log",
+        "--time=00:10:00",
+        "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/scripts/exact_knockout_panel.sbatch",
+        "panel",
+        "--genes",
+        "b4481",
+        "--retry-problematic"
+      ],
+      "submitted_utc": "2026-11-08T05:02:16.538005+00:00",
+      "finalized": true
+    },
+    {
+      "gene": "b0221",
+      "job_id": "583",
+      "command": [
+        "/usr/bin/sbatch",
+        "--parsable",
+        "--chdir=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks",
+        "--job-name=bench-exact-KO-b0221",
+        "--output=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/logs/exact-KO-b0221-%j.log",
+        "--time=00:10:00",
+        "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/scripts/exact_knockout_panel.sbatch",
+        "panel",
+        "--genes",
+        "b0221",
+        "--retry-problematic"
+      ],
+      "submitted_utc": "2026-11-08T05:02:16.554608+00:00",
+      "finalized": true
+    },
+    {
+      "gene": "b0404",
+      "job_id": "584",
+      "command": [
+        "/usr/bin/sbatch",
+        "--parsable",
+        "--chdir=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks",
+        "--job-name=bench-exact-KO-b0404",
+        "--output=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/logs/exact-KO-b0404-%j.log",
+        "--time=00:10:00",
+        "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/scripts/exact_knockout_panel.sbatch",
+        "panel",
+        "--genes",
+        "b0404",
+        "--retry-problematic"
+      ],
+      "submitted_utc": "2026-11-08T05:02:36.765050+00:00",
+      "finalized": true
+    },
+    {
+      "gene": "b0452",
+      "job_id": "585",
+      "command": [
+        "/usr/bin/sbatch",
+        "--parsable",
+        "--chdir=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks",
+        "--job-name=bench-exact-KO-b0452",
+        "--output=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/logs/exact-KO-b0452-%j.log",
+        "--time=00:10:00",
+        "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/scripts/exact_knockout_panel.sbatch",
+        "panel",
+        "--genes",
+        "b0452",
+        "--retry-problematic"
+      ],
+      "submitted_utc": "2026-11-08T05:02:36.782359+00:00",
+      "finalized": true
+    },
+    {
+      "gene": "b0474",
+      "job_id": "586",
+      "command": [
+        "/usr/bin/sbatch",
+        "--parsable",
+        "--chdir=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks",
+        "--job-name=bench-exact-KO-b0474",
+        "--output=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/logs/exact-KO-b0474-%j.log",
+        "--time=00:10:00",
+        "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/scripts/exact_knockout_panel.sbatch",
+        "panel",
+        "--genes",
+        "b0474",
+        "--retry-problematic"
+      ],
+      "submitted_utc": "2026-11-08T05:02:57.013343+00:00",
+      "finalized": true
+    },
+    {
+      "gene": "b0968",
+      "job_id": "587",
+      "command": [
+        "/usr/bin/sbatch",
+        "--parsable",
+        "--chdir=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks",
+        "--job-name=bench-exact-KO-b0968",
+        "--output=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/logs/exact-KO-b0968-%j.log",
+        "--time=00:10:00",
+        "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/scripts/exact_knockout_panel.sbatch",
+        "panel",
+        "--genes",
+        "b0968",
+        "--retry-problematic"
+      ],
+      "submitted_utc": "2026-11-08T05:02:57.029109+00:00",
+      "finalized": true
+    },
+    {
+      "gene": "b1090",
+      "job_id": "588",
+      "command": [
+        "/usr/bin/sbatch",
+        "--parsable",
+        "--chdir=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks",
+        "--job-name=bench-exact-KO-b1090",
+        "--output=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/logs/exact-KO-b1090-%j.log",
+        "--time=00:10:00",
+        "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/scripts/exact_knockout_panel.sbatch",
+        "panel",
+        "--genes",
+        "b1090",
+        "--retry-problematic"
+      ],
+      "submitted_utc": "2026-11-08T05:03:17.251879+00:00",
+      "finalized": true
+    },
+    {
+      "gene": "b1539",
+      "job_id": "589",
+      "command": [
+        "/usr/bin/sbatch",
+        "--parsable",
+        "--chdir=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks",
+        "--job-name=bench-exact-KO-b1539",
+        "--output=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/logs/exact-KO-b1539-%j.log",
+        "--time=00:10:00",
+        "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/scripts/exact_knockout_panel.sbatch",
+        "panel",
+        "--genes",
+        "b1539",
+        "--retry-problematic"
+      ],
+      "submitted_utc": "2026-11-08T05:03:17.268263+00:00",
+      "finalized": true
+    },
+    {
+      "gene": "b1681",
+      "job_id": "591",
+      "command": [
+        "/usr/bin/sbatch",
+        "--parsable",
+        "--chdir=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks",
+        "--job-name=bench-exact-KO-b1681",
+        "--output=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/logs/exact-KO-b1681-%j.log",
+        "--time=00:10:00",
+        "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/scripts/exact_knockout_panel.sbatch",
+        "panel",
+        "--genes",
+        "b1681",
+        "--retry-problematic"
+      ],
+      "submitted_utc": "2026-11-08T05:03:28.591168+00:00",
+      "finalized": true
+    },
+    {
+      "gene": "b1912",
+      "job_id": "592",
+      "command": [
+        "/usr/bin/sbatch",
+        "--parsable",
+        "--chdir=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks",
+        "--job-name=bench-exact-KO-b1912",
+        "--output=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/logs/exact-KO-b1912-%j.log",
+        "--time=00:10:00",
+        "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/scripts/exact_knockout_panel.sbatch",
+        "panel",
+        "--genes",
+        "b1912",
+        "--retry-problematic"
+      ],
+      "submitted_utc": "2026-11-08T05:03:28.607637+00:00",
+      "finalized": true
+    },
+    {
+      "gene": "b2529",
+      "job_id": "593",
+      "command": [
+        "/usr/bin/sbatch",
+        "--parsable",
+        "--chdir=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks",
+        "--job-name=bench-exact-KO-b2529",
+        "--output=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/logs/exact-KO-b2529-%j.log",
+        "--time=00:10:00",
+        "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/scripts/exact_knockout_panel.sbatch",
+        "panel",
+        "--genes",
+        "b2529",
+        "--retry-problematic"
+      ],
+      "submitted_utc": "2026-11-08T05:03:48.837379+00:00",
+      "finalized": true
+    },
+    {
+      "gene": "b2530",
+      "job_id": "594",
+      "command": [
+        "/usr/bin/sbatch",
+        "--parsable",
+        "--chdir=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks",
+        "--job-name=bench-exact-KO-b2530",
+        "--output=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/logs/exact-KO-b2530-%j.log",
+        "--time=00:10:00",
+        "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/scripts/exact_knockout_panel.sbatch",
+        "panel",
+        "--genes",
+        "b2530",
+        "--retry-problematic"
+      ],
+      "submitted_utc": "2026-11-08T05:03:48.853748+00:00",
+      "finalized": true
+    },
+    {
+      "gene": "b2585",
+      "job_id": "595",
+      "command": [
+        "/usr/bin/sbatch",
+        "--parsable",
+        "--chdir=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks",
+        "--job-name=bench-exact-KO-b2585",
+        "--output=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/logs/exact-KO-b2585-%j.log",
+        "--time=00:10:00",
+        "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/scripts/exact_knockout_panel.sbatch",
+        "panel",
+        "--genes",
+        "b2585",
+        "--retry-problematic"
+      ],
+      "submitted_utc": "2026-11-08T05:04:09.151092+00:00",
+      "finalized": true
+    },
+    {
+      "gene": "b3035",
+      "job_id": "596",
+      "command": [
+        "/usr/bin/sbatch",
+        "--parsable",
+        "--chdir=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks",
+        "--job-name=bench-exact-KO-b3035",
+        "--output=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/logs/exact-KO-b3035-%j.log",
+        "--time=00:10:00",
+        "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/scripts/exact_knockout_panel.sbatch",
+        "panel",
+        "--genes",
+        "b3035",
+        "--retry-problematic"
+      ],
+      "submitted_utc": "2026-11-08T05:04:09.168863+00:00",
+      "finalized": true
+    },
+    {
+      "gene": "b3059",
+      "job_id": "597",
+      "command": [
+        "/usr/bin/sbatch",
+        "--parsable",
+        "--chdir=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks",
+        "--job-name=bench-exact-KO-b3059",
+        "--output=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/logs/exact-KO-b3059-%j.log",
+        "--time=00:10:00",
+        "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/scripts/exact_knockout_panel.sbatch",
+        "panel",
+        "--genes",
+        "b3059",
+        "--retry-problematic"
+      ],
+      "submitted_utc": "2026-11-08T05:04:29.349279+00:00",
+      "finalized": true
+    },
+    {
+      "gene": "b3417",
+      "job_id": "598",
+      "command": [
+        "/usr/bin/sbatch",
+        "--parsable",
+        "--chdir=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks",
+        "--job-name=bench-exact-KO-b3417",
+        "--output=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/logs/exact-KO-b3417-%j.log",
+        "--time=00:10:00",
+        "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/scripts/exact_knockout_panel.sbatch",
+        "panel",
+        "--genes",
+        "b3417",
+        "--retry-problematic"
+      ],
+      "submitted_utc": "2026-11-08T05:04:29.368961+00:00",
+      "finalized": true
+    },
+    {
+      "gene": "b3918",
+      "job_id": "599",
+      "command": [
+        "/usr/bin/sbatch",
+        "--parsable",
+        "--chdir=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks",
+        "--job-name=bench-exact-KO-b3918",
+        "--output=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/logs/exact-KO-b3918-%j.log",
+        "--time=00:10:00",
+        "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/scripts/exact_knockout_panel.sbatch",
+        "panel",
+        "--genes",
+        "b3918",
+        "--retry-problematic"
+      ],
+      "submitted_utc": "2026-11-08T05:04:49.645691+00:00",
+      "finalized": true
+    },
+    {
+      "gene": "b4041",
+      "job_id": "600",
+      "command": [
+        "/usr/bin/sbatch",
+        "--parsable",
+        "--chdir=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks",
+        "--job-name=bench-exact-KO-b4041",
+        "--output=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/logs/exact-KO-b4041-%j.log",
+        "--time=00:10:00",
+        "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/scripts/exact_knockout_panel.sbatch",
+        "panel",
+        "--genes",
+        "b4041",
+        "--retry-problematic"
+      ],
+      "submitted_utc": "2026-11-08T05:04:49.663548+00:00",
+      "finalized": true
+    },
+    {
+      "gene": "b4042",
+      "job_id": "601",
+      "command": [
+        "/usr/bin/sbatch",
+        "--parsable",
+        "--chdir=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks",
+        "--job-name=bench-exact-KO-b4042",
+        "--output=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/logs/exact-KO-b4042-%j.log",
+        "--time=00:10:00",
+        "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/scripts/exact_knockout_panel.sbatch",
+        "panel",
+        "--genes",
+        "b4042",
+        "--retry-problematic"
+      ],
+      "submitted_utc": "2026-11-08T05:05:09.998693+00:00",
+      "finalized": true
+    },
+    {
+      "gene": "b4160",
+      "job_id": "602",
+      "command": [
+        "/usr/bin/sbatch",
+        "--parsable",
+        "--chdir=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks",
+        "--job-name=bench-exact-KO-b4160",
+        "--output=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/logs/exact-KO-b4160-%j.log",
+        "--time=00:10:00",
+        "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/scripts/exact_knockout_panel.sbatch",
+        "panel",
+        "--genes",
+        "b4160",
+        "--retry-problematic"
+      ],
+      "submitted_utc": "2026-11-08T05:05:10.021942+00:00",
+      "finalized": true
+    },
+    {
+      "gene": "b1093",
+      "job_id": "603",
+      "command": [
+        "/usr/bin/sbatch",
+        "--parsable",
+        "--chdir=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks",
+        "--job-name=bench-exact-KO-b1093",
+        "--output=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/logs/exact-KO-b1093-%j.log",
+        "--time=00:10:00",
+        "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/scripts/exact_knockout_panel.sbatch",
+        "panel",
+        "--genes",
+        "b1093",
+        "--retry-problematic"
+      ],
+      "submitted_utc": "2026-11-08T05:05:30.230417+00:00",
+      "finalized": true
+    },
+    {
+      "gene": "b1094",
+      "job_id": "604",
+      "command": [
+        "/usr/bin/sbatch",
+        "--parsable",
+        "--chdir=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks",
+        "--job-name=bench-exact-KO-b1094",
+        "--output=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/logs/exact-KO-b1094-%j.log",
+        "--time=00:10:00",
+        "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/scripts/exact_knockout_panel.sbatch",
+        "panel",
+        "--genes",
+        "b1094",
+        "--retry-problematic"
+      ],
+      "submitted_utc": "2026-11-08T05:05:30.249059+00:00",
+      "finalized": true
+    },
+    {
+      "gene": "b1288",
+      "job_id": "605",
+      "command": [
+        "/usr/bin/sbatch",
+        "--parsable",
+        "--chdir=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks",
+        "--job-name=bench-exact-KO-b1288",
+        "--output=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/logs/exact-KO-b1288-%j.log",
+        "--time=00:10:00",
+        "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/scripts/exact_knockout_panel.sbatch",
+        "panel",
+        "--genes",
+        "b1288",
+        "--retry-problematic"
+      ],
+      "submitted_utc": "2026-11-08T05:05:50.442362+00:00",
+      "finalized": true
+    },
+    {
+      "gene": "b2835",
+      "job_id": "606",
+      "command": [
+        "/usr/bin/sbatch",
+        "--parsable",
+        "--chdir=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks",
+        "--job-name=bench-exact-KO-b2835",
+        "--output=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/logs/exact-KO-b2835-%j.log",
+        "--time=00:10:00",
+        "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/scripts/exact_knockout_panel.sbatch",
+        "panel",
+        "--genes",
+        "b2835",
+        "--retry-problematic"
+      ],
+      "submitted_utc": "2026-11-08T05:05:50.459289+00:00",
+      "finalized": true
+    },
+    {
+      "gene": "b2836",
+      "job_id": "607",
+      "command": [
+        "/usr/bin/sbatch",
+        "--parsable",
+        "--chdir=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks",
+        "--job-name=bench-exact-KO-b2836",
+        "--output=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/logs/exact-KO-b2836-%j.log",
+        "--time=00:10:00",
+        "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/scripts/exact_knockout_panel.sbatch",
+        "panel",
+        "--genes",
+        "b2836",
+        "--retry-problematic"
+      ],
+      "submitted_utc": "2026-11-08T05:06:10.702154+00:00",
+      "finalized": true
+    },
+    {
+      "gene": "b0007",
+      "job_id": "608",
+      "command": [
+        "/usr/bin/sbatch",
+        "--parsable",
+        "--chdir=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks",
+        "--job-name=bench-exact-KO-b0007",
+        "--output=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/logs/exact-KO-b0007-%j.log",
+        "--time=00:10:00",
+        "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/scripts/exact_knockout_panel.sbatch",
+        "panel",
+        "--genes",
+        "b0007",
+        "--retry-problematic"
+      ],
+      "submitted_utc": "2026-11-08T05:06:10.723208+00:00",
+      "finalized": true
+    },
+    {
+      "gene": "b0009",
+      "job_id": "609",
+      "command": [
+        "/usr/bin/sbatch",
+        "--parsable",
+        "--chdir=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks",
+        "--job-name=bench-exact-KO-b0009",
+        "--output=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/logs/exact-KO-b0009-%j.log",
+        "--time=00:10:00",
+        "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/scripts/exact_knockout_panel.sbatch",
+        "panel",
+        "--genes",
+        "b0009",
+        "--retry-problematic"
+      ],
+      "submitted_utc": "2026-11-08T05:06:30.958540+00:00",
+      "finalized": true
+    },
+    {
+      "gene": "b0019",
+      "job_id": "610",
+      "command": [
+        "/usr/bin/sbatch",
+        "--parsable",
+        "--chdir=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks",
+        "--job-name=bench-exact-KO-b0019",
+        "--output=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/logs/exact-KO-b0019-%j.log",
+        "--time=00:10:00",
+        "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/scripts/exact_knockout_panel.sbatch",
+        "panel",
+        "--genes",
+        "b0019",
+        "--retry-problematic"
+      ],
+      "submitted_utc": "2026-11-08T05:06:30.974947+00:00",
+      "finalized": true
+    },
+    {
+      "gene": "b0025",
+      "job_id": "611",
+      "command": [
+        "/usr/bin/sbatch",
+        "--parsable",
+        "--chdir=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks",
+        "--job-name=bench-exact-KO-b0025",
+        "--output=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/logs/exact-KO-b0025-%j.log",
+        "--time=00:10:00",
+        "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/scripts/exact_knockout_panel.sbatch",
+        "panel",
+        "--genes",
+        "b0025",
+        "--retry-problematic"
+      ],
+      "submitted_utc": "2026-11-08T05:06:51.305684+00:00",
+      "finalized": true
+    },
+    {
+      "gene": "b0029",
+      "job_id": "612",
+      "command": [
+        "/usr/bin/sbatch",
+        "--parsable",
+        "--chdir=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks",
+        "--job-name=bench-exact-KO-b0029",
+        "--output=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/logs/exact-KO-b0029-%j.log",
+        "--time=00:10:00",
+        "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/scripts/exact_knockout_panel.sbatch",
+        "panel",
+        "--genes",
+        "b0029",
+        "--retry-problematic"
+      ],
+      "submitted_utc": "2026-11-08T05:06:51.321786+00:00",
+      "finalized": true
+    },
+    {
+      "gene": "b0030",
+      "job_id": "613",
+      "command": [
+        "/usr/bin/sbatch",
+        "--parsable",
+        "--chdir=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks",
+        "--job-name=bench-exact-KO-b0030",
+        "--output=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/logs/exact-KO-b0030-%j.log",
+        "--time=00:10:00",
+        "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/scripts/exact_knockout_panel.sbatch",
+        "panel",
+        "--genes",
+        "b0030",
+        "--retry-problematic"
+      ],
+      "submitted_utc": "2026-11-08T05:07:01.976691+00:00",
+      "finalized": true
+    },
+    {
+      "gene": "b0031",
+      "job_id": "614",
+      "command": [
+        "/usr/bin/sbatch",
+        "--parsable",
+        "--chdir=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks",
+        "--job-name=bench-exact-KO-b0031",
+        "--output=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/logs/exact-KO-b0031-%j.log",
+        "--time=00:10:00",
+        "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/scripts/exact_knockout_panel.sbatch",
+        "panel",
+        "--genes",
+        "b0031",
+        "--retry-problematic"
+      ],
+      "submitted_utc": "2026-11-08T05:07:01.992807+00:00",
+      "finalized": true
+    },
+    {
+      "gene": "b0032",
+      "job_id": "615",
+      "command": [
+        "/usr/bin/sbatch",
+        "--parsable",
+        "--chdir=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks",
+        "--job-name=bench-exact-KO-b0032",
+        "--output=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/logs/exact-KO-b0032-%j.log",
+        "--time=00:10:00",
+        "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/scripts/exact_knockout_panel.sbatch",
+        "panel",
+        "--genes",
+        "b0032",
+        "--retry-problematic"
+      ],
+      "submitted_utc": "2026-11-08T05:07:22.331409+00:00",
+      "finalized": true
+    },
+    {
+      "gene": "b0052",
+      "job_id": "616",
+      "command": [
+        "/usr/bin/sbatch",
+        "--parsable",
+        "--chdir=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks",
+        "--job-name=bench-exact-KO-b0052",
+        "--output=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/logs/exact-KO-b0052-%j.log",
+        "--time=00:10:00",
+        "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/scripts/exact_knockout_panel.sbatch",
+        "panel",
+        "--genes",
+        "b0052",
+        "--retry-problematic"
+      ],
+      "submitted_utc": "2026-11-08T05:07:22.348718+00:00",
+      "finalized": true
+    },
+    {
+      "gene": "b0073",
+      "job_id": "617",
+      "command": [
+        "/usr/bin/sbatch",
+        "--parsable",
+        "--chdir=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks",
+        "--job-name=bench-exact-KO-b0073",
+        "--output=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/logs/exact-KO-b0073-%j.log",
+        "--time=00:10:00",
+        "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/scripts/exact_knockout_panel.sbatch",
+        "panel",
+        "--genes",
+        "b0073",
+        "--retry-problematic"
+      ],
+      "submitted_utc": "2026-11-08T05:07:42.694719+00:00",
+      "finalized": true
+    },
+    {
+      "gene": "b0074",
+      "job_id": "618",
+      "command": [
+        "/usr/bin/sbatch",
+        "--parsable",
+        "--chdir=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks",
+        "--job-name=bench-exact-KO-b0074",
+        "--output=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/logs/exact-KO-b0074-%j.log",
+        "--time=00:10:00",
+        "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/scripts/exact_knockout_panel.sbatch",
+        "panel",
+        "--genes",
+        "b0074",
+        "--retry-problematic"
+      ],
+      "submitted_utc": "2026-11-08T05:07:42.711151+00:00",
+      "finalized": true
+    },
+    {
+      "gene": "b0085",
+      "job_id": "619",
+      "command": [
+        "/usr/bin/sbatch",
+        "--parsable",
+        "--chdir=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks",
+        "--job-name=bench-exact-KO-b0085",
+        "--output=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/logs/exact-KO-b0085-%j.log",
+        "--time=00:10:00",
+        "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/scripts/exact_knockout_panel.sbatch",
+        "panel",
+        "--genes",
+        "b0085",
+        "--retry-problematic"
+      ],
+      "submitted_utc": "2026-11-08T05:08:03.092684+00:00",
+      "finalized": true
+    },
+    {
+      "gene": "b0086",
+      "job_id": "620",
+      "command": [
+        "/usr/bin/sbatch",
+        "--parsable",
+        "--chdir=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks",
+        "--job-name=bench-exact-KO-b0086",
+        "--output=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/logs/exact-KO-b0086-%j.log",
+        "--time=00:10:00",
+        "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/scripts/exact_knockout_panel.sbatch",
+        "panel",
+        "--genes",
+        "b0086",
+        "--retry-problematic"
+      ],
+      "submitted_utc": "2026-11-08T05:08:03.108365+00:00",
+      "finalized": true
+    },
+    {
+      "gene": "b0087",
+      "job_id": "621",
+      "command": [
+        "/usr/bin/sbatch",
+        "--parsable",
+        "--chdir=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks",
+        "--job-name=bench-exact-KO-b0087",
+        "--output=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/logs/exact-KO-b0087-%j.log",
+        "--time=00:10:00",
+        "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/scripts/exact_knockout_panel.sbatch",
+        "panel",
+        "--genes",
+        "b0087",
+        "--retry-problematic"
+      ],
+      "submitted_utc": "2026-11-08T05:08:23.445256+00:00",
+      "finalized": true
+    },
+    {
+      "gene": "b0088",
+      "job_id": "622",
+      "command": [
+        "/usr/bin/sbatch",
+        "--parsable",
+        "--chdir=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks",
+        "--job-name=bench-exact-KO-b0088",
+        "--output=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/logs/exact-KO-b0088-%j.log",
+        "--time=00:10:00",
+        "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/scripts/exact_knockout_panel.sbatch",
+        "panel",
+        "--genes",
+        "b0088",
+        "--retry-problematic"
+      ],
+      "submitted_utc": "2026-11-08T05:08:23.462092+00:00",
+      "finalized": true
+    },
+    {
+      "gene": "b0090",
+      "job_id": "623",
+      "command": [
+        "/usr/bin/sbatch",
+        "--parsable",
+        "--chdir=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks",
+        "--job-name=bench-exact-KO-b0090",
+        "--output=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/logs/exact-KO-b0090-%j.log",
+        "--time=00:10:00",
+        "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/scripts/exact_knockout_panel.sbatch",
+        "panel",
+        "--genes",
+        "b0090",
+        "--retry-problematic"
+      ],
+      "submitted_utc": "2026-11-08T05:08:43.772667+00:00",
+      "finalized": true
+    },
+    {
+      "gene": "b0091",
+      "job_id": "624",
+      "command": [
+        "/usr/bin/sbatch",
+        "--parsable",
+        "--chdir=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks",
+        "--job-name=bench-exact-KO-b0091",
+        "--output=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/logs/exact-KO-b0091-%j.log",
+        "--time=00:10:00",
+        "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/scripts/exact_knockout_panel.sbatch",
+        "panel",
+        "--genes",
+        "b0091",
+        "--retry-problematic"
+      ],
+      "submitted_utc": "2026-11-08T05:08:43.790900+00:00",
+      "finalized": true
+    },
+    {
+      "gene": "b0096",
+      "job_id": "625",
+      "command": [
+        "/usr/bin/sbatch",
+        "--parsable",
+        "--chdir=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks",
+        "--job-name=bench-exact-KO-b0096",
+        "--output=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/logs/exact-KO-b0096-%j.log",
+        "--time=00:10:00",
+        "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/scripts/exact_knockout_panel.sbatch",
+        "panel",
+        "--genes",
+        "b0096",
+        "--retry-problematic"
+      ],
+      "submitted_utc": "2026-11-08T05:09:04.121514+00:00",
+      "finalized": true
+    },
+    {
+      "gene": "b0103",
+      "job_id": "626",
+      "command": [
+        "/usr/bin/sbatch",
+        "--parsable",
+        "--chdir=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks",
+        "--job-name=bench-exact-KO-b0103",
+        "--output=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/logs/exact-KO-b0103-%j.log",
+        "--time=00:10:00",
+        "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/scripts/exact_knockout_panel.sbatch",
+        "panel",
+        "--genes",
+        "b0103",
+        "--retry-problematic"
+      ],
+      "submitted_utc": "2026-11-08T05:09:04.138197+00:00",
+      "finalized": true
+    },
+    {
+      "gene": "b0104",
+      "job_id": "633",
+      "command": [
+        "/usr/bin/sbatch",
+        "--parsable",
+        "--chdir=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks",
+        "--job-name=bench-exact-KO-b0104",
+        "--output=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/logs/exact-KO-b0104-%j.log",
+        "--time=00:10:00",
+        "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/scripts/exact_knockout_panel.sbatch",
+        "panel",
+        "--genes",
+        "b0104",
+        "--retry-problematic"
+      ],
+      "submitted_utc": "2026-11-08T05:09:24.533089+00:00",
+      "finalized": true
+    },
+    {
+      "gene": "b0109",
+      "job_id": "634",
+      "command": [
+        "/usr/bin/sbatch",
+        "--parsable",
+        "--chdir=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks",
+        "--job-name=bench-exact-KO-b0109",
+        "--output=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/logs/exact-KO-b0109-%j.log",
+        "--time=00:10:00",
+        "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/scripts/exact_knockout_panel.sbatch",
+        "panel",
+        "--genes",
+        "b0109",
+        "--retry-problematic"
+      ],
+      "submitted_utc": "2026-11-08T05:09:24.549257+00:00",
+      "finalized": true
+    },
+    {
+      "gene": "b0110",
+      "job_id": "635",
+      "command": [
+        "/usr/bin/sbatch",
+        "--parsable",
+        "--chdir=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks",
+        "--job-name=bench-exact-KO-b0110",
+        "--output=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/logs/exact-KO-b0110-%j.log",
+        "--time=00:10:00",
+        "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/scripts/exact_knockout_panel.sbatch",
+        "panel",
+        "--genes",
+        "b0110",
+        "--retry-problematic"
+      ],
+      "submitted_utc": "2026-11-08T05:09:44.962149+00:00",
+      "finalized": true
+    },
+    {
+      "gene": "b0114",
+      "job_id": "636",
+      "command": [
+        "/usr/bin/sbatch",
+        "--parsable",
+        "--chdir=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks",
+        "--job-name=bench-exact-KO-b0114",
+        "--output=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/logs/exact-KO-b0114-%j.log",
+        "--time=00:10:00",
+        "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/scripts/exact_knockout_panel.sbatch",
+        "panel",
+        "--genes",
+        "b0114",
+        "--retry-problematic"
+      ],
+      "submitted_utc": "2026-11-08T05:09:44.978095+00:00",
+      "finalized": true
+    },
+    {
+      "gene": "b0120",
+      "job_id": "637",
+      "command": [
+        "/usr/bin/sbatch",
+        "--parsable",
+        "--chdir=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks",
+        "--job-name=bench-exact-KO-b0120",
+        "--output=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/logs/exact-KO-b0120-%j.log",
+        "--time=00:10:00",
+        "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/scripts/exact_knockout_panel.sbatch",
+        "panel",
+        "--genes",
+        "b0120",
+        "--retry-problematic"
+      ],
+      "submitted_utc": "2026-11-08T05:10:05.381387+00:00",
+      "finalized": true
+    },
+    {
+      "gene": "b0131",
+      "job_id": "638",
+      "command": [
+        "/usr/bin/sbatch",
+        "--parsable",
+        "--chdir=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks",
+        "--job-name=bench-exact-KO-b0131",
+        "--output=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/logs/exact-KO-b0131-%j.log",
+        "--time=00:10:00",
+        "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/scripts/exact_knockout_panel.sbatch",
+        "panel",
+        "--genes",
+        "b0131",
+        "--retry-problematic"
+      ],
+      "submitted_utc": "2026-11-08T05:10:05.396594+00:00",
+      "finalized": true
+    },
+    {
+      "gene": "b0133",
+      "job_id": "642",
+      "command": [
+        "/usr/bin/sbatch",
+        "--parsable",
+        "--chdir=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks",
+        "--job-name=bench-exact-KO-b0133",
+        "--output=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/logs/exact-KO-b0133-%j.log",
+        "--time=00:10:00",
+        "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/scripts/exact_knockout_panel.sbatch",
+        "panel",
+        "--genes",
+        "b0133",
+        "--retry-problematic"
+      ],
+      "submitted_utc": "2026-11-08T05:10:25.872153+00:00",
+      "finalized": true
+    },
+    {
+      "gene": "b0134",
+      "job_id": "643",
+      "command": [
+        "/usr/bin/sbatch",
+        "--parsable",
+        "--chdir=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks",
+        "--job-name=bench-exact-KO-b0134",
+        "--output=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/logs/exact-KO-b0134-%j.log",
+        "--time=00:10:00",
+        "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/scripts/exact_knockout_panel.sbatch",
+        "panel",
+        "--genes",
+        "b0134",
+        "--retry-problematic"
+      ],
+      "submitted_utc": "2026-11-08T05:10:25.890208+00:00",
+      "finalized": true
+    }
+  ],
+  "candidate_count": 545,
+  "max_concurrent": 2,
+  "max_attempts": 400,
+  "stop_new_jobs_utc": "2026-11-08T10:30:00+00:00",
+  "end_utc": "2026-11-08T11:00:00+00:00",
+  "selection": "Initial stratified signatures, then deterministic replacements based only on geometry validity/equivalence; never mixing or speed.",
+  "status": "achieved_50_unique_ready",
+  "unique_ready_count": 51,
+  "updated_utc": "2026-11-08T05:10:25.890244+00:00",
+  "nontrivial_unique_ready_count": 50
+}

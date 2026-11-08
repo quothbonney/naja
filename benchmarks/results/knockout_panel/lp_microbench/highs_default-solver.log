@@ -1,0 +1,241 @@
+Running HiGHS 1.15.1 (git hash: 04024d7): Copyright (c) 2026 under MIT licence terms
+Includes third-party software components, see THIRD_PARTY_NOTICES.md for full details
+WARNING: LP matrix packed vector contains 2 |value| in [4.56107e-13, 6.80026e-13] less than or equal to 1e-12: ignored
+LP has 752 rows; 582 cols; 437662 nonzeros
+Coefficient ranges:
+  Matrix  [1e-12, 1e+00]
+  Cost    [1e+00, 1e+00]
+  Bound   [0e+00, 0e+00]
+  RHS     [4e-01, 4e+01]
+Presolving model
+752 rows, 582 cols, 437662 nonzeros 0s
+752 rows, 582 cols, 437662 nonzeros 0s
+Presolve reductions: rows 752(-0); columns 582(-0); nonzeros 437662(-0) - Not reduced
+Problem not reduced by presolve: solving the LP
+Using dual simplex solver
+  Iteration        Objective     Infeasibilities num(sum)
+          0    -4.0007135352e+00 Ph1: 752(4.8809e+09); Du: 144(4) 0.1s
+       1248    -1.9525890357e-02 Pr: 0(0); Du: 0(6.13269e-11) 1.5s
+Using dual simplex solver
+  Iteration        Objective     Infeasibilities num(sum)
+       1248    -1.9525890357e-02 Pr: 6(1.61605e-08); Du: 0(1.99942e-11) 1.5s
+       1254    -1.9525890356e-02 Pr: 0(0); Du: 0(2.02401e-11) 1.5s
+
+Model status        : Optimal
+Simplex   iterations: 1254
+Objective value     : -1.9525890345e-02
+P-D objective error :  1.0789809602e-11
+HiGHS run time      :          1.52
+LP has 752 rows; 582 cols; 437662 nonzeros
+Coefficient ranges:
+  Matrix  [1e-12, 1e+00]
+  Cost    [1e+00, 1e+00]
+  Bound   [0e+00, 0e+00]
+  RHS     [4e-01, 4e+01]
+Solving LP with useful basis so presolve not used
+
+Model status        : Optimal
+Objective value     : -1.9525890345e-02
+P-D objective error :  7.3125218261e-15
+HiGHS run time      :          1.77
+LP has 752 rows; 582 cols; 437662 nonzeros
+Coefficient ranges:
+  Matrix  [1e-12, 1e+00]
+  Cost    [1e+00, 1e+00]
+  Bound   [0e+00, 0e+00]
+  RHS     [4e-01, 4e+01]
+Solving LP with useful basis so presolve not used
+
+Model status        : Optimal
+Objective value     : -1.9525890345e-02
+P-D objective error :  7.3125218261e-15
+HiGHS run time      :          2.01
+LP has 752 rows; 582 cols; 437662 nonzeros
+Coefficient ranges:
+  Matrix  [1e-12, 1e+00]
+  Cost    [1e+00, 1e+00]
+  Bound   [0e+00, 0e+00]
+  RHS     [4e-01, 4e+01]
+Solving LP with useful basis so presolve not used
+
+Model status        : Optimal
+Objective value     : -1.9525890345e-02
+P-D objective error :  7.3125218261e-15
+HiGHS run time      :          2.25
+LP has 752 rows; 582 cols; 437662 nonzeros
+Coefficient ranges:
+  Matrix  [1e-12, 1e+00]
+  Cost    [1e+00, 1e+00]
+  Bound   [0e+00, 0e+00]
+  RHS     [4e-01, 4e+01]
+Solving LP with useful basis so presolve not used
+
+Model status        : Optimal
+Objective value     : -1.9525890345e-02
+P-D objective error :  7.3125218261e-15
+HiGHS run time      :          2.48
+Running HiGHS 1.15.1 (git hash: 04024d7): Copyright (c) 2026 under MIT licence terms
+Includes third-party software components, see THIRD_PARTY_NOTICES.md for full details
+WARNING: LP matrix packed vector contains 2 |value| in [4.56107e-13, 6.80026e-13] less than or equal to 1e-12: ignored
+LP has 752 rows; 582 cols; 437662 nonzeros
+Coefficient ranges:
+  Matrix  [1e-12, 1e+00]
+  Cost    [1e+00, 1e+00]
+  Bound   [0e+00, 0e+00]
+  RHS     [4e-01, 4e+01]
+Presolving model
+752 rows, 582 cols, 437662 nonzeros 0s
+752 rows, 582 cols, 437662 nonzeros 0s
+Presolve reductions: rows 752(-0); columns 582(-0); nonzeros 437662(-0) - Not reduced
+Problem not reduced by presolve: solving the LP
+Using dual simplex solver
+  Iteration        Objective     Infeasibilities num(sum)
+          0    -4.0007135352e+00 Ph1: 752(4.8809e+09); Du: 144(4) 0.1s
+       1248    -1.9525890357e-02 Pr: 0(0); Du: 0(6.13269e-11) 1.5s
+Using dual simplex solver
+  Iteration        Objective     Infeasibilities num(sum)
+       1248    -1.9525890357e-02 Pr: 6(1.61605e-08); Du: 0(1.99942e-11) 1.5s
+       1254    -1.9525890356e-02 Pr: 0(0); Du: 0(2.02401e-11) 1.5s
+
+Model status        : Optimal
+Simplex   iterations: 1254
+Objective value     : -1.9525890345e-02
+P-D objective error :  1.0789809602e-11
+HiGHS run time      :          1.52
+Running HiGHS 1.15.1 (git hash: 04024d7): Copyright (c) 2026 under MIT licence terms
+Includes third-party software components, see THIRD_PARTY_NOTICES.md for full details
+WARNING: LP matrix packed vector contains 2 |value| in [4.56107e-13, 6.80026e-13] less than or equal to 1e-12: ignored
+LP has 752 rows; 582 cols; 437662 nonzeros
+Coefficient ranges:
+  Matrix  [1e-12, 1e+00]
+  Cost    [1e+00, 1e+00]
+  Bound   [0e+00, 0e+00]
+  RHS     [4e-01, 4e+01]
+Presolving model
+752 rows, 582 cols, 437662 nonzeros 0s
+752 rows, 582 cols, 437662 nonzeros 0s
+Presolve reductions: rows 752(-0); columns 582(-0); nonzeros 437662(-0) - Not reduced
+Problem not reduced by presolve: solving the LP
+Using dual simplex solver
+  Iteration        Objective     Infeasibilities num(sum)
+          0    -4.0007135352e+00 Ph1: 752(4.8809e+09); Du: 144(4) 0.1s
+       1248    -1.9525890357e-02 Pr: 0(0); Du: 0(6.13269e-11) 1.5s
+Using dual simplex solver
+  Iteration        Objective     Infeasibilities num(sum)
+       1248    -1.9525890357e-02 Pr: 6(1.61605e-08); Du: 0(1.99942e-11) 1.5s
+       1254    -1.9525890356e-02 Pr: 0(0); Du: 0(2.02401e-11) 1.5s
+
+Model status        : Optimal
+Simplex   iterations: 1254
+Objective value     : -1.9525890345e-02
+P-D objective error :  1.0789809602e-11
+HiGHS run time      :          1.55
+Running HiGHS 1.15.1 (git hash: 04024d7): Copyright (c) 2026 under MIT licence terms
+Includes third-party software components, see THIRD_PARTY_NOTICES.md for full details
+WARNING: LP matrix packed vector contains 2 |value| in [4.56107e-13, 6.80026e-13] less than or equal to 1e-12: ignored
+LP has 752 rows; 582 cols; 437662 nonzeros
+Coefficient ranges:
+  Matrix  [1e-12, 1e+00]
+  Cost    [1e+00, 1e+00]
+  Bound   [0e+00, 0e+00]
+  RHS     [4e-01, 4e+01]
+Presolving model
+752 rows, 582 cols, 437662 nonzeros 0s
+752 rows, 582 cols, 437662 nonzeros 0s
+Presolve reductions: rows 752(-0); columns 582(-0); nonzeros 437662(-0) - Not reduced
+Problem not reduced by presolve: solving the LP
+Using dual simplex solver
+  Iteration        Objective     Infeasibilities num(sum)
+          0    -4.0007135352e+00 Ph1: 752(4.8809e+09); Du: 144(4) 0.1s
+       1248    -1.9525890357e-02 Pr: 0(0); Du: 0(6.13269e-11) 1.5s
+Using dual simplex solver
+  Iteration        Objective     Infeasibilities num(sum)
+       1248    -1.9525890357e-02 Pr: 6(1.61605e-08); Du: 0(1.99942e-11) 1.5s
+       1254    -1.9525890356e-02 Pr: 0(0); Du: 0(2.02401e-11) 1.5s
+
+Model status        : Optimal
+Simplex   iterations: 1254
+Objective value     : -1.9525890345e-02
+P-D objective error :  1.0789809602e-11
+HiGHS run time      :          1.54
+Running HiGHS 1.15.1 (git hash: 04024d7): Copyright (c) 2026 under MIT licence terms
+Includes third-party software components, see THIRD_PARTY_NOTICES.md for full details
+WARNING: LP matrix packed vector contains 2 |value| in [4.56107e-13, 6.80026e-13] less than or equal to 1e-12: ignored
+LP has 752 rows; 582 cols; 437662 nonzeros
+Coefficient ranges:
+  Matrix  [1e-12, 1e+00]
+  Cost    [1e+00, 1e+00]
+  Bound   [0e+00, 0e+00]
+  RHS     [4e-01, 4e+01]
+Presolving model
+752 rows, 582 cols, 437662 nonzeros 0s
+752 rows, 582 cols, 437662 nonzeros 0s
+Presolve reductions: rows 752(-0); columns 582(-0); nonzeros 437662(-0) - Not reduced
+Problem not reduced by presolve: solving the LP
+Using dual simplex solver
+  Iteration        Objective     Infeasibilities num(sum)
+          0    -4.0007135352e+00 Ph1: 752(4.8809e+09); Du: 144(4) 0.1s
+       1248    -1.9525890357e-02 Pr: 0(0); Du: 0(6.13269e-11) 1.5s
+Using dual simplex solver
+  Iteration        Objective     Infeasibilities num(sum)
+       1248    -1.9525890357e-02 Pr: 6(1.61605e-08); Du: 0(1.99942e-11) 1.5s
+       1254    -1.9525890356e-02 Pr: 0(0); Du: 0(2.02401e-11) 1.5s
+
+Model status        : Optimal
+Simplex   iterations: 1254
+Objective value     : -1.9525890345e-02
+P-D objective error :  1.0789809602e-11
+HiGHS run time      :          1.54
+LP has 752 rows; 582 cols; 437662 nonzeros
+Coefficient ranges:
+  Matrix  [1e-12, 1e+00]
+  Cost    [1e+00, 1e+00]
+  Bound   [0e+00, 0e+00]
+  RHS     [4e-01, 4e+01]
+Solving LP with useful basis so presolve not used
+
+Model status        : Optimal
+Objective value     : -1.7573301311e-02
+P-D objective error :  6.8708782249e-15
+HiGHS run time      :          2.73
+LP has 752 rows; 582 cols; 437662 nonzeros
+Coefficient ranges:
+  Matrix  [1e-12, 1e+00]
+  Cost    [1e+00, 1e+00]
+  Bound   [0e+00, 0e+00]
+  RHS     [4e-01, 4e+01]
+Solving LP with useful basis so presolve not used
+Using dual simplex solver
+  Iteration        Objective     Infeasibilities num(sum)
+          0    -2.1478479380e-02 Pr: 1(1.0387e-09) 3.0s
+          1    -2.1478479380e-02 Pr: 0(0) 3.0s
+
+Model status        : Optimal
+Simplex   iterations: 1
+Objective value     : -2.1478479380e-02
+P-D objective error :  1.5395266659e-14
+HiGHS run time      :          3.00
+LP has 752 rows; 582 cols; 437662 nonzeros
+Coefficient ranges:
+  Matrix  [1e-12, 1e+00]
+  Cost    [1e+00, 1e+00]
+  Bound   [0e+00, 0e+00]
+  RHS     [4e-01, 4e+01]
+Solving LP with useful basis so presolve not used
+
+Model status        : Optimal
+Objective value     : -1.5620712276e-02
+P-D objective error :  6.0406727794e-15
+HiGHS run time      :          3.24
+LP has 752 rows; 582 cols; 437662 nonzeros
+Coefficient ranges:
+  Matrix  [1e-12, 1e+00]
+  Cost    [1e+00, 1e+00]
+  Bound   [0e+00, 0e+00]
+  RHS     [4e-01, 4e+01]
+Solving LP with useful basis so presolve not used
+
+Model status        : Optimal
+Objective value     : -1.9525890345e-02
+P-D objective error :  9.4895831187e-15
+HiGHS run time      :          3.48

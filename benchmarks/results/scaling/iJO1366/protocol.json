@@ -1,0 +1,16 @@
+{
+  "job_id": "220",
+  "sha256": {
+    "scripts/scaling_h100.sbatch": "35be36a092c8530e742c15235b2e176f6851b501345445c4dd82bafe7a5fac49",
+    "scripts/scaling.py": "0ec9e192ec6060fcce99815cf162b3257d5393f5c67f20b37ede2c4d8456e85e",
+    "scripts/summarize_scaling.py": "2154392bbddd5388ed11355debb3b3eb4c0bae00b943d9e2140d69341ee5cf83",
+    "naja_runner.py": "4ece5eddb1403c99e956c6e5d55114b2af78aef24ef0aecef0ba4650f1b7b32d",
+    "data/models/iJO1366/rounding/polytope.npz": "07374999682cb82ef566c2a7ba4cd1ca44b0718ab81f421846e24d3b85f5e103",
+    "build-h100/naja": "c7baf4f0ed282b936ac0dbac4b896bfbfc040eb06da6f84aff6605fddf4b0fc6"
+  },
+  "command": "sbatch --parsable --output=logs/scaling-h100-%j.log scripts/scaling_h100.sbatch",
+  "notes": [
+    "One pass, seed101, concurrent cluster workloads; not a final optimum or proof of occupancy saturation.",
+    "Canonical nine-model benchmark settings remain unchanged."
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "utc": "2026-11-08T19:50:20.238926+00:00",
+  "reason": "Usercloseoutsteering:freezeoldstudies,noadditionalcampaigns",
+  "stopped_controllers": [
+    381746,
+    382068
+  ],
+  "cancelled_queued_cases": [
+    "874_[4-10]",
+    "889_[1-2]"
+  ],
+  "cancelled_in_progress_200k_captures": [
+    "906",
+    "908"
+  ],
+  "retained_CPU_analyses": [
+    "901",
+    "902",
+    "907",
+    "909"
+  ],
+  "already_finished_pilot_captures": [
+    "b0025",
+    "b0031",
+    "b0052",
+    "b0103"
+  ],
+  "current_874_first4_and_889_firstcase_GPU_captures_complete": true,
+  "finalized_utc": "2026-11-08T20:23:08.157785+00:00",
+  "all_retained_CPU_analyses_finished": true,
+  "observed_200k_cases": {
+    "b0025": {
+      "status": "observed_budget_pass",
+      "rhat": 1.0437076541600916,
+      "ESS": 224.95477737184044
+    },
+    "b0031": {
+      "status": "observed_budget_failed",
+      "rhat": 1.064621052696595,
+      "ESS": 156.07090797961115
+    },
+    "b0052": {
+      "status": "observed_budget_pass",
+      "rhat": 1.048377220993459,
+      "ESS": 194.36178422913306
+    },
+    "b0103": {
+      "status": "observed_budget_failed",
+      "rhat": 1.054901814929015,
+      "ESS": 174.68285948028182
+    }
+  },
+  "fresh_selected_GPU_retimes_launched_after_closeout": 0
+}

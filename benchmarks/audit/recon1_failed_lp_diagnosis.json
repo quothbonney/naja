@@ -1,0 +1,13 @@
+{
+  "optlang_status": "undefined",
+  "backend": "hybrid",
+  "native_status": "Unknown",
+  "variables": 3741,
+  "constraints": 9671,
+  "independent_status": 0,
+  "independent_success": true,
+  "independent_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+  "independent_wall_seconds": 0.22973923198878765,
+  "max_independent_inequality_violation": 6.187559229283739e-10,
+  "max_independent_equality_residual": 2.6193447411060333e-10
+}

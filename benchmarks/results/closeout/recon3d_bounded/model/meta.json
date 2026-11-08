@@ -1,0 +1,92 @@
+{
+  "model_id": "Recon3D",
+  "n": 10600,
+  "d": 4861,
+  "m": 18477,
+  "original_metabolites": 5835,
+  "source": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/raw/Recon3D.json",
+  "source_sha256": "aba925f17547a42f9fdb4c1f685d89364cbf4979bbe7862e9f793af7169b26d5",
+  "solver": "glpk",
+  "versions": {
+    "hopsy": "1.7.0",
+    "PolyRound": "0.5.0",
+    "cobra": "0.32.1",
+    "numpy": "2.5.4",
+    "scipy": "1.18.1",
+    "swiglpk": "5.0.13",
+    "highspy": "1.15.1",
+    "osqp": "1.1.3"
+  },
+  "timings": {
+    "load_model_seconds": 3.7729245629161596,
+    "zero_prune_fva_seconds": 134.29445984959602,
+    "construct_polytope_seconds": 5.118926491588354,
+    "fva_face_filter_seconds": 2.049010520800948,
+    "simplify_seconds": 2.3469328880310059e-07,
+    "equality_elimination_seconds": 128.84173853695393,
+    "round_seconds": 0.0,
+    "polyround_seconds": 128.8417599555105,
+    "write_seconds": 12.410868285223842,
+    "total_seconds": 153.42588330991566,
+    "total_preprocessing_seconds": 287.7203431595117
+  },
+  "settings": {
+    "backend": "glpk",
+    "hp_flags": {
+      "FeasibilityTol": 1e-09
+    },
+    "thresh": 1e-07,
+    "verbose": true,
+    "sgp": false,
+    "reduce": true,
+    "regularize": false,
+    "check_lps": false,
+    "simplify_only": false,
+    "presolve": false,
+    "numerics_threshold": 1e-12,
+    "accepted_tol_violation": 100.0
+  },
+  "objective_constraint": "none; original model bounds",
+  "preprocessing_variant": "exploratory_equality_only_no_mve",
+  "zero_pruning": {
+    "source": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/raw/Recon3D.json",
+    "source_sha256": "aba925f17547a42f9fdb4c1f685d89364cbf4979bbe7862e9f793af7169b26d5",
+    "solver": "glpk",
+    "feasibility_tolerance": 1e-09,
+    "objective_zero": true,
+    "fraction_of_optimum": 0.0,
+    "open_exchanges": false,
+    "loopless": false,
+    "bounds_modified": false,
+    "workers": 16,
+    "zero_cutoff": 1e-09,
+    "zero_reactions": 0,
+    "n": 10600,
+    "nonfinite_reactions": 0,
+    "wall_seconds": 134.29445984959602,
+    "hostname": "slurm-h100-206-077",
+    "status": "completed",
+    "optimization_status_note": "COBRApy checks each LP status; job completed without solver warnings/errors, all 21200 returned bounds finite. Per-LP status strings are not returned by the public FVA API.",
+    "cache": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/preprocessing/Recon3D_zero_fva",
+    "zero_pruned_reactions": [],
+    "active_reactions": 10600
+  },
+  "fva_face_pruning": {
+    "margin": 0.001,
+    "retained": 18477,
+    "removed": 2723,
+    "min_coordinate_width": 0.2,
+    "min_removed_slack": 71.42857142857122,
+    "simplify_skipped": true,
+    "certificate": "Full original-target FVA; strict inactivity and positive coordinate widths"
+  },
+  "fast_sparse_assembly": true,
+  "fast_sparse_assembly_sha256": "22803937de7dc3187f140af7edec5f1940e55fc952afa0cf7ef34a5c32f72a75",
+  "min_start_slack": 2.5263801196384685,
+  "command": [
+    "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/scripts/recon3d_nullspace_probe.py"
+  ],
+  "hostname": "slurm-h100-206-077",
+  "polyround_mve_performed": false,
+  "benchmark_scope": "Exploratory barrier-only feasibility and throughput; excluded from canonical rounded-model comparisons."
+}

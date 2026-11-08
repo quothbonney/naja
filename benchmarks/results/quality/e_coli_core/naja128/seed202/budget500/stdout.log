@@ -1,0 +1,15 @@
+> validate model contract
+> write generated config
+model :: e_coli_core
+output :: /mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/quality/e_coli_core/naja128/seed202/budget500/native/e_coli_core_20261107_001
+bounds :: ignore
+> sampling
+> loading polytope
+> barrier rotation (eigenbasis of H)
+> uploading to gpu
+> sampling 16 chains x 1500 samples (thin=50, 1200000 MCMC steps, 36 constraints x 24 dims)
+> gpu sampling
+> gpu back-transform
+> downloading
+> done: 0.1s, 160216 samples/s
+> writing npy

@@ -1,0 +1,51 @@
+{
+  "scope": "Equality-only, no MVE; whitened GPU feasibility/throughput probe, not convergence or canonical comparison.",
+  "n": 10600,
+  "d": 4861,
+  "m": 18477,
+  "checked_samples": 1024,
+  "selection": "1024 evenly spaced flattened retained samples",
+  "tolerance": 1e-07,
+  "max_original_bound_violation": 0.0,
+  "original_bound_violation_fraction": 0.0,
+  "max_reduced_violation": 0.0,
+  "seed": 101,
+  "chains": 16,
+  "retained_draws_per_chain": 200,
+  "discarded_warmup_draws_per_chain": 100,
+  "binary_sha256": "5e6968eb7d3cebf5f27c16d2662a2e640cc3f6b7a633b7e7ae3bc9136a99f3d5",
+  "sampling_wall_with_normalization": 105.04247721657157,
+  "profile": {
+    "timestamp": "2026-11-08 03:47:17",
+    "config": {
+      "n_chains": 16,
+      "n_samples": 300,
+      "reduced_dim": 4861,
+      "original_dim": 4861,
+      "constraints": 18477,
+      "thinning": 200,
+      "seed": 101,
+      "sample_dtype": "float64",
+      "tpb_ss": 128,
+      "gpu_device": 0,
+      "back_transform": false
+    },
+    "timing": {
+      "load_polytope_s": 1.5102,
+      "cube_center_lp_s": 0.0,
+      "barrier_rotation_s": 93.8996,
+      "upload_to_gpu_s": 0.0622,
+      "gpu_sampling_s": 8.0294,
+      "download_from_gpu_s": 0.0942,
+      "backtransform_s": 0.1007,
+      "write_output_s": 0.1821,
+      "total_s": 104.2408
+    },
+    "performance": {
+      "total_samples": 4800,
+      "throughput_samples_per_sec": 597.8,
+      "sampling_fraction": 0.077
+    }
+  },
+  "bundle_validation": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/Recon3D_nullspace_only/validation.json"
+}

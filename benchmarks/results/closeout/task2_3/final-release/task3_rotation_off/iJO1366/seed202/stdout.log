@@ -1,0 +1,13 @@
+> validate model contract
+> write generated config
+model :: iJO1366
+output :: /mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/closeout/task2_3/final-release/task3_rotation_off/iJO1366/seed202/native/iJO1366_20261108_001
+bounds :: ignore
+> sampling
+> loading polytope
+> uploading to gpu
+> sampling 16 chains x 11000 samples (thin=96, 16896000 MCMC steps, 750 constraints x 581 dims)
+> gpu sampling
+> downloading
+> done: 4.1s, 43106 samples/s
+> writing npy

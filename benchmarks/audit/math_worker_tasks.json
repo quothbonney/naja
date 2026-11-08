@@ -1,0 +1,42 @@
+[
+  {
+    "model": "iAB_RBC_283",
+    "seed": 101,
+    "label": "physical16_mathinstrumented_native_jade",
+    "draws": 250,
+    "thinning": "jadebeck",
+    "reference": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/native_cpu/iAB_RBC_283/physical16_native_jade/seed101"
+  },
+  {
+    "model": "iAB_RBC_283",
+    "seed": 202,
+    "label": "physical16_mathinstrumented_native_jade",
+    "draws": 250,
+    "thinning": "jadebeck",
+    "reference": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/native_cpu/iAB_RBC_283/physical16_native_jade/seed202"
+  },
+  {
+    "model": "iAB_RBC_283",
+    "seed": 303,
+    "label": "physical16_mathinstrumented_native_jade",
+    "draws": 250,
+    "thinning": "jadebeck",
+    "reference": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/native_cpu/iAB_RBC_283/physical16_native_jade/seed303"
+  },
+  {
+    "model": "iJO1366",
+    "seed": 202,
+    "label": "physical16_mathinstrumented_thin2000",
+    "draws": 10000,
+    "thinning": "2000",
+    "reference": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/native_cpu/iJO1366/physical16_thin2000/seed202"
+  },
+  {
+    "model": "iJO1366",
+    "seed": 303,
+    "label": "physical16_mathinstrumented_thin2000",
+    "draws": 10000,
+    "thinning": "2000",
+    "reference": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/native_cpu/iJO1366/physical16_thin2000/seed303"
+  }
+]

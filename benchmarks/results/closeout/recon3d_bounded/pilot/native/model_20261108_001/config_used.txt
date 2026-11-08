@@ -1,0 +1,49 @@
+# Source config: /mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/closeout/recon3d_bounded/pilot/native/model_20261108_001/config_generated.txt
+# Captured at: 2026-11-08 20:10:51
+# Output directory: /mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/closeout/recon3d_bounded/pilot/native/model_20261108_001
+
+DATA_DIR=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/closeout/recon3d_bounded
+MODEL_NAME=model
+OUT_DIR=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/closeout/recon3d_bounded/pilot/native/model_20261108_001
+N_CHAINS=512
+N_SAMPLES=128
+SEED=101
+TPB_SS=128
+GPU_DEVICE=0
+BACK_TRANSFORM=false
+WRITE_DATA=true
+SAMPLE_DTYPE=float64
+HOST_PREFAULT_THREADS=-1
+BARRIER_GPU_ROTATE=true
+VERBOSE=false
+STATUS=true
+THINNING=810
+EXTRA_CONSTRAINTS=auto
+START_POLICY=file
+BARRIER_ROTATE=true
+BARRIER_WHITEN=true
+BOUNDS_POLICY=ignore
+
+# Derived metadata
+MODEL_NAME=model
+DATA_DIR_ABS=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/closeout/recon3d_bounded
+MODEL_DIR_ABS=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/closeout/recon3d_bounded/model
+ROUND_PREFIX_ABS=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/closeout/recon3d_bounded/model/rounding/model_rounding
+A_FILE=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/Recon3D_nullspace_only/rounding/polytope.npz
+B_FILE=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/Recon3D_nullspace_only/rounding/polytope.npz
+START_FILE=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/Recon3D_nullspace_only/rounding/polytope.npz
+T_FILE=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/Recon3D_nullspace_only/rounding/polytope.npz
+SHIFT_FILE=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/Recon3D_nullspace_only/rounding/polytope.npz
+NPY_FILE=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/closeout/recon3d_bounded/pilot/native/model_20261108_001/samples.npy
+PROFILE_FILE=/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/closeout/recon3d_bounded/pilot/native/model_20261108_001/profile.json
+N_CHAINS=512
+N_SAMPLES=128
+THINNING=810
+SEED=101
+GPU_DEVICE=0
+BACK_TRANSFORM=false
+WRITE_DATA=true
+SAMPLE_DTYPE=float64
+HOST_PREFAULT_THREADS=8
+BARRIER_GPU_ROTATE=true
+BOUNDS_POLICY=ignore

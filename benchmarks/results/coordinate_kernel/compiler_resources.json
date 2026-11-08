@@ -1,0 +1,110 @@
+[
+  {
+    "rng": "MRG32k3a",
+    "tpb": 1024,
+    "coordinate_specialization": false,
+    "registers_per_thread": 72
+  },
+  {
+    "rng": "MRG32k3a",
+    "tpb": 1024,
+    "coordinate_specialization": true,
+    "registers_per_thread": 64
+  },
+  {
+    "rng": "MRG32k3a",
+    "tpb": 512,
+    "coordinate_specialization": false,
+    "registers_per_thread": 104
+  },
+  {
+    "rng": "MRG32k3a",
+    "tpb": 512,
+    "coordinate_specialization": true,
+    "registers_per_thread": 64
+  },
+  {
+    "rng": "MRG32k3a",
+    "tpb": 256,
+    "coordinate_specialization": false,
+    "registers_per_thread": 104
+  },
+  {
+    "rng": "MRG32k3a",
+    "tpb": 256,
+    "coordinate_specialization": true,
+    "registers_per_thread": 64
+  },
+  {
+    "rng": "MRG32k3a",
+    "tpb": 128,
+    "coordinate_specialization": false,
+    "registers_per_thread": 104
+  },
+  {
+    "rng": "MRG32k3a",
+    "tpb": 128,
+    "coordinate_specialization": true,
+    "registers_per_thread": 64
+  },
+  {
+    "rng": "MRG32k3a",
+    "tpb": 64,
+    "coordinate_specialization": false,
+    "registers_per_thread": 106
+  },
+  {
+    "rng": "MRG32k3a",
+    "tpb": 64,
+    "coordinate_specialization": true,
+    "registers_per_thread": 56
+  },
+  {
+    "rng": "MRG32k3a",
+    "tpb": 32,
+    "coordinate_specialization": false,
+    "registers_per_thread": 104
+  },
+  {
+    "rng": "MRG32k3a",
+    "tpb": 32,
+    "coordinate_specialization": true,
+    "registers_per_thread": 64
+  },
+  {
+    "rng": "XORWOW",
+    "tpb": 1024,
+    "coordinate_specialization": false,
+    "registers_per_thread": 72
+  },
+  {
+    "rng": "XORWOW",
+    "tpb": 512,
+    "coordinate_specialization": false,
+    "registers_per_thread": 108
+  },
+  {
+    "rng": "XORWOW",
+    "tpb": 256,
+    "coordinate_specialization": false,
+    "registers_per_thread": 108
+  },
+  {
+    "rng": "XORWOW",
+    "tpb": 128,
+    "coordinate_specialization": false,
+    "registers_per_thread": 108
+  },
+  {
+    "rng": "XORWOW",
+    "tpb": 64,
+    "coordinate_specialization": false,
+    "registers_per_thread": 108
+  },
+  {
+    "rng": "XORWOW",
+    "tpb": 32,
+    "coordinate_specialization": false,
+    "registers_per_thread": 108
+  }
+]

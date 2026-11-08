@@ -1,0 +1,20 @@
+{
+  "files": {
+    "scripts/exact_knockout_panel.py": "e84f9573215ce2eaac1146bf7f4f6f2621f745da0fb8e591ee453a60b90a765b",
+    "scripts/exact_knockout_panel.sbatch": "a7bcf33d780968a23f1fc2fd2fa07a55b4f4b235410d946c12c4344973193c90",
+    "scripts/knockout_panel_controller.py": "cd2620b1a410e9951efb1b36e72efdb853f832b15b7d47842777d8f65beb0cc1",
+    "scripts/start_lp_microbench.py": "d84d0c17e9b4f98a7f68a51497b70118119b741933f28f6275ead3e458d13c75",
+    "scripts/start_lp_microbench.sbatch": "470ff54bd35b37204bde3fd53d013821711ae325a6cc36b30de03dc0e691f96b",
+    "scripts/knockout_panel_audit.py": "63150334c9b48f96a117fce935bd1b6b6cfd26e9903ab6d31e0beebbe42f4938",
+    "scripts/knockout_panel_audit.sbatch": "67b87fe22114e94462629c0b509815286833d8065d54263593ceeee7b2f1af78"
+  },
+  "versions": {
+    "numpy": "2.5.4",
+    "scipy": "1.18.1",
+    "highspy": "1.15.1",
+    "cobra": "0.32.1",
+    "hopsy": "1.7.0",
+    "PolyRound": "0.5.0"
+  },
+  "note": "Final source snapshot; raw earlier failed/auxiliary attempts retained separately. Canonical source/results unchanged."
+}

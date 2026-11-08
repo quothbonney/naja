@@ -1,0 +1,7 @@
+{
+  "pair_schedule": "barrier Jacobi",
+  "requested_pair_probability": 0.25,
+  "verbose_full_Hessian_Dikin_direction_count": 32,
+  "source_inferred_Dikin_probability": 0.15,
+  "probability_source": "Frozen job_sampling.cu setsdikin_prob=.15 iff computedk>0; actualkverifiedverbose. Nativeprofilerdoesnotexportmixtureprobabilities."
+}

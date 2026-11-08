@@ -1,0 +1,43 @@
+> validate model contract
+> write generated config
+model :: iJO1366
+output :: /mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/quality/iJO1366/naja_tune_whiten_jacobi/seed101/pilot-budget50000/native/iJO1366_20261108_001
+bounds :: ignore
+> sampling
+devices
+  [0] NVIDIA H100 80GB HBM3
+
+config
+  model           iJO1366
+  gpu_device      0
+  n_chains        16
+  n_samples       51000
+  tpb_ss          512
+  pair_prob       0.5
+  back_transform  no
+
+> loading polytope
+> barrier rotation (eigenbasis of H)
+  barrier_rotation  dim=581 clamped=2 ridge=1.21e-10
+    eigenvalues: min=0.0125 med=1.0135 max=3.9559 condition=317.0
+    ||off-diag|| / ||D|| = 3.001e-15
+> barrier whitening (diagonal rescale)
+  barrier_whiten: eigenvalue_clamp=0 scale_range=[5.028e-01, 8.952e+00] post_cond=317.0
+  barrier_total    0.233s
+> barrier dikin directions (full Hessian)
+  dikin_directions 32 escape directions (full Hessian)
+  constraints     750
+  reduced_dim     581
+  thinning        96
+  time            0.015s
+
+> uploading to gpu
+> barrier-Hessian Jacobi schedule
+  barrier_schedule 290 pairs (max_rho=0.0241, p10_rho=0.0000)
+> sampling 16 chains x 51000 samples (thin=96, 78336000 MCMC steps, 750 constraints x 581 dims)
+> gpu sampling
+> gpu back-transform
+> downloading
+> done: 23.7s, 34402 samples/s
+> writing npy
+output      :: /mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/quality/iJO1366/naja_tune_whiten_jacobi/seed101/pilot-budget50000/native/iJO1366_20261108_001

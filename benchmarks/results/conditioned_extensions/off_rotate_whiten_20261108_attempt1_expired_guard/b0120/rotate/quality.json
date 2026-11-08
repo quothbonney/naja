@@ -1,0 +1,13 @@
+{
+  "condition_id": "b0120",
+  "condition_root": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/knockout_panel/conditions/b0120",
+  "mode": "rotate",
+  "seed": 101,
+  "protocol": "16chains,1000warmup,thinning1000,TPB512,float64; all modes same allocated GPU",
+  "source_sha256": "11cedb15a975c44e8ead81be54fb50e97ad7d1fd5cc88426d98c3405617071c8",
+  "geometry_sha256": "33a46a2088f4798e0a11d73d5e63b167ca094191588e31c25d2636d4552f0d3b",
+  "selection_note": "Exploratory hard-case subset: all9 previous rotate50k failures plus highest-SVD-kappa nonfailure and capacity. Separate from frozen panel. No replicate reliability claim.",
+  "criterion": "median classical splitRhat<=1.05,bulkESS>=100,unmasked original/conditional bounds and mass balance1e-7",
+  "status": "failed",
+  "error": "TimeoutError('Conditional prototype deadline 2026-11-08 11:00 UTC')"
+}

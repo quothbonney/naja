@@ -1,0 +1,17 @@
+{
+  "runs": [
+    {
+      "run": "chains512",
+      "path": "benchmarks/results/nsight_timeline/chains512/profiled/native/iJO1366_20261108_001/samples.npy",
+      "bytes": 13088768129,
+      "sha256": "bb67625a683e1b955f0a71b91f03b98dd773f0b470e07b21f2d991a9933f4f19"
+    },
+    {
+      "run": "chains512_prefault8",
+      "path": "benchmarks/results/nsight_timeline/chains512_prefault8/profiled/native/iJO1366_20261108_001/samples.npy",
+      "bytes": 13088768129,
+      "sha256": "bb67625a683e1b955f0a71b91f03b98dd773f0b470e07b21f2d991a9933f4f19"
+    }
+  ],
+  "profiled512_prefault_bitwise_equal": true
+}

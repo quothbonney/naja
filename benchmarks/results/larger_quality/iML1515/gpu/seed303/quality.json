@@ -1,0 +1,27 @@
+{
+  "model": "iML1515",
+  "method": "gpu",
+  "seed": 303,
+  "chains": 16,
+  "warmup": 1000,
+  "thinning": 1000,
+  "tpb": 512,
+  "status": "complete",
+  "started_utc": "2026-11-08T03:32:44.868687+00:00",
+  "note": "Actual fresh selected-budget process time excludes pilot/search/diagnostics. Median split Rhat<=1.01 and bulk ESS>=100; bound metrics are independent. Fixed retained warmup1000 implies differing warmup moves.",
+  "pilot_process_seconds": 32.52624137699604,
+  "selected_draws": 2000,
+  "pilot_and_selection_seconds": 102.81693609058857,
+  "measured": {
+    "draws_per_chain": 2000,
+    "wall_seconds": 9.589405877515674,
+    "split_rhat_median": 1.009412130996691,
+    "bulk_ess_median": 2208.6424917548206,
+    "quality_met": true,
+    "sample_bound_violation_fraction": 3.125e-05,
+    "max_absolute_bound_violation": 3.0012861316208728e-06,
+    "bounds_tolerance": 1e-07,
+    "run_dir": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/larger_quality/iML1515/gpu/seed303/final"
+  },
+  "finished_utc": "2026-11-08T03:34:46.683668+00:00"
+}

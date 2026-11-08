@@ -1,0 +1,36 @@
+Running HiGHS 1.15.1 (git hash: 04024d7): Copyright (c) 2026 under MIT licence terms
+Includes third-party software components, see THIRD_PARTY_NOTICES.md for full details
+LP has 1283 rows; 1464 cols; 404796 nonzeros
+Coefficient ranges:
+  Matrix  [3e-12, 1e+00]
+  Cost    [1e-06, 1e-06]
+  Bound   [1e+00, 1e+00]
+  RHS     [1e+00, 1e+00]
+WARNING: Problem has some excessively small costs
+WARNING:    Consider scaling the objective by 1e+2, or setting the user_objective_scale option to 7
+Presolving model
+1283 rows, 1464 cols, 404796 nonzeros 0s
+Dependent equations search running on 549 equations with time limit of 1.00s
+Dependent equations search removed 0 rows and 0 nonzeros in 0.63s (limit = 1.00s)
+1281 rows, 1462 cols, 403692 nonzeros 1s
+Presolve reductions: rows 1281(-2); columns 1462(-2); nonzeros 403692(-1104) 
+Solving the presolved LP
+Using dual simplex solver
+  Iteration        Objective     Infeasibilities num(sum)
+          0     0.0000000000e+00 Ph1: 0(0) 1.1s
+WARNING:    Increasing Markowitz threshold to 0.5
+       1705    -1.8217815736e-04 Pr: 184(0.0268379) 6.2s
+       1784    -1.6700649341e-04 Pr: 0(0) 7.3s
+       1784    -1.6700649341e-04 Pr: 0(0) 7.3s
+Using dual simplex solver
+  Iteration        Objective     Infeasibilities num(sum)
+       1784    -1.6700672988e-04 Pr: 154(0.00438693) 7.3s
+       1840    -1.6699999504e-04 Pr: 77(0.0031727); Du: 0(3.15212e-09) 12.5s
+       1875    -1.6699999518e-04 Pr: 202(0.110701); Du: 0(2.22637e-09) 17.5s
+       1946    -1.6699997263e-04 Pr: 84(0.000994057); Du: 0(1.66147e-09) 22.6s
+       2037    -1.6699633127e-04 Pr: 65(0.000403996); Du: 0(5.98822e-10) 27.8s
+       2078    -1.6699853859e-04 Pr: 63(0.000451767); Du: 0(1.81535e-10) 30.2s
+Model status        : Time limit reached
+Simplex   iterations: 2078
+Objective value     : -1.6700004627e-04
+HiGHS run time      :         30.16

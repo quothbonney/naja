@@ -1,0 +1,115 @@
+{
+  "schema_version": 2,
+  "model": "iAB_RBC_283",
+  "samples": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/hopsy/iAB_RBC_283/default/seed303/samples.npy",
+  "model_dir": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/iAB_RBC_283",
+  "shape": [
+    16,
+    10000,
+    130
+  ],
+  "sample_space": "reduced_affine_backmapped_to_reactions",
+  "n_reactions": 469,
+  "constant_reactions_excluded": 16,
+  "constant_definition": "model-derived solver-detected nearconstant mask plus exactly constant sampled reactions",
+  "diagnostic_mask_status": "model_lp_verified",
+  "diagnostic_mask_geometry_sha256": "4fabe86c46d5ee8154fa578e3fb04e812c40406f95ec8640e90a27fa98a825ac",
+  "diagnostic_mask_source_sha256": "83a69bb88844c5490ee690c77394646372cc8f74b3c4abb9315fe6f81e22cca0",
+  "diagnostic_mask_range_tolerance": 1e-07,
+  "solver_detected_nearconstant_reactions_excluded": 16,
+  "exactly_constant_sampled_reactions": 0,
+  "solver_excluded_empirical_range_max": 1.5702793559442656e-12,
+  "solver_excluded_empirical_range_over_1e_minus_7_count": 0,
+  "solver_excluded_empirical_range_note": "Measured ranges are checked and retained even for LP-nearconstant reactions; values above 1e-7 expose affine-backmap numerical residue. Exclusion changes diagnostics only, never bound checks.",
+  "legacy_empirical_numerically_variable_summary": {
+    "split_rhat_median": 1.427009874484394,
+    "split_rhat_p95": 2.048232096012825,
+    "bulk_ess_median": 39.92638653348905,
+    "diagnosed_reactions": 454
+  },
+  "legacy_empirical_constant_count": 15,
+  "legacy_empirical_constant_definition": "full-run max-min <= 1e-12 * max(1, max(abs(flux)))",
+  "empirical_absolute_range_gt_1e_minus_7_summary": {
+    "split_rhat_median": 1.42897986526727,
+    "split_rhat_p95": 2.0484253074441683,
+    "bulk_ess_median": 39.621009186727555,
+    "diagnosed_reactions": 453
+  },
+  "diagnostic_definition": "classical split-Rhat; ArviZ pooled rank-normalized bulk ESS",
+  "arviz_version": "1.3.0",
+  "numpy_version": "2.5.4",
+  "split_rhat_median": 1.42897986526727,
+  "split_rhat_p95": 2.0484253074441683,
+  "bulk_ess_median": 39.621009186727555,
+  "diagnosed_reactions": 453,
+  "bounds_tolerance": 1e-07,
+  "sample_bound_violation_fraction": 0.0,
+  "coordinate_bound_violation_fraction": 0.0,
+  "zero_tolerance_sample_bound_violation_fraction": 0.5948,
+  "zero_tolerance_coordinate_bound_violation_fraction": 0.001862380063965885,
+  "max_absolute_bound_violation": 1.5429179022454474e-13,
+  "wall_seconds": 4.170110806822777,
+  "samples_per_second": 38368.2850197222,
+  "prefix_quality": [
+    {
+      "draws_per_chain": 100,
+      "split_rhat_median": 7.580085643002055,
+      "split_rhat_p95": 16.086915655962706,
+      "bulk_ess_median": 18.462665095829305,
+      "diagnosed_reactions": 453,
+      "quality_met": false
+    },
+    {
+      "draws_per_chain": 250,
+      "split_rhat_median": 4.916472497351527,
+      "split_rhat_p95": 8.028579708147054,
+      "bulk_ess_median": 18.060619334716915,
+      "diagnosed_reactions": 453,
+      "quality_met": false
+    },
+    {
+      "draws_per_chain": 500,
+      "split_rhat_median": 3.4627445212206474,
+      "split_rhat_p95": 5.846210904775523,
+      "bulk_ess_median": 19.19873827363672,
+      "diagnosed_reactions": 453,
+      "quality_met": false
+    },
+    {
+      "draws_per_chain": 1000,
+      "split_rhat_median": 2.6046083298880585,
+      "split_rhat_p95": 4.3167702121575235,
+      "bulk_ess_median": 20.841368955907626,
+      "diagnosed_reactions": 453,
+      "quality_met": false
+    },
+    {
+      "draws_per_chain": 2000,
+      "split_rhat_median": 2.080995753311747,
+      "split_rhat_p95": 3.369927998229514,
+      "bulk_ess_median": 23.472342058598173,
+      "diagnosed_reactions": 453,
+      "quality_met": false
+    },
+    {
+      "draws_per_chain": 5000,
+      "split_rhat_median": 1.578803488379699,
+      "split_rhat_p95": 2.469237801938277,
+      "bulk_ess_median": 30.140192926964037,
+      "diagnosed_reactions": 453,
+      "quality_met": false
+    },
+    {
+      "draws_per_chain": 10000,
+      "split_rhat_median": 1.42897986526727,
+      "split_rhat_p95": 2.0484253074441683,
+      "bulk_ess_median": 39.621009186727555,
+      "diagnosed_reactions": 453,
+      "quality_met": false
+    }
+  ],
+  "first_quality_prefix_draws": null,
+  "estimated_time_to_quality_seconds": null,
+  "time_to_quality_note": "Linear interpolation from total wall time; NOT measured time-to-quality. Includes fixed overhead proportionally. Independent budget runs required for measured comparison.",
+  "metrics_wall_seconds": 30.384483080357313
+}

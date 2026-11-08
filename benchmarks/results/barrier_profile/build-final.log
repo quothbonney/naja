@@ -1,0 +1,84 @@
+-- Build type: Release
+-- CUDA version: 12.9.86
+-- CUDA architectures: 90
+-- GPU dir: /mnt/home/jordan+123/history-native-20261015-r5/benchmarks/experimental/naja-barrier/src/gpu
+-- Eigen dir: /mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/deps/eigen-3.4.0
+-- Configuring done (3.6s)
+CMake Warning at CMakeLists.txt:74 (add_executable):
+  Cannot generate a safe runtime search path for target naja because files in
+  some directories may conflict with libraries in implicit directories:
+
+    runtime library [libz.so.1] in /usr/lib/x86_64-linux-gnu may be hidden by files in:
+      /mnt/home/jordan+123/history-native-20261015-r5/benchmarks/env-gpu/lib
+
+  Some of these libraries may not be found correctly.
+
+
+-- Generating done (0.2s)
+-- Build files have been written to: /mnt/home/jordan+123/history-native-20261015-r5/benchmarks/build-h100-barrier-profile
+[1/2] Building CUDA object CMakeFiles/naja.dir/src/engine/job_sampling.cu.o
+/mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/deps/eigen-3.4.0/Eigen/src/Core/PermutationMatrix.h(97): warning #20014-D: calling a __host__ function from a __host__ __device__ function is not allowed
+                              Index size() const { return Index(indices().size()); }
+                                                                       ^
+          detected during:
+            instantiation of "Eigen::Index Eigen::PermutationBase<Derived>::size() const [with Derived=Eigen::PermutationMatrix<-1, -1, int>]" at line 133
+            instantiation of "void Eigen::PermutationBase<Derived>::setIdentity() [with Derived=Eigen::PermutationMatrix<-1, -1, int>]" at line 143
+            instantiation of "void Eigen::PermutationBase<Derived>::setIdentity(Eigen::Index) [with Derived=Eigen::PermutationMatrix<-1, -1, int>]" at line 567 of /mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/deps/eigen-3.4.0/Eigen/src/LU/FullPivLU.h
+            instantiation of "void Eigen::FullPivLU<_MatrixType>::computeInPlace() [with _MatrixType=Eigen::Matrix<double, -1, -1, 0, -1, -1>]" at line 484 of /mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/deps/eigen-3.4.0/Eigen/src/LU/FullPivLU.h
+            instantiation of "Eigen::FullPivLU<_MatrixType>::FullPivLU(Eigen::EigenBase<InputType> &) [with _MatrixType=Eigen::Matrix<double, -1, -1, 0, -1, -1>, InputType=Eigen::Matrix<double, -1, -1, 0, -1, -1>]" at line 249 of /mnt/home/jordan+123/history-native-20261015-r5/benchmarks/experimental/naja-barrier/src/engine/job_sampling.cu
+
+Remark: The warnings can be suppressed with "-diag-suppress <warning-number>"
+
+Warning #20014-D: calling a __host__ function from a __host__ __device__ function is not allowed
+          detected during:
+            instantiation of "void Eigen::internal::triangular_solver_selector<Lhs, Rhs, Side, Mode, 0, -1>::run(const Lhs &, Rhs &) [with Lhs=Eigen::Block<Eigen::Matrix<double, -1, -1, 0, -1, -1>, -1, -1, false>, Rhs=Eigen::Block<Eigen::Matrix<double, -1, -1, 0, -1, -1>, -1, -1, false>, Side=1, Mode=2]" at line 181 of /mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/deps/eigen-3.4.0/Eigen/src/Core/SolveTriangular.h
+            instantiation of "void Eigen::TriangularViewImpl<_MatrixType, _Mode, Eigen::Dense>::solveInPlace<Side,OtherDerived>(const Eigen::MatrixBase<OtherDerived> &) const [with _MatrixType=Eigen::Block<Eigen::Matrix<double, -1, -1, 0, -1, -1>, -1, -1, false>, _Mode=2U, Side=1, OtherDerived=Eigen::Block<Eigen::Matrix<double, -1, -1, 0, -1, -1>, -1, -1, false>]" at line 522 of /mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/deps/eigen-3.4.0/Eigen/src/Core/TriangularMatrix.h
+            instantiation of "void Eigen::TriangularViewImpl<_MatrixType, _Mode, Eigen::Dense>::solveInPlace(const Eigen::MatrixBase<OtherDerived> &) const [with _MatrixType=Eigen::Block<Eigen::Matrix<double, -1, -1, 0, -1, -1>, -1, -1, false>, _Mode=2U, OtherDerived=Eigen::Block<Eigen::Matrix<double, -1, -1, 0, -1, -1>, -1, -1, false>]" at line 687 of /mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/deps/eigen-3.4.0/Eigen/src/LU/FullPivLU.h
+            instantiation of "void Eigen::internal::kernel_retval<Eigen::FullPivLU<_MatrixType>>::evalTo(Dest &) const [with _MatrixType=Eigen::Matrix<double, -1, -1, 0, -1, -1>, Dest=Eigen::Matrix<double, -1, -1, 0, -1, -1>]" at line 56 of /mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/deps/eigen-3.4.0/Eigen/src/misc/Kernel.h
+            instantiation of "void Eigen::internal::kernel_retval_base<_DecompositionType>::evalTo(Dest &) const [with _DecompositionType=Eigen::FullPivLU<Eigen::Matrix<double, -1, -1, 0, -1, -1>>, Dest=Eigen::Matrix<double, -1, -1, 0, -1, -1>]" at line 62 of /mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/deps/eigen-3.4.0/Eigen/src/Core/ReturnByValue.h
+            instantiation of "void Eigen::ReturnByValue<Derived>::evalTo(Dest &) const [with Derived=Eigen::internal::kernel_retval_base<Eigen::FullPivLU<Eigen::Matrix<double, -1, -1, 0, -1, -1>>>, Dest=Eigen::Matrix<double, -1, -1, 0, -1, -1>]" at line 615 of /mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/deps/eigen-3.4.0/Eigen/src/Core/PlainObjectBase.h
+            instantiation of "Eigen::PlainObjectBase<Derived>::PlainObjectBase(const Eigen::ReturnByValue<OtherDerived> &) [with Derived=Eigen::Matrix<double, -1, -1, 0, -1, -1>, OtherDerived=Eigen::internal::kernel_retval_base<Eigen::FullPivLU<Eigen::Matrix<double, -1, -1, 0, -1, -1>>>]" at line 424 of /mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/deps/eigen-3.4.0/Eigen/src/Core/Matrix.h
+            instantiation of "Eigen::Matrix<_Scalar, _Rows, _Cols, _Options, _MaxRows, _MaxCols>::Matrix(const Eigen::EigenBase<OtherDerived> &) [with _Scalar=double, _Rows=-1, _Cols=-1, _Options=0, _MaxRows=-1, _MaxCols=-1, OtherDerived=Eigen::ReturnByValue<Eigen::internal::kernel_retval_base<Eigen::FullPivLU<Eigen::Matrix<double, -1, -1, 0, -1, -1>>>>]" at line 251 of /mnt/home/jordan+123/history-native-20261015-r5/benchmarks/experimental/naja-barrier/src/engine/job_sampling.cu
+
+Warning #20014-D: calling a __host__ function from a __host__ __device__ function is not allowed
+          detected during:
+            instantiation of "void Eigen::internal::triangular_solver_selector<Lhs, Rhs, Side, Mode, 0, -1>::run(const Lhs &, Rhs &) [with Lhs=Eigen::Block<Eigen::Matrix<double, -1, -1, 0, -1, -1>, -1, -1, false>, Rhs=Eigen::Block<Eigen::Matrix<double, -1, -1, 0, -1, -1>, -1, -1, false>, Side=1, Mode=2]" at line 181 of /mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/deps/eigen-3.4.0/Eigen/src/Core/SolveTriangular.h
+            instantiation of "void Eigen::TriangularViewImpl<_MatrixType, _Mode, Eigen::Dense>::solveInPlace<Side,OtherDerived>(const Eigen::MatrixBase<OtherDerived> &) const [with _MatrixType=Eigen::Block<Eigen::Matrix<double, -1, -1, 0, -1, -1>, -1, -1, false>, _Mode=2U, Side=1, OtherDerived=Eigen::Block<Eigen::Matrix<double, -1, -1, 0, -1, -1>, -1, -1, false>]" at line 522 of /mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/deps/eigen-3.4.0/Eigen/src/Core/TriangularMatrix.h
+            instantiation of "void Eigen::TriangularViewImpl<_MatrixType, _Mode, Eigen::Dense>::solveInPlace(const Eigen::MatrixBase<OtherDerived> &) const [with _MatrixType=Eigen::Block<Eigen::Matrix<double, -1, -1, 0, -1, -1>, -1, -1, false>, _Mode=2U, OtherDerived=Eigen::Block<Eigen::Matrix<double, -1, -1, 0, -1, -1>, -1, -1, false>]" at line 687 of /mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/deps/eigen-3.4.0/Eigen/src/LU/FullPivLU.h
+            instantiation of "void Eigen::internal::kernel_retval<Eigen::FullPivLU<_MatrixType>>::evalTo(Dest &) const [with _MatrixType=Eigen::Matrix<double, -1, -1, 0, -1, -1>, Dest=Eigen::Matrix<double, -1, -1, 0, -1, -1>]" at line 56 of /mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/deps/eigen-3.4.0/Eigen/src/misc/Kernel.h
+            instantiation of "void Eigen::internal::kernel_retval_base<_DecompositionType>::evalTo(Dest &) const [with _DecompositionType=Eigen::FullPivLU<Eigen::Matrix<double, -1, -1, 0, -1, -1>>, Dest=Eigen::Matrix<double, -1, -1, 0, -1, -1>]" at line 62 of /mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/deps/eigen-3.4.0/Eigen/src/Core/ReturnByValue.h
+            instantiation of "void Eigen::ReturnByValue<Derived>::evalTo(Dest &) const [with Derived=Eigen::internal::kernel_retval_base<Eigen::FullPivLU<Eigen::Matrix<double, -1, -1, 0, -1, -1>>>, Dest=Eigen::Matrix<double, -1, -1, 0, -1, -1>]" at line 615 of /mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/deps/eigen-3.4.0/Eigen/src/Core/PlainObjectBase.h
+            instantiation of "Eigen::PlainObjectBase<Derived>::PlainObjectBase(const Eigen::ReturnByValue<OtherDerived> &) [with Derived=Eigen::Matrix<double, -1, -1, 0, -1, -1>, OtherDerived=Eigen::internal::kernel_retval_base<Eigen::FullPivLU<Eigen::Matrix<double, -1, -1, 0, -1, -1>>>]" at line 424 of /mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/deps/eigen-3.4.0/Eigen/src/Core/Matrix.h
+            instantiation of "Eigen::Matrix<_Scalar, _Rows, _Cols, _Options, _MaxRows, _MaxCols>::Matrix(const Eigen::EigenBase<OtherDerived> &) [with _Scalar=double, _Rows=-1, _Cols=-1, _Options=0, _MaxRows=-1, _MaxCols=-1, OtherDerived=Eigen::ReturnByValue<Eigen::internal::kernel_retval_base<Eigen::FullPivLU<Eigen::Matrix<double, -1, -1, 0, -1, -1>>>>]" at line 251 of /mnt/home/jordan+123/history-native-20261015-r5/benchmarks/experimental/naja-barrier/src/engine/job_sampling.cu
+
+/mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/deps/eigen-3.4.0/Eigen/src/Core/ReturnByValue.h(62): warning #20014-D: calling a __host__ function from a __host__ __device__ function is not allowed
+      { static_cast<const Derived*>(this)->evalTo(dst); }
+                                                 ^
+          detected during:
+            instantiation of "void Eigen::ReturnByValue<Derived>::evalTo(Dest &) const [with Derived=Eigen::internal::kernel_retval_base<Eigen::FullPivLU<Eigen::Matrix<double, -1, -1, 0, -1, -1>>>, Dest=Eigen::Matrix<double, -1, -1, 0, -1, -1>]" at line 615 of /mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/deps/eigen-3.4.0/Eigen/src/Core/PlainObjectBase.h
+            instantiation of "Eigen::PlainObjectBase<Derived>::PlainObjectBase(const Eigen::ReturnByValue<OtherDerived> &) [with Derived=Eigen::Matrix<double, -1, -1, 0, -1, -1>, OtherDerived=Eigen::internal::kernel_retval_base<Eigen::FullPivLU<Eigen::Matrix<double, -1, -1, 0, -1, -1>>>]" at line 424 of /mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/deps/eigen-3.4.0/Eigen/src/Core/Matrix.h
+            instantiation of "Eigen::Matrix<_Scalar, _Rows, _Cols, _Options, _MaxRows, _MaxCols>::Matrix(const Eigen::EigenBase<OtherDerived> &) [with _Scalar=double, _Rows=-1, _Cols=-1, _Options=0, _MaxRows=-1, _MaxCols=-1, OtherDerived=Eigen::ReturnByValue<Eigen::internal::kernel_retval_base<Eigen::FullPivLU<Eigen::Matrix<double, -1, -1, 0, -1, -1>>>>]" at line 251 of /mnt/home/jordan+123/history-native-20261015-r5/benchmarks/experimental/naja-barrier/src/engine/job_sampling.cu
+
+/mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/deps/eigen-3.4.0/Eigen/src/Core/ReturnByValue.h(64): warning #20014-D: calling a __host__ function from a __host__ __device__ function is not allowed
+      inline Index rows() const noexcept { return static_cast<const Derived*>(this)->rows(); }
+                                                                                         ^
+
+/mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/deps/eigen-3.4.0/Eigen/src/Core/ReturnByValue.h(66): warning #20014-D: calling a __host__ function from a __host__ __device__ function is not allowed
+      inline Index cols() const noexcept { return static_cast<const Derived*>(this)->cols(); }
+                                                                                         ^
+
+/mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/deps/eigen-3.4.0/Eigen/src/Core/PermutationMatrix.h(97): warning #20011-D: calling a __host__ function("Eigen::PermutationBase< ::Eigen::PermutationMatrix<(int)-1, (int)-1, int> > ::indices() const") from a __host__ __device__ function("Eigen::PermutationBase< ::Eigen::PermutationMatrix<(int)-1, (int)-1, int> > ::size const") is not allowed
+
+/mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/deps/eigen-3.4.0/Eigen/src/Core/ReturnByValue.h(64): warning #20011-D: calling a __host__ function("Eigen::internal::kernel_retval_base< ::Eigen::FullPivLU< ::Eigen::Matrix<double, (int)-1, (int)-1, (int)0, (int)-1, (int)-1> > > ::rows() const") from a __host__ __device__ function("Eigen::ReturnByValue< ::Eigen::internal::kernel_retval_base< ::Eigen::FullPivLU< ::Eigen::Matrix<double, (int)-1, (int)-1, (int)0, (int)-1, (int)-1> > > > ::rows const") is not allowed
+
+/mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/deps/eigen-3.4.0/Eigen/src/Core/ReturnByValue.h(66): warning #20011-D: calling a __host__ function("Eigen::internal::kernel_retval_base< ::Eigen::FullPivLU< ::Eigen::Matrix<double, (int)-1, (int)-1, (int)0, (int)-1, (int)-1> > > ::cols() const") from a __host__ __device__ function("Eigen::ReturnByValue< ::Eigen::internal::kernel_retval_base< ::Eigen::FullPivLU< ::Eigen::Matrix<double, (int)-1, (int)-1, (int)0, (int)-1, (int)-1> > > > ::cols const") is not allowed
+
+/mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/deps/eigen-3.4.0/Eigen/src/Core/ReturnByValue.h(62): warning #20011-D: calling a __host__ function("void Eigen::internal::kernel_retval_base< ::Eigen::FullPivLU< ::Eigen::Matrix<double, (int)-1, (int)-1, (int)0, (int)-1, (int)-1> > > ::evalTo< ::Eigen::Matrix<double, (int)-1, (int)-1, (int)0, (int)-1, (int)-1> > (T1 &) const") from a __host__ __device__ function("Eigen::ReturnByValue< ::Eigen::internal::kernel_retval_base< ::Eigen::FullPivLU< ::Eigen::Matrix<double, (int)-1, (int)-1, (int)0, (int)-1, (int)-1> > > > ::evalTo< ::Eigen::Matrix<double, (int)-1, (int)-1, (int)0, (int)-1, (int)-1> >  const") is not allowed
+
+/mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/deps/eigen-3.4.0/Eigen/src/Core/SolveTriangular.h(98): warning #20011-D: calling a __host__ function("Eigen::internal::gemm_blocking_space<(int)0, double, double, (int)-1, (int)-1, (int)-1, (int)4, (bool)0> ::gemm_blocking_space(long, long, long, long, bool)") from a __host__ __device__ function("Eigen::internal::triangular_solver_selector< ::Eigen::Block< ::Eigen::Matrix<double, (int)-1, (int)-1, (int)0, (int)-1, (int)-1> , (int)-1, (int)-1, (bool)0> ,  ::Eigen::Block< ::Eigen::Matrix<double, (int)-1, (int)-1, (int)0, (int)-1, (int)-1> , (int)-1, (int)-1, (bool)0> , (int)1, (int)2, (int)0, (int)-1> ::run") is not allowed
+
+/mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/deps/eigen-3.4.0/Eigen/src/Core/SolveTriangular.h(100): warning #20011-D: calling a __host__ function("Eigen::internal::triangular_solve_matrix<double, long, (int)1, (int)2, (bool)0, (int)0, (int)0, (int)1> ::run(long, long, const double *, long, double *, long, long,  ::Eigen::internal::level3_blocking<double, double>  &)") from a __host__ __device__ function("Eigen::internal::triangular_solver_selector< ::Eigen::Block< ::Eigen::Matrix<double, (int)-1, (int)-1, (int)0, (int)-1, (int)-1> , (int)-1, (int)-1, (bool)0> ,  ::Eigen::Block< ::Eigen::Matrix<double, (int)-1, (int)-1, (int)0, (int)-1, (int)-1> , (int)-1, (int)-1, (bool)0> , (int)1, (int)2, (int)0, (int)-1> ::run") is not allowed
+
+/mnt/home/jordan+123/history-native-20261015-r5/naja-test-jack/deps/eigen-3.4.0/Eigen/src/Core/SolveTriangular.h(100): warning #20011-D: calling a __host__ function("Eigen::internal::gemm_blocking_space<(int)0, double, double, (int)-1, (int)-1, (int)-1, (int)4, (bool)0> ::~gemm_blocking_space()") from a __host__ __device__ function("Eigen::internal::triangular_solver_selector< ::Eigen::Block< ::Eigen::Matrix<double, (int)-1, (int)-1, (int)0, (int)-1, (int)-1> , (int)-1, (int)-1, (bool)0> ,  ::Eigen::Block< ::Eigen::Matrix<double, (int)-1, (int)-1, (int)0, (int)-1, (int)-1> , (int)-1, (int)-1, (bool)0> , (int)1, (int)2, (int)0, (int)-1> ::run") is not allowed
+
+[2/2] Linking CXX executable naja

@@ -1,0 +1,160 @@
+{
+  "gene": "b2835",
+  "gene_name": "lplT",
+  "disabled_reaction_ids": [
+    "2AGPA120tipp",
+    "2AGPA140tipp",
+    "2AGPA141tipp",
+    "2AGPA160tipp",
+    "2AGPA161tipp",
+    "2AGPA180tipp",
+    "2AGPA181tipp",
+    "2AGPE120tipp",
+    "2AGPE140tipp",
+    "2AGPE141tipp",
+    "2AGPE160tipp",
+    "2AGPE161tipp",
+    "2AGPE180tipp",
+    "2AGPE181tipp",
+    "2AGPG120tipp",
+    "2AGPG140tipp",
+    "2AGPG141tipp",
+    "2AGPG160tipp",
+    "2AGPG161tipp",
+    "2AGPG180tipp",
+    "2AGPG181tipp"
+  ],
+  "knockout_reaction_ids": [
+    "2AGPA120tipp",
+    "2AGPA140tipp",
+    "2AGPA141tipp",
+    "2AGPA160tipp",
+    "2AGPA161tipp",
+    "2AGPA180tipp",
+    "2AGPA181tipp",
+    "2AGPE120tipp",
+    "2AGPE140tipp",
+    "2AGPE141tipp",
+    "2AGPE160tipp",
+    "2AGPE161tipp",
+    "2AGPE180tipp",
+    "2AGPE181tipp",
+    "2AGPG120tipp",
+    "2AGPG140tipp",
+    "2AGPG141tipp",
+    "2AGPG160tipp",
+    "2AGPG161tipp",
+    "2AGPG180tipp",
+    "2AGPG181tipp"
+  ],
+  "changed_bound_rows": 21,
+  "two_sided_encoding_rows": 42,
+  "stratum": "21-50",
+  "base_LP_varying_reactions": 21,
+  "base_LP_nearconstant_reactions": 0,
+  "all_affected_reactions_varying": true,
+  "base_point_max_KO_residual": 0.25582532968649685,
+  "base_point_weak_feasible_at_1e7": false,
+  "minimum_KO_T_row_norm": 0.1469614807183566,
+  "original_changed_bounds": {
+    "2AGPA120tipp": [
+      0.0,
+      1000.0
+    ],
+    "2AGPA140tipp": [
+      0.0,
+      1000.0
+    ],
+    "2AGPA141tipp": [
+      0.0,
+      1000.0
+    ],
+    "2AGPA160tipp": [
+      0.0,
+      1000.0
+    ],
+    "2AGPA161tipp": [
+      0.0,
+      1000.0
+    ],
+    "2AGPA180tipp": [
+      0.0,
+      1000.0
+    ],
+    "2AGPA181tipp": [
+      0.0,
+      1000.0
+    ],
+    "2AGPE120tipp": [
+      0.0,
+      1000.0
+    ],
+    "2AGPE140tipp": [
+      0.0,
+      1000.0
+    ],
+    "2AGPE141tipp": [
+      0.0,
+      1000.0
+    ],
+    "2AGPE160tipp": [
+      0.0,
+      1000.0
+    ],
+    "2AGPE161tipp": [
+      0.0,
+      1000.0
+    ],
+    "2AGPE180tipp": [
+      0.0,
+      1000.0
+    ],
+    "2AGPE181tipp": [
+      0.0,
+      1000.0
+    ],
+    "2AGPG120tipp": [
+      0.0,
+      1000.0
+    ],
+    "2AGPG140tipp": [
+      0.0,
+      1000.0
+    ],
+    "2AGPG141tipp": [
+      0.0,
+      1000.0
+    ],
+    "2AGPG160tipp": [
+      0.0,
+      1000.0
+    ],
+    "2AGPG161tipp": [
+      0.0,
+      1000.0
+    ],
+    "2AGPG180tipp": [
+      0.0,
+      1000.0
+    ],
+    "2AGPG181tipp": [
+      0.0,
+      1000.0
+    ]
+  },
+  "genes_with_identical_bound_change_signature": [
+    "b2835"
+  ],
+  "bound_change_signature": "23880be9a9d2ded3db17779620d416ebea8a111f23c0ea39eaf2dd49776a465d",
+  "status": "problematic",
+  "base_geometry_sha256": "07374999682cb82ef566c2a7ba4cd1ca44b0718ab81f421846e24d3b85f5e103",
+  "base_dimension": 581,
+  "base_point_weak_feasible": false,
+  "constraint_epsilon": 0.0,
+  "rank_relative_tolerance": 1e-12,
+  "validation_tolerance": 1e-07,
+  "geometry_directory": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/knockout_panel/conditions/b2835/models/shared",
+  "LPs": [],
+  "facial_reductions": [],
+  "reason": "AssertionError({'round': 0, 'model_construction_seconds': 0.007523749023675919, 'solve_seconds': 1.0599729791283607, 'pass_status': 'HighsStatus.kOk', 'run_status': 'HighsStatus.kOk', 'model_status': 'HighsModelStatus.kOptimal', 'iterations': 1113, 'radius': 6.02176940081667e-12, 'max_scaled_primal_violation': 1.6000899216717102e-07})"
+}

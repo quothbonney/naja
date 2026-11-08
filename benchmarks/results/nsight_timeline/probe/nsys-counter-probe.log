@@ -1,0 +1,21 @@
+> validate model contract
+> write generated config
+model :: iJO1366
+output :: /mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/nsight_timeline/probe/nsys-native/iJO1366_20261108_001
+bounds :: ignore
+> sampling
+> loading polytope
+> barrier rotation (eigenbasis of H)
+> uploading to gpu
+> sampling 16 chains x 220 samples (thin=96, 337920 MCMC steps, 750 constraints x 581 dims)
+> gpu sampling
+> gpu back-transform
+> downloading
+> done: 0.1s, 41206 samples/s
+> writing npy
+GPU 0: General Metrics for NVIDIA GH100 (any frequency)
+Collecting data...
+Generating '/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/tmp/nsys-report-23e2.qdstrm'
+[1/1] [0%                          ] counter-probe.nsys-rep[1/1] [0%                          ] counter-probe.nsys-rep[1/1] [11%                         ] counter-probe.nsys-rep[1/1] [=16%                        ] counter-probe.nsys-rep[1/1] [==21%                       ] counter-probe.nsys-rep[1/1] [=======37%                  ] counter-probe.nsys-rep[1/1] [=========46%                ] counter-probe.nsys-rep[1/1] [==========47%               ] counter-probe.nsys-rep[1/1] [==========48%               ] counter-probe.nsys-rep[1/1] [==========49%               ] counter-probe.nsys-rep[1/1] [===========50%              ] counter-probe.nsys-rep[1/1] [===========51%              ] counter-probe.nsys-rep[1/1] [===========52%              ] counter-probe.nsys-rep[1/1] [===========53%              ] counter-probe.nsys-rep[1/1] [============54%             ] counter-probe.nsys-rep[1/1] [============56%             ] counter-probe.nsys-rep[1/1] [=============60%            ] counter-probe.nsys-rep[1/1] [================69%         ] counter-probe.nsys-rep[1/1] [========================100%] counter-probe.nsys-rep[1/1] [========================100%] counter-probe.nsys-rep
+Generated:
+	/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/nsight_timeline/probe/counter-probe.nsys-rep

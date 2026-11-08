@@ -1,0 +1,3922 @@
+{
+  "status": "catalogued",
+  "source": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/raw/iJO1366.json",
+  "source_sha256": "9376a93f62ad430719f23e612154dd94c67e0d7c9545ed9d17a4d0c347672313",
+  "base_model": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/data/models/iJO1366",
+  "base_geometry_sha256": "07374999682cb82ef566c2a7ba4cd1ca44b0718ab81f421846e24d3b85f5e103",
+  "availability": {
+    "0": {
+      "real_genes": 367,
+      "unique_bound_change_signatures": 1,
+      "clean_nontrivial_signatures": 0
+    },
+    "1-5": {
+      "real_genes": 936,
+      "unique_bound_change_signatures": 753,
+      "clean_nontrivial_signatures": 510
+    },
+    "6-20": {
+      "real_genes": 54,
+      "unique_bound_change_signatures": 40,
+      "clean_nontrivial_signatures": 26
+    },
+    "21-50": {
+      "real_genes": 9,
+      "unique_bound_change_signatures": 9,
+      "clean_nontrivial_signatures": 8
+    },
+    "51-200": {
+      "real_genes": 0,
+      "unique_bound_change_signatures": 0,
+      "clean_nontrivial_signatures": 0
+    }
+  },
+  "pilot_genes": [
+    "b0002",
+    "b4025",
+    "b0175",
+    "b0494",
+    "b3821"
+  ],
+  "conditions": [
+    {
+      "gene": "b0002",
+      "gene_name": "thrA",
+      "disabled_reaction_ids": [],
+      "knockout_reaction_ids": [],
+      "changed_bound_rows": 0,
+      "two_sided_encoding_rows": 0,
+      "stratum": "0",
+      "base_LP_varying_reactions": 0,
+      "base_LP_nearconstant_reactions": 0,
+      "all_affected_reactions_varying": false,
+      "base_point_max_KO_residual": 0.0,
+      "base_point_weak_feasible_at_1e7": true,
+      "minimum_KO_T_row_norm": null,
+      "original_changed_bounds": {},
+      "genes_with_identical_bound_change_signature": [
+        "b0002",
+        "b0008",
+        "b0047",
+        "b0048",
+        "b0061",
+        "b0070",
+        "b0077",
+        "b0078",
+        "b0084",
+        "b0092",
+        "b0099",
+        "b0124",
+        "b0125",
+        "b0126",
+        "b0149",
+        "b0155",
+        "b0171",
+        "b0186",
+        "b0207",
+        "b0241",
+        "b0273",
+        "b0306",
+        "b0307",
+        "b0308",
+        "b0314",
+        "b0323",
+        "b0339",
+        "b0351",
+        "b0355",
+        "b0381",
+        "b0388",
+        "b0418",
+        "b0425",
+        "b0446",
+        "b0451",
+        "b0462",
+        "b0485",
+        "b0509",
+        "b0521",
+        "b0576",
+        "b0578",
+        "b0621",
+        "b0632",
+        "b0635",
+        "b0650",
+        "b0651",
+        "b0679",
+        "b0684",
+        "b0688",
+        "b0693",
+        "b0709",
+        "b0733",
+        "b0734",
+        "b0752",
+        "b0754",
+        "b0755",
+        "b0757",
+        "b0789",
+        "b0805",
+        "b0813",
+        "b0825",
+        "b0828",
+        "b0837",
+        "b0839",
+        "b0841",
+        "b0842",
+        "b0849",
+        "b0854",
+        "b0855",
+        "b0856",
+        "b0857",
+        "b0860",
+        "b0861",
+        "b0862",
+        "b0863",
+        "b0864",
+        "b0870",
+        "b0875",
+        "b0903",
+        "b0904",
+        "b0929",
+        "b0932",
+        "b0937",
+        "b0957",
+        "b0972",
+        "b0973",
+        "b0974",
+        "b0996",
+        "b0997",
+        "b1008",
+        "b1033",
+        "b1101",
+        "b1123",
+        "b1124",
+        "b1125",
+        "b1126",
+        "b1190",
+        "b1193",
+        "b1223",
+        "b1224",
+        "b1225",
+        "b1226",
+        "b1227",
+        "b1241",
+        "b1249",
+        "b1250",
+        "b1276",
+        "b1291",
+        "b1296",
+        "b1302",
+        "b1319",
+        "b1363",
+        "b1377",
+        "b1380",
+        "b1440",
+        "b1441",
+        "b1442",
+        "b1443",
+        "b1465",
+        "b1466",
+        "b1467",
+        "b1468",
+        "b1469",
+        "b1473",
+        "b1474",
+        "b1475",
+        "b1476",
+        "b1478",
+        "b1483",
+        "b1484",
+        "b1485",
+        "b1486",
+        "b1487",
+        "b1493",
+        "b1524",
+        "b1533",
+        "b1592",
+        "b1611",
+        "b1612",
+        "b1622",
+        "b1634",
+        "b1636",
+        "b1646",
+        "b1654",
+        "b1656",
+        "b1676",
+        "b1701",
+        "b1704",
+        "b1723",
+        "b1732",
+        "b1759",
+        "b1767",
+        "b1773",
+        "b1781",
+        "b1801",
+        "b1805",
+        "b1814",
+        "b1854",
+        "b1865",
+        "b1907",
+        "b2010",
+        "b2039",
+        "b2041",
+        "b2045",
+        "b2095",
+        "b2096",
+        "b2097",
+        "b2134",
+        "b2154",
+        "b2155",
+        "b2162",
+        "b2170",
+        "b2215",
+        "b2224",
+        "b2251",
+        "b2290",
+        "b2291",
+        "b2296",
+        "b2328",
+        "b2341",
+        "b2342",
+        "b2379",
+        "b2393",
+        "b2411",
+        "b2414",
+        "b2421",
+        "b2435",
+        "b2458",
+        "b2464",
+        "b2465",
+        "b2470",
+        "b2480",
+        "b2481",
+        "b2482",
+        "b2483",
+        "b2484",
+        "b2485",
+        "b2486",
+        "b2487",
+        "b2488",
+        "b2489",
+        "b2490",
+        "b2492",
+        "b2502",
+        "b2518",
+        "b2519",
+        "b2523",
+        "b2558",
+        "b2563",
+        "b2578",
+        "b2579",
+        "b2582",
+        "b2601",
+        "b2661",
+        "b2662",
+        "b2682",
+        "b2683",
+        "b2690",
+        "b2701",
+        "b2708",
+        "b2715",
+        "b2719",
+        "b2720",
+        "b2721",
+        "b2722",
+        "b2723",
+        "b2724",
+        "b2738",
+        "b2787",
+        "b2788",
+        "b2789",
+        "b2796",
+        "b2797",
+        "b2800",
+        "b2813",
+        "b2817",
+        "b2874",
+        "b2882",
+        "b2890",
+        "b2895",
+        "b2914",
+        "b2927",
+        "b2930",
+        "b2935",
+        "b2963",
+        "b2965",
+        "b2975",
+        "b2976",
+        "b2987",
+        "b2994",
+        "b2995",
+        "b2996",
+        "b2997",
+        "b3001",
+        "b3008",
+        "b3012",
+        "b3034",
+        "b3057",
+        "b3114",
+        "b3117",
+        "b3125",
+        "b3127",
+        "b3132",
+        "b3137",
+        "b3182",
+        "b3197",
+        "b3281",
+        "b3290",
+        "b3350",
+        "b3367",
+        "b3380",
+        "b3386",
+        "b3390",
+        "b3396",
+        "b3397",
+        "b3415",
+        "b3426",
+        "b3428",
+        "b3437",
+        "b3458",
+        "b3475",
+        "b3476",
+        "b3477",
+        "b3478",
+        "b3479",
+        "b3480",
+        "b3493",
+        "b3496",
+        "b3517",
+        "b3581",
+        "b3583",
+        "b3603",
+        "b3605",
+        "b3610",
+        "b3612",
+        "b3640",
+        "b3670",
+        "b3671",
+        "b3709",
+        "b3714",
+        "b3722",
+        "b3739",
+        "b3747",
+        "b3748",
+        "b3749",
+        "b3750",
+        "b3751",
+        "b3772",
+        "b3781",
+        "b3788",
+        "b3789",
+        "b3803",
+        "b3823",
+        "b3824",
+        "b3826",
+        "b3829",
+        "b3845",
+        "b3849",
+        "b3856",
+        "b3870",
+        "b3875",
+        "b3892",
+        "b3893",
+        "b3894",
+        "b3908",
+        "b3917",
+        "b3925",
+        "b3940",
+        "b3942",
+        "b3946",
+        "b3951",
+        "b3952",
+        "b3962",
+        "b3996",
+        "b4014",
+        "b4019",
+        "b4024",
+        "b4053",
+        "b4054",
+        "b4079",
+        "b4130",
+        "b4131",
+        "b4138",
+        "b4169",
+        "b4196",
+        "b4198",
+        "b4219",
+        "b4226",
+        "b4227",
+        "b4230",
+        "b4231",
+        "b4232",
+        "b4237",
+        "b4244",
+        "b4254",
+        "b4260",
+        "b4268",
+        "b4301",
+        "b4311",
+        "b4374",
+        "b4390",
+        "b4392",
+        "b4395",
+        "b4471",
+        "b4476",
+        "b4485",
+        "b4513"
+      ],
+      "bound_change_signature": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "gene": "b0003",
+      "gene_name": "thrB",
+      "disabled_reaction_ids": [
+        "HSK"
+      ],
+      "knockout_reaction_ids": [
+        "HSK"
+      ],
+      "changed_bound_rows": 1,
+      "two_sided_encoding_rows": 2,
+      "stratum": "1-5",
+      "base_LP_varying_reactions": 1,
+      "base_LP_nearconstant_reactions": 0,
+      "all_affected_reactions_varying": true,
+      "base_point_max_KO_residual": 0.5349242406235193,
+      "base_point_weak_feasible_at_1e7": false,
+      "minimum_KO_T_row_norm": 0.292164471010691,
+      "original_changed_bounds": {
+        "HSK": [
+          0.0,
+          1000.0
+        ]
+      },
+      "genes_with_identical_bound_change_signature": [
+        "b0003"
+      ],
+      "bound_change_signature": "b7ba2ed59515b64a4b59deeaf81217ad8849274e8687fb3f94eb1e3bd676e924"
+    },
+    {
+      "gene": "b0116",
+      "gene_name": "lpd",
+      "disabled_reaction_ids": [
+        "AKGDH",
+        "GLYCL",
+        "PDH"
+      ],
+      "knockout_reaction_ids": [
+        "AKGDH",
+        "GLYCL",
+        "PDH"
+      ],
+      "changed_bound_rows": 3,
+      "two_sided_encoding_rows": 6,
+      "stratum": "1-5",
+      "base_LP_varying_reactions": 3,
+      "base_LP_nearconstant_reactions": 0,
+      "all_affected_reactions_varying": true,
+      "base_point_max_KO_residual": 11.634053610107465,
+      "base_point_weak_feasible_at_1e7": false,
+      "minimum_KO_T_row_norm": 0.28713705908820897,
+      "original_changed_bounds": {
+        "AKGDH": [
+          0.0,
+          1000.0
+        ],
+        "GLYCL": [
+          0.0,
+          1000.0
+        ],
+        "PDH": [
+          0.0,
+          1000.0
+        ]
+      },
+      "genes_with_identical_bound_change_signature": [
+        "b0116"
+      ],
+      "bound_change_signature": "aa2cc8654bb46c9282f2f15264e8c829ab075b2b50cbf9594c991f6be287eabf"
+    },
+    {
+      "gene": "b0331",
+      "gene_name": "prpB",
+      "disabled_reaction_ids": [
+        "MCITL2"
+      ],
+      "knockout_reaction_ids": [
+        "MCITL2"
+      ],
+      "changed_bound_rows": 2,
+      "two_sided_encoding_rows": 2,
+      "stratum": "1-5",
+      "base_LP_varying_reactions": 1,
+      "base_LP_nearconstant_reactions": 0,
+      "all_affected_reactions_varying": true,
+      "base_point_max_KO_residual": 0.30212332186760554,
+      "base_point_weak_feasible_at_1e7": false,
+      "minimum_KO_T_row_norm": 0.2292259752568021,
+      "original_changed_bounds": {
+        "MCITL2": [
+          -1000.0,
+          1000.0
+        ]
+      },
+      "genes_with_identical_bound_change_signature": [
+        "b0331"
+      ],
+      "bound_change_signature": "18f8e239db2254090ba746c1ec6d22a90391b2dfd599e2d0a47bf0c56a2579ec"
+    },
+    {
+      "gene": "b0516",
+      "gene_name": "allC",
+      "disabled_reaction_ids": [
+        "ALLTAMH"
+      ],
+      "knockout_reaction_ids": [
+        "ALLTAMH"
+      ],
+      "changed_bound_rows": 1,
+      "two_sided_encoding_rows": 2,
+      "stratum": "1-5",
+      "base_LP_varying_reactions": 1,
+      "base_LP_nearconstant_reactions": 0,
+      "all_affected_reactions_varying": true,
+      "base_point_max_KO_residual": 0.114347970237525,
+      "base_point_weak_feasible_at_1e7": false,
+      "minimum_KO_T_row_norm": 0.08130076941700876,
+      "original_changed_bounds": {
+        "ALLTAMH": [
+          0.0,
+          1000.0
+        ]
+      },
+      "genes_with_identical_bound_change_signature": [
+        "b0516"
+      ],
+      "bound_change_signature": "94c44227036c1ea146298b2a48808f07e609e2bebb951e4ab47e14d62478de11"
+    },
+    {
+      "gene": "b0721",
+      "gene_name": "sdhC",
+      "disabled_reaction_ids": [
+        "SUCDi"
+      ],
+      "knockout_reaction_ids": [
+        "SUCDi"
+      ],
+      "changed_bound_rows": 1,
+      "two_sided_encoding_rows": 2,
+      "stratum": "1-5",
+      "base_LP_varying_reactions": 1,
+      "base_LP_nearconstant_reactions": 0,
+      "all_affected_reactions_varying": true,
+      "base_point_max_KO_residual": 64.44155206378083,
+      "base_point_weak_feasible_at_1e7": false,
+      "minimum_KO_T_row_norm": 22.607263591810838,
+      "original_changed_bounds": {
+        "SUCDi": [
+          0.0,
+          1000.0
+        ]
+      },
+      "genes_with_identical_bound_change_signature": [
+        "b0721",
+        "b0722",
+        "b0723",
+        "b0724"
+      ],
+      "bound_change_signature": "497f42c0dcec73ea3587a9dcda2d8ccc03510adb04d2d95f4804e32f06fd9434"
+    },
+    {
+      "gene": "b0918",
+      "gene_name": "kdsB",
+      "disabled_reaction_ids": [
+        "KDOCT2"
+      ],
+      "knockout_reaction_ids": [
+        "KDOCT2"
+      ],
+      "changed_bound_rows": 1,
+      "two_sided_encoding_rows": 2,
+      "stratum": "1-5",
+      "base_LP_varying_reactions": 1,
+      "base_LP_nearconstant_reactions": 0,
+      "all_affected_reactions_varying": true,
+      "base_point_max_KO_residual": 0.0170090098124151,
+      "base_point_weak_feasible_at_1e7": false,
+      "minimum_KO_T_row_norm": 0.005488551850280731,
+      "original_changed_bounds": {
+        "KDOCT2": [
+          0.0,
+          1000.0
+        ]
+      },
+      "genes_with_identical_bound_change_signature": [
+        "b0918"
+      ],
+      "bound_change_signature": "4acad902bdbc1a20ed01104af39080a572d039c7911a0be342bbbe84f7b4849e"
+    },
+    {
+      "gene": "b1136",
+      "gene_name": "icd",
+      "disabled_reaction_ids": [
+        "ICDHyr"
+      ],
+      "knockout_reaction_ids": [
+        "ICDHyr"
+      ],
+      "changed_bound_rows": 2,
+      "two_sided_encoding_rows": 2,
+      "stratum": "1-5",
+      "base_LP_varying_reactions": 1,
+      "base_LP_nearconstant_reactions": 0,
+      "all_affected_reactions_varying": true,
+      "base_point_max_KO_residual": 12.016268340867125,
+      "base_point_weak_feasible_at_1e7": false,
+      "minimum_KO_T_row_norm": 2.34509198359385,
+      "original_changed_bounds": {
+        "ICDHyr": [
+          -1000.0,
+          1000.0
+        ]
+      },
+      "genes_with_identical_bound_change_signature": [
+        "b1136"
+      ],
+      "bound_change_signature": "66a896ef160b3a3cf85fe58ae618f4a4ffd92600c78599668156d9368496b589"
+    },
+    {
+      "gene": "b1326",
+      "gene_name": "mpaA",
+      "disabled_reaction_ids": [
+        "LADGMDH"
+      ],
+      "knockout_reaction_ids": [
+        "LADGMDH"
+      ],
+      "changed_bound_rows": 1,
+      "two_sided_encoding_rows": 2,
+      "stratum": "1-5",
+      "base_LP_varying_reactions": 1,
+      "base_LP_nearconstant_reactions": 0,
+      "all_affected_reactions_varying": true,
+      "base_point_max_KO_residual": 0.2213109186637451,
+      "base_point_weak_feasible_at_1e7": false,
+      "minimum_KO_T_row_norm": 0.22131091644727058,
+      "original_changed_bounds": {
+        "LADGMDH": [
+          0.0,
+          1000.0
+        ]
+      },
+      "genes_with_identical_bound_change_signature": [
+        "b1326"
+      ],
+      "bound_change_signature": "7dd163a3fff4d2a00c29732ece2c774b6b744604a17eb872925977ceb45ac2f7"
+    },
+    {
+      "gene": "b1744",
+      "gene_name": "astE",
+      "disabled_reaction_ids": [
+        "SGDS"
+      ],
+      "knockout_reaction_ids": [
+        "SGDS"
+      ],
+      "changed_bound_rows": 1,
+      "two_sided_encoding_rows": 2,
+      "stratum": "1-5",
+      "base_LP_varying_reactions": 1,
+      "base_LP_nearconstant_reactions": 0,
+      "all_affected_reactions_varying": true,
+      "base_point_max_KO_residual": 0.07891543844388202,
+      "base_point_weak_feasible_at_1e7": false,
+      "minimum_KO_T_row_norm": 0.07891543765323805,
+      "original_changed_bounds": {
+        "SGDS": [
+          0.0,
+          1000.0
+        ]
+      },
+      "genes_with_identical_bound_change_signature": [
+        "b1744"
+      ],
+      "bound_change_signature": "4dfbb5f304c94cf073d2448e210213f5132aea47afc4d2e61c157e93a343983c"
+    },
+    {
+      "gene": "b2028",
+      "gene_name": "ugd",
+      "disabled_reaction_ids": [
+        "UDPGD"
+      ],
+      "knockout_reaction_ids": [
+        "UDPGD"
+      ],
+      "changed_bound_rows": 1,
+      "two_sided_encoding_rows": 2,
+      "stratum": "1-5",
+      "base_LP_varying_reactions": 1,
+      "base_LP_nearconstant_reactions": 0,
+      "all_affected_reactions_varying": true,
+      "base_point_max_KO_residual": 0.0005758452182638365,
+      "base_point_weak_feasible_at_1e7": false,
+      "minimum_KO_T_row_norm": 0.0005758452127498677,
+      "original_changed_bounds": {
+        "UDPGD": [
+          0.0,
+          1000.0
+        ]
+      },
+      "genes_with_identical_bound_change_signature": [
+        "b2028"
+      ],
+      "bound_change_signature": "d6f7a27653785e3af27cff93b8010849e011198bed8839668aae6279874eb3ae"
+    },
+    {
+      "gene": "b2257",
+      "gene_name": "arnT",
+      "disabled_reaction_ids": [
+        "LA4NTpp"
+      ],
+      "knockout_reaction_ids": [
+        "LA4NTpp"
+      ],
+      "changed_bound_rows": 1,
+      "two_sided_encoding_rows": 2,
+      "stratum": "1-5",
+      "base_LP_varying_reactions": 1,
+      "base_LP_nearconstant_reactions": 0,
+      "all_affected_reactions_varying": true,
+      "base_point_max_KO_residual": 0.0005758452186668364,
+      "base_point_weak_feasible_at_1e7": false,
+      "minimum_KO_T_row_norm": 0.000575845212749905,
+      "original_changed_bounds": {
+        "LA4NTpp": [
+          0.0,
+          1000.0
+        ]
+      },
+      "genes_with_identical_bound_change_signature": [
+        "b2257"
+      ],
+      "bound_change_signature": "208dbaf154684e8046695f7ca1a918b25d66e38fc3027f7016d761d49411445e"
+    },
+    {
+      "gene": "b2436",
+      "gene_name": "hemF",
+      "disabled_reaction_ids": [
+        "CPPPGO"
+      ],
+      "knockout_reaction_ids": [
+        "CPPPGO"
+      ],
+      "changed_bound_rows": 1,
+      "two_sided_encoding_rows": 2,
+      "stratum": "1-5",
+      "base_LP_varying_reactions": 1,
+      "base_LP_nearconstant_reactions": 0,
+      "all_affected_reactions_varying": true,
+      "base_point_max_KO_residual": 0.003902023057409704,
+      "base_point_weak_feasible_at_1e7": false,
+      "minimum_KO_T_row_norm": 0.00390202299823186,
+      "original_changed_bounds": {
+        "CPPPGO": [
+          0.0,
+          1000.0
+        ]
+      },
+      "genes_with_identical_bound_change_signature": [
+        "b2436"
+      ],
+      "bound_change_signature": "e79637b07a788392bf9b6a51de8ea66cc0c94586c7c1ee668cdf7b97af362e14"
+    },
+    {
+      "gene": "b2688",
+      "gene_name": "gshA",
+      "disabled_reaction_ids": [
+        "GLUCYS"
+      ],
+      "knockout_reaction_ids": [
+        "GLUCYS"
+      ],
+      "changed_bound_rows": 1,
+      "two_sided_encoding_rows": 2,
+      "stratum": "1-5",
+      "base_LP_varying_reactions": 1,
+      "base_LP_nearconstant_reactions": 0,
+      "all_affected_reactions_varying": true,
+      "base_point_max_KO_residual": 0.13039268771179474,
+      "base_point_weak_feasible_at_1e7": false,
+      "minimum_KO_T_row_norm": 0.10583650846926168,
+      "original_changed_bounds": {
+        "GLUCYS": [
+          0.0,
+          1000.0
+        ]
+      },
+      "genes_with_identical_bound_change_signature": [
+        "b2688"
+      ],
+      "bound_change_signature": "7c6fda838e662063e581c2a391cfd7de9ad7ee85636cf14c2297822bc9b778db"
+    },
+    {
+      "gene": "b2920",
+      "gene_name": "scpC",
+      "disabled_reaction_ids": [
+        "PPCSCT"
+      ],
+      "knockout_reaction_ids": [
+        "PPCSCT"
+      ],
+      "changed_bound_rows": 1,
+      "two_sided_encoding_rows": 2,
+      "stratum": "1-5",
+      "base_LP_varying_reactions": 1,
+      "base_LP_nearconstant_reactions": 0,
+      "all_affected_reactions_varying": true,
+      "base_point_max_KO_residual": 333.3333624100593,
+      "base_point_weak_feasible_at_1e7": false,
+      "minimum_KO_T_row_norm": 333.33335741006,
+      "original_changed_bounds": {
+        "PPCSCT": [
+          0.0,
+          1000.0
+        ]
+      },
+      "genes_with_identical_bound_change_signature": [
+        "b2920"
+      ],
+      "bound_change_signature": "4d853a8005eab90eb338bde8447629a7d7200b624d28d5c8e2e97c59f1a06f67"
+    },
+    {
+      "gene": "b3198",
+      "gene_name": "kdsC",
+      "disabled_reaction_ids": [
+        "KDOPP"
+      ],
+      "knockout_reaction_ids": [
+        "KDOPP"
+      ],
+      "changed_bound_rows": 1,
+      "two_sided_encoding_rows": 2,
+      "stratum": "1-5",
+      "base_LP_varying_reactions": 1,
+      "base_LP_nearconstant_reactions": 0,
+      "all_affected_reactions_varying": true,
+      "base_point_max_KO_residual": 0.01700900981238876,
+      "base_point_weak_feasible_at_1e7": false,
+      "minimum_KO_T_row_norm": 0.005488551850280699,
+      "original_changed_bounds": {
+        "KDOPP": [
+          0.0,
+          1000.0
+        ]
+      },
+      "genes_with_identical_bound_change_signature": [
+        "b3198"
+      ],
+      "bound_change_signature": "751e0504bc836a7ac6d6f48ae05f760dcf786f8294c76badbbe215f68891a912"
+    },
+    {
+      "gene": "b3619",
+      "gene_name": "hldD",
+      "disabled_reaction_ids": [
+        "AGMHE"
+      ],
+      "knockout_reaction_ids": [
+        "AGMHE"
+      ],
+      "changed_bound_rows": 1,
+      "two_sided_encoding_rows": 2,
+      "stratum": "1-5",
+      "base_LP_varying_reactions": 1,
+      "base_LP_nearconstant_reactions": 0,
+      "all_affected_reactions_varying": true,
+      "base_point_max_KO_residual": 0.008975074121043248,
+      "base_point_weak_feasible_at_1e7": false,
+      "minimum_KO_T_row_norm": 0.00421886627737217,
+      "original_changed_bounds": {
+        "AGMHE": [
+          0.0,
+          1000.0
+        ]
+      },
+      "genes_with_identical_bound_change_signature": [
+        "b3619"
+      ],
+      "bound_change_signature": "3f70e2f9db22395fc98a390b36516ae8a1623a0b6383c569dc4625a6852ccdab"
+    },
+    {
+      "gene": "b3744",
+      "gene_name": "asnA",
+      "disabled_reaction_ids": [
+        "ASNS2"
+      ],
+      "knockout_reaction_ids": [
+        "ASNS2"
+      ],
+      "changed_bound_rows": 1,
+      "two_sided_encoding_rows": 2,
+      "stratum": "1-5",
+      "base_LP_varying_reactions": 1,
+      "base_LP_nearconstant_reactions": 0,
+      "all_affected_reactions_varying": true,
+      "base_point_max_KO_residual": 0.6737288500402139,
+      "base_point_weak_feasible_at_1e7": false,
+      "minimum_KO_T_row_norm": 0.6737288295420147,
+      "original_changed_bounds": {
+        "ASNS2": [
+          0.0,
+          1000.0
+        ]
+      },
+      "genes_with_identical_bound_change_signature": [
+        "b3744"
+      ],
+      "bound_change_signature": "cbd1788ebd417b81bc6f80986cbf0e4319695963554f6805eddef8e176e2e88c"
+    },
+    {
+      "gene": "b3924",
+      "gene_name": "fpr",
+      "disabled_reaction_ids": [
+        "FLDR2"
+      ],
+      "knockout_reaction_ids": [
+        "FLDR2"
+      ],
+      "changed_bound_rows": 1,
+      "two_sided_encoding_rows": 2,
+      "stratum": "1-5",
+      "base_LP_varying_reactions": 1,
+      "base_LP_nearconstant_reactions": 0,
+      "all_affected_reactions_varying": true,
+      "base_point_max_KO_residual": 1.4508591547628464,
+      "base_point_weak_feasible_at_1e7": false,
+      "minimum_KO_T_row_norm": 1.4508591401737148,
+      "original_changed_bounds": {
+        "FLDR2": [
+          0.0,
+          1000.0
+        ]
+      },
+      "genes_with_identical_bound_change_signature": [
+        "b3924"
+      ],
+      "bound_change_signature": "47df4886ac829732e61a8ef42877ac150e420bf5c8fea6e6b4fb5f2aee47315c"
+    },
+    {
+      "gene": "b4077",
+      "gene_name": "gltP",
+      "disabled_reaction_ids": [
+        "ASPt2pp_copy1",
+        "GLUt2rpp"
+      ],
+      "knockout_reaction_ids": [
+        "ASPt2pp_copy1",
+        "GLUt2rpp"
+      ],
+      "changed_bound_rows": 3,
+      "two_sided_encoding_rows": 4,
+      "stratum": "1-5",
+      "base_LP_varying_reactions": 2,
+      "base_LP_nearconstant_reactions": 0,
+      "all_affected_reactions_varying": true,
+      "base_point_max_KO_residual": 583.5073560800894,
+      "base_point_weak_feasible_at_1e7": false,
+      "minimum_KO_T_row_norm": 416.4926359228741,
+      "original_changed_bounds": {
+        "ASPt2pp_copy1": [
+          0.0,
+          1000.0
+        ],
+        "GLUt2rpp": [
+          -1000.0,
+          1000.0
+        ]
+      },
+      "genes_with_identical_bound_change_signature": [
+        "b4077"
+      ],
+      "bound_change_signature": "1d0df32bbe26de7ec11a8c640cbca4b26888f194d2e4f66fe27a1dfa3519e074"
+    },
+    {
+      "gene": "b4481",
+      "gene_name": "wecF",
+      "disabled_reaction_ids": [
+        "AADDGT"
+      ],
+      "knockout_reaction_ids": [
+        "AADDGT"
+      ],
+      "changed_bound_rows": 1,
+      "two_sided_encoding_rows": 2,
+      "stratum": "1-5",
+      "base_LP_varying_reactions": 1,
+      "base_LP_nearconstant_reactions": 0,
+      "all_affected_reactions_varying": true,
+      "base_point_max_KO_residual": 0.001960350231165886,
+      "base_point_weak_feasible_at_1e7": false,
+      "minimum_KO_T_row_norm": 0.0015905397114708189,
+      "original_changed_bounds": {
+        "AADDGT": [
+          0.0,
+          1000.0
+        ]
+      },
+      "genes_with_identical_bound_change_signature": [
+        "b4481"
+      ],
+      "bound_change_signature": "a5e8812049a13b18a2791c20d8b72c9ca5a15dc16e21ee4d8fa2d9be6b50b457"
+    },
+    {
+      "gene": "b0175",
+      "gene_name": "cdsA",
+      "disabled_reaction_ids": [
+        "DASYN120",
+        "DASYN140",
+        "DASYN141",
+        "DASYN160",
+        "DASYN161",
+        "DASYN180",
+        "DASYN181"
+      ],
+      "knockout_reaction_ids": [
+        "DASYN120",
+        "DASYN140",
+        "DASYN141",
+        "DASYN160",
+        "DASYN161",
+        "DASYN180",
+        "DASYN181"
+      ],
+      "changed_bound_rows": 7,
+      "two_sided_encoding_rows": 14,
+      "stratum": "6-20",
+      "base_LP_varying_reactions": 7,
+      "base_LP_nearconstant_reactions": 0,
+      "all_affected_reactions_varying": true,
+      "base_point_max_KO_residual": 1.0043887904669424,
+      "base_point_weak_feasible_at_1e7": false,
+      "minimum_KO_T_row_norm": 0.5034416388022849,
+      "original_changed_bounds": {
+        "DASYN120": [
+          0.0,
+          1000.0
+        ],
+        "DASYN140": [
+          0.0,
+          1000.0
+        ],
+        "DASYN141": [
+          0.0,
+          1000.0
+        ],
+        "DASYN160": [
+          0.0,
+          1000.0
+        ],
+        "DASYN161": [
+          0.0,
+          1000.0
+        ],
+        "DASYN180": [
+          0.0,
+          1000.0
+        ],
+        "DASYN181": [
+          0.0,
+          1000.0
+        ]
+      },
+      "genes_with_identical_bound_change_signature": [
+        "b0175"
+      ],
+      "bound_change_signature": "eef8143e9e3970ea86a6fb8a773d3c7a190c6c61867cca06b6897ab51be4c137"
+    },
+    {
+      "gene": "b0221",
+      "gene_name": "fadE",
+      "disabled_reaction_ids": [
+        "ACOAD1f",
+        "ACOAD2f",
+        "ACOAD3f",
+        "ACOAD4f",
+        "ACOAD5f",
+        "ACOAD6f",
+        "ACOAD7f",
+        "ACOAD8f"
+      ],
+      "knockout_reaction_ids": [
+        "ACOAD1f",
+        "ACOAD2f",
+        "ACOAD3f",
+        "ACOAD4f",
+        "ACOAD5f",
+        "ACOAD6f",
+        "ACOAD7f",
+        "ACOAD8f"
+      ],
+      "changed_bound_rows": 16,
+      "two_sided_encoding_rows": 16,
+      "stratum": "6-20",
+      "base_LP_varying_reactions": 8,
+      "base_LP_nearconstant_reactions": 0,
+      "all_affected_reactions_varying": true,
+      "base_point_max_KO_residual": 0.3517042176837272,
+      "base_point_weak_feasible_at_1e7": false,
+      "minimum_KO_T_row_norm": 0.06370109029682637,
+      "original_changed_bounds": {
+        "ACOAD1f": [
+          -1000.0,
+          1000.0
+        ],
+        "ACOAD2f": [
+          -1000.0,
+          1000.0
+        ],
+        "ACOAD3f": [
+          -1000.0,
+          1000.0
+        ],
+        "ACOAD4f": [
+          -1000.0,
+          1000.0
+        ],
+        "ACOAD5f": [
+          -1000.0,
+          1000.0
+        ],
+        "ACOAD6f": [
+          -1000.0,
+          1000.0
+        ],
+        "ACOAD7f": [
+          -1000.0,
+          1000.0
+        ],
+        "ACOAD8f": [
+          -1000.0,
+          1000.0
+        ]
+      },
+      "genes_with_identical_bound_change_signature": [
+        "b0221"
+      ],
+      "bound_change_signature": "191d03bff9f198ca201be2a54b13e85f4254da7dfcefd5ff52bc7c9814245a38"
+    },
+    {
+      "gene": "b0404",
+      "gene_name": "acpH",
+      "disabled_reaction_ids": [
+        "FA100ACPHi",
+        "FA120ACPHi",
+        "FA140ACPHi",
+        "FA141ACPHi",
+        "FA160ACPHi",
+        "FA161ACPHi",
+        "FA80ACPHi"
+      ],
+      "knockout_reaction_ids": [
+        "FA100ACPHi",
+        "FA120ACPHi",
+        "FA140ACPHi",
+        "FA141ACPHi",
+        "FA160ACPHi",
+        "FA161ACPHi",
+        "FA80ACPHi"
+      ],
+      "changed_bound_rows": 7,
+      "two_sided_encoding_rows": 14,
+      "stratum": "6-20",
+      "base_LP_varying_reactions": 7,
+      "base_LP_nearconstant_reactions": 0,
+      "all_affected_reactions_varying": true,
+      "base_point_max_KO_residual": 0.4421567062170387,
+      "base_point_weak_feasible_at_1e7": false,
+      "minimum_KO_T_row_norm": 0.44215669808042524,
+      "original_changed_bounds": {
+        "FA100ACPHi": [
+          0.0,
+          1000.0
+        ],
+        "FA120ACPHi": [
+          0.0,
+          1000.0
+        ],
+        "FA140ACPHi": [
+          0.0,
+          1000.0
+        ],
+        "FA141ACPHi": [
+          0.0,
+          1000.0
+        ],
+        "FA160ACPHi": [
+          0.0,
+          1000.0
+        ],
+        "FA161ACPHi": [
+          0.0,
+          1000.0
+        ],
+        "FA80ACPHi": [
+          0.0,
+          1000.0
+        ]
+      },
+      "genes_with_identical_bound_change_signature": [
+        "b0404"
+      ],
+      "bound_change_signature": "02ae5cfe216dc4d38f7d054232371be77353914c39cf9cebd59e3647a56db1ab"
+    },
+    {
+      "gene": "b0452",
+      "gene_name": "tesB",
+      "disabled_reaction_ids": [
+        "FACOAE100",
+        "FACOAE120",
+        "FACOAE140",
+        "FACOAE141",
+        "FACOAE160",
+        "FACOAE161",
+        "FACOAE180",
+        "FACOAE181",
+        "FACOAE60",
+        "FACOAE80"
+      ],
+      "knockout_reaction_ids": [
+        "FACOAE100",
+        "FACOAE120",
+        "FACOAE140",
+        "FACOAE141",
+        "FACOAE160",
+        "FACOAE161",
+        "FACOAE180",
+        "FACOAE181",
+        "FACOAE60",
+        "FACOAE80"
+      ],
+      "changed_bound_rows": 10,
+      "two_sided_encoding_rows": 20,
+      "stratum": "6-20",
+      "base_LP_varying_reactions": 10,
+      "base_LP_nearconstant_reactions": 0,
+      "all_affected_reactions_varying": true,
+      "base_point_max_KO_residual": 1.2299288636928427,
+      "base_point_weak_feasible_at_1e7": false,
+      "minimum_KO_T_row_norm": 0.11021761048645441,
+      "original_changed_bounds": {
+        "FACOAE100": [
+          0.0,
+          1000.0
+        ],
+        "FACOAE120": [
+          0.0,
+          1000.0
+        ],
+        "FACOAE140": [
+          0.0,
+          1000.0
+        ],
+        "FACOAE141": [
+          0.0,
+          1000.0
+        ],
+        "FACOAE160": [
+          0.0,
+          1000.0
+        ],
+        "FACOAE161": [
+          0.0,
+          1000.0
+        ],
+        "FACOAE180": [
+          0.0,
+          1000.0
+        ],
+        "FACOAE181": [
+          0.0,
+          1000.0
+        ],
+        "FACOAE60": [
+          0.0,
+          1000.0
+        ],
+        "FACOAE80": [
+          0.0,
+          1000.0
+        ]
+      },
+      "genes_with_identical_bound_change_signature": [
+        "b0452"
+      ],
+      "bound_change_signature": "cbe341b8d264414b9c45137704a40a81f7482b585301b6639d7ee5a8ec3b5202"
+    },
+    {
+      "gene": "b0474",
+      "gene_name": "adk",
+      "disabled_reaction_ids": [
+        "ADK1",
+        "ADK3",
+        "ADK4",
+        "ADNK1",
+        "DADK"
+      ],
+      "knockout_reaction_ids": [
+        "ADK1",
+        "ADK3",
+        "ADK4",
+        "ADNK1",
+        "DADK"
+      ],
+      "changed_bound_rows": 9,
+      "two_sided_encoding_rows": 10,
+      "stratum": "6-20",
+      "base_LP_varying_reactions": 5,
+      "base_LP_nearconstant_reactions": 0,
+      "all_affected_reactions_varying": true,
+      "base_point_max_KO_residual": 97.21960641272906,
+      "base_point_weak_feasible_at_1e7": false,
+      "minimum_KO_T_row_norm": 0.4427414605390381,
+      "original_changed_bounds": {
+        "ADK1": [
+          -1000.0,
+          1000.0
+        ],
+        "ADK3": [
+          -1000.0,
+          1000.0
+        ],
+        "ADK4": [
+          -1000.0,
+          1000.0
+        ],
+        "ADNK1": [
+          0.0,
+          1000.0
+        ],
+        "DADK": [
+          -1000.0,
+          1000.0
+        ]
+      },
+      "genes_with_identical_bound_change_signature": [
+        "b0474"
+      ],
+      "bound_change_signature": "405c102eef3f3798f0fe12a9f64797d23891e880954ff7bc24d789595eb15dae"
+    },
+    {
+      "gene": "b0968",
+      "gene_name": "yccX",
+      "disabled_reaction_ids": [
+        "APH120",
+        "APH140",
+        "APH141",
+        "APH160",
+        "APH161",
+        "APH180",
+        "APH181"
+      ],
+      "knockout_reaction_ids": [
+        "APH120",
+        "APH140",
+        "APH141",
+        "APH160",
+        "APH161",
+        "APH180",
+        "APH181"
+      ],
+      "changed_bound_rows": 7,
+      "two_sided_encoding_rows": 14,
+      "stratum": "6-20",
+      "base_LP_varying_reactions": 7,
+      "base_LP_nearconstant_reactions": 0,
+      "all_affected_reactions_varying": true,
+      "base_point_max_KO_residual": 0.4421567059092592,
+      "base_point_weak_feasible_at_1e7": false,
+      "minimum_KO_T_row_norm": 0.4421566986461942,
+      "original_changed_bounds": {
+        "APH120": [
+          0.0,
+          1000.0
+        ],
+        "APH140": [
+          0.0,
+          1000.0
+        ],
+        "APH141": [
+          0.0,
+          1000.0
+        ],
+        "APH160": [
+          0.0,
+          1000.0
+        ],
+        "APH161": [
+          0.0,
+          1000.0
+        ],
+        "APH180": [
+          0.0,
+          1000.0
+        ],
+        "APH181": [
+          0.0,
+          1000.0
+        ]
+      },
+      "genes_with_identical_bound_change_signature": [
+        "b0968"
+      ],
+      "bound_change_signature": "a87ca3d1c880e571fe535a1621bea2db38482224cccbe5853e889a6eb80183df"
+    },
+    {
+      "gene": "b1090",
+      "gene_name": "plsX",
+      "disabled_reaction_ids": [
+        "ACPPAT120",
+        "ACPPAT140",
+        "ACPPAT141",
+        "ACPPAT160",
+        "ACPPAT161",
+        "ACPPAT180",
+        "ACPPAT181"
+      ],
+      "knockout_reaction_ids": [
+        "ACPPAT120",
+        "ACPPAT140",
+        "ACPPAT141",
+        "ACPPAT160",
+        "ACPPAT161",
+        "ACPPAT180",
+        "ACPPAT181"
+      ],
+      "changed_bound_rows": 7,
+      "two_sided_encoding_rows": 14,
+      "stratum": "6-20",
+      "base_LP_varying_reactions": 7,
+      "base_LP_nearconstant_reactions": 0,
+      "all_affected_reactions_varying": true,
+      "base_point_max_KO_residual": 0.7473307254439017,
+      "base_point_weak_feasible_at_1e7": false,
+      "minimum_KO_T_row_norm": 0.5364237852712782,
+      "original_changed_bounds": {
+        "ACPPAT120": [
+          0.0,
+          1000.0
+        ],
+        "ACPPAT140": [
+          0.0,
+          1000.0
+        ],
+        "ACPPAT141": [
+          0.0,
+          1000.0
+        ],
+        "ACPPAT160": [
+          0.0,
+          1000.0
+        ],
+        "ACPPAT161": [
+          0.0,
+          1000.0
+        ],
+        "ACPPAT180": [
+          0.0,
+          1000.0
+        ],
+        "ACPPAT181": [
+          0.0,
+          1000.0
+        ]
+      },
+      "genes_with_identical_bound_change_signature": [
+        "b1090"
+      ],
+      "bound_change_signature": "4ad9fee02ec534f2fa485e7eaa34b9b67424d8aeb4860d68b305a6aa4aed66de"
+    },
+    {
+      "gene": "b1539",
+      "gene_name": "ydfG",
+      "disabled_reaction_ids": [
+        "ATHRDHr",
+        "DSERDHr",
+        "LSERDHr"
+      ],
+      "knockout_reaction_ids": [
+        "ATHRDHr",
+        "DSERDHr",
+        "LSERDHr"
+      ],
+      "changed_bound_rows": 6,
+      "two_sided_encoding_rows": 6,
+      "stratum": "6-20",
+      "base_LP_varying_reactions": 3,
+      "base_LP_nearconstant_reactions": 0,
+      "all_affected_reactions_varying": true,
+      "base_point_max_KO_residual": 1.450859198788915,
+      "base_point_weak_feasible_at_1e7": false,
+      "minimum_KO_T_row_norm": 0.2984610097515625,
+      "original_changed_bounds": {
+        "ATHRDHr": [
+          -1000.0,
+          1000.0
+        ],
+        "DSERDHr": [
+          -1000.0,
+          1000.0
+        ],
+        "LSERDHr": [
+          -1000.0,
+          1000.0
+        ]
+      },
+      "genes_with_identical_bound_change_signature": [
+        "b1539"
+      ],
+      "bound_change_signature": "b27f7fb3ce00daa35c206c3dd025c6784ace9cac5b51ead7db95fce82f8a721f"
+    },
+    {
+      "gene": "b1681",
+      "gene_name": "sufD",
+      "disabled_reaction_ids": [
+        "S2FE2SR",
+        "S2FE2SS",
+        "S2FE2SS2",
+        "S2FE2ST",
+        "S4FE4SR",
+        "S4FE4ST"
+      ],
+      "knockout_reaction_ids": [
+        "S2FE2SR",
+        "S2FE2SS",
+        "S2FE2SS2",
+        "S2FE2ST",
+        "S4FE4SR",
+        "S4FE4ST"
+      ],
+      "changed_bound_rows": 6,
+      "two_sided_encoding_rows": 12,
+      "stratum": "6-20",
+      "base_LP_varying_reactions": 6,
+      "base_LP_nearconstant_reactions": 0,
+      "all_affected_reactions_varying": true,
+      "base_point_max_KO_residual": 3.4442126342987823e-06,
+      "base_point_weak_feasible_at_1e7": false,
+      "minimum_KO_T_row_norm": 2.4962116559653683e-08,
+      "original_changed_bounds": {
+        "S2FE2SR": [
+          0.0,
+          1000.0
+        ],
+        "S2FE2SS": [
+          0.0,
+          1000.0
+        ],
+        "S2FE2SS2": [
+          0.0,
+          1000.0
+        ],
+        "S2FE2ST": [
+          0.0,
+          1000.0
+        ],
+        "S4FE4SR": [
+          0.0,
+          1000.0
+        ],
+        "S4FE4ST": [
+          0.0,
+          1000.0
+        ]
+      },
+      "genes_with_identical_bound_change_signature": [
+        "b1681",
+        "b1682",
+        "b1683"
+      ],
+      "bound_change_signature": "84934d9d0f7bea356430d92e537f9f82ac0fba67abb9fb1f780da992b0961c65"
+    },
+    {
+      "gene": "b1912",
+      "gene_name": "pgsA",
+      "disabled_reaction_ids": [
+        "PGSA120",
+        "PGSA140",
+        "PGSA141",
+        "PGSA160",
+        "PGSA161",
+        "PGSA180",
+        "PGSA181"
+      ],
+      "knockout_reaction_ids": [
+        "PGSA120",
+        "PGSA140",
+        "PGSA141",
+        "PGSA160",
+        "PGSA161",
+        "PGSA180",
+        "PGSA181"
+      ],
+      "changed_bound_rows": 7,
+      "two_sided_encoding_rows": 14,
+      "stratum": "6-20",
+      "base_LP_varying_reactions": 7,
+      "base_LP_nearconstant_reactions": 0,
+      "all_affected_reactions_varying": true,
+      "base_point_max_KO_residual": 0.4125600226744835,
+      "base_point_weak_feasible_at_1e7": false,
+      "minimum_KO_T_row_norm": 0.22250113087888818,
+      "original_changed_bounds": {
+        "PGSA120": [
+          0.0,
+          1000.0
+        ],
+        "PGSA140": [
+          0.0,
+          1000.0
+        ],
+        "PGSA141": [
+          0.0,
+          1000.0
+        ],
+        "PGSA160": [
+          0.0,
+          1000.0
+        ],
+        "PGSA161": [
+          0.0,
+          1000.0
+        ],
+        "PGSA180": [
+          0.0,
+          1000.0
+        ],
+        "PGSA181": [
+          0.0,
+          1000.0
+        ]
+      },
+      "genes_with_identical_bound_change_signature": [
+        "b1912"
+      ],
+      "bound_change_signature": "f3e438ddef702474d51083da454b5d38c8c0e191f7d85f2f12f87dc3f430925e"
+    },
+    {
+      "gene": "b2529",
+      "gene_name": "iscU",
+      "disabled_reaction_ids": [
+        "I2FE2SR",
+        "I2FE2SS",
+        "I2FE2SS2",
+        "I2FE2ST",
+        "I4FE4SR",
+        "I4FE4ST"
+      ],
+      "knockout_reaction_ids": [
+        "I2FE2SR",
+        "I2FE2SS",
+        "I2FE2SS2",
+        "I2FE2ST",
+        "I4FE4SR",
+        "I4FE4ST"
+      ],
+      "changed_bound_rows": 6,
+      "two_sided_encoding_rows": 12,
+      "stratum": "6-20",
+      "base_LP_varying_reactions": 6,
+      "base_LP_nearconstant_reactions": 0,
+      "all_affected_reactions_varying": true,
+      "base_point_max_KO_residual": 3.444219087807473e-06,
+      "base_point_weak_feasible_at_1e7": false,
+      "minimum_KO_T_row_norm": 2.4962116572679088e-08,
+      "original_changed_bounds": {
+        "I2FE2SR": [
+          0.0,
+          1000.0
+        ],
+        "I2FE2SS": [
+          0.0,
+          1000.0
+        ],
+        "I2FE2SS2": [
+          0.0,
+          1000.0
+        ],
+        "I2FE2ST": [
+          0.0,
+          1000.0
+        ],
+        "I4FE4SR": [
+          0.0,
+          1000.0
+        ],
+        "I4FE4ST": [
+          0.0,
+          1000.0
+        ]
+      },
+      "genes_with_identical_bound_change_signature": [
+        "b2529"
+      ],
+      "bound_change_signature": "fe2303eaeafd1e45ed9488ab4406676420cb94d23a629fb934be29fe2247aae6"
+    },
+    {
+      "gene": "b2530",
+      "gene_name": "iscS",
+      "disabled_reaction_ids": [
+        "I2FE2SR",
+        "I2FE2SS",
+        "I2FE2SS2",
+        "ICYSDS",
+        "MOADSUx",
+        "THZPSN3"
+      ],
+      "knockout_reaction_ids": [
+        "I2FE2SR",
+        "I2FE2SS",
+        "I2FE2SS2",
+        "ICYSDS",
+        "MOADSUx",
+        "THZPSN3"
+      ],
+      "changed_bound_rows": 6,
+      "two_sided_encoding_rows": 12,
+      "stratum": "6-20",
+      "base_LP_varying_reactions": 6,
+      "base_LP_nearconstant_reactions": 0,
+      "all_affected_reactions_varying": true,
+      "base_point_max_KO_residual": 3.105546681953792e-05,
+      "base_point_weak_feasible_at_1e7": false,
+      "minimum_KO_T_row_norm": 2.4962116572679088e-08,
+      "original_changed_bounds": {
+        "I2FE2SR": [
+          0.0,
+          1000.0
+        ],
+        "I2FE2SS": [
+          0.0,
+          1000.0
+        ],
+        "I2FE2SS2": [
+          0.0,
+          1000.0
+        ],
+        "ICYSDS": [
+          0.0,
+          1000.0
+        ],
+        "MOADSUx": [
+          0.0,
+          1000.0
+        ],
+        "THZPSN3": [
+          0.0,
+          1000.0
+        ]
+      },
+      "genes_with_identical_bound_change_signature": [
+        "b2530"
+      ],
+      "bound_change_signature": "9681fe16aee9a9711fbad438e3908c539c389802167f0bb84c08dd04e54dfafc"
+    },
+    {
+      "gene": "b2585",
+      "gene_name": "pssA",
+      "disabled_reaction_ids": [
+        "PSSA120",
+        "PSSA140",
+        "PSSA141",
+        "PSSA160",
+        "PSSA161",
+        "PSSA180",
+        "PSSA181"
+      ],
+      "knockout_reaction_ids": [
+        "PSSA120",
+        "PSSA140",
+        "PSSA141",
+        "PSSA160",
+        "PSSA161",
+        "PSSA180",
+        "PSSA181"
+      ],
+      "changed_bound_rows": 7,
+      "two_sided_encoding_rows": 14,
+      "stratum": "6-20",
+      "base_LP_varying_reactions": 7,
+      "base_LP_nearconstant_reactions": 0,
+      "all_affected_reactions_varying": true,
+      "base_point_max_KO_residual": 0.14982973279713357,
+      "base_point_weak_feasible_at_1e7": false,
+      "minimum_KO_T_row_norm": 0.10374136277852085,
+      "original_changed_bounds": {
+        "PSSA120": [
+          0.0,
+          1000.0
+        ],
+        "PSSA140": [
+          0.0,
+          1000.0
+        ],
+        "PSSA141": [
+          0.0,
+          1000.0
+        ],
+        "PSSA160": [
+          0.0,
+          1000.0
+        ],
+        "PSSA161": [
+          0.0,
+          1000.0
+        ],
+        "PSSA180": [
+          0.0,
+          1000.0
+        ],
+        "PSSA181": [
+          0.0,
+          1000.0
+        ]
+      },
+      "genes_with_identical_bound_change_signature": [
+        "b2585"
+      ],
+      "bound_change_signature": "8b4cf21a7912cbec4b7cf0b563d8428d43492f728a09f744929a4741e9a43713"
+    },
+    {
+      "gene": "b3035",
+      "gene_name": "tolC",
+      "disabled_reaction_ids": [
+        "CMtpp",
+        "DOXRBCNtpp",
+        "FUSAtpp",
+        "FEENTERtex",
+        "INDOLEt2pp",
+        "MINCYCtpp",
+        "NOVBCNtpp",
+        "TTRCYCtpp",
+        "RFAMPtpp"
+      ],
+      "knockout_reaction_ids": [
+        "CMtpp",
+        "DOXRBCNtpp",
+        "FUSAtpp",
+        "FEENTERtex",
+        "INDOLEt2pp",
+        "MINCYCtpp",
+        "NOVBCNtpp",
+        "TTRCYCtpp",
+        "RFAMPtpp"
+      ],
+      "changed_bound_rows": 9,
+      "two_sided_encoding_rows": 18,
+      "stratum": "6-20",
+      "base_LP_varying_reactions": 9,
+      "base_LP_nearconstant_reactions": 0,
+      "all_affected_reactions_varying": true,
+      "base_point_max_KO_residual": 500.0000000000162,
+      "base_point_weak_feasible_at_1e7": false,
+      "minimum_KO_T_row_norm": 0.3993555178459351,
+      "original_changed_bounds": {
+        "CMtpp": [
+          0.0,
+          1000.0
+        ],
+        "DOXRBCNtpp": [
+          0.0,
+          1000.0
+        ],
+        "FUSAtpp": [
+          0.0,
+          1000.0
+        ],
+        "FEENTERtex": [
+          0.0,
+          1000.0
+        ],
+        "INDOLEt2pp": [
+          0.0,
+          1000.0
+        ],
+        "MINCYCtpp": [
+          0.0,
+          1000.0
+        ],
+        "NOVBCNtpp": [
+          0.0,
+          1000.0
+        ],
+        "TTRCYCtpp": [
+          0.0,
+          1000.0
+        ],
+        "RFAMPtpp": [
+          0.0,
+          1000.0
+        ]
+      },
+      "genes_with_identical_bound_change_signature": [
+        "b3035"
+      ],
+      "bound_change_signature": "0a697f6dfdf184986179835e22a87863e27fe1780c7e3f52eff68d182d309157"
+    },
+    {
+      "gene": "b3059",
+      "gene_name": "plsY",
+      "disabled_reaction_ids": [
+        "APG3PAT120",
+        "APG3PAT140",
+        "APG3PAT141",
+        "APG3PAT160",
+        "APG3PAT161",
+        "APG3PAT180",
+        "APG3PAT181"
+      ],
+      "knockout_reaction_ids": [
+        "APG3PAT120",
+        "APG3PAT140",
+        "APG3PAT141",
+        "APG3PAT160",
+        "APG3PAT161",
+        "APG3PAT180",
+        "APG3PAT181"
+      ],
+      "changed_bound_rows": 7,
+      "two_sided_encoding_rows": 14,
+      "stratum": "6-20",
+      "base_LP_varying_reactions": 7,
+      "base_LP_nearconstant_reactions": 0,
+      "all_affected_reactions_varying": true,
+      "base_point_max_KO_residual": 0.30517402062583754,
+      "base_point_weak_feasible_at_1e7": false,
+      "minimum_KO_T_row_norm": 0.3045513198675698,
+      "original_changed_bounds": {
+        "APG3PAT120": [
+          0.0,
+          1000.0
+        ],
+        "APG3PAT140": [
+          0.0,
+          1000.0
+        ],
+        "APG3PAT141": [
+          0.0,
+          1000.0
+        ],
+        "APG3PAT160": [
+          0.0,
+          1000.0
+        ],
+        "APG3PAT161": [
+          0.0,
+          1000.0
+        ],
+        "APG3PAT180": [
+          0.0,
+          1000.0
+        ],
+        "APG3PAT181": [
+          0.0,
+          1000.0
+        ]
+      },
+      "genes_with_identical_bound_change_signature": [
+        "b3059"
+      ],
+      "bound_change_signature": "8f19b2e8a400e6dd33b8b62ec496d5fecdf33df9a6fafb725e413e75ecc4ea0e"
+    },
+    {
+      "gene": "b3417",
+      "gene_name": "malP",
+      "disabled_reaction_ids": [
+        "MLTP1",
+        "MLTP2",
+        "MLTP3"
+      ],
+      "knockout_reaction_ids": [
+        "MLTP1",
+        "MLTP2",
+        "MLTP3"
+      ],
+      "changed_bound_rows": 6,
+      "two_sided_encoding_rows": 6,
+      "stratum": "6-20",
+      "base_LP_varying_reactions": 3,
+      "base_LP_nearconstant_reactions": 0,
+      "all_affected_reactions_varying": true,
+      "base_point_max_KO_residual": 0.47617012985653195,
+      "base_point_weak_feasible_at_1e7": false,
+      "minimum_KO_T_row_norm": 0.47617012379686025,
+      "original_changed_bounds": {
+        "MLTP1": [
+          -1000.0,
+          1000.0
+        ],
+        "MLTP2": [
+          -1000.0,
+          1000.0
+        ],
+        "MLTP3": [
+          -1000.0,
+          1000.0
+        ]
+      },
+      "genes_with_identical_bound_change_signature": [
+        "b3417"
+      ],
+      "bound_change_signature": "68be25fed26f8f6753864d904f0e59e36d45752ab96a57c386737835568707ce"
+    },
+    {
+      "gene": "b3918",
+      "gene_name": "cdh",
+      "disabled_reaction_ids": [
+        "CDAPPA120",
+        "CDAPPA140",
+        "CDAPPA141",
+        "CDAPPA160",
+        "CDAPPA161",
+        "CDAPPA180",
+        "CDAPPA181"
+      ],
+      "knockout_reaction_ids": [
+        "CDAPPA120",
+        "CDAPPA140",
+        "CDAPPA141",
+        "CDAPPA160",
+        "CDAPPA161",
+        "CDAPPA180",
+        "CDAPPA181"
+      ],
+      "changed_bound_rows": 7,
+      "two_sided_encoding_rows": 14,
+      "stratum": "6-20",
+      "base_LP_varying_reactions": 7,
+      "base_LP_nearconstant_reactions": 0,
+      "all_affected_reactions_varying": true,
+      "base_point_max_KO_residual": 0.4420373802704957,
+      "base_point_weak_feasible_at_1e7": false,
+      "minimum_KO_T_row_norm": 0.44203737230831186,
+      "original_changed_bounds": {
+        "CDAPPA120": [
+          0.0,
+          1000.0
+        ],
+        "CDAPPA140": [
+          0.0,
+          1000.0
+        ],
+        "CDAPPA141": [
+          0.0,
+          1000.0
+        ],
+        "CDAPPA160": [
+          0.0,
+          1000.0
+        ],
+        "CDAPPA161": [
+          0.0,
+          1000.0
+        ],
+        "CDAPPA180": [
+          0.0,
+          1000.0
+        ],
+        "CDAPPA181": [
+          0.0,
+          1000.0
+        ]
+      },
+      "genes_with_identical_bound_change_signature": [
+        "b3918"
+      ],
+      "bound_change_signature": "3d34e9c649178dfad70641ca6ac79c8dcdbae547bc8648ab6a351f05588523ec"
+    },
+    {
+      "gene": "b4041",
+      "gene_name": "plsB",
+      "disabled_reaction_ids": [
+        "G3PAT120",
+        "G3PAT140",
+        "G3PAT141",
+        "G3PAT160",
+        "G3PAT161",
+        "G3PAT180",
+        "G3PAT181"
+      ],
+      "knockout_reaction_ids": [
+        "G3PAT120",
+        "G3PAT140",
+        "G3PAT141",
+        "G3PAT160",
+        "G3PAT161",
+        "G3PAT180",
+        "G3PAT181"
+      ],
+      "changed_bound_rows": 7,
+      "two_sided_encoding_rows": 14,
+      "stratum": "6-20",
+      "base_LP_varying_reactions": 7,
+      "base_LP_nearconstant_reactions": 0,
+      "all_affected_reactions_varying": true,
+      "base_point_max_KO_residual": 0.3051740203357977,
+      "base_point_weak_feasible_at_1e7": false,
+      "minimum_KO_T_row_norm": 0.3045513199711362,
+      "original_changed_bounds": {
+        "G3PAT120": [
+          0.0,
+          1000.0
+        ],
+        "G3PAT140": [
+          0.0,
+          1000.0
+        ],
+        "G3PAT141": [
+          0.0,
+          1000.0
+        ],
+        "G3PAT160": [
+          0.0,
+          1000.0
+        ],
+        "G3PAT161": [
+          0.0,
+          1000.0
+        ],
+        "G3PAT180": [
+          0.0,
+          1000.0
+        ],
+        "G3PAT181": [
+          0.0,
+          1000.0
+        ]
+      },
+      "genes_with_identical_bound_change_signature": [
+        "b4041"
+      ],
+      "bound_change_signature": "5b11e0cb7e938559fc9005f1254dd7f0c5389c12dc04ab764132d282835630dc"
+    },
+    {
+      "gene": "b4042",
+      "gene_name": "dgkA",
+      "disabled_reaction_ids": [
+        "DAGK120",
+        "DAGK140",
+        "DAGK141",
+        "DAGK160",
+        "DAGK161",
+        "DAGK180",
+        "DAGK181"
+      ],
+      "knockout_reaction_ids": [
+        "DAGK120",
+        "DAGK140",
+        "DAGK141",
+        "DAGK160",
+        "DAGK161",
+        "DAGK180",
+        "DAGK181"
+      ],
+      "changed_bound_rows": 7,
+      "two_sided_encoding_rows": 14,
+      "stratum": "6-20",
+      "base_LP_varying_reactions": 7,
+      "base_LP_nearconstant_reactions": 0,
+      "all_affected_reactions_varying": true,
+      "base_point_max_KO_residual": 0.6769296398819942,
+      "base_point_weak_feasible_at_1e7": false,
+      "minimum_KO_T_row_norm": 0.49998157223612133,
+      "original_changed_bounds": {
+        "DAGK120": [
+          0.0,
+          1000.0
+        ],
+        "DAGK140": [
+          0.0,
+          1000.0
+        ],
+        "DAGK141": [
+          0.0,
+          1000.0
+        ],
+        "DAGK160": [
+          0.0,
+          1000.0
+        ],
+        "DAGK161": [
+          0.0,
+          1000.0
+        ],
+        "DAGK180": [
+          0.0,
+          1000.0
+        ],
+        "DAGK181": [
+          0.0,
+          1000.0
+        ]
+      },
+      "genes_with_identical_bound_change_signature": [
+        "b4042"
+      ],
+      "bound_change_signature": "6fe84771e5e85415d213cee0573c533dc4688ae4600afc7222f840e6bb4d4833"
+    },
+    {
+      "gene": "b4160",
+      "gene_name": "psd",
+      "disabled_reaction_ids": [
+        "PSD120",
+        "PSD140",
+        "PSD141",
+        "PSD160",
+        "PSD161",
+        "PSD180",
+        "PSD181"
+      ],
+      "knockout_reaction_ids": [
+        "PSD120",
+        "PSD140",
+        "PSD141",
+        "PSD160",
+        "PSD161",
+        "PSD180",
+        "PSD181"
+      ],
+      "changed_bound_rows": 7,
+      "two_sided_encoding_rows": 14,
+      "stratum": "6-20",
+      "base_LP_varying_reactions": 7,
+      "base_LP_nearconstant_reactions": 0,
+      "all_affected_reactions_varying": true,
+      "base_point_max_KO_residual": 0.14982973279674466,
+      "base_point_weak_feasible_at_1e7": false,
+      "minimum_KO_T_row_norm": 0.10374136277852082,
+      "original_changed_bounds": {
+        "PSD120": [
+          0.0,
+          1000.0
+        ],
+        "PSD140": [
+          0.0,
+          1000.0
+        ],
+        "PSD141": [
+          0.0,
+          1000.0
+        ],
+        "PSD160": [
+          0.0,
+          1000.0
+        ],
+        "PSD161": [
+          0.0,
+          1000.0
+        ],
+        "PSD180": [
+          0.0,
+          1000.0
+        ],
+        "PSD181": [
+          0.0,
+          1000.0
+        ]
+      },
+      "genes_with_identical_bound_change_signature": [
+        "b4160"
+      ],
+      "bound_change_signature": "f3aa2f9897ce29cf696b648573aff283cec4305eb85d9624d2dcd2eb9d8edc99"
+    },
+    {
+      "gene": "b0494",
+      "gene_name": "tesA",
+      "disabled_reaction_ids": [
+        "LPLIPAL1A120pp",
+        "LPLIPAL1A140pp",
+        "LPLIPAL1A141pp",
+        "LPLIPAL1A160pp",
+        "LPLIPAL1A161pp",
+        "LPLIPAL1A180pp",
+        "LPLIPAL1A181pp",
+        "LPLIPAL1E120pp",
+        "LPLIPAL1E140pp",
+        "LPLIPAL1E141pp",
+        "LPLIPAL1E160pp",
+        "LPLIPAL1E161pp",
+        "LPLIPAL1E180pp",
+        "LPLIPAL1E181pp",
+        "LPLIPAL1G120pp",
+        "LPLIPAL1G140pp",
+        "LPLIPAL1G141pp",
+        "LPLIPAL1G160pp",
+        "LPLIPAL1G161pp",
+        "LPLIPAL1G180pp",
+        "LPLIPAL1G181pp"
+      ],
+      "knockout_reaction_ids": [
+        "LPLIPAL1A120pp",
+        "LPLIPAL1A140pp",
+        "LPLIPAL1A141pp",
+        "LPLIPAL1A160pp",
+        "LPLIPAL1A161pp",
+        "LPLIPAL1A180pp",
+        "LPLIPAL1A181pp",
+        "LPLIPAL1E120pp",
+        "LPLIPAL1E140pp",
+        "LPLIPAL1E141pp",
+        "LPLIPAL1E160pp",
+        "LPLIPAL1E161pp",
+        "LPLIPAL1E180pp",
+        "LPLIPAL1E181pp",
+        "LPLIPAL1G120pp",
+        "LPLIPAL1G140pp",
+        "LPLIPAL1G141pp",
+        "LPLIPAL1G160pp",
+        "LPLIPAL1G161pp",
+        "LPLIPAL1G180pp",
+        "LPLIPAL1G181pp"
+      ],
+      "changed_bound_rows": 21,
+      "two_sided_encoding_rows": 42,
+      "stratum": "21-50",
+      "base_LP_varying_reactions": 21,
+      "base_LP_nearconstant_reactions": 0,
+      "all_affected_reactions_varying": true,
+      "base_point_max_KO_residual": 0.11322361982729953,
+      "base_point_weak_feasible_at_1e7": false,
+      "minimum_KO_T_row_norm": 0.07057242900268779,
+      "original_changed_bounds": {
+        "LPLIPAL1A120pp": [
+          0.0,
+          1000.0
+        ],
+        "LPLIPAL1A140pp": [
+          0.0,
+          1000.0
+        ],
+        "LPLIPAL1A141pp": [
+          0.0,
+          1000.0
+        ],
+        "LPLIPAL1A160pp": [
+          0.0,
+          1000.0
+        ],
+        "LPLIPAL1A161pp": [
+          0.0,
+          1000.0
+        ],
+        "LPLIPAL1A180pp": [
+          0.0,
+          1000.0
+        ],
+        "LPLIPAL1A181pp": [
+          0.0,
+          1000.0
+        ],
+        "LPLIPAL1E120pp": [
+          0.0,
+          1000.0
+        ],
+        "LPLIPAL1E140pp": [
+          0.0,
+          1000.0
+        ],
+        "LPLIPAL1E141pp": [
+          0.0,
+          1000.0
+        ],
+        "LPLIPAL1E160pp": [
+          0.0,
+          1000.0
+        ],
+        "LPLIPAL1E161pp": [
+          0.0,
+          1000.0
+        ],
+        "LPLIPAL1E180pp": [
+          0.0,
+          1000.0
+        ],
+        "LPLIPAL1E181pp": [
+          0.0,
+          1000.0
+        ],
+        "LPLIPAL1G120pp": [
+          0.0,
+          1000.0
+        ],
+        "LPLIPAL1G140pp": [
+          0.0,
+          1000.0
+        ],
+        "LPLIPAL1G141pp": [
+          0.0,
+          1000.0
+        ],
+        "LPLIPAL1G160pp": [
+          0.0,
+          1000.0
+        ],
+        "LPLIPAL1G161pp": [
+          0.0,
+          1000.0
+        ],
+        "LPLIPAL1G180pp": [
+          0.0,
+          1000.0
+        ],
+        "LPLIPAL1G181pp": [
+          0.0,
+          1000.0
+        ]
+      },
+      "genes_with_identical_bound_change_signature": [
+        "b0494"
+      ],
+      "bound_change_signature": "b82e7322d248a1013a1fe35f9d52158e209b4f2dc2a2e99ea3aeee4f52754bba"
+    },
+    {
+      "gene": "b0914",
+      "gene_name": "msbA",
+      "disabled_reaction_ids": [
+        "COLIPAabcpp",
+        "K2L4Aabcpp",
+        "LIPACabcpp",
+        "LIPAabcpp",
+        "PA120abcpp",
+        "PA140abcpp",
+        "PA141abcpp",
+        "PA160abcpp",
+        "PA161abcpp",
+        "PA180abcpp",
+        "PA181abcpp",
+        "PE120abcpp",
+        "PE140abcpp",
+        "PE141abcpp",
+        "PG120abcpp",
+        "PG140abcpp",
+        "PG141abcpp",
+        "PG160abcpp",
+        "PG161abcpp",
+        "PE160abcpp",
+        "PE161abcpp",
+        "PG180abcpp",
+        "PG181abcpp",
+        "PE180abcpp",
+        "PE181abcpp",
+        "PGP120abcpp",
+        "PGP140abcpp",
+        "PGP141abcpp",
+        "PGP160abcpp",
+        "PGP161abcpp",
+        "PGP180abcpp",
+        "PGP181abcpp"
+      ],
+      "knockout_reaction_ids": [
+        "COLIPAabcpp",
+        "K2L4Aabcpp",
+        "LIPACabcpp",
+        "LIPAabcpp",
+        "PA120abcpp",
+        "PA140abcpp",
+        "PA141abcpp",
+        "PA160abcpp",
+        "PA161abcpp",
+        "PA180abcpp",
+        "PA181abcpp",
+        "PE120abcpp",
+        "PE140abcpp",
+        "PE141abcpp",
+        "PG120abcpp",
+        "PG140abcpp",
+        "PG141abcpp",
+        "PG160abcpp",
+        "PG161abcpp",
+        "PE160abcpp",
+        "PE161abcpp",
+        "PG180abcpp",
+        "PG181abcpp",
+        "PE180abcpp",
+        "PE181abcpp",
+        "PGP120abcpp",
+        "PGP140abcpp",
+        "PGP141abcpp",
+        "PGP160abcpp",
+        "PGP161abcpp",
+        "PGP180abcpp",
+        "PGP181abcpp"
+      ],
+      "changed_bound_rows": 32,
+      "two_sided_encoding_rows": 64,
+      "stratum": "21-50",
+      "base_LP_varying_reactions": 32,
+      "base_LP_nearconstant_reactions": 0,
+      "all_affected_reactions_varying": true,
+      "base_point_max_KO_residual": 0.3606501178908309,
+      "base_point_weak_feasible_at_1e7": false,
+      "minimum_KO_T_row_norm": 0.0009345265004339851,
+      "original_changed_bounds": {
+        "COLIPAabcpp": [
+          0.0,
+          1000.0
+        ],
+        "K2L4Aabcpp": [
+          0.0,
+          1000.0
+        ],
+        "LIPACabcpp": [
+          0.0,
+          1000.0
+        ],
+        "LIPAabcpp": [
+          0.0,
+          1000.0
+        ],
+        "PA120abcpp": [
+          0.0,
+          1000.0
+        ],
+        "PA140abcpp": [
+          0.0,
+          1000.0
+        ],
+        "PA141abcpp": [
+          0.0,
+          1000.0
+        ],
+        "PA160abcpp": [
+          0.0,
+          1000.0
+        ],
+        "PA161abcpp": [
+          0.0,
+          1000.0
+        ],
+        "PA180abcpp": [
+          0.0,
+          1000.0
+        ],
+        "PA181abcpp": [
+          0.0,
+          1000.0
+        ],
+        "PE120abcpp": [
+          0.0,
+          1000.0
+        ],
+        "PE140abcpp": [
+          0.0,
+          1000.0
+        ],
+        "PE141abcpp": [
+          0.0,
+          1000.0
+        ],
+        "PG120abcpp": [
+          0.0,
+          1000.0
+        ],
+        "PG140abcpp": [
+          0.0,
+          1000.0
+        ],
+        "PG141abcpp": [
+          0.0,
+          1000.0
+        ],
+        "PG160abcpp": [
+          0.0,
+          1000.0
+        ],
+        "PG161abcpp": [
+          0.0,
+          1000.0
+        ],
+        "PE160abcpp": [
+          0.0,
+          1000.0
+        ],
+        "PE161abcpp": [
+          0.0,
+          1000.0
+        ],
+        "PG180abcpp": [
+          0.0,
+          1000.0
+        ],
+        "PG181abcpp": [
+          0.0,
+          1000.0
+        ],
+        "PE180abcpp": [
+          0.0,
+          1000.0
+        ],
+        "PE181abcpp": [
+          0.0,
+          1000.0
+        ],
+        "PGP120abcpp": [
+          0.0,
+          1000.0
+        ],
+        "PGP140abcpp": [
+          0.0,
+          1000.0
+        ],
+        "PGP141abcpp": [
+          0.0,
+          1000.0
+        ],
+        "PGP160abcpp": [
+          0.0,
+          1000.0
+        ],
+        "PGP161abcpp": [
+          0.0,
+          1000.0
+        ],
+        "PGP180abcpp": [
+          0.0,
+          1000.0
+        ],
+        "PGP181abcpp": [
+          0.0,
+          1000.0
+        ]
+      },
+      "genes_with_identical_bound_change_signature": [
+        "b0914"
+      ],
+      "bound_change_signature": "c8ba6f2ae8182cc5912214b597238e750bb480b157bf5569648c54775e0222d0"
+    },
+    {
+      "gene": "b1093",
+      "gene_name": "fabG",
+      "disabled_reaction_ids": [
+        "3OAR100",
+        "3OAR120",
+        "3OAR121",
+        "3OAR140",
+        "3OAR141",
+        "3OAR160",
+        "3OAR161",
+        "3OAR180",
+        "3OAR181",
+        "3OAR40",
+        "3OAR60",
+        "3OAR80",
+        "OGMEACPR",
+        "OPMEACPR"
+      ],
+      "knockout_reaction_ids": [
+        "3OAR100",
+        "3OAR120",
+        "3OAR121",
+        "3OAR140",
+        "3OAR141",
+        "3OAR160",
+        "3OAR161",
+        "3OAR180",
+        "3OAR181",
+        "3OAR40",
+        "3OAR60",
+        "3OAR80",
+        "OGMEACPR",
+        "OPMEACPR"
+      ],
+      "changed_bound_rows": 22,
+      "two_sided_encoding_rows": 28,
+      "stratum": "21-50",
+      "base_LP_varying_reactions": 14,
+      "base_LP_nearconstant_reactions": 0,
+      "all_affected_reactions_varying": true,
+      "base_point_max_KO_residual": 0.25359241951930456,
+      "base_point_weak_feasible_at_1e7": false,
+      "minimum_KO_T_row_norm": 1.3688825207367532e-08,
+      "original_changed_bounds": {
+        "3OAR100": [
+          -1000.0,
+          1000.0
+        ],
+        "3OAR120": [
+          -1000.0,
+          1000.0
+        ],
+        "3OAR121": [
+          0.0,
+          1000.0
+        ],
+        "3OAR140": [
+          -1000.0,
+          1000.0
+        ],
+        "3OAR141": [
+          0.0,
+          1000.0
+        ],
+        "3OAR160": [
+          -1000.0,
+          1000.0
+        ],
+        "3OAR161": [
+          0.0,
+          1000.0
+        ],
+        "3OAR180": [
+          -1000.0,
+          1000.0
+        ],
+        "3OAR181": [
+          0.0,
+          1000.0
+        ],
+        "3OAR40": [
+          -1000.0,
+          1000.0
+        ],
+        "3OAR60": [
+          -1000.0,
+          1000.0
+        ],
+        "3OAR80": [
+          -1000.0,
+          1000.0
+        ],
+        "OGMEACPR": [
+          0.0,
+          1000.0
+        ],
+        "OPMEACPR": [
+          0.0,
+          1000.0
+        ]
+      },
+      "genes_with_identical_bound_change_signature": [
+        "b1093"
+      ],
+      "bound_change_signature": "c5e392d6eda9e07c8122179b8d9563fa54f363f4c773df89f3ac11f695a4d076"
+    },
+    {
+      "gene": "b1094",
+      "gene_name": "acpP",
+      "disabled_reaction_ids": [
+        "AACPS1",
+        "AACPS2",
+        "AACPS3",
+        "AACPS4",
+        "AACPS5",
+        "AACPS6",
+        "AACPS7",
+        "AACPS8",
+        "AACPS9",
+        "ACOATA",
+        "ACPPAT120",
+        "ACPPAT140",
+        "ACPPAT141",
+        "ACPPAT160",
+        "ACPPAT161",
+        "ACPPAT180",
+        "ACPPAT181",
+        "G3PAT120",
+        "G3PAT140",
+        "G3PAT141",
+        "G3PAT160",
+        "G3PAT161",
+        "G3PAT180",
+        "G3PAT181",
+        "MCOATA",
+        "UAGAAT"
+      ],
+      "knockout_reaction_ids": [
+        "AACPS1",
+        "AACPS2",
+        "AACPS3",
+        "AACPS4",
+        "AACPS5",
+        "AACPS6",
+        "AACPS7",
+        "AACPS8",
+        "AACPS9",
+        "ACOATA",
+        "ACPPAT120",
+        "ACPPAT140",
+        "ACPPAT141",
+        "ACPPAT160",
+        "ACPPAT161",
+        "ACPPAT180",
+        "ACPPAT181",
+        "G3PAT120",
+        "G3PAT140",
+        "G3PAT141",
+        "G3PAT160",
+        "G3PAT161",
+        "G3PAT180",
+        "G3PAT181",
+        "MCOATA",
+        "UAGAAT"
+      ],
+      "changed_bound_rows": 29,
+      "two_sided_encoding_rows": 52,
+      "stratum": "21-50",
+      "base_LP_varying_reactions": 26,
+      "base_LP_nearconstant_reactions": 0,
+      "all_affected_reactions_varying": true,
+      "base_point_max_KO_residual": 2.5515852196993403,
+      "base_point_weak_feasible_at_1e7": false,
+      "minimum_KO_T_row_norm": 0.0049659109587039466,
+      "original_changed_bounds": {
+        "AACPS1": [
+          0.0,
+          1000.0
+        ],
+        "AACPS2": [
+          0.0,
+          1000.0
+        ],
+        "AACPS3": [
+          0.0,
+          1000.0
+        ],
+        "AACPS4": [
+          0.0,
+          1000.0
+        ],
+        "AACPS5": [
+          0.0,
+          1000.0
+        ],
+        "AACPS6": [
+          0.0,
+          1000.0
+        ],
+        "AACPS7": [
+          0.0,
+          1000.0
+        ],
+        "AACPS8": [
+          0.0,
+          1000.0
+        ],
+        "AACPS9": [
+          0.0,
+          1000.0
+        ],
+        "ACOATA": [
+          -1000.0,
+          1000.0
+        ],
+        "ACPPAT120": [
+          0.0,
+          1000.0
+        ],
+        "ACPPAT140": [
+          0.0,
+          1000.0
+        ],
+        "ACPPAT141": [
+          0.0,
+          1000.0
+        ],
+        "ACPPAT160": [
+          0.0,
+          1000.0
+        ],
+        "ACPPAT161": [
+          0.0,
+          1000.0
+        ],
+        "ACPPAT180": [
+          0.0,
+          1000.0
+        ],
+        "ACPPAT181": [
+          0.0,
+          1000.0
+        ],
+        "G3PAT120": [
+          0.0,
+          1000.0
+        ],
+        "G3PAT140": [
+          0.0,
+          1000.0
+        ],
+        "G3PAT141": [
+          0.0,
+          1000.0
+        ],
+        "G3PAT160": [
+          0.0,
+          1000.0
+        ],
+        "G3PAT161": [
+          0.0,
+          1000.0
+        ],
+        "G3PAT180": [
+          0.0,
+          1000.0
+        ],
+        "G3PAT181": [
+          0.0,
+          1000.0
+        ],
+        "MCOATA": [
+          -1000.0,
+          1000.0
+        ],
+        "UAGAAT": [
+          -1000.0,
+          1000.0
+        ]
+      },
+      "genes_with_identical_bound_change_signature": [
+        "b1094"
+      ],
+      "bound_change_signature": "8a66a3bc7c30c26a389e20d60fd4178448bb1c09894cbaccd10f0989beac7df1"
+    },
+    {
+      "gene": "b1288",
+      "gene_name": "fabI",
+      "disabled_reaction_ids": [
+        "EAR100x",
+        "EAR100y",
+        "EAR120x",
+        "EAR120y",
+        "EAR121x",
+        "EAR121y",
+        "EAR140x",
+        "EAR140y",
+        "EAR141x",
+        "EAR141y",
+        "EAR160x",
+        "EAR160y",
+        "EAR161x",
+        "EAR161y",
+        "EAR180x",
+        "EAR180y",
+        "EAR181x",
+        "EAR181y",
+        "EAR40x",
+        "EAR40y",
+        "EAR60x",
+        "EAR60y",
+        "EGMEACPR",
+        "EAR80x",
+        "EAR80y",
+        "EPMEACPR"
+      ],
+      "knockout_reaction_ids": [
+        "EAR100x",
+        "EAR100y",
+        "EAR120x",
+        "EAR120y",
+        "EAR121x",
+        "EAR121y",
+        "EAR140x",
+        "EAR140y",
+        "EAR141x",
+        "EAR141y",
+        "EAR160x",
+        "EAR160y",
+        "EAR161x",
+        "EAR161y",
+        "EAR180x",
+        "EAR180y",
+        "EAR181x",
+        "EAR181y",
+        "EAR40x",
+        "EAR40y",
+        "EAR60x",
+        "EAR60y",
+        "EGMEACPR",
+        "EAR80x",
+        "EAR80y",
+        "EPMEACPR"
+      ],
+      "changed_bound_rows": 26,
+      "two_sided_encoding_rows": 52,
+      "stratum": "21-50",
+      "base_LP_varying_reactions": 26,
+      "base_LP_nearconstant_reactions": 0,
+      "all_affected_reactions_varying": true,
+      "base_point_max_KO_residual": 0.12793748658308118,
+      "base_point_weak_feasible_at_1e7": false,
+      "minimum_KO_T_row_norm": 1.3688825236720784e-08,
+      "original_changed_bounds": {
+        "EAR100x": [
+          0.0,
+          1000.0
+        ],
+        "EAR100y": [
+          0.0,
+          1000.0
+        ],
+        "EAR120x": [
+          0.0,
+          1000.0
+        ],
+        "EAR120y": [
+          0.0,
+          1000.0
+        ],
+        "EAR121x": [
+          0.0,
+          1000.0
+        ],
+        "EAR121y": [
+          0.0,
+          1000.0
+        ],
+        "EAR140x": [
+          0.0,
+          1000.0
+        ],
+        "EAR140y": [
+          0.0,
+          1000.0
+        ],
+        "EAR141x": [
+          0.0,
+          1000.0
+        ],
+        "EAR141y": [
+          0.0,
+          1000.0
+        ],
+        "EAR160x": [
+          0.0,
+          1000.0
+        ],
+        "EAR160y": [
+          0.0,
+          1000.0
+        ],
+        "EAR161x": [
+          0.0,
+          1000.0
+        ],
+        "EAR161y": [
+          0.0,
+          1000.0
+        ],
+        "EAR180x": [
+          0.0,
+          1000.0
+        ],
+        "EAR180y": [
+          0.0,
+          1000.0
+        ],
+        "EAR181x": [
+          0.0,
+          1000.0
+        ],
+        "EAR181y": [
+          0.0,
+          1000.0
+        ],
+        "EAR40x": [
+          0.0,
+          1000.0
+        ],
+        "EAR40y": [
+          0.0,
+          1000.0
+        ],
+        "EAR60x": [
+          0.0,
+          1000.0
+        ],
+        "EAR60y": [
+          0.0,
+          1000.0
+        ],
+        "EGMEACPR": [
+          0.0,
+          1000.0
+        ],
+        "EAR80x": [
+          0.0,
+          1000.0
+        ],
+        "EAR80y": [
+          0.0,
+          1000.0
+        ],
+        "EPMEACPR": [
+          0.0,
+          1000.0
+        ]
+      },
+      "genes_with_identical_bound_change_signature": [
+        "b1288"
+      ],
+      "bound_change_signature": "c2dea1c0eb2ee37152348d905819e1e40913cdc5c3f42254d8c4d100b6499a4d"
+    },
+    {
+      "gene": "b2835",
+      "gene_name": "lplT",
+      "disabled_reaction_ids": [
+        "2AGPA120tipp",
+        "2AGPA140tipp",
+        "2AGPA141tipp",
+        "2AGPA160tipp",
+        "2AGPA161tipp",
+        "2AGPA180tipp",
+        "2AGPA181tipp",
+        "2AGPE120tipp",
+        "2AGPE140tipp",
+        "2AGPE141tipp",
+        "2AGPE160tipp",
+        "2AGPE161tipp",
+        "2AGPE180tipp",
+        "2AGPE181tipp",
+        "2AGPG120tipp",
+        "2AGPG140tipp",
+        "2AGPG141tipp",
+        "2AGPG160tipp",
+        "2AGPG161tipp",
+        "2AGPG180tipp",
+        "2AGPG181tipp"
+      ],
+      "knockout_reaction_ids": [
+        "2AGPA120tipp",
+        "2AGPA140tipp",
+        "2AGPA141tipp",
+        "2AGPA160tipp",
+        "2AGPA161tipp",
+        "2AGPA180tipp",
+        "2AGPA181tipp",
+        "2AGPE120tipp",
+        "2AGPE140tipp",
+        "2AGPE141tipp",
+        "2AGPE160tipp",
+        "2AGPE161tipp",
+        "2AGPE180tipp",
+        "2AGPE181tipp",
+        "2AGPG120tipp",
+        "2AGPG140tipp",
+        "2AGPG141tipp",
+        "2AGPG160tipp",
+        "2AGPG161tipp",
+        "2AGPG180tipp",
+        "2AGPG181tipp"
+      ],
+      "changed_bound_rows": 21,
+      "two_sided_encoding_rows": 42,
+      "stratum": "21-50",
+      "base_LP_varying_reactions": 21,
+      "base_LP_nearconstant_reactions": 0,
+      "all_affected_reactions_varying": true,
+      "base_point_max_KO_residual": 0.25582532968649685,
+      "base_point_weak_feasible_at_1e7": false,
+      "minimum_KO_T_row_norm": 0.1469614807183566,
+      "original_changed_bounds": {
+        "2AGPA120tipp": [
+          0.0,
+          1000.0
+        ],
+        "2AGPA140tipp": [
+          0.0,
+          1000.0
+        ],
+        "2AGPA141tipp": [
+          0.0,
+          1000.0
+        ],
+        "2AGPA160tipp": [
+          0.0,
+          1000.0
+        ],
+        "2AGPA161tipp": [
+          0.0,
+          1000.0
+        ],
+        "2AGPA180tipp": [
+          0.0,
+          1000.0
+        ],
+        "2AGPA181tipp": [
+          0.0,
+          1000.0
+        ],
+        "2AGPE120tipp": [
+          0.0,
+          1000.0
+        ],
+        "2AGPE140tipp": [
+          0.0,
+          1000.0
+        ],
+        "2AGPE141tipp": [
+          0.0,
+          1000.0
+        ],
+        "2AGPE160tipp": [
+          0.0,
+          1000.0
+        ],
+        "2AGPE161tipp": [
+          0.0,
+          1000.0
+        ],
+        "2AGPE180tipp": [
+          0.0,
+          1000.0
+        ],
+        "2AGPE181tipp": [
+          0.0,
+          1000.0
+        ],
+        "2AGPG120tipp": [
+          0.0,
+          1000.0
+        ],
+        "2AGPG140tipp": [
+          0.0,
+          1000.0
+        ],
+        "2AGPG141tipp": [
+          0.0,
+          1000.0
+        ],
+        "2AGPG160tipp": [
+          0.0,
+          1000.0
+        ],
+        "2AGPG161tipp": [
+          0.0,
+          1000.0
+        ],
+        "2AGPG180tipp": [
+          0.0,
+          1000.0
+        ],
+        "2AGPG181tipp": [
+          0.0,
+          1000.0
+        ]
+      },
+      "genes_with_identical_bound_change_signature": [
+        "b2835"
+      ],
+      "bound_change_signature": "23880be9a9d2ded3db17779620d416ebea8a111f23c0ea39eaf2dd49776a465d"
+    },
+    {
+      "gene": "b2836",
+      "gene_name": "aas",
+      "disabled_reaction_ids": [
+        "2AGPEAT120",
+        "2AGPEAT140",
+        "2AGPEAT141",
+        "2AGPEAT160",
+        "2AGPEAT161",
+        "2AGPEAT180",
+        "2AGPEAT181",
+        "2AGPGAT120",
+        "2AGPGAT140",
+        "2AGPGAT141",
+        "2AGPGAT160",
+        "2AGPGAT161",
+        "2AGPGAT180",
+        "2AGPGAT181",
+        "AACPS1",
+        "AACPS2",
+        "AACPS3",
+        "AACPS4",
+        "AACPS5",
+        "AACPS6",
+        "AACPS7",
+        "AACPS8",
+        "AACPS9"
+      ],
+      "knockout_reaction_ids": [
+        "2AGPEAT120",
+        "2AGPEAT140",
+        "2AGPEAT141",
+        "2AGPEAT160",
+        "2AGPEAT161",
+        "2AGPEAT180",
+        "2AGPEAT181",
+        "2AGPGAT120",
+        "2AGPGAT140",
+        "2AGPGAT141",
+        "2AGPGAT160",
+        "2AGPGAT161",
+        "2AGPGAT180",
+        "2AGPGAT181",
+        "AACPS1",
+        "AACPS2",
+        "AACPS3",
+        "AACPS4",
+        "AACPS5",
+        "AACPS6",
+        "AACPS7",
+        "AACPS8",
+        "AACPS9"
+      ],
+      "changed_bound_rows": 23,
+      "two_sided_encoding_rows": 46,
+      "stratum": "21-50",
+      "base_LP_varying_reactions": 23,
+      "base_LP_nearconstant_reactions": 0,
+      "all_affected_reactions_varying": true,
+      "base_point_max_KO_residual": 2.1520325881711537,
+      "base_point_weak_feasible_at_1e7": false,
+      "minimum_KO_T_row_norm": 0.14743723341222356,
+      "original_changed_bounds": {
+        "2AGPEAT120": [
+          0.0,
+          1000.0
+        ],
+        "2AGPEAT140": [
+          0.0,
+          1000.0
+        ],
+        "2AGPEAT141": [
+          0.0,
+          1000.0
+        ],
+        "2AGPEAT160": [
+          0.0,
+          1000.0
+        ],
+        "2AGPEAT161": [
+          0.0,
+          1000.0
+        ],
+        "2AGPEAT180": [
+          0.0,
+          1000.0
+        ],
+        "2AGPEAT181": [
+          0.0,
+          1000.0
+        ],
+        "2AGPGAT120": [
+          0.0,
+          1000.0
+        ],
+        "2AGPGAT140": [
+          0.0,
+          1000.0
+        ],
+        "2AGPGAT141": [
+          0.0,
+          1000.0
+        ],
+        "2AGPGAT160": [
+          0.0,
+          1000.0
+        ],
+        "2AGPGAT161": [
+          0.0,
+          1000.0
+        ],
+        "2AGPGAT180": [
+          0.0,
+          1000.0
+        ],
+        "2AGPGAT181": [
+          0.0,
+          1000.0
+        ],
+        "AACPS1": [
+          0.0,
+          1000.0
+        ],
+        "AACPS2": [
+          0.0,
+          1000.0
+        ],
+        "AACPS3": [
+          0.0,
+          1000.0
+        ],
+        "AACPS4": [
+          0.0,
+          1000.0
+        ],
+        "AACPS5": [
+          0.0,
+          1000.0
+        ],
+        "AACPS6": [
+          0.0,
+          1000.0
+        ],
+        "AACPS7": [
+          0.0,
+          1000.0
+        ],
+        "AACPS8": [
+          0.0,
+          1000.0
+        ],
+        "AACPS9": [
+          0.0,
+          1000.0
+        ]
+      },
+      "genes_with_identical_bound_change_signature": [
+        "b2836"
+      ],
+      "bound_change_signature": "c1f8d84d0544cb6836655a41160d8b17e08db78a9e1ab46f11a55a0af33422eb"
+    },
+    {
+      "gene": "b3821",
+      "gene_name": "pldA",
+      "disabled_reaction_ids": [
+        "PLIPA1E181pp",
+        "PLIPA1G120pp",
+        "PLIPA1G140pp",
+        "PLIPA1G141pp",
+        "PLIPA1G160pp",
+        "PLIPA1G161pp",
+        "PLIPA1G180pp",
+        "PLIPA1G181pp",
+        "PLIPA2A120pp",
+        "PLIPA2A140pp",
+        "PLIPA2A141pp",
+        "PLIPA2A160pp",
+        "PLIPA2A161pp",
+        "PLIPA2A180pp",
+        "PLIPA2A181pp",
+        "PLIPA2E120pp",
+        "PLIPA2E140pp",
+        "PLIPA2E141pp",
+        "PLIPA2E160pp",
+        "PLIPA2E161pp",
+        "PLIPA2E180pp",
+        "PLIPA2E181pp",
+        "PLIPA2G120pp",
+        "PLIPA2G140pp",
+        "PLIPA2G141pp",
+        "PLIPA2G160pp",
+        "PLIPA2G161pp",
+        "PLIPA2G180pp",
+        "PLIPA2G181pp",
+        "PLIPA1A120pp",
+        "PLIPA1A140pp",
+        "PLIPA1A141pp",
+        "PLIPA1A160pp",
+        "PLIPA1A161pp",
+        "PLIPA1A180pp",
+        "PLIPA1A181pp",
+        "PLIPA1E120pp",
+        "PLIPA1E140pp",
+        "PLIPA1E141pp",
+        "PLIPA1E160pp",
+        "PLIPA1E161pp",
+        "PLIPA1E180pp"
+      ],
+      "knockout_reaction_ids": [
+        "PLIPA1E181pp",
+        "PLIPA1G120pp",
+        "PLIPA1G140pp",
+        "PLIPA1G141pp",
+        "PLIPA1G160pp",
+        "PLIPA1G161pp",
+        "PLIPA1G180pp",
+        "PLIPA1G181pp",
+        "PLIPA2A120pp",
+        "PLIPA2A140pp",
+        "PLIPA2A141pp",
+        "PLIPA2A160pp",
+        "PLIPA2A161pp",
+        "PLIPA2A180pp",
+        "PLIPA2A181pp",
+        "PLIPA2E120pp",
+        "PLIPA2E140pp",
+        "PLIPA2E141pp",
+        "PLIPA2E160pp",
+        "PLIPA2E161pp",
+        "PLIPA2E180pp",
+        "PLIPA2E181pp",
+        "PLIPA2G120pp",
+        "PLIPA2G140pp",
+        "PLIPA2G141pp",
+        "PLIPA2G160pp",
+        "PLIPA2G161pp",
+        "PLIPA2G180pp",
+        "PLIPA2G181pp",
+        "PLIPA1A120pp",
+        "PLIPA1A140pp",
+        "PLIPA1A141pp",
+        "PLIPA1A160pp",
+        "PLIPA1A161pp",
+        "PLIPA1A180pp",
+        "PLIPA1A181pp",
+        "PLIPA1E120pp",
+        "PLIPA1E140pp",
+        "PLIPA1E141pp",
+        "PLIPA1E160pp",
+        "PLIPA1E161pp",
+        "PLIPA1E180pp"
+      ],
+      "changed_bound_rows": 42,
+      "two_sided_encoding_rows": 84,
+      "stratum": "21-50",
+      "base_LP_varying_reactions": 42,
+      "base_LP_nearconstant_reactions": 0,
+      "all_affected_reactions_varying": true,
+      "base_point_max_KO_residual": 0.2558253296863535,
+      "base_point_weak_feasible_at_1e7": false,
+      "minimum_KO_T_row_norm": 0.07057242900268769,
+      "original_changed_bounds": {
+        "PLIPA1E181pp": [
+          0.0,
+          1000.0
+        ],
+        "PLIPA1G120pp": [
+          0.0,
+          1000.0
+        ],
+        "PLIPA1G140pp": [
+          0.0,
+          1000.0
+        ],
+        "PLIPA1G141pp": [
+          0.0,
+          1000.0
+        ],
+        "PLIPA1G160pp": [
+          0.0,
+          1000.0
+        ],
+        "PLIPA1G161pp": [
+          0.0,
+          1000.0
+        ],
+        "PLIPA1G180pp": [
+          0.0,
+          1000.0
+        ],
+        "PLIPA1G181pp": [
+          0.0,
+          1000.0
+        ],
+        "PLIPA2A120pp": [
+          0.0,
+          1000.0
+        ],
+        "PLIPA2A140pp": [
+          0.0,
+          1000.0
+        ],
+        "PLIPA2A141pp": [
+          0.0,
+          1000.0
+        ],
+        "PLIPA2A160pp": [
+          0.0,
+          1000.0
+        ],
+        "PLIPA2A161pp": [
+          0.0,
+          1000.0
+        ],
+        "PLIPA2A180pp": [
+          0.0,
+          1000.0
+        ],
+        "PLIPA2A181pp": [
+          0.0,
+          1000.0
+        ],
+        "PLIPA2E120pp": [
+          0.0,
+          1000.0
+        ],
+        "PLIPA2E140pp": [
+          0.0,
+          1000.0
+        ],
+        "PLIPA2E141pp": [
+          0.0,
+          1000.0
+        ],
+        "PLIPA2E160pp": [
+          0.0,
+          1000.0
+        ],
+        "PLIPA2E161pp": [
+          0.0,
+          1000.0
+        ],
+        "PLIPA2E180pp": [
+          0.0,
+          1000.0
+        ],
+        "PLIPA2E181pp": [
+          0.0,
+          1000.0
+        ],
+        "PLIPA2G120pp": [
+          0.0,
+          1000.0
+        ],
+        "PLIPA2G140pp": [
+          0.0,
+          1000.0
+        ],
+        "PLIPA2G141pp": [
+          0.0,
+          1000.0
+        ],
+        "PLIPA2G160pp": [
+          0.0,
+          1000.0
+        ],
+        "PLIPA2G161pp": [
+          0.0,
+          1000.0
+        ],
+        "PLIPA2G180pp": [
+          0.0,
+          1000.0
+        ],
+        "PLIPA2G181pp": [
+          0.0,
+          1000.0
+        ],
+        "PLIPA1A120pp": [
+          0.0,
+          1000.0
+        ],
+        "PLIPA1A140pp": [
+          0.0,
+          1000.0
+        ],
+        "PLIPA1A141pp": [
+          0.0,
+          1000.0
+        ],
+        "PLIPA1A160pp": [
+          0.0,
+          1000.0
+        ],
+        "PLIPA1A161pp": [
+          0.0,
+          1000.0
+        ],
+        "PLIPA1A180pp": [
+          0.0,
+          1000.0
+        ],
+        "PLIPA1A181pp": [
+          0.0,
+          1000.0
+        ],
+        "PLIPA1E120pp": [
+          0.0,
+          1000.0
+        ],
+        "PLIPA1E140pp": [
+          0.0,
+          1000.0
+        ],
+        "PLIPA1E141pp": [
+          0.0,
+          1000.0
+        ],
+        "PLIPA1E160pp": [
+          0.0,
+          1000.0
+        ],
+        "PLIPA1E161pp": [
+          0.0,
+          1000.0
+        ],
+        "PLIPA1E180pp": [
+          0.0,
+          1000.0
+        ]
+      },
+      "genes_with_identical_bound_change_signature": [
+        "b3821"
+      ],
+      "bound_change_signature": "6b74b9f6d134af9c81a2624c0b2b0361e753c27df63236ee80bb1a37e1ae6be0"
+    },
+    {
+      "gene": "b4025",
+      "gene_name": "pgi",
+      "disabled_reaction_ids": [
+        "PGI"
+      ],
+      "knockout_reaction_ids": [
+        "PGI"
+      ],
+      "changed_bound_rows": 2,
+      "two_sided_encoding_rows": 2,
+      "stratum": "1-5",
+      "base_LP_varying_reactions": 1,
+      "base_LP_nearconstant_reactions": 0,
+      "all_affected_reactions_varying": true,
+      "base_point_max_KO_residual": 2.330728674539433,
+      "base_point_weak_feasible_at_1e7": false,
+      "minimum_KO_T_row_norm": 5.121405387037077,
+      "original_changed_bounds": {
+        "PGI": [
+          -1000.0,
+          1000.0
+        ]
+      },
+      "genes_with_identical_bound_change_signature": [
+        "b4025"
+      ],
+      "bound_change_signature": "7a78fe01297346bf76f040c64ca445c8bdea7c344226bb0ad1a4d7b46c85bc90"
+    },
+    {
+      "gene": "b0071",
+      "gene_name": "leuD",
+      "disabled_reaction_ids": [
+        "IPPMIa",
+        "IPPMIb"
+      ],
+      "knockout_reaction_ids": [
+        "IPPMIa",
+        "IPPMIb"
+      ],
+      "changed_bound_rows": 4,
+      "two_sided_encoding_rows": 4,
+      "stratum": "1-5",
+      "base_LP_varying_reactions": 2,
+      "base_LP_nearconstant_reactions": 0,
+      "all_affected_reactions_varying": true,
+      "base_point_max_KO_residual": 0.02643534704918299,
+      "base_point_weak_feasible_at_1e7": false,
+      "minimum_KO_T_row_norm": 0.015707264335260835,
+      "original_changed_bounds": {
+        "IPPMIa": [
+          -1000.0,
+          1000.0
+        ],
+        "IPPMIb": [
+          -1000.0,
+          1000.0
+        ]
+      },
+      "genes_with_identical_bound_change_signature": [
+        "b0071",
+        "b0072"
+      ],
+      "bound_change_signature": "58b6d239d5edaf44168e555512a22152c27b2724663b642107f52fcd0761a721"
+    },
+    {
+      "gene": "b0112",
+      "gene_name": "aroP",
+      "disabled_reaction_ids": [
+        "HISt2rpp"
+      ],
+      "knockout_reaction_ids": [
+        "HISt2rpp"
+      ],
+      "changed_bound_rows": 2,
+      "two_sided_encoding_rows": 2,
+      "stratum": "1-5",
+      "base_LP_varying_reactions": 1,
+      "base_LP_nearconstant_reactions": 0,
+      "all_affected_reactions_varying": true,
+      "base_point_max_KO_residual": 0.6067857803703762,
+      "base_point_weak_feasible_at_1e7": false,
+      "minimum_KO_T_row_norm": 0.5903660726821459,
+      "original_changed_bounds": {
+        "HISt2rpp": [
+          -1000.0,
+          1000.0
+        ]
+      },
+      "genes_with_identical_bound_change_signature": [
+        "b0112"
+      ],
+      "bound_change_signature": "14bfb4688aae443515c24a7d1a889b608b903ba877bd4b4f22c5eaba0e5543e5"
+    },
+    {
+      "gene": "b0118",
+      "gene_name": "acnB",
+      "disabled_reaction_ids": [
+        "MICITDr"
+      ],
+      "knockout_reaction_ids": [
+        "MICITDr"
+      ],
+      "changed_bound_rows": 2,
+      "two_sided_encoding_rows": 2,
+      "stratum": "1-5",
+      "base_LP_varying_reactions": 1,
+      "base_LP_nearconstant_reactions": 0,
+      "all_affected_reactions_varying": true,
+      "base_point_max_KO_residual": 0.30212332186764107,
+      "base_point_weak_feasible_at_1e7": false,
+      "minimum_KO_T_row_norm": 0.2292259752568021,
+      "original_changed_bounds": {
+        "MICITDr": [
+          -1000.0,
+          1000.0
+        ]
+      },
+      "genes_with_identical_bound_change_signature": [
+        "b0118"
+      ],
+      "bound_change_signature": "d50e2ae36876245dc35573883dbbad5fc86eb4de9d5ec4a31e835ce4b24940d9"
+    },
+    {
+      "gene": "b0343",
+      "gene_name": "lacY",
+      "disabled_reaction_ids": [
+        "LCTStpp"
+      ],
+      "knockout_reaction_ids": [
+        "LCTStpp"
+      ],
+      "changed_bound_rows": 2,
+      "two_sided_encoding_rows": 2,
+      "stratum": "1-5",
+      "base_LP_varying_reactions": 1,
+      "base_LP_nearconstant_reactions": 0,
+      "all_affected_reactions_varying": true,
+      "base_point_max_KO_residual": 0.8852436905079307,
+      "base_point_weak_feasible_at_1e7": false,
+      "minimum_KO_T_row_norm": 0.8852436816369013,
+      "original_changed_bounds": {
+        "LCTStpp": [
+          -1000.0,
+          1000.0
+        ]
+      },
+      "genes_with_identical_bound_change_signature": [
+        "b0343"
+      ],
+      "bound_change_signature": "8845e426be8656ba9c316dc06c850514fc6fe505590752c72847f7bb05f55f19"
+    },
+    {
+      "gene": "b0401",
+      "gene_name": "brnQ",
+      "disabled_reaction_ids": [
+        "ILEt2rpp",
+        "LEUt2rpp"
+      ],
+      "knockout_reaction_ids": [
+        "ILEt2rpp",
+        "LEUt2rpp"
+      ],
+      "changed_bound_rows": 4,
+      "two_sided_encoding_rows": 4,
+      "stratum": "1-5",
+      "base_LP_varying_reactions": 2,
+      "base_LP_nearconstant_reactions": 0,
+      "all_affected_reactions_varying": true,
+      "base_point_max_KO_residual": 0.6055975131451942,
+      "base_point_weak_feasible_at_1e7": false,
+      "minimum_KO_T_row_norm": 0.5902977809088409,
+      "original_changed_bounds": {
+        "ILEt2rpp": [
+          -1000.0,
+          1000.0
+        ],
+        "LEUt2rpp": [
+          -1000.0,
+          1000.0
+        ]
+      },
+      "genes_with_identical_bound_change_signature": [
+        "b0401"
+      ],
+      "bound_change_signature": "8f9f509786d0abbc674abcab1422715a9f3a8b6053bb896ff53d4eb025897c55"
+    },
+    {
+      "gene": "b0508",
+      "gene_name": "hyi",
+      "disabled_reaction_ids": [
+        "HPYRI"
+      ],
+      "knockout_reaction_ids": [
+        "HPYRI"
+      ],
+      "changed_bound_rows": 2,
+      "two_sided_encoding_rows": 2,
+      "stratum": "1-5",
+      "base_LP_varying_reactions": 1,
+      "base_LP_nearconstant_reactions": 0,
+      "all_affected_reactions_varying": true,
+      "base_point_max_KO_residual": 500.72438141863336,
+      "base_point_weak_feasible_at_1e7": false,
+      "minimum_KO_T_row_norm": 499.2756085958364,
+      "original_changed_bounds": {
+        "HPYRI": [
+          -1000.0,
+          1000.0
+        ]
+      },
+      "genes_with_identical_bound_change_signature": [
+        "b0508"
+      ],
+      "bound_change_signature": "ffb5782b95cdb8576004a83b99a418f39cdae9bcec35603b2984e1423830373e"
+    }
+  ],
+  "selection": "50 distinct bound-change signatures, one zero-effect control; nonzero cases first require every affected reaction to be LP-varying and nondegenerate in cached geometry. Final affine-face duplicates are reported separately.",
+  "geometry_directory_template": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/knockout_panel/conditions/<gene>/models/shared"
+}

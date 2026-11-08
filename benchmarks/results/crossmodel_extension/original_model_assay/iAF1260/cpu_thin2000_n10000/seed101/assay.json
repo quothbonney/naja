@@ -1,0 +1,22 @@
+{
+  "split_rhat_median": 1.008834948580761,
+  "split_rhat_p95": 1.015255134221185,
+  "bulk_ess_median": 2383.461376412845,
+  "diagnosed_reactions": 1531,
+  "quality_and_bounds_met": true,
+  "sample_bound_violation_fraction": 0.0,
+  "max_absolute_bound_violation": 5.970946072006029e-09,
+  "bounds_tolerance": 1e-07,
+  "scope": "Original COBRA-model LP range mask; no claim that excluded ranges are certified on the finite-precision cached target.",
+  "source_metrics": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/native_cpu/iAF1260/extension_20261108_worker_thin2000_n10000/seed101/metrics.json",
+  "source_metrics_sha256": "3f9ca7ecf822b9aa6ebf73851a66ebd440a5f5e4e8596d9ddc2a06b3b8a9ef6b",
+  "source_reaction_csv_sha256": "7a411674b68a9cc0282180f340e15a3fe5eda2fd97cfae9ffe442f6b19604a84",
+  "source_mask_sha256": "4e65ea4327fee5454e6b706260eed352c98c4789d9388efffbc93213afe961ad",
+  "source_policy_sha256": "ffc8394e5e3347c0101e2e77e2c048ae7d85e18972d8d9092ba6675ca701e4c5",
+  "code_sha256": "3764bdce6dba0aa0a47126cdcd93b98f2095fcf5aeffe1b1f98f7b77152e399e",
+  "geometry_sha256": "dbb75f2d4fbf10d0e2f0cbcedb1fcbaa1913d330b5c1e2e3af1dc2eb91139304",
+  "full_budget_only": true,
+  "no_interpolated_times": true,
+  "unmasked_bound_checks_unchanged": true,
+  "reproduces_historical_primary_summary_exactly": true
+}

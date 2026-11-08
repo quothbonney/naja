@@ -1,0 +1,16 @@
+> validate model contract
+> write generated config
+model :: model
+output :: /mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/closeout/recon3d_bounded/pilot/native/model_20261108_001
+bounds :: ignore
+> sampling
+> loading polytope
+> barrier rotation (eigenbasis of H)
+> barrier whitening (diagonal rescale)
+> uploading to gpu
+> sampling 512 chains x 128 samples (thin=810, 53084160 MCMC steps, 18477 constraints x 4861 dims)
+> gpu sampling
+> gpu back-transform
+> downloading
+> done: 28.7s, 2280 samples/s
+> writing npy

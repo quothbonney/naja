@@ -1,0 +1,1 @@
+naja: sample columns: exceeds cuBLAS/int dimension limit; use smaller streamed chunks

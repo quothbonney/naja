@@ -1,0 +1,16 @@
+{
+  "status": "passed",
+  "hostname": "slurm-h100-206-077",
+  "small_inequality_equality_exact": [
+    true,
+    true
+  ],
+  "shape": [
+    1200,
+    400
+  ],
+  "original_seconds": 7.6957959197461605,
+  "bulk_seconds": 1.4599260669201612,
+  "speedup": 5.271360032622131,
+  "note": "Coefficient assembly only; solver settings and coefficient values unchanged."
+}

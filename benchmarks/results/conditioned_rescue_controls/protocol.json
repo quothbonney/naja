@@ -1,0 +1,274 @@
+{
+  "frozen_utc": "2026-11-08T19:46:33.848796+00:00",
+  "selection": "All13 nontrivial targets where original Naja+rotate passed and inherited CPU failed50k cap, from audited50-case table; no new control outputs inspected before freezing.",
+  "selection_source": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/knockout_panel/overnight_audit/summary.json",
+  "selection_source_sha256": "2b14bc60de916d571f36612a3e7b541da539def332c76c4a0caaddcd97be47fd",
+  "cases": [
+    {
+      "index": 0,
+      "gene": "b0003",
+      "model": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/knockout_panel/conditions/b0003/models/shared",
+      "draws": 1000,
+      "order": [
+        "off",
+        "rotate"
+      ],
+      "original_selected_run": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/knockout_panel/conditions/b0003/quality/naja_rotate/seed101/selected-budget1000",
+      "original_quality_file": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/knockout_panel/conditions/b0003/quality/naja_rotate/seed101/quality.json",
+      "original_quality_sha256": "3213ac6cc542c973c76fafc3cf5d2b97ba0a9c691dd5e8fc9a71bc600d764a57",
+      "original_sampler_seconds": 5.3726,
+      "original_rhat": 1.0330630898865354,
+      "original_ess": 588.1392371471634,
+      "geometry_sha256": "c1a507423884379cb34bf06e6c6d63b3d33df07a7d6e953cf8bd38e53ab73190",
+      "mask_sha256": "1338632a6875b384da5a0dc05af61cd457727ec18c915fc12ba926ccf7874250",
+      "certificate_sha256": "4b60cc5e84755a42e5e09af7375f64c13a93bb41b19c740190df7257ccf7a248"
+    },
+    {
+      "index": 1,
+      "gene": "b0009",
+      "model": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/knockout_panel/conditions/b0009/models/shared",
+      "draws": 10000,
+      "order": [
+        "rotate",
+        "off"
+      ],
+      "original_selected_run": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/knockout_panel/conditions/b0009/quality/naja_rotate/seed101/selected-budget10000",
+      "original_quality_file": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/knockout_panel/conditions/b0009/quality/naja_rotate/seed101/quality.json",
+      "original_quality_sha256": "eed5c23442c32ebddae4c8016590ab373df6c0d8ceedd3df090d00f35184ee3e",
+      "original_sampler_seconds": 29.7932,
+      "original_rhat": 1.0411175017108119,
+      "original_ess": 267.29608587622675,
+      "geometry_sha256": "67dd5869c501d9945d9665710ea9c7abf0fafdaa468dfdee0570e7e72c927c4f",
+      "mask_sha256": "96b80df55218c53bb04d63c5175b7d291765847dbcfb38f326914bef484bd73d",
+      "certificate_sha256": "0dc3bc57ba272fdc741fbe2e14e400e0f070e6f44ef47baf8ba3487e22500760"
+    },
+    {
+      "index": 2,
+      "gene": "b0029",
+      "model": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/knockout_panel/conditions/b0029/models/shared",
+      "draws": 500,
+      "order": [
+        "off",
+        "rotate"
+      ],
+      "original_selected_run": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/knockout_panel/conditions/b0029/quality/naja_rotate/seed101/selected-budget500",
+      "original_quality_file": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/knockout_panel/conditions/b0029/quality/naja_rotate/seed101/quality.json",
+      "original_quality_sha256": "456360703b98fae83404cddc6780c1e644bc1a30c114668cb73ca74b0fb6e869",
+      "original_sampler_seconds": 3.9948,
+      "original_rhat": 1.0441169070674092,
+      "original_ess": 374.391110170817,
+      "geometry_sha256": "0276f103027838eadc2f143bf1cb19b1edb44a9e97a6ccbcad0858b998443795",
+      "mask_sha256": "b61c216027c6a0a2fbb978b14d6b666348cd601a521e6012f2a1ead91a428413",
+      "certificate_sha256": "88f82fc9a4de450ed2ddcfa6bc2dcb29dd6fdfd7f5e28b2ba48d68303a27549c"
+    },
+    {
+      "index": 3,
+      "gene": "b0073",
+      "model": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/knockout_panel/conditions/b0073/models/shared",
+      "draws": 50000,
+      "order": [
+        "rotate",
+        "off"
+      ],
+      "original_selected_run": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/knockout_panel/conditions/b0073/quality/naja_rotate/seed101/selected-budget50000",
+      "original_quality_file": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/knockout_panel/conditions/b0073/quality/naja_rotate/seed101/quality.json",
+      "original_quality_sha256": "4c415b3c5390f21b4e593255f7e959ba461c77bafabcaaf799c36478a82cd6c7",
+      "original_sampler_seconds": 137.4095,
+      "original_rhat": 1.0471624724692625,
+      "original_ess": 200.60251799471592,
+      "geometry_sha256": "28323bf7bf3286b2e8a499f596f5a061d3b256b8ac3f94023f3e87325675ae7d",
+      "mask_sha256": "ef19a5425aca53deeb90733a1295918c9f4b6ef651fcf06d559f7fbecf0d498c",
+      "certificate_sha256": "c154b3a2b24079e0356f0eea6d958f2819a951e267a2020309a79ecac155a5c7"
+    },
+    {
+      "index": 4,
+      "gene": "b0085",
+      "model": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/knockout_panel/conditions/b0085/models/shared",
+      "draws": 1000,
+      "order": [
+        "off",
+        "rotate"
+      ],
+      "original_selected_run": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/knockout_panel/conditions/b0085/quality/naja_rotate/seed101/selected-budget1000",
+      "original_quality_file": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/knockout_panel/conditions/b0085/quality/naja_rotate/seed101/quality.json",
+      "original_quality_sha256": "63c24cc924c43148cac761af8b6a8dad955f622785ebd0f5036655c5f1663ad1",
+      "original_sampler_seconds": 5.3617,
+      "original_rhat": 1.0356440249879846,
+      "original_ess": 543.5449051507285,
+      "geometry_sha256": "a17324df407f326652d31b4c5479afa8f040925b91ed8359023787f40ae03995",
+      "mask_sha256": "2b9bd5ea78dfaa640dfb264d5be98966fecd896aa325cca96a8168e53311d09f",
+      "certificate_sha256": "9db6682211c35814056eb29aa06d47e13c6e1968bee8dd9bb7be77fb03b706f4"
+    },
+    {
+      "index": 5,
+      "gene": "b0088",
+      "model": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/knockout_panel/conditions/b0088/models/shared",
+      "draws": 1000,
+      "order": [
+        "rotate",
+        "off"
+      ],
+      "original_selected_run": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/knockout_panel/conditions/b0088/quality/naja_rotate/seed101/selected-budget1000",
+      "original_quality_file": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/knockout_panel/conditions/b0088/quality/naja_rotate/seed101/quality.json",
+      "original_quality_sha256": "498486dfa9d9f7cbae7db73c47f29f5fc58ac306151379e86fecd34f39830f83",
+      "original_sampler_seconds": 5.3514,
+      "original_rhat": 1.0338136582248012,
+      "original_ess": 558.9786351720994,
+      "geometry_sha256": "68c4b39d2b70d02c664d18695645cc58e3e1bac7ae6cc6df51d7a8bfff273488",
+      "mask_sha256": "bb3f95cb860dc06f7bf2cde03955438df357cda3eeeab9911be73e10a1124e4d",
+      "certificate_sha256": "704a8d698bd82963ab57463e0e136a73d61fbc7540e4b30d010dae0cfac0880c"
+    },
+    {
+      "index": 6,
+      "gene": "b0091",
+      "model": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/knockout_panel/conditions/b0091/models/shared",
+      "draws": 1000,
+      "order": [
+        "off",
+        "rotate"
+      ],
+      "original_selected_run": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/knockout_panel/conditions/b0091/quality/naja_rotate/seed101/selected-budget1000",
+      "original_quality_file": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/knockout_panel/conditions/b0091/quality/naja_rotate/seed101/quality.json",
+      "original_quality_sha256": "fced6ece4365a16d2b4ad825a3ba022963ae5190e35d6d35b31dfbb6f333d0e6",
+      "original_sampler_seconds": 5.3581,
+      "original_rhat": 1.0398177943163436,
+      "original_ess": 500.66009664629405,
+      "geometry_sha256": "49b14515e5ee3b5ea4bd2ea599a0f10de9619357efdc77a81bf95959999c9b31",
+      "mask_sha256": "e37e28142a573fb199f684ba94b389eaeffe9d2041f24bf1227348789ae59224",
+      "certificate_sha256": "3775a9431efeacabd02df254cbb8f992e85dc1be06ed83badb72cbbc52138ec1"
+    },
+    {
+      "index": 7,
+      "gene": "b0096",
+      "model": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/knockout_panel/conditions/b0096/models/shared",
+      "draws": 1000,
+      "order": [
+        "rotate",
+        "off"
+      ],
+      "original_selected_run": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/knockout_panel/conditions/b0096/quality/naja_rotate/seed101/selected-budget1000",
+      "original_quality_file": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/knockout_panel/conditions/b0096/quality/naja_rotate/seed101/quality.json",
+      "original_quality_sha256": "4d5648f07a117793fcc15da68b127ff1f8f151a4f1dd7597270a7fe82ddc2483",
+      "original_sampler_seconds": 5.3475,
+      "original_rhat": 1.0373370961824597,
+      "original_ess": 534.7815756996678,
+      "geometry_sha256": "5dc090d30f79f1716a731c71174c655d090d2db0c3a235407153f11fd72f28c5",
+      "mask_sha256": "8bc7dbfeab15ca5dd83a2b225cb01766716199ef926d79149e898a3b8fa39f66",
+      "certificate_sha256": "2cf2bcdfe2cc8be9be8e195679ca4d92ffce0779ead7b33c16bba67ad6a9f8f3"
+    },
+    {
+      "index": 8,
+      "gene": "b0154",
+      "model": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/knockout_panel/conditions/b0154/models/shared",
+      "draws": 1000,
+      "order": [
+        "off",
+        "rotate"
+      ],
+      "original_selected_run": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/knockout_panel/conditions/b0154/quality/naja_rotate/seed101/selected-budget1000",
+      "original_quality_file": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/knockout_panel/conditions/b0154/quality/naja_rotate/seed101/quality.json",
+      "original_quality_sha256": "ff5680e76b14ba1e9ca0f5a26a59ff60a55af83058c6c71387d0ae1fa7e9aa4b",
+      "original_sampler_seconds": 5.4245,
+      "original_rhat": 1.0367308720460895,
+      "original_ess": 541.764121841354,
+      "geometry_sha256": "74c0c0fa36ee50a96c1221e1792ffa888b9f9e6524fbc16d98ed6cd6f35ff480",
+      "mask_sha256": "dfb3f139609ed3eb48b9e3c07b40bc6781f5549fdc5458c59c7af17a77b8ff38",
+      "certificate_sha256": "d5dbdb0dbb3f69ed58f29f4b55da3c4319d36ffbf12f9f6b394e6eef37eb27bc"
+    },
+    {
+      "index": 9,
+      "gene": "b0181",
+      "model": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/knockout_panel/conditions/b0181/models/shared",
+      "draws": 1000,
+      "order": [
+        "rotate",
+        "off"
+      ],
+      "original_selected_run": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/knockout_panel/conditions/b0181/quality/naja_rotate/seed101/selected-budget1000",
+      "original_quality_file": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/knockout_panel/conditions/b0181/quality/naja_rotate/seed101/quality.json",
+      "original_quality_sha256": "5596f870854ada5ead9590c1e298bb1f736114374e35da65bab249a2726fe56a",
+      "original_sampler_seconds": 5.4119,
+      "original_rhat": 1.0390857926054657,
+      "original_ess": 495.5779019469934,
+      "geometry_sha256": "2e3889fecd617651520a3ca9ce8d2c68269ffae39df270c5c17d583f662d5f34",
+      "mask_sha256": "622e6acd9769c034652f68ee2b80755b5dc65eb1e72caf14918e65b3a2da9695",
+      "certificate_sha256": "1843de4022eddb6329a762f0d4ece8a264a5e031ed6f1a4838f0c8c408b460fc"
+    },
+    {
+      "index": 10,
+      "gene": "b0918",
+      "model": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/knockout_panel/conditions/b0918/models/shared",
+      "draws": 1000,
+      "order": [
+        "off",
+        "rotate"
+      ],
+      "original_selected_run": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/knockout_panel/conditions/b0918/quality/naja_rotate/seed101/selected-budget1000",
+      "original_quality_file": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/knockout_panel/conditions/b0918/quality/naja_rotate/seed101/quality.json",
+      "original_quality_sha256": "60ba420dd4af620e892fa9dd9aa263d0069f828eff9a331be9786000aaf2450b",
+      "original_sampler_seconds": 5.3593,
+      "original_rhat": 1.0395208654550365,
+      "original_ess": 496.8676300978906,
+      "geometry_sha256": "1eabbaa8e99906fd9363074ad86183861574833b306d212b88adcd361bbf5f38",
+      "mask_sha256": "7297fd39d1beab46764bd5b0b27d19a5a1d7e242b34cb944bc8d8abd12a7f27c",
+      "certificate_sha256": "5e6bd5a656a531461ebdc83d67fd1035f79198236209c4a08745e334f1b0fa1b"
+    },
+    {
+      "index": 11,
+      "gene": "b2530",
+      "model": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/knockout_panel/conditions/b2530/models/shared",
+      "draws": 5000,
+      "order": [
+        "rotate",
+        "off"
+      ],
+      "original_selected_run": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/knockout_panel/conditions/b2530/quality/naja_rotate/seed101/selected-budget5000",
+      "original_quality_file": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/knockout_panel/conditions/b2530/quality/naja_rotate/seed101/quality.json",
+      "original_quality_sha256": "0b1e1b3c182f1a3eff6d583ef1a45307b1b71c9c691e7e25331c6b91d1cdde8b",
+      "original_sampler_seconds": 16.1847,
+      "original_rhat": 1.0414347057047073,
+      "original_ess": 365.2643386300848,
+      "geometry_sha256": "12538373a6169036299d108d18bf0b93b5412a7b7c88d6535228b0bb83b82390",
+      "mask_sha256": "133a2710934a591494a32a784885ae34ff8f5ac202c233db5e2ef4f2650e5fe4",
+      "certificate_sha256": "960a5d793bc731c51ab415a620eff11c93f8d68c997c27f6fa06cbe4b2238822"
+    },
+    {
+      "index": 12,
+      "gene": "b3198",
+      "model": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/knockout_panel/conditions/b3198/models/shared",
+      "draws": 1000,
+      "order": [
+        "off",
+        "rotate"
+      ],
+      "original_selected_run": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/knockout_panel/conditions/b3198/quality/naja_rotate/seed101/selected-budget1000",
+      "original_quality_file": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/knockout_panel/conditions/b3198/quality/naja_rotate/seed101/quality.json",
+      "original_quality_sha256": "70cea3215681e8f3f66bc5a13efe7e65a7824782b4e3c1b3f6cd6823f99300bb",
+      "original_sampler_seconds": 5.3657,
+      "original_rhat": 1.0403152039506605,
+      "original_ess": 479.58775097648623,
+      "geometry_sha256": "46d896b26e07068da7cb5523fe9c6e694839102745294bb79859eb4ac69059e8",
+      "mask_sha256": "9ca95c7d223875f383ff2d32f238756c936c43fa052940dd6063149337dcea76",
+      "certificate_sha256": "9658cd54a08a5cb270e414fd73baa9acfc8b846e6d4409a91e946ba08d8a2e2d"
+    }
+  ],
+  "seed": 101,
+  "chains": 16,
+  "warmup": 1000,
+  "thinning": 1000,
+  "tpb": 512,
+  "sample_dtype": "float64",
+  "pair_probability": 0,
+  "binary_sha256": "5e6968eb7d3cebf5f27c16d2662a2e640cc3f6b7a633b7e7ae3bc9136a99f3d5",
+  "criterion": {
+    "median_classical_split_rhat_max": 1.05,
+    "median_pooled_bulk_ess_min": 100,
+    "unmasked_bound_tolerance": 1e-07,
+    "mass_balance_max": 1e-07
+  },
+  "order_policy": "Alternating off/rotate and rotate/off by sorted gene index; each pair in same one-GPU Slurm allocation, CUDA UUID checked.",
+  "budget_policy": "Original selected Naja budget per target, same retained/warmup/thinning for both modes; no extensions or retuning.",
+  "scope": "Targeted posthoc category controls under original seed; not independent validation seeds, a representative panel, or globally minimized time-to-quality.",
+  "stop_launch_utc": "2026-11-08T21:15:00+00:00",
+  "deadline_utc": "2026-11-08T22:00:00+00:00"
+}

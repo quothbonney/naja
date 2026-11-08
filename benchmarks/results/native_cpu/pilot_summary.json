@@ -1,0 +1,75 @@
+{
+  "pilot_only": true,
+  "seeds": [
+    101
+  ],
+  "rows": [
+    {
+      "variant": "wheel",
+      "build": "dadab7b",
+      "flags": "wheel defaults",
+      "model": "iJO1366",
+      "seed": 101,
+      "chains": 16,
+      "draws": 10000,
+      "warmup": 1000,
+      "thinning": 2000,
+      "workers": 16,
+      "process_seconds": 52.28829861804843,
+      "sample_seconds": 46.80454872176051,
+      "split_rhat_median": 1.0100303920250222,
+      "split_rhat_p95": 1.0185983403890322,
+      "bulk_ess_median": 2191.80841077645,
+      "bound_violation_fraction": 0.0,
+      "quality_met": false,
+      "environment_signature": "265ad5a61b32d0b2f99711bc88ff772503629f3a069495067e0ef3f86035da0e"
+    },
+    {
+      "variant": "source_generic",
+      "build": "9b787d9",
+      "flags": "-O3",
+      "model": "iJO1366",
+      "seed": 101,
+      "chains": 16,
+      "draws": 10000,
+      "warmup": 1000,
+      "thinning": 2000,
+      "workers": 16,
+      "process_seconds": 51.01169673167169,
+      "sample_seconds": 44.13212896883488,
+      "split_rhat_median": 1.0100303920250222,
+      "split_rhat_p95": 1.0185983403890322,
+      "bulk_ess_median": 2191.80841077645,
+      "bound_violation_fraction": 0.0,
+      "quality_met": false,
+      "environment_signature": "4f2f37511a34db4806edb6ae74160dcc01b6983be4043f31033ea9f79d7aa47c"
+    },
+    {
+      "variant": "native",
+      "build": "9b787d9",
+      "flags": "-O3 -march=native -mtune=native",
+      "model": "iJO1366",
+      "seed": 101,
+      "chains": 16,
+      "draws": 10000,
+      "warmup": 1000,
+      "thinning": 2000,
+      "workers": 16,
+      "process_seconds": 36.9577610027045,
+      "sample_seconds": 31.389761785045266,
+      "split_rhat_median": 1.0097593188191378,
+      "split_rhat_p95": 1.0189586084968736,
+      "bulk_ess_median": 2151.0273637006,
+      "bound_violation_fraction": 0.0,
+      "quality_met": true,
+      "environment_signature": "95efaa95cd946fe78e9597470a2939fccbb94d496e594edbffbc8f62425e1bde"
+    }
+  ],
+  "matched_source_compiler_runtime_for": [
+    "source_generic",
+    "native"
+  ],
+  "native_process_speedup_vs_source_generic": 1.380270215177233,
+  "native_sampling_speedup_vs_source_generic": 1.4059402320746612,
+  "note": "One seed; build optimization comparison. Quality estimates near the threshold vary between floating-point trajectories; three-seed retiming is required for a fastest-CPU claim."
+}

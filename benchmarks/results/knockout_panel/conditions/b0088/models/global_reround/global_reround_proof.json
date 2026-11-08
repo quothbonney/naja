@@ -1,0 +1,27 @@
+{
+  "status": "passed",
+  "target": "Exact inherited conditional A/b, not an independently reduced raw-model hull",
+  "dimension": 570,
+  "rows": 740,
+  "source_geometry_sha256": "68c4b39d2b70d02c664d18695645cc58e3e1bac7ae6cc6df51d7a8bfff273488",
+  "destination_geometry_sha256": "72540af0e3fcfdc06c4148afbf33021af5ce1957a35d1fd4cbc9c0aaf03a2e52",
+  "invertible_P_min_singular": 1.575704409775521e-08,
+  "invertible_P_max_singular": 1.9127545310019374,
+  "positive_row_scale_min": 1.0,
+  "positive_row_scale_max": 1.0,
+  "transformed_A_relative_identity_error": 0.0,
+  "transformed_b_relative_identity_error": 5.222312337601303e-14,
+  "common_conditional_mask_identical": true,
+  "global_round_algorithm_seconds": 39.51749603264034,
+  "preparation_inclusive_seconds_before_external_validation": 42.6329797655344,
+  "full_wrapper_inclusive_seconds_with_validation_and_mask": 47.18309854529798,
+  "timing_scope": "Global MVE round phase primary; complete preparation before external validation secondary; validation/LP-mask are external diagnostic costs.",
+  "source_script_sha256": "fd232d288537bf66301a1bfec2bc73d7d547e84ec1690a53d072a43cb45e2a42",
+  "no_target_relaxation": true,
+  "no_second_affine_hull_reduction": true,
+  "resources": {
+    "OPENBLAS_NUM_THREADS": "1",
+    "SLURM_CPUS_PER_TASK": "4",
+    "OMP_NUM_THREADS": "1"
+  }
+}

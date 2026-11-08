@@ -1,0 +1,35 @@
+{
+  "created_utc": "2026-11-08T19:21:44.119223+00:00",
+  "status": "frozen_before_new_seed_runs",
+  "seeds": [
+    444001,
+    555001,
+    666001
+  ],
+  "chains": 16,
+  "cpu": {
+    "retained": 15000,
+    "warmup": 1000,
+    "thinning": 2000,
+    "physical_workers": 16,
+    "reserved_logical_cpus": 32,
+    "build": "native"
+  },
+  "gpu": {
+    "retained": 3000,
+    "warmup": 1000,
+    "thinning": 1000,
+    "tpb": 512,
+    "barrier": "rotate",
+    "exe_sha256": "c7baf4f0ed282b936ac0dbac4b896bfbfc040eb06da6f84aff6605fddf4b0fc6"
+  },
+  "quality": {
+    "median_classical_split_rhat_max": 1.01,
+    "median_pooled_bulk_ess_min": 100,
+    "unmasked_bounds_tolerance": 1e-07,
+    "allowed_bound_violation_fraction": 0
+  },
+  "mask": "Frozen478 certified exclusions on exact cached target; unresolved remain active",
+  "extension_policy": "none",
+  "selection_note": "Larger common budgets chosen from earlier101001/202001/303001 bounded-extension evidence before these new seeds. Not a rescue of legacy fixed-budget2.73x claim."
+}

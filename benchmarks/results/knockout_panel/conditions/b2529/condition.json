@@ -1,0 +1,168 @@
+{
+  "gene": "b2529",
+  "gene_name": "iscU",
+  "disabled_reaction_ids": [
+    "I2FE2SR",
+    "I2FE2SS",
+    "I2FE2SS2",
+    "I2FE2ST",
+    "I4FE4SR",
+    "I4FE4ST"
+  ],
+  "knockout_reaction_ids": [
+    "I2FE2SR",
+    "I2FE2SS",
+    "I2FE2SS2",
+    "I2FE2ST",
+    "I4FE4SR",
+    "I4FE4ST"
+  ],
+  "changed_bound_rows": 6,
+  "two_sided_encoding_rows": 12,
+  "stratum": "6-20",
+  "base_LP_varying_reactions": 6,
+  "base_LP_nearconstant_reactions": 0,
+  "all_affected_reactions_varying": true,
+  "base_point_max_KO_residual": 3.444219087807473e-06,
+  "base_point_weak_feasible_at_1e7": false,
+  "minimum_KO_T_row_norm": 2.4962116572679088e-08,
+  "original_changed_bounds": {
+    "I2FE2SR": [
+      0.0,
+      1000.0
+    ],
+    "I2FE2SS": [
+      0.0,
+      1000.0
+    ],
+    "I2FE2SS2": [
+      0.0,
+      1000.0
+    ],
+    "I2FE2ST": [
+      0.0,
+      1000.0
+    ],
+    "I4FE4SR": [
+      0.0,
+      1000.0
+    ],
+    "I4FE4ST": [
+      0.0,
+      1000.0
+    ]
+  },
+  "genes_with_identical_bound_change_signature": [
+    "b2529"
+  ],
+  "bound_change_signature": "fe2303eaeafd1e45ed9488ab4406676420cb94d23a629fb934be29fe2247aae6",
+  "status": "ready",
+  "base_geometry_sha256": "07374999682cb82ef566c2a7ba4cd1ca44b0718ab81f421846e24d3b85f5e103",
+  "base_dimension": 581,
+  "base_point_weak_feasible": false,
+  "constraint_epsilon": 0.0,
+  "rank_relative_tolerance": 1e-12,
+  "validation_tolerance": 1e-07,
+  "geometry_directory": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/knockout_panel/conditions/b2529/models/shared",
+  "LPs": [],
+  "facial_reductions": [],
+  "initial_projection_strict_interior": true,
+  "projected_point_strict_interior": true,
+  "final_origin_strict_after_facial_reduction": true,
+  "interior_method": "analytic_projection_checked_all_normalized_constraints",
+  "conditional_dimension": 575,
+  "rows": 746,
+  "affine_rank": 6,
+  "affine_rank_history": [
+    {
+      "rank": 6,
+      "singular_values": [
+        2.003498808045601,
+        1.0284484895327364,
+        0.9634761183016856,
+        8.237268489950848e-08,
+        4.825032545112109e-08,
+        3.058975361865042e-08
+      ],
+      "relative_rank_threshold": 1e-12,
+      "ranks_at_1e11_1e12_1e13": [
+        6,
+        6,
+        6
+      ],
+      "scaled_equality_residual": 7.771561172376096e-16,
+      "nullspace_residual": 3.3566899260151217e-16,
+      "seconds": 0.0036212578415870667,
+      "projected_origin_min_normalized_slack": 0.7774363049366816
+    }
+  ],
+  "strict_interior_radius": 0.7774363049366816,
+  "min_raw_start_slack": 4.013759380826667e-08,
+  "certified_affine_constant_base_rows": [
+    {
+      "base_row": 430,
+      "projected_norm": 1.0579096736462515e-23,
+      "original_norm": 2.4962116572679088e-08,
+      "constant_bound": -1.9852334701272664e-23,
+      "normalized_constant_bound": -7.952985334184741e-16
+    },
+    {
+      "base_row": 431,
+      "projected_norm": 1.2516007039802525e-21,
+      "original_norm": 3.1948743224653065e-06,
+      "constant_bound": 4.235164736271502e-22,
+      "normalized_constant_bound": 1.3256123117241935e-16
+    },
+    {
+      "base_row": 432,
+      "projected_norm": 5.38221965544552e-23,
+      "original_norm": 3.1088451281051047e-07,
+      "constant_bound": -5.293955920339377e-23,
+      "normalized_constant_bound": -1.7028689761609757e-16
+    },
+    {
+      "base_row": 433,
+      "projected_norm": 5.422348431054925e-22,
+      "original_norm": 3.15829628958476e-06,
+      "constant_bound": 0.0,
+      "normalized_constant_bound": 0.0
+    }
+  ],
+  "no_bound_epsilon_relaxation": true,
+  "source": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/knockout_panel/conditions/b2529/conditional_model.json",
+  "source_sha256": "3d7441c47c194b0d1f6118c0831d1fa90407656cf1ddf0dc5e08d9ee9bacd1eb",
+  "geometry_sha256": "49ca1b55f917a7f162318787228ab570bbe17db14c42841d4b89fdcfcb6414ca",
+  "embedding": "/mnt/home/jordan+123/history-native-20261015-r5/benchmarks/results/knockout_panel/conditions/b2529/embedding.npz",
+  "effective_affine_face_signature_rounded_1e10": "cc2d1e19b23a0c156ff40ccdabe3f8a8f8022004f5925706107a6d8ac2aaab4b",
+  "fixed_reaction_ids": [
+    "I2FE2SR",
+    "I2FE2SS",
+    "I2FE2SS2",
+    "I2FE2ST",
+    "I4FE4SR",
+    "I4FE4ST"
+  ],
+  "fixed_reaction_values": {
+    "I2FE2SR": -1.9852334701272664e-23,
+    "I2FE2SS": 4.235164736271502e-22,
+    "I2FE2SS2": -8.470329472543003e-22,
+    "I2FE2ST": -5.293955920339377e-23,
+    "I4FE4SR": 8.470329472543003e-22,
+    "I4FE4ST": 0.0
+  },
+  "containment_proof": {
+    "retained_A_max_error": 9.215718466126788e-19,
+    "retained_b_max_error": 0.0,
+    "dropped_rows": "Equality-span residual and constant-bound certificates recorded; numerical rank contract explicit."
+  },
+  "validation": {
+    "points": 33,
+    "max_original_bound_violation": 1.476748319221189e-12,
+    "max_base_Az_minus_b_violation": 8.470329472543003e-22,
+    "max_KO_flux_residual": 8.520315079733661e-22
+  },
+  "preparation_seconds": 0.5268390327692032,
+  "LP_solve_seconds": 0,
+  "LP_calls": 0,
+  "LP_skipped": true
+}
