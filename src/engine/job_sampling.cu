@@ -99,9 +99,12 @@ void write_config_snapshot(const RuntimeConfig& cfg, const ProfileData& profile,
     dst << "N_CHAINS=" << profile.n_chains << "\n";
     dst << "N_SAMPLES=" << profile.n_samples << "\n";
     dst << "THINNING=" << profile.thinning << "\n";
+    dst << "SEED=" << profile.seed << "\n";
     dst << "GPU_DEVICE=" << cfg.GPU_DEVICE << "\n";
     dst << "BACK_TRANSFORM=" << (cfg.BACK_TRANSFORM ? "true" : "false") << "\n";
     dst << "WRITE_DATA=" << (cfg.WRITE_DATA ? "true" : "false") << "\n";
+    dst << "SAMPLE_DTYPE=" << cfg.SAMPLE_DTYPE << "\n";
+    dst << "HOST_PREFAULT_THREADS=" << cfg.HOST_PREFAULT_THREADS << "\n";
     dst << "BOUNDS_POLICY=" << (cfg.BOUNDS_FILTER ? "filter" : "ignore") << "\n";
     if (cfg.BOUNDS_FILTER) {
         dst << "BOUNDS_EPS=" << std::setprecision(12) << cfg.BOUNDS_EPS << "\n";
@@ -386,8 +389,9 @@ int run_sampling_job(RuntimeConfig cfg, bool verbose, bool show_device_banner) {
     profile.thinning = thinning;
 
     std::hash<std::string> h;
-    int seed = (int)(h(cfg.MODEL_NAME) ^ (h(cfg.MODEL_DIR) << 1) ^ (uint64_t)(cfg.GPU_DEVICE * 0x9e3779b9));
+    int seed = cfg.SEED != 0 ? cfg.SEED : (int)(h(cfg.MODEL_NAME) ^ (h(cfg.MODEL_DIR) << 1) ^ (uint64_t)(cfg.GPU_DEVICE * 0x9e3779b9));
     if (seed == 0) seed = 1;
+    profile.seed = seed;
 
     naja::status::phase(cfg.STATUS, "uploading to gpu");
     Timer upload_timer;
@@ -507,7 +511,7 @@ int run_sampling_job(RuntimeConfig cfg, bool verbose, bool show_device_banner) {
 
         naja::status::phase(cfg.STATUS, "downloading");
         Timer download_timer;
-        samples_out = samples_d.toHost();
+        samples_out = samples_d.toHost(cfg.HOST_PREFAULT_THREADS);
         profile.download_time = download_timer.elapsed();
     } else {
         if (hull_enabled) {
@@ -541,7 +545,7 @@ int run_sampling_job(RuntimeConfig cfg, bool verbose, bool show_device_banner) {
             profile.original_dim = n_reduced_file;
         naja::status::phase(cfg.STATUS, "downloading");
         Timer download_timer;
-        samples_out = samples_d.toHost();
+        samples_out = samples_d.toHost(cfg.HOST_PREFAULT_THREADS);
         profile.download_time = download_timer.elapsed();
     } else {
         naja::status::phase(cfg.STATUS, "gpu sampling");
@@ -616,13 +620,13 @@ int run_sampling_job(RuntimeConfig cfg, bool verbose, bool show_device_banner) {
 
                 naja::status::phase(cfg.STATUS, "downloading");
                 Timer download_timer;
-                samples_out = result_d.toHost();
+                samples_out = result_d.toHost(cfg.HOST_PREFAULT_THREADS);
                 profile.download_time = download_timer.elapsed();
             } else {
                 cublasDestroy(blas_h);
                 naja::status::phase(cfg.STATUS, "downloading");
                 Timer download_timer;
-                samples_out = samples_d.toHost();
+                samples_out = samples_d.toHost(cfg.HOST_PREFAULT_THREADS);
                 profile.download_time = download_timer.elapsed();
             }
             profile.backtransform_time = bt_timer.elapsed();
@@ -630,7 +634,7 @@ int run_sampling_job(RuntimeConfig cfg, bool verbose, bool show_device_banner) {
             profile.backtransform_time = 0.0;
             naja::status::phase(cfg.STATUS, "downloading");
             Timer download_timer;
-            samples_out = samples_d.toHost();
+            samples_out = samples_d.toHost(cfg.HOST_PREFAULT_THREADS);
             profile.download_time = download_timer.elapsed();
         }
         }
@@ -647,7 +651,11 @@ int run_sampling_job(RuntimeConfig cfg, bool verbose, bool show_device_banner) {
         naja::status::phase(cfg.STATUS, "writing npy");
         Timer npy_timer;
         // Write as (n_samples, dim) float32 — half the size, contiguous sample rows.
-        npy::save_f32_samples(cfg.NPY_FILE, samples_out);
+        if (cfg.SAMPLE_DTYPE == "float64") {
+            npy::save_f64_samples(cfg.NPY_FILE, samples_out);
+        } else {
+            npy::save_f32_samples(cfg.NPY_FILE, samples_out);
+        }
         profile.write_time = npy_timer.elapsed();
     } else {
         profile.write_time = 0.0;

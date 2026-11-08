@@ -140,6 +140,29 @@ inline void save_f32_samples(const std::string& filename, const Eigen::MatrixXd&
     file.close();
 }
 
+// Write Eigen col-major samples directly as C-order (samples, dimensions) float64.
+// Sampling is already double precision; this path avoids a lossy export cast.
+inline void save_f64_samples(const std::string& filename, const Eigen::MatrixXd& mat) {
+    std::ofstream file(filename, std::ios::binary);
+    if (!file.is_open()) throw std::runtime_error("Cannot write file: " + filename);
+    file.write("\x93NUMPY", 6);
+    file.put(0x01);
+    file.put(0x00);
+    std::ostringstream header;
+    header << "{'descr': '<f8', 'fortran_order': False, 'shape': ("
+           << mat.cols() << ", " << mat.rows() << "), }";
+    std::string header_str = header.str();
+    const size_t total_header_len = 6 + 2 + 2 + header_str.size() + 1; // include final newline
+    header_str.append((64 - (total_header_len % 64)) % 64, ' ');
+    header_str.push_back('\n');
+    const uint16_t header_len = static_cast<uint16_t>(header_str.size());
+    file.write(reinterpret_cast<const char*>(&header_len), 2);
+    file.write(header_str.data(), header_len);
+    const size_t bytes = static_cast<size_t>(mat.size()) * sizeof(double);
+    file.write(reinterpret_cast<const char*>(mat.data()), static_cast<std::streamsize>(bytes));
+    if (!file) throw std::runtime_error("Failed writing samples: " + filename);
+}
+
 // Load NPY file.
 // OPTIMIZATION: Returns the matrix transposed (cols, rows) relative to file shape!
 // File shape (R, C) C-order -> Eigen Matrix (C, R) Col-order.

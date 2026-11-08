@@ -4,9 +4,10 @@
 #include <curand.h>
 #include <curand_kernel.h>
 #include <iostream>
+#include <cstddef>
 
 // Column major matrix indexing
-#define IDX2C(i,j,ld) (((j)*(ld))+(i))
+#define IDX2C(i,j,ld) ((static_cast<std::size_t>(j) * static_cast<std::size_t>(ld)) + static_cast<std::size_t>(i))
 
 // CUDA API error checking
 #define CUDA_CHECK(cuda_error) \

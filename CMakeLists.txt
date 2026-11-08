@@ -383,7 +383,7 @@ if(NAJA_ENABLE_GPU_TESTS)
     )
     set(GPU_TEST_LIBS CUDA::cudart CUDA::curand CUDA::cublas)
     set(GPU_TEST_OPTS
-        $<$<COMPILE_LANGUAGE:CUDA>:--expt-relaxed-constexpr -Xcudafe --diag_suppress=20012>
+        $<$<COMPILE_LANGUAGE:CUDA>:--expt-relaxed-constexpr -Xcudafe --diag_suppress=20012 --use_fast_math>
     )
 
     # Detect CUDA runtime library path for RPATH

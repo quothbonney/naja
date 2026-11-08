@@ -24,6 +24,7 @@ struct ProfileData {
     int original_dim = 0;
     int constraints = 0;
     int thinning = 0;
+    int seed = 0;
 
     double throughput = 0.0;
 
@@ -46,6 +47,9 @@ struct ProfileData {
         f << "    \"original_dim\": " << original_dim << ",\n";
         f << "    \"constraints\": " << constraints << ",\n";
         f << "    \"thinning\": " << thinning << ",\n";
+        f << "    \"seed\": " << seed << ",\n";
+        f << "    \"sample_dtype\": \"" << cfg.SAMPLE_DTYPE << "\",\n";
+        f << "    \"host_prefault_threads\": " << cfg.HOST_PREFAULT_THREADS << ",\n";
         f << "    \"tpb_ss\": " << cfg.TPB_SS << ",\n";
         f << "    \"gpu_device\": " << cfg.GPU_DEVICE << ",\n";
         f << "    \"back_transform\": " << (cfg.BACK_TRANSFORM ? "true" : "false") << "\n";

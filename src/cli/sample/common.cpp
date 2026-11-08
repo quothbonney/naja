@@ -91,6 +91,9 @@ namespace naja::cli::sample {
     out << "    --model-dir <dir> --out-root <dir> --gpu <id>\n";
     out << "    --n-chains <n> --n-samples <n>\n";
     out << "    [--tpb <n>] [--thinning <n>]\n";
+    out << "    [--seed <nonzero-int>]       explicit sampling seed; 0 keeps legacy path-derived seed\n";
+    out << "    [--sample-dtype float32|float64]  export dtype; default float32\n";
+    out << "    [--host-prefault-threads <n>] parallel first-touch before downloads; default 0\n";
     out << "    [--start-policy file|cube_center]\n";
     out << "    [--extra-constraints auto|ignore|require] [--extra-constraint-eps <eps>]\n";
     out << "    [--constraint-eps <eps>]\n";

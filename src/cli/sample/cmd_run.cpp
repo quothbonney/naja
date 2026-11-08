@@ -49,6 +49,7 @@ void cmd_run(int argc, char** argv) {
     int n_samples = -1;
     int tpb = 128;
     int thinning = 0;
+    int seed = 0;
     double pair_prob = 0.0;
     int resync_interval = 0;
     int iter_rounding_passes = 0;
@@ -66,6 +67,8 @@ void cmd_run(int argc, char** argv) {
     double affine_hull_tol = 0.0;
     bool backmap = false;
     bool write_npy = false;
+    std::string sample_dtype = "float32";
+    int host_prefault_threads = 0;
     bool verbose = false;
     std::string bounds_policy = "ignore";
     double bounds_eps = 1e-6;
@@ -83,6 +86,7 @@ void cmd_run(int argc, char** argv) {
         else if (a == "--n-samples") n_samples = std::stoi(next_arg(i, argc, argv, a));
         else if (a == "--tpb") tpb = std::stoi(next_arg(i, argc, argv, a));
         else if (a == "--thinning") thinning = std::stoi(next_arg(i, argc, argv, a));
+        else if (a == "--seed") seed = std::stoi(next_arg(i, argc, argv, a));
         else if (a == "--pair-prob") pair_prob = std::stod(next_arg(i, argc, argv, a));
         else if (a == "--resync-interval") resync_interval = std::stoi(next_arg(i, argc, argv, a));
         else if (a == "--iter-rounding-passes") iter_rounding_passes = std::stoi(next_arg(i, argc, argv, a));
@@ -100,6 +104,8 @@ void cmd_run(int argc, char** argv) {
         else if (a == "--affine-hull-tol") affine_hull_tol = std::stod(next_arg(i, argc, argv, a));
         else if (a == "--backmap") backmap = true;
         else if (a == "--write-npy") write_npy = true;
+        else if (a == "--sample-dtype") sample_dtype = next_arg(i, argc, argv, a);
+        else if (a == "--host-prefault-threads") host_prefault_threads = std::stoi(next_arg(i, argc, argv, a));
         else if (a == "--verbose") verbose = true;
         else if (a == "--bounds-policy") bounds_policy = next_arg(i, argc, argv, a);
         else if (a == "--bounds-eps") bounds_eps = std::stod(next_arg(i, argc, argv, a));
@@ -114,6 +120,8 @@ void cmd_run(int argc, char** argv) {
     if (out_root.empty()) die_usage("missing --out-root");
     if (n_chains <= 0) die_usage("invalid --n-chains");
     if (n_samples <= 0) die_usage("invalid --n-samples");
+    if (sample_dtype != "float32" && sample_dtype != "float64") die_usage("invalid --sample-dtype (float32|float64)");
+    if (host_prefault_threads < 0) die_usage("invalid --host-prefault-threads (must be >=0)");
     try {
         normalize_and_validate_rounding_flags(
             pair_prob,
@@ -149,12 +157,15 @@ void cmd_run(int argc, char** argv) {
     cfg.N_SAMPLES = n_samples;
     cfg.BACK_TRANSFORM = backmap;
     cfg.WRITE_DATA = write_npy;
+    cfg.SAMPLE_DTYPE = sample_dtype;
+    cfg.HOST_PREFAULT_THREADS = host_prefault_threads;
     cfg.VERBOSE = verbose;
     cfg.STATUS = !quiet;
     cfg.BOUNDS_FILTER = (bounds_policy == "filter");
     cfg.BOUNDS_EPS = bounds_eps;
     cfg.WRITE_SAMPLES_VALID = write_samples_valid;
     cfg.THINNING = thinning;
+    cfg.SEED = seed;
     cfg.PAIR_PROB = pair_prob;
     cfg.RESYNC_INTERVAL = resync_interval;
     cfg.ITER_ROUNDING_PASSES = iter_rounding_passes;

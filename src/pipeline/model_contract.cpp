@@ -148,10 +148,13 @@ void write_generated_config(const std::string& path, const RuntimeConfig& cfg) {
     f << "OUT_DIR=" << cfg.OUT_DIR << "\n";
     f << "N_CHAINS=" << cfg.N_CHAINS << "\n";
     f << "N_SAMPLES=" << cfg.N_SAMPLES << "\n";
+    f << "SEED=" << cfg.SEED << "\n";
     f << "TPB_SS=" << cfg.TPB_SS << "\n";
     f << "GPU_DEVICE=" << cfg.GPU_DEVICE << "\n";
     f << "BACK_TRANSFORM=" << (cfg.BACK_TRANSFORM ? "true" : "false") << "\n";
     f << "WRITE_DATA=" << (cfg.WRITE_DATA ? "true" : "false") << "\n";
+    f << "SAMPLE_DTYPE=" << cfg.SAMPLE_DTYPE << "\n";
+    f << "HOST_PREFAULT_THREADS=" << cfg.HOST_PREFAULT_THREADS << "\n";
     f << "VERBOSE=" << (cfg.VERBOSE ? "true" : "false") << "\n";
     f << "STATUS=" << (cfg.STATUS ? "true" : "false") << "\n";
     if (cfg.THINNING > 0) {

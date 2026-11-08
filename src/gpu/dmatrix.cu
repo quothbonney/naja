@@ -2,6 +2,9 @@
 #include "helper.h"
 
 #include <algorithm>
+#include <thread>
+#include <vector>
+#include <unistd.h>
 
 namespace naja {
     namespace gpu {
@@ -34,22 +37,22 @@ namespace naja {
         // Construct from Eigen
         template<typename Real>
         DMatrix<Real>::DMatrix(const HMatrix<Real>& m) : rows(m.rows()), cols(m.cols()), ownsData(true) {
-            size_t size = rows * cols * sizeof(Real);
+            size_t size = static_cast<std::size_t>(rows) * static_cast<std::size_t>(cols) * sizeof(Real);
             CUDA_CHECK(cudaMalloc(&dmat, size));
-            CUDA_CHECK(cudaMemcpy(dmat, m.data(), rows * cols * sizeof(Real), cudaMemcpyHostToDevice));
+            CUDA_CHECK(cudaMemcpy(dmat, m.data(), static_cast<std::size_t>(rows) * static_cast<std::size_t>(cols) * sizeof(Real), cudaMemcpyHostToDevice));
         }
 
         // Construct from input dimensions
         template<typename Real>
         DMatrix<Real>::DMatrix(int rows_, int cols_) : rows(rows_), cols(cols_), ownsData(true) {
-            size_t size = rows * cols * sizeof(Real);
+            size_t size = static_cast<std::size_t>(rows) * static_cast<std::size_t>(cols) * sizeof(Real);
             CUDA_CHECK(cudaMalloc(&dmat, size));
         }
 
         // Construct from vector and broadcast
         template<typename Real>
         DMatrix<Real>::DMatrix(const HVector<Real>& v, int cols) : rows(v.size()), cols(cols), ownsData(true) {
-            size_t size = rows * cols * sizeof(Real);
+            size_t size = static_cast<std::size_t>(rows) * static_cast<std::size_t>(cols) * sizeof(Real);
             CUDA_CHECK(cudaMalloc(&dmat, size));
             if (cols > 0) {
                 CUDA_CHECK(cudaMemcpy(dmat, v.data(), rows * sizeof(Real), cudaMemcpyHostToDevice));
@@ -60,7 +63,7 @@ namespace naja {
         // Construct from device vector and broadcast
         template<typename Real>
         DMatrix<Real>::DMatrix(const DVector<Real>& v, int cols) : rows(v.len), cols(cols), ownsData(true) {
-            size_t size = rows * cols * sizeof(Real);
+            size_t size = static_cast<std::size_t>(rows) * static_cast<std::size_t>(cols) * sizeof(Real);
             CUDA_CHECK(cudaMalloc(&dmat, size));
             if (cols > 0) {
                 broadcastColumns(v.dvec, dmat, rows, cols);
@@ -70,7 +73,7 @@ namespace naja {
         // Construct from vector with a given number of cols, and broadcast to 'z' cols
         template<typename Real>
         DMatrix<Real>::DMatrix(const HVector<Real>& v, int cols, int z)  : rows(v.size()), cols(cols), ownsData(true) {
-            size_t size = rows * cols * sizeof(Real);
+            size_t size = static_cast<std::size_t>(rows) * static_cast<std::size_t>(cols) * sizeof(Real);
             CUDA_CHECK(cudaMalloc(&dmat, size));
             int cols_to_fill = std::min(z, cols);
             if (cols_to_fill > 0) {
@@ -86,9 +89,9 @@ namespace naja {
         // Copy constructor
         template<typename Real>
         DMatrix<Real>::DMatrix(const DMatrix &other) : rows(other.rows), cols(other.cols), ownsData(true) {
-            size_t size = rows * cols * sizeof(Real);
+            size_t size = static_cast<std::size_t>(rows) * static_cast<std::size_t>(cols) * sizeof(Real);
             CUDA_CHECK(cudaMalloc(&dmat, size));
-            CUDA_CHECK(cudaMemcpy(dmat, other.dmat, rows * cols * sizeof(Real), cudaMemcpyDeviceToDevice));
+            CUDA_CHECK(cudaMemcpy(dmat, other.dmat, static_cast<std::size_t>(rows) * static_cast<std::size_t>(cols) * sizeof(Real), cudaMemcpyDeviceToDevice));
         }
 
         // Move constructor
@@ -109,9 +112,33 @@ namespace naja {
         /************************************/
 
         template<typename Real>
-        HMatrix<Real> DMatrix<Real>::toHost() const {
+        HMatrix<Real> DMatrix<Real>::toHost(int prefault_threads) const {
             HMatrix<Real> m(rows, cols);
-            CUDA_CHECK(cudaMemcpy(m.data(), dmat, rows * cols * sizeof(Real), cudaMemcpyDeviceToHost));
+            const std::size_t bytes = static_cast<std::size_t>(rows) * static_cast<std::size_t>(cols) * sizeof(Real);
+            if (prefault_threads > 0 && bytes > 0) {
+                const long system_page_size = sysconf(_SC_PAGESIZE);
+                const std::size_t page_bytes = system_page_size > 0 ? static_cast<std::size_t>(system_page_size) : 4096;
+                const std::size_t pages = (bytes + page_bytes - 1) / page_bytes;
+                const std::size_t count = std::min(static_cast<std::size_t>(prefault_threads), pages);
+                volatile unsigned char* target = reinterpret_cast<volatile unsigned char*>(m.data());
+                std::vector<std::thread> workers;
+                workers.reserve(count);
+                try {
+                    for (std::size_t tid = 0; tid < count; ++tid) {
+                        const std::size_t first = tid * pages / count;
+                        const std::size_t last = (tid + 1) * pages / count;
+                        workers.emplace_back([target, first, last, page_bytes]() {
+                            for (std::size_t page = first; page < last; ++page) target[page * page_bytes] = 0;
+                        });
+                    }
+                } catch (...) {
+                    for (auto& worker : workers) worker.join();
+                    throw;
+                }
+                for (auto& worker : workers) worker.join();
+                target[bytes - 1] = 0; // Include the tail of a partial final page.
+            }
+            CUDA_CHECK(cudaMemcpy(m.data(), dmat, bytes, cudaMemcpyDeviceToHost));
             return m;
         }
 

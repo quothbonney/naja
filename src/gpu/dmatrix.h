@@ -67,7 +67,7 @@ namespace naja {
             ~DMatrix();
 
             // Copy to host
-            HMatrix<Real> toHost() const;
+            HMatrix<Real> toHost(int prefault_threads = 0) const;
 
             // Submatrix view
             DMatrix<Real> subMatrix(int rowStart, int colStart, int rowEnd, int colEnd) const;

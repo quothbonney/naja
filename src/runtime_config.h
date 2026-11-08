@@ -16,6 +16,8 @@ struct RuntimeConfig {
     int TPB_SS = 128;
     int GPU_DEVICE = 0;
     bool BACK_TRANSFORM = true;
+    int HOST_PREFAULT_THREADS = 0;      // Optional parallel first-touch before sample downloads
+    std::string SAMPLE_DTYPE = "float32"; // Export precision; sampling remains double precision
     bool WRITE_DATA = true;
     bool VERBOSE = true;
     bool STATUS = true;                 // print minimal phase updates (GNU-ish)
@@ -23,6 +25,7 @@ struct RuntimeConfig {
     double BOUNDS_EPS = 1e-6;            // tolerance for bounds filtering
     bool WRITE_SAMPLES_VALID = false;    // if true, also write samples_valid.npy
     bool SKIP_EXISTING = false;          // bulk: skip jobs that already have completed outputs
+    int SEED = 0;                      // 0 => legacy path-derived seed; nonzero => explicit sampling seed
     int THINNING = 0;                   // 0 => auto (n/6), otherwise explicit steps between saved samples
     double PAIR_PROB = 0.0;
     int RESYNC_INTERVAL = 0;
@@ -160,12 +163,15 @@ struct RuntimeConfig {
                     else if (key == "GPU_DEVICE") cfg.GPU_DEVICE = std::stoi(value);
                     else if (key == "BACK_TRANSFORM") cfg.BACK_TRANSFORM = (value == "true" || value == "1");
                     else if (key == "WRITE_DATA") cfg.WRITE_DATA = (value == "true" || value == "1");
+                    else if (key == "SAMPLE_DTYPE") cfg.SAMPLE_DTYPE = value;
+                    else if (key == "HOST_PREFAULT_THREADS") cfg.HOST_PREFAULT_THREADS = std::stoi(value);
                     else if (key == "VERBOSE") cfg.VERBOSE = !(value == "false" || value == "0");
                     else if (key == "STATUS") cfg.STATUS = !(value == "false" || value == "0");
                     else if (key == "BOUNDS_POLICY") cfg.BOUNDS_FILTER = (value == "filter");
                     else if (key == "BOUNDS_EPS") cfg.BOUNDS_EPS = std::stod(value);
                     else if (key == "WRITE_SAMPLES_VALID") cfg.WRITE_SAMPLES_VALID = (value == "true" || value == "1");
                     else if (key == "SKIP_EXISTING") cfg.SKIP_EXISTING = (value == "true" || value == "1");
+                    else if (key == "SEED") cfg.SEED = std::stoi(value);
                     else if (key == "THINNING") cfg.THINNING = std::stoi(value);
                     else if (key == "PAIR_PROB") cfg.PAIR_PROB = std::stod(value);
                     else if (key == "RESYNC_INTERVAL") cfg.RESYNC_INTERVAL = std::stoi(value);
